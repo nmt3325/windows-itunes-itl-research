@@ -1,0 +1,504 @@
+{
+  "kind": "offline_unicorn_original_machine_code",
+  "module": "iTunes.exe",
+  "sha256": "30d91209b5d81c47bbad2da9d89764fcab08bf5cd9af1a9571668001376c5d7d",
+  "unicorn": "2.1.4",
+  "native_iTunes_acceptance": false,
+  "host_executable_loaded": false,
+  "binary_patches": [],
+  "tests": [
+    {
+      "name": "FIPS197_AES128_encrypt",
+      "pass": true,
+      "ciphertext": "69c4e0d86a7b0430d8cdb78070b4c55a"
+    },
+    {
+      "name": "FIPS197_AES128_decrypt",
+      "pass": true
+    },
+    {
+      "name": "ITL_key_ECB_tail_roundtrip",
+      "length": 1,
+      "transformed": 0,
+      "pass": true
+    },
+    {
+      "name": "ITL_key_ECB_tail_roundtrip",
+      "length": 15,
+      "transformed": 0,
+      "pass": true
+    },
+    {
+      "name": "ITL_key_ECB_tail_roundtrip",
+      "length": 16,
+      "transformed": 16,
+      "pass": true
+    },
+    {
+      "name": "ITL_key_ECB_tail_roundtrip",
+      "length": 17,
+      "transformed": 16,
+      "pass": true
+    },
+    {
+      "name": "ITL_key_ECB_tail_roundtrip",
+      "length": 31,
+      "transformed": 16,
+      "pass": true
+    },
+    {
+      "name": "ITL_key_ECB_tail_roundtrip",
+      "length": 32,
+      "transformed": 32,
+      "pass": true
+    },
+    {
+      "name": "ITL_key_ECB_tail_roundtrip",
+      "length": 33,
+      "transformed": 32,
+      "pass": true
+    },
+    {
+      "name": "ITL_key_ECB_tail_roundtrip",
+      "length": 63,
+      "transformed": 48,
+      "pass": true
+    },
+    {
+      "name": "ITL_key_ECB_tail_roundtrip",
+      "length": 64,
+      "transformed": 64,
+      "pass": true
+    },
+    {
+      "name": "ITL_key_ECB_tail_roundtrip",
+      "length": 65,
+      "transformed": 64,
+      "pass": true
+    },
+    {
+      "name": "ITL_key_ECB_tail_roundtrip",
+      "length": 127,
+      "transformed": 112,
+      "pass": true
+    },
+    {
+      "name": "ITL_key_ECB_tail_roundtrip",
+      "length": 128,
+      "transformed": 128,
+      "pass": true
+    },
+    {
+      "name": "ITL_key_ECB_tail_roundtrip",
+      "length": 129,
+      "transformed": 128,
+      "pass": true
+    },
+    {
+      "name": "equal_blocks_equal_ciphertext",
+      "pass": true
+    },
+    {
+      "name": "zero_length_wrapper_rejected",
+      "return_hex": "0x2070",
+      "pass": true
+    },
+    {
+      "name": "reader_crypto_interval",
+      "flag_from_observed_main_reader": 0,
+      "cap": 0,
+      "transformed": 0,
+      "pass": true,
+      "modeled_io": [
+        [
+          "seek",
+          144
+        ],
+        [
+          "read",
+          10485760,
+          129
+        ]
+      ]
+    },
+    {
+      "name": "reader_crypto_interval",
+      "flag_from_observed_main_reader": 1,
+      "cap": 0,
+      "transformed": 128,
+      "pass": true,
+      "modeled_io": [
+        [
+          "seek",
+          144
+        ],
+        [
+          "read",
+          10485760,
+          129
+        ]
+      ]
+    },
+    {
+      "name": "reader_crypto_interval",
+      "flag_from_observed_main_reader": 2,
+      "cap": 0,
+      "transformed": 0,
+      "pass": true,
+      "modeled_io": [
+        [
+          "seek",
+          144
+        ],
+        [
+          "read",
+          10485760,
+          129
+        ]
+      ]
+    },
+    {
+      "name": "reader_crypto_interval",
+      "flag_from_observed_main_reader": 2,
+      "cap": 1,
+      "transformed": 0,
+      "pass": true,
+      "modeled_io": [
+        [
+          "seek",
+          144
+        ],
+        [
+          "read",
+          1,
+          1
+        ],
+        [
+          "seek",
+          145
+        ],
+        [
+          "read",
+          10485760,
+          128
+        ]
+      ]
+    },
+    {
+      "name": "reader_crypto_interval",
+      "flag_from_observed_main_reader": 2,
+      "cap": 15,
+      "transformed": 0,
+      "pass": true,
+      "modeled_io": [
+        [
+          "seek",
+          144
+        ],
+        [
+          "read",
+          15,
+          15
+        ],
+        [
+          "seek",
+          159
+        ],
+        [
+          "read",
+          10485760,
+          114
+        ]
+      ]
+    },
+    {
+      "name": "reader_crypto_interval",
+      "flag_from_observed_main_reader": 2,
+      "cap": 16,
+      "transformed": 16,
+      "pass": true,
+      "modeled_io": [
+        [
+          "seek",
+          144
+        ],
+        [
+          "read",
+          16,
+          16
+        ],
+        [
+          "seek",
+          160
+        ],
+        [
+          "read",
+          10485760,
+          113
+        ]
+      ]
+    },
+    {
+      "name": "reader_crypto_interval",
+      "flag_from_observed_main_reader": 2,
+      "cap": 17,
+      "transformed": 16,
+      "pass": true,
+      "modeled_io": [
+        [
+          "seek",
+          144
+        ],
+        [
+          "read",
+          17,
+          17
+        ],
+        [
+          "seek",
+          161
+        ],
+        [
+          "read",
+          10485760,
+          112
+        ]
+      ]
+    },
+    {
+      "name": "reader_crypto_interval",
+      "flag_from_observed_main_reader": 2,
+      "cap": 31,
+      "transformed": 16,
+      "pass": true,
+      "modeled_io": [
+        [
+          "seek",
+          144
+        ],
+        [
+          "read",
+          31,
+          31
+        ],
+        [
+          "seek",
+          175
+        ],
+        [
+          "read",
+          10485760,
+          98
+        ]
+      ]
+    },
+    {
+      "name": "reader_crypto_interval",
+      "flag_from_observed_main_reader": 2,
+      "cap": 32,
+      "transformed": 32,
+      "pass": true,
+      "modeled_io": [
+        [
+          "seek",
+          144
+        ],
+        [
+          "read",
+          32,
+          32
+        ],
+        [
+          "seek",
+          176
+        ],
+        [
+          "read",
+          10485760,
+          97
+        ]
+      ]
+    },
+    {
+      "name": "reader_crypto_interval",
+      "flag_from_observed_main_reader": 2,
+      "cap": 33,
+      "transformed": 32,
+      "pass": true,
+      "modeled_io": [
+        [
+          "seek",
+          144
+        ],
+        [
+          "read",
+          33,
+          33
+        ],
+        [
+          "seek",
+          177
+        ],
+        [
+          "read",
+          10485760,
+          96
+        ]
+      ]
+    },
+    {
+      "name": "reader_crypto_interval",
+      "flag_from_observed_main_reader": 2,
+      "cap": 128,
+      "transformed": 128,
+      "pass": true,
+      "modeled_io": [
+        [
+          "seek",
+          144
+        ],
+        [
+          "read",
+          128,
+          128
+        ],
+        [
+          "seek",
+          272
+        ],
+        [
+          "read",
+          10485760,
+          1
+        ]
+      ]
+    },
+    {
+      "name": "reader_crypto_interval",
+      "flag_from_observed_main_reader": 2,
+      "cap": 129,
+      "transformed": 128,
+      "pass": true,
+      "modeled_io": [
+        [
+          "seek",
+          144
+        ],
+        [
+          "read",
+          129,
+          129
+        ]
+      ]
+    },
+    {
+      "name": "reader_crypto_interval",
+      "flag_from_observed_main_reader": 2,
+      "cap": 102400,
+      "transformed": 128,
+      "pass": true,
+      "modeled_io": [
+        [
+          "seek",
+          144
+        ],
+        [
+          "read",
+          102400,
+          129
+        ]
+      ]
+    },
+    {
+      "name": "mhoh_native_text_writer",
+      "little_endian": true,
+      "characters": 4,
+      "encoding": 3,
+      "data_length": 4,
+      "pass": true
+    },
+    {
+      "name": "mhoh_native_text_writer",
+      "little_endian": true,
+      "characters": 4,
+      "encoding": 1,
+      "data_length": 10,
+      "pass": true
+    },
+    {
+      "name": "mhoh_native_text_writer",
+      "little_endian": true,
+      "characters": 255,
+      "encoding": 3,
+      "data_length": 255,
+      "pass": true
+    },
+    {
+      "name": "mhoh_native_text_writer",
+      "little_endian": true,
+      "characters": 256,
+      "encoding": 1,
+      "data_length": 512,
+      "pass": true
+    },
+    {
+      "name": "mhoh_native_text_writer",
+      "little_endian": false,
+      "characters": 4,
+      "encoding": 3,
+      "data_length": 4,
+      "pass": true
+    },
+    {
+      "name": "mhoh_native_text_writer",
+      "little_endian": false,
+      "characters": 4,
+      "encoding": 1,
+      "data_length": 10,
+      "pass": true
+    },
+    {
+      "name": "mhoh_native_text_writer",
+      "little_endian": false,
+      "characters": 255,
+      "encoding": 3,
+      "data_length": 255,
+      "pass": true
+    },
+    {
+      "name": "mhoh_native_text_writer",
+      "little_endian": false,
+      "characters": 256,
+      "encoding": 1,
+      "data_length": 512,
+      "pass": true
+    },
+    {
+      "name": "mhoh_direct_payload_types",
+      "type": 1,
+      "total_length": 33,
+      "pass": true
+    },
+    {
+      "name": "mhoh_direct_payload_types",
+      "type": 19,
+      "total_length": 33,
+      "pass": true
+    },
+    {
+      "name": "mhoh_direct_payload_types",
+      "type": 66,
+      "total_length": 33,
+      "pass": true
+    }
+  ],
+  "modeled_functions_for_reader_tests": [
+    "iTunes.exe+0xba09a0 seek",
+    "iTunes.exe+0xba0350 read with EOF -39"
+  ],
+  "success": true,
+  "modeled_standard_imports": [
+    "VCRUNTIME140.dll!memmove via iTunes.exe+0x1867875 (IAT RVA 0x18ec078)"
+  ],
+  "elapsed_s": 1.36
+}

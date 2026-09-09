@@ -1,0 +1,69 @@
+{
+  "started_utc": "2026-09-09T11:19:57.065865+00:00",
+  "before": {
+    "version": "12.13.10.3",
+    "library_persistent_id": "9751B29CECF5340B",
+    "tracks": [],
+    "playlists": [
+      {
+        "name": "Library",
+        "persistent_id": "9751B29CECF5340B",
+        "kind": 1,
+        "members": [],
+        "special_kind": null
+      },
+      {
+        "name": "Music",
+        "persistent_id": "F799EAAF82E6D6D2",
+        "kind": 2,
+        "members": [],
+        "special_kind": 6
+      },
+      {
+        "name": "Movies",
+        "persistent_id": "DFF0736451283253",
+        "kind": 2,
+        "members": [],
+        "special_kind": 7
+      },
+      {
+        "name": "TV Shows",
+        "persistent_id": "4381F95B09864C81",
+        "kind": 2,
+        "members": [],
+        "special_kind": 8
+      },
+      {
+        "name": "Podcasts",
+        "persistent_id": "4B5E4C2AB261986A",
+        "kind": 2,
+        "members": [],
+        "special_kind": 3
+      },
+      {
+        "name": "Audiobooks",
+        "persistent_id": "60BD8E3BBF2C43F5",
+        "kind": 2,
+        "members": [],
+        "special_kind": 9
+      },
+      {
+        "name": "Genius",
+        "persistent_id": "D6494A456368F014",
+        "kind": 2,
+        "members": [],
+        "special_kind": 11
+      }
+    ],
+    "track_count": 0
+  },
+  "action": {
+    "kind": "add_files",
+    "paths": [
+      "D:\\a\\_temp\\gha-mcp\\WINDOWS_RESEARCH_RUN\\work\\itl\\fixtures\\dynamic\\media\\alpha.wav"
+    ]
+  },
+  "ok": false,
+  "error": "There is no interface object registered that supports this IID",
+  "traceback": "Traceback (most recent call last):\n  File \"D:\\a\\_temp\\gha-mcp\\WINDOWS_RESEARCH_RUN\\work\\itl\\wt\\dynamic\\scripts\\windows\\native_worker.py\", line 111, in main\n    spec=json.loads(a.action.read_text(encoding='utf-8')) if a.action else {'kind':'snapshot'};result['action']=spec;action(app,spec,a.root);result['after']=snapshot(app);result['ok']=True\n                                                                                                                                                             ^^^^^^^^^^^^^\n  File \"D:\\a\\_temp\\gha-mcp\\WINDOWS_RESEARCH_RUN\\work\\itl\\wt\\dynamic\\scripts\\windows\\native_worker.py\", line 28, in snapshot\n    tr=file_interface(app,tr);v={'persistent_id':pid(app,tr)}\n       ^^^^^^^^^^^^^^^^^^^^^^\n  File \"D:\\a\\_temp\\gha-mcp\\WINDOWS_RESEARCH_RUN\\work\\itl\\wt\\dynamic\\scripts\\windows\\native_worker.py\", line 20, in file_interface\n    return win32com.client.dynamic.Dispatch(obj._oleobj_.QueryInterface(lib.GetTypeInfo(i).GetTypeAttr().iid))\n                                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nTypeError: There is no interface object registered that supports this IID\n"
+}

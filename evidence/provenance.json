@@ -1,0 +1,31 @@
+{
+  "source_commit": "826e8b874961ccc6bbe17bf010b01f41c18dbe06",
+  "delivery_status": "in_progress_independent_review_corrections_pending",
+  "target": "Apple standalone Windows iTunes 12.13.10.3",
+  "installer_url": "https://secure-appldnld.apple.com/itunes12/047-76416-20260302-fefe4356-211d-4da1-8bc4-058eb36ea803/iTunes64Setup.exe",
+  "installer_sha256": "cea2a74cae3f061eadc11358eeaae9b40cfdea9ec1ee037b47da54a64219e182",
+  "itunes_exe_sha256": "30d91209b5d81c47bbad2da9d89764fcab08bf5cd9af1a9571668001376c5d7d",
+  "authenticode": "Apple Inc. signature verified",
+  "original_reference_archive": "Not distributed; private inputs kept immutable",
+  "native_fixture_note": "Synthetic only. Binary fixtures retain historical generated file URLs; regenerate media and libraries for live tests. Text evidence paths are normalized.",
+  "tests": {
+    "total": 708,
+    "synthetic": 653,
+    "native_files": 55,
+    "matched_com_oracles": 50
+  },
+  "native_cases": {
+    "native_controls": 26,
+    "independent_writer_candidates_passed": 10,
+    "cycles_per_candidate": 2
+  },
+  "exclusions": [
+    "personal libraries and media",
+    "credentials",
+    "installer binaries",
+    "virtual environments",
+    "source Git history",
+    "internal conversation references",
+    "unfiltered runtime logs"
+  ]
+}

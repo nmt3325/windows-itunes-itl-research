@@ -1,0 +1,17 @@
+{
+  "read": [
+    "Do not reject a structurally valid whole file solely because it contains encoding2.",
+    "Preserve encoding2 bytes, encoding/type/kind and reserved fields losslessly.",
+    "Strict ASCII text view is supported for observed FILE-kind1+mhoh0x0b+encoding2. This is not a universal charset assignment.",
+    "For nonASCII/NUL/control/unknown profiles expose raw or opaque data rather than lossy replacement; block only interpretation-dependent edits."
+  ],
+  "write": [
+    "Unchanged URL: retain exact payload/encoding/type/ID and unrelated metadata; repair required lengths/counts/transport only.",
+    "FILE URL native wire profile is2; HTTP profile is0. Do not force2 on all URL types.",
+    "For semantic ASCII handling use matching kind/type, enclosing bounds and conservative NUL/control checks. Do not automatically percent-decode or normalize paths.",
+    "NonASCII encoding2: preserve raw bytes; do not assume UTF8 or Latin1 or use replacement/ignore errors.",
+    "New URL/relocation is not proven safe by payload rewrite alone: location-related binary metadata including type1, references and native save/reload need separate tests.",
+    "Use pool-scoped fresh compact positive IDs when values change; empty bodies are not reference-only strings and blanket ID-zeroing is unsafe."
+  ],
+  "scope": "Executable12.13.10.3 and the fixed native corpus. Byte/structure preservation and conservative editing gates, not arbitrary native-write acceptance guarantees."
+}
