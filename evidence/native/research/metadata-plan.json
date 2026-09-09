@@ -1,0 +1,250 @@
+[
+  {
+    "name": "010-name-unicode",
+    "expected_before": 3,
+    "expected_after": 3,
+    "action": {
+      "kind": "set_track",
+      "track": "D018EAABC195E072",
+      "field": "Name",
+      "value": "合成の曲🎵 Café é العربية"
+    }
+  },
+  {
+    "name": "011-name-long",
+    "expected_before": 3,
+    "expected_after": 3,
+    "action": {
+      "kind": "set_track",
+      "track": "D018EAABC195E072",
+      "field": "Name",
+      "value": "Long_abcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcd"
+    }
+  },
+  {
+    "name": "012-name-short",
+    "expected_before": 3,
+    "expected_after": 3,
+    "action": {
+      "kind": "set_track",
+      "track": "D018EAABC195E072",
+      "field": "Name",
+      "value": "A"
+    }
+  },
+  {
+    "name": "013-artist-unicode",
+    "expected_before": 3,
+    "expected_after": 3,
+    "action": {
+      "kind": "set_track",
+      "track": "D018EAABC195E072",
+      "field": "Artist",
+      "value": "合成 Artist Ω"
+    }
+  },
+  {
+    "name": "014-album",
+    "expected_before": 3,
+    "expected_after": 3,
+    "action": {
+      "kind": "set_track",
+      "track": "D018EAABC195E072",
+      "field": "Album",
+      "value": "Synthetic Album"
+    }
+  },
+  {
+    "name": "015-album-artist",
+    "expected_before": 3,
+    "expected_after": 3,
+    "action": {
+      "kind": "set_track",
+      "track": "D018EAABC195E072",
+      "field": "AlbumArtist",
+      "value": "合成アルバムArtist"
+    }
+  },
+  {
+    "name": "016-comment",
+    "expected_before": 3,
+    "expected_after": 3,
+    "action": {
+      "kind": "set_track",
+      "track": "D018EAABC195E072",
+      "field": "Comment",
+      "value": "One-field comment — 測定"
+    }
+  },
+  {
+    "name": "017-rating",
+    "expected_before": 3,
+    "expected_after": 3,
+    "action": {
+      "kind": "set_track",
+      "track": "D018EAABC195E072",
+      "field": "Rating",
+      "value": 80
+    }
+  },
+  {
+    "name": "018-play-count",
+    "expected_before": 3,
+    "expected_after": 3,
+    "action": {
+      "kind": "set_track",
+      "track": "D018EAABC195E072",
+      "field": "PlayedCount",
+      "value": 7
+    }
+  },
+  {
+    "name": "019-skip-count",
+    "expected_before": 3,
+    "expected_after": 3,
+    "action": {
+      "kind": "set_track",
+      "track": "D018EAABC195E072",
+      "field": "SkippedCount",
+      "value": 3
+    }
+  },
+  {
+    "name": "020-play-date",
+    "expected_before": 3,
+    "expected_after": 3,
+    "action": {
+      "kind": "set_track",
+      "track": "D018EAABC195E072",
+      "field": "PlayedDate",
+      "value": "2025-01-02T03:04:05+00:00"
+    }
+  },
+  {
+    "name": "021-skip-date",
+    "expected_before": 3,
+    "expected_after": 3,
+    "action": {
+      "kind": "set_track",
+      "track": "D018EAABC195E072",
+      "field": "SkippedDate",
+      "value": "2025-02-03T04:05:06+00:00"
+    }
+  },
+  {
+    "name": "022-year",
+    "expected_before": 3,
+    "expected_after": 3,
+    "action": {
+      "kind": "set_track",
+      "track": "D018EAABC195E072",
+      "field": "Year",
+      "value": 2024
+    }
+  },
+  {
+    "name": "023-track-number",
+    "expected_before": 3,
+    "expected_after": 3,
+    "action": {
+      "kind": "set_track",
+      "track": "D018EAABC195E072",
+      "field": "TrackNumber",
+      "value": 2
+    }
+  },
+  {
+    "name": "024-compilation",
+    "expected_before": 3,
+    "expected_after": 3,
+    "action": {
+      "kind": "set_track",
+      "track": "D018EAABC195E072",
+      "field": "Compilation",
+      "value": true
+    }
+  },
+  {
+    "name": "030-playlist-create",
+    "expected_before": 3,
+    "expected_after": 3,
+    "action": {
+      "kind": "create_playlist",
+      "name": "Synthetic Order"
+    }
+  },
+  {
+    "name": "031-playlist-add",
+    "expected_before": 3,
+    "expected_after": 3,
+    "action": {
+      "kind": "playlist_add",
+      "name": "Synthetic Order",
+      "tracks": [
+        "D018EAABC195E072",
+        "C8ADF4DC10AFC270",
+        "8F11E62B0DC9F837"
+      ]
+    }
+  },
+  {
+    "name": "032-playlist-rename",
+    "expected_before": 3,
+    "expected_after": 3,
+    "action": {
+      "kind": "rename_playlist",
+      "name": "Synthetic Order",
+      "new_name": "Synthetic 調査 🎼"
+    }
+  },
+  {
+    "name": "033-playlist-order",
+    "expected_before": 3,
+    "expected_after": 3,
+    "action": {
+      "kind": "playlist_reorder",
+      "name": "Synthetic 調査 🎼",
+      "tracks": [
+        "8F11E62B0DC9F837",
+        "D018EAABC195E072",
+        "C8ADF4DC10AFC270"
+      ]
+    }
+  },
+  {
+    "name": "034-playlist-remove",
+    "expected_before": 3,
+    "expected_after": 3,
+    "action": {
+      "kind": "playlist_remove",
+      "name": "Synthetic 調査 🎼",
+      "track": "D018EAABC195E072"
+    }
+  },
+  {
+    "name": "035-playlist-create-delete",
+    "expected_before": 3,
+    "expected_after": 3,
+    "action": {
+      "kind": "create_playlist",
+      "name": "Synthetic Delete Me"
+    }
+  },
+  {
+    "name": "036-playlist-delete",
+    "expected_before": 3,
+    "expected_after": 3,
+    "action": {
+      "kind": "delete_playlist",
+      "name": "Synthetic Delete Me"
+    }
+  },
+  {
+    "name": "037-final-three-reloaded",
+    "expected_before": 3,
+    "expected_after": 3,
+    "action": {
+      "kind": "snapshot"
+    }
+  }
+]

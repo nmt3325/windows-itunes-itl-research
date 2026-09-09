@@ -1,0 +1,206 @@
+[
+  {
+    "id": "P4-L1",
+    "confidence": "high for fixed donor subset",
+    "claim": "32 FILE tracks in each of imported/reloaded donors contain path13(decimal0xd) and URL11(decimal0xb), no type1 or direct19. All64 raw paths equal manifest Location; URLs match ASCII file://localhost/ form and files exist.",
+    "sources": [
+      "donor-census.json",
+      "resume-verification.json"
+    ],
+    "boundary": "32 repeated tracks, not64 independent import or playback tests."
+  },
+  {
+    "id": "P4-L2",
+    "confidence": "high C/ASM",
+    "claim": "F+2c8 is selected from50 library pools, L+958+0x48*(++global20fe7e0 %0x32). URL/path registration uses externalID0. File-local access does not mean one unique pool per track.",
+    "sources": [
+      {
+        "path": "reports/static/phase4/decompiled-second/00fa5b70.c",
+        "lines": [
+          40,
+          43
+        ],
+        "sha256": "91b2950a9c864040ec20894a17f51c053112bbac6af09197cad41ab52d2282ee"
+      },
+      {
+        "path": "reports/static/decompiled/0107b460.c",
+        "lines": [
+          1207,
+          1243
+        ],
+        "sha256": "0473d0cdbc555a40354e3dfaf4a8f54a4f2aceb11622f96ed8468bfe83660a13"
+      }
+    ]
+  },
+  {
+    "id": "P4-I1",
+    "confidence": "high C/ASM/byte matches",
+    "claim": "Four constructors use LOCK XADD against global RVA1fe9130, returning the old value then incrementing it. Destinations are common C+8, file F+28, album A+18, artist R+3c.",
+    "sites": [
+      {
+        "site": "0xf69220",
+        "global_rva": "0x1fe9130",
+        "bytes": "f00fc11508ff0701",
+        "asm": "00f690b0.asm"
+      },
+      {
+        "site": "0xf6e179",
+        "global_rva": "0x1fe9130",
+        "bytes": "f00fc115afaf0701",
+        "asm": "00f6e110.asm"
+      },
+      {
+        "site": "0xf92c6b",
+        "global_rva": "0x1fe9130",
+        "bytes": "f00fc105bd640501",
+        "asm": "00f92b80.asm"
+      },
+      {
+        "site": "0xfa5bbf",
+        "global_rva": "0x1fe9130",
+        "bytes": "f00fc10d69350401",
+        "asm": "00fa5b70.asm"
+      }
+    ],
+    "sources": [
+      {
+        "path": "reports/static/decompiled/0106daf0.c",
+        "lines": [
+          66,
+          70
+        ],
+        "sha256": "19aaec8cdadd024da5e10f2fc91642a657999982ef4725be5df1f3aac6ffb547"
+      }
+    ]
+  },
+  {
+    "id": "P4-I2",
+    "confidence": "high mapping; counter semantics bounded",
+    "claim": "Header+3c is constant0x6f. Header+58 copies L+94 and is loaded when nonzero. Both stay111/100 despite donor local IDs extending to451 and renumbering on reload; neither may be guessed as current local-ID max.",
+    "sources": [
+      {
+        "path": "reports/static/decompiled/0106a430.c",
+        "lines": [
+          35,
+          52
+        ],
+        "sha256": "f32407b1a4700faef63e4735d9f2fdb575b90300038b77a8401b699bd065ccc7"
+      },
+      {
+        "path": "reports/static/decompiled/01085270.c",
+        "lines": [
+          365,
+          367
+        ],
+        "sha256": "d87257053ccc6d6b80f4fa33cf1d50e65b6e0081a3f2b6e9d04f5c41d3f2b2ee"
+      },
+      "resume-verification.json"
+    ]
+  },
+  {
+    "id": "P4-I3",
+    "confidence": "high control flow, incomplete PID factory semantics",
+    "claim": "Nonzero incoming track/album/artist PIDs are retained. eb8020 returns0 for invalid library, uses postincrement L+1b90 for selected runtime library kinds, otherwise tail-calls ba5880. This does not prove which kind the donor used or implement universal PID generation.",
+    "sources": [
+      "asm/00eb8020-entry-window.asm",
+      "asm/00ba5880-asm-only.asm",
+      {
+        "path": "reports/static/phase4/decompiled-first/00f92b80.c",
+        "lines": [
+          64,
+          67
+        ],
+        "sha256": "226c19f6b4dfec72d63cfb933ef303f3088dc453d570f924dffb0b80c080391b"
+      },
+      {
+        "path": "reports/static/phase4/decompiled-second/00f690b0.c",
+        "lines": [
+          71,
+          74
+        ],
+        "sha256": "ee3ee43d6ddb51e7185db72ac9ab7fa4fbc657612976e2faf11c04a73c188aab"
+      },
+      {
+        "path": "reports/static/phase4/decompiled-second/00f6e110.c",
+        "lines": [
+          24,
+          28
+        ],
+        "sha256": "b0ffef420d80115adb474245d888eda2c7a648c09f2849ed6b870ad411a95000"
+      }
+    ]
+  },
+  {
+    "id": "P4-S1",
+    "confidence": "high code path; complete application side effects unproved",
+    "claim": "f930a0 links common track into L+c8/d0, increments L+a4, updates change state/maps and invalidates runtime caches. fa5530 attaches file instance and increments L+a8. Album1087800 links L+e0/e8 and increments L+ac.",
+    "sources": [
+      {
+        "path": "reports/static/phase4/decompiled-second/00f930a0.c",
+        "lines": [
+          19,
+          99
+        ],
+        "sha256": "d79157b319cf7048752e140cb7e394fc78aefd943a1dd0270676250cdba58ab3"
+      },
+      {
+        "path": "reports/static/phase4/decompiled-first/01087800.c",
+        "lines": [
+          25,
+          38
+        ],
+        "sha256": "e49ff23640989f8985b0b49d3f5b0c41e48fb2d4e313f95be641604c889fa9f2"
+      },
+      "asm/00fa5530-asm-only.asm"
+    ]
+  },
+  {
+    "id": "P4-S2",
+    "confidence": "high reader/writer relationship",
+    "claim": "Section writer106b450 requires C+60 membership and selects principal F for section1, nonprincipal for13. Playlist reader links membership to C+60; mtph+18 stores C+8, not F+28.",
+    "sources": [
+      {
+        "path": "reports/static/phase4/decompiled-first/0106b450.c",
+        "lines": [
+          13,
+          35
+        ],
+        "sha256": "5cf338a38a67e7358e1714454c6ed90995985adaa2e93bb0920cadd0fd2427e3"
+      },
+      {
+        "path": "reports/static/decompiled/0107ee90.c",
+        "lines": [
+          1206,
+          1243
+        ],
+        "sha256": "d842872ab2b4c2bb58cb086d43a38a10fae0023e563d81c5ae724bd9f9f0348b"
+      },
+      {
+        "path": "reports/static/decompiled/01070770.c",
+        "lines": [
+          54,
+          65
+        ],
+        "sha256": "7af134323728786673717db8d21fe2c5b53aa965c97325cd03bbfe371600c945"
+      },
+      {
+        "path": "reports/static/decompiled/01070370.c",
+        "lines": [
+          116,
+          127
+        ],
+        "sha256": "b5ff3b9cdb22fcd5aa5cd20bf0add88bd401df39bac8142c362a96d94b0e9498"
+      }
+    ]
+  },
+  {
+    "id": "P4-S3",
+    "confidence": "high measured changes, limited causal semantics",
+    "claim": "Donor import changes sections1,2,9,11,12,16; sections4,13,14,21,23 remain byte-identical. Reload renumbers local object IDs while preserving32 track PIDs and shared16 album/4 artist graph.",
+    "sources": [
+      "donor-census.json",
+      "resume-verification.json"
+    ],
+    "boundary": "No cross-library candidate acceptance inferred."
+  }
+]

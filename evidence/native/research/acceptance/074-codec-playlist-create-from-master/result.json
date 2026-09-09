@@ -1,0 +1,40 @@
+{
+  "name": "074-codec-playlist-create-from-master",
+  "candidate": "D:\\a\\_temp\\gha-mcp\\WINDOWS_RESEARCH_RUN\\work\\itl\\reports\\codec\\native-playlist-create-from-master.itl",
+  "expected_sha256": "11273895ea35de2667c8a7bb53fdabcc19dfa6d324fbded89b0ead3c47876bb5",
+  "status": "passed",
+  "cycles": [
+    {
+      "name": "074-codec-playlist-create-from-master-reload1",
+      "fixture_path": "D:\\a\\_temp\\gha-mcp\\WINDOWS_RESEARCH_RUN\\work\\itl\\fixtures\\dynamic\\snapshots\\074-codec-playlist-create-from-master-reload1.itl",
+      "fixture_sha256": "e6b6bea44dd9bf5825234a281e354e4e3e1bedd981cf2b7dbb1fa7c3cfcd87ee",
+      "prelaunch_sha256": "11273895ea35de2667c8a7bb53fdabcc19dfa6d324fbded89b0ead3c47876bb5",
+      "itunes_exit_code": 0,
+      "worker_exit_code": 0,
+      "library_persistent_id": "9751B29CECF5340B",
+      "track_persistent_ids": [
+        "D018EAABC195E072",
+        "8F11E62B0DC9F837",
+        "C8ADF4DC10AFC270"
+      ]
+    },
+    {
+      "name": "074-codec-playlist-create-from-master-reload2",
+      "fixture_path": "D:\\a\\_temp\\gha-mcp\\WINDOWS_RESEARCH_RUN\\work\\itl\\fixtures\\dynamic\\snapshots\\074-codec-playlist-create-from-master-reload2.itl",
+      "fixture_sha256": "0c35c4b0d7a2a1fd31b81d05c3bfe6eb3e65fe97a6d580564aa14c2d4866bab6",
+      "prelaunch_sha256": "e6b6bea44dd9bf5825234a281e354e4e3e1bedd981cf2b7dbb1fa7c3cfcd87ee",
+      "itunes_exit_code": 0,
+      "worker_exit_code": 0,
+      "library_persistent_id": "9751B29CECF5340B",
+      "track_persistent_ids": [
+        "D018EAABC195E072",
+        "8F11E62B0DC9F837",
+        "C8ADF4DC10AFC270"
+      ]
+    }
+  ],
+  "previous_live_sha256": "b642fc6965f4895b29bc674a668f716e915bc07d25d5e3cd4eb6926144733560",
+  "staged_sha256": "11273895ea35de2667c8a7bb53fdabcc19dfa6d324fbded89b0ead3c47876bb5",
+  "native_acceptance": true,
+  "note": "Both full-state gates passed inside bounded COM workers before native Quit; both actual native processes exited zero. No unexpected modal was dismissed."
+}

@@ -1,0 +1,384 @@
+{
+  "name": "crud3-cross-one-003",
+  "classification": "cross_library_add",
+  "sha256": "60c5f1541981ddedd457f3e78ca07c63a8d71e3b8e42f3211b175aad2a8facaa",
+  "accepted": true,
+  "cycles": [
+    {
+      "name": "crud3-cross-one-003",
+      "cycle": 1,
+      "ui": [
+        {
+          "action": "dismiss_audio_warning",
+          "pid": 3176,
+          "window": {
+            "hwnd": 1442400,
+            "pid": 3176,
+            "class": "iTunesCustomModalDialog",
+            "title": "iTunes",
+            "children": [
+              {
+                "hwnd": 1245706,
+                "class": "Static",
+                "text": "iTunes has detected a problem with your audio configuration.\rAudio/Video playback may not operate properly.",
+                "id": 101,
+                "enabled": true,
+                "visible": true
+              },
+              {
+                "hwnd": 8650922,
+                "class": "Static",
+                "text": "",
+                "id": 103,
+                "enabled": true,
+                "visible": false
+              },
+              {
+                "hwnd": 1507446,
+                "class": "Button",
+                "text": "",
+                "id": 104,
+                "enabled": true,
+                "visible": false
+              },
+              {
+                "hwnd": 721500,
+                "class": "Button",
+                "text": "OK",
+                "id": 1,
+                "enabled": true,
+                "visible": true
+              },
+              {
+                "hwnd": 9633912,
+                "class": "Button",
+                "text": "More Info",
+                "id": 105,
+                "enabled": true,
+                "visible": false
+              },
+              {
+                "hwnd": 1311074,
+                "class": "Static",
+                "text": "",
+                "id": 102,
+                "enabled": true,
+                "visible": true
+              }
+            ]
+          }
+        }
+      ],
+      "active_library": "D:\\a\\_temp\\gha-mcp\\WINDOWS_RESEARCH_RUN\\work\\itl\\fixtures\\dynamic\\phase3\\live\\iTunes Library.itl",
+      "prelaunch": {
+        "path": "D:\\a\\_temp\\gha-mcp\\WINDOWS_RESEARCH_RUN\\work\\itl\\fixtures\\dynamic\\phase3\\live\\iTunes Library.itl",
+        "bytes": 5687,
+        "mtime_ns": 1788965628610820300,
+        "sha256": "60c5f1541981ddedd457f3e78ca07c63a8d71e3b8e42f3211b175aad2a8facaa",
+        "file_attributes": 32
+      },
+      "profile_before": {
+        "file_bytes": 5687,
+        "file_sha256": "60c5f1541981ddedd457f3e78ca07c63a8d71e3b8e42f3211b175aad2a8facaa",
+        "header_bytes": 144,
+        "encryption_flag": 2,
+        "compression_flag": 1,
+        "cap": 102400,
+        "body_bytes": 5543,
+        "encrypted_bytes": 5536,
+        "clear_tail_bytes": 7,
+        "expanded_bytes": 105541,
+        "expanded_sha256": "a88fd336921558479e74318efebe1ed2ecbe3301b65fcb46f9ca0e68b3997da0",
+        "decoded_body_sha256": "dc7b4e6243e987d927b4ad573d4a814ceae2c367da98896731eb5c6b9f7733a0",
+        "header_hex": "6864666d0000009000001637004300010a31322e31332e31302e330000000000000000000000000000000000000000000000000bd2f61be0a69ca3020000006f02020001000000040000000e000000040038010000000004000000640001900000000000000000000000000000000000e6c6f20100000000000000000000000000000000000000000000000000000000",
+        "target_persisted_record": {
+          "persistent_id": "E95DD2B085330A12",
+          "raw_0x6d": 1,
+          "raw_0xee": 0,
+          "raw_0x290_u32": 1000,
+          "header_bytes": 756,
+          "record_bytes": 1730,
+          "record_sha256": "197d65c45e4f8fa5cd09b3a75500e9570960a0b034ae5ba33e075d946eccf14e"
+        }
+      },
+      "media_prelaunch": [
+        {
+          "path": "D:\\a\\_temp\\gha-mcp\\WINDOWS_RESEARCH_RUN\\work\\itl\\fixtures\\dynamic\\media\\alpha.wav",
+          "bytes": 88244,
+          "mtime_ns": 1788952792633317400,
+          "sha256": "c9ca928550abefdb3d209b6d0f4ea067a64b85924be5eca2475da3d40dbe2920",
+          "file_attributes": 32
+        },
+        {
+          "path": "D:\\a\\_temp\\gha-mcp\\WINDOWS_RESEARCH_RUN\\work\\itl\\fixtures\\dynamic\\media\\beta.wav",
+          "bytes": 88244,
+          "mtime_ns": 1788952792649909300,
+          "sha256": "8ff22420cc586cfdaa5a865db713c3a2d92c2bcde2991a71cca447e314d5ce5a",
+          "file_attributes": 32
+        },
+        {
+          "path": "D:\\a\\_temp\\gha-mcp\\WINDOWS_RESEARCH_RUN\\work\\itl\\fixtures\\dynamic\\media\\gamma.wav",
+          "bytes": 88244,
+          "mtime_ns": 1788952792664977600,
+          "sha256": "de7fa062391c8d6ef91385f64d4d04bf990f4ea5c743cc535d305edbc0b34136",
+          "file_attributes": 32
+        },
+        {
+          "path": "D:\\a\\_temp\\gha-mcp\\WINDOWS_RESEARCH_RUN\\work\\itl\\fixtures\\dynamic\\phase2\\bulk768\\media\\Synth-0001-KXFqWEWLh8kjTmcU6QeVY0bCHk3A0mDkfxgmyu0X4q.wav",
+          "bytes": 16044,
+          "mtime_ns": 1788960177904885500,
+          "sha256": "4e28308041eb9283b8ce0406249e1d25043d93eee183de4bf8d399a1b54bc5e3",
+          "file_attributes": 32
+        }
+      ],
+      "itunes_pid": 3176,
+      "worker_command": [
+        "D:\\a\\_temp\\gha-mcp\\WINDOWS_RESEARCH_RUN\\work\\itl\\tools\\py\\Scripts\\python.exe",
+        "-B",
+        "-u",
+        "D:\\a\\_temp\\gha-mcp\\WINDOWS_RESEARCH_RUN\\work\\itl\\wt\\dynamic\\scripts\\windows\\import_native.py",
+        "worker",
+        "--spec",
+        "D:\\a\\_temp\\gha-mcp\\WINDOWS_RESEARCH_RUN\\work\\itl\\reports\\dynamic\\phase3\\runs\\crud3-cross-one-003-reload1\\spec.json",
+        "--out",
+        "D:\\a\\_temp\\gha-mcp\\WINDOWS_RESEARCH_RUN\\work\\itl\\reports\\dynamic\\phase3\\runs\\crud3-cross-one-003-reload1\\com.json"
+      ],
+      "worker_exit_code": 0,
+      "itunes_exit_code": 0,
+      "saved": {
+        "path": "D:\\a\\_temp\\gha-mcp\\WINDOWS_RESEARCH_RUN\\work\\itl\\fixtures\\dynamic\\phase3\\snapshots\\crud3-cross-one-003-reload1.itl",
+        "bytes": 5725,
+        "mtime_ns": 1788965687808300700,
+        "sha256": "526bb2410054f1de217589725c33d7b59effc992817b2115bf39b9bce701d8fb",
+        "file_attributes": 32
+      },
+      "profile_after": {
+        "file_bytes": 5725,
+        "file_sha256": "526bb2410054f1de217589725c33d7b59effc992817b2115bf39b9bce701d8fb",
+        "header_bytes": 144,
+        "encryption_flag": 2,
+        "compression_flag": 1,
+        "cap": 102400,
+        "body_bytes": 5581,
+        "encrypted_bytes": 5568,
+        "clear_tail_bytes": 13,
+        "expanded_bytes": 105548,
+        "expanded_sha256": "7e96709c62253e3dadd02279e62ee78f2014840979bcfc306677d32e83dca2c6",
+        "decoded_body_sha256": "98d78ac79ca7d03ae17fafa3c78714b6f7d5cf1c889ff562b22b49a3548a267d",
+        "header_hex": "6864666d000000900000165d004300010a31322e31332e31302e330000000000000000000000000000000000000000000000000bd2f61be0a69ca3020000006f02020001000000040000000e000000040038010000000004000000640001900000000000000000000000000000000000e6c723a600000000000000000000000000000000000000000000000000000000",
+        "target_persisted_record": {
+          "persistent_id": "E95DD2B085330A12",
+          "raw_0x6d": 1,
+          "raw_0xee": 0,
+          "raw_0x290_u32": 4000,
+          "header_bytes": 756,
+          "record_bytes": 1730,
+          "record_sha256": "fc18a6ea3edaf933a5a358054b99e71f8296c7639b31067d9c5479ed52db13cf"
+        }
+      },
+      "accepted": true,
+      "observation_completed": true,
+      "errors": [],
+      "final_target": {
+        "Name": "Synth-0001-KXFqWEWLh8kjTmcU6QeVY0bCHk3A0mDkfxgmyu0X4q",
+        "Unplayed": true,
+        "Rating": 0,
+        "RatingKind": 1,
+        "AlbumRating": 0,
+        "AlbumRatingKind": 1,
+        "PlayedCount": 0,
+        "ModificationDate": "2026-09-09T13:22:57+00:00"
+      },
+      "com_evidence": "D:\\a\\_temp\\gha-mcp\\WINDOWS_RESEARCH_RUN\\work\\itl\\reports\\dynamic\\phase3\\runs\\crud3-cross-one-003-reload1\\com.json",
+      "media_unchanged": true
+    },
+    {
+      "name": "crud3-cross-one-003",
+      "cycle": 2,
+      "ui": [
+        {
+          "action": "dismiss_audio_warning",
+          "pid": 1296,
+          "window": {
+            "hwnd": 18678286,
+            "pid": 1296,
+            "class": "iTunesCustomModalDialog",
+            "title": "iTunes",
+            "children": [
+              {
+                "hwnd": 656024,
+                "class": "Static",
+                "text": "iTunes has detected a problem with your audio configuration.\rAudio/Video playback may not operate properly.",
+                "id": 101,
+                "enabled": true,
+                "visible": true
+              },
+              {
+                "hwnd": 1180136,
+                "class": "Static",
+                "text": "",
+                "id": 103,
+                "enabled": true,
+                "visible": false
+              },
+              {
+                "hwnd": 1311304,
+                "class": "Button",
+                "text": "",
+                "id": 104,
+                "enabled": true,
+                "visible": false
+              },
+              {
+                "hwnd": 1638518,
+                "class": "Button",
+                "text": "OK",
+                "id": 1,
+                "enabled": true,
+                "visible": true
+              },
+              {
+                "hwnd": 7209586,
+                "class": "Button",
+                "text": "More Info",
+                "id": 105,
+                "enabled": true,
+                "visible": false
+              },
+              {
+                "hwnd": 1180284,
+                "class": "Static",
+                "text": "",
+                "id": 102,
+                "enabled": true,
+                "visible": true
+              }
+            ]
+          }
+        }
+      ],
+      "active_library": "D:\\a\\_temp\\gha-mcp\\WINDOWS_RESEARCH_RUN\\work\\itl\\fixtures\\dynamic\\phase3\\live\\iTunes Library.itl",
+      "prelaunch": {
+        "path": "D:\\a\\_temp\\gha-mcp\\WINDOWS_RESEARCH_RUN\\work\\itl\\fixtures\\dynamic\\phase3\\live\\iTunes Library.itl",
+        "bytes": 5725,
+        "mtime_ns": 1788965670460627000,
+        "sha256": "526bb2410054f1de217589725c33d7b59effc992817b2115bf39b9bce701d8fb",
+        "file_attributes": 32
+      },
+      "profile_before": {
+        "file_bytes": 5725,
+        "file_sha256": "526bb2410054f1de217589725c33d7b59effc992817b2115bf39b9bce701d8fb",
+        "header_bytes": 144,
+        "encryption_flag": 2,
+        "compression_flag": 1,
+        "cap": 102400,
+        "body_bytes": 5581,
+        "encrypted_bytes": 5568,
+        "clear_tail_bytes": 13,
+        "expanded_bytes": 105548,
+        "expanded_sha256": "7e96709c62253e3dadd02279e62ee78f2014840979bcfc306677d32e83dca2c6",
+        "decoded_body_sha256": "98d78ac79ca7d03ae17fafa3c78714b6f7d5cf1c889ff562b22b49a3548a267d",
+        "header_hex": "6864666d000000900000165d004300010a31322e31332e31302e330000000000000000000000000000000000000000000000000bd2f61be0a69ca3020000006f02020001000000040000000e000000040038010000000004000000640001900000000000000000000000000000000000e6c723a600000000000000000000000000000000000000000000000000000000",
+        "target_persisted_record": {
+          "persistent_id": "E95DD2B085330A12",
+          "raw_0x6d": 1,
+          "raw_0xee": 0,
+          "raw_0x290_u32": 4000,
+          "header_bytes": 756,
+          "record_bytes": 1730,
+          "record_sha256": "fc18a6ea3edaf933a5a358054b99e71f8296c7639b31067d9c5479ed52db13cf"
+        }
+      },
+      "media_prelaunch": [
+        {
+          "path": "D:\\a\\_temp\\gha-mcp\\WINDOWS_RESEARCH_RUN\\work\\itl\\fixtures\\dynamic\\media\\alpha.wav",
+          "bytes": 88244,
+          "mtime_ns": 1788952792633317400,
+          "sha256": "c9ca928550abefdb3d209b6d0f4ea067a64b85924be5eca2475da3d40dbe2920",
+          "file_attributes": 32
+        },
+        {
+          "path": "D:\\a\\_temp\\gha-mcp\\WINDOWS_RESEARCH_RUN\\work\\itl\\fixtures\\dynamic\\media\\beta.wav",
+          "bytes": 88244,
+          "mtime_ns": 1788952792649909300,
+          "sha256": "8ff22420cc586cfdaa5a865db713c3a2d92c2bcde2991a71cca447e314d5ce5a",
+          "file_attributes": 32
+        },
+        {
+          "path": "D:\\a\\_temp\\gha-mcp\\WINDOWS_RESEARCH_RUN\\work\\itl\\fixtures\\dynamic\\media\\gamma.wav",
+          "bytes": 88244,
+          "mtime_ns": 1788952792664977600,
+          "sha256": "de7fa062391c8d6ef91385f64d4d04bf990f4ea5c743cc535d305edbc0b34136",
+          "file_attributes": 32
+        },
+        {
+          "path": "D:\\a\\_temp\\gha-mcp\\WINDOWS_RESEARCH_RUN\\work\\itl\\fixtures\\dynamic\\phase2\\bulk768\\media\\Synth-0001-KXFqWEWLh8kjTmcU6QeVY0bCHk3A0mDkfxgmyu0X4q.wav",
+          "bytes": 16044,
+          "mtime_ns": 1788960177904885500,
+          "sha256": "4e28308041eb9283b8ce0406249e1d25043d93eee183de4bf8d399a1b54bc5e3",
+          "file_attributes": 32
+        }
+      ],
+      "itunes_pid": 1296,
+      "worker_command": [
+        "D:\\a\\_temp\\gha-mcp\\WINDOWS_RESEARCH_RUN\\work\\itl\\tools\\py\\Scripts\\python.exe",
+        "-B",
+        "-u",
+        "D:\\a\\_temp\\gha-mcp\\WINDOWS_RESEARCH_RUN\\work\\itl\\wt\\dynamic\\scripts\\windows\\import_native.py",
+        "worker",
+        "--spec",
+        "D:\\a\\_temp\\gha-mcp\\WINDOWS_RESEARCH_RUN\\work\\itl\\reports\\dynamic\\phase3\\runs\\crud3-cross-one-003-reload2\\spec.json",
+        "--out",
+        "D:\\a\\_temp\\gha-mcp\\WINDOWS_RESEARCH_RUN\\work\\itl\\reports\\dynamic\\phase3\\runs\\crud3-cross-one-003-reload2\\com.json"
+      ],
+      "worker_exit_code": 0,
+      "itunes_exit_code": 0,
+      "saved": {
+        "path": "D:\\a\\_temp\\gha-mcp\\WINDOWS_RESEARCH_RUN\\work\\itl\\fixtures\\dynamic\\phase3\\snapshots\\crud3-cross-one-003-reload2.itl",
+        "bytes": 5731,
+        "mtime_ns": 1788965731707896200,
+        "sha256": "d11966e748ce2eb72c967b6ec169a84c6711a007af1305fa7069c4beb88dfa33",
+        "file_attributes": 32
+      },
+      "profile_after": {
+        "file_bytes": 5731,
+        "file_sha256": "d11966e748ce2eb72c967b6ec169a84c6711a007af1305fa7069c4beb88dfa33",
+        "header_bytes": 144,
+        "encryption_flag": 2,
+        "compression_flag": 1,
+        "cap": 102400,
+        "body_bytes": 5587,
+        "encrypted_bytes": 5584,
+        "clear_tail_bytes": 3,
+        "expanded_bytes": 105548,
+        "expanded_sha256": "40f5e00407276726d9b4e95e63147d64a9db0c779ec2390645edbc8c2b9433f4",
+        "decoded_body_sha256": "9f57f8f244e4a618abca0c05844e1dab042598834dfb099e1773f2246d0c2495",
+        "header_hex": "6864666d0000009000001663004300010a31322e31332e31302e330000000000000000000000000000000000000000000000000bd2f61be0a69ca3020000006f02020001000000040000000e000000040038010000000004000000640001900000000000000000000000000000000000e6c723de00000000000000000000000000000000000000000000000000000000",
+        "target_persisted_record": {
+          "persistent_id": "E95DD2B085330A12",
+          "raw_0x6d": 1,
+          "raw_0xee": 0,
+          "raw_0x290_u32": 4000,
+          "header_bytes": 756,
+          "record_bytes": 1730,
+          "record_sha256": "fc18a6ea3edaf933a5a358054b99e71f8296c7639b31067d9c5479ed52db13cf"
+        }
+      },
+      "accepted": true,
+      "observation_completed": true,
+      "errors": [],
+      "final_target": {
+        "Name": "Synth-0001-KXFqWEWLh8kjTmcU6QeVY0bCHk3A0mDkfxgmyu0X4q",
+        "Unplayed": true,
+        "Rating": 0,
+        "RatingKind": 1,
+        "AlbumRating": 0,
+        "AlbumRatingKind": 1,
+        "PlayedCount": 0,
+        "ModificationDate": "2026-09-09T13:22:57+00:00"
+      },
+      "com_evidence": "D:\\a\\_temp\\gha-mcp\\WINDOWS_RESEARCH_RUN\\work\\itl\\reports\\dynamic\\phase3\\runs\\crud3-cross-one-003-reload2\\com.json",
+      "media_unchanged": true
+    }
+  ]
+}

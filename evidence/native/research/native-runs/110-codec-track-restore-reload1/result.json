@@ -1,0 +1,267 @@
+{
+  "name": "110-codec-track-restore-reload1",
+  "case": {
+    "name": "110-codec-track-restore-reload1",
+    "expected_before": 2,
+    "expected_after": 2,
+    "expected_state": "D:\\a\\_temp\\gha-mcp\\WINDOWS_RESEARCH_RUN\\work\\itl\\reports\\dynamic\\acceptance\\110-codec-track-restore\\expected.json",
+    "action": {
+      "kind": "snapshot"
+    }
+  },
+  "started": 1788956105.8231125,
+  "ui": [
+    {
+      "action": "dismiss_audio_warning",
+      "pid": 7004,
+      "window": {
+        "hwnd": 3670644,
+        "pid": 7004,
+        "class": "iTunesCustomModalDialog",
+        "title": "iTunes",
+        "children": [
+          {
+            "hwnd": 4194402,
+            "class": "Static",
+            "text": "iTunes has detected a problem with your audio configuration.\rAudio/Video playback may not operate properly.",
+            "id": 101,
+            "enabled": true,
+            "visible": true
+          },
+          {
+            "hwnd": 4194638,
+            "class": "Static",
+            "text": "",
+            "id": 103,
+            "enabled": true,
+            "visible": false
+          },
+          {
+            "hwnd": 4653418,
+            "class": "Button",
+            "text": "",
+            "id": 104,
+            "enabled": true,
+            "visible": false
+          },
+          {
+            "hwnd": 4588134,
+            "class": "Button",
+            "text": "OK",
+            "id": 1,
+            "enabled": true,
+            "visible": true
+          },
+          {
+            "hwnd": 4718714,
+            "class": "Button",
+            "text": "More Info",
+            "id": 105,
+            "enabled": true,
+            "visible": false
+          },
+          {
+            "hwnd": 4391566,
+            "class": "Static",
+            "text": "",
+            "id": 102,
+            "enabled": true,
+            "visible": true
+          }
+        ]
+      }
+    }
+  ],
+  "prelaunch_sha256": "5fd1edeb1facff5aaa1a22ff432a450900ef7a1087e4189b4cf6afd7bb453ccd",
+  "itunes_pid": 7004,
+  "worker_command": [
+    "D:\\a\\_temp\\gha-mcp\\WINDOWS_RESEARCH_RUN\\work\\itl\\tools\\py\\Scripts\\python.exe",
+    "-u",
+    "D:\\a\\_temp\\gha-mcp\\WINDOWS_RESEARCH_RUN\\work\\itl\\wt\\dynamic\\scripts\\windows\\native_worker.py",
+    "--root",
+    "D:\\a\\_temp\\gha-mcp\\WINDOWS_RESEARCH_RUN\\work\\itl\\fixtures\\dynamic",
+    "--output",
+    "D:\\a\\_temp\\gha-mcp\\WINDOWS_RESEARCH_RUN\\work\\itl\\reports\\dynamic\\native-runs\\110-codec-track-restore-reload1\\com.json",
+    "--action",
+    "D:\\a\\_temp\\gha-mcp\\WINDOWS_RESEARCH_RUN\\work\\itl\\reports\\dynamic\\native-runs\\110-codec-track-restore-reload1\\action.json",
+    "--quit",
+    "--expect-count",
+    "2",
+    "--expect-state",
+    "D:\\a\\_temp\\gha-mcp\\WINDOWS_RESEARCH_RUN\\work\\itl\\reports\\dynamic\\acceptance\\110-codec-track-restore\\expected.json"
+  ],
+  "worker_exit_code": 0,
+  "itunes_exit_code": 0,
+  "fixture_path": "D:\\a\\_temp\\gha-mcp\\WINDOWS_RESEARCH_RUN\\work\\itl\\fixtures\\dynamic\\snapshots\\110-codec-track-restore-reload1.itl",
+  "fixture_sha256": "c5b65efbe53e2c3df8aaba20126e106270cc5043bcee1c7918f539e39626b85b",
+  "fixture_bytes": 4774,
+  "observed": {
+    "version": "12.13.10.3",
+    "library_persistent_id": "9751B29CECF5340B",
+    "tracks": [
+      {
+        "persistent_id": "D018EAABC195E072",
+        "Name": "alpha",
+        "Artist": "",
+        "Album": "",
+        "AlbumArtist": "",
+        "Composer": "",
+        "Genre": "",
+        "Comment": "",
+        "Grouping": "",
+        "Lyrics": "",
+        "SortName": "",
+        "SortArtist": "",
+        "SortAlbum": "",
+        "SortAlbumArtist": "",
+        "Rating": 0,
+        "AlbumRating": 0,
+        "PlayedCount": 0,
+        "PlayedDate": "1899-12-30T00:00:00+00:00",
+        "SkippedCount": 0,
+        "SkippedDate": "1899-12-30T00:00:00+00:00",
+        "DateAdded": "2026-09-09T11:19:57+00:00",
+        "ModificationDate": "2026-09-09T11:19:52+00:00",
+        "TrackNumber": 0,
+        "TrackCount": 0,
+        "DiscNumber": 0,
+        "DiscCount": 0,
+        "Year": 0,
+        "BPM": 0,
+        "Compilation": false,
+        "Enabled": true,
+        "VolumeAdjustment": 0,
+        "Location": "D:\\a\\_temp\\gha-mcp\\WINDOWS_RESEARCH_RUN\\work\\itl\\fixtures\\dynamic\\media\\alpha.wav",
+        "Duration": 1,
+        "SampleRate": 44100,
+        "BitRate": 705,
+        "Size": 88244,
+        "TrackDatabaseID": 73,
+        "TrackID": 80,
+        "PlayOrderIndex": 1,
+        "Unplayed": true,
+        "RatingKind": 1,
+        "AlbumRatingKind": 1
+      },
+      {
+        "persistent_id": "8F11E62B0DC9F837",
+        "Name": "beta",
+        "Artist": "",
+        "Album": "",
+        "AlbumArtist": "",
+        "Composer": "",
+        "Genre": "",
+        "Comment": "",
+        "Grouping": "",
+        "Lyrics": "",
+        "SortName": "",
+        "SortArtist": "",
+        "SortAlbum": "",
+        "SortAlbumArtist": "",
+        "Rating": 0,
+        "AlbumRating": 0,
+        "PlayedCount": 0,
+        "PlayedDate": "1899-12-30T00:00:00+00:00",
+        "SkippedCount": 0,
+        "SkippedDate": "1899-12-30T00:00:00+00:00",
+        "DateAdded": "2026-09-09T11:22:22+00:00",
+        "ModificationDate": "2026-09-09T11:19:52+00:00",
+        "TrackNumber": 0,
+        "TrackCount": 0,
+        "DiscNumber": 0,
+        "DiscCount": 0,
+        "Year": 0,
+        "BPM": 0,
+        "Compilation": false,
+        "Enabled": true,
+        "VolumeAdjustment": 0,
+        "Location": "D:\\a\\_temp\\gha-mcp\\WINDOWS_RESEARCH_RUN\\work\\itl\\fixtures\\dynamic\\media\\beta.wav",
+        "Duration": 1,
+        "SampleRate": 44100,
+        "BitRate": 705,
+        "Size": 88244,
+        "TrackDatabaseID": 75,
+        "TrackID": 81,
+        "PlayOrderIndex": 2,
+        "Unplayed": true,
+        "RatingKind": 1,
+        "AlbumRatingKind": 1
+      }
+    ],
+    "playlists": [
+      {
+        "name": "Library",
+        "persistent_id": "9751B29CECF5340B",
+        "kind": 1,
+        "members": [
+          {
+            "persistent_id": "D018EAABC195E072",
+            "name": "alpha",
+            "play_order_index": 1
+          },
+          {
+            "persistent_id": "8F11E62B0DC9F837",
+            "name": "beta",
+            "play_order_index": 2
+          }
+        ],
+        "special_kind": null
+      },
+      {
+        "name": "Music",
+        "persistent_id": "F799EAAF82E6D6D2",
+        "kind": 2,
+        "members": [
+          {
+            "persistent_id": "D018EAABC195E072",
+            "name": "alpha",
+            "play_order_index": 1
+          },
+          {
+            "persistent_id": "8F11E62B0DC9F837",
+            "name": "beta",
+            "play_order_index": 2
+          }
+        ],
+        "special_kind": 6
+      },
+      {
+        "name": "Movies",
+        "persistent_id": "DFF0736451283253",
+        "kind": 2,
+        "members": [],
+        "special_kind": 7
+      },
+      {
+        "name": "TV Shows",
+        "persistent_id": "4381F95B09864C81",
+        "kind": 2,
+        "members": [],
+        "special_kind": 8
+      },
+      {
+        "name": "Podcasts",
+        "persistent_id": "4B5E4C2AB261986A",
+        "kind": 2,
+        "members": [],
+        "special_kind": 3
+      },
+      {
+        "name": "Audiobooks",
+        "persistent_id": "60BD8E3BBF2C43F5",
+        "kind": 2,
+        "members": [],
+        "special_kind": 9
+      },
+      {
+        "name": "Genius",
+        "persistent_id": "D6494A456368F014",
+        "kind": 2,
+        "members": [],
+        "special_kind": 11
+      }
+    ],
+    "track_count": 2
+  },
+  "status": "passed"
+}

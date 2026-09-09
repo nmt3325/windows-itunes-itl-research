@@ -1,0 +1,23 @@
+{
+  "kind": "offline_unicorn_original_machine_code",
+  "module": "iTunes.exe",
+  "sha256": "30d91209b5d81c47bbad2da9d89764fcab08bf5cd9af1a9571668001376c5d7d",
+  "unicorn": "2.1.4",
+  "native_iTunes_acceptance": false,
+  "host_executable_loaded": false,
+  "binary_patches": [],
+  "tests": [
+    {
+      "name": "FIPS197_AES128_encrypt",
+      "pass": true,
+      "ciphertext": "69c4e0d86a7b0430d8cdb78070b4c55a"
+    },
+    {
+      "name": "FIPS197_AES128_decrypt",
+      "pass": true
+    }
+  ],
+  "success": false,
+  "error": "RuntimeError('RVA bfc580 emulator RIP=1fd25c2: Invalid memory fetch (UC_ERR_FETCH_UNMAPPED)')",
+  "elapsed_s": 0.102
+}

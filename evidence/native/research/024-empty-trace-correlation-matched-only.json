@@ -1,0 +1,61 @@
+{
+  "trace_dir": "D:\\a\\_temp\\gha-mcp\\WINDOWS_RESEARCH_RUN\\work\\itl\\reports\\dynamic\\trace-empty-load",
+  "containers": [
+    {
+      "path": "D:\\a\\_temp\\gha-mcp\\WINDOWS_RESEARCH_RUN\\work\\itl\\fixtures\\dynamic\\snapshots\\000-empty.itl",
+      "file_sha256": "503736e6cf40bf5cea572595c63387db94fbaec3732016df6443b7549a8c7cf4",
+      "file_bytes": 4009,
+      "header_bytes": 144,
+      "encrypted_bytes": 3856,
+      "encryption_limit": 102400,
+      "clear_tail_bytes": 9,
+      "zlib_unused_bytes": 0,
+      "compressed_sha256": "7ef5db41ed4ce1dd77660f5629a42979627ca82b3265e1ac641269715b3a3977",
+      "expanded_sha256": "283e7b84177030bf1a287e72c84365d287b51aab3843df9c8e017de30c0cf800",
+      "compressed_bytes": 3865,
+      "expanded_bytes": 98375,
+      "expanded_prefix": "6d73646860000000f0000000100000000000000000000000"
+    }
+  ],
+  "streams": [
+    {
+      "function": "inflate",
+      "stream": "0x166f3fc430",
+      "seqs": [
+        11,
+        12
+      ],
+      "closed": true,
+      "complete_capture": true,
+      "stack": [
+        "iTunes.exe+0x1084367",
+        "iTunes.exe+0x108560e",
+        "iTunes.exe+0x52f681",
+        "iTunes.exe+0x5310a3",
+        "iTunes.exe+0x2530d6",
+        "iTunes.exe+0x25df27",
+        "iTunes.exe+0x2519a5",
+        "iTunes.exe+0x2513f3",
+        "iTunes.exe+0x179bd56",
+        "KERNEL32.DLL+0x2e8d7",
+        "ntdll.dll+0x8c53c"
+      ],
+      "compressed_bytes": 3865,
+      "expanded_bytes": 98375,
+      "compressed_sha256": "7ef5db41ed4ce1dd77660f5629a42979627ca82b3265e1ac641269715b3a3977",
+      "expanded_sha256": "283e7b84177030bf1a287e72c84365d287b51aab3843df9c8e017de30c0cf800",
+      "expanded_prefix": "6d73646860000000f0000000100000000000000000000000",
+      "captured_transform_valid": true,
+      "matches": [
+        "D:\\a\\_temp\\gha-mcp\\WINDOWS_RESEARCH_RUN\\work\\itl\\fixtures\\dynamic\\snapshots\\000-empty.itl"
+      ]
+    }
+  ],
+  "matched_functions": [
+    "inflate"
+  ],
+  "staging_projection": {
+    "omitted_unmatched_streams": 3,
+    "reason": "unbound incidental process activity is outside the approved synthetic proof"
+  }
+}

@@ -1,0 +1,96 @@
+{
+  "notation": "C=common track, F=file instance, L=library; offsets hexadecimal, mhoh decimal/hex distinguished explicitly",
+  "fields": [
+    {
+      "field": "mith+0x10",
+      "width": "u32 LE",
+      "meaning": "C+0x08 common-track local ID",
+      "evidence": "f92b80 C54-59; writer106daf0 C69; atomic f92c6b"
+    },
+    {
+      "field": "mith+0x1f4",
+      "width": "u32 LE",
+      "meaning": "F+0x28 file-instance local ID, NOT a mirror of +0x10",
+      "evidence": "fa5b70 C19-28; writer106daf0 C70; atomic fa5bbf"
+    },
+    {
+      "field": "mith+0x80",
+      "width": "u64 LE",
+      "meaning": "C+0 persistent identity, separate from local IDs",
+      "evidence": "f92b80 C64-67; eb8020/ba5880 factory only when input PID is0"
+    },
+    {
+      "field": "miah+0x10 / mith+0xdc",
+      "width": "u32 LE",
+      "meaning": "Album local ID / matching track reference",
+      "evidence": "f690b0 C66-70; writer106daf0 C337-339; reader1078140"
+    },
+    {
+      "field": "miih+0x10 / mith+0x1e0",
+      "width": "u32 LE",
+      "meaning": "Artist local ID / matching track reference",
+      "evidence": "f6e110 C19-23; writer106daf0 C340-342; reader1078bb0"
+    },
+    {
+      "field": "miah/miih+0x14",
+      "width": "u64 LE",
+      "meaning": "Album/artist persistent identities",
+      "evidence": "f690b0 C71-74; f6e110 C24-28; reader constructors"
+    },
+    {
+      "field": "mtph+0x18",
+      "width": "u32 LE",
+      "meaning": "Common-track reference, targets mith+0x10",
+      "evidence": "1070770 C63-65,148-149;107ee90 C1206-1243"
+    },
+    {
+      "field": "mhoh13 decimal =0x0d",
+      "width": "text prefix",
+      "meaning": "FILE path; encoding argument1 may become3 Latin-1",
+      "evidence": "106daf0 C1499-1513;107b460 C1239-1243"
+    },
+    {
+      "field": "mhoh11 decimal =0x0b",
+      "width": "text prefix/raw URL",
+      "meaning": "FILE URL encoding2/mode5; external ID argument0",
+      "evidence": "106daf0 C1511-1534;107b460 C1207-1232"
+    },
+    {
+      "field": "mhoh0x13 =19 decimal",
+      "width": "direct payload",
+      "meaning": "Different from path13: raw bytes registered at L+0x568 to *(C+0x68)+0x20",
+      "evidence": "107b460 C1324-1334; business semantics not established"
+    },
+    {
+      "field": "mhoh1",
+      "width": "opaque/direct",
+      "meaning": "No case1 in examined track-mhoh switch; default skips. No donor32 occurrences.",
+      "evidence": "107b460 C1135-1141; not permission to delete legacy opaque data"
+    },
+    {
+      "field": "hdfm/mfdh+0x3c",
+      "width": "u32 BE outer/LE inner",
+      "meaning": "Constant0x6f in this writer, NOT inferred local-ID high-water",
+      "evidence": "106a430 C52"
+    },
+    {
+      "field": "hdfm/mfdh+0x58",
+      "width": "u32 BE outer/LE inner",
+      "meaning": "Saved L+0x94; loaded only if nonzero. Exact meaning unresolved.",
+      "evidence": "106a430 C42;1085270 C365-367"
+    },
+    {
+      "field": "hdfm/mfdh+0x44/+0x4c/+0x54",
+      "width": "counts",
+      "meaning": "Main tracks / album records / artist records, not allocator maxima",
+      "evidence": "1075810 C96-105; donor0->32/16/4"
+    },
+    {
+      "field": "mith+0x6d bit0 / +0x290",
+      "width": "state / u32",
+      "meaning": "Name refresh bit and independent Name/sort reset cache",
+      "evidence": "Preserved phase3 report: common9a bit4 and common+e0; do not conflate with Unplayed/rating/IDs"
+    }
+  ],
+  "string_domains": "Preserved phase3/pool-map.json and phase2 registration rules apply; no global integer rewrite."
+}

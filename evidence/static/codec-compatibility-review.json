@@ -1,0 +1,369 @@
+{
+  "task": "static_codec_compatibility_review",
+  "status": "COMPLETE",
+  "outcome": "gaps_found",
+  "generated_utc": "2026-09-09T11:57:59.665663+00:00",
+  "scope": "Read-only audit of requested crypto/cap/compression/endian/encoding/rating/byte-width items; no broad track/index feature audit.",
+  "source_snapshot": "codec-review-source-snapshot.json",
+  "source_snapshot_utc": "2026-09-09T11:53:00.878090+00:00",
+  "source_files": [
+    {
+      "path": "wt/codec/itlkit/__init__.py",
+      "bytes": 582,
+      "sha256": "fb0dad304188bee4eb68dc0a33861b609737224e31508528f0f2571f2958229c"
+    },
+    {
+      "path": "wt/codec/itlkit/__main__.py",
+      "bytes": 5756,
+      "sha256": "c2714ef76340a0aec86056cdb78ab76ac2e4dc8e8ac2c2cb94e83fbd12015cd6"
+    },
+    {
+      "path": "wt/codec/itlkit/binary.py",
+      "bytes": 1240,
+      "sha256": "320bbd153b5cb60ed85cc7e1f06e06a57baae50b25ee4f198d39016b42bdc4cb"
+    },
+    {
+      "path": "wt/codec/itlkit/container.py",
+      "bytes": 6154,
+      "sha256": "39df784b1f16a199f2b7fae8a1d0f736402a525cb97984554b9d75ff5dbb18d5"
+    },
+    {
+      "path": "wt/codec/itlkit/errors.py",
+      "bytes": 514,
+      "sha256": "a5aa2bd000786ef706cf6eaa7da5c1dcc20995639fe11be84c13fe883e44ee6a"
+    },
+    {
+      "path": "wt/codec/itlkit/io.py",
+      "bytes": 297,
+      "sha256": "85fc9bce218054f1155d7b2e6de4e4ac22ff13e838a6f61a7d61a0844e147d79"
+    },
+    {
+      "path": "wt/codec/itlkit/library.py",
+      "bytes": 24868,
+      "sha256": "fef9ed5c44c90e34763f7a3387d17a63fe98e55b51f73a33f19a1abc8aef3da3"
+    },
+    {
+      "path": "wt/codec/itlkit/model.py",
+      "bytes": 7218,
+      "sha256": "4220b21f05236e0bcfe60588d2f459c982723ea2a26f26ce7859c6fa95bf78ee"
+    },
+    {
+      "path": "wt/codec/itlkit/operations.py",
+      "bytes": 10766,
+      "sha256": "50ce4563273022c65021d6cf3493cf26c8fb3fe3f4a32db6710a28faff944b88"
+    },
+    {
+      "path": "wt/codec/itlkit/trackops.py",
+      "bytes": 11335,
+      "sha256": "f07dbd9101d82aa019663279ba11325fb10d5038b06a92db3a62e9d327948544"
+    }
+  ],
+  "source_stable_at_final_check": true,
+  "earlier_inventory_note": "library.py changed between initial inventory and the captured snapshot; findings use captured fef9ed5c44c90e34763f7a3387d17a63fe98e55b51f73a33f19a1abc8aef3da3, not the earlier9566552a version.",
+  "static_reference": {
+    "path": "reports/static/findings.md",
+    "sha256": "8e5ebd2e4f3af7a200f9370828f10205a08f1742f28c72c5197d6ed6615c5bab",
+    "native_module_sha256": "30d91209b5d81c47bbad2da9d89764fcab08bf5cd9af1a9571668001376c5d7d"
+  },
+  "unreflected_implementations": [
+    {
+      "id": "C01",
+      "severity": "high",
+      "topic": "crypto_flag_and_cap0",
+      "status": "unreflected",
+      "locations": [
+        {
+          "path": "wt/codec/itlkit/container.py",
+          "sha256": "39df784b1f16a199f2b7fae8a1d0f736402a525cb97984554b9d75ff5dbb18d5",
+          "line_start": 19,
+          "line_end": 22,
+          "excerpt": "def crypt_length(body_length: int, limit: int) -> int:\n    if body_length < 0 or limit < 0 or limit % 16:\n        raise FormatError('AES limit must be zero or a nonnegative multiple of 16')\n    return min(body_length & ~15, limit) if limit else body_length & ~15"
+        },
+        {
+          "path": "wt/codec/itlkit/container.py",
+          "sha256": "39df784b1f16a199f2b7fae8a1d0f736402a525cb97984554b9d75ff5dbb18d5",
+          "line_start": 54,
+          "line_end": 56,
+          "excerpt": "        body = data[hlen:]\n        n = crypt_length(len(body), uint(header, 0x5c, endian='big'))\n        decoded = AES.new(KEY, AES.MODE_ECB).decrypt(body[:n]) + body[n:]"
+        },
+        {
+          "path": "wt/codec/itlkit/container.py",
+          "sha256": "39df784b1f16a199f2b7fae8a1d0f736402a525cb97984554b9d75ff5dbb18d5",
+          "line_start": 99,
+          "line_end": 104,
+          "excerpt": "        compressed = zlib.compress(bytes(self.payload), compression_level) + bytes(self.trailer)\n        n = crypt_length(len(compressed), self.max_crypt_size)\n        body = AES.new(KEY, AES.MODE_ECB).encrypt(compressed[:n]) + compressed[n:]\n        header = bytearray(self.header)\n        put(header, 8, len(header) + len(body), endian='big')\n        return bytes(header) + body"
+        }
+      ],
+      "native_rule": "Header+0x41:0 none,1 all body ignoring cap,2 bounded prefix; flag2/cap0 is empty. Unknown flags reject. Full16-byte blocks only.",
+      "observed": "Flag0x41 is never consulted. cap0 becomes unlimited; writer makes the same wrong assumption. Unknown flag3 is accepted.",
+      "tests": [
+        "flag0",
+        "flag1_ignores_cap",
+        "flag2_cap0",
+        "unknown_crypto_flag3",
+        "writer_flag2_cap0"
+      ],
+      "evidence_rvas": [
+        "0x1085270",
+        "0x10770a0",
+        "0xbfc580"
+      ],
+      "recommendation": "Pass crypto flag explicitly to shared read/write interval logic; define cap0 by flag rather than a universal sentinel; reject unknown flags."
+    },
+    {
+      "id": "C02",
+      "severity": "medium",
+      "topic": "nonaligned_cap",
+      "status": "unsupported_native_case",
+      "locations": [
+        {
+          "path": "wt/codec/itlkit/container.py",
+          "sha256": "39df784b1f16a199f2b7fae8a1d0f736402a525cb97984554b9d75ff5dbb18d5",
+          "line_start": 19,
+          "line_end": 29,
+          "excerpt": "def crypt_length(body_length: int, limit: int) -> int:\n    if body_length < 0 or limit < 0 or limit % 16:\n        raise FormatError('AES limit must be zero or a nonnegative multiple of 16')\n    return min(body_length & ~15, limit) if limit else body_length & ~15\n\ndef _header_check(header: bytes) -> None:\n    if len(header) < 0x60 or header[:4] != b'hdfm':\n        raise FormatError('expected hdfm header of at least 0x60 bytes', 0)\n    if uint(header, 4, endian='big') != len(header):\n        raise FormatError('outer header length does not match header bytes', 4)\n    crypt_length(0, uint(header, 0x5c, endian='big'))"
+        }
+      ],
+      "native_rule": "E=floor(min(body,cap)/16)*16 for flag2; cap itself need not be aligned. Observed native reader accepts interval17 with16 encrypted bytes.",
+      "observed": "Header check rejects cap17 as a FormatError, even before interpreting crypto flag.",
+      "tests": [
+        "flag2_cap17"
+      ],
+      "evidence_rvas": [
+        "0x1085270",
+        "0x10770a0",
+        "0xbfc580"
+      ],
+      "recommendation": "Round the effective transformed byte count, not the cap. If intentionally restricting profiles, label this Unsupported rather than a universal format rule."
+    },
+    {
+      "id": "C03",
+      "severity": "high",
+      "topic": "compression_flag",
+      "status": "unreflected",
+      "locations": [
+        {
+          "path": "wt/codec/itlkit/container.py",
+          "sha256": "39df784b1f16a199f2b7fae8a1d0f736402a525cb97984554b9d75ff5dbb18d5",
+          "line_start": 57,
+          "line_end": 66,
+          "excerpt": "        inflater = zlib.decompressobj()\n        try:\n            payload = inflater.decompress(decoded, max_plain_bytes + 1)\n        except zlib.error as exc:\n            raise FormatError(f'invalid encrypted/zlib payload: {exc}', hlen) from exc\n        if len(payload) > max_plain_bytes or inflater.unconsumed_tail:\n            raise FormatError(f'decompressed payload exceeds {max_plain_bytes} bytes', hlen)\n        if not inflater.eof:\n            raise FormatError('truncated zlib stream (end marker/checksum missing)', hlen)\n        trailer = inflater.unused_data"
+        },
+        {
+          "path": "wt/codec/itlkit/container.py",
+          "sha256": "39df784b1f16a199f2b7fae8a1d0f736402a525cb97984554b9d75ff5dbb18d5",
+          "line_start": 93,
+          "line_end": 104,
+          "excerpt": "    def to_bytes(self, *, rebuild: bool = False, compression_level: int = 6) -> bytes:\n        if type(compression_level) is not int or not -1 <= compression_level <= 9:\n            raise ValueError('compression_level must be -1 through 9')\n        _header_check(self.header)\n        if not rebuild and self.unchanged:\n            return self._original  # type: ignore[return-value]\n        compressed = zlib.compress(bytes(self.payload), compression_level) + bytes(self.trailer)\n        n = crypt_length(len(compressed), self.max_crypt_size)\n        body = AES.new(KEY, AES.MODE_ECB).encrypt(compressed[:n]) + compressed[n:]\n        header = bytearray(self.header)\n        put(header, 8, len(header) + len(body), endian='big')\n        return bytes(header) + body"
+        }
+      ],
+      "native_rule": "Header+0x43 independently selects zlib vs plaintext.",
+      "observed": "Reader always inflates; writer always compresses yet preserves header flag0. The codec can accept its own flag-inconsistent output while the native-rule oracle cannot recover the intended payload.",
+      "tests": [
+        "compression0",
+        "writer_flag0_compression0"
+      ],
+      "evidence_rvas": [
+        "0x1085270",
+        "0x1076780"
+      ],
+      "recommendation": "Honor compression flag in both directions, or reject non-supported flag profiles before accepting/rebuilding; never emit compressed bytes under an unchanged zero flag."
+    },
+    {
+      "id": "C04",
+      "severity": "high",
+      "topic": "inner_endian",
+      "status": "unreflected_without_profile_guard",
+      "locations": [
+        {
+          "path": "wt/codec/itlkit/binary.py",
+          "sha256": "320bbd153b5cb60ed85cc7e1f06e06a57baae50b25ee4f198d39016b42bdc4cb",
+          "line_start": 17,
+          "line_end": 23,
+          "excerpt": "def prefix(data: bytes, offset: int, end: int) -> tuple[bytes, int, int]:\n    if not 0 <= offset <= end <= len(data) or end - offset < 12:\n        raise FormatError('truncated record prefix', offset)\n    tag, header, value = struct.unpack_from('<4sII', data, offset)\n    if header < 12 or header > end - offset:\n        raise FormatError(f'invalid {tag!r} header length {header}', offset + 4)\n    return tag, header, value"
+        },
+        {
+          "path": "wt/codec/itlkit/model.py",
+          "sha256": "4220b21f05236e0bcfe60588d2f459c982723ea2a26f26ce7859c6fa95bf78ee",
+          "line_start": 134,
+          "line_end": 150,
+          "excerpt": "def parse_sections(data: bytes) -> list[Node]:\n    \"\"\"Parse msdh boundaries, retaining unknown section bodies as single opaque spans.\"\"\"\n    data = bytes(data)\n    sections = []\n    start = 0\n    while start < len(data):\n        tag, hlen, total = prefix(data, start, len(data))\n        if tag != b'msdh' or hlen < 16 or not hlen <= total <= len(data) - start:\n            raise FormatError('invalid msdh section boundary', start)\n        kind = uint(data, start + 12)\n        h = bytearray(data[start:start + hlen])\n        pos, end = start + hlen, start + total\n        sec = Node(h, 'section', None, data[pos:end], start)\n        if kind in LIST_ROOTS or kind in (16, 20):\n            root_tag, root_hlen, _ = prefix(data, pos, end)\n            expected = LIST_ROOTS.get(kind, b'mfdh' if kind == 16 else b'mlqh')\n            if root_tag != expected:"
+        },
+        {
+          "path": "wt/codec/itlkit/library.py",
+          "sha256": "fef9ed5c44c90e34763f7a3387d17a63fe98e55b51f73a33f19a1abc8aef3da3",
+          "line_start": 32,
+          "line_end": 32,
+          "excerpt": "ENCODINGS = {1: 'utf-16-le', 2: 'ascii', 3: 'utf-8'}"
+        },
+        {
+          "path": "wt/codec/itlkit/library.py",
+          "sha256": "fef9ed5c44c90e34763f7a3387d17a63fe98e55b51f73a33f19a1abc8aef3da3",
+          "line_start": 388,
+          "line_end": 392,
+          "excerpt": "    def _require_semantic_profile(self) -> None:\n        if self.container.version not in ('12.13.9.1', '12.13.10.3') or len(self.container.header) != 144:\n            raise UnsupportedError('writes require the observed Windows iTunes 12.13.9.1/12.13.10.3 profile')\n        if self.container.trailer:\n            raise UnsupportedError('semantic writes with an unknown compression trailer are unsafe')"
+        }
+      ],
+      "native_rule": "Outer fields BE; header+0x52 nonzero means inner LE, zero means inner BE, including integer prefixes and UTF16 byte order.",
+      "observed": "All record primitives/serialization assume LE. Header+0x52 is not checked; a contradictory LE body with flag0 passes Library parsing and the semantic-profile guard.",
+      "tests": [
+        "big_endian_record_prefix",
+        "endian_flag0_little_body_accepted",
+        "endian_profile_guard"
+      ],
+      "evidence_rvas": [
+        "0x1085270",
+        "0x106ac80",
+        "0x10773d0"
+      ],
+      "recommendation": "Either propagate inner byte order through Node/read/write/text handling, or fail closed for flag0 at intake and semantic write boundaries until BE is implemented."
+    },
+    {
+      "id": "C05",
+      "severity": "high",
+      "topic": "mhoh_encoding3",
+      "status": "unreflected",
+      "locations": [
+        {
+          "path": "wt/codec/itlkit/library.py",
+          "sha256": "fef9ed5c44c90e34763f7a3387d17a63fe98e55b51f73a33f19a1abc8aef3da3",
+          "line_start": 32,
+          "line_end": 32,
+          "excerpt": "ENCODINGS = {1: 'utf-16-le', 2: 'ascii', 3: 'utf-8'}"
+        },
+        {
+          "path": "wt/codec/itlkit/library.py",
+          "sha256": "fef9ed5c44c90e34763f7a3387d17a63fe98e55b51f73a33f19a1abc8aef3da3",
+          "line_start": 60,
+          "line_end": 71,
+          "excerpt": "def read_text(node: Node) -> str:\n    if node.tag != b'mhoh' or node.children is not None or len(node.payload) < 16:\n        raise UnsupportedError('record does not have a known string payload')\n    encoding, length = uint(node.payload, 0), uint(node.payload, 4)\n    if encoding not in ENCODINGS:\n        raise UnsupportedError(f'unknown string encoding {encoding}')\n    if length > len(node.payload) - 16:\n        raise FormatError('string length exceeds mhoh payload', node.offset)\n    try:\n        return node.payload[16:16 + length].decode(ENCODINGS[encoding], errors='strict')\n    except UnicodeDecodeError as exc:\n        raise FormatError(f'invalid {ENCODINGS[encoding]} string', node.offset) from exc"
+        }
+      ],
+      "native_rule": "Encoding3 zero-extends each byte to a Unicode unit: Latin1-equivalent, not UTF8.",
+      "observed": "Caf e9 is rejected as invalid UTF8. c3 a9 silently becomes U+00E9 instead of native U+00C3 U+00A9. This also affects track/index text-key operations via shared read_text. New non-ASCII writes choose encoding1, which is a valid alternative and is not itself the bug.",
+      "tests": [
+        "encoding3_latin1_Cafe",
+        "encoding3_utf8_lookalike"
+      ],
+      "evidence_rvas": [
+        "0x106ac80",
+        "0x10773d0"
+      ],
+      "recommendation": "Map3 to latin-1; retain encoding1 with the selected inner byte order; add accent and UTF8-lookalike fixtures."
+    },
+    {
+      "id": "C06",
+      "severity": "medium",
+      "topic": "mhoh_encoding2",
+      "status": "unverified_semantic_assumption",
+      "locations": [
+        {
+          "path": "wt/codec/itlkit/library.py",
+          "sha256": "fef9ed5c44c90e34763f7a3387d17a63fe98e55b51f73a33f19a1abc8aef3da3",
+          "line_start": 32,
+          "line_end": 32,
+          "excerpt": "ENCODINGS = {1: 'utf-16-le', 2: 'ascii', 3: 'utf-8'}"
+        },
+        {
+          "path": "wt/codec/itlkit/library.py",
+          "sha256": "fef9ed5c44c90e34763f7a3387d17a63fe98e55b51f73a33f19a1abc8aef3da3",
+          "line_start": 95,
+          "line_end": 103,
+          "excerpt": "        old_length, suffix, prefix_bytes, encoding = 0, b'', bytearray(16), 3\n    if code == 11:\n        encoding = 2  # URL must be percent-encoded ASCII, never lossy replacement.\n    elif any(ord(ch) > 127 for ch in value):\n        encoding = 1\n    try:\n        data = value.encode(ENCODINGS[encoding], errors='strict')\n    except UnicodeEncodeError as exc:\n        raise ValueError('URL must be ASCII/percent-encoded') from exc"
+        }
+      ],
+      "native_rule": "Encoding2 semantics were not established by the static analysis.",
+      "observed": "Global encoding2=ASCII mapping and forced encoding2 for URL writes treat an unproven meaning as known. This audit does not prove ASCII instances incompatible.",
+      "tests": [
+        "encoding2_ascii_assumption",
+        "new_url_forces_encoding2"
+      ],
+      "evidence_rvas": [
+        "0x10773d0"
+      ],
+      "recommendation": "Preserve encoding2 opaquely/refuse semantic changes unless the dynamic owner supplies explicit type/profile evidence. Scope any verified ASCII subset narrowly rather than claiming global encoding2 semantics."
+    }
+  ],
+  "advisories": [
+    {
+      "id": "A01",
+      "severity": "low",
+      "topic": "2bc_2bf_independent_bytes",
+      "status": "representation_not_reflected_but_current_mask_preserves_neighbors",
+      "locations": [
+        {
+          "path": "wt/codec/itlkit/library.py",
+          "sha256": "fef9ed5c44c90e34763f7a3387d17a63fe98e55b51f73a33f19a1abc8aef3da3",
+          "line_start": 140,
+          "line_end": 141,
+          "excerpt": "        if field == 'loved':\n            return bool(uint(self.node.header, 0x2bc) & 0x02000000)"
+        },
+        {
+          "path": "wt/codec/itlkit/library.py",
+          "sha256": "fef9ed5c44c90e34763f7a3387d17a63fe98e55b51f73a33f19a1abc8aef3da3",
+          "line_start": 174,
+          "line_end": 178,
+          "excerpt": "            elif field == 'loved':\n                if type(value) is not bool:\n                    raise ValueError('loved must be true or false')\n                flags = uint(candidate.header, 0x2bc)\n                put(candidate.header, 0x2bc, flags | 0x02000000 if value else flags & ~0x02000000)"
+        }
+      ],
+      "native_rule": "mith+0x2bc and+0x2bf are distinct one-byte stores. Static analysis alone did not establish all loved semantics.",
+      "observed": "The code uses a32-bit word at+0x2bc, but mask0x02000000 affects only bit0x02 of byte+0x2bf on LE. Sentinel test preserves2bc/2bd/2be and all other2bf bits. Do NOT report this current mask as observed adjacent-byte corruption.",
+      "tests": [
+        "loved_rmw_sentinel"
+      ],
+      "recommendation": "Prefer explicit one-byte access at+0x2bf with mask0x02 and preserve+0x2bc independently. Keep the semantic label tied to separate native dynamic evidence."
+    }
+  ],
+  "already_reflected": [
+    {
+      "topic": "rating_width",
+      "status": "reflected_and_sentinel_tested",
+      "locations": [
+        {
+          "path": "wt/codec/itlkit/library.py",
+          "sha256": "fef9ed5c44c90e34763f7a3387d17a63fe98e55b51f73a33f19a1abc8aef3da3",
+          "line_start": 24,
+          "line_end": 25,
+          "excerpt": "    'disc_number': (0x68, 2), 'disc_count': (0x6a, 2), 'rating': (0x6c, 1),\n    'rating_aux_raw': (0x6d, 1), 'play_count_aux_raw': (0x60, 4), 'skip_count_aux_raw': (0x118, 4),"
+        },
+        {
+          "path": "wt/codec/itlkit/library.py",
+          "sha256": "fef9ed5c44c90e34763f7a3387d17a63fe98e55b51f73a33f19a1abc8aef3da3",
+          "line_start": 179,
+          "line_end": 185,
+          "excerpt": "            elif field in NUMBER_FIELDS:\n                if field == 'rating' and (type(value) is not int or not 0 <= value <= 100):\n                    raise ValueError('rating must be an integer from 0 to 100')\n                off, size = NUMBER_FIELDS[field]\n                put(candidate.header, off, value, size)\n                # Native COM writes prove +0x60/+0x118 are NOT unconditional mirrors.\n                # Preserve those unknown counters rather than corrupt their independent state."
+        }
+      ],
+      "observed": "rating uses(0x6c,1); setter respects the declared width. Neighbor sentinel bytes83 96 a9 are unchanged.",
+      "tests": [
+        "rating_byte_sentinel"
+      ]
+    },
+    {
+      "topic": "normal_AES_ECB_and_tail",
+      "status": "reflected_for_normal_flag2_nonzero_aligned_cap_compressed_LE_profile",
+      "tests": [
+        "normal_control",
+        "flag1_cap0_control"
+      ],
+      "caution": "Successful ordinary outputs do not cover the missing flag/cap/endian cases."
+    }
+  ],
+  "unit_tests": {
+    "count": 19,
+    "results": "codec-review-unit-results.json",
+    "repro": "codec-review-repro.py",
+    "method": "Reviewed source compiled into isolated in-memory modules; synthetic inputs; no source imports or pycache writes in production. Rating/loved setter tests use a minimal in-memory owner stub, not a complete library."
+  },
+  "native_acceptance_context": "Parent reports two writer outputs passed native acceptance. This audit does not dispute those particular outputs and performed no native iTunes operation. Missing flag/non-ASCII/endian cases require separate coverage.",
+  "production_changes": false,
+  "itunes_operations": false,
+  "decompilation_run": false,
+  "files_created_in_reports": [
+    "codec-compatibility-review.json",
+    "codec-review-source-snapshot.json",
+    "codec-review-repro.py",
+    "codec-review-unit-results.json",
+    "codec-review-repro.log"
+  ]
+}

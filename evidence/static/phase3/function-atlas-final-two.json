@@ -1,0 +1,103 @@
+{
+  "exe_sha256": "30d91209b5d81c47bbad2da9d89764fcab08bf5cd9af1a9571668001376c5d7d",
+  "functions": [
+    {
+      "rva": "0xec7b80",
+      "bytes": 229,
+      "ranges": [
+        [
+          15498112,
+          15498341,
+          32498808
+        ]
+      ],
+      "asm_sha256": "5c585a4cf78c3cefb17caf42cae3233ad35b718b2752519c18cde296618ae9f6",
+      "calls": [
+        {
+          "site_rva": "0xec7c58",
+          "target_rva": "0xeb8630",
+          "mnemonic": "call"
+        }
+      ]
+    },
+    {
+      "rva": "0xeb9b10",
+      "bytes": 709,
+      "ranges": [
+        [
+          15440656,
+          15441365,
+          32496140
+        ]
+      ],
+      "asm_sha256": "c077f1bbd72f58eb20479025060059bcf5ffd962aa2b48f0117446d7793314ec",
+      "calls": [
+        {
+          "site_rva": "0xeb9b5b",
+          "target_rva": "0x4941f0",
+          "mnemonic": "call"
+        },
+        {
+          "site_rva": "0xeb9c25",
+          "target_rva": "0x39c9e0",
+          "mnemonic": "call"
+        },
+        {
+          "site_rva": "0xeb9c5c",
+          "target_rva": "0xeb9c96",
+          "mnemonic": "jmp"
+        },
+        {
+          "site_rva": "0xeb9c71",
+          "target_rva": "0xeb9c7d",
+          "mnemonic": "jmp"
+        },
+        {
+          "site_rva": "0xeb9c90",
+          "target_rva": "0x179cc9a",
+          "mnemonic": "call"
+        },
+        {
+          "site_rva": "0xeb9d00",
+          "target_rva": "0xec7b80",
+          "mnemonic": "call"
+        },
+        {
+          "site_rva": "0xeb9d0c",
+          "target_rva": "0xeb9daf",
+          "mnemonic": "jmp"
+        },
+        {
+          "site_rva": "0xeb9d82",
+          "target_rva": "0xbfe1f0",
+          "mnemonic": "call"
+        },
+        {
+          "site_rva": "0xeb9d8e",
+          "target_rva": "0xec7b80",
+          "mnemonic": "call"
+        },
+        {
+          "site_rva": "0xeb9d95",
+          "target_rva": "0xeb9daf",
+          "mnemonic": "jmp"
+        },
+        {
+          "site_rva": "0xeb9da1",
+          "target_rva": "0xec7b80",
+          "mnemonic": "call"
+        },
+        {
+          "site_rva": "0xeb9da8",
+          "target_rva": "0xeb9daf",
+          "mnemonic": "jmp"
+        },
+        {
+          "site_rva": "0xeb9dba",
+          "target_rva": "0x179b8e0",
+          "mnemonic": "call"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,221 @@
+{
+  "task": "ITL static phase3: editable text pools, flag6d Name refresh, rank290 reset",
+  "status": "STATIC_DONE",
+  "base_sha": "cd744f774663e2a01f3aead25ff990f82fc3c5fb",
+  "findings": [
+    {
+      "id": "P3-N1",
+      "confidence": "high: C/ASM plus original instruction slices",
+      "claim": "mith+6d low bit <-> C+9a bit4; writer canonicalizes0/1; Rating is C+104.",
+      "evidence": [
+        {
+          "file": "reports/static/decompiled/0107b460.c",
+          "lines": [
+            471,
+            483
+          ],
+          "sha256": "0473d0cdbc555a40354e3dfaf4a8f54a4f2aceb11622f96ed8468bfe83660a13"
+        },
+        {
+          "file": "reports/static/decompiled/0106daf0.c",
+          "lines": [
+            79,
+            79
+          ],
+          "sha256": "19aaec8cdadd024da5e10f2fc91642a657999982ef4725be5df1f3aac6ffb547"
+        }
+      ],
+      "rvas": [
+        "0x107b9e5-0x107ba03",
+        "0x106dbed-0x106dbfd"
+      ]
+    },
+    {
+      "id": "P3-N2",
+      "confidence": "high state transitions; bounded semantic inference",
+      "claim": "eb9b10 sets bit4 for missing Name under a library-kind gate and obtains text through the AFCP/WinP interface. ec75b0 tests that bit and can update Name using the path interface.",
+      "label_candidate": "path-derived/default-title refresh enabled",
+      "evidence": [
+        {
+          "file": "reports/static/phase3/decompiled2/00eb9b10.c",
+          "lines": [
+            42,
+            55
+          ],
+          "sha256": "67f44448e55ef0c84fb1918ec3b6be3629312db555e61324bd1daf4103740494"
+        },
+        {
+          "file": "reports/static/phase3/decompiled2/00eb9b10.c",
+          "lines": [
+            102,
+            132
+          ],
+          "sha256": "67f44448e55ef0c84fb1918ec3b6be3629312db555e61324bd1daf4103740494"
+        },
+        {
+          "file": "reports/static/phase3/decompiled/00ec75b0.c",
+          "lines": [
+            56,
+            107
+          ],
+          "sha256": "5e0687f899a21fe2fb68d156e364b9ea6f461ae46d0bdac8b347a5363be999fa"
+        }
+      ],
+      "not_claimed": [
+        "RatingKind",
+        "Unplayed",
+        "fully resolved path-normalization semantics",
+        "proved cause of Fresh later rollback"
+      ]
+    },
+    {
+      "id": "P3-N3",
+      "confidence": "high for the selected native branch",
+      "claim": "ec8180 applies selected nonempty Name subject to mask/comparison/bit5 gates, calls f91680 and clears common9a bit4. This is not asserted to be the entire COM setter.",
+      "evidence": [
+        {
+          "file": "reports/static/phase3/decompiled/00ec8180.c",
+          "lines": [
+            98,
+            120
+          ],
+          "sha256": "3832fdd716c554f9dfefb88ef45ed0fc2e9b0a0761fa41a3f7df8c97cbcb4e92"
+        }
+      ],
+      "rvas": [
+        "0xec82c2",
+        "0xec82d6"
+      ]
+    },
+    {
+      "id": "P3-N4",
+      "confidence": "high for reset/serialization; full rank semantics incomplete",
+      "claim": "ec7b80 clears C+a1 and C+e0, then uses the Name/SortName descriptor. ed6940 dispatches Name change-mask bit0x20 to this helper and can also directly clear e0 for a sort-name mask. C+e0 serializes to mith+290, separately from Name ID C+b0.",
+      "evidence": [
+        {
+          "file": "reports/static/phase3/decompiled2/00ec7b80.c",
+          "lines": [
+            28,
+            57
+          ],
+          "sha256": "2333a232c23e6a6ee20ba53a6ea29c2dc66b46ad94f9f04d681bc3662ac31bc2"
+        },
+        {
+          "file": "reports/static/decompiled/0106daf0.c",
+          "lines": [
+            172,
+            178
+          ],
+          "sha256": "19aaec8cdadd024da5e10f2fc91642a657999982ef4725be5df1f3aac6ffb547"
+        },
+        {
+          "file": "reports/static/decompiled/0107b460.c",
+          "lines": [
+            533,
+            539
+          ],
+          "sha256": "0473d0cdbc555a40354e3dfaf4a8f54a4f2aceb11622f96ed8468bfe83660a13"
+        }
+      ],
+      "rvas": [
+        "0xec7c08",
+        "0xec7c0c",
+        "0xed69d2",
+        "0xed69fb",
+        "0xed6a22"
+      ]
+    },
+    {
+      "id": "P3-P1",
+      "confidence": "high in captured scope",
+      "claim": "All13 non-read-only declared track text candidates mapped;11 ordinary/sort fields use8 library pools. Related miah/miih consumers and file-local URL/path are distinguished.",
+      "artifact": "pool-map.json"
+    },
+    {
+      "id": "P3-D1",
+      "confidence": "high for saved pair; not causal isolation",
+      "claim": "003 to010 alpha header changes only total field+8,6d1->0,2901000->0. Name ID1->4, encoding3/5bytes to1/44bytes. mhoh6/11/13 and other2 tracks unchanged.",
+      "artifact": "native-name-diff.json"
+    },
+    {
+      "id": "P3-S1",
+      "confidence": "conservative policy",
+      "claim": "Scoped compact IDs and transactional COW require domain-consumer coverage; preserve unknowns and separate object/rank dependencies.",
+      "artifact": "safe-cow-and-name-policy.json"
+    }
+  ],
+  "unknowns": [
+    "Fresh later-observation is parent-supplied; no live trace/factorial acceptance was performed here.",
+    "Complete COM call graph, path virtual method and ae48a0 normalization unresolved.",
+    "Collation/tie handling/regeneration/all uses of seven rank/cache words unresolved; no blanket-zero algorithm.",
+    "Coverage is all13 captured track fields, not all consumers/record families/versions.",
+    "miah301/302 roles, unknown sort counterparts and native shared-object COW acceptance incomplete.",
+    "Non-ASCII encoding2 URL charset and relocation with opaque location records remain unproved.",
+    "Ghidra omits some register-carried arguments; ASM is authoritative. Exact12.13.10.3 binary only."
+  ],
+  "verified_addresses": [
+    {
+      "module": "iTunes.exe",
+      "rva": "0xec75b0",
+      "bytes": 1078,
+      "role": "path-object-derived Name refresh",
+      "c_file": "reports/static/phase3/decompiled/00ec75b0.c",
+      "c_sha256": "5e0687f899a21fe2fb68d156e364b9ea6f461ae46d0bdac8b347a5363be999fa",
+      "c_lines": 199,
+      "asm": "reports/static/phase3/asm/00ec75b0.asm"
+    },
+    {
+      "module": "iTunes.exe",
+      "rva": "0xec8180",
+      "bytes": 3750,
+      "role": "Name-bearing metadata apply and flag clear",
+      "c_file": "reports/static/phase3/decompiled/00ec8180.c",
+      "c_sha256": "3832fdd716c554f9dfefb88ef45ed0fc2e9b0a0761fa41a3f7df8c97cbcb4e92",
+      "c_lines": 588,
+      "asm": "reports/static/phase3/asm/00ec8180.asm"
+    },
+    {
+      "module": "iTunes.exe",
+      "rva": "0xec7b80",
+      "bytes": 229,
+      "role": "Name/sort-name cache invalidation",
+      "c_file": "reports/static/phase3/decompiled2/00ec7b80.c",
+      "c_sha256": "2333a232c23e6a6ee20ba53a6ea29c2dc66b46ad94f9f04d681bc3662ac31bc2",
+      "c_lines": 60,
+      "asm": "reports/static/phase3/asm/00ec7b80.asm"
+    },
+    {
+      "module": "iTunes.exe",
+      "rva": "0xeb9b10",
+      "bytes": 709,
+      "role": "missing-Name fallback and flag set",
+      "c_file": "reports/static/phase3/decompiled2/00eb9b10.c",
+      "c_sha256": "67f44448e55ef0c84fb1918ec3b6be3629312db555e61324bd1daf4103740494",
+      "c_lines": 136,
+      "asm": "reports/static/phase3/asm/00eb9b10.asm"
+    },
+    {
+      "module": "iTunes.exe",
+      "rva": "0xeb8130",
+      "evidence": "original ASM/isolated leaf execution, not decompiled"
+    },
+    {
+      "module": "iTunes.exe",
+      "rva": "0xed6940",
+      "evidence": "bounded original ASM"
+    },
+    {
+      "module": "iTunes.exe",
+      "rva": "0xf91680",
+      "evidence": "bounded original ASM"
+    }
+  ],
+  "completed_utc": "2026-09-09T13:37:15.448124+00:00",
+  "binary": {
+    "path": "C:\\Program Files\\iTunes\\iTunes.exe",
+    "version": "12.13.10.3",
+    "sha256": "30d91209b5d81c47bbad2da9d89764fcab08bf5cd9af1a9571668001376c5d7d",
+    "image_base": "0x140000000"
+  },
+  "staging_note": "Selected research fields from a completed report; execution/control-plane and ownership bookkeeping deliberately excluded."
+}

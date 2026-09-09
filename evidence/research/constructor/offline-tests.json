@@ -1,0 +1,330 @@
+{
+  "status": "offline_tests_passed",
+  "native_acceptance": "not_run",
+  "implementation_independence": "verify.py imports no itlkit; distinct AES/zlib envelope and boundary parser, identity/atom/reference and old-byte oracle",
+  "case_count": 2,
+  "test_count": 45,
+  "memory": {
+    "peak_working_set_bytes": 26693632,
+    "limit_bytes": 536870912
+  },
+  "checks": [
+    {
+      "name": "003 independent bytes refs media preservation",
+      "status": "passed",
+      "detail": {
+        "case_id": "fresh-constructed-wav-003-v1",
+        "status": "passed_offline_only",
+        "sha256": "12b6709e9396d8830284c924d2eaa584058f7c6f4932107ea19d670c4d9a64fc",
+        "input_tracks_unchanged": 3,
+        "tracks": 4,
+        "albums": 4,
+        "artists": 4,
+        "playlist_identities_unchanged": 14,
+        "added_memberships": 3,
+        "template_header_changed_byte_offsets": [
+          8,
+          16,
+          32,
+          33,
+          34,
+          109,
+          120,
+          121,
+          122,
+          128,
+          129,
+          130,
+          131,
+          132,
+          133,
+          134,
+          135,
+          220,
+          480,
+          500,
+          656,
+          657
+        ],
+        "unchanged_sections": [
+          12,
+          13,
+          23,
+          14,
+          21,
+          4
+        ],
+        "native_acceptance": "not_run"
+      }
+    },
+    {
+      "name": "003 reproducible constructor nonmutation",
+      "status": "passed",
+      "detail": {
+        "sha256": "12b6709e9396d8830284c924d2eaa584058f7c6f4932107ea19d670c4d9a64fc",
+        "in_memory_builds": 2
+      }
+    },
+    {
+      "name": "003 duplicate track PID",
+      "status": "passed",
+      "detail": "track PID identity ambiguity"
+    },
+    {
+      "name": "003 duplicate track local ID",
+      "status": "passed",
+      "detail": "track local identity ambiguity"
+    },
+    {
+      "name": "003 duplicate secondary ID",
+      "status": "passed",
+      "detail": "secondary track identity ambiguity"
+    },
+    {
+      "name": "003 dangling album reference",
+      "status": "passed",
+      "detail": "album dangling reference"
+    },
+    {
+      "name": "003 dangling artist reference",
+      "status": "passed",
+      "detail": "artist dangling reference"
+    },
+    {
+      "name": "003 wrong track-list count",
+      "status": "passed",
+      "detail": "list count mismatch"
+    },
+    {
+      "name": "003 wrong mirror track count",
+      "status": "passed",
+      "detail": "header/list count mismatch"
+    },
+    {
+      "name": "003 occupied unequal Name atom",
+      "status": "passed",
+      "detail": "same-pool unequal-text alias"
+    },
+    {
+      "name": "003 dangling playlist track",
+      "status": "passed",
+      "detail": "dangling playlist reference"
+    },
+    {
+      "name": "003 wrong playlist item count",
+      "status": "passed",
+      "detail": "miph item count"
+    },
+    {
+      "name": "003 wrong section length",
+      "status": "passed",
+      "detail": "section bound/profile"
+    },
+    {
+      "name": "003 protected candidate immutable",
+      "status": "passed",
+      "detail": "immutable output differs: D:\\a\\_temp\\gha-mcp\\WINDOWS_RESEARCH_RUN\\work\\itl\\reports\\add-constructor\\candidates\\fresh-003-v1.itl"
+    },
+    {
+      "name": "003 reject opaque type1 template",
+      "status": "passed",
+      "detail": "opaque type-1 location object: constructor refuses, never rewrites/drops it"
+    },
+    {
+      "name": "003 reject unknown template state",
+      "status": "passed",
+      "detail": "template byte fingerprint differs from native003alpha"
+    },
+    {
+      "name": "003 reject text extension",
+      "status": "passed",
+      "detail": "unverified string header/prefix/suffix"
+    },
+    {
+      "name": "003 reject unverified sample rate",
+      "status": "passed",
+      "detail": "unverified WAV dimensions"
+    },
+    {
+      "name": "003 reject duplicate size drift",
+      "status": "passed",
+      "detail": "unverified duplicated-size/float-rate state"
+    },
+    {
+      "name": "003 refuse mismatched media before output",
+      "status": "passed",
+      "detail": "unverified synthetic media bytes/dimensions"
+    },
+    {
+      "name": "003 refuse registered path",
+      "status": "passed",
+      "detail": "media already registered in recipient"
+    },
+    {
+      "name": "003 final immutable candidate hash",
+      "status": "passed",
+      "detail": true
+    },
+    {
+      "name": "037 independent bytes refs media preservation",
+      "status": "passed",
+      "detail": {
+        "case_id": "fresh-constructed-wav-037-v1",
+        "status": "passed_offline_only",
+        "sha256": "2cf04527eae2a6b763309e0b423c9bba19d9a8cf71dd3861cd5deac8c97b233d",
+        "input_tracks_unchanged": 3,
+        "tracks": 4,
+        "albums": 4,
+        "artists": 4,
+        "playlist_identities_unchanged": 15,
+        "added_memberships": 3,
+        "template_header_changed_byte_offsets": [
+          8,
+          16,
+          32,
+          33,
+          34,
+          109,
+          120,
+          121,
+          122,
+          128,
+          129,
+          130,
+          131,
+          132,
+          133,
+          134,
+          135,
+          220,
+          480,
+          500,
+          656,
+          657
+        ],
+        "unchanged_sections": [
+          12,
+          13,
+          23,
+          14,
+          21,
+          4
+        ],
+        "native_acceptance": "not_run"
+      }
+    },
+    {
+      "name": "037 reproducible constructor nonmutation",
+      "status": "passed",
+      "detail": {
+        "sha256": "2cf04527eae2a6b763309e0b423c9bba19d9a8cf71dd3861cd5deac8c97b233d",
+        "in_memory_builds": 2
+      }
+    },
+    {
+      "name": "037 duplicate track PID",
+      "status": "passed",
+      "detail": "track PID identity ambiguity"
+    },
+    {
+      "name": "037 duplicate track local ID",
+      "status": "passed",
+      "detail": "track local identity ambiguity"
+    },
+    {
+      "name": "037 duplicate secondary ID",
+      "status": "passed",
+      "detail": "secondary track identity ambiguity"
+    },
+    {
+      "name": "037 dangling album reference",
+      "status": "passed",
+      "detail": "album dangling reference"
+    },
+    {
+      "name": "037 dangling artist reference",
+      "status": "passed",
+      "detail": "artist dangling reference"
+    },
+    {
+      "name": "037 wrong track-list count",
+      "status": "passed",
+      "detail": "list count mismatch"
+    },
+    {
+      "name": "037 wrong mirror track count",
+      "status": "passed",
+      "detail": "header/list count mismatch"
+    },
+    {
+      "name": "037 occupied unequal Name atom",
+      "status": "passed",
+      "detail": "same-pool unequal-text alias"
+    },
+    {
+      "name": "037 dangling playlist track",
+      "status": "passed",
+      "detail": "dangling playlist reference"
+    },
+    {
+      "name": "037 wrong playlist item count",
+      "status": "passed",
+      "detail": "miph item count"
+    },
+    {
+      "name": "037 wrong section length",
+      "status": "passed",
+      "detail": "section bound/profile"
+    },
+    {
+      "name": "037 protected candidate immutable",
+      "status": "passed",
+      "detail": "immutable output differs: D:\\a\\_temp\\gha-mcp\\WINDOWS_RESEARCH_RUN\\work\\itl\\reports\\add-constructor\\candidates\\fresh-037-v1.itl"
+    },
+    {
+      "name": "037 reject opaque type1 template",
+      "status": "passed",
+      "detail": "opaque type-1 location object: constructor refuses, never rewrites/drops it"
+    },
+    {
+      "name": "037 reject unknown template state",
+      "status": "passed",
+      "detail": "template byte fingerprint differs from native003alpha"
+    },
+    {
+      "name": "037 reject text extension",
+      "status": "passed",
+      "detail": "unverified string header/prefix/suffix"
+    },
+    {
+      "name": "037 reject unverified sample rate",
+      "status": "passed",
+      "detail": "unverified WAV dimensions"
+    },
+    {
+      "name": "037 reject duplicate size drift",
+      "status": "passed",
+      "detail": "unverified duplicated-size/float-rate state"
+    },
+    {
+      "name": "037 refuse mismatched media before output",
+      "status": "passed",
+      "detail": "unverified synthetic media bytes/dimensions"
+    },
+    {
+      "name": "037 refuse registered path",
+      "status": "passed",
+      "detail": "media already registered in recipient"
+    },
+    {
+      "name": "037 final immutable candidate hash",
+      "status": "passed",
+      "detail": true
+    },
+    {
+      "name": "refuse writes outside owned reports",
+      "status": "passed",
+      "detail": "write outside owned report directory"
+    }
+  ]
+}

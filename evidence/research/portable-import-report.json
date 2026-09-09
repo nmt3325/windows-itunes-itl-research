@@ -1,0 +1,41 @@
+{
+  "task": "crud-research phase4 portable experimental CLI",
+  "status": "done_offline_fixture_reproducer",
+  "completed_utc": "2026-09-09T15:33:54.923287+00:00",
+  "core_commit": "56069f1e2a17d9aea62c1d753b2bd93ed404a000",
+  "verification": {
+    "offline_checks": 46,
+    "CLI_surface_checks": 4,
+    "transaction_checks": 2,
+    "total_named_checks": 52,
+    "failed": 0,
+    "runtime_assert_statements": 0,
+    "optimization_O_and_OO": "refused before processing",
+    "relocated_tool": "byte-exact accepted one-track replay",
+    "default_seed": "two process invocations produced identical bytes",
+    "new_file_only": "existing target and simulated publish failure verified"
+  },
+  "limits": [
+    "Only two known nonempty recipient snapshots and one independent32-track donor are qualified. No claim of arbitrary snapshot import.",
+    "A different seed or selection does not inherit the exact one-track native result.",
+    "Full raw14 post-save audit remains a separate gate in the supplied partial native evidence.",
+    "No new media, Location edit, COW, sort-field generalization, empty destination, cloud/store or grouped-playlist extension.",
+    "Program relocation is verified; embedded media Location relocation is neither performed nor promised.",
+    "No Python/network install, source/worktree changes, environment changes, commits/pushes or grandchildren."
+  ],
+  "qualification": {
+    "baseline_sha256": [
+      "a93cbc94da00eb60d1f5a45ac70af55948d4ecbae2ea735744af04b7b46128e4",
+      "155e427ebaf820e177123c9787d878e1f6b655a5978db409ba742c8697675f81"
+    ],
+    "donor_sha256": "7edd4ea85ca937103165bb40a5656ba84cd9c08b73580beb2482d963f5728083",
+    "unknown_snapshot_action": "refuse even if version/profile appears similar",
+    "arbitrary_new_fixture_generalization": false,
+    "no_hardcoded_ROOT_or_fixture_path_in_runtime": true,
+    "media_paths": "unmodified embedded Locations; explicit --media-root allowlist required"
+  },
+  "reproduction": {
+    "one": "60c5f1541981ddedd457f3e78ca07c63a8d71e3b8e42f3211b175aad2a8facaa",
+    "group": "2bf00425a238492c427e07108638fb7e6317ccdbbc62cadb6c4499b656c08ee1"
+  }
+}

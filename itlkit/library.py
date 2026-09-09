@@ -22,11 +22,13 @@ NUMBER_FIELDS = {
     'track_number': (0x2c, 4), 'track_count': (0x30, 4), 'year': (0x34, 4),
     'bit_rate': (0x38, 4), 'play_count': (0x4c, 4), 'play_date': (0x64, 4),
     'disc_number': (0x68, 2), 'disc_count': (0x6a, 2), 'rating': (0x6c, 1),
+    'name_refresh_flag_raw': (0x6d, 1), 'played_flag_raw': (0xee, 1),
     'rating_aux_raw': (0x6d, 1), 'play_count_aux_raw': (0x60, 4), 'skip_count_aux_raw': (0x118, 4),
     'date_added': (0x78, 4), 'persistent_id': (0x80, 8), 'skip_count': (0xd8, 4),
     'album_id': (0xdc, 4), 'skip_date': (0x11c, 4), 'artist_id': (0x1e0, 4),
     'sample_rate': (0xf4, 4)}
 READ_ONLY_FIELDS = {'track_id', 'persistent_id', 'album_id', 'artist_id', 'record_kind_raw',
+                    'name_refresh_flag_raw', 'played_flag_raw',
                     'rating_aux_raw', 'play_count_aux_raw', 'skip_count_aux_raw', 'purchaser_name', 'kind', 'sample_rate'}
 INDEXED_TEXT_FIELDS = {'album', 'artist', 'album_artist'}
 # Encoding 2 is restricted below to the observed ASCII URL subset.
@@ -39,10 +41,13 @@ def hfs_from_datetime(value: datetime) -> int:
     """Encode the displayed local wall time, with an explicit aware datetime."""
     if value.tzinfo is None or value.utcoffset() is None:
         raise ValueError('an aware datetime is required; timezone is never guessed')
-    result = int(value.timestamp() + value.utcoffset().total_seconds() + HFS_EPOCH_DELTA)
-    if not 0 <= result < 2**32:
+    # Encode local wall time by arithmetic, independent of platform timestamps.
+    delta = value.replace(tzinfo=None) - datetime(1904, 1, 1)
+    # Check the signed wall-time interval BEFORE discarding fractional seconds.
+    # int(negative_fraction) would silently turn an invalid date into raw0/unset.
+    if not timedelta(0) <= delta < timedelta(seconds=2**32):
         raise ValueError('datetime is outside the HFS uint32 range')
-    return result
+    return delta.days * 86400 + delta.seconds
 
 
 def hfs_to_datetime(value: int, *, utc_offset_seconds: int) -> datetime | None:
@@ -52,7 +57,7 @@ def hfs_to_datetime(value: int, *, utc_offset_seconds: int) -> datetime | None:
     if value == 0:
         return None
     tz = timezone(timedelta(seconds=utc_offset_seconds))
-    return datetime.fromtimestamp(value - HFS_EPOCH_DELTA - utc_offset_seconds, tz)
+    return datetime(1904, 1, 1, tzinfo=tz) + timedelta(seconds=value)
 
 
 def text_nodes(parent: Node, code: int) -> list[Node]:
@@ -147,6 +152,10 @@ class Track:
             return uint(self.node.header, *NUMBER_FIELDS[field])
         if field == 'loved':
             return bool(uint(self.node.header, 0x2bf, 1) & 0x02)  # legacy 'loved' label; UI semantics not fully verified
+        if field == 'unplayed':
+            if self.library.container.version != '12.13.10.3' or len(self.node.header) != 756:
+                raise UnsupportedError('Unplayed is verified only for the 12.13.10.3 mith profile')
+            return not bool(uint(self.node.header, 0xee, 1) & 1)
         if field == 'compilation':
             return bool(uint(self.node.header, 0x50) & 0x01000000)
         if field in TEXT_FIELDS:
@@ -171,6 +180,9 @@ class Track:
             return
         if len(self.node.header) != 756:
             raise UnsupportedError('track writes require the observed 756-byte mith profile')
+        from .atoms import guard_text_changes
+        guard_text_changes(self.library, [(self.node, TEXT_FIELDS[k], v) for k, v in fields.items()
+                                          if k in TEXT_FIELDS and k not in READ_ONLY_FIELDS])
         candidate = copy.deepcopy(self.node)
         for field, value in fields.items():
             if field in READ_ONLY_FIELDS:
@@ -179,6 +191,20 @@ class Track:
                 raise UnsupportedError(f'{field} changes require unresolved album/artist index maintenance')
             if field in TEXT_FIELDS:
                 set_text(candidate, TEXT_FIELDS[field], value)
+                if (field == 'name' and value and value != self.get('name')
+                        and self.library.container.version == '12.13.10.3'):
+                    # Wire6d bit0 -> common9a bit4 (path/default-title refresh).
+                    # Native factorial A-only preserves Name through two saves.
+                    # Do not rename it RatingKind or Unplayed, reset all ranks,
+                    # renumber atoms, or erase unverified upper bits.
+                    candidate.header[0x6d] &= 0xfe
+            elif field == 'unplayed':
+                if type(value) is not bool:
+                    raise ValueError('unplayed must be true or false')
+                if self.library.container.version != '12.13.10.3':
+                    raise UnsupportedError('Unplayed writes require the 12.13.10.3 profile')
+                flags = uint(candidate.header, 0xee, 1)
+                put(candidate.header, 0xee, flags & 0xfe if value else flags | 1, 1)
             elif field == 'loved':
                 if type(value) is not bool:
                     raise ValueError('loved must be true or false')
@@ -197,7 +223,7 @@ class Track:
 
     def to_dict(self) -> dict:
         result = {}
-        for field in [*NUMBER_FIELDS, *TEXT_FIELDS, 'loved', 'compilation']:
+        for field in [*NUMBER_FIELDS, *TEXT_FIELDS, 'loved', 'compilation', 'unplayed']:
             try:
                 value = self.get(field)
             except (FormatError, UnsupportedError) as exc:
@@ -259,6 +285,8 @@ class Playlist:
         self.node.header, self.node.children = candidate.header, candidate.children
 
     def replace_members(self, track_persistent_ids) -> None:
+        if not any(n is self.node for n in self.library._records(2, b'miph')):
+            raise ValueError('stale playlist handle; reselect after a library transaction')
         from .operations import replace_playlist_members
         current = replace_playlist_members(self.library, self.persistent_id, track_persistent_ids)
         self.node = current.node
@@ -364,6 +392,8 @@ class Library:
             raise FormatError('missing main mfdh section')
         if uint(mfdh.header, 8) != len(self.container.payload) + len(self.container.header):
             raise FormatError('mfdh logical size differs from payload + outer header', mfdh.offset)
+        if uint(self.container.header, 0x30, endian='big') != len(self.sections):
+            raise FormatError('hdfm section count mismatch', 0x30)
         if uint(mfdh.header, 0x30) != len(self.sections):
             raise FormatError('mfdh section count mismatch', mfdh.offset)
         for offset, expected in self._counts().items():
@@ -377,16 +407,30 @@ class Library:
         pids = [t.persistent_id for t in tracks]
         if len(ids) != len(set(ids)) or len(pids) != len(set(pids)) or 0 in ids or 0 in pids:
             raise FormatError('zero or duplicate track identity')
+        def unique_nonzero(values, label):
+            if 0 in values or len(values) != len(set(values)):
+                raise FormatError(f'zero or duplicate {label}')
+        # These independent namespaces are modeled only at the observed sizes.
+        unique_nonzero([uint(t.node.header, 0x1f4) for t in tracks
+                        if len(t.node.header) == 756], 'secondary track ID')
         known = set(ids)
         for section, tag, offset in ((9, b'miah', 0xdc), (11, b'miih', 0x1e0)):
             records = self._records(section, tag)
             local_ids = [uint(n.header, 16) for n in records]
+            size = 88 if section == 9 else 100
+            unique_nonzero([uint(n.header, 20, 8) for n in records if len(n.header) == size],
+                           'album/artist persistent ID')
             if len(local_ids) != len(set(local_ids)) or 0 in local_ids:
                 raise FormatError('zero or duplicate album/artist local ID')
             if any(uint(t.node.header, offset) not in set(local_ids) | {0} for t in tracks):
                 raise FormatError('track references a missing album/artist object')
         playlist_pids = []
+        unique_nonzero([p.playlist_id for p in self.playlists if len(p.node.header) == 3500],
+                       'playlist local ID')
         for playlist in self.playlists:
+            items = [n for n in playlist.items if len(n.header) == 84]
+            unique_nonzero([uint(n.header, 16) for n in items], 'item local ID within playlist')
+            unique_nonzero([uint(n.header, 68, 8) for n in items], 'item persistent ID within playlist')
             if len(playlist.node.header) >= 0x1c0:
                 playlist_pids.append(playlist.persistent_id)
             for track_id in playlist.track_ids:
@@ -402,6 +446,7 @@ class Library:
 
     def _require_semantic_profile(self) -> None:
         self._require_little_endian()
+        self._validate_ids_and_refs()
         if self.container.version not in ('12.13.9.1', '12.13.10.3') or len(self.container.header) != 144:
             raise UnsupportedError('writes require the observed Windows iTunes 12.13.9.1/12.13.10.3 profile')
         if self.container.trailer:

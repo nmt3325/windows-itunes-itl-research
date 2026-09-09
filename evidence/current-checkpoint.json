@@ -1,0 +1,339 @@
+{
+  "source_commit": "6cad058203a9ac29de34bc5349d0bd312bb79053",
+  "status": "research_checkpoint_not_universal_format_support",
+  "native_audit": {
+    "status": "passed",
+    "source_commit": "9268e159950186c4bc844cd673733eec3406296a",
+    "cases": [
+      {
+        "case": "p4-fresh-api",
+        "status": "passed",
+        "candidate": {
+          "bytes": 3847,
+          "sha256": "bcb6d06f8c83a9f2f6cd7e03a5a427dfdc81e40e1a6bc48fa4350afd9cb3cc4b",
+          "plain_bytes": 103153,
+          "plain_sha256": "5aab2346eb7b69f4ecea53f7edca999c32e7f81c4595f750ea04b2ffee391693",
+          "section_count": 11
+        },
+        "old_tracks": 3,
+        "new_tracks": 0,
+        "total_tracks": 3,
+        "visible_playlists": 7,
+        "cycles": [
+          {
+            "cycle": 1,
+            "saved": {
+              "bytes": 5035,
+              "sha256": "2562f9465fb4788d7fb7a920427e7a1bf4b24993d1159eb9ff4924c935e7a23a",
+              "plain_bytes": 103160,
+              "plain_sha256": "091aacf95b5f76959d6c3eb083a56092d8672a61b0a558ef91b766a90c920076",
+              "section_count": 11
+            },
+            "native_exit": 0,
+            "worker_exit": 0,
+            "states_checked": 5,
+            "field_comparisons": 540,
+            "passive_seconds": 45.35900000000038,
+            "serialized_playlists_checked": 14
+          },
+          {
+            "cycle": 2,
+            "saved": {
+              "bytes": 5038,
+              "sha256": "73b52bd5a292be783a4007d6af5e773e3e2b40501d64f116e454642e8283da19",
+              "plain_bytes": 103160,
+              "plain_sha256": "c599d6adbe41d6b7e618f2ce87f58f93748571b1249b74b8bf66f4315945f388",
+              "section_count": 11
+            },
+            "native_exit": 0,
+            "worker_exit": 0,
+            "states_checked": 5,
+            "field_comparisons": 540,
+            "passive_seconds": 30.35900000000038,
+            "serialized_playlists_checked": 14
+          }
+        ],
+        "media_unchanged": true,
+        "raw_all_playlists_checked": true
+      },
+      {
+        "case": "crud3-cross-one-003",
+        "status": "passed",
+        "candidate": {
+          "bytes": 5687,
+          "sha256": "60c5f1541981ddedd457f3e78ca07c63a8d71e3b8e42f3211b175aad2a8facaa",
+          "plain_bytes": 105541,
+          "plain_sha256": "a88fd336921558479e74318efebe1ed2ecbe3301b65fcb46f9ca0e68b3997da0",
+          "section_count": 11
+        },
+        "old_tracks": 3,
+        "new_tracks": 1,
+        "total_tracks": 4,
+        "visible_playlists": 7,
+        "cycles": [
+          {
+            "cycle": 1,
+            "saved": {
+              "bytes": 5725,
+              "sha256": "526bb2410054f1de217589725c33d7b59effc992817b2115bf39b9bce701d8fb",
+              "plain_bytes": 105548,
+              "plain_sha256": "7e96709c62253e3dadd02279e62ee78f2014840979bcfc306677d32e83dca2c6",
+              "section_count": 11
+            },
+            "native_exit": 0,
+            "worker_exit": 0,
+            "states_checked": 5,
+            "field_comparisons": 655,
+            "passive_seconds": 45.45299999999952,
+            "serialized_playlists_checked": 14
+          },
+          {
+            "cycle": 2,
+            "saved": {
+              "bytes": 5731,
+              "sha256": "d11966e748ce2eb72c967b6ec169a84c6711a007af1305fa7069c4beb88dfa33",
+              "plain_bytes": 105548,
+              "plain_sha256": "40f5e00407276726d9b4e95e63147d64a9db0c779ec2390645edbc8c2b9433f4",
+              "section_count": 11
+            },
+            "native_exit": 0,
+            "worker_exit": 0,
+            "states_checked": 5,
+            "field_comparisons": 655,
+            "passive_seconds": 30.46899999999914,
+            "serialized_playlists_checked": 14
+          }
+        ],
+        "media_unchanged": true,
+        "raw_all_playlists_checked": true
+      },
+      {
+        "case": "crud3-cross-shared-two-037",
+        "status": "passed",
+        "candidate": {
+          "bytes": 6653,
+          "sha256": "2bf00425a238492c427e07108638fb7e6317ccdbbc62cadb6c4499b656c08ee1",
+          "plain_bytes": 114477,
+          "plain_sha256": "4322cfa3fc04dbf73264b292b3ceb5a8c1017d819479d061a62abed5a1433741",
+          "section_count": 11
+        },
+        "old_tracks": 3,
+        "new_tracks": 2,
+        "total_tracks": 5,
+        "visible_playlists": 8,
+        "cycles": [
+          {
+            "cycle": 1,
+            "saved": {
+              "bytes": 6668,
+              "sha256": "7400c9f2730daed353a60c3c2eb277119b0506d640ab37cffe17f8e12db6641d",
+              "plain_bytes": 114485,
+              "plain_sha256": "6763d27e7580eb4bcd53f86035f0776399a456554e3468f9a19094221f52bb3e",
+              "section_count": 11
+            },
+            "native_exit": 0,
+            "worker_exit": 0,
+            "states_checked": 5,
+            "field_comparisons": 785,
+            "passive_seconds": 45.57800000000134,
+            "serialized_playlists_checked": 15
+          },
+          {
+            "cycle": 2,
+            "saved": {
+              "bytes": 6674,
+              "sha256": "2a33d419d5d33edac0f646bbbb8a8175d663fbe889040f1793fc3526e9bada18",
+              "plain_bytes": 114485,
+              "plain_sha256": "0d966ffce3fd4949631d8c43f740a6f74fa6d1c810ab66c80f47827ff6ee33fb",
+              "section_count": 11
+            },
+            "native_exit": 0,
+            "worker_exit": 0,
+            "states_checked": 5,
+            "field_comparisons": 785,
+            "passive_seconds": 30.56199999999808,
+            "serialized_playlists_checked": 15
+          }
+        ],
+        "media_unchanged": true,
+        "raw_all_playlists_checked": true
+      },
+      {
+        "case": "crud3-cross-shared-COW-037",
+        "status": "passed",
+        "candidate": {
+          "bytes": 6783,
+          "sha256": "f6f2a221eacadffba1ae9180b877872a595736a47f92644b9a38e6173981bda3",
+          "plain_bytes": 114938,
+          "plain_sha256": "aefad35acfbb8b7e37dbc859bad09eb93c4d0464df8cecdcea9b9a06428d6401",
+          "section_count": 11
+        },
+        "old_tracks": 3,
+        "new_tracks": 2,
+        "total_tracks": 5,
+        "visible_playlists": 8,
+        "cycles": [
+          {
+            "cycle": 1,
+            "saved": {
+              "bytes": 6822,
+              "sha256": "a2374f30707194de1e6ab67a1f9457c6995bf22f2f2aeea5c5199d34ee7ebaa5",
+              "plain_bytes": 114946,
+              "plain_sha256": "6a92c0e4a2b6ce95855b5596f80671375ff9d5b3a4850a0368d9e5d6be3b9d18",
+              "section_count": 11
+            },
+            "native_exit": 0,
+            "worker_exit": 0,
+            "states_checked": 5,
+            "field_comparisons": 785,
+            "passive_seconds": 45.56200000000172,
+            "serialized_playlists_checked": 15
+          },
+          {
+            "cycle": 2,
+            "saved": {
+              "bytes": 6827,
+              "sha256": "3d7463b2446ff11ad6cfc5233b99f51696b55ba096b100157163376c78b2ab9c",
+              "plain_bytes": 114946,
+              "plain_sha256": "b04b66a9f6ee07f62e74ec28a9dcddf6c06653f64ed02283c55082ce00f55ca0",
+              "section_count": 11
+            },
+            "native_exit": 0,
+            "worker_exit": 0,
+            "states_checked": 5,
+            "field_comparisons": 785,
+            "passive_seconds": 30.54699999999866,
+            "serialized_playlists_checked": 15
+          }
+        ],
+        "media_unchanged": true,
+        "raw_all_playlists_checked": true
+      },
+      {
+        "case": "fresh-constructed-wav-003-v2",
+        "status": "passed",
+        "candidate": {
+          "bytes": 4025,
+          "sha256": "41a6a073db030a9ceb9e1a690420a0fa28b73cb0c675af005653f732df6c4a84",
+          "plain_bytes": 104758,
+          "plain_sha256": "d81fa9d2dc5b337966def10c8990ca0d8c499486220684b15b25bba7f87bf9e7",
+          "section_count": 11
+        },
+        "old_tracks": 3,
+        "new_tracks": 1,
+        "total_tracks": 4,
+        "visible_playlists": 7,
+        "cycles": [
+          {
+            "cycle": 1,
+            "saved": {
+              "bytes": 5262,
+              "sha256": "d81d0828faa58cbc3b0e673817499a83cdccea821a22f92b5882cf1001c0df00",
+              "plain_bytes": 104765,
+              "plain_sha256": "4c19f39b428ee99d88b5d3784dfed190d85ee1555abc76c26a5d2caf2944b0b9",
+              "section_count": 11
+            },
+            "native_exit": 0,
+            "worker_exit": 0,
+            "states_checked": 5,
+            "field_comparisons": 740,
+            "passive_seconds": 45.56200000000172,
+            "serialized_playlists_checked": 14
+          },
+          {
+            "cycle": 2,
+            "saved": {
+              "bytes": 5267,
+              "sha256": "7353d3fe7d417ec01098e89828e88810281d88f6af25313ca21a382e66b5a43e",
+              "plain_bytes": 104765,
+              "plain_sha256": "9c6e47525ac0a727b8483af5303f26dbf6c6982f35deafab6843963c5e7601a6",
+              "section_count": 11
+            },
+            "native_exit": 0,
+            "worker_exit": 0,
+            "states_checked": 5,
+            "field_comparisons": 740,
+            "passive_seconds": 30.46900000000096,
+            "serialized_playlists_checked": 14
+          }
+        ],
+        "media_unchanged": true,
+        "raw_all_playlists_checked": true
+      },
+      {
+        "case": "fresh-constructed-wav-037-v2",
+        "status": "passed",
+        "candidate": {
+          "bytes": 4446,
+          "sha256": "a813f8ad7d493214aaefc9f20d536fc86883e511dfeaf30dd8735baf5895dc39",
+          "plain_bytes": 111712,
+          "plain_sha256": "4793f16a567fc49725de0f4b8dcff4419173fcbc994311d3f64069352430fae2",
+          "section_count": 11
+        },
+        "old_tracks": 3,
+        "new_tracks": 1,
+        "total_tracks": 4,
+        "visible_playlists": 8,
+        "cycles": [
+          {
+            "cycle": 1,
+            "saved": {
+              "bytes": 5816,
+              "sha256": "5e0898e3f0f432c87850aa0665e66a042ba4355da4b89a61dc7bf571bc7b019b",
+              "plain_bytes": 111719,
+              "plain_sha256": "d33c25af9899fe085d0e6f0d0748779dbaa48c647d4338e4708599242ebd5409",
+              "section_count": 11
+            },
+            "native_exit": 0,
+            "worker_exit": 0,
+            "states_checked": 5,
+            "field_comparisons": 740,
+            "passive_seconds": 45.48500000000058,
+            "serialized_playlists_checked": 15
+          },
+          {
+            "cycle": 2,
+            "saved": {
+              "bytes": 5820,
+              "sha256": "d3dac042f777ba734a213c4394f5116ce1365a65abceb73fae304260440240dd",
+              "plain_bytes": 111719,
+              "plain_sha256": "26aa383994ad85e861e83fd047d1237db754d808a2aee644426525c938737c06",
+              "section_count": 11
+            },
+            "native_exit": 0,
+            "worker_exit": 0,
+            "states_checked": 5,
+            "field_comparisons": 740,
+            "passive_seconds": 30.485000000000582,
+            "serialized_playlists_checked": 15
+          }
+        ],
+        "media_unchanged": true,
+        "raw_all_playlists_checked": true
+      }
+    ],
+    "native_actions_by_parent": false,
+    "evidence_files_unchanged": 61,
+    "limitations": [
+      "Audit of archived native execution, not an additional native run.",
+      "No audible playback claim; native audio configuration warning observed.",
+      "Scope is the exact named synthetic candidates, not all libraries or formats."
+    ]
+  },
+  "staging": {
+    "sha256": "75520c3c2c3062018204eacdf11718d936ccb1a2c11d29916cd1b0a5bf9772b1",
+    "copied": 361,
+    "omitted": 49
+  },
+  "exclusions": [
+    "original personal libraries/media/artwork/archive",
+    "Apple and third-party executable binaries",
+    "credentials and internal control-plane history"
+  ],
+  "limitations": [
+    "Only exact tested synthetic candidates are native accepted.",
+    "Public add_track_from remains a same-lineage restoration API; cross-library cases are separate research transformations.",
+    "Binary fixtures retain historical generated Locations and are not portable live libraries.",
+    "No audible playback claim; an audio-configuration warning was observed."
+  ]
+}

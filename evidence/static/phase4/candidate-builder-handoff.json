@@ -1,0 +1,140 @@
+{
+  "status": "static_evidence_ready_native_acceptance_not_claimed",
+  "rules": [
+    "Prefer the pinned donor032-reloaded template for the bounded synthetic FILE/WAV experiment. All32 native tracks use path13 and URL11 without opaque1/direct19. This avoids, but does not solve, unknown location objects.",
+    "Keep recipient hdfm file PID and master-playlist PID. Their identity domains are distinct from track/album/artist PIDs. Pin media paths/hashes and expected metadata in the producer manifest.",
+    "Allocate small nonzero collision-free local IDs for common track, file instance, required album/artist objects and affected playlist entries. Remap only known references. Never blindly rewrite every equal integer.",
+    "Native common/file/album/artist allocation shares process-global atomic counter iTunes.exe+0x1fe9130, not a header high-water field. Runtime reallocation on reload is expected; preserve identity via PIDs and references, not exact local numbers.",
+    "For a conservative fresh candidate, use distinct small new IDs outside the union of known affected local IDs, while still validating each actual reader-map namespace. Global uniqueness of every serialized integer is NOT asserted.",
+    "Preserve or deliberately allocate nonzero unique PIDs with collision checks; constructors retain supplied nonzero PIDs. Do not implement the unresolved native entropy factory or assume all library kinds use sequential PIDs.",
+    "Preserve string sharing and use scoped COW/compact IDs only after all domain consumers are covered. L+208 and L+17f8 shared consumers remain as in phase3; album/artist object COW is a separate graph operation.",
+    "Path13 and URL11 readers explicitly use externalID0. Their wire IDs are not global keys. F+2c8 selects one of50 library shards at L+958+72*(counter mod50); it is not necessarily a unique allocation per track.",
+    "For this ASCII FILE subset, serialize exact Windows path13 plus matching file://localhost/ URL11, with correct byte lengths and encoding. Do not extrapolate percent encoding, Unicode relocation, HTTP, or opaque1 replacement.",
+    "Update main-track list/count and all necessary destination playlist references. Native serialization requires a C+60 membership link; a bare mith append is not a sufficient native-persistence claim.",
+    "Preserve secondary section13 when adding only a principal FILE instance. Native gate106b450 emits principal instance in section1 and nonprincipal instances in section13; they are not duplicate track lists.",
+    "Update lengths/counts bottom-up (mhoh,mith,miph,lists,msdh,inner mfdh logical length,outer hdfm physical size). Header track/album/artist counts follow emitted records; do not edit +3c/+58 as guessed maxima.",
+    "Preserve recipient opaque/global state. Section12 changed during donor import, but that does not prove which settings bytes are mandatory or authorize copying donor library settings. Sections4/13/14/21/23 stayed byte-identical only in this cohort.",
+    "Keep prior Name6d/common9a bit4 and290 reset evidence. Use the codec-owned validated Name policy; this static phase changes neither production Name behavior nor rank-generation rules.",
+    "Native acceptance remains dynamic-owned: complete old+new track enumeration, correct recipient identities, metadata and existing location, intended memberships, no fallback, two saved restarts and passive re-observation. Playback/file hashes need their own evidence."
+  ],
+  "section_changes": [
+    {
+      "type": 1,
+      "empty_to_import_changed": true,
+      "import_to_reload_changed": true,
+      "body_lengths": [
+        92,
+        55452,
+        55452
+      ]
+    },
+    {
+      "type": 2,
+      "empty_to_import_changed": true,
+      "import_to_reload_changed": true,
+      "body_lengths": [
+        95088,
+        103267,
+        103268
+      ]
+    },
+    {
+      "type": 4,
+      "empty_to_import_changed": false,
+      "import_to_reload_changed": false,
+      "body_lengths": [
+        120,
+        120,
+        120
+      ]
+    },
+    {
+      "type": 9,
+      "empty_to_import_changed": true,
+      "import_to_reload_changed": true,
+      "body_lengths": [
+        92,
+        4380,
+        4380
+      ]
+    },
+    {
+      "type": 11,
+      "empty_to_import_changed": true,
+      "import_to_reload_changed": true,
+      "body_lengths": [
+        100,
+        744,
+        744
+      ]
+    },
+    {
+      "type": 12,
+      "empty_to_import_changed": true,
+      "import_to_reload_changed": false,
+      "body_lengths": [
+        446,
+        446,
+        446
+      ]
+    },
+    {
+      "type": 13,
+      "empty_to_import_changed": false,
+      "import_to_reload_changed": false,
+      "body_lengths": [
+        92,
+        92,
+        92
+      ]
+    },
+    {
+      "type": 14,
+      "empty_to_import_changed": false,
+      "import_to_reload_changed": false,
+      "body_lengths": [
+        92,
+        92,
+        92
+      ]
+    },
+    {
+      "type": 16,
+      "empty_to_import_changed": true,
+      "import_to_reload_changed": true,
+      "body_lengths": [
+        144,
+        144,
+        144
+      ]
+    },
+    {
+      "type": 21,
+      "empty_to_import_changed": false,
+      "import_to_reload_changed": false,
+      "body_lengths": [
+        1011,
+        1011,
+        1011
+      ]
+    },
+    {
+      "type": 23,
+      "empty_to_import_changed": false,
+      "import_to_reload_changed": false,
+      "body_lengths": [
+        96,
+        96,
+        96
+      ]
+    }
+  ],
+  "no_candidate_files_created": true,
+  "remaining_unknowns": [
+    "Opaque1 construction/relocation and full native location normalization",
+    "Exact L+94/header58 meaning",
+    "Complete native PID entropy algorithm and counter initialization/overflow",
+    "All smart/system playlist/default-setting side effects",
+    "Other media/profile/version acceptance; media content hashes and playback were not verified by static"
+  ]
+}

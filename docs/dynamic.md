@@ -25,7 +25,7 @@ Each acceptance cycle verifies the full expected state inside a bounded COM subp
 
 ## Native fixture matrix
 
-The initial empty library was created by this run, copied to `fixtures/dynamic/live/iTunes Library.itl`, and selected using the real Shift-start library picker. Subsequent tests stayed on that isolated path.
+The initial empty library was created by this run, copied to `fixtures/dynamic/live/iTunes Library.itl`, and selected using the real Shift-start library picker. Subsequent phase1 tests stayed on that isolated path. Phase2 additionally created a genuinely independent native library; see its separate identity and fixture manifest below.
 
 | Fixture | Native observation |
 | --- | --- |
@@ -74,7 +74,7 @@ Evidence is `acceptance/<case>/result.json`, `native-runs/<case>-reload1,2/com.j
 | `112-codec-track-indexed` | `1a84651212b08f6b7aaf37b40764c195d827d95868d0b51950e1f035c2527721` | Two cycles passed: Artist=`Codec Artist Ω`, Album=`Codec Album 新規`, AlbumArtist=`Codec Album Artist 🎼`; all IDs and ordinary playlist order retained |
 | `113-codec-fresh-modified` | `34e4b4348ee4db611d59c1da23791700558c3c91bc44504e4d89a8e5c228ec0f` | FAILED: Unplayed mismatch, followed by observed Name reversion before Quit |
 
-The fresh candidate derives from native 003 rather than an already manually edited/rated track. Its first read returned Name=`Codec Fresh 🧪`, Rating=80, PlayedCount=7, SkippedCount=2, Year=2032, TrackNumber=9, but Unplayed remained true. The false expectation was fixed **before** this test from the actual native 018 PlayedCount 0→7 operation, which also changed Unplayed true→false (`050-fresh-field-dependencies.log`). Only derived AlbumRating was excluded from that first expectation; requested fields were not dropped.
+The fresh candidate derives from native 003 rather than an already manually edited/rated track. Its first read returned Name=`Codec Fresh 🧪`, Rating=80, PlayedCount=7, SkippedCount=2, Year=2032, TrackNumber=9, but Unplayed remained true. The Unplayed=false check was an **extra dynamic-authored COM-equivalence expectation**, fixed before this test from the native 018 PlayedCount 0→7 operation, which also changed Unplayed true→false (`050-fresh-field-dependencies.log`). Unplayed was **not one of the six codec-requested changes**, and false must not be inferred from PlayedCount. The historical extra gate is retained as such; the later Name reversion is an independent requested-field failure. Only derived AlbumRating was excluded from the historical first expectation.
 
 While the same native process remained open, a later read found Name=`alpha`. No setter had run since the failed gate. Both uncast and explicitly queried COM interfaces then reported `alpha`; their type information was IITFileOrCDTrack. Thus the initial Name read was not persistence evidence. The attempted observed-state recovery also correctly failed because its Name expectation no longer matched. Evidence: the original 113 COM/result/worker files, `053-fresh-observed-com.json`, `053-interface-observations.json`, and `054-fresh-state-evolution.log`.
 
@@ -92,7 +92,7 @@ Two **new dynamic-authored experimental files**, not codec outputs, isolated the
 | Experiment | Expanded record changes | Pinned candidate SHA-256 | Native result |
 | --- | --- | --- | --- |
 | `120-hypothesis-name-flag` | +0x6d=0 only | `769a695174da20f16a8d37922a2527cbc750dc9f007c49e5402a7ced483d3989` | Two cycles passed; requested Name/scalars persisted, Unplayed deliberately remained true |
-| `121-hypothesis-name-and-played-flags` | +0x6d=0 and +0xee=1 | `93fc81ab4078c3ee7d8bb2d9bc02dc08cf8a11e05147699669c52f1df6014088` | Two cycles passed with the original fresh candidate's full requested native-equivalent state, including Unplayed=false |
+| `121-hypothesis-name-and-played-flags` | +0x6d=0 and +0xee=1 | `93fc81ab4078c3ee7d8bb2d9bc02dc08cf8a11e05147699669c52f1df6014088` | Two cycles passed with the dynamic-defined native-equivalence state: six codec-requested fields plus the extra Unplayed=false expectation |
 
 These four extra native cycles support a targeted correction for this observed WAV/profile state. They are **not** proof that the production codec has been corrected, or a rule for arbitrary flag values/media/versions. The original codec candidate remains failed. Codec integration and its own regression coverage belong to the parent/codec owner. `061-experiment-audit.json` checks all four cycles again.
 
@@ -100,7 +100,7 @@ These four extra native cycles support a targeted correction for this observed W
 
 The worker now captures RatingKind and AlbumRatingKind read-only. In the fresh/control cases alpha had Rating=80, RatingKind=0, AlbumRating=0, AlbumRatingKind=1; beta/gamma had Rating=0 and RatingKind=1. Raw codes are retained rather than inferred from adjacent binary bytes.
 
-Snapshot-only operations now recheck the full state **again after observation and before Quit**, rejecting within-read changes rather than adopting them as the next cycle's expectation. Existing ten positive candidates were also audited retrospectively for before/after stability. This is bounded observation, not a guarantee against all later background behavior. The offline suite now has **18 passing tests**, including a mocked regression proving that a reverted Name prevents Quit, a stable positive control, and read-only rating-kind checks. `057-final-qa.json` also records compileall, JavaScript syntax, CLI smoke checks, and the 20-cycle codec audit.
+Snapshot-only operations now recheck the full state **again after observation and before Quit**, rejecting within-read changes rather than adopting them as the next cycle's expectation. Existing ten positive candidates were also audited retrospectively for before/after stability. This is bounded observation, not a guarantee against all later background behavior. The phase1 offline suite had **18 passing tests**, including a mocked regression proving that a reverted Name prevents Quit, a stable positive control, and read-only rating-kind checks. `057-final-qa.json` also records compileall, JavaScript syntax, CLI smoke checks, and the 20-cycle codec audit.
 
 ## Real process trace correlation
 
@@ -131,7 +131,7 @@ See `041-native-deflate-correlation.json`. The native Comment change (`Traced na
 
 The observed native profile has a 0x90-byte hdfm header, AES-128 ECB with the format key `BHUILuilfghuila3`, and a zlib body. In the empty file, the first 3856 body bytes are encrypted and the final 9 bytes are clear. The native header declares a 102400-byte encrypted-prefix cap. The analysis helper uses `min(cap, body_length) & ~15`, leaving the remainder clear. These statements are directly supported for the captured small native files. A large random offline self-test checks the helper across the 100 KiB boundary; **that offline unit test is not a large native iTunes boundary test**.
 
-An additional real native attempt set Comment to 240033 deterministic ASCII characters. iTunes immediately returned only the first **255 characters**, so the exact-value gate correctly failed (`traced-runs/090-native-size-boundary/after.json`). This was not an accepted large-value write. The actual truncated state was then recorded, gracefully saved, and verified through another native restart; IDs/counts/other tested state remained unchanged. Evidence: `048-comment-truncation.json` and `native-runs/092-comment-truncation-reloaded`. The resulting ITL was only 5680 bytes. Thus a native compressed body greater than 102400 bytes was **not** achieved; its boundary remains unverified dynamically. This observation applies to the tested COM Comment setter/profile, not universally to every string field or direct-file codec operation.
+An additional real native attempt set Comment to 240033 deterministic ASCII characters. iTunes immediately returned only the first **255 characters**, so the exact-value gate correctly failed (`traced-runs/090-native-size-boundary/after.json`). This was not an accepted large-value write. The actual truncated state was then recorded, gracefully saved, and verified through another native restart; IDs/counts/other tested state remained unchanged. Evidence: `048-comment-truncation.json` and `native-runs/092-comment-truncation-reloaded`. The resulting ITL was only 5680 bytes. This phase1 COM-setter attempt did **not** produce a native compressed body greater than 102400 bytes and did not verify that boundary. The later phase2 direct-file test is reported separately below. This observation applies to the tested COM Comment setter/profile, not universally to every string field or direct-file codec operation.
 
 A failed COM operation is not a rollback: the partial Comment change was auto-saved before Quit. Inspect the live state and preserve prior immutable fixtures before recovery; never treat an exception as proof that the library is unchanged.
 
@@ -177,3 +177,65 @@ The acceptance example refuses reuse of the existing case names: duplicate a man
 - All errors and recovered command exits remain in the orchestration report/command ledger. Native successes are distinct from offline checks, unsupported features, pending tests, and aborted experiments.
 
 No binaries, fixtures, original media, or private reference libraries are committed by this worktree. The commit owns only `scripts/windows/**` and this document. Runtime artifacts stay in the assigned external evidence/fixture trees. No environment lifecycle, other-worktree edits, shared venv changes, git config, push, PR, or child-agent delegation was performed.
+
+
+## Additional bounded native phase (2026-09-09)
+
+The dynamic branch continued from `5d679e303c6243db7f3fec1a0610b1be95952a3f` after exclusive native ownership was returned. Producer request revision: `276efca9e86e5710c639ee7ea840a67f906e90fc`. Dynamic changed no production codec. Claims refer to hash-pinned inputs, not an unspecified current codec. Evidence is in `reports/dynamic/phase2/`; phase1's report and ledger remain preserved.
+
+### Passive protocol and v4
+
+`passive_native.py` uses bounded workers, PID-only target lookup, an initial target read, repeated full snapshots and fresh target reads, and a final fresh Name before Quit. The original expected state remains fixed across both cycles. No setters or UpdateInfoFromFile are called. Identity, count, synthetic locations and ordinary playlists remain hard gates. Scoped metadata-negative observations can save/quit normally for diagnosis, without converting accepted=false to a pass. Unplayed, RatingKind, AlbumRatingKind and derived AlbumRating are explicitly observe-only for these requests; Unplayed=false is never inferred from PlayedCount.
+
+Nine new v4 candidates completed 18 native cycles. Seven encryption/compression variants passed both cycles: encryption flags 0/1/2, flag-1 ignoring a nominal cap of 17, flag-2 caps 0/17, and three uncompressed-body variants. This is logical native acceptance, not preservation of the input envelope flags by iTunes. Old successful candidate hashes were not retested.
+
+Both text cases failed Name persistence. Initial Names decoded correctly as Cafe-acute/y-diaeresis and the same text plus Japanese/music emoji (exact Unicode values are in the manifest). At the first full snapshot/fresh lookup, about 0.343/0.359 seconds later, both were already alpha. Reversion remained through 45-second dwell and the second 30-second cycle. The persisted record changed later, by the 45-second observation. No particular getter or encoding failure is established. See `v4-name-reversion-audit.json` and `v4-native-audit.json`.
+
+### Fresh factorials and single-field controls
+
+Each case completed two native cycles with 60-second then 30-second dwell and normal native/worker exits. A means mith +0x6d:1 to 0; B means Name external ID:1 to 4; C means mith +0x290 DWORD:1000 to 0. All eight kept +0xee=0.
+
+| A | B | C | Requested Name after both cycles |
+| --- | --- | --- | --- |
+| 0 | 0 | 0 | Failed: alpha |
+| 0 | 0 | 1 | Failed: alpha |
+| 0 | 1 | 0 | Failed: alpha |
+| 0 | 1 | 1 | Failed: alpha |
+| 1 | 0 | 0 | Passed: Codec Fresh (exact non-BMP Name in manifest) |
+| 1 | 0 | 1 | Passed |
+| 1 | 1 | 0 | Passed |
+| 1 | 1 | 1 | Passed |
+
+Name-only also reverted; PlayedCount-only retained 7 with Unplayed observed true. Ten cases/20 cycles thus contain five positives and five semantic negatives. Within this exact family A was necessary and sufficient for Name retention; B/C neither substituted nor were required. This establishes no universal meaning/policy for 0x6d, ranks, IDs, unknown values, other media or versions.
+
+A0B0C0 retains the original failed SHA `34e4b4348ee4db611d59c1da23791700558c3c91bc44504e4d89a8e5c228ec0f` and fails Name even with corrected Unplayed policy. New A-only wire SHA: `bcb6d06f8c83a9f2f6cd7e03a5a427dfdc81e40e1a6bc48fa4350afd9cb3cc4b`. Its provenance is distinct from dynamic 120/121. Existing native PlayedCount, Name and Unplayed setters plus the 0x6d/0xee experiment remain historical controls; 121 was not rerun with extended dwell. See `factorial-manifest.json` and `factorial-native-audit.json`.
+
+Across all 40 passive cycles, media prelaunch-to-final SHA, bytes, mtime and attributes were unchanged by normalized path. No in-memory iTunes dirty/modified flag was captured. Persisted raw 0x6d, COM ModificationDate and filesystem attributes are separate observations, not substitutes for that flag.
+
+### Independent shared-group donor
+
+Native Shift-start Create Library created `fixtures/dynamic/phase2/independent/NativeBulk/iTunes Library.itl`, not a copied empty ITL or invented IDs. Outer file PID: `533551EBA255E616`; native COM master PID: `48DA29E706F4922A`. Both differ from the original fixture.
+
+All 768 parent-generated WAVs were copied/hash-verified into `fixtures/dynamic/phase2/bulk768/media/`. The first 32 were imported into the genuinely new library; manifest Name, Artist, Album, AlbumArtist and 240-character Comment were applied and checked twice, then after save/restart. Every real PID, count and location was checked. These 32 contain 8 artists, 16 albums and 4 album artists with repeated groups. Empty creation, import/save and restart each ended with native exit 0. Reloaded compressed body: 19014 bytes, below the cap.
+
+`independent-donor32-manifest.json` contains every actual PID/metadata value/group/fixture hash. `bulk-copied-inputs.json` and `082-media-preservation-audit.json` verify all 768 parent inputs unchanged; copied WAV bytes, mtime and attributes were also unchanged despite native library metadata edits. Remaining 736 tracks were NOT imported. No 768-track native or cross-library merge/restore acceptance is claimed.
+
+### Long Comment: serialized retention versus COM projection
+
+Candidate SHA `625edbc39ff3173e454add0cdec0d490860ee8d8e421ede12f3e0c4a98370a16` contains 240034 characters; UTF-8 SHA `c9d3c0093096998296363ac36394c58312bf82e842cc1c220df6bc54a52305f6`. No COM setter was used.
+
+Both native cycles completed normally. COM returned exactly the first 255 characters, so the original full-COM-value gate remained FALSE. Structural extraction of track `D018EAABC195E072` independently found the entire expected UTF-16 string in its type-8 mhoh in both native-saved ITLs. The 480108-byte Comment block was byte-identical to the input, SHA `a0cc2197fa53ab586d66a60dc826232dd980142b1799e452c924cf489fe40816`. The whole target track record was also unchanged. Conclusion: full serialized Comment retention, truncated COM projection; NOT serialized truncation, damaged fallback, or full COM-value acceptance.
+
+Actual native-saved compressed bodies: 246133 / 246132 bytes; encrypted prefix: 102400 each; clear tails: 143733 / 143732. These actual native load/save/restarts cross the 100 KiB boundary, rather than inferring support from input size or an offline random test. No phase2 Frida trace was taken; phase1 zlib-buffer correlations remain separate. Evidence: `large-comment-native-audit.json`, `large-comment-observed.json`, `large-comment-disk-versus-com.json`.
+
+### Scripts, retained failures and end state
+
+- `passive_native.py`: hash-pinned two-cycle native observation, fixed expectations and preserved negative results. Use `batch --manifest MANIFEST` with fresh case names and exclusive ownership.
+- `audit_passive.py`: offline recheck of gates, hashes, native exits, dwell and media; `--manifest MANIFEST --results RESULTS --out NEW_JSON`.
+- `bulk_native.py`: manifest import/setters/readbacks and repeated snapshots. Run only with an external supervisor/timeout.
+- `bulk_driver.py`: native identity/exit supervision and immutable donor snapshots; `--live ITL --root SYNTHETIC_ROOT --report REPORT --name NEW_CASE --spec SPEC`.
+- `phase2_selftest.py`: eight mocked regressions for stale/fresh Name, uninferred Unplayed, immutable expectations, identity refusal and scoped negative observations. Combined with the original 18, there are 26 offline tests, not 26 additional native tests.
+
+Preparation command 065 omitted required --scratch; its CLI error remains recorded and corrected tests passed. Reselection command 078's modal guard fired immediately after posting Open, before any COM worker or large-candidate staging. The exact transient modal at failure was not retained. Read-only 079 verified the same owned process and found the known audio warning, entry bytes intact. 080 handled only that warning, verified the original full native state, exited normally, then ran the direct Comment trial. No unexpected/damaged/cloud dialog was dismissed; no phase2 native process was force-stopped.
+
+Native work ended with the original isolated path selected, entry bytes restored exactly to SHA `090eeaa4860f1f0909540596c5bd1f2338537b961355cfc2d362855593d5a4bb`, and iTunes stopped (`080-final-native-restoration.json`). The final report records QA, commit and explicit ownership handoff. Remaining limits include unimported 736 tracks, absent in-memory dirty flag, no generic unknown-flag policy, no arbitrary-media/cross-library acceptance, and no playback/other-version/Store/macOS validation.

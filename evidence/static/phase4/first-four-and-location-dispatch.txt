@@ -1,0 +1,533 @@
+--- 00f6e820.c SHA256 bcc48816a3ea215efd0e7bb61f7373b459175dd125fcd1b02a556b80852e4534 ---
+1: /* Actual Ghidra 12.1.3 decompilation; module=iTunes.exe; image_base=0x140000000; RVA=0xf6e820; SHA256=30d91209b5d81c47bbad2da9d89764fcab08bf5cd9af1a9571668001376c5d7d */
+2: 
+3: undefined8
+4: FUN_140f6e820(longlong *param_1,undefined4 param_2,undefined4 param_3,undefined8 param_4,
+5:              undefined1 param_5,longlong param_6,longlong param_7,undefined8 *param_8)
+6: 
+7: {
+8:   longlong *plVar1;
+9:   int *piVar2;
+10:   int iVar3;
+11:   longlong lVar4;
+12:   longlong *plVar5;
+13:   longlong *plStack_28;
+14:   longlong *plStack_20;
+15:   
+16:   plVar5 = (longlong *)FUN_140f6e110(param_1,param_4,2);
+17:   if (plVar5 != (longlong *)0x0) {
+18:     if (param_7 != 0) {
+19:       plVar5[0x10] = param_7;
+20:       *(byte *)((longlong)plVar5 + 0x8c) = *(byte *)((longlong)plVar5 + 0x8c) & 0xfe;
+21:     }
+22:     (**(code **)(*plVar5 + 0xa8))(plVar5,param_5);
+23:     if (param_6 != 0) {
+24:       FUN_140f70b00(plVar5,&plStack_28);
+25:       if (plStack_28 != (longlong *)0x0) {
+26:         (**(code **)(*plStack_28 + 0x220))(plStack_28,param_6);
+27:       }
+28:       if (plStack_20 != (longlong *)0x0) {
+29:         LOCK();
+30:         plVar1 = plStack_20 + 1;
+31:         lVar4 = *plVar1;
+32:         *(int *)plVar1 = (int)*plVar1 + -1;
+33:         UNLOCK();
+34:         if ((int)lVar4 == 1) {
+35:           (**(code **)*plStack_20)(plStack_20);
+36:           LOCK();
+37:           piVar2 = (int *)((longlong)plStack_20 + 0xc);
+38:           iVar3 = *piVar2;
+39:           *piVar2 = *piVar2 + -1;
+40:           UNLOCK();
+41:           if (iVar3 == 1) {
+42:             (**(code **)(*plStack_20 + 8))(plStack_20);
+43:           }
+44:         }
+45:       }
+46:     }
+47:     FUN_140bffff0(plVar5 + 0x1f,param_1 + 0x41,param_2,0);
+48:     FUN_140bffff0(plVar5 + 0x22,param_1 + 0x2ff,param_3,0);
+49:     func_0x000140f6e7b0(plVar5);
+50:     (**(code **)(*param_1 + 8))(param_1,0x74326161,param_1,plVar5,0);
+51:     *param_8 = plVar5;
+52:   }
+53:   return 0;
+54: }
+55: 
+--- 00f92b80.c SHA256 226c19f6b4dfec72d63cfb933ef303f3088dc453d570f924dffb0b80c080391b ---
+1: /* Actual Ghidra 12.1.3 decompilation; module=iTunes.exe; image_base=0x140000000; RVA=0xf92b80; SHA256=30d91209b5d81c47bbad2da9d89764fcab08bf5cd9af1a9571668001376c5d7d */
+2: 
+3: /* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
+4: 
+5: longlong *
+6: FUN_140f92b80(longlong param_1,undefined4 param_2,longlong *param_3,longlong *param_4,
+7:              undefined4 param_5,longlong param_6)
+8: 
+9: {
+10:   int *piVar1;
+11:   longlong *plVar2;
+12:   char cVar3;
+13:   int iVar4;
+14:   undefined4 uVar5;
+15:   longlong *plVar6;
+16:   longlong lVar7;
+17:   uint uVar8;
+18:   longlong *plStackX_18;
+19:   longlong *plStackX_20;
+20:   
+21:   if (0x7ffffffe < *(uint *)(param_1 + 0xa4)) {
+22:     return (longlong *)0x0;
+23:   }
+24:   uVar8 = *(uint *)(param_1 + 0xa4) / 10;
+25:   if (uVar8 < 100) {
+26:     uVar8 = 100;
+27:   }
+28:   else if (2000 < uVar8) {
+29:     uVar8 = 2000;
+30:   }
+31:   piVar1 = *(int **)(param_1 + 0x120);
+32:   if (((piVar1 != (int *)0x0) && (*piVar1 == 0x46697841)) && (uVar8 != 0)) {
+33:     piVar1[2] = uVar8;
+34:   }
+35:   piVar1 = *(int **)(param_1 + 0x128);
+36:   if (((piVar1 != (int *)0x0) && (*piVar1 == 0x46697841)) && (uVar8 != 0)) {
+37:     piVar1[2] = uVar8;
+38:   }
+39:   piVar1 = *(int **)(param_1 + 0x130);
+40:   uVar8 = uVar8 >> 1;
+41:   if (((piVar1 != (int *)0x0) && (*piVar1 == 0x46697841)) && (uVar8 != 0)) {
+42:     piVar1[2] = uVar8;
+43:   }
+44:   piVar1 = *(int **)(param_1 + 0x138);
+45:   if (((piVar1 != (int *)0x0) && (*piVar1 == 0x46697841)) && (uVar8 != 0)) {
+46:     piVar1[2] = uVar8;
+47:   }
+48:   plStackX_18 = param_3;
+49:   plStackX_20 = param_4;
+50:   plVar6 = (longlong *)FUN_140bc62b0(*(undefined8 *)(param_1 + 0x120));
+51:   if (plVar6 == (longlong *)0x0) {
+52:     return (longlong *)0x0;
+53:   }
+54:   plVar6[2] = param_1;
+55:   LOCK();
+56:   UNLOCK();
+57:   iVar4 = _DAT_141fe9130 + 1;
+58:   *(int *)(plVar6 + 1) = _DAT_141fe9130;
+59:   _DAT_141fe9130 = iVar4;
+60:   plVar6[0xd] = 0x1420af610;
+61:   plVar6[0xe] = 0x1420a7020;
+62:   plVar6[0xf] = 0x1420a70a0;
+63:   plVar6[0x10] = 0x1420a7060;
+64:   if (param_6 == 0) {
+65:     param_6 = func_0x000140eb8020(param_1);
+66:   }
+67:   *plVar6 = param_6;
+68:   *(undefined4 *)(plVar6 + 0x15) = *(undefined4 *)(_DAT_1420a6f30 + 0x15558);
+69:   lVar7 = FUN_140fa5b70(plVar6,param_2,param_5);
+70:   plVar2 = plStackX_18;
+71:   if (lVar7 == 0) {
+72: LAB_140f92e46:
+73:     FUN_140f910a0(plVar6);
+74:     plVar6 = (longlong *)0x0;
+75:   }
+76:   else {
+77:     if (*(char *)(param_1 + 0x2041) == '\x01') {
+78:       *(undefined1 *)(param_1 + 0x2041) = 0;
+79:     }
+80:     if (plStackX_18 == (longlong *)0x0) {
+81:       cVar3 = FUN_140ecfc10(param_1);
+82:       if (cVar3 == '\0') {
+83:         FUN_14108a360(param_1,plVar6,1,&plStackX_18);
+84:       }
+85:       else {
+86:         plStackX_18 = (longlong *)FUN_14108b070();
+87:       }
+88:     }
+89:     else {
+90:       uVar5 = GetCurrentThreadId();
+91:       FUN_140bd00e0(uVar5);
+92:       *(int *)((longlong)plVar2 + 0xc) = *(int *)((longlong)plVar2 + 0xc) + 1;
+93:     }
+94:     if (plStackX_18 != (longlong *)0x0) {
+95:       if (((int)plStackX_18[1] == 0x616c6269) && (plStackX_18[6] != 0)) {
+96:         iVar4 = FUN_140f6c3e0(plStackX_18,plVar6);
+97:       }
+98:       else {
+99:         iVar4 = -0x32;
+100:       }
+101:       plVar2 = plStackX_18;
+102:       if (plStackX_18 != (longlong *)0x0) {
+103:         uVar5 = GetCurrentThreadId();
+104:         FUN_140bd00e0(uVar5);
+105:         piVar1 = (int *)((longlong)plVar2 + 0xc);
+106:         *piVar1 = *piVar1 + -1;
+107:         if (*piVar1 == 0) {
+108:           FUN_140f69310(plVar2);
+109:           (**(code **)(*plVar2 + 8))(plVar2,1);
+110:         }
+111:       }
+112:       if (iVar4 != 0) goto LAB_140f92e46;
+113:     }
+114:     if (param_4 == (longlong *)0x0) {
+115:       cVar3 = FUN_140ecfc10(param_1);
+116:       if ((cVar3 == '\0') && ((*(byte *)(param_1 + 0x114) & 0x10) == 0)) {
+117:         FUN_140f6f110(param_1,plVar6,0,&plStackX_20);
+118:         param_4 = plStackX_20;
+119:       }
+120:       else {
+121:         param_4 = (longlong *)FUN_140f721d0(param_1);
+122:       }
+123:     }
+124:     else {
+125:       uVar5 = GetCurrentThreadId();
+126:       FUN_140bd00e0(uVar5);
+127:       (**(code **)(*param_4 + 0xc0))(param_4);
+128:     }
+129:     if (param_4 != (longlong *)0x0) {
+130:       iVar4 = FUN_140f6fa00(param_4,plVar6);
+131:       uVar5 = GetCurrentThreadId();
+132:       FUN_140bd00e0(uVar5);
+133:       (**(code **)(*param_4 + 200))(param_4);
+134:       if (iVar4 != 0) goto LAB_140f92e46;
+135:     }
+136:     FUN_140f930a0(plVar6);
+137:     *(byte *)((longlong)plVar6 + 0x9a) = *(byte *)((longlong)plVar6 + 0x9a) | 1;
+138:   }
+139:   return plVar6;
+140: }
+141: 
+--- 0106b450.c SHA256 5cf338a38a67e7358e1714454c6ed90995985adaa2e93bb0920cadd0fd2427e3 ---
+1: /* Actual Ghidra 12.1.3 decompilation; module=iTunes.exe; image_base=0x140000000; RVA=0x106b450; SHA256=30d91209b5d81c47bbad2da9d89764fcab08bf5cd9af1a9571668001376c5d7d */
+2: 
+3: ulonglong FUN_14106b450(longlong param_1,int param_2)
+4: 
+5: {
+6:   uint uVar1;
+7:   longlong lVar2;
+8:   char cVar3;
+9:   ulonglong in_RAX;
+10:   ulonglong uVar4;
+11:   bool bVar5;
+12:   
+13:   if ((((param_1 != 0) && (lVar2 = *(longlong *)(param_1 + 8), lVar2 != 0)) &&
+14:       (*(longlong *)(lVar2 + 0x10) != 0)) && ((*(byte *)(lVar2 + 0x9a) & 8) == 0)) {
+15:     if (param_2 == 1) {
+16:       bVar5 = param_1 == *(longlong *)(lVar2 + 0x58);
+17:     }
+18:     else {
+19:       if (param_2 != 0xd) goto LAB_14106b50e;
+20:       bVar5 = param_1 != *(longlong *)(lVar2 + 0x58);
+21:     }
+22:     in_RAX = CONCAT71((int7)(in_RAX >> 8),bVar5);
+23:     if (((bVar5 != false) && (*(longlong *)(lVar2 + 0x60) != 0)) &&
+24:        ((*(int *)(param_1 + 0x34) != 0x53485244 ||
+25:         ((cVar3 = FUN_140fa9b00(), cVar3 != '\0' ||
+26:          (in_RAX = FUN_140fa9c50(param_1), (char)in_RAX == '\0')))))) {
+27:       uVar4 = FUN_140fa0b70(lVar2,0);
+28:       if ((uVar4 & 0x200004) == 0) {
+29:         FUN_140fa9b00(param_1);
+30:       }
+31:       uVar1 = *(uint *)(param_1 + 0x34);
+32:       in_RAX = (ulonglong)uVar1;
+33:       if (uVar1 != 0x44574e4c) {
+34:         return (ulonglong)CONCAT31((int3)(uVar1 >> 8),uVar1 != 0x4d425546);
+35:       }
+36:     }
+37:   }
+38: LAB_14106b50e:
+39:   return in_RAX & 0xffffffffffffff00;
+40: }
+41: 
+--- 01087800.c SHA256 e49ff23640989f8985b0b49d3f5b0c41e48fb2d4e313f95be641604c889fa9f2 ---
+1: /* Actual Ghidra 12.1.3 decompilation; module=iTunes.exe; image_base=0x140000000; RVA=0x1087800; SHA256=30d91209b5d81c47bbad2da9d89764fcab08bf5cd9af1a9571668001376c5d7d */
+2: 
+3: undefined8
+4: FUN_141087800(longlong *param_1,undefined4 param_2,undefined4 param_3,undefined4 param_4,
+5:              undefined1 param_5,undefined8 param_6,undefined1 param_7,undefined8 param_8,
+6:              longlong *param_9)
+7: 
+8: {
+9:   longlong lVar1;
+10:   longlong lVar2;
+11:   undefined8 uVar3;
+12:   
+13:   lVar2 = FUN_140f690b0(2,param_1,param_6);
+14:   if (lVar2 == 0) {
+15:     uVar3 = 0xffffffce;
+16:   }
+17:   else {
+18:     *param_9 = lVar2;
+19:     *(undefined1 *)(lVar2 + 0x90) = param_7;
+20:     *(undefined8 *)(lVar2 + 0x88) = param_8;
+21:     FUN_140bffff0(lVar2 + 0xe8,param_1 + 0x38,param_2,0);
+22:     *(undefined4 *)(lVar2 + 0x100) = param_3;
+23:     *(undefined4 *)(lVar2 + 0x104) = param_4;
+24:     *(undefined1 *)(lVar2 + 0x108) = param_5;
+25:     if (((*(int *)(lVar2 + 8) == 0x616c6269) && (lVar1 = *(longlong *)(lVar2 + 0x30), lVar1 != 0))
+26:        && (*(int *)(lVar1 + 0x80) == 0x74646174)) {
+27:       *(undefined8 *)(lVar2 + 0x38) = 0;
+28:       *(undefined8 *)(lVar2 + 0x40) = *(undefined8 *)(lVar1 + 0xe8);
+29:       if (*(longlong *)(lVar1 + 0xe8) == 0) {
+30:         *(longlong *)(lVar1 + 0xe0) = lVar2;
+31:       }
+32:       else {
+33:         *(longlong *)(*(longlong *)(lVar1 + 0xe8) + 0x38) = lVar2;
+34:       }
+35:       *(int *)(lVar1 + 0xac) = *(int *)(lVar1 + 0xac) + 1;
+36:       *(longlong *)(lVar1 + 0xe8) = lVar2;
+37:     }
+38:     (**(code **)(*param_1 + 8))(param_1,0x74646161,param_1,lVar2,0);
+39:     uVar3 = 0;
+40:   }
+41:   return uVar3;
+42: }
+43: 
+--- EXISTING CHANGE MASK DISPATCH ASM ---
+00ed6940 4c8bdc mov r11, rsp
+00ed6943 57 push rdi
+00ed6944 4883ec60 sub rsp, 0x60
+00ed6948 488b05f1e60f01 mov rax, qword ptr [rip + 0x10fe6f1]
+00ed694f 4833c4 xor rax, rsp
+00ed6952 4889442448 mov qword ptr [rsp + 0x48], rax
+00ed6957 49895b18 mov qword ptr [r11 + 0x18], rbx
+00ed695b 488bfa mov rdi, rdx
+00ed695e 4d8973e8 mov qword ptr [r11 - 0x18], r14
+00ed6962 458bf0 mov r14d, r8d
+00ed6965 488bd9 mov rbx, rcx
+00ed6968 4885d2 test rdx, rdx
+00ed696b 0f8433030000 je 0xed6ca4
+00ed6971 f6420708 test byte ptr [rdx + 7], 8
+00ed6975 0f1002 movups xmm0, xmmword ptr [rdx]
+00ed6978 49896b20 mov qword ptr [r11 + 0x20], rbp
+00ed697c 0f104a10 movups xmm1, xmmword ptr [rdx + 0x10]
+00ed6980 0f11442428 movups xmmword ptr [rsp + 0x28], xmm0
+00ed6985 0f114c2438 movups xmmword ptr [rsp + 0x38], xmm1
+00ed698a 7446 je 0xed69d2
+00ed698c 4885c9 test rcx, rcx
+00ed698f 7441 je 0xed69d2
+00ed6991 488b4910 mov rcx, qword ptr [rcx + 0x10]
+00ed6995 4885c9 test rcx, rcx
+00ed6998 7438 je 0xed69d2
+00ed699a 81b98000000074616474 cmp dword ptr [rcx + 0x80], 0x74646174
+00ed69a4 752c jne 0xed69d2
+00ed69a6 e86592ffff call 0xecfc10
+00ed69ab 84c0 test al, al
+00ed69ad 7523 jne 0xed69d2
+00ed69af 33d2 xor edx, edx
+00ed69b1 488bcb mov rcx, rbx
+00ed69b4 e8b7a10c00 call 0xfa0b70
+00ed69b9 0fbae002 bt eax, 2
+00ed69bd 0fb6839d000000 movzx eax, byte ptr [rbx + 0x9d]
+00ed69c4 7304 jae 0xed69ca
+00ed69c6 0c40 or al, 0x40
+00ed69c8 eb02 jmp 0xed69cc
+00ed69ca 24bf and al, 0xbf
+00ed69cc 88839d000000 mov byte ptr [rbx + 0x9d], al
+00ed69d2 f60720 test byte ptr [rdi], 0x20
+00ed69d5 4889742458 mov qword ptr [rsp + 0x58], rsi
+00ed69da 7426 je 0xed6a02
+00ed69dc 0fb6742431 movzx esi, byte ptr [rsp + 0x31]
+00ed69e1 418bd6 mov edx, r14d
+00ed69e4 4080ce02 or sil, 2
+00ed69e8 83ca02 or edx, 2
+00ed69eb f6470902 test byte ptr [rdi + 9], 2
+00ed69ef 488bcb mov rcx, rbx
+00ed69f2 4088742431 mov byte ptr [rsp + 0x31], sil
+00ed69f7 410f44d6 cmove edx, r14d
+00ed69fb e88011ffff call 0xec7b80
+00ed6a00 eb0f jmp 0xed6a11
+00ed6a02 f30f6f442428 movdqu xmm0, xmmword ptr [rsp + 0x28]
+00ed6a08 660f73d809 psrldq xmm0, 9
+00ed6a0d 660f7ec6 movd esi, xmm0
+00ed6a11 0fb64709 movzx eax, byte ptr [rdi + 9]
+00ed6a15 33ed xor ebp, ebp
+00ed6a17 a802 test al, 2
+00ed6a19 7411 je 0xed6a2c
+00ed6a1b 4088aba1000000 mov byte ptr [rbx + 0xa1], bpl
+00ed6a22 89abe0000000 mov dword ptr [rbx + 0xe0], ebp
+00ed6a28 0fb64709 movzx eax, byte ptr [rdi + 9]
+00ed6a2c f60710 test byte ptr [rdi], 0x10
+00ed6a2f 7423 je 0xed6a54
+00ed6a31 4080ce01 or sil, 1
+00ed6a35 418bd6 mov edx, r14d
+00ed6a38 83ca02 or edx, 2
+00ed6a3b 4088742431 mov byte ptr [rsp + 0x31], sil
+00ed6a40 f6470901 test byte ptr [rdi + 9], 1
+00ed6a44 488bcb mov rcx, rbx
+00ed6a47 410f44d6 cmove edx, r14d
+00ed6a4b e85013ffff call 0xec7da0
+00ed6a50 0fb64709 movzx eax, byte ptr [rdi + 9]
+00ed6a54 a801 test al, 1
+00ed6a56 740d je 0xed6a65
+00ed6a58 4088aba3000000 mov byte ptr [rbx + 0xa3], bpl
+00ed6a5f 89abe4000000 mov dword ptr [rbx + 0xe4], ebp
+00ed6a65 f60708 test byte ptr [rdi], 8
+00ed6a68 7426 je 0xed6a90
+00ed6a6a 0fb6742432 movzx esi, byte ptr [rsp + 0x32]
+00ed6a6f 418bd6 mov edx, r14d
+00ed6a72 4080ce80 or sil, 0x80
+00ed6a76 83ca02 or edx, 2
+00ed6a79 40386f0a cmp byte ptr [rdi + 0xa], bpl
+00ed6a7d 488bcb mov rcx, rbx
+00ed6a80 4088742432 mov byte ptr [rsp + 0x32], sil
+00ed6a85 410f4dd6 cmovge edx, r14d
+00ed6a89 e8e211ffff call 0xec7c70
+00ed6a8e eb0f jmp 0xed6a9f
+00ed6a90 f30f6f442428 movdqu xmm0, xmmword ptr [rsp + 0x28]
+00ed6a96 660f73d80a psrldq xmm0, 0xa
+00ed6a9b 660f7ec6 movd esi, xmm0
+00ed6a9f 40386f0a cmp byte ptr [rdi + 0xa], bpl
+00ed6aa3 7d13 jge 0xed6ab8
+00ed6aa5 4088aba2000000 mov byte ptr [rbx + 0xa2], bpl
+00ed6aac 89abe8000000 mov dword ptr [rbx + 0xe8], ebp
+00ed6ab2 89abf8000000 mov dword ptr [rbx + 0xf8], ebp
+00ed6ab8 f6470801 test byte ptr [rdi + 8], 1
+00ed6abc 741f je 0xed6add
+00ed6abe 4080ce40 or sil, 0x40
+00ed6ac2 418bd6 mov edx, r14d
+00ed6ac5 83ca02 or edx, 2
+00ed6ac8 4088742432 mov byte ptr [rsp + 0x32], sil
+00ed6acd f6470a40 test byte ptr [rdi + 0xa], 0x40
+00ed6ad1 488bcb mov rcx, rbx
+00ed6ad4 410f44d6 cmove edx, r14d
+00ed6ad8 e8f313ffff call 0xec7ed0
+00ed6add f6470220 test byte ptr [rdi + 2], 0x20
+00ed6ae1 741f je 0xed6b02
+00ed6ae3 4080ce20 or sil, 0x20
+00ed6ae7 418bd6 mov edx, r14d
+00ed6aea 83ca02 or edx, 2
+00ed6aed 4088742432 mov byte ptr [rsp + 0x32], sil
+00ed6af2 f6470a20 test byte ptr [rdi + 0xa], 0x20
+00ed6af6 488bcb mov rcx, rbx
+00ed6af9 410f44d6 cmove edx, r14d
+00ed6afd e8ae14ffff call 0xec7fb0
+00ed6b02 f6470702 test byte ptr [rdi + 7], 2
+00ed6b06 741f je 0xed6b27
+00ed6b08 4080ce10 or sil, 0x10
+00ed6b0c 418bd6 mov edx, r14d
+00ed6b0f 83ca02 or edx, 2
+00ed6b12 4088742432 mov byte ptr [rsp + 0x32], sil
+00ed6b17 f6470a10 test byte ptr [rdi + 0xa], 0x10
+00ed6b1b 488bcb mov rcx, rbx
+00ed6b1e 410f44d6 cmove edx, r14d
+00ed6b22 e86915ffff call 0xec8090
+00ed6b27 40386f01 cmp byte ptr [rdi + 1], bpl
+00ed6b2b 7d0d jge 0xed6b3a
+00ed6b2d 4088aba4000000 mov byte ptr [rbx + 0xa4], bpl
+00ed6b34 89abec000000 mov dword ptr [rbx + 0xec], ebp
+00ed6b3a f6470a04 test byte ptr [rdi + 0xa], 4
+00ed6b3e 742b je 0xed6b6b
+00ed6b40 4885db test rbx, rbx
+00ed6b43 7426 je 0xed6b6b
+00ed6b45 488b4b10 mov rcx, qword ptr [rbx + 0x10]
+00ed6b49 4885c9 test rcx, rcx
+00ed6b4c 741d je 0xed6b6b
+00ed6b4e 81b98000000074616474 cmp dword ptr [rcx + 0x80], 0x74646174
+00ed6b58 7511 jne 0xed6b6b
+00ed6b5a e8b190ffff call 0xecfc10
+00ed6b5f 84c0 test al, al
+00ed6b61 7508 jne 0xed6b6b
+00ed6b63 488bcb mov rcx, rbx
+00ed6b66 e8353b1b00 call 0x108a6a0
+00ed6b6b f6470708 test byte ptr [rdi + 7], 8
+00ed6b6f 0f8422010000 je 0xed6c97
+00ed6b75 4885db test rbx, rbx
+00ed6b78 0f8411010000 je 0xed6c8f
+00ed6b7e 488b4b10 mov rcx, qword ptr [rbx + 0x10]
+00ed6b82 e88990ffff call 0xecfc10
+00ed6b87 0fb6d0 movzx edx, al
+00ed6b8a 84c0 test al, al
+00ed6b8c 751b jne 0xed6ba9
+00ed6b8e 488b4b28 mov rcx, qword ptr [rbx + 0x28]
+00ed6b92 4885c9 test rcx, rcx
+00ed6b95 7403 je 0xed6b9a
+00ed6b97 89695c mov dword ptr [rcx + 0x5c], ebp
+00ed6b9a 488b4b40 mov rcx, qword ptr [rbx + 0x40]
+00ed6b9e 4885c9 test rcx, rcx
+00ed6ba1 7406 je 0xed6ba9
+00ed6ba3 89a998000000 mov dword ptr [rcx + 0x98], ebp
+00ed6ba9 488b4310 mov rax, qword ptr [rbx + 0x10]
+00ed6bad 4885c0 test rax, rax
+00ed6bb0 0f84e1000000 je 0xed6c97
+00ed6bb6 84d2 test dl, dl
+00ed6bb8 0f85d9000000 jne 0xed6c97
+00ed6bbe 81b88000000074616474 cmp dword ptr [rax + 0x80], 0x74646174
+00ed6bc8 0f85c9000000 jne 0xed6c97
+00ed6bce f6801001000001 test byte ptr [rax + 0x110], 1
+00ed6bd5 0f84bc000000 je 0xed6c97
+00ed6bdb f6839a00000008 test byte ptr [rbx + 0x9a], 8
+00ed6be2 0f85af000000 jne 0xed6c97
+00ed6be8 33d2 xor edx, edx
+00ed6bea 488bcb mov rcx, rbx
+00ed6bed e87e9f0c00 call 0xfa0b70
+00ed6bf2 a804 test al, 4
+00ed6bf4 7430 je 0xed6c26
+00ed6bf6 488b7310 mov rsi, qword ptr [rbx + 0x10]
+00ed6bfa ba0a000000 mov edx, 0xa
+00ed6bff 488bce mov rcx, rsi
+00ed6c02 4533c0 xor r8d, r8d
+00ed6c05 e8b6000200 call 0xef6cc0
+00ed6c0a 4885c0 test rax, rax
+00ed6c0d 740e je 0xed6c1d
+00ed6c0f 4533c0 xor r8d, r8d
+00ed6c12 488bd3 mov rdx, rbx
+00ed6c15 488bce mov rcx, rsi
+00ed6c18 e8d3471200 call 0xffb3f0
+00ed6c1d 808b9d00000040 or byte ptr [rbx + 0x9d], 0x40
+00ed6c24 eb71 jmp 0xed6c97
+00ed6c26 4038ab9d000000 cmp byte ptr [rbx + 0x9d], bpl
+00ed6c2d 7c68 jl 0xed6c97
+00ed6c2f 488bcb mov rcx, rbx
+00ed6c32 e8f9a71200 call 0x1001430
+00ed6c37 488b4b10 mov rcx, qword ptr [rbx + 0x10]
+00ed6c3b ba0a000000 mov edx, 0xa
+00ed6c40 4533c0 xor r8d, r8d
+00ed6c43 e878000200 call 0xef6cc0
+00ed6c48 488be8 mov rbp, rax
+00ed6c4b 4885c0 test rax, rax
+00ed6c4e 7436 je 0xed6c86
+00ed6c50 813874736c70 cmp dword ptr [rax], 0x706c7374
+00ed6c56 752e jne 0xed6c86
+00ed6c58 48837b1000 cmp qword ptr [rbx + 0x10], 0
+00ed6c5d 7427 je 0xed6c86
+00ed6c5f 488b4b60 mov rcx, qword ptr [rbx + 0x60]
+00ed6c63 4885c9 test rcx, rcx
+00ed6c66 741e je 0xed6c86
+00ed6c68 0f1f840000000000 nop dword ptr [rax + rax]
+00ed6c70 488b7138 mov rsi, qword ptr [rcx + 0x38]
+00ed6c74 483929 cmp qword ptr [rcx], rbp
+00ed6c77 7505 jne 0xed6c7e
+00ed6c79 e802630e00 call 0xfbcf80
+00ed6c7e 488bce mov rcx, rsi
+00ed6c81 4885f6 test rsi, rsi
+00ed6c84 75ea jne 0xed6c70
+00ed6c86 80a39d000000bf and byte ptr [rbx + 0x9d], 0xbf
+00ed6c8d eb08 jmp 0xed6c97
+00ed6c8f 488bcd mov rcx, rbp
+00ed6c92 e8798fffff call 0xecfc10
+00ed6c97 488b742458 mov rsi, qword ptr [rsp + 0x58]
+00ed6c9c 488bac2488000000 mov rbp, qword ptr [rsp + 0x88]
+00ed6ca4 41f6c604 test r14b, 4
+00ed6ca8 4c8b742450 mov r14, qword ptr [rsp + 0x50]
+00ed6cad 750f jne 0xed6cbe
+00ed6caf 4c8d442428 lea r8, [rsp + 0x28]
+00ed6cb4 33d2 xor edx, edx
+00ed6cb6 488bcb mov rcx, rbx
+00ed6cb9 e8921cfeff call 0xeb8950
+00ed6cbe 488b9c2480000000 mov rbx, qword ptr [rsp + 0x80]
+00ed6cc6 4885ff test rdi, rdi
+00ed6cc9 7411 je 0xed6cdc
+00ed6ccb 0f10442428 movups xmm0, xmmword ptr [rsp + 0x28]
+00ed6cd0 0f104c2438 movups xmm1, xmmword ptr [rsp + 0x38]
+00ed6cd5 0f1107 movups xmmword ptr [rdi], xmm0
+00ed6cd8 0f114f10 movups xmmword ptr [rdi + 0x10], xmm1
+00ed6cdc 488b4c2448 mov rcx, qword ptr [rsp + 0x48]
+00ed6ce1 4833cc xor rcx, rsp
+00ed6ce4 e8f74b8c00 call 0x179b8e0
+00ed6ce9 4883c460 add rsp, 0x60
+00ed6ced 5f pop rdi
+00ed6cee c3 ret 
+native_empty TRACK_ID_RANGES {"0x10": {"min": 0, "max": 0}, "0x1f4": {"min": 0, "max": 0}}
+native_import TRACK_ID_RANGES {"0x10": {"min": 139, "max": 367}, "0x1f4": {"min": 140, "max": 368}}
+native_reload TRACK_ID_RANGES {"0x10": {"min": 89, "max": 151}, "0x1f4": {"min": 90, "max": 152}}
+LOCATION_CHECKS {"all32_have_path13_url11_only": true, "all32_paths_match_dynamic_location": true, "all32_url_match_ascii_file_localhost": true, "all32_files_exist": true}

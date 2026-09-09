@@ -1,0 +1,98 @@
+[
+  {
+    "case": "110-codec-track-restore",
+    "result_file": "reports/dynamic/acceptance/110-codec-track-restore/result.json",
+    "result_exists": true,
+    "source_sha256": "5e0111b7cf7b1f395e724bfd8f253d1971c5c820d8300799d372c6948c1ea44b",
+    "top_keys": [
+      "name",
+      "candidate",
+      "expected_sha256",
+      "status",
+      "cycles",
+      "previous_live_sha256",
+      "staged_sha256",
+      "native_acceptance",
+      "note"
+    ],
+    "root_status": {
+      "status": "passed"
+    },
+    "snapshots": [
+      {
+        "file": "110-codec-track-restore-reload1.itl",
+        "sha256": "c5b65efbe53e2c3df8aaba20126e106270cc5043bcee1c7918f539e39626b85b",
+        "hash_found_in_result": true
+      },
+      {
+        "file": "110-codec-track-restore-reload2.itl",
+        "sha256": "65fbd646230f69deff8b097553961a26319ff7b5adefc9034232f8bf28722de2",
+        "hash_found_in_result": true
+      }
+    ]
+  },
+  {
+    "case": "111-codec-track-delete",
+    "result_file": "reports/dynamic/acceptance/111-codec-track-delete/result.json",
+    "result_exists": true,
+    "source_sha256": "9f9877df36b91194679cd3735d574fb4c122476b7396cbe3761844f51645daec",
+    "top_keys": [
+      "name",
+      "candidate",
+      "expected_sha256",
+      "status",
+      "cycles",
+      "previous_live_sha256",
+      "staged_sha256",
+      "native_acceptance",
+      "note"
+    ],
+    "root_status": {
+      "status": "passed"
+    },
+    "snapshots": [
+      {
+        "file": "111-codec-track-delete-reload1.itl",
+        "sha256": "00ce877fcefe5fab71a8b34bb96a00b831de3f6c3dbe4177ac5e979108ad17b7",
+        "hash_found_in_result": true
+      },
+      {
+        "file": "111-codec-track-delete-reload2.itl",
+        "sha256": "c43d44d2a08d733132a6f8fa2277a549cf381dccf997d25b0c6a30d5e16cea8b",
+        "hash_found_in_result": true
+      }
+    ]
+  },
+  {
+    "case": "112-codec-track-indexed",
+    "result_file": "reports/dynamic/acceptance/112-codec-track-indexed/result.json",
+    "result_exists": true,
+    "source_sha256": "1d9fa4f5ae9fbbf63d164ed5816f662e178a2a309f6cd49b1c7ec24be1a03211",
+    "top_keys": [
+      "name",
+      "candidate",
+      "expected_sha256",
+      "status",
+      "cycles",
+      "previous_live_sha256",
+      "staged_sha256",
+      "native_acceptance",
+      "note"
+    ],
+    "root_status": {
+      "status": "passed"
+    },
+    "snapshots": [
+      {
+        "file": "112-codec-track-indexed-reload1.itl",
+        "sha256": "53880d0fdc61d66376f95b270da1da565f503c157fce6991b2f639c42f481422",
+        "hash_found_in_result": true
+      },
+      {
+        "file": "112-codec-track-indexed-reload2.itl",
+        "sha256": "87e3b77ffcf32650a5a59386c9329d77974e24e5da70c69ff93aa87089d96746",
+        "hash_found_in_result": true
+      }
+    ]
+  }
+]

@@ -10,7 +10,7 @@ PL=0xF001000000000002
 
 def make_library(*,master_only=False,opaque=None):
     playlists=[playlist([1,2,3],pid=MASTER,master=True)]
-    if not master_only:playlists.append(playlist([1,2],pid=PL))
+    if not master_only:playlists.append(playlist([1,2],pid=PL,local_id=5))
     lib=Library.from_bytes(library_bytes(tracks=[track(1),track(2),track(3)],playlists=playlists,opaque=opaque))
     lib._root(12).children=[]  # no global unknown references in this synthetic profile
     for i,p in enumerate(lib.playlists):

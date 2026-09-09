@@ -1,0 +1,12 @@
+{
+  "name": "113-codec-fresh-modified",
+  "candidate": "D:\\a\\_temp\\gha-mcp\\WINDOWS_RESEARCH_RUN\\work\\itl\\reports\\codec\\native-fresh-modified.itl",
+  "expected_sha256": "34e4b4348ee4db611d59c1da23791700558c3c91bc44504e4d89a8e5c228ec0f",
+  "status": "failed",
+  "cycles": [],
+  "previous_live_sha256": "87e3b77ffcf32650a5a59386c9329d77974e24e5da70c69ff93aa87089d96746",
+  "staged_sha256": "34e4b4348ee4db611d59c1da23791700558c3c91bc44504e4d89a8e5c228ec0f",
+  "native_acceptance": false,
+  "error": "COM worker failed: 1; inspect D:\\a\\_temp\\gha-mcp\\WINDOWS_RESEARCH_RUN\\work\\itl\\reports\\dynamic\\native-runs\\113-codec-fresh-modified-reload1/worker.log",
+  "traceback": "Traceback (most recent call last):\n  File \"D:\\a\\_temp\\gha-mcp\\WINDOWS_RESEARCH_RUN\\work\\itl\\wt\\dynamic\\scripts\\windows\\native_acceptance.py\", line 39, in accept\n    r=run_case(root,report,c);result['cycles'].append({'name':r['name'],'fixture_path':r['fixture_path'],'fixture_sha256':r['fixture_sha256'],'prelaunch_sha256':r['prelaunch_sha256'],'itunes_exit_code':r['itunes_exit_code'],'worker_exit_code':r['worker_exit_code'],'library_persistent_id':r['observed']['library_persistent_id'],'track_persistent_ids':[t['persistent_id'] for t in r['observed']['tracks']]})\n      ^^^^^^^^^^^^^^^^^^^^^^^\n  File \"D:\\a\\_temp\\gha-mcp\\WINDOWS_RESEARCH_RUN\\work\\itl\\wt\\dynamic\\scripts\\windows\\native_driver.py\", line 53, in run_case\n    if worker.returncode:raise RuntimeError(f'COM worker failed: {worker.returncode}; inspect {out}/worker.log')\n                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nRuntimeError: COM worker failed: 1; inspect D:\\a\\_temp\\gha-mcp\\WINDOWS_RESEARCH_RUN\\work\\itl\\reports\\dynamic\\native-runs\\113-codec-fresh-modified-reload1/worker.log\n"
+}

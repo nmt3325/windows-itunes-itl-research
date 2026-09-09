@@ -1,0 +1,267 @@
+--- 0107b460.c C1020-1141 ---
+1020:           ;
+1021:           **(byte **)(pcVar4 + 0x18) = (bStack_506 & 1) << 2 | **(byte **)(pcVar4 + 0x18) & 0xfb;
+1022:           *(short *)(*(longlong *)(pcVar4 + 0x18) + 2) = sStack_504;
+1023:           *(short *)(*(longlong *)(pcVar4 + 0x18) + 0xc) = sStack_502;
+1024:           *(int *)(*(longlong *)(pcVar4 + 0x18) + 4) = iStack_500;
+1025:           *(short *)(*(longlong *)(pcVar4 + 0x18) + 0xe) = sStack_4fc;
+1026:           *(short *)(*(longlong *)(pcVar4 + 0x18) + 0x10) = sStack_4fa;
+1027:           *(int *)(*(longlong *)(pcVar4 + 0x18) + 8) = iStack_4f8;
+1028:         }
+1029:         if ((char)*(byte *)(uVar13 + 0x9d) < '\0') {
+1030:           *(byte *)(uVar13 + 0x9d) = *(byte *)(uVar13 + 0x9d) & 0xf7;
+1031:           *(byte *)(uVar13 + 0x9a) = *(byte *)(uVar13 + 0x9a) & 0xfd;
+1032:         }
+1033:         if (cStack_52c == '\0') {
+1034:           cStack_788 = '\x01';
+1035:         }
+1036:         else {
+1037:           *(char *)(uVar13 + 0x92) = cStack_52c;
+1038:         }
+1039:         if (cStack_52b == '\0') {
+1040:           cStack_788 = '\x01';
+1041:         }
+1042:         else {
+1043:           *(char *)(uVar13 + 0x93) = cStack_52b;
+1044:         }
+1045:         if (cStack_52a == '\0') {
+1046:           cStack_788 = '\x01';
+1047:         }
+1048:         else {
+1049:           *(char *)(uVar13 + 0x94) = cStack_52a;
+1050:         }
+1051:         if (cStack_529 == '\0') {
+1052:           cStack_788 = '\x01';
+1053:         }
+1054:         else {
+1055:           *(char *)(uVar13 + 0x95) = cStack_529;
+1056:         }
+1057:         if (cStack_528 == '\0') {
+1058:           cStack_788 = '\x01';
+1059:         }
+1060:         else {
+1061:           *(char *)(uVar13 + 0x96) = cStack_528;
+1062:         }
+1063:         if (cStack_527 == '\0') {
+1064:           cStack_788 = '\x01';
+1065:         }
+1066:         else {
+1067:           *(char *)(uVar13 + 0x97) = cStack_527;
+1068:         }
+1069:         FUN_140693570(param_1 + 0x1e002a8,auStack_6b0,&iStack_484,&pcStack_6c0);
+1070:         if (iStack_770 == 1) {
+1071:           FUN_140693570(param_1 + 0x1e00278,&uStack_358,aiStack_670 + 2,&uStack_768);
+1072:           FUN_140af68f0(param_1 + 0x1e00290,auStack_698,&uStack_5f8,&uStack_768);
+1073:         }
+1074:         uStack_778 = 0;
+1075:         if (aiStack_670[1] != 0) {
+1076:           do {
+1077:             pcStack_6c0 = pcVar24;
+1078:             uVar8 = FUN_1410770a0(param_1,&uStack_358,8);
+1079:             if (uVar8 != 0) {
+1080:               return (ulonglong)uVar8;
+1081:             }
+1082:             uVar8 = uStack_354;
+1083:             if (*pcVar24 == '\0') {
+1084:               uVar8 = uStack_354 >> 0x18 | (uStack_354 & 0xff0000) >> 8 | (uStack_354 & 0xff00) << 8
+1085:                       | uStack_354 << 0x18;
+1086:             }
+1087:             puVar18 = auStack_350;
+1088:             uVar10 = 0x18;
+1089:             if (uVar8 < 0x18) {
+1090:               uVar10 = uVar8;
+1091:             }
+1092:             if (8 < uVar10) {
+1093:               uVar23 = (ulonglong)(uVar10 - 8);
+1094:               if (0xa00000 < uVar23) {
+1095:                 return 0xffffff30;
+1096:               }
+1097:               uVar9 = FUN_1410770a0(param_1,auStack_350,uVar23);
+1098:               if (uVar9 != 0) {
+1099:                 return (ulonglong)uVar9;
+1100:               }
+1101:               puVar18 = (uint *)((longlong)auStack_350 + uVar23);
+1102:             }
+1103:             uVar23 = (ulonglong)uStack_354;
+1104:             if ((uVar10 < 0x18) && (puVar18 != (uint *)0x0)) {
+1105:               func_0x00014179cca0(puVar18,0,0x18 - uVar10);
+1106:               uVar23 = (ulonglong)uStack_354;
+1107:             }
+1108:             if (uVar10 < uVar8) {
+1109:               uVar8 = itl_106a520(param_1,uVar8 - uVar10);
+1110:               if (uVar8 != 0) {
+1111:                 return (ulonglong)uVar8;
+1112:               }
+1113:             }
+1114:             pcVar24 = pcStack_6c0;
+1115:             uVar8 = (uint)uVar23;
+1116:             if (*pcStack_6c0 == '\0') {
+1117:               uStack_358 = (uStack_358 & 0xff0000 | uStack_358 >> 0x10) >> 8 |
+1118:                            (uStack_358 << 0x10 | uStack_358 & 0xff00) << 8;
+1119:               uVar8 = (uVar8 & 0xff0000 | (uint)(uVar23 >> 0x10) & 0xffff) >> 8 |
+1120:                       (uVar8 << 0x10 | uVar8 & 0xff00) << 8;
+1121:               auStack_350[0] =
+1122:                    (auStack_350[0] & 0xff0000 | auStack_350[0] >> 0x10) >> 8 |
+1123:                    (auStack_350[0] << 0x10 | auStack_350[0] & 0xff00) << 8;
+1124:               auStack_350[1] =
+1125:                    (auStack_350[1] & 0xff0000 | auStack_350[1] >> 0x10) >> 8 |
+1126:                    (auStack_350[1] << 0x10 | auStack_350[1] & 0xff00) << 8;
+1127:               auStack_350[2] =
+1128:                    (auStack_350[2] & 0xff0000 | auStack_350[2] >> 0x10) >> 8 |
+1129:                    (auStack_350[2] << 0x10 | auStack_350[2] & 0xff00) << 8;
+1130:               uStack_354 = uVar8;
+1131:             }
+1132:             if (uStack_358 != 0x686f686d) {
+1133:               return 0xffffff30;
+1134:             }
+1135:             uVar21 = 0;
+1136:             uVar8 = auStack_350[0] - uVar8;
+1137:             uVar23 = 0;
+1138:             switch(auStack_350[1]) {
+1139:             default:
+1140:               goto LAB_14107e4c7;
+1141:             case 2:
+--- 0107b460.c C1830-1891 ---
+1830:         if (iStack_6c8 != 0) {
+1831:           FUN_140f92f00(uVar13);
+1832:           if (*(int *)(*(longlong *)(uVar13 + 0x68) + 0x24) == 0) {
+1833:             uStack_370 = uStack_370 | 0x40000;
+1834:             *(int *)(*(longlong *)(uVar13 + 0x68) + 0x24) = iVar11;
+1835:           }
+1836:           else if ((((int *)(lVar15 + 0x5b0) != (int *)0x0) &&
+1837:                    (*(int *)(lVar15 + 0x5b0) == 0x73747263)) &&
+1838:                   ((*(int *)(lVar15 + 0x5ec) == 0 &&
+1839:                    ((0 < iVar11 && (iVar11 <= *(int *)(lVar15 + 0x5dc))))))) {
+1840:             if ((*(byte *)(lVar15 + 0x5b4) & 1) != 0) {
+1841:               piVar19 = (int *)(**(longlong **)(lVar15 + 0x5c8) + -4 + lVar12 * 4);
+1842:               *piVar19 = *piVar19 + -1;
+1843:               if (*piVar19 != 0) goto LAB_14107e623;
+1844:             }
+1845:             lVar5 = **(longlong **)(lVar15 + 0x5c0);
+1846:             *(int *)(lVar15 + 0x5f0) = *(int *)(lVar15 + 0x5f0) + *(int *)(lVar5 + -4 + lVar12 * 8);
+1847:             *(undefined4 *)(lVar5 + -8 + lVar12 * 8) = 0x80000001;
+1848:           }
+1849:         }
+1850: LAB_14107e623:
+1851:         FUN_140ed6940(uVar13,&uStack_378,6);
+1852:         uVar13 = uVar23;
+1853:       }
+1854:       else {
+1855:         uVar23 = (longlong)(int)(aiStack_670[0] - uStack_674) + *(longlong *)(param_1 + 0x1e00170);
+1856:         *(ulonglong *)(param_1 + 0x1e00170) = uVar23;
+1857:         if ((uVar23 < *(ulonglong *)(param_1 + 0x1e00178)) ||
+1858:            (*(ulonglong *)(param_1 + 0x1e00178) + *(longlong *)(param_1 + 0x1e00180) <= uVar23)) {
+1859:           *(undefined8 *)(param_1 + 0x1e00180) = 0;
+1860:         }
+1861:       }
+1862:       *(longlong *)(param_1 + 0x1e00190) = *(longlong *)(param_1 + 0x1e00190) + 1;
+1863:       FUN_141077340(param_1);
+1864:       uStack_6c4 = uStack_6c4 + 1;
+1865:     } while (uStack_6c4 < auStack_330[0]);
+1866:   }
+1867:   if (cStack_788 != '\0') {
+1868:     FUN_140eb8cd0(lVar15);
+1869:   }
+1870:   if ((int)uVar13 == 0) {
+1871:     if (iStack_770 == 0xd) {
+1872:       iStack_770 = 0xd;
+1873:       uVar23 = uStack_6b8;
+1874:       while (uVar21 = uVar23, uVar21 != 0) {
+1875:         uVar23 = 0;
+1876:         if (*(longlong *)(uVar21 + 0x10) != 0) {
+1877:           uVar23 = *(ulonglong *)(uVar21 + 0x18);
+1878:         }
+1879:         lVar15 = FUN_14042de70(param_1 + 0x1e00290,uVar21);
+1880:         if (((lVar15 != 0) && (*(ulonglong *)(lVar15 + 8) != 0)) &&
+1881:            (*(ulonglong *)(lVar15 + 8) != uVar21)) {
+1882:           FUN_140fa10a0(*(undefined8 *)(uVar21 + 0x58));
+1883:         }
+1884:       }
+1885:       return uVar13;
+1886:     }
+1887:     return uVar13;
+1888:   }
+1889:   return uVar13;
+1890: }
+1891: 
+--- EXISTING JAVA SCRIPT FULL ---
+// Targeted static disassembly and decompilation. Does not execute the sample.
+// @category ITL
+import ghidra.app.script.GhidraScript;
+import ghidra.app.cmd.disassemble.DisassembleCommand;
+import ghidra.app.decompiler.*;
+import ghidra.program.model.address.*;
+import ghidra.program.model.listing.*;
+import ghidra.program.model.symbol.*;
+import java.nio.file.*;
+import java.nio.charset.StandardCharsets;
+import java.util.*;
+import java.io.*;
+public class ITLSelective extends GhidraScript {
+ public void run() throws Exception {
+  String[] args=getScriptArgs(); Path root=Path.of(args[0]);
+  String targetsFile=args.length>1?args[1]:"targets1.txt";
+  String outName=args.length>2?args[2]:"decompiled1";
+  Path out=root.resolve(outName);Files.createDirectories(out);
+  long base=currentProgram.getImageBase().getOffset();
+  Map<Long,AddressSet> groups=new TreeMap<>();
+  for(String line:Files.readAllLines(root.resolve("function_groups.tsv"))){
+   String[] p=line.trim().split("\\s+");long o=Long.parseLong(p[0],16);long s=Long.parseLong(p[1],16);long e=Long.parseLong(p[2],16);
+   groups.computeIfAbsent(o,k->new AddressSet()).add(toAddr(base+s),toAddr(base+e-1));
+  }
+  List<Long> targets=new ArrayList<>();
+  for(String line:Files.readAllLines(root.resolve(targetsFile))){if(!line.isBlank())targets.add(Long.parseLong(line.trim(),16));}
+  for(long rva:targets){
+   Address a=toAddr(base+rva);AddressSet body=groups.get(rva);
+   if(body==null){println("MISSING GROUP "+Long.toHexString(rva));continue;}
+   println("DEFINE "+Long.toHexString(rva)+" bytes="+body.getNumAddresses());
+   DisassembleCommand cmd=new DisassembleCommand(a,body,true);cmd.applyTo(currentProgram,monitor);
+   // Include all chained-unwind fragments even if their only entry is through an exception edge.
+   for(AddressRange range:body.getAddressRanges()){
+    if(getInstructionAt(range.getMinAddress())==null)new DisassembleCommand(range.getMinAddress(),body,true).applyTo(currentProgram,monitor);
+   }
+   Function f=getFunctionAt(a);
+   if(f==null)f=currentProgram.getFunctionManager().createFunction("itl_"+Long.toHexString(rva),a,body,SourceType.USER_DEFINED);
+   else f.setBody(body);
+  }
+  Set<Long> callees=new TreeSet<>();
+  for(long rva:targets){AddressSet body=groups.get(rva);if(body==null)continue;
+   for(Instruction ins:currentProgram.getListing().getInstructions(body,true)){
+    if(!ins.getFlowType().isCall())continue;
+    for(Address dst:ins.getFlows())if(groups.containsKey(dst.getOffset()-base))callees.add(dst.getOffset()-base);
+   }
+  }
+  for(long rva:callees){Address a=toAddr(base+rva);if(getFunctionAt(a)==null){
+   try{currentProgram.getFunctionManager().createFunction("sub_"+Long.toHexString(rva),a,groups.get(rva),SourceType.ANALYSIS);}catch(Exception ex){println("CALLEE WARNING "+Long.toHexString(rva)+" "+ex.getMessage());}
+  }}
+  // Verified MSVC /GS helper preserves RAX on success. Model it using Ghidra's shipped fixup,
+  // otherwise the unanalysed call hides native status returns in caller decompilation.
+  Function cookie=getFunctionAt(toAddr(base+0x179b8e0L));
+  if(cookie==null)throw new IllegalStateException("Verified security cookie function missing");
+  cookie.setName("__security_check_cookie",SourceType.USER_DEFINED);
+  cookie.setReturnType(ghidra.program.model.data.VoidDataType.dataType,SourceType.USER_DEFINED);
+  cookie.setCallFixup("security_check_cookie");
+  println("Applied verified MSVC cookie fixup at iTunes.exe+0x179b8e0");
+  DecompInterface di=new DecompInterface();DecompileOptions opts=new DecompileOptions();di.setOptions(opts);
+  di.toggleCCode(true);di.toggleSyntaxTree(true);di.setSimplificationStyle("decompile");di.openProgram(currentProgram);
+  int ok=0,failed=0;
+  try(PrintWriter summary=new PrintWriter(Files.newBufferedWriter(out.resolve("summary.tsv"),StandardCharsets.UTF_8))){
+   summary.println("module\trva\tname\tbytes\tcompleted\terror");
+   for(long rva:targets){monitor.checkCancelled();Function f=getFunctionAt(toAddr(base+rva));if(f==null){failed++;continue;}
+    DecompileResults result=di.decompileFunction(f,60,monitor);
+    boolean success=result.decompileCompleted()&&result.getDecompiledFunction()!=null;
+    summary.println(currentProgram.getName()+"\t0x"+Long.toHexString(rva)+"\t"+f.getName()+"\t"+f.getBody().getNumAddresses()+"\t"+success+"\t"+result.getErrorMessage().replace('\n',' '));summary.flush();
+    if(success){String c="/* Actual Ghidra 12.1.3 decompilation; module="+currentProgram.getName()+"; image_base=0x"+Long.toHexString(base)+"; RVA=0x"+Long.toHexString(rva)+"; SHA256="+currentProgram.getExecutableSHA256()+" */\n"+result.getDecompiledFunction().getC();Files.writeString(out.resolve(String.format("%08x.c",rva)),c);ok++;}else failed++;
+    println("DECOMPILE "+Long.toHexString(rva)+" success="+success+" "+result.getErrorMessage());
+   }
+  }finally{di.dispose();}
+  println("ITL_SELECTIVE_DONE success="+ok+" failed="+failed);
+ }
+}
+
+UNWIND_GROUP 0xf92b80 [[16329600, 16330338, 32563792]] bytes=738
+UNWIND_GROUP 0x1087800 [[17332224, 17332519, 31591996]] bytes=295
+UNWIND_GROUP 0xf6e820 [[16181280, 16181618, 32550648]] bytes=338
+UNWIND_GROUP 0x106b450 [[17216592, 17216806, 31473504]] bytes=214
+PROJECT_FILES 10 BYTES 218530864
+DYNAMIC_FACTORIAL_SUMMARY {"cases": 10, "native_cycles": 20, "positive_cases": 5, "negative_cases": 5, "audit": "D:\\a\\_temp\\gha-mcp\\WINDOWS_RESEARCH_RUN\\work\\itl\\reports\\dynamic\\phase2\\factorial-native-audit.json", "finding": "For these eight controlled states A=1 (0x6d->0) retained requested Name; every A=0 state reverted; neither B nor C alone or together substituted. Count-only passed with Unplayed observed true, Name-only failed."}

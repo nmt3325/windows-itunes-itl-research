@@ -1,0 +1,884 @@
+[
+  {
+    "src": "0xfb614",
+    "fun": "0xfb5e0",
+    "target": "ADVAPI32.dll!CryptAcquireContextW",
+    "mn": "call",
+    "op": "qword ptr [rip + 0x17ecb26]"
+  },
+  {
+    "src": "0xfb62b",
+    "fun": "0xfb5e0",
+    "target": "ADVAPI32.dll!CryptGenRandom",
+    "mn": "call",
+    "op": "qword ptr [rip + 0x17ecb37]"
+  },
+  {
+    "src": "0xfb63a",
+    "fun": "0xfb5e0",
+    "target": "ADVAPI32.dll!CryptReleaseContext",
+    "mn": "call",
+    "op": "qword ptr [rip + 0x17ecb20]"
+  },
+  {
+    "src": "0x6af001",
+    "fun": "0x6aefc0",
+    "target": "zlib1.dll!deflate",
+    "mn": "call",
+    "op": "qword ptr [rip + 0x123df51]"
+  },
+  {
+    "src": "0x6af406",
+    "fun": "0x6af340",
+    "target": "zlib1.dll!deflateInit2_",
+    "mn": "call",
+    "op": "qword ptr [rip + 0x123db54]"
+  },
+  {
+    "src": "0x6afc42",
+    "fun": "0x6af340",
+    "target": "zlib1.dll!deflate",
+    "mn": "call",
+    "op": "qword ptr [rip + 0x123d310]"
+  },
+  {
+    "src": "0x6afddf",
+    "fun": "0x6af340",
+    "target": "zlib1.dll!deflate",
+    "mn": "call",
+    "op": "qword ptr [rip + 0x123d173]"
+  },
+  {
+    "src": "0x6aff56",
+    "fun": "0x6af340",
+    "target": "zlib1.dll!deflateEnd",
+    "mn": "call",
+    "op": "qword ptr [rip + 0x123d00c]"
+  },
+  {
+    "src": "0x6b00fb",
+    "fun": "0x6b00f6",
+    "target": "zlib1.dll!deflateEnd",
+    "mn": "call",
+    "op": "qword ptr [rip + 0x123ce67]"
+  },
+  {
+    "src": "0xb8e5ab",
+    "fun": "0xb8e579",
+    "target": "bcrypt.dll!BCryptOpenAlgorithmProvider",
+    "mn": "call",
+    "op": "qword ptr [rip + 0xd5e2f7]"
+  },
+  {
+    "src": "0xb8e6dc",
+    "fun": "0xb8e5c0",
+    "target": "bcrypt.dll!BCryptImportKeyPair",
+    "mn": "call",
+    "op": "qword ptr [rip + 0xd5e1fe]"
+  },
+  {
+    "src": "0xb8e707",
+    "fun": "0xb8e5c0",
+    "target": "bcrypt.dll!BCryptGenRandom",
+    "mn": "call",
+    "op": "qword ptr [rip + 0xd5e1b3]"
+  },
+  {
+    "src": "0xb8e729",
+    "fun": "0xb8e5c0",
+    "target": "bcrypt.dll!BCryptGenRandom",
+    "mn": "call",
+    "op": "qword ptr [rip + 0xd5e191]"
+  },
+  {
+    "src": "0xb8e74b",
+    "fun": "0xb8e5c0",
+    "target": "bcrypt.dll!BCryptGenRandom",
+    "mn": "call",
+    "op": "qword ptr [rip + 0xd5e16f]"
+  },
+  {
+    "src": "0xb8e7d7",
+    "fun": "0xb8e5c0",
+    "target": "bcrypt.dll!BCryptEncrypt",
+    "mn": "call",
+    "op": "qword ptr [rip + 0xd5e0a3]"
+  },
+  {
+    "src": "0xb8e836",
+    "fun": "0xb8e5c0",
+    "target": "bcrypt.dll!BCryptEncrypt",
+    "mn": "call",
+    "op": "qword ptr [rip + 0xd5e044]"
+  },
+  {
+    "src": "0xb8eb84",
+    "fun": "0xb8eb3e",
+    "target": "bcrypt.dll!BCryptGenRandom",
+    "mn": "call",
+    "op": "qword ptr [rip + 0xd5dd36]"
+  },
+  {
+    "src": "0xb8ee78",
+    "fun": "0xb8ee00",
+    "target": "bcrypt.dll!BCryptOpenAlgorithmProvider",
+    "mn": "call",
+    "op": "qword ptr [rip + 0xd5da2a]"
+  },
+  {
+    "src": "0xb8eeb3",
+    "fun": "0xb8ee00",
+    "target": "bcrypt.dll!BCryptGetProperty",
+    "mn": "call",
+    "op": "qword ptr [rip + 0xd5da17]"
+  },
+  {
+    "src": "0xb8eeec",
+    "fun": "0xb8ee00",
+    "target": "bcrypt.dll!BCryptSetProperty",
+    "mn": "call",
+    "op": "qword ptr [rip + 0xd5d9c6]"
+  },
+  {
+    "src": "0xb8ef38",
+    "fun": "0xb8ef30",
+    "target": "bcrypt.dll!BCryptImportKey",
+    "mn": "call",
+    "op": "qword ptr [rip + 0xd5d9aa]"
+  },
+  {
+    "src": "0xb8ef8f",
+    "fun": "0xb8ef30",
+    "target": "bcrypt.dll!BCryptEncrypt",
+    "mn": "call",
+    "op": "qword ptr [rip + 0xd5d8eb]"
+  },
+  {
+    "src": "0xb8efd6",
+    "fun": "0xb8ef30",
+    "target": "bcrypt.dll!BCryptDestroyKey",
+    "mn": "call",
+    "op": "qword ptr [rip + 0xd5d8ec]"
+  },
+  {
+    "src": "0xb8f014",
+    "fun": "0xb8ef30",
+    "target": "bcrypt.dll!BCryptImportKey",
+    "mn": "call",
+    "op": "qword ptr [rip + 0xd5d8ce]"
+  },
+  {
+    "src": "0xb8f08e",
+    "fun": "0xb8f024",
+    "target": "bcrypt.dll!BCryptEncrypt",
+    "mn": "call",
+    "op": "qword ptr [rip + 0xd5d7ec]"
+  },
+  {
+    "src": "0xb8f116",
+    "fun": "0xb8f024",
+    "target": "bcrypt.dll!BCryptEncrypt",
+    "mn": "call",
+    "op": "qword ptr [rip + 0xd5d764]"
+  },
+  {
+    "src": "0xb8f14f",
+    "fun": "0xb8f141",
+    "target": "bcrypt.dll!BCryptDestroyKey",
+    "mn": "call",
+    "op": "qword ptr [rip + 0xd5d773]"
+  },
+  {
+    "src": "0xb8f168",
+    "fun": "0xb8f15d",
+    "target": "bcrypt.dll!BCryptCloseAlgorithmProvider",
+    "mn": "call",
+    "op": "qword ptr [rip + 0xd5d76a]"
+  },
+  {
+    "src": "0xc0b295",
+    "fun": "0xc0b1f0",
+    "target": "zlib1.dll!inflateInit2_",
+    "mn": "call",
+    "op": "qword ptr [rip + 0xce1cd5]"
+  },
+  {
+    "src": "0xc0b2ac",
+    "fun": "0xc0b1f0",
+    "target": "zlib1.dll!inflate",
+    "mn": "call",
+    "op": "qword ptr [rip + 0xce1c8e]"
+  },
+  {
+    "src": "0xc0b317",
+    "fun": "0xc0b1f0",
+    "target": "zlib1.dll!inflate",
+    "mn": "call",
+    "op": "qword ptr [rip + 0xce1c23]"
+  },
+  {
+    "src": "0xc0b32a",
+    "fun": "0xc0b1f0",
+    "target": "zlib1.dll!inflateEnd",
+    "mn": "call",
+    "op": "qword ptr [rip + 0xce1c08]"
+  },
+  {
+    "src": "0xc0b70f",
+    "fun": "0xc0b6d1",
+    "target": "zlib1.dll!deflateInit2_",
+    "mn": "call",
+    "op": "qword ptr [rip + 0xce184b]"
+  },
+  {
+    "src": "0xc0b725",
+    "fun": "0xc0b6d1",
+    "target": "zlib1.dll!deflate",
+    "mn": "call",
+    "op": "qword ptr [rip + 0xce182d]"
+  },
+  {
+    "src": "0xc0b737",
+    "fun": "0xc0b6d1",
+    "target": "zlib1.dll!deflateEnd",
+    "mn": "call",
+    "op": "qword ptr [rip + 0xce182b]"
+  },
+  {
+    "src": "0xc0b74e",
+    "fun": "0xc0b6d1",
+    "target": "zlib1.dll!deflateEnd",
+    "mn": "call",
+    "op": "qword ptr [rip + 0xce1814]"
+  },
+  {
+    "src": "0xc0b77b",
+    "fun": "0xc0b76a",
+    "target": "zlib1.dll!crc32",
+    "mn": "call",
+    "op": "qword ptr [rip + 0xce17af]"
+  },
+  {
+    "src": "0xc0b8e1",
+    "fun": "0xc0b866",
+    "target": "zlib1.dll!deflateInit2_",
+    "mn": "call",
+    "op": "qword ptr [rip + 0xce1679]"
+  },
+  {
+    "src": "0xc0b935",
+    "fun": "0xc0b866",
+    "target": "zlib1.dll!deflate",
+    "mn": "call",
+    "op": "qword ptr [rip + 0xce161d]"
+  },
+  {
+    "src": "0xc0b949",
+    "fun": "0xc0b866",
+    "target": "zlib1.dll!crc32",
+    "mn": "call",
+    "op": "qword ptr [rip + 0xce15e1]"
+  },
+  {
+    "src": "0xc0b967",
+    "fun": "0xc0b866",
+    "target": "zlib1.dll!deflate",
+    "mn": "call",
+    "op": "qword ptr [rip + 0xce15eb]"
+  },
+  {
+    "src": "0xc0b977",
+    "fun": "0xc0b866",
+    "target": "zlib1.dll!deflateEnd",
+    "mn": "call",
+    "op": "qword ptr [rip + 0xce15eb]"
+  },
+  {
+    "src": "0xf147cb",
+    "fun": "0xf14717",
+    "target": "zlib1.dll!inflateInit2_",
+    "mn": "call",
+    "op": "qword ptr [rip + 0x9d879f]"
+  },
+  {
+    "src": "0xf14889",
+    "fun": "0xf14817",
+    "target": "zlib1.dll!inflate",
+    "mn": "call",
+    "op": "qword ptr [rip + 0x9d86b1]"
+  },
+  {
+    "src": "0xf148d7",
+    "fun": "0xf14817",
+    "target": "zlib1.dll!inflate",
+    "mn": "call",
+    "op": "qword ptr [rip + 0x9d8663]"
+  },
+  {
+    "src": "0xf148e9",
+    "fun": "0xf14817",
+    "target": "zlib1.dll!inflateEnd",
+    "mn": "call",
+    "op": "qword ptr [rip + 0x9d8649]"
+  },
+  {
+    "src": "0xf5ce74",
+    "fun": "0xf5cdc0",
+    "target": "zlib1.dll!inflateInit2_",
+    "mn": "call",
+    "op": "qword ptr [rip + 0x9900f6]"
+  },
+  {
+    "src": "0xf5cea7",
+    "fun": "0xf5cdc0",
+    "target": "zlib1.dll!inflate",
+    "mn": "call",
+    "op": "qword ptr [rip + 0x990093]"
+  },
+  {
+    "src": "0xf5cee6",
+    "fun": "0xf5cdc0",
+    "target": "zlib1.dll!inflateEnd",
+    "mn": "call",
+    "op": "qword ptr [rip + 0x99004c]"
+  },
+  {
+    "src": "0xf5cf4d",
+    "fun": "0xf5cdc0",
+    "target": "zlib1.dll!inflateEnd",
+    "mn": "call",
+    "op": "qword ptr [rip + 0x98ffe5]"
+  },
+  {
+    "src": "0xf5d06c",
+    "fun": "0xf5cfe5",
+    "target": "zlib1.dll!deflateInit2_",
+    "mn": "call",
+    "op": "qword ptr [rip + 0x98feee]"
+  },
+  {
+    "src": "0xf5d0df",
+    "fun": "0xf5cfe5",
+    "target": "zlib1.dll!deflate",
+    "mn": "call",
+    "op": "qword ptr [rip + 0x98fe73]"
+  },
+  {
+    "src": "0xf5d133",
+    "fun": "0xf5d119",
+    "target": "zlib1.dll!deflateEnd",
+    "mn": "call",
+    "op": "qword ptr [rip + 0x98fe2f]"
+  },
+  {
+    "src": "0xf5d16a",
+    "fun": "0xf5d156",
+    "target": "zlib1.dll!deflateEnd",
+    "mn": "call",
+    "op": "qword ptr [rip + 0x98fdf8]"
+  },
+  {
+    "src": "0x106a3b5",
+    "fun": "0x106a3a0",
+    "target": "BHUILuilfghuila3",
+    "mn": "movups",
+    "op": "xmm0, xmmword ptr [rip + 0xaf9734]"
+  },
+  {
+    "src": "0x10756d3",
+    "fun": "0x1075695",
+    "target": "zlib1.dll!deflateInit_",
+    "mn": "call",
+    "op": "qword ptr [rip + 0x877877]"
+  },
+  {
+    "src": "0x1075751",
+    "fun": "0x1075695",
+    "target": "zlib1.dll!deflate",
+    "mn": "call",
+    "op": "qword ptr [rip + 0x877801]"
+  },
+  {
+    "src": "0x10757a4",
+    "fun": "0x1075695",
+    "target": "zlib1.dll!deflate",
+    "mn": "call",
+    "op": "qword ptr [rip + 0x8777ae]"
+  },
+  {
+    "src": "0x10757f7",
+    "fun": "0x10757f3",
+    "target": "zlib1.dll!deflateEnd",
+    "mn": "call",
+    "op": "qword ptr [rip + 0x87776b]"
+  },
+  {
+    "src": "0x1076c6d",
+    "fun": "0x1076bb5",
+    "target": "BHUILuilfghuila3",
+    "mn": "movups",
+    "op": "xmm0, xmmword ptr [rip + 0xaece7c]"
+  },
+  {
+    "src": "0x1084248",
+    "fun": "0x1084235",
+    "target": "zlib1.dll!inflateInit_",
+    "mn": "call",
+    "op": "qword ptr [rip + 0x868cfa]"
+  },
+  {
+    "src": "0x1084361",
+    "fun": "0x1084270",
+    "target": "zlib1.dll!inflate",
+    "mn": "call",
+    "op": "qword ptr [rip + 0x868bd9]"
+  },
+  {
+    "src": "0x10843c9",
+    "fun": "0x10843b7",
+    "target": "zlib1.dll!inflateEnd",
+    "mn": "call",
+    "op": "qword ptr [rip + 0x868b69]"
+  },
+  {
+    "src": "0x10c6985",
+    "fun": "0x10c6970",
+    "target": "BHUILuilfghuila3",
+    "mn": "movups",
+    "op": "xmm0, xmmword ptr [rip + 0xa9d164]"
+  },
+  {
+    "src": "0x10e8b67",
+    "fun": "0x10e8aa5",
+    "target": "zlib1.dll!deflateInit2_",
+    "mn": "call",
+    "op": "qword ptr [rip + 0x8043f3]"
+  },
+  {
+    "src": "0x10e8d1d",
+    "fun": "0x10e8d18",
+    "target": "zlib1.dll!crc32",
+    "mn": "call",
+    "op": "qword ptr [rip + 0x80420d]"
+  },
+  {
+    "src": "0x10e8da3",
+    "fun": "0x10e8d18",
+    "target": "zlib1.dll!deflate",
+    "mn": "call",
+    "op": "qword ptr [rip + 0x8041af]"
+  },
+  {
+    "src": "0x10e8ee8",
+    "fun": "0x10e8e83",
+    "target": "zlib1.dll!deflate",
+    "mn": "call",
+    "op": "qword ptr [rip + 0x80406a]"
+  },
+  {
+    "src": "0x10e8f46",
+    "fun": "0x10e8e83",
+    "target": "zlib1.dll!deflateEnd",
+    "mn": "call",
+    "op": "qword ptr [rip + 0x80401c]"
+  },
+  {
+    "src": "0x10eb1cb",
+    "fun": "0x10eb06a",
+    "target": "zlib1.dll!inflateInit2_",
+    "mn": "call",
+    "op": "qword ptr [rip + 0x801d9f]"
+  },
+  {
+    "src": "0x10eb3c7",
+    "fun": "0x10eb246",
+    "target": "zlib1.dll!inflate",
+    "mn": "call",
+    "op": "qword ptr [rip + 0x801b73]"
+  },
+  {
+    "src": "0x10eb3f7",
+    "fun": "0x10eb246",
+    "target": "zlib1.dll!crc32",
+    "mn": "call",
+    "op": "qword ptr [rip + 0x801b33]"
+  },
+  {
+    "src": "0x10eb4a1",
+    "fun": "0x10eb449",
+    "target": "zlib1.dll!crc32",
+    "mn": "call",
+    "op": "qword ptr [rip + 0x801a89]"
+  },
+  {
+    "src": "0x10eb68d",
+    "fun": "0x10eb620",
+    "target": "zlib1.dll!inflateEnd",
+    "mn": "call",
+    "op": "qword ptr [rip + 0x8018a5]"
+  },
+  {
+    "src": "0x1132b6e",
+    "fun": "0x1132ade",
+    "target": "zlib1.dll!inflateInit_",
+    "mn": "call",
+    "op": "qword ptr [rip + 0x7ba3d4]"
+  },
+  {
+    "src": "0x1132bed",
+    "fun": "0x1132b9c",
+    "target": "zlib1.dll!inflate",
+    "mn": "call",
+    "op": "qword ptr [rip + 0x7ba34d]"
+  },
+  {
+    "src": "0x1132c13",
+    "fun": "0x1132b9c",
+    "target": "zlib1.dll!inflateEnd",
+    "mn": "call",
+    "op": "qword ptr [rip + 0x7ba31f]"
+  },
+  {
+    "src": "0x1187d06",
+    "fun": "0x1187c90",
+    "target": "bcrypt.dll!BCryptOpenAlgorithmProvider",
+    "mn": "call",
+    "op": "qword ptr [rip + 0x764b9c]"
+  },
+  {
+    "src": "0x1187d38",
+    "fun": "0x1187c90",
+    "target": "bcrypt.dll!BCryptGetProperty",
+    "mn": "call",
+    "op": "qword ptr [rip + 0x764b92]"
+  },
+  {
+    "src": "0x1187d93",
+    "fun": "0x1187c90",
+    "target": "bcrypt.dll!BCryptGetProperty",
+    "mn": "call",
+    "op": "qword ptr [rip + 0x764b37]"
+  },
+  {
+    "src": "0x1187de7",
+    "fun": "0x1187c90",
+    "target": "bcrypt.dll!BCryptCreateHash",
+    "mn": "call",
+    "op": "qword ptr [rip + 0x764a9b]"
+  },
+  {
+    "src": "0x1187e03",
+    "fun": "0x1187c90",
+    "target": "bcrypt.dll!BCryptHashData",
+    "mn": "call",
+    "op": "qword ptr [rip + 0x764a87]"
+  },
+  {
+    "src": "0x1187e1d",
+    "fun": "0x1187c90",
+    "target": "bcrypt.dll!BCryptFinishHash",
+    "mn": "call",
+    "op": "qword ptr [rip + 0x764a75]"
+  },
+  {
+    "src": "0x1187e2e",
+    "fun": "0x1187c90",
+    "target": "bcrypt.dll!BCryptDestroyHash",
+    "mn": "call",
+    "op": "qword ptr [rip + 0x764a6c]"
+  },
+  {
+    "src": "0x1187e58",
+    "fun": "0x1187c90",
+    "target": "bcrypt.dll!BCryptCloseAlgorithmProvider",
+    "mn": "call",
+    "op": "qword ptr [rip + 0x764a7a]"
+  },
+  {
+    "src": "0x1187e82",
+    "fun": "0x1187c90",
+    "target": "CRYPT32.dll!CryptImportPublicKeyInfoEx2",
+    "mn": "call",
+    "op": "qword ptr [rip + 0x760dd0]"
+  },
+  {
+    "src": "0x1187eb0",
+    "fun": "0x1187c90",
+    "target": "bcrypt.dll!BCryptVerifySignature",
+    "mn": "call",
+    "op": "qword ptr [rip + 0x7649fa]"
+  },
+  {
+    "src": "0x1187ede",
+    "fun": "0x1187c90",
+    "target": "bcrypt.dll!BCryptDestroyKey",
+    "mn": "call",
+    "op": "qword ptr [rip + 0x7649e4]"
+  },
+  {
+    "src": "0x1187f64",
+    "fun": "0x1187f00",
+    "target": "CRYPT32.dll!CertOpenStore",
+    "mn": "call",
+    "op": "qword ptr [rip + 0x760d2e]"
+  },
+  {
+    "src": "0x1187fac",
+    "fun": "0x1187f00",
+    "target": "CRYPT32.dll!CertAddEncodedCertificateToStore",
+    "mn": "call",
+    "op": "qword ptr [rip + 0x760cee]"
+  },
+  {
+    "src": "0x1188009",
+    "fun": "0x1187f00",
+    "target": "CRYPT32.dll!CertAddEncodedCertificateToStore",
+    "mn": "call",
+    "op": "qword ptr [rip + 0x760c91]"
+  },
+  {
+    "src": "0x1188042",
+    "fun": "0x1187f00",
+    "target": "CRYPT32.dll!CryptMsgOpenToDecode",
+    "mn": "call",
+    "op": "qword ptr [rip + 0x760c38]"
+  },
+  {
+    "src": "0x118806d",
+    "fun": "0x1187f00",
+    "target": "CRYPT32.dll!CertCloseStore",
+    "mn": "call",
+    "op": "qword ptr [rip + 0x760c1d]"
+  },
+  {
+    "src": "0x118808f",
+    "fun": "0x1187f00",
+    "target": "CRYPT32.dll!CryptMsgUpdate",
+    "mn": "call",
+    "op": "qword ptr [rip + 0x760be3]"
+  },
+  {
+    "src": "0x11880ae",
+    "fun": "0x1187f00",
+    "target": "CRYPT32.dll!CertOpenStore",
+    "mn": "call",
+    "op": "qword ptr [rip + 0x760be4]"
+  },
+  {
+    "src": "0x11880c1",
+    "fun": "0x1187f00",
+    "target": "CRYPT32.dll!CertEnumCertificatesInStore",
+    "mn": "call",
+    "op": "qword ptr [rip + 0x760ba9]"
+  },
+  {
+    "src": "0x11880e6",
+    "fun": "0x1187f00",
+    "target": "CRYPT32.dll!CertEnumCertificatesInStore",
+    "mn": "call",
+    "op": "qword ptr [rip + 0x760b84]"
+  },
+  {
+    "src": "0x118816d",
+    "fun": "0x1187f00",
+    "target": "CRYPT32.dll!CertGetIssuerCertificateFromStore",
+    "mn": "call",
+    "op": "qword ptr [rip + 0x760b35]"
+  },
+  {
+    "src": "0x1188182",
+    "fun": "0x1187f00",
+    "target": "CRYPT32.dll!CertFreeCertificateContext",
+    "mn": "call",
+    "op": "qword ptr [rip + 0x760ad8]"
+  },
+  {
+    "src": "0x11881a8",
+    "fun": "0x1187f00",
+    "target": "CRYPT32.dll!CertFreeCertificateContext",
+    "mn": "call",
+    "op": "qword ptr [rip + 0x760ab2]"
+  },
+  {
+    "src": "0x11881b1",
+    "fun": "0x1187f00",
+    "target": "CRYPT32.dll!CertFreeCertificateContext",
+    "mn": "call",
+    "op": "qword ptr [rip + 0x760aa9]"
+  },
+  {
+    "src": "0x11881e2",
+    "fun": "0x1187f00",
+    "target": "CRYPT32.dll!CertCloseStore",
+    "mn": "call",
+    "op": "qword ptr [rip + 0x760aa8]"
+  },
+  {
+    "src": "0x1188264",
+    "fun": "0x1188250",
+    "target": "CRYPT32.dll!CertCloseStore",
+    "mn": "call",
+    "op": "qword ptr [rip + 0x760a26]"
+  },
+  {
+    "src": "0x1188273",
+    "fun": "0x1188250",
+    "target": "CRYPT32.dll!CryptMsgClose",
+    "mn": "jmp",
+    "op": "qword ptr [rip + 0x760a0e]"
+  },
+  {
+    "src": "0x12febaa",
+    "fun": "0x12feb6c",
+    "target": "zlib1.dll!deflateInit_",
+    "mn": "call",
+    "op": "qword ptr [rip + 0x5ee3a0]"
+  },
+  {
+    "src": "0x12fec2b",
+    "fun": "0x12feb6c",
+    "target": "zlib1.dll!deflate",
+    "mn": "call",
+    "op": "qword ptr [rip + 0x5ee327]"
+  },
+  {
+    "src": "0x12fec8b",
+    "fun": "0x12fec87",
+    "target": "zlib1.dll!deflateEnd",
+    "mn": "call",
+    "op": "qword ptr [rip + 0x5ee2d7]"
+  },
+  {
+    "src": "0x1307858",
+    "fun": "0x1307845",
+    "target": "zlib1.dll!inflateInit_",
+    "mn": "call",
+    "op": "qword ptr [rip + 0x5e56ea]"
+  },
+  {
+    "src": "0x1307974",
+    "fun": "0x1307880",
+    "target": "zlib1.dll!inflate",
+    "mn": "call",
+    "op": "qword ptr [rip + 0x5e55c6]"
+  },
+  {
+    "src": "0x13079dc",
+    "fun": "0x13079ca",
+    "target": "zlib1.dll!inflateEnd",
+    "mn": "call",
+    "op": "qword ptr [rip + 0x5e5556]"
+  },
+  {
+    "src": "0x163071a",
+    "fun": "0x16306c0",
+    "target": "CRYPT32.dll!CertGetNameStringW",
+    "mn": "call",
+    "op": "qword ptr [rip + 0x2b8530]"
+  },
+  {
+    "src": "0x1630745",
+    "fun": "0x16306c0",
+    "target": "CRYPT32.dll!CertGetNameStringW",
+    "mn": "call",
+    "op": "qword ptr [rip + 0x2b8505]"
+  },
+  {
+    "src": "0x1630b6c",
+    "fun": "0x16309f0",
+    "target": "CRYPT32.dll!CertDuplicateCertificateContext",
+    "mn": "call",
+    "op": "qword ptr [rip + 0x2b80f6]"
+  },
+  {
+    "src": "0x1630be3",
+    "fun": "0x16309f0",
+    "target": "CRYPT32.dll!CertFreeCertificateContext",
+    "mn": "call",
+    "op": "qword ptr [rip + 0x2b8077]"
+  },
+  {
+    "src": "0x1630c28",
+    "fun": null,
+    "target": "CRYPT32.dll!CertFreeCertificateContext",
+    "mn": "jmp",
+    "op": "qword ptr [rip + 0x2b8031]"
+  },
+  {
+    "src": "0x17dbce9",
+    "fun": "0x17dbc90",
+    "target": "ADVAPI32.dll!CryptGetHashParam",
+    "mn": "call",
+    "op": "qword ptr [rip + 0x10c459]"
+  },
+  {
+    "src": "0x17dbd3e",
+    "fun": "0x17dbd10",
+    "target": "ADVAPI32.dll!CryptAcquireContextW",
+    "mn": "call",
+    "op": "qword ptr [rip + 0x10c3fc]"
+  },
+  {
+    "src": "0x17dbd5b",
+    "fun": "0x17dbd10",
+    "target": "ADVAPI32.dll!CryptCreateHash",
+    "mn": "call",
+    "op": "qword ptr [rip + 0x10c3ef]"
+  },
+  {
+    "src": "0x17dbd9c",
+    "fun": null,
+    "target": "ADVAPI32.dll!CryptHashData",
+    "mn": "jmp",
+    "op": "qword ptr [rip + 0x10c3b5]"
+  },
+  {
+    "src": "0x17dea77",
+    "fun": null,
+    "target": "ADVAPI32.dll!CryptReleaseContext",
+    "mn": "jmp",
+    "op": "qword ptr [rip + 0x1096e3]"
+  },
+  {
+    "src": "0x17dea7d",
+    "fun": null,
+    "target": "ADVAPI32.dll!CryptGenRandom",
+    "mn": "jmp",
+    "op": "qword ptr [rip + 0x1096e5]"
+  },
+  {
+    "src": "0x17dea83",
+    "fun": null,
+    "target": "ADVAPI32.dll!CryptAcquireContextA",
+    "mn": "jmp",
+    "op": "qword ptr [rip + 0x1096e7]"
+  },
+  {
+    "src": "0x1818df1",
+    "fun": "0x1818dc0",
+    "target": "ADVAPI32.dll!CryptAcquireContextA",
+    "mn": "call",
+    "op": "qword ptr [rip + 0xcf379]"
+  },
+  {
+    "src": "0x1818e05",
+    "fun": "0x1818dc0",
+    "target": "ADVAPI32.dll!CryptGenRandom",
+    "mn": "call",
+    "op": "qword ptr [rip + 0xcf35d]"
+  },
+  {
+    "src": "0x1818e16",
+    "fun": "0x1818dc0",
+    "target": "ADVAPI32.dll!CryptReleaseContext",
+    "mn": "call",
+    "op": "qword ptr [rip + 0xcf344]"
+  },
+  {
+    "src": "0x1818e38",
+    "fun": "0x1818dc0",
+    "target": "ADVAPI32.dll!CryptReleaseContext",
+    "mn": "call",
+    "op": "qword ptr [rip + 0xcf322]"
+  }
+]

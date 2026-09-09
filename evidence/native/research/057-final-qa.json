@@ -1,0 +1,191 @@
+{
+  "python": "3.12.10 (tags/v3.12.10:0cc8128, Apr  8 2025, 12:21:36) [MSC v.1943 64 bit (AMD64)]",
+  "checks": [
+    {
+      "name": "057-compileall",
+      "command": [
+        "D:\\a\\_temp\\gha-mcp\\WINDOWS_RESEARCH_RUN\\work\\itl\\tools\\py\\Scripts\\python.exe",
+        "-m",
+        "compileall",
+        "-f",
+        "D:\\a\\_temp\\gha-mcp\\WINDOWS_RESEARCH_RUN\\work\\itl\\wt\\dynamic\\scripts\\windows"
+      ],
+      "cwd": "D:\\a\\_temp\\gha-mcp\\WINDOWS_RESEARCH_RUN\\work\\itl\\wt\\dynamic",
+      "exit_code": 0,
+      "seconds": 0.0929999999998472,
+      "stdout": "Listing 'D:\\\\a\\\\_temp\\\\gha-mcp\\\\WINDOWS_RESEARCH_RUN\\\\work\\\\itl\\\\wt\\\\dynamic\\\\scripts\\\\windows'...\nCompiling 'D:\\\\a\\\\_temp\\\\gha-mcp\\\\WINDOWS_RESEARCH_RUN\\\\work\\\\itl\\\\wt\\\\dynamic\\\\scripts\\\\windows\\\\analyze_trace.py'...\nCompiling 'D:\\\\a\\\\_temp\\\\gha-mcp\\\\WINDOWS_RESEARCH_RUN\\\\work\\\\itl\\\\wt\\\\dynamic\\\\scripts\\\\windows\\\\com_probe.py'...\nCompiling 'D:\\\\a\\\\_temp\\\\gha-mcp\\\\WINDOWS_RESEARCH_RUN\\\\work\\\\itl\\\\wt\\\\dynamic\\\\scripts\\\\windows\\\\desktop_probe.py'...\nCompiling 'D:\\\\a\\\\_temp\\\\gha-mcp\\\\WINDOWS_RESEARCH_RUN\\\\work\\\\itl\\\\wt\\\\dynamic\\\\scripts\\\\windows\\\\harness_selftest.py'...\nCompiling 'D:\\\\a\\\\_temp\\\\gha-mcp\\\\WINDOWS_RESEARCH_RUN\\\\work\\\\itl\\\\wt\\\\dynamic\\\\scripts\\\\windows\\\\native_acceptance.py'...\nCompiling 'D:\\\\a\\\\_temp\\\\gha-mcp\\\\WINDOWS_RESEARCH_RUN\\\\work\\\\itl\\\\wt\\\\dynamic\\\\scripts\\\\windows\\\\native_driver.py'...\nCompiling 'D:\\\\a\\\\_temp\\\\gha-mcp\\\\WINDOWS_RESEARCH_RUN\\\\work\\\\itl\\\\wt\\\\dynamic\\\\scripts\\\\windows\\\\native_traced_save.py'...\nCompiling 'D:\\\\a\\\\_temp\\\\gha-mcp\\\\WINDOWS_RESEARCH_RUN\\\\work\\\\itl\\\\wt\\\\dynamic\\\\scripts\\\\windows\\\\native_worker.py'...\nCompiling 'D:\\\\a\\\\_temp\\\\gha-mcp\\\\WINDOWS_RESEARCH_RUN\\\\work\\\\itl\\\\wt\\\\dynamic\\\\scripts\\\\windows\\\\trace_itunes.py'...\nCompiling 'D:\\\\a\\\\_temp\\\\gha-mcp\\\\WINDOWS_RESEARCH_RUN\\\\work\\\\itl\\\\wt\\\\dynamic\\\\scripts\\\\windows\\\\verify_native_matrix.py'...\n",
+      "stderr": ""
+    },
+    {
+      "name": "057-js-syntax",
+      "command": [
+        "node",
+        "--check",
+        "D:\\a\\_temp\\gha-mcp\\WINDOWS_RESEARCH_RUN\\work\\itl\\wt\\dynamic\\scripts\\windows\\trace_itunes.js"
+      ],
+      "cwd": "D:\\a\\_temp\\gha-mcp\\WINDOWS_RESEARCH_RUN\\work\\itl\\wt\\dynamic",
+      "exit_code": 0,
+      "seconds": 0.26600000000053114,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "name": "057-harness-selftest",
+      "command": [
+        "D:\\a\\_temp\\gha-mcp\\WINDOWS_RESEARCH_RUN\\work\\itl\\tools\\py\\Scripts\\python.exe",
+        "D:\\a\\_temp\\gha-mcp\\WINDOWS_RESEARCH_RUN\\work\\itl\\wt\\dynamic\\scripts\\windows\\harness_selftest.py",
+        "--scratch",
+        "D:\\a\\_temp\\gha-mcp\\WINDOWS_RESEARCH_RUN\\work\\itl\\reports\\dynamic\\selftest-temp",
+        "-v"
+      ],
+      "cwd": "D:\\a\\_temp\\gha-mcp\\WINDOWS_RESEARCH_RUN\\work\\itl\\wt\\dynamic",
+      "exit_code": 0,
+      "seconds": 0.28099999999994907,
+      "stdout": "{\"ok\": true, \"action\": {\"kind\": \"snapshot\"}, \"library_id\": \"4444444444444444\", \"track_count\": 2, \"track_ids\": [\"1111111111111111\", \"2222222222222222\"]}\nQuitting iTunes for native flush\n",
+      "stderr": "test_blob_tamper_detected (__main__.EvidenceTests.test_blob_tamper_detected) ... ok\ntest_exact_trace_match (__main__.EvidenceTests.test_exact_trace_match) ... ok\ntest_missing_independent_created_playlist_is_rejected (__main__.EvidenceTests.test_missing_independent_created_playlist_is_rejected) ... ok\ntest_missing_playlist_classification_is_refused (__main__.EvidenceTests.test_missing_playlist_classification_is_refused) ... ok\ntest_non_synthetic_ordinary_name_is_checked (__main__.EvidenceTests.test_non_synthetic_ordinary_name_is_checked) ... ok\ntest_offline_encryption_boundary (__main__.EvidenceTests.test_offline_encryption_boundary) ... ok\ntest_order_gate (__main__.EvidenceTests.test_order_gate) ... ok\ntest_rating_kind_fields_are_observation_only (__main__.EvidenceTests.test_rating_kind_fields_are_observation_only) ... ok\ntest_reject_changed_value (__main__.EvidenceTests.test_reject_changed_value) ... ok\ntest_reject_empty_fallback (__main__.EvidenceTests.test_reject_empty_fallback) ... ok\ntest_reject_wrong_master_pid (__main__.EvidenceTests.test_reject_wrong_master_pid) ... ok\ntest_reject_wrong_outer_size (__main__.EvidenceTests.test_reject_wrong_outer_size) ... ok\ntest_reject_wrong_track_pid (__main__.EvidenceTests.test_reject_wrong_track_pid) ... ok\ntest_same_native_state (__main__.EvidenceTests.test_same_native_state) ... ok\ntest_session_ids_not_persistent_ids (__main__.EvidenceTests.test_session_ids_not_persistent_ids) ... ok\ntest_snapshot_regression_blocks_native_quit (__main__.EvidenceTests.test_snapshot_regression_blocks_native_quit) ... ok\ntest_stable_snapshot_allows_native_quit (__main__.EvidenceTests.test_stable_snapshot_allows_native_quit) ... ok\ntest_unicode_field_gate (__main__.EvidenceTests.test_unicode_field_gate) ... ok\n\n----------------------------------------------------------------------\nRan 18 tests in 0.153s\n\nOK\n"
+    },
+    {
+      "name": "057-cli-native_driver",
+      "command": [
+        "D:\\a\\_temp\\gha-mcp\\WINDOWS_RESEARCH_RUN\\work\\itl\\tools\\py\\Scripts\\python.exe",
+        "D:\\a\\_temp\\gha-mcp\\WINDOWS_RESEARCH_RUN\\work\\itl\\wt\\dynamic\\scripts\\windows\\native_driver.py",
+        "--help"
+      ],
+      "cwd": "D:\\a\\_temp\\gha-mcp\\WINDOWS_RESEARCH_RUN\\work\\itl\\wt\\dynamic",
+      "exit_code": 0,
+      "seconds": 0.07799999999951979,
+      "stdout": "usage: native_driver.py [-h] --root ROOT --report REPORT [--plan PLAN]\n                        [--initial]\n\noptions:\n  -h, --help       show this help message and exit\n  --root ROOT\n  --report REPORT\n  --plan PLAN\n  --initial\n",
+      "stderr": ""
+    },
+    {
+      "name": "057-cli-native_worker",
+      "command": [
+        "D:\\a\\_temp\\gha-mcp\\WINDOWS_RESEARCH_RUN\\work\\itl\\tools\\py\\Scripts\\python.exe",
+        "D:\\a\\_temp\\gha-mcp\\WINDOWS_RESEARCH_RUN\\work\\itl\\wt\\dynamic\\scripts\\windows\\native_worker.py",
+        "--help"
+      ],
+      "cwd": "D:\\a\\_temp\\gha-mcp\\WINDOWS_RESEARCH_RUN\\work\\itl\\wt\\dynamic",
+      "exit_code": 0,
+      "seconds": 0.11000000000058208,
+      "stdout": "usage: native_worker.py [-h] --root ROOT [--action ACTION] --output OUTPUT\n                        [--quit] [--expect-count EXPECT_COUNT]\n                        [--expect-state EXPECT_STATE]\n\noptions:\n  -h, --help            show this help message and exit\n  --root ROOT\n  --action ACTION\n  --output OUTPUT\n  --quit\n  --expect-count EXPECT_COUNT\n  --expect-state EXPECT_STATE\n",
+      "stderr": ""
+    },
+    {
+      "name": "057-cli-native_acceptance",
+      "command": [
+        "D:\\a\\_temp\\gha-mcp\\WINDOWS_RESEARCH_RUN\\work\\itl\\tools\\py\\Scripts\\python.exe",
+        "D:\\a\\_temp\\gha-mcp\\WINDOWS_RESEARCH_RUN\\work\\itl\\wt\\dynamic\\scripts\\windows\\native_acceptance.py",
+        "--help"
+      ],
+      "cwd": "D:\\a\\_temp\\gha-mcp\\WINDOWS_RESEARCH_RUN\\work\\itl\\wt\\dynamic",
+      "exit_code": 0,
+      "seconds": 0.10899999999946886,
+      "stdout": "usage: native_acceptance.py [-h] --root ROOT --report REPORT --manifest\n                            MANIFEST\n\noptions:\n  -h, --help           show this help message and exit\n  --root ROOT\n  --report REPORT\n  --manifest MANIFEST\n",
+      "stderr": ""
+    },
+    {
+      "name": "057-cli-native_traced_save",
+      "command": [
+        "D:\\a\\_temp\\gha-mcp\\WINDOWS_RESEARCH_RUN\\work\\itl\\tools\\py\\Scripts\\python.exe",
+        "D:\\a\\_temp\\gha-mcp\\WINDOWS_RESEARCH_RUN\\work\\itl\\wt\\dynamic\\scripts\\windows\\native_traced_save.py",
+        "--help"
+      ],
+      "cwd": "D:\\a\\_temp\\gha-mcp\\WINDOWS_RESEARCH_RUN\\work\\itl\\wt\\dynamic",
+      "exit_code": 0,
+      "seconds": 0.09400000000005093,
+      "stdout": "usage: native_traced_save.py [-h] --root ROOT --report REPORT --name NAME\n                             --action ACTION --expected EXPECTED\n\noptions:\n  -h, --help           show this help message and exit\n  --root ROOT\n  --report REPORT\n  --name NAME\n  --action ACTION\n  --expected EXPECTED\n",
+      "stderr": ""
+    },
+    {
+      "name": "057-cli-analyze_trace",
+      "command": [
+        "D:\\a\\_temp\\gha-mcp\\WINDOWS_RESEARCH_RUN\\work\\itl\\tools\\py\\Scripts\\python.exe",
+        "D:\\a\\_temp\\gha-mcp\\WINDOWS_RESEARCH_RUN\\work\\itl\\wt\\dynamic\\scripts\\windows\\analyze_trace.py",
+        "--help"
+      ],
+      "cwd": "D:\\a\\_temp\\gha-mcp\\WINDOWS_RESEARCH_RUN\\work\\itl\\wt\\dynamic",
+      "exit_code": 0,
+      "seconds": 0.07800000000042928,
+      "stdout": "usage: analyze_trace.py [-h] --trace TRACE --itl ITL --out OUT\n                        [--require-both]\n\noptions:\n  -h, --help      show this help message and exit\n  --trace TRACE\n  --itl ITL\n  --out OUT\n  --require-both\n",
+      "stderr": ""
+    },
+    {
+      "name": "057-cli-trace_itunes",
+      "command": [
+        "D:\\a\\_temp\\gha-mcp\\WINDOWS_RESEARCH_RUN\\work\\itl\\tools\\py\\Scripts\\python.exe",
+        "D:\\a\\_temp\\gha-mcp\\WINDOWS_RESEARCH_RUN\\work\\itl\\wt\\dynamic\\scripts\\windows\\trace_itunes.py",
+        "--help"
+      ],
+      "cwd": "D:\\a\\_temp\\gha-mcp\\WINDOWS_RESEARCH_RUN\\work\\itl\\wt\\dynamic",
+      "exit_code": 0,
+      "seconds": 0.2969999999995707,
+      "stdout": "usage: trace_itunes.py [-h] (--pid PID | --spawn) --out OUT\n                       [--seconds SECONDS]\n\noptions:\n  -h, --help         show this help message and exit\n  --pid PID\n  --spawn\n  --out OUT\n  --seconds SECONDS\n",
+      "stderr": ""
+    }
+  ],
+  "acceptance_evidence_audit": [
+    {
+      "name": "050-codec-forced",
+      "pinned_sha256": "ebc9f56c353addc7341681a3840d9f9bca391f716e050aebce39bb2a4e1dec41",
+      "cycles": 2,
+      "rechecked_full_gates": true
+    },
+    {
+      "name": "051-codec-modified",
+      "pinned_sha256": "bdf1ac5648bc958d29b530e524a961950f56e31dc5fa1acdc9fa211d8f664419",
+      "cycles": 2,
+      "rechecked_full_gates": true
+    },
+    {
+      "name": "070-codec-playlist-rename",
+      "pinned_sha256": "5367f41b7e682e4028c76d4519c7000d820c651060fdd6791375a26e70fe491b",
+      "cycles": 2,
+      "rechecked_full_gates": true
+    },
+    {
+      "name": "071-codec-playlist-members",
+      "pinned_sha256": "5da35436e948a5175b76335fe91a18bf57e48bb8fea78671fba792b74281b0a3",
+      "cycles": 2,
+      "rechecked_full_gates": true
+    },
+    {
+      "name": "072-codec-playlist-create",
+      "pinned_sha256": "832cb809633d24606eb9a47e017d5f91fe52d0e79fe1185a742069f545f8db85",
+      "cycles": 2,
+      "rechecked_full_gates": true
+    },
+    {
+      "name": "073-codec-playlist-delete",
+      "pinned_sha256": "e4ea3fa212b0e056e86470f998ea30b24904b886bf37a3d2c8e9dff74ae30902",
+      "cycles": 2,
+      "rechecked_full_gates": true
+    },
+    {
+      "name": "074-codec-playlist-create-from-master",
+      "pinned_sha256": "11273895ea35de2667c8a7bb53fdabcc19dfa6d324fbded89b0ead3c47876bb5",
+      "cycles": 2,
+      "rechecked_full_gates": true
+    },
+    {
+      "name": "110-codec-track-restore",
+      "pinned_sha256": "5fd1edeb1facff5aaa1a22ff432a450900ef7a1087e4189b4cf6afd7bb453ccd",
+      "cycles": 2,
+      "rechecked_full_gates": true
+    },
+    {
+      "name": "111-codec-track-delete",
+      "pinned_sha256": "97c1fc67d8aca300241d47b4c2b5ce00a0ddce6504c523ebc5c13074de54a864",
+      "cycles": 2,
+      "rechecked_full_gates": true
+    },
+    {
+      "name": "112-codec-track-indexed",
+      "pinned_sha256": "1a84651212b08f6b7aaf37b40764c195d827d95868d0b51950e1f035c2527721",
+      "cycles": 2,
+      "rechecked_full_gates": true
+    }
+  ],
+  "pinned_itunes_exe_hash_reverified": true,
+  "retained_native_rejection": "113-codec-fresh-modified: Unplayed mismatch and subsequent Name reversion; not accepted",
+  "ok": true
+}

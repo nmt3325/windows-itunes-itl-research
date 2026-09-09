@@ -1,0 +1,94 @@
+{
+  "status": "PACKAGE_AUDIT_STAGING_V2_DONE",
+  "native_actions": false,
+  "publication_performed": false,
+  "requested35_paths_represented": 35,
+  "original51_asm_staged": 51,
+  "additional_phase3_c": 4,
+  "additional_phase4_c": 8,
+  "all_staged_asm_files": 127,
+  "accepted_original_candidate_inputs": 10,
+  "retained_failed_candidate_inputs": 1,
+  "saved_cycles_hash_exit_and_oracle_verified": 20,
+  "offline_inflate_and_deflate_correlations": [
+    {
+      "function": "inflate",
+      "fixture": "000-empty.itl",
+      "matched": true,
+      "compressed_sha256": "7ef5db41ed4ce1dd77660f5629a42979627ca82b3265e1ac641269715b3a3977",
+      "expanded_sha256": "283e7b84177030bf1a287e72c84365d287b51aab3843df9c8e017de30c0cf800",
+      "new_native_capture": false
+    },
+    {
+      "function": "deflate",
+      "fixture": "060-attached-native-save.itl",
+      "matched": true,
+      "compressed_sha256": "3a1f58cea12d81c7309e07e208e163a59580941b7ede96beea50da2ac652ddd9",
+      "expanded_sha256": "06225e21b863de60f45454fe90bdd673fcad4262ff1546c959d27161e635c867",
+      "new_native_capture": false
+    }
+  ],
+  "independent_donor_snapshots": 3,
+  "strict_verifier_tests": {
+    "tests": 9,
+    "passed": 9,
+    "failures": 0,
+    "errors": 0,
+    "native_actions": false,
+    "source": "proposals/test_verify_delivery_strict.py"
+  },
+  "staged_source_files_before_meta": 361,
+  "existing_delivery_files_reused": 44,
+  "source_drift": [],
+  "python_sources_syntax_checked": 24,
+  "bytes_hashed_and_scanned": 13859475,
+  "unresolved_high_risk_scan_findings": 0,
+  "reviewed_nonpersonal_path_exceptions": [
+    {
+      "path": "evidence/native/research/trace-empty-load/000012.bin",
+      "category": "default_hosted_runner_path",
+      "disposition": "known nonpersonal default account path in approved hash-pinned synthetic data; no binary rewriting; parent review required"
+    }
+  ],
+  "omitted_files": [
+    {
+      "source_path": "reports/dynamic/024-empty-trace-correlation.json",
+      "reason": "Unmatched incidental process streams are outside the synthetic proof; use the explicitly scoped -matched-only projection",
+      "flags": []
+    },
+    {
+      "source_path": "reports/static/phase4/existing-import-evidence.txt",
+      "reason": "conservative content scan requires manual review; file not staged",
+      "flags": [
+        "private_source_dependency"
+      ]
+    },
+    {
+      "source_path": "reports/static/codec-review-unit-results.json",
+      "reason": "not validated UTF-8 text",
+      "flags": []
+    },
+    {
+      "source_path": "reports/static/report-in-progress.json",
+      "reason": "conservative content scan requires manual review; file not staged",
+      "flags": [
+        "agent_control_reference"
+      ]
+    },
+    {
+      "source_path": "reports/static/phase2/finalize.py",
+      "reason": "conservative content scan requires manual review; file not staged",
+      "flags": [
+        "private_source_dependency"
+      ]
+    }
+  ],
+  "remaining_replay_gaps": [
+    "Historical scripts retain research root/tool-layout assumptions. A clean disposable project/bootstrap and dependency installation recipe still needs parent integration; no Ghidra/Unicorn runtime was staged or executed.",
+    "Native candidate paths are preserved after text token sanitization, not rewritten to pretend portable native acceptance. Synthetic media must be regenerated through existing generators; no media/artwork is included.",
+    "Private-source-dependent auxiliary finalization/import excerpts are withheld. Static phase4 private-baseline comparisons are not part of this public synthetic subset.",
+    "Only the two ITL-bound trace streams are staged. Unmatched process activity and blobs are intentionally absent.",
+    "Further phase2/phase3 native success cohorts are not folded into the ten historical positives. Independent donor32 creation/reload is not cross-library insertion acceptance.",
+    "Parent reported 912+5 at the stated main commit; this staging task did not independently rerun that source."
+  ]
+}

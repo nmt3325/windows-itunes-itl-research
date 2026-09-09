@@ -1,0 +1,986 @@
+
+FILE reports/static/decompiled/0107b460.c SHA256 0473d0cdbc555a40354e3dfaf4a8f54a4f2aceb11622f96ed8468bfe83660a13
+440:           }
+441:           else {
+442:             uVar13 = *(ulonglong *)(lVar12 + 8);
+443:           }
+444:         }
+445:         if (((iStack_770 == 1) &&
+446:             (lVar12 = FUN_14042de70(param_1 + 0x1e00290,&uStack_5f8), lVar12 != 0)) &&
+447:            (*(longlong *)(lVar12 + 8) != 0)) {
+448:           uStack_5f8 = FUN_140ba5880(0);
+449:           *(undefined1 *)(param_1 + 0x1e002f1) = 1;
+450:         }
+451:         piStack_798 = (int *)CONCAT44(piStack_798._4_4_,uStack_600);
+452:         uStack_790 = uStack_5f8;
+453:         uVar13 = FUN_140f92b80(lVar15,iVar11,uVar21,uVar13);
+454:         if (uVar13 == 0) {
+455:           return 0xffffff94;
+456:         }
+457:         pcVar4 = *(char **)(uVar13 + 0x58);
+458:         if (uStack_6b8 == 0) {
+459:           uStack_6b8 = uVar13;
+460:         }
+461:         if (iStack_484 == 0) {
+462:           iStack_484 = aiStack_670[2];
+463:         }
+464:         *(undefined4 *)(pcVar4 + 0x54) = uStack_658;
+465:         *(undefined4 *)(pcVar4 + 0x5c) = uStack_650;
+466:         *(undefined2 *)(uVar13 + 0x10a) = uStack_64c;
+467:         *(undefined2 *)(uVar13 + 0x10c) = uStack_648;
+468:         *(undefined2 *)(uVar13 + 0x10e) = uStack_610;
+469:         *(undefined2 *)(uVar13 + 0x110) = uStack_60e;
+470:         *(undefined2 *)(uVar13 + 0xa6) = uStack_644;
+471:         *(undefined1 *)(uVar13 + 0x104) = uStack_60c;
+472:         *(byte *)(uVar13 + 0x9b) = (bStack_625 & 1) << 2 | *(byte *)(uVar13 + 0x9b) & 0xfb;
+473:         *(byte *)(uVar13 + 0x9a) = (bStack_60b & 1) << 4 | *(byte *)(uVar13 + 0x9a) & 0xef;
+474:         *(undefined2 *)(pcVar4 + 0x4c) = uStack_640;
+475:         *(undefined4 *)(pcVar4 + 0x48) = uStack_5e0;
+476:         *(undefined2 *)(pcVar4 + 0x4e) = uStack_46e;
+477:         *(undefined2 *)(uVar13 + 0x102) = uStack_638;
+478:         *(undefined4 *)(uVar13 + 0xfc) = uStack_604;
+479:         uStack_768 = uVar13;
+480:         pcStack_6c0 = pcVar4;
+481:         uVar7 = func_0x00014106a990(uStack_628);
+482:         *(undefined2 *)(pcVar4 + 0x50) = uVar7;
+483:         *(byte *)(uVar13 + 0x9a) = (bStack_60a & 1) << 2 | *(byte *)(uVar13 + 0x9a) & 0xfb;
+484:         *(undefined2 *)(pcVar4 + 0x6c) = uStack_5e8;
+485:         *(undefined2 *)(pcVar4 + 0x6e) = uStack_5e6;
+486:         *(undefined4 *)(pcVar4 + 0x70) = uStack_5e4;
+487:         bVar3 = *(byte *)(uVar13 + 0x9b);
+488:         bVar16 = (bStack_5d1 & 1) << 3;
+489:         *(byte *)(uVar13 + 0x9b) = bVar16 | bVar3 & 0xf7;
+490:         *(byte *)(uVar13 + 0x9b) = (bStack_447 & 1) << 4 | bVar16 | bVar3 & 0xe7;
+491:         bVar3 = pcVar4[0x41];
+492:         pcVar4[0x41] = bStack_5af & 1 | bVar3 & 0xfe;
+493:         pcVar4[0x41] = (bStack_49b & 1) << 3 | bStack_5af & 1 | bVar3 & 0xf6;
+494:         pcVar4[0x44] = cStack_609;
+495:         pcVar4[0x3f] = cStack_550;
+496:         *(undefined2 *)(uVar13 + 300) = uStack_5d4;
+497:         *(undefined1 *)(uVar13 + 0x90) = uStack_5d2;
+498:         *(byte *)(uVar13 + 0x9c) = (bStack_5b0 & 1) << 4 | *(byte *)(uVar13 + 0x9c) & 0xef;
+499:         *(undefined8 *)(pcVar4 + 0x2d8) = uStack_5ac;
+500:         *(byte *)(uVar13 + 0x9d) = (bStack_5ae & 1) << 3 | *(byte *)(uVar13 + 0x9d) & 0xf7;
+501:         bVar3 = *(byte *)(uVar13 + 0x9b);
+502:         bVar16 = (bStack_5ad & 1) << 6;
+503:         *(byte *)(uVar13 + 0x9b) = bVar16 | bVar3 & 0xbf;
+504:         *(byte *)(uVar13 + 0x9b) = bVar16 | bVar3 & 0x3f | cStack_590 << 7;
+505:         bVar3 = *(byte *)(uVar13 + 0x9d);
+506:         *(byte *)(uVar13 + 0x9d) = bStack_58e & 1 | bVar3 & 0xfe;
+507:         *(byte *)(uVar13 + 0x9d) = (bStack_58b & 1) * '\x02' | bStack_58e & 1 | bVar3 & 0xfc;
+508:         *(byte *)(uVar13 + 0x9c) = (bStack_58f & 1) * '\x02' | *(byte *)(uVar13 + 0x9c) & 0xfd;
+509:         *(undefined4 *)(pcVar4 + 0x2f4) = uStack_588;
+510:         *(undefined4 *)(pcVar4 + 0x2f8) = uStack_578;
+511:         *(undefined8 *)(pcVar4 + 0x2e0) = uStack_584;
+512:         *(undefined8 *)(pcVar4 + 0x2e8) = uStack_558;
+513:         *(undefined4 *)(pcVar4 + 0x2f0) = uStack_574;
+514:         *(undefined2 *)(pcVar4 + 0x52) = uStack_620;
+515:         *(undefined4 *)(pcVar4 + 0x68) = uStack_5b8;
+516:         *(undefined2 *)(uVar13 + 0x100) = uStack_5b4;
+517:         bVar3 = *(byte *)(uVar13 + 0x9d);
+518:         bVar16 = (bStack_58d & 1) << 6;
+519:         *(byte *)(uVar13 + 0x9d) = bVar16 | bVar3 & 0xbf;
+520:         *(byte *)(uVar13 + 0x9d) = (bStack_464 & 1) << 5 | bVar16 | bVar3 & 0x9f;
+521:         *(byte *)(uVar13 + 0x9a) = *(byte *)(uVar13 + 0x9a) & 0x7f | cStack_463 << 7;
+522:         *(byte *)(uVar13 + 0x9d) = cStack_58c << 7 | *(byte *)(uVar13 + 0x9d) & 0x7f;
+523:         *(byte *)(uVar13 + 0x9e) = bStack_3fb & 1 | *(byte *)(uVar13 + 0x9e) & 0xfe;
+524:         bVar3 = *(byte *)(uVar13 + 0x9f);
+525:         bVar16 = (bStack_3fa & 1) << 4;
+526:         *(byte *)(uVar13 + 0x9f) = bVar16 | bVar3 & 0xef;
+527:         *(byte *)(uVar13 + 0x9f) = (bStack_3f9 & 1) << 5 | bVar16 | bVar3 & 0xcf;
+528:         bVar3 = *(byte *)(uVar13 + 0x9e);
+529:         bVar16 = (bStack_589 & 1) * '\x02';
+530:         *(byte *)(uVar13 + 0x9e) = bVar16 | bVar3 & 0xfd;
+531:         *(byte *)(uVar13 + 0x9e) = (bStack_58a & 1) << 2 | bVar16 | bVar3 & 0xf9;
+532:         *(undefined4 *)(pcVar4 + 0x74) = uStack_57c;
+533:         *(undefined4 *)(uVar13 + 0xe0) = uStack_3e8;
+534:         *(undefined4 *)(uVar13 + 0xe4) = uStack_3e4;
+535:         *(undefined4 *)(uVar13 + 0xe8) = uStack_3e0;
+536:         *(undefined4 *)(uVar13 + 0xec) = uStack_3dc;
+537:         *(undefined4 *)(uVar13 + 0xf0) = uStack_3d8;
+538:         *(undefined4 *)(uVar13 + 0xf4) = uStack_3d4;
+539:         *(undefined4 *)(uVar13 + 0xf8) = uStack_3d0;
+540:         *(byte *)(uVar13 + 0x9e) = (bStack_564 & 1) << 3 | *(byte *)(uVar13 + 0x9e) & 0xf7;
+541:         *(byte *)(uVar13 + 0x9c) = *(byte *)(uVar13 + 0x9c) & 0xfe | bStack_562 & 1;
+542:         *(undefined4 *)(uVar13 + 0x120) = uStack_5a0;
+543:         *(undefined4 *)(uVar13 + 0x124) = uStack_560;
+544:         *(undefined4 *)(uVar13 + 0x128) = uStack_55c;
+545:         FUN_140fa2b30(uVar13,uStack_54f);
+546:         *(undefined8 *)(uVar13 + 0x140) = uStack_544;
+547:         *(undefined8 *)(uVar13 + 0x148) = uStack_53c;
+548:         *(byte *)(uVar13 + 0x9c) = (bStack_499 & 1) << 3 | *(byte *)(uVar13 + 0x9c) & 0xf7;
+549:         pcVar4[0x42] = (bStack_40a & 1) << 5 | pcVar4[0x42] & 0xdfU;
+550:         *(byte *)(uVar13 + 0x9f) = (bStack_409 & 1) << 2 | *(byte *)(uVar13 + 0x9f) & 0xfb;
+551:         *(undefined8 *)(uVar13 + 0x150) = uStack_494;
+552:         *(undefined4 *)(uVar13 + 0x158) = uStack_488;
+553:         *(undefined4 *)(uVar13 + 0x15c) = uStack_458;
+554:         *(undefined8 *)(uVar13 + 0x138) = uStack_47c;
+555:         *(longlong *)(pcVar4 + 0x60) = lStack_534;
+556:         if (lStack_534 == 0) {
+557:           *(ulonglong *)(pcVar4 + 0x60) = (ulonglong)uStack_654;
+558:         }
+559:         pcVar4[0x40] = (bStack_561 & 1) << 3 | pcVar4[0x40] & 0xf7U;
+560:         pcVar4[0x3e] = cStack_448;
+561:         *(undefined4 *)(pcVar4 + 0x38) = uStack_5ec;
+562:         bVar3 = pcVar4[0x41];
+563:         bVar16 = (bStack_65f & 1) << 4;
+564:         pcVar4[0x41] = bVar16 | bVar3 & 0xef;
+565:         bVar20 = (bStack_462 & 1) << 5;
+566:         pcVar4[0x41] = bVar20 | bVar16 | bVar3 & 0xcf;
+567:         pcVar4[0x41] = (bStack_660 & 1) << 6 | bVar20 | bVar16 | bVar3 & 0x8f;
+568:         *(undefined4 *)(pcVar4 + 0x2c) = uStack_44c;
+569:         *(undefined4 *)(uVar13 + 0xac) = uStack_404;
+570:         bVar3 = *(byte *)(uVar13 + 0x88);
+571:         bVar17 = (bStack_420 & 1) << 3;
+572:         *(byte *)(uVar13 + 0x88) = bVar17 | bVar3 & 0xf7;
+573:         bVar20 = bStack_41c & 1;
+574:         *(byte *)(uVar13 + 0x88) = bVar20 | bVar17 | bVar3 & 0xf6;
+575:         bVar16 = (bStack_41b & 1) * '\x02';
+576:         *(byte *)(uVar13 + 0x88) = bVar16 | bVar20 | bVar17 | bVar3 & 0xf4;
+577:         *(byte *)(uVar13 + 0x88) = (bStack_41a & 1) << 2 | bVar16 | bVar20 | bVar17 | bVar3 & 0xf0;
+578:         *(undefined4 *)(uVar13 + 0x8c) = uStack_400;
+579:         *(undefined1 *)(uVar13 + 0x89) = uStack_396;
+580:         if (bStack_418 != 0) {
+581:           if ((((pcVar4 != (char *)0x0) && (*(longlong *)(pcVar4 + 8) != 0)) &&
+582:               (lVar12 = *(longlong *)(*(longlong *)(pcVar4 + 8) + 0x10), lVar12 != 0)) &&
+583:              (((**(byte **)(pcVar4 + 0x20) & 1) == 0 && (*(int *)(lVar12 + 0x80) == 0x74646174)))) {
+584:             pbVar14 = (byte *)FUN_140bc62b0(*(undefined8 *)(lVar12 + 0x150));
+585:             *(byte **)(pcVar4 + 0x20) = pbVar14;
+586:             if (pbVar14 != (byte *)0x0) {
+587:               *pbVar14 = *pbVar14 | 1;
+588:             }
+589:           }
+590:           **(byte **)(pcVar4 + 0x20) = (bStack_418 & 1) * '\x02' | **(byte **)(pcVar4 + 0x20) & 0xfd
+
+FILE reports/static/decompiled/0107b460.c SHA256 0473d0cdbc555a40354e3dfaf4a8f54a4f2aceb11622f96ed8468bfe83660a13
+1380:                     if (*(longlong *)(piVar19 + 0xc) != 0) {
+1381:                       _aligned_free();
+1382:                     }
+1383:                     if (*(longlong *)(piVar19 + 0xe) != 0) {
+1384:                       _aligned_free();
+1385:                     }
+1386:                     if (*(longlong *)(piVar19 + 0x16) != 0) {
+1387:                       CFRelease();
+1388:                     }
+1389:                     *piVar19 = 0;
+1390:                     _aligned_free(piVar19);
+1391:                   }
+1392:                 }
+1393:                 uStack_370 = uStack_370 | 0x80000000;
+1394:               }
+1395:               uVar23 = 0;
+1396:               goto LAB_14107e4f7;
+1397:             case 0x16:
+1398:               FUN_140f92f00(uVar13);
+1399:               piStack_798 = (int *)(*(longlong *)(uVar13 + 0x68) + 0x38);
+1400:               uStack_790 = uStack_790 & 0xffffffff00000000;
+1401:               uVar8 = FUN_1410773d0(param_1,1,lStack_780 + 0x520,auStack_350[2]);
+1402:               uStack_370 = uStack_370 | 0x20000;
+1403:               break;
+1404:             case 0x18:
+1405:               FUN_140f92f70(uVar13);
+1406:               piStack_798 = (int *)(*(longlong *)(uVar13 + 0x70) + 0x28);
+1407:               uStack_790 = uStack_790 & 0xffffffff00000000;
+1408:               uVar8 = FUN_1410773d0(param_1,1,lStack_780 + 0x640,auStack_350[2]);
+1409:               uStack_378 = uStack_378 | 0x200000000000000;
+1410:               break;
+1411:             case 0x19:
+1412:               FUN_140f92f70(uVar13);
+1413:               piStack_798 = (int *)(*(longlong *)(uVar13 + 0x70) + 0x2c);
+1414:               uStack_790 = uStack_790 & 0xffffffff00000000;
+1415:               uVar8 = FUN_1410773d0(param_1,1,lStack_780 + 0x6d0,auStack_350[2]);
+1416:               uStack_370 = uStack_370 | 0x80;
+1417:               break;
+1418:             case 0x1b:
+1419:               piStack_798 = (int *)(uVar13 + 0xb8);
+1420:               uStack_790 = (ulonglong)uStack_790._4_4_ << 0x20;
+1421:               uVar8 = FUN_1410773d0(param_1,1,lStack_780 + 0x208);
+1422:               uStack_370 = uStack_370 | 1;
+1423:               break;
+1424:             case 0x1c:
+1425:               FUN_140f92f00(uVar13);
+1426:               piStack_798 = (int *)(*(longlong *)(uVar13 + 0x68) + 0x30);
+1427:               uStack_790 = uStack_790 & 0xffffffff00000000;
+1428:               uVar8 = FUN_1410773d0(param_1,1,lStack_780 + 0x718,auStack_350[2]);
+1429:               uStack_370 = uStack_370 | 0x40000000;
+1430:               break;
+1431:             case 0x1d:
+1432:               FUN_140f92f70(uVar13);
+1433:               piStack_798 = (int *)(*(longlong *)(uVar13 + 0x70) + 0x24);
+1434:               uStack_790 = uStack_790 & 0xffffffff00000000;
+1435:               uVar8 = FUN_1410773d0(param_1,2,lStack_780 + 0x760,auStack_350[2]);
+1436:               uStack_370 = uStack_370 | 0x80000;
+1437:               break;
+1438:             case 0x1e:
+1439:               lVar15 = *(longlong *)(uVar13 + 0x10);
+1440:               piStack_798 = (int *)(uVar13 + 0x160);
+1441:               uStack_758 = 0;
+1442:               lStack_738 = 0;
+1443:               uStack_70c = 0;
+1444:               uStack_6d8 = 0;
+1445:               lStack_728 = 0;
+1446:               lStack_720 = 0;
+1447:               pcStack_748 = FUN_140eb80a0;
+1448:               lStack_730 = uVar13 + 0x92;
+1449:               uStack_708 = 0x200000000000;
+1450:               uStack_700 = 0;
+1451:               iStack_710 = *piStack_798;
+1452:               uStack_6f8 = 0x8000000000000;
+1453:               uStack_6f0 = 0;
+1454:               uStack_754 = 2;
+1455:               lStack_718 = 0;
+1456:               uStack_750 = 0x4e;
+1457:               uStack_74c = 0x1e;
+1458:               uStack_6e8 = 1;
+1459:               uStack_6e0 = 0;
+1460:               if (lVar15 != 0) {
+1461:                 lStack_738 = uVar13 + 0xa1;
+1462:                 lStack_718 = lVar15 + 0x1768;
+1463:                 lStack_728 = lVar15 + 0x178;
+1464:                 lStack_720 = uVar13 + 0xb0;
+1465:               }
+1466:               uStack_790 = (ulonglong)uStack_790._4_4_ << 0x20;
+1467:               uStack_740 = uVar13;
+1468:               uVar8 = FUN_1410773d0(param_1,1);
+1469:               uStack_370 = uStack_370 | 0x200;
+1470:               break;
+1471:             case 0x1f:
+1472:               lVar15 = *(longlong *)(uVar13 + 0x10);
+1473:               piStack_798 = (int *)(uVar13 + 0x164);
+1474:               lStack_738 = 0;
+1475:               lStack_728 = 0;
+1476:               lStack_720 = 0;
+1477:               uStack_70c = 0;
+1478:               uStack_6d8 = 0;
+1479:               uStack_708 = 0x400000000000;
+1480:               uStack_700 = 0;
+1481:               pcStack_748 = FUN_140eb80a0;
+1482:               lStack_730 = uVar13 + 0x93;
+1483:               uStack_6f8 = 0x10000000000000;
+1484:               uStack_6f0 = 0;
+1485:               iStack_710 = *piStack_798;
+1486:               uStack_6e8 = 8;
+1487:               uStack_6e0 = 0;
+1488:               lStack_718 = 0;
+1489:               uStack_758 = 1;
+1490:               uStack_754 = 3;
+1491:               uStack_750 = 0x4f;
+1492:               uStack_74c = 0x1f;
+1493:               if (lVar15 != 0) {
+1494:                 lStack_738 = uVar13 + 0xa3;
+1495:                 lStack_718 = lVar15 + 0x17b0;
+1496:                 lStack_728 = lVar15 + 0x1c0;
+1497:                 lStack_720 = uVar13 + 0xbc;
+1498:               }
+1499:               uStack_790 = (ulonglong)uStack_790._4_4_ << 0x20;
+1500:               uStack_740 = uVar13;
+1501:               uVar8 = FUN_1410773d0(param_1,1);
+1502:               uStack_370 = uStack_370 | 0x100;
+1503:               break;
+1504:             case 0x20:
+1505:               lVar15 = *(longlong *)(uVar13 + 0x10);
+1506:               piStack_798 = (int *)(uVar13 + 0x168);
+1507:               lStack_738 = 0;
+1508:               uStack_70c = 0;
+1509:               uStack_6d8 = 0;
+1510:               uStack_758 = 2;
+1511:               pcStack_748 = FUN_140eb80a0;
+1512:               lStack_730 = uVar13 + 0x94;
+1513:               lStack_728 = 0;
+1514:               lStack_720 = 0;
+1515:               iStack_710 = *piStack_798;
+1516:               lStack_718 = 0;
+1517:               uStack_754 = 4;
+1518:               uStack_750 = 0x50;
+1519:               uStack_74c = 0x20;
+1520:               uStack_708 = 0x800000000000;
+1521:               uStack_700 = 0;
+1522:               uStack_6f8 = 0x20000000000000;
+1523:               uStack_6f0 = 0;
+1524:               uStack_6e8 = 4;
+1525:               uStack_6e0 = 0;
+1526:               if (lVar15 != 0) {
+1527:                 lStack_738 = uVar13 + 0xa2;
+1528:                 lStack_718 = lVar15 + 0x17f8;
+1529:                 lStack_728 = lVar15 + 0x208;
+1530:                 lStack_720 = uVar13 + 0xb4;
+1531:               }
+1532:               uStack_790 = (ulonglong)uStack_790._4_4_ << 0x20;
+1533:               uStack_740 = uVar13;
+1534:               uVar8 = FUN_1410773d0(param_1,1);
+1535:               uStack_370 = uStack_370 | 0x800000;
+1536:               break;
+1537:             case 0x21:
+1538:               lVar15 = *(longlong *)(uVar13 + 0x10);
+1539:               piStack_798 = (int *)(uVar13 + 0x16c);
+1540:               uStack_758 = 3;
+1541:               lStack_738 = 0;
+1542:               uStack_70c = 0;
+1543:               uStack_6d8 = 0;
+1544:               pcStack_748 = FUN_140eb80a0;
+1545:               lStack_730 = uVar13 + 0x95;
+1546:               iStack_710 = *piStack_798;
+1547:               lStack_728 = 0;
+1548:               lStack_720 = 0;
+1549:               lStack_718 = 0;
+1550:               uStack_754 = 0x47;
+1551:               uStack_750 = 0x51;
+1552:               uStack_74c = 0x21;
+1553:               uStack_708 = 0x1000000000000;
+1554:               uStack_700 = 0;
+1555:               uStack_6f8 = 0x40000000000000;
+1556:               uStack_6f0 = 0;
+1557:               uStack_6e8 = 0x40000000;
+1558:               uStack_6e0 = 0;
+1559:               if (lVar15 != 0) {
+1560:                 lStack_728 = lVar15 + 0x208;
+1561:                 lStack_718 = lVar15 + 0x17f8;
+1562:                 lStack_720 = uVar13 + 0xb8;
+1563:               }
+1564:               uStack_790 = (ulonglong)uStack_790._4_4_ << 0x20;
+1565:               uStack_740 = uVar13;
+1566:               uVar8 = FUN_1410773d0(param_1,1);
+1567:               uStack_370 = uStack_370 | 0x400000;
+1568:               break;
+1569:             case 0x22:
+1570:               lVar15 = *(longlong *)(uVar13 + 0x10);
+1571:               piStack_798 = (int *)(uVar13 + 0x170);
+1572:               uStack_758 = 4;
+1573:               lStack_738 = 0;
+1574:               uStack_70c = 0;
+1575:               uStack_6d8 = 0;
+1576:               pcStack_748 = FUN_140eb80a0;
+1577:               lStack_730 = uVar13 + 0x96;
+1578:               iStack_710 = *piStack_798;
+1579:               lStack_728 = 0;
+1580:               lStack_720 = 0;
+1581:               lStack_718 = 0;
+1582:               uStack_754 = 0x12;
+1583:               uStack_750 = 0x52;
+1584:               uStack_74c = 0x22;
+1585:               uStack_708 = 0x2000000000000;
+1586:               uStack_700 = 0;
+1587:               uStack_6f8 = 0x80000000000000;
+1588:               uStack_6f0 = 0;
+1589:               uStack_6e8 = 0x200000;
+1590:               uStack_6e0 = 0;
+1591:               if (lVar15 != 0) {
+1592:                 lStack_728 = lVar15 + 0x208;
+1593:                 lStack_718 = lVar15 + 0x17f8;
+1594:                 lStack_720 = uVar13 + 0xc4;
+1595:               }
+1596:               uStack_790 = (ulonglong)uStack_790._4_4_ << 0x20;
+1597:               uStack_740 = uVar13;
+1598:               uVar8 = FUN_1410773d0(param_1,1);
+1599:               uStack_370 = uStack_370 | 0x200000;
+1600:               break;
+1601:             case 0x23:
+1602:               func_0x000140eb8130(uVar13,5,&uStack_758);
+1603:               uStack_790 = uStack_790 & 0xffffffff00000000;
+1604:               piStack_798 = (int *)(uVar13 + ((ulonglong)uStack_758 + 0x58) * 4);
+1605:               uVar8 = FUN_1410773d0(param_1,1,lStack_718,auStack_350[2]);
+1606:               uVar23 = (ulonglong)uVar8;
+1607:               if (((int)uStack_750 < 0x100) && (uStack_750 != 0)) {
+1608:                 pbVar14 = (byte *)((longlong)&uStack_378 + (ulonglong)(uStack_750 >> 3));
+1609:                 *pbVar14 = *pbVar14 | (byte)(0x80 >> ((byte)uStack_750 & 7));
+1610:               }
+1611:               goto code_r0x00014107e3e3;
+1612:             case 0x24:
+1613:               puVar2 = (undefined8 *)(param_1 + 0xa00128);
+1614:               if (puVar2 != (undefined8 *)0x0) {
+1615:                 *puVar2 = 0;
+1616:                 *(undefined8 *)(param_1 + 0xa00130) = 0;
+1617:                 *(undefined8 *)(param_1 + 0xa00138) = 0;
+1618:                 *(undefined8 *)(param_1 + 0xa00140) = 0;
+1619:                 *(undefined8 *)(param_1 + 0xa00148) = 0;
+1620:                 *(undefined8 *)(param_1 + 0xa00150) = 0;
+1621:                 *(undefined8 *)(param_1 + 0xa00158) = 0;
+1622:                 *(undefined8 *)(param_1 + 0xa00160) = 0;
+1623:                 *(undefined8 *)(param_1 + 0xa00168) = 0;
+1624:                 *(undefined8 *)(param_1 + 0xa00170) = 0;
+1625:                 *(undefined4 *)(param_1 + 0xa00178) = 0;
+1626:               }
+1627:               if (uVar8 < 0xa00001) {
+1628:                 uVar8 = FUN_1410770a0(param_1,puVar2,uVar8);
+1629:                 uVar23 = (ulonglong)uVar8;
+1630:                 if (uVar8 == 0) {
+1631:                   func_0x0001410690d0(param_1,puVar2);
+1632:                   uVar8 = FUN_141079810(puVar2,pcVar4);
+1633:                   break;
+1634:                 }
+1635:               }
+1636:               else {
+1637:                 uVar23 = 0xffffff30;
+1638:               }
+1639:               goto code_r0x00014107e3e3;
+1640:             case 0x25:
+1641:               FUN_140f92f00(uVar13);
+1642:               piStack_798 = (int *)(*(longlong *)(uVar13 + 0x68) + 0x24);
+1643:               uStack_790 = CONCAT44(uStack_790._4_4_,1);
+1644:               uVar8 = FUN_1410773d0(param_1,0,lStack_780 + 0x5b0,auStack_350[2]);
+1645:               uStack_370 = uStack_370 | 0x40000;
+1646:               break;
+1647:             case 0x2a:
+1648:               FUN_140f92f00(uVar13);
+1649:               piStack_798 = (int *)(*(longlong *)(uVar13 + 0x68) + 0x4c);
+1650:               uStack_790 = uStack_790 & 0xffffffff00000000;
+1651:               uVar8 = FUN_1410773d0(param_1,0,lStack_780 + 0x1888,auStack_350[2]);
+1652:               uStack_370 = uStack_370 | 0x8000000000000;
+1653:               break;
+1654:             case 0x2b:
+1655:               FUN_140fa6150(pcVar4);
+1656:               piStack_798 = (int *)(*(longlong *)(pcVar4 + 0x10) + 0x68);
+1657:               uStack_790 = uStack_790 & 0xffffffff00000000;
+1658:               uVar8 = FUN_1410773d0(param_1,1,lStack_780 + 0x7a8,auStack_350[2]);
+1659:               uStack_370 = uStack_370 | 0x1000000000000;
+1660:               break;
+1661:             case 0x2d:
+1662:               FUN_140fa6150(pcVar4);
+1663:               piStack_798 = (int *)(*(longlong *)(pcVar4 + 0x10) + 0x6c);
+1664:               uStack_790 = uStack_790 & 0xffffffff00000000;
+1665:               uVar8 = FUN_1410773d0(param_1,2,lStack_780 + 0x7f0,auStack_350[2]);
+1666:               uStack_370 = uStack_370 | 0x1000000000000000;
+1667:               break;
+1668:             case 0x2e:
+1669:               FUN_140f92f00(uVar13);
+1670:               piStack_798 = (int *)(*(longlong *)(uVar13 + 0x68) + 0x40);
+1671:               uStack_790 = uStack_790 & 0xffffffff00000000;
+1672:               uVar8 = FUN_1410773d0(param_1,1,lStack_780 + 0x880,auStack_350[2]);
+1673:               uStack_370 = uStack_370 | 0x800000000000000;
+1674:               break;
+1675:             case 0x30:
+1676:               FUN_140fa6150(pcVar4);
+1677:               uVar8 = FUN_141077ee0(param_1,uVar8,*(longlong *)(pcVar4 + 0x10) + 0x98);
+1678:               break;
+1679:             case 0x33:
+1680:               FUN_140f92f00(uVar13);
+1681:               piStack_798 = (int *)(*(longlong *)(uVar13 + 0x68) + 0x3c);
+1682:               uStack_790 = uStack_790 & 0xffffffff00000000;
+1683:               uVar8 = FUN_1410773d0(param_1,1,lStack_780 + 0x520,auStack_350[2]);
+1684:               uStack_370 = uStack_370 | 0x100000000000000;
+1685:               break;
+1686:             case 0x34:
+1687:               FUN_140fa6150(pcVar4);
+1688:               piStack_798 = (int *)(*(longlong *)(pcVar4 + 0x10) + 0x70);
+1689:               uStack_790 = uStack_790 & 0xffffffff00000000;
+1690:               uVar8 = FUN_1410773d0(param_1,1,lStack_780 + 0x838,auStack_350[2]);
+1691:               uStack_368 = uStack_368 | 0x80;
+1692:               break;
+1693:             case 0x36:
+1694:               lVar15 = FUN_140fa1a50(uVar13,0x140000001);
+1695:               if (lVar15 == 0) {
+1696:                 uVar21 = (longlong)(int)uVar8 + *(longlong *)(param_1 + 0x1e00170);
+1697:                 *(ulonglong *)(param_1 + 0x1e00170) = uVar21;
+1698:                 if ((uVar21 < *(ulonglong *)(param_1 + 0x1e00178)) ||
+1699:                    (*(ulonglong *)(param_1 + 0x1e00178) + *(longlong *)(param_1 + 0x1e00180) <=
+1700:                     uVar21)) {
+1701:                   *(undefined8 *)(param_1 + 0x1e00180) = 0;
+1702:                 }
+1703:                 FUN_141079920(uVar13);
+1704:               }
+1705:               else {
+1706:                 uVar8 = FUN_141077ff0(param_1,lVar15,uVar8);
+1707:                 if (uVar8 != 0) {
+1708:                   return (ulonglong)uVar8;
+1709:                 }
+1710:                 FUN_141079920(uVar13);
+
+WRITER CALL
+1082:       uVar13 = (ulonglong)uVar9;
+1083:       if (uVar9 != 0) goto LAB_14106f4e2;
+1084:       *(int *)(param_1 + 0xa00134) = *(int *)(param_1 + 0xa00134) + 1;
+1085:     }
+1086:     plStack_308 = (longlong *)acStack_2f8;
+1087:     plStack_310 = &lStack_2f0;
+1088:     uStack_318._0_4_ = 1;
+1089:     uVar9 = FUN_14106b030(param_1,lVar14 + 0x520,*(undefined4 *)(puVar4[0xd] + 0x34),0x12);
+1090:     if (uVar9 != 0) {
+1091:       return (ulonglong)uVar9;
+
+WRITER CALL
+1092:     }
+1093:     if (acStack_2f8[0] != '\0') {
+1094:       *(int *)(param_1 + 0xa00134) = *(int *)(param_1 + 0xa00134) + 1;
+1095:     }
+1096:     plStack_308 = (longlong *)acStack_2f8;
+1097:     plStack_310 = &lStack_2f0;
+1098:     uStack_318._0_4_ = 1;
+1099:     uVar9 = FUN_14106b030(param_1,lVar14 + 0x520,*(undefined4 *)(puVar4[0xd] + 0x38),0x16);
+1100:     if (uVar9 != 0) {
+1101:       return (ulonglong)uVar9;
+
+WRITER CALL
+1102:     }
+1103:     if (acStack_2f8[0] != '\0') {
+1104:       *(int *)(param_1 + 0xa00134) = *(int *)(param_1 + 0xa00134) + 1;
+1105:     }
+1106:     plStack_308 = (longlong *)acStack_2f8;
+1107:     plStack_310 = &lStack_2f0;
+1108:     uStack_318._0_4_ = 1;
+1109:     uVar9 = FUN_14106b030(param_1,lVar14 + 0x520,*(undefined4 *)(puVar4[0xd] + 0x3c),0x33);
+1110:     if (uVar9 != 0) {
+1111:       return (ulonglong)uVar9;
+
+WRITER CALL
+1112:     }
+1113:     if (acStack_2f8[0] != '\0') {
+1114:       *(int *)(param_1 + 0xa00134) = *(int *)(param_1 + 0xa00134) + 1;
+1115:     }
+1116:     plStack_308 = (longlong *)acStack_2f8;
+1117:     plStack_310 = &lStack_2f0;
+1118:     uStack_318._0_4_ = 1;
+1119:     uVar9 = FUN_14106b030(param_1,lVar14 + 0x880,*(undefined4 *)(puVar4[0xd] + 0x40),0x2e);
+1120:     if (uVar9 != 0) {
+1121:       return (ulonglong)uVar9;
+
+WRITER CALL
+1122:     }
+1123:     if (acStack_2f8[0] != '\0') {
+1124:       *(int *)(param_1 + 0xa00134) = *(int *)(param_1 + 0xa00134) + 1;
+1125:     }
+1126:     plStack_308 = (longlong *)acStack_2f8;
+1127:     plStack_310 = &lStack_2f0;
+1128:     uStack_318._0_4_ = 0;
+1129:     uVar9 = FUN_14106b030(param_1,lVar14 + 0x568,*(undefined4 *)(puVar4[0xd] + 0x20),0x13);
+1130:     if (uVar9 != 0) {
+1131:       return (ulonglong)uVar9;
+
+WRITER CALL
+1132:     }
+1133:     if (acStack_2f8[0] != '\0') {
+1134:       *(int *)(param_1 + 0xa00134) = *(int *)(param_1 + 0xa00134) + 1;
+1135:     }
+1136:     plStack_308 = (longlong *)acStack_2f8;
+1137:     plStack_310 = &lStack_2f0;
+1138:     uStack_318._0_4_ = 0;
+1139:     uVar9 = FUN_14106b030(param_1,lVar14 + 0x5b0,*(undefined4 *)(puVar4[0xd] + 0x24),0x25);
+1140:     if (uVar9 != 0) {
+1141:       return (ulonglong)uVar9;
+
+WRITER CALL
+1142:     }
+1143:     if (acStack_2f8[0] != '\0') {
+1144:       *(int *)(param_1 + 0xa00134) = *(int *)(param_1 + 0xa00134) + 1;
+1145:     }
+1146:     plStack_308 = (longlong *)acStack_2f8;
+1147:     plStack_310 = &lStack_2f0;
+1148:     uStack_318._0_4_ = 0;
+1149:     uVar9 = FUN_14106b030(param_1,lVar14 + 0x5b0,*(undefined4 *)(puVar4[0xd] + 0x28),0x3a);
+1150:     if (uVar9 != 0) {
+1151:       return (ulonglong)uVar9;
+
+WRITER CALL
+1152:     }
+1153:     if (acStack_2f8[0] != '\0') {
+1154:       *(int *)(param_1 + 0xa00134) = *(int *)(param_1 + 0xa00134) + 1;
+1155:     }
+1156:     plStack_308 = (longlong *)acStack_2f8;
+1157:     plStack_310 = &lStack_2f0;
+1158:     uStack_318._0_4_ = 0;
+1159:     uVar9 = FUN_14106b030(param_1,lVar14 + 0x5f8,*(undefined4 *)(puVar4[0xd] + 0x2c),0x39);
+1160:     if (uVar9 != 0) {
+1161:       return (ulonglong)uVar9;
+
+WRITER CALL
+1162:     }
+1163:     if (acStack_2f8[0] != '\0') {
+1164:       *(int *)(param_1 + 0xa00134) = *(int *)(param_1 + 0xa00134) + 1;
+1165:     }
+1166:     plStack_308 = (longlong *)acStack_2f8;
+1167:     plStack_310 = &lStack_2f0;
+1168:     uStack_318._0_4_ = 1;
+1169:     uVar9 = FUN_14106b030(param_1,lVar14 + 0x718,*(undefined4 *)(puVar4[0xd] + 0x30),0x1c);
+1170:     if (uVar9 != 0) {
+1171:       return (ulonglong)uVar9;
+
+WRITER CALL
+1172:     }
+1173:     if (acStack_2f8[0] != '\0') {
+1174:       *(int *)(param_1 + 0xa00134) = *(int *)(param_1 + 0xa00134) + 1;
+1175:     }
+1176:     plStack_308 = (longlong *)acStack_2f8;
+1177:     plStack_310 = &lStack_2f0;
+1178:     uStack_318 = (longlong *)((ulonglong)uStack_318._4_4_ << 0x20);
+1179:     uVar9 = FUN_14106b030(param_1,lVar14 + 0x1888,*(undefined4 *)(puVar4[0xd] + 0x4c),0x2a);
+1180:     if (uVar9 != 0) {
+1181:       return (ulonglong)uVar9;
+
+WRITER CALL
+1184:       *(int *)(param_1 + 0xa00134) = *(int *)(param_1 + 0xa00134) + 1;
+1185:     }
+1186:   }
+1187:   if ((**(byte **)(param_2 + 0x10) & 1) != 0) {
+1188:     plStack_308 = (longlong *)acStack_2f8;
+1189:     plStack_310 = &lStack_2f0;
+1190:     uStack_318._0_4_ = 1;
+1191:     uVar9 = FUN_14106b030(param_1,lVar14 + 0x7a8,*(undefined4 *)(*(byte **)(param_2 + 0x10) + 0x68),
+1192:                           0x2b);
+1193:     if (uVar9 != 0) {
+
+WRITER CALL
+1195:     }
+1196:     if (acStack_2f8[0] != '\0') {
+1197:       *(int *)(param_1 + 0xa00134) = *(int *)(param_1 + 0xa00134) + 1;
+1198:     }
+1199:     plStack_308 = (longlong *)acStack_2f8;
+1200:     plStack_310 = &lStack_2f0;
+1201:     uStack_318._0_4_ = 2;
+1202:     uVar9 = FUN_14106b030(param_1,lVar14 + 0x7f0,
+1203:                           *(undefined4 *)(*(longlong *)(param_2 + 0x10) + 0x6c),0x2d);
+1204:     if (uVar9 != 0) {
+
+WRITER CALL
+1206:     }
+1207:     if (acStack_2f8[0] != '\0') {
+1208:       *(int *)(param_1 + 0xa00134) = *(int *)(param_1 + 0xa00134) + 1;
+1209:     }
+1210:     plStack_308 = (longlong *)acStack_2f8;
+1211:     plStack_310 = &lStack_2f0;
+1212:     uStack_318._0_4_ = 1;
+1213:     uVar9 = FUN_14106b030(param_1,lVar14 + 0x838,
+1214:                           *(undefined4 *)(*(longlong *)(param_2 + 0x10) + 0x70),0x34);
+1215:     if (uVar9 != 0) {
+
+WRITER CALL
+1217:     }
+1218:     if (acStack_2f8[0] != '\0') {
+1219:       *(int *)(param_1 + 0xa00134) = *(int *)(param_1 + 0xa00134) + 1;
+1220:     }
+1221:     plStack_308 = (longlong *)acStack_2f8;
+1222:     plStack_310 = &lStack_2f0;
+1223:     uStack_318._0_4_ = 1;
+1224:     uVar9 = FUN_14106b030(param_1,lVar14 + 0x8c8,
+1225:                           *(undefined4 *)(*(longlong *)(param_2 + 0x10) + 0x74),0x3b);
+1226:     if (uVar9 != 0) {
+
+WRITER CALL
+1228:     }
+1229:     if (acStack_2f8[0] != '\0') {
+1230:       *(int *)(param_1 + 0xa00134) = *(int *)(param_1 + 0xa00134) + 1;
+1231:     }
+1232:     plStack_308 = (longlong *)acStack_2f8;
+1233:     plStack_310 = &lStack_2f0;
+1234:     uStack_318._0_4_ = 1;
+1235:     uVar9 = FUN_14106b030(param_1,lVar14 + 0x910,
+1236:                           *(undefined4 *)(*(longlong *)(param_2 + 0x10) + 0x78),0x3c);
+1237:     if (uVar9 != 0) {
+
+WRITER CALL
+1239:     }
+1240:     if (acStack_2f8[0] != '\0') {
+1241:       *(int *)(param_1 + 0xa00134) = *(int *)(param_1 + 0xa00134) + 1;
+1242:     }
+1243:     plStack_308 = (longlong *)acStack_2f8;
+1244:     plStack_310 = &lStack_2f0;
+1245:     uStack_318._0_4_ = 1;
+1246:     uVar9 = FUN_14106b030(param_1,lVar14 + 0x8c8,
+1247:                           *(undefined4 *)(*(longlong *)(param_2 + 0x10) + 0x7c),0x3d);
+1248:     if (uVar9 != 0) {
+
+WRITER CALL
+1250:     }
+1251:     if (acStack_2f8[0] != '\0') {
+1252:       *(int *)(param_1 + 0xa00134) = *(int *)(param_1 + 0xa00134) + 1;
+1253:     }
+1254:     plStack_308 = (longlong *)acStack_2f8;
+1255:     plStack_310 = &lStack_2f0;
+1256:     uStack_318 = (longlong *)CONCAT44(uStack_318._4_4_,1);
+1257:     uVar9 = FUN_14106b030(param_1,lVar14 + 0x910,
+1258:                           *(undefined4 *)(*(longlong *)(param_2 + 0x10) + 0x80),0x3e);
+1259:     if (uVar9 != 0) {
+
+WRITER CALL
+1313:       *(int *)(param_1 + 0xa00134) = *(int *)(param_1 + 0xa00134) + 1;
+1314:     }
+1315:   }
+1316:   if ((*(byte *)puVar4[0xe] & 1) != 0) {
+1317:     plStack_308 = (longlong *)acStack_2f8;
+1318:     plStack_310 = &lStack_2f0;
+1319:     uStack_318._0_4_ = 1;
+1320:     uVar9 = FUN_14106b030(param_1,lVar14 + 0x640,*(undefined4 *)((byte *)puVar4[0xe] + 0x28),0x18);
+1321:     if (uVar9 != 0) {
+1322:       return (ulonglong)uVar9;
+
+WRITER CALL
+1323:     }
+1324:     if (acStack_2f8[0] != '\0') {
+1325:       *(int *)(param_1 + 0xa00134) = *(int *)(param_1 + 0xa00134) + 1;
+1326:     }
+1327:     plStack_308 = (longlong *)acStack_2f8;
+1328:     plStack_310 = &lStack_2f0;
+1329:     uStack_318._0_4_ = 1;
+1330:     uVar9 = FUN_14106b030(param_1,lVar14 + 0x6d0,*(undefined4 *)(puVar4[0xe] + 0x2c),0x19);
+1331:     if (uVar9 != 0) {
+1332:       return (ulonglong)uVar9;
+
+WRITER CALL
+1333:     }
+1334:     if (acStack_2f8[0] != '\0') {
+1335:       *(int *)(param_1 + 0xa00134) = *(int *)(param_1 + 0xa00134) + 1;
+1336:     }
+1337:     plStack_308 = (longlong *)acStack_2f8;
+1338:     plStack_310 = &lStack_2f0;
+1339:     uStack_318._0_4_ = 2;
+1340:     uVar9 = FUN_14106b030(param_1,lVar14 + 0x760,*(undefined4 *)(puVar4[0xe] + 0x24),0x1d);
+1341:     if (uVar9 != 0) {
+1342:       return (ulonglong)uVar9;
+
+WRITER CALL
+1343:     }
+1344:     if (acStack_2f8[0] != '\0') {
+1345:       *(int *)(param_1 + 0xa00134) = *(int *)(param_1 + 0xa00134) + 1;
+1346:     }
+1347:     plStack_308 = (longlong *)acStack_2f8;
+1348:     plStack_310 = &lStack_2f0;
+1349:     uStack_318 = (longlong *)CONCAT44(uStack_318._4_4_,1);
+1350:     uVar9 = FUN_14106b030(param_1,lVar14 + 0x6d0,*(undefined4 *)(puVar4[0xe] + 0x30),0x41);
+1351:     if (uVar9 != 0) {
+1352:       return (ulonglong)uVar9;
+
+WRITER CALL
+1387:   if ((((*(byte *)((longlong)puVar4 + 0x9b) & 8) != 0) ||
+1388:       ((*(char *)((longlong)puVar4 + 0x9d) < '\0' &&
+1389:        (uVar13 = FUN_140fa0b70(puVar4,0), (uVar13 & 0x200004) != 0)))) &&
+1390:      (*(int *)(param_2 + 0x34) == 0x48545450)) {
+1391:     plStack_308 = (longlong *)acStack_2f8;
+1392:     plStack_310 = &lStack_2f0;
+1393:     uStack_318._0_4_ = 1;
+1394:     uVar9 = FUN_14106b030(param_1,lVar14 + 0x4d8,*(undefined4 *)(puVar4[0xd] + 0x48),0xf);
+1395:     if (uVar9 != 0) {
+1396:       return (ulonglong)uVar9;
+
+WRITER CALL
+1397:     }
+1398:     if (acStack_2f8[0] != '\0') {
+1399:       *(int *)(param_1 + 0xa00134) = *(int *)(param_1 + 0xa00134) + 1;
+1400:     }
+1401:     plStack_308 = (longlong *)acStack_2f8;
+1402:     plStack_310 = &lStack_2f0;
+1403:     uStack_318 = (longlong *)CONCAT44(uStack_318._4_4_,1);
+1404:     uVar9 = FUN_14106b030(param_1,lVar14 + 0x4d8,*(undefined4 *)(puVar4[0xd] + 0x44),0x10);
+1405:     if (uVar9 != 0) {
+1406:       return (ulonglong)uVar9;
+
+WRITER CALL
+1496:       return uVar13;
+1497:     }
+1498:   }
+1499:   if (*(int *)(param_1 + 0xa0013c) == 1) {
+1500:     plStack_308 = (longlong *)acStack_2f8;
+1501:     plStack_310 = &lStack_2f0;
+1502:     uStack_318._0_4_ = 1;
+1503:     uVar9 = FUN_14106b030(param_1,*(undefined8 *)(param_2 + 0x2c8),*(undefined4 *)(param_2 + 0x2b8),
+1504:                           0xd);
+1505:     if (uVar9 != 0) {
+
+WRITER CALL
+1513:     uStack_318 = (longlong *)CONCAT44(uStack_318._4_4_,2);
+1514:   }
+1515:   else {
+1516:     if (*(int *)(param_1 + 0xa0013c) != 2) goto LAB_141070229;
+1517:     plStack_308 = (longlong *)acStack_2f8;
+1518:     plStack_310 = &lStack_2f0;
+1519:     uStack_318 = (longlong *)((ulonglong)uStack_318._4_4_ << 0x20);
+1520:     uVar9 = FUN_14106b030(param_1,*(undefined8 *)(param_2 + 0x2c8),*(undefined4 *)(param_2 + 0x2b8),
+1521:                           0xb);
+1522:     if (uVar9 != 0) {
+
+WRITER CALL
+1527:     }
+1528:     uVar15 = *(undefined4 *)(param_2 + 700);
+1529:     uVar11 = 0x11;
+1530:     uStack_318 = (longlong *)((ulonglong)uStack_318 & 0xffffffff00000000);
+1531:   }
+1532:   plStack_308 = (longlong *)acStack_2f8;
+1533:   plStack_310 = &lStack_2f0;
+1534:   uVar9 = FUN_14106b030(param_1,*(undefined8 *)(param_2 + 0x2c8),uVar15,uVar11);
+1535:   if (uVar9 != 0) {
+1536:     return (ulonglong)uVar9;
+
+PUBLIC SOURCE wt/codec/itlkit/library.py SHA256 dafc2931cac4e1d040aabae3429fb075474841a9aebc78852afe7994ecde77b0
+1: """Conservative semantic view over the reversible record tree.
+2: 
+3: Only named, understood operations are allowed. Raw bytes are exposed for research,
+4: not as a promise that unknown fields may be edited safely.
+5: """
+6: from __future__ import annotations
+7: from pathlib import Path
+8: import copy
+9: from datetime import datetime, timedelta, timezone
+10: from .binary import uint, put
+11: from .container import Container
+12: from .model import Node, parse_sections, serialize_sections
+13: from .errors import FormatError, UnsupportedError
+14: 
+15: TEXT_FIELDS = {'name': 2, 'album': 3, 'artist': 4, 'genre': 5, 'kind': 6,
+16:                'comment': 8, 'url': 11, 'composer': 12, 'path': 13,
+17:                'album_artist': 27, 'sort_name': 30, 'sort_album': 31,
+18:                'sort_artist': 32, 'sort_album_artist': 33, 'purchaser_name': 60}
+19: NUMBER_FIELDS = {
+20:     'track_id': (0x10, 4), 'record_kind_raw': (0x14, 4),
+21:     'date_modified': (0x20, 4), 'file_size': (0x24, 4), 'total_time': (0x28, 4),
+22:     'track_number': (0x2c, 4), 'track_count': (0x30, 4), 'year': (0x34, 4),
+23:     'bit_rate': (0x38, 4), 'play_count': (0x4c, 4), 'play_date': (0x64, 4),
+24:     'disc_number': (0x68, 2), 'disc_count': (0x6a, 2), 'rating': (0x6c, 1),
+25:     'rating_aux_raw': (0x6d, 1), 'play_count_aux_raw': (0x60, 4), 'skip_count_aux_raw': (0x118, 4),
+26:     'date_added': (0x78, 4), 'persistent_id': (0x80, 8), 'skip_count': (0xd8, 4),
+27:     'album_id': (0xdc, 4), 'skip_date': (0x11c, 4), 'artist_id': (0x1e0, 4),
+28:     'sample_rate': (0xf4, 4)}
+29: READ_ONLY_FIELDS = {'track_id', 'persistent_id', 'album_id', 'artist_id', 'record_kind_raw',
+30:                     'rating_aux_raw', 'play_count_aux_raw', 'skip_count_aux_raw', 'purchaser_name', 'kind', 'sample_rate'}
+31: INDEXED_TEXT_FIELDS = {'album', 'artist', 'album_artist'}
+32: # Encoding 2 is restricted below to the observed ASCII URL subset.
+33: ENCODINGS = {1: 'utf-16-le', 2: 'ascii', 3: 'latin-1'}
+34: DIRECT_PAYLOAD_TYPES = {1, 0x13, 0x42}
+35: HFS_EPOCH_DELTA = 2082844800
+36: 
+37: 
+38: def hfs_from_datetime(value: datetime) -> int:
+39:     """Encode the displayed local wall time, with an explicit aware datetime."""
+40:     if value.tzinfo is None or value.utcoffset() is None:
+41:         raise ValueError('an aware datetime is required; timezone is never guessed')
+42:     result = int(value.timestamp() + value.utcoffset().total_seconds() + HFS_EPOCH_DELTA)
+43:     if not 0 <= result < 2**32:
+44:         raise ValueError('datetime is outside the HFS uint32 range')
+45:     return result
+46: 
+47: 
+48: def hfs_to_datetime(value: int, *, utc_offset_seconds: int) -> datetime | None:
+49:     """Decode with a caller-provided offset; zero is the unset sentinel."""
+50:     if type(value) is not int or not 0 <= value < 2**32:
+51:         raise ValueError('HFS timestamp must be a uint32')
+52:     if value == 0:
+53:         return None
+54:     tz = timezone(timedelta(seconds=utc_offset_seconds))
+55:     return datetime.fromtimestamp(value - HFS_EPOCH_DELTA - utc_offset_seconds, tz)
+56: 
+57: 
+58: def text_nodes(parent: Node, code: int) -> list[Node]:
+59:     return [c for c in parent.children or () if c.tag == b'mhoh' and c.type_code == code]
+60: 
+61: 
+62: def read_text(node: Node) -> str:
+63:     if node.tag != b'mhoh' or node.children is not None or len(node.payload) < 16:
+64:         raise UnsupportedError('record does not have a known string payload')
+65:     if node.type_code in DIRECT_PAYLOAD_TYPES:
+66:         raise UnsupportedError('direct binary mhoh payload does not use the text prefix')
+67:     encoding, length = uint(node.payload, 0), uint(node.payload, 4)
+68:     if encoding not in ENCODINGS:
+69:         raise UnsupportedError(f'unknown string encoding {encoding}')
+70:     if length > len(node.payload) - 16:
+71:         raise FormatError('string length exceeds mhoh payload', node.offset)
+72:     if encoding == 2 and (node.type_code != 11 or not node.payload[16:16 + length].isascii()):
+73:         raise UnsupportedError('encoding 2 is only provisionally interpreted for observed ASCII URL objects; other bytes remain opaque')
+74:     try:
+75:         return node.payload[16:16 + length].decode(ENCODINGS[encoding], errors='strict')
+76:     except UnicodeDecodeError as exc:
+77:         raise FormatError(f'invalid {ENCODINGS[encoding]} string', node.offset) from exc
+78: 
+79: 
+80: def set_text(parent: Node, code: int, value: str) -> None:
+81:     if not isinstance(value, str) or '\x00' in value:
+82:         raise ValueError('text must be a string without embedded NUL characters')
+83:     if code in DIRECT_PAYLOAD_TYPES:
+84:         raise UnsupportedError('direct binary mhoh types cannot be written as text')
+85:     nodes = text_nodes(parent, code)
+86:     if len(nodes) > 1:
+87:         raise UnsupportedError('ambiguous duplicate string fields')
+88:     if parent.children is None:
+89:         raise UnsupportedError('cannot append a string to an opaque parent')
+90:     if nodes:
+91:         node = nodes[0]
+92:         if len(node.header) != 24:
+93:             raise UnsupportedError('unverified mhoh header layout')
+94:         read_text(node)  # refuses undecodable/unknown string representations
+95:         old_length = uint(node.payload, 4)
+96:         encoding = uint(node.payload, 0)
+97:         suffix = node.payload[16 + old_length:]
+98:         prefix_bytes = bytearray(node.payload[:16])
+99:     else:
+100:         h = bytearray(24)
+101:         h[:4] = b'mhoh'; put(h, 4, 24); put(h, 8, 40); put(h, 12, code)
+102:         node = Node(h)
+103:         old_length, suffix, prefix_bytes, encoding = 0, b'', bytearray(16), 3
+104:     if code == 11:
+105:         encoding = 2  # Provisional observed ASCII/percent-encoded URL profile only.
+106:     elif any(ord(ch) > 127 for ch in value):
+107:         encoding = 1
+108:     try:
+109:         data = value.encode(ENCODINGS[encoding], errors='strict')
+110:     except UnicodeEncodeError as exc:
+111:         raise ValueError('URL must be ASCII/percent-encoded') from exc
+112:     if suffix and len(data) != old_length:
+113:         raise UnsupportedError('cannot resize a string with an unknown trailing suffix')
+114:     put(prefix_bytes, 0, encoding); put(prefix_bytes, 4, len(data))
+115:     node.payload = bytes(prefix_bytes) + data + suffix
+116:     if not nodes:
+117:         # Keep all mhoh metadata before item records.
+118:         index = next((i for i, c in enumerate(parent.children) if c.tag != b'mhoh'), len(parent.children))
+119:         parent.children.insert(index, node)
+120: 
+121: 
+122: def _parse_pid(value) -> int:
+123:     if isinstance(value, str):
+124:         text = value[2:] if value.startswith(('0x', '0X')) else value
+125:         if len(text) != 16 or any(c not in '0123456789abcdefABCDEF' for c in text):
+126:             raise ValueError('persistent ID must contain exactly 16 hexadecimal digits')
+127:         value = int(text, 16)
+128:     if type(value) is not int or not 0 < value < 2**64:
+129:         raise ValueError('persistent ID must be a nonzero uint64')
+130:     return value
+131: 
+132: 
+133: class Track:
+134:     def __init__(self, library: Library, node: Node):
+135:         self.library, self.node = library, node
+136: 
+137:     @property
+138:     def track_id(self) -> int:
+139:         return uint(self.node.header, 0x10)
+140: 
+141:     @property
+142:     def persistent_id(self) -> int:
+143:         return uint(self.node.header, 0x80, 8)
+144: 
+145:     def get(self, field: str):
+146:         if field in NUMBER_FIELDS:
+147:             return uint(self.node.header, *NUMBER_FIELDS[field])
+148:         if field == 'loved':
+149:             return bool(uint(self.node.header, 0x2bf, 1) & 0x02)  # legacy 'loved' label; UI semantics not fully verified
+150:         if field == 'compilation':
+151:             return bool(uint(self.node.header, 0x50) & 0x01000000)
+152:         if field in TEXT_FIELDS:
+153:             nodes = text_nodes(self.node, TEXT_FIELDS[field])
+154:             if len(nodes) > 1:
+155:                 raise UnsupportedError(f'duplicate text field {field}')
+
+PUBLIC SOURCE wt/codec/itlkit/operations.py SHA256 50ce4563273022c65021d6cf3493cf26c8fb3fe3f4a32db6710a28faff944b88
+
+PUBLIC SOURCE wt/codec/itlkit/model.py SHA256 4220b21f05236e0bcfe60588d2f459c982723ea2a26f26ce7859c6fa95bf78ee
+
+ASM 0107b460.asm
+324: 0107b9ba movzx      eax, byte ptr [rbp + 0xac]
+325: 0107b9c1 mov        byte ptr [rbx + 0x104], al
+326: 0107b9c7 movzx      eax, byte ptr [rbx + 0x9b]
+327: 0107b9ce movzx      ecx, byte ptr [rbp + 0x93]
+328: 0107b9d5 and        al, 0xfb
+329: 0107b9d7 and        cl, 1
+330: 0107b9da shl        cl, 2
+331: 0107b9dd or         cl, al
+332: 0107b9df mov        byte ptr [rbx + 0x9b], cl
+333: 0107b9e5 movzx      eax, byte ptr [rbx + 0x9a]
+334: 0107b9ec movzx      ecx, byte ptr [rbp + 0xad]
+335: 0107b9f3 and        al, 0xef
+336: 0107b9f5 and        cl, 1
+337: 0107b9f8 shl        cl, 4
+338: 0107b9fb or         cl, al
+339: 0107b9fd mov        byte ptr [rbx + 0x9a], cl
+340: 0107ba03 movzx      eax, word ptr [rbp + 0x78]
+341: 0107ba07 mov        word ptr [rdi + 0x4c], ax
+342: 0107ba0b movss      xmm0, dword ptr [rbp + 0xd8]
+343: 0107ba13 movss      dword ptr [rdi + 0x48], xmm0
+344: 0107ba18 movzx      eax, word ptr [rbp + 0x24a]
+345: 0107ba1f mov        word ptr [rdi + 0x4e], ax
+346: 0107ba23 movzx      eax, word ptr [rbp + 0x80]
+
+DYNAMIC REPORT TOP KEYS ['task', 'base_sha', 'head_sha', 'commits', 'files_changed', 'source_files', 'updated_utc', 'environment', 'summary', 'findings', 'codec_handoff', 'codec_results', 'dynamic_experiments', 'native_controls', 'observed_values', 'fixture_paths', 'fixture_manifest', 'checks_evidence', 'limitations', 'contract_changes_needed', 'followups_for_parent', 'process_state', 'progress_archive', 'command_ledger', 'committed_source_files', 'worktree_clean', 'final_verification', 'checks', 'status', 'phase', 'ownership_handoff']

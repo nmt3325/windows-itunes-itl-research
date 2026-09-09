@@ -1,0 +1,501 @@
+
+SOURCE decompiled/0106daf0.c SHA256=19aaec8cdadd024da5e10f2fc91642a657999982ef4725be5df1f3aac6ffb547
+1490:         if (uVar9 == 0) {
+1491:           *(int *)(param_1 + 0xa00134) = *(int *)(param_1 + 0xa00134) + 1;
+1492:         }
+1493:       }
+1494:     }
+1495:     if ((int)uVar13 != 0) {
+1496:       return uVar13;
+1497:     }
+1498:   }
+1499:   if (*(int *)(param_1 + 0xa0013c) == 1) {
+1500:     plStack_308 = (longlong *)acStack_2f8;
+1501:     plStack_310 = &lStack_2f0;
+1502:     uStack_318._0_4_ = 1;
+1503:     uVar9 = FUN_14106b030(param_1,*(undefined8 *)(param_2 + 0x2c8),*(undefined4 *)(param_2 + 0x2b8),
+1504:                           0xd);
+1505:     if (uVar9 != 0) {
+1506:       return (ulonglong)uVar9;
+1507:     }
+1508:     if (acStack_2f8[0] != '\0') {
+1509:       *(int *)(param_1 + 0xa00134) = *(int *)(param_1 + 0xa00134) + 1;
+1510:     }
+1511:     uVar15 = *(undefined4 *)(param_2 + 0x2c0);
+1512:     uVar11 = 0xb;
+1513:     uStack_318 = (longlong *)CONCAT44(uStack_318._4_4_,2);
+1514:   }
+1515:   else {
+1516:     if (*(int *)(param_1 + 0xa0013c) != 2) goto LAB_141070229;
+1517:     plStack_308 = (longlong *)acStack_2f8;
+1518:     plStack_310 = &lStack_2f0;
+1519:     uStack_318 = (longlong *)((ulonglong)uStack_318._4_4_ << 0x20);
+1520:     uVar9 = FUN_14106b030(param_1,*(undefined8 *)(param_2 + 0x2c8),*(undefined4 *)(param_2 + 0x2b8),
+1521:                           0xb);
+1522:     if (uVar9 != 0) {
+1523:       return (ulonglong)uVar9;
+1524:     }
+1525:     if (acStack_2f8[0] != '\0') {
+1526:       *(int *)(param_1 + 0xa00134) = *(int *)(param_1 + 0xa00134) + 1;
+1527:     }
+1528:     uVar15 = *(undefined4 *)(param_2 + 700);
+1529:     uVar11 = 0x11;
+1530:     uStack_318 = (longlong *)((ulonglong)uStack_318 & 0xffffffff00000000);
+1531:   }
+1532:   plStack_308 = (longlong *)acStack_2f8;
+1533:   plStack_310 = &lStack_2f0;
+1534:   uVar9 = FUN_14106b030(param_1,*(undefined8 *)(param_2 + 0x2c8),uVar15,uVar11);
+1535:   if (uVar9 != 0) {
+1536:     return (ulonglong)uVar9;
+1537:   }
+1538:   if (acStack_2f8[0] != '\0') {
+1539:     *(int *)(param_1 + 0xa00134) = *(int *)(param_1 + 0xa00134) + 1;
+1540:   }
+1541: LAB_141070229:
+1542:   iVar10 = ((int)lStack_2f0 - (int)param_1) + -0xa00128;
+1543:   *(int *)(param_1 + 0xa00130) = iVar10;
+1544:   func_0x000141069150(param_1,puVar1);
+1545:   uVar9 = FUN_14106ab70(param_1,param_1 + 0xa00128,iVar10);
+1546:   return (ulonglong)uVar9;
+
+SOURCE decompiled/0107b460.c SHA256=0473d0cdbc555a40354e3dfaf4a8f54a4f2aceb11622f96ed8468bfe83660a13
+1090:               uVar10 = uVar8;
+1091:             }
+1092:             if (8 < uVar10) {
+1093:               uVar23 = (ulonglong)(uVar10 - 8);
+1094:               if (0xa00000 < uVar23) {
+1095:                 return 0xffffff30;
+1096:               }
+1097:               uVar9 = FUN_1410770a0(param_1,auStack_350,uVar23);
+1098:               if (uVar9 != 0) {
+1099:                 return (ulonglong)uVar9;
+1100:               }
+1101:               puVar18 = (uint *)((longlong)auStack_350 + uVar23);
+1102:             }
+1103:             uVar23 = (ulonglong)uStack_354;
+1104:             if ((uVar10 < 0x18) && (puVar18 != (uint *)0x0)) {
+1105:               func_0x00014179cca0(puVar18,0,0x18 - uVar10);
+1106:               uVar23 = (ulonglong)uStack_354;
+1107:             }
+1108:             if (uVar10 < uVar8) {
+1109:               uVar8 = itl_106a520(param_1,uVar8 - uVar10);
+1110:               if (uVar8 != 0) {
+1111:                 return (ulonglong)uVar8;
+1112:               }
+1113:             }
+1114:             pcVar24 = pcStack_6c0;
+1115:             uVar8 = (uint)uVar23;
+1116:             if (*pcStack_6c0 == '\0') {
+1117:               uStack_358 = (uStack_358 & 0xff0000 | uStack_358 >> 0x10) >> 8 |
+1118:                            (uStack_358 << 0x10 | uStack_358 & 0xff00) << 8;
+1119:               uVar8 = (uVar8 & 0xff0000 | (uint)(uVar23 >> 0x10) & 0xffff) >> 8 |
+1120:                       (uVar8 << 0x10 | uVar8 & 0xff00) << 8;
+1121:               auStack_350[0] =
+1122:                    (auStack_350[0] & 0xff0000 | auStack_350[0] >> 0x10) >> 8 |
+1123:                    (auStack_350[0] << 0x10 | auStack_350[0] & 0xff00) << 8;
+1124:               auStack_350[1] =
+1125:                    (auStack_350[1] & 0xff0000 | auStack_350[1] >> 0x10) >> 8 |
+1126:                    (auStack_350[1] << 0x10 | auStack_350[1] & 0xff00) << 8;
+1127:               auStack_350[2] =
+1128:                    (auStack_350[2] & 0xff0000 | auStack_350[2] >> 0x10) >> 8 |
+1129:                    (auStack_350[2] << 0x10 | auStack_350[2] & 0xff00) << 8;
+1130:               uStack_354 = uVar8;
+1131:             }
+1132:             if (uStack_358 != 0x686f686d) {
+1133:               return 0xffffff30;
+1134:             }
+1135:             uVar21 = 0;
+1136:             uVar8 = auStack_350[0] - uVar8;
+1137:             uVar23 = 0;
+1138:             switch(auStack_350[1]) {
+1139:             default:
+1140:               goto LAB_14107e4c7;
+1141:             case 2:
+1142:               piStack_798 = (int *)(uVar13 + 0xb0);
+1143:               uStack_790 = (ulonglong)uStack_790._4_4_ << 0x20;
+1144:               uVar8 = FUN_1410773d0(param_1,1,lStack_780 + 0x178);
+1145:               uStack_378 = uStack_378 | 0x20;
+1146:               break;
+1147:             case 3:
+1148:               piStack_798 = (int *)(uVar13 + 0xbc);
+1149:               uStack_790 = (ulonglong)uStack_790._4_4_ << 0x20;
+1150:               uVar8 = FUN_1410773d0(param_1,1,lStack_780 + 0x1c0);
+1151:               uStack_378 = uStack_378 | 0x10;
+1152:               break;
+1153:             case 4:
+1154:               piStack_798 = (int *)(uVar13 + 0xb4);
+1155:               uStack_790 = (ulonglong)uStack_790._4_4_ << 0x20;
+1156:               uVar8 = FUN_1410773d0(param_1,1,lStack_780 + 0x208);
+1157:               uStack_378 = uStack_378 | 8;
+1158:               break;
+1159:             case 5:
+1160:               piStack_798 = (int *)(uVar13 + 200);
+1207:             case 0xb:
+1208:               if (*(int *)(pcVar4 + 0x34) == 0x46494c45) {
+1209:                 piStack_798 = (int *)(pcVar4 + 0x2c0);
+1210:                 uStack_790 = (ulonglong)uStack_790._4_4_ << 0x20;
+1211:                 uVar8 = FUN_1410773d0(param_1,5,*(undefined8 *)(pcVar4 + 0x2c8),0);
+1212:                 uStack_378 = uStack_378 | 0x100;
+1213:                 uVar23 = (ulonglong)uVar8;
+1214:               }
+1215:               else if (*(int *)(pcVar4 + 0x34) == 0x48545450) {
+1216:                 piStack_798 = (int *)(pcVar4 + 0x2b8);
+1217:                 uStack_790 = (ulonglong)uStack_790._4_4_ << 0x20;
+1218:                 uVar8 = FUN_1410773d0(param_1,0,*(undefined8 *)(pcVar4 + 0x2c8),0);
+1219:                 uStack_378 = uStack_378 | 0x100;
+1220:                 uVar23 = (ulonglong)uVar8;
+1221:               }
+1222:               else {
+1223:                 uVar21 = (longlong)(int)uVar8 + *(longlong *)(param_1 + 0x1e00170);
+1224:                 *(ulonglong *)(param_1 + 0x1e00170) = uVar21;
+1225:                 if ((uVar21 < *(ulonglong *)(param_1 + 0x1e00178)) ||
+1226:                    (*(ulonglong *)(param_1 + 0x1e00178) + *(longlong *)(param_1 + 0x1e00180) <=
+1227:                     uVar21)) {
+1228:                   *(undefined8 *)(param_1 + 0x1e00180) = 0;
+1229:                 }
+1230:                 uStack_378 = uStack_378 | 0x100;
+1231:               }
+1232:               goto code_r0x00014107e3e3;
+1233:             case 0xc:
+
+SOURCE decompiled/010773d0.c SHA256=a1deef6ad5aa807f130ede2eedc3fa7d22228abf26ecf29301dda8c5c4d495c5
+46:   uStack_48 = _DAT_141fd5040 ^ (ulonglong)auStack_3a8;
+47:   uStack_364 = param_2;
+48:   iVar3 = FUN_1410770a0(param_1,&uStack_358,0x10);
+49:   if (iVar3 != 0) {
+50:     return iVar3;
+51:   }
+52:   uVar4 = (uint)uStack_358;
+53:   uVar15 = uStack_358._4_4_;
+54:   if (*(char *)(param_1 + 0x52) == '\0') {
+55:     uVar4 = ((uint)uStack_358 & 0xff0000 | (uint)uStack_358 >> 0x10) >> 8 |
+56:             ((uint)uStack_358 & 0xff00 | (uint)uStack_358 << 0x10) << 8;
+57:     uVar15 = (uStack_358._4_4_ & 0xff0000 | uStack_358._4_4_ >> 0x10) >> 8 |
+58:              (uStack_358._4_4_ & 0xff00 | uStack_358._4_4_ << 0x10) << 8;
+59:   }
+60:   uStack_358 = (ulonglong)uVar15;
+61:   puVar13 = (ushort *)(param_1 + 0xa00128);
+62:   if (0xa00000 < uStack_358) {
+63:     return -0xd0;
+64:   }
+65:   iVar3 = FUN_1410770a0(param_1,puVar13,uStack_358);
+66:   uVar17 = uStack_358;
+67:   if (iVar3 != 0) {
+68:     return iVar3;
+69:   }
+70:   if ((param_6 & 1) == 0) {
+71:     if (uVar4 != 1) {
+72:       if (uVar4 == 0) goto LAB_1410775b6;
+73:       if (uVar4 == 1) goto LAB_14107764e;
+74:       if ((uVar4 != 3) || (uStack_364 != 1)) goto LAB_141077cc1;
+75:       if (0xff < uVar15) {
+76:         uVar15 = 0xff;
+77:       }
+78:       sStack_248 = (short)uVar15;
+79:       uVar4 = 0;
+80:       if (uVar15 != 0) {
+81:         pbVar12 = (byte *)(param_1 + 0xa00128);
+82:         uVar17 = (ulonglong)uVar15;
+83:         puVar13 = auStack_246;
+84:         do {
+85:           bVar14 = *pbVar12;
+86:           pbVar12 = pbVar12 + 1;
+87:           *puVar13 = (ushort)bVar14;
+88:           puVar13 = puVar13 + 1;
+89:           uVar17 = uVar17 - 1;
+90:         } while (uVar17 != 0);
+91:         uVar4 = uVar15 & 0xffff;
+92:       }
+93:       goto LAB_14107761f;
+94:     }
+95:     uVar4 = uVar15 >> 1;
+96:     uStack_360 = (ulonglong)uVar4;
+452: LAB_141077cc1:
+453:   puVar13 = (ushort *)(param_1 + 0xa00128);
+454: LAB_141077626:
+455:   if (param_4 == 0) {
+456:     iVar3 = FUN_140bfe1f0(param_3,puVar13,uVar15,param_5);
+457:   }
+458:   else {
+459:     puStack_388 = param_5;
+460:     iVar3 = FUN_140bfe500();
+461:   }
+462:   return iVar3;
+
+SOURCE decompiled/0106b030.c SHA256=5aca81471f3545af6d6e9773cbeb87ca4efe26f96e8a27c61c82687b6d8e01ec
+1: /* Actual Ghidra 12.1.3 decompilation; module=iTunes.exe; image_base=0x140000000; RVA=0x106b030; SHA256=30d91209b5d81c47bbad2da9d89764fcab08bf5cd9af1a9571668001376c5d7d */
+2: 
+3: ulonglong FUN_14106b030(undefined8 param_1,int *param_2,int param_3,undefined4 param_4,
+4:                        undefined4 param_5,undefined8 param_6,undefined1 *param_7)
+5: 
+6: {
+7:   int *piVar1;
+8:   ulonglong uVar2;
+9:   int iVar3;
+10:   uint uVar4;
+11:   longlong lVar5;
+12:   
+13:   uVar4 = 0;
+14:   *param_7 = 0;
+15:   if (param_3 != 0) {
+16:     iVar3 = 0;
+17:     lVar5 = 0;
+18:     if ((((param_2 == (int *)0x0) || (*param_2 != 0x73747263)) || (param_2[0xf] == 0)) ||
+19:        ((param_3 < 1 || (param_2[0xb] < param_3)))) {
+20:       uVar2 = 0xffffffce;
+21:     }
+22:     else {
+23:       piVar1 = (int *)(**(longlong **)(param_2 + 4) + ((longlong)param_3 + -1) * 8);
+24:       if (((piVar1 == (int *)0x0) || (*piVar1 < 0)) || (piVar1[1] < 1)) {
+25:         uVar4 = 0xffffffce;
+26:       }
+27:       else {
+28:         lVar5 = (longlong)*piVar1 + **(longlong **)(param_2 + 8);
+29:         iVar3 = piVar1[1];
+30:       }
+31:       if ((uVar4 == 0) && (iVar3 != 0)) {
+32:         uVar2 = FUN_14106ac80(param_1,lVar5,iVar3,param_3,param_4,param_5,param_6);
+33:         *param_7 = 1;
+34:       }
+35:       else {
+36:         uVar2 = (ulonglong)uVar4;
+37:       }
+38:     }
+39:     return uVar2;
+40:   }
+41:   return 0;
+42: }
+43: 
+
+SOURCE decompiled/0106ac80.c SHA256=79cbae0f2a2267fcb1f1f826daecba5d6c3e75f566d5f05cebc33e167bd8204f
+23:   puVar2 = (uint *)*param_7;
+24:   puVar5 = puVar2 + 6;
+25:   if (puVar2 != (uint *)0x0) {
+26:     puVar2[2] = 0;
+27:     puVar2[5] = 0;
+28:   }
+29:   *puVar2 = 0x686f686d;
+30:   puVar2[1] = 0x18;
+31:   puVar2[3] = param_5;
+32:   puVar2[4] = param_4;
+33:   puVar7 = puVar5;
+34:   uVar9 = param_3;
+35:   if (((param_5 != 1) && (param_5 != 0x42)) && (param_5 != 0x13)) {
+36:     puVar7 = puVar2 + 10;
+37:     if (puVar5 != (uint *)0x0) {
+38:       puVar5[0] = 0;
+39:       puVar5[1] = 0;
+40:       puVar2[8] = 0;
+41:       puVar2[9] = 0;
+42:     }
+70:     }
+71:     else if (param_6 == 4) {
+72:       param_6 = 1;
+73:     }
+74:     *puVar5 = param_6;
+75:     puVar2[7] = uVar9;
+76:     if (*(char *)(param_1 + 0x52) == '\0') {
+77:       *puVar5 = (param_6 & 0xff00 | param_6 << 0x10) << 8 | param_6 >> 8 & 0xff00 | param_6 >> 0x18;
+78:       puVar2[7] = (uVar9 & 0xff00 | uVar9 << 0x10) << 8 | uVar9 >> 8 & 0xff00 | uVar9 >> 0x18;
+79:     }
+80:     if (!bVar10) goto LAB_14106ae0e;
+81:   }
+82:   if ((param_2 != (ushort *)0x0) && (puVar7 != (uint *)0x0)) {
+83:     func_0x000141867875(puVar7,param_2,uVar9);
+84:   }
+85: LAB_14106ae0e:
+
+SOURCE asm/0106daf0.asm
+
+
+SOURCE asm/0107b460.asm
+0107d1d4 add        rcx, rdx
+0107d1d7 jmp        rcx
+0107d1d9 mov        r8, qword ptr [rdi + 0x2c8]
+0107d1e0 lea        rax, [rdi + 0x2b8]
+0107d1e7 mov        dword ptr [rsp + 0x28], r13d
+0107d1ec xor        r9d, r9d
+0107d1ef mov        edx, 1
+0107d1f4 mov        qword ptr [rsp + 0x20], rax
+0107d1f9 mov        rcx, r14
+0107d1fc call       0x1410773d0
+0107d201 jmp        0x14107e3e1
+0107d206 mov        r8, qword ptr [rsp + 0x38]
+0107d20b lea        rax, [rbx + 0xb0]
+0107d212 add        r8, 0x178
+0107d219 mov        dword ptr [rsp + 0x28], r13d
+0107d21e mov        edx, 1
+0107d223 mov        qword ptr [rsp + 0x20], rax
+0107d228 mov        rcx, r14
+0107d22b call       0x1410773d0
+0107d230 or         byte ptr [rbp + 0x340], 0x20
+0107d237 jmp        0x14107e3e1
+0107d23c mov        r8, qword ptr [rsp + 0x38]
+0107d241 lea        rax, [rbx + 0xbc]
+0107d248 add        r8, 0x1c0
+0107d24f mov        dword ptr [rsp + 0x28], r13d
+0107d254 mov        edx, 1
+0107d259 mov        qword ptr [rsp + 0x20], rax
+0107d25e mov        rcx, r14
+0107d261 call       0x1410773d0
+0107d266 or         byte ptr [rbp + 0x340], 0x10
+0107d26d jmp        0x14107e3e1
+0107d272 mov        r8, qword ptr [rsp + 0x38]
+0107d277 lea        rax, [rbx + 0xc0]
+0107d27e add        r8, 0x250
+0107d285 mov        dword ptr [rsp + 0x28], r13d
+0107d28a mov        edx, 1
+0107d28f mov        qword ptr [rsp + 0x20], rax
+0107d294 mov        rcx, r14
+0107d297 call       0x1410773d0
+0107d29c or         byte ptr [rbp + 0x344], 1
+0107d2a3 jmp        0x14107e3e1
+0107d2a8 mov        r8, qword ptr [rsp + 0x38]
+0107d2ad lea        rax, [rbx + 0xb4]
+0107d2b4 add        r8, 0x208
+0107d2bb mov        dword ptr [rsp + 0x28], r13d
+0107d2c0 mov        edx, 1
+0107d2c5 mov        qword ptr [rsp + 0x20], rax
+0107d2ca mov        rcx, r14
+0107d2cd call       0x1410773d0
+0107d2d2 or         byte ptr [rbp + 0x340], 8
+0107d2d9 jmp        0x14107e3e1
+0107d2de mov        r8, qword ptr [rsp + 0x38]
+0107d2e3 lea        rax, [rbx + 0xb8]
+0107d2ea add        r8, 0x208
+0107d2f1 mov        dword ptr [rsp + 0x28], r13d
+0107d2f6 mov        edx, 1
+0107d2fb mov        qword ptr [rsp + 0x20], rax
+0107d300 mov        rcx, r14
+0107d303 call       0x1410773d0
+0107d308 or         byte ptr [rbp + 0x348], 1
+0107d30f jmp        0x14107e3e1
+0107d314 mov        r8, qword ptr [rsp + 0x38]
+0107d319 lea        rax, [rbx + 0xc4]
+0107d320 add        r8, 0x208
+0107d327 mov        dword ptr [rsp + 0x28], r13d
+0107d32c mov        edx, 1
+0107d331 mov        qword ptr [rsp + 0x20], rax
+0107d336 mov        rcx, r14
+0107d339 call       0x1410773d0
+0107d33e or         byte ptr [rbp + 0x342], 0x20
+0107d345 jmp        0x14107e3e1
+0107d34a mov        r8, qword ptr [rsp + 0x38]
+0107d34f lea        rax, [rbx + 0xc8]
+0107d356 add        r8, 0x328
+0107d35d mov        dword ptr [rsp + 0x28], r13d
+0107d362 mov        edx, 1
+0107d367 mov        qword ptr [rsp + 0x20], rax
+0107d36c mov        rcx, r14
+0107d36f call       0x1410773d0
+0107d374 or         byte ptr [rbp + 0x341], 0x80
+0107d37b jmp        0x14107e3e1
+0107d380 mov        r8, qword ptr [rsp + 0x38]
+0107d385 lea        rax, [rbx + 0xcc]
+0107d38c add        r8, 0x370
+0107d393 mov        dword ptr [rsp + 0x28], r13d
+0107d398 mov        edx, 1
+0107d39d mov        qword ptr [rsp + 0x20], rax
+0107d3a2 mov        rcx, r14
+0107d3a5 call       0x1410773d0
+0107d3aa or         byte ptr [rbp + 0x341], 0x40
+0107d3b1 jmp        0x14107e3e1
+0107d3b6 mov        r13, qword ptr [rsp + 0x38]
+0107d3bb lea        r15, [rbx + 0xd0]
+0107d3c2 xor        eax, eax
+0107d3c4 add        r13, 0x3b8
+0107d3cb mov        dword ptr [rsp + 0x28], eax
+0107d3cf mov        r8, r13
+0107d3d2 xor        r9d, r9d
+0107d3d5 mov        qword ptr [rsp + 0x20], r15
+0107d3da mov        edx, 1
+0107d3df mov        rcx, r14
+0107d3e2 call       0x1410773d0
+0107d3e7 mov        esi, eax
+0107d3e9 test       eax, eax
+0107d3eb jne        0x14107e706
+0107d430 or         byte ptr [rbp + 0x342], 0x40
+0107d437 jmp        0x14107e3e1
+0107d43c mov        r8, qword ptr [rsp + 0x38]
+0107d441 lea        rax, [rbx + 0xd4]
+0107d448 add        r8, 0x400
+0107d44f mov        dword ptr [rsp + 0x28], r13d
+0107d454 mov        edx, 1
+0107d459 mov        qword ptr [rsp + 0x20], rax
+0107d45e mov        rcx, r14
+0107d461 call       0x1410773d0
+0107d466 or         byte ptr [rbp + 0x341], 2
+0107d46d jmp        0x14107e3e1
+0107d472 mov        r8, qword ptr [rsp + 0x38]
+0107d477 lea        rax, [rbx + 0xd8]
+0107d47e add        r8, 0x448
+0107d485 mov        dword ptr [rsp + 0x28], r13d
+0107d48a mov        edx, 1
+0107d48f mov        qword ptr [rsp + 0x20], rax
+0107d494 mov        rcx, r14
+0107d497 call       0x1410773d0
+0107d49c or         byte ptr [rbp + 0x346], 1
+0107d4a3 jmp        0x14107e3e1
+0107d4a8 mov        r8, qword ptr [rsp + 0x38]
+0107d4ad lea        rax, [rbx + 0xdc]
+0107d4b4 add        r8, 0x490
+0107d4bb mov        dword ptr [rsp + 0x28], r13d
+0107d4c0 mov        edx, 1
+0107d4c5 mov        qword ptr [rsp + 0x20], rax
+0107d4ca mov        rcx, r14
+0107d4cd call       0x1410773d0
+0107d4d2 or         byte ptr [rbp + 0x342], 4
+0107d4d9 jmp        0x14107e3e1
+0107d4de mov        rcx, rbx
+0107d4e6 mov        rax, qword ptr [rbx + 0x68]
+0107d4ea mov        edx, 1
+0107d4ef mov        r8, qword ptr [rsp + 0x38]
+0107d4f4 add        rax, 0x34
+0107d4f8 mov        r9d, dword ptr [rbp + 0x370]
+0107d4ff add        r8, 0x520
+0107d506 mov        dword ptr [rsp + 0x28], r13d
+0107d50b mov        rcx, r14
+0107d50e mov        qword ptr [rsp + 0x20], rax
+0107d513 call       0x1410773d0
+0107d518 or         byte ptr [rbp + 0x346], 2
+0107d51f jmp        0x14107e3e1
+0107d524 mov        rcx, rbx
+0107d52c mov        rax, qword ptr [rbx + 0x68]
+0107d530 mov        edx, 1
+0107d535 mov        r8, qword ptr [rsp + 0x38]
+0107d53a add        rax, 0x38
+0107d53e mov        r9d, dword ptr [rbp + 0x370]
+0107d545 add        r8, 0x520
+0107d54c mov        dword ptr [rsp + 0x28], r13d
+0107d551 mov        rcx, r14
+0107d554 mov        qword ptr [rsp + 0x20], rax
+0107d559 call       0x1410773d0
+0107d55e or         byte ptr [rbp + 0x34a], 2
+0107d565 jmp        0x14107e3e1
+0107d56a mov        rcx, rbx
+0107d572 mov        rax, qword ptr [rbx + 0x68]
+0107d576 mov        edx, 1
+0107d57b mov        r8, qword ptr [rsp + 0x38]
+0107d580 add        rax, 0x3c
+0107d584 mov        r9d, dword ptr [rbp + 0x370]
+0107d58b add        r8, 0x520
+0107d592 mov        dword ptr [rsp + 0x28], r13d
+0107d597 mov        rcx, r14
+0107d59a mov        qword ptr [rsp + 0x20], rax
+0107d59f call       0x1410773d0
+0107d5a4 or         byte ptr [rbp + 0x34f], 1
+0107d5ab jmp        0x14107e3e1
+0107d5b0 mov        rcx, rbx
+0107d5b8 mov        rax, qword ptr [rbx + 0x70]
+0107d5bc mov        edx, 1
+0107d5c1 mov        r8, qword ptr [rsp + 0x38]
+0107d5c6 add        rax, 0x28
+0107d5ca mov        r9d, dword ptr [rbp + 0x370]
+0107d5d1 add        r8, 0x640
+0107d5d8 mov        dword ptr [rsp + 0x28], r13d
+0107d5dd mov        rcx, r14
+0107d5e0 mov        qword ptr [rsp + 0x20], rax
+0107d5e5 call       0x1410773d0
+0107d5ea or         byte ptr [rbp + 0x347], 2
+0107d5f1 jmp        0x14107e3e1
+0107d5f6 mov        rcx, rbx

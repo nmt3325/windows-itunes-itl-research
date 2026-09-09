@@ -1,0 +1,40 @@
+{
+  "name": "072-codec-playlist-create",
+  "candidate": "D:\\a\\_temp\\gha-mcp\\WINDOWS_RESEARCH_RUN\\work\\itl\\reports\\codec\\native-playlist-create.itl",
+  "expected_sha256": "832cb809633d24606eb9a47e017d5f91fe52d0e79fe1185a742069f545f8db85",
+  "status": "passed",
+  "cycles": [
+    {
+      "name": "072-codec-playlist-create-reload1",
+      "fixture_path": "D:\\a\\_temp\\gha-mcp\\WINDOWS_RESEARCH_RUN\\work\\itl\\fixtures\\dynamic\\snapshots\\072-codec-playlist-create-reload1.itl",
+      "fixture_sha256": "a14f2a22d856c0a75108f7910fc18f54252e4d0d0d0470c10dbd49808cfacef9",
+      "prelaunch_sha256": "832cb809633d24606eb9a47e017d5f91fe52d0e79fe1185a742069f545f8db85",
+      "itunes_exit_code": 0,
+      "worker_exit_code": 0,
+      "library_persistent_id": "9751B29CECF5340B",
+      "track_persistent_ids": [
+        "D018EAABC195E072",
+        "8F11E62B0DC9F837",
+        "C8ADF4DC10AFC270"
+      ]
+    },
+    {
+      "name": "072-codec-playlist-create-reload2",
+      "fixture_path": "D:\\a\\_temp\\gha-mcp\\WINDOWS_RESEARCH_RUN\\work\\itl\\fixtures\\dynamic\\snapshots\\072-codec-playlist-create-reload2.itl",
+      "fixture_sha256": "b9279c3ecc3fe6f2867001f2c9fe11d007162705e0cb083814ba615ed882e1e4",
+      "prelaunch_sha256": "a14f2a22d856c0a75108f7910fc18f54252e4d0d0d0470c10dbd49808cfacef9",
+      "itunes_exit_code": 0,
+      "worker_exit_code": 0,
+      "library_persistent_id": "9751B29CECF5340B",
+      "track_persistent_ids": [
+        "D018EAABC195E072",
+        "8F11E62B0DC9F837",
+        "C8ADF4DC10AFC270"
+      ]
+    }
+  ],
+  "previous_live_sha256": "9d8a9856fe2f1214d4e3146b361422b35b1a9d026ef4431c001091566f675a4c",
+  "staged_sha256": "832cb809633d24606eb9a47e017d5f91fe52d0e79fe1185a742069f545f8db85",
+  "native_acceptance": true,
+  "note": "Both full-state gates passed inside bounded COM workers before native Quit; both actual native processes exited zero. No unexpected modal was dismissed."
+}

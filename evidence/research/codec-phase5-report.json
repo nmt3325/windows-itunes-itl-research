@@ -1,0 +1,60 @@
+{
+  "task": "codec",
+  "status": "CODEC_DONE_PHASE5",
+  "phase": 5,
+  "completed_utc": "2026-09-09T15:32:38.797056+00:00",
+  "base_sha": "70c5b8251a56933ad1b4acf44eeacc718b1d226a",
+  "head_sha": "f98a6aaf2dbb4747d9fb3aa59984bf75aa38a153",
+  "test_summary": {
+    "passed": 976,
+    "skipped": 5,
+    "new_assertive_cases": 64,
+    "fixed_native_structural": 55,
+    "fixed_complete_COM": 50,
+    "unchanged_original_date_tests": 3,
+    "original_playlist_witnesses_refused": 4
+  },
+  "verification": {
+    "unmodified_original_date_tests_passed": 3,
+    "original_playlist_witnesses": [
+      {
+        "case": "F1-nested-retained-item-dangling-track-ref",
+        "refused_atomically": true,
+        "reason": "unknown playlist item dependencies"
+      },
+      {
+        "case": "F2-unmatched_system",
+        "refused_atomically": true,
+        "reason": "system/master playlist definitions are missing or differ"
+      },
+      {
+        "case": "F2-mismatched_kind",
+        "refused_atomically": true,
+        "reason": "system/master playlist definitions are missing or differ"
+      },
+      {
+        "case": "F2-native-derived-unmatched-system",
+        "refused_atomically": true,
+        "reason": "system/master playlist definitions are missing or differ"
+      }
+    ],
+    "frozen_flat_profile_preflights": 55,
+    "native_fixture_restore_delete_offline": true,
+    "fresh_api_sha256": "bcb6d06f8c83a9f2f6cd7e03a5a427dfdc81e40e1a6bc48fa4350afd9cb3cc4b",
+    "phase4_candidates_preserved": 8,
+    "phase4_lock_preserved": "03ce7c177668dd3a1107656e3c5aef60c3e0dbafa48cf13bb2df8e555e2d1852"
+  },
+  "capabilities": [
+    "DATES-001: exact signed timedelta bounds checked before whole-wall-second quantization; no floating point and no timezone policy change.",
+    "F1: track structural/index operations reject retained nested/extended/unknown-state playlist items before mutation.",
+    "F2: required nonordinary system/master definition sets, classification, exact special kind and opaque rule bytes must agree before allocation.",
+    "Refused operations preserve target/source bytes and existing handles. Original red reproducers remain unchanged."
+  ],
+  "unknowns": [
+    "Recursive/grouped playlist semantics and arbitrary system rule evaluation remain unsupported.",
+    "Conservative matching of nonordinary definitions may reject snapshots whose system definition sets changed.",
+    "Raw0/unset ambiguity and wall-time/DST limitations remain unchanged.",
+    "Cross-library importing, general COW and new-media constructors are not enabled by this patch.",
+    "No new native launches by codec. Same fresh output bytes retain the previously observed p4 native qualification; other novel phase4 wire hashes remain separately qualified."
+  ]
+}

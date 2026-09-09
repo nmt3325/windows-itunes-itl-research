@@ -1,0 +1,384 @@
+{
+  "name": "fresh-constructed-wav-003-v2",
+  "classification": "fresh_constructed_wav",
+  "sha256": "41a6a073db030a9ceb9e1a690420a0fa28b73cb0c675af005653f732df6c4a84",
+  "accepted": true,
+  "cycles": [
+    {
+      "name": "fresh-constructed-wav-003-v2",
+      "cycle": 1,
+      "ui": [
+        {
+          "action": "dismiss_audio_warning",
+          "pid": 1536,
+          "window": {
+            "hwnd": 8847624,
+            "pid": 1536,
+            "class": "iTunesCustomModalDialog",
+            "title": "iTunes",
+            "children": [
+              {
+                "hwnd": 1704572,
+                "class": "Static",
+                "text": "iTunes has detected a problem with your audio configuration.\rAudio/Video playback may not operate properly.",
+                "id": 101,
+                "enabled": true,
+                "visible": true
+              },
+              {
+                "hwnd": 1573396,
+                "class": "Static",
+                "text": "",
+                "id": 103,
+                "enabled": true,
+                "visible": false
+              },
+              {
+                "hwnd": 1311292,
+                "class": "Button",
+                "text": "",
+                "id": 104,
+                "enabled": true,
+                "visible": false
+              },
+              {
+                "hwnd": 12059222,
+                "class": "Button",
+                "text": "OK",
+                "id": 1,
+                "enabled": true,
+                "visible": true
+              },
+              {
+                "hwnd": 1311326,
+                "class": "Button",
+                "text": "More Info",
+                "id": 105,
+                "enabled": true,
+                "visible": false
+              },
+              {
+                "hwnd": 787100,
+                "class": "Static",
+                "text": "",
+                "id": 102,
+                "enabled": true,
+                "visible": true
+              }
+            ]
+          }
+        }
+      ],
+      "active_library": "D:\\a\\_temp\\gha-mcp\\WINDOWS_RESEARCH_RUN\\work\\itl\\fixtures\\dynamic\\phase3\\live\\iTunes Library.itl",
+      "prelaunch": {
+        "path": "D:\\a\\_temp\\gha-mcp\\WINDOWS_RESEARCH_RUN\\work\\itl\\fixtures\\dynamic\\phase3\\live\\iTunes Library.itl",
+        "bytes": 4025,
+        "mtime_ns": 1788968217672343800,
+        "sha256": "41a6a073db030a9ceb9e1a690420a0fa28b73cb0c675af005653f732df6c4a84",
+        "file_attributes": 32
+      },
+      "profile_before": {
+        "file_bytes": 4025,
+        "file_sha256": "41a6a073db030a9ceb9e1a690420a0fa28b73cb0c675af005653f732df6c4a84",
+        "header_bytes": 144,
+        "encryption_flag": 2,
+        "compression_flag": 1,
+        "cap": 102400,
+        "body_bytes": 3881,
+        "encrypted_bytes": 3872,
+        "clear_tail_bytes": 9,
+        "expanded_bytes": 104758,
+        "expanded_sha256": "d81fa9d2dc5b337966def10c8990ca0d8c499486220684b15b25bba7f87bf9e7",
+        "decoded_body_sha256": "52fe13e47aec383741db543bf23743849c7004f25e068c5f6d87bb5a8bf9c368",
+        "header_hex": "6864666d0000009000000fb9004300010a31322e31332e31302e330000000000000000000000000000000000000000000000000bd2f61be0a69ca3020000006f02020001000000040000000e000000040038010000000004000000640001900000000000000000000000000000000000e6c6f20100000000000000000000000000000000000000000000000000000000",
+        "target_persisted_record": {
+          "persistent_id": "62F368A925010BFC",
+          "raw_0x6d": 0,
+          "raw_0xee": 0,
+          "raw_0x290_u32": 0,
+          "header_bytes": 756,
+          "record_bytes": 1188,
+          "record_sha256": "cac3e60f43f2928c03c412425596deac9f4a608201d765bea7cbc19631264eb8"
+        }
+      },
+      "media_prelaunch": [
+        {
+          "path": "D:\\a\\_temp\\gha-mcp\\WINDOWS_RESEARCH_RUN\\work\\itl\\fixtures\\dynamic\\media\\alpha.wav",
+          "bytes": 88244,
+          "mtime_ns": 1788952792633317400,
+          "sha256": "c9ca928550abefdb3d209b6d0f4ea067a64b85924be5eca2475da3d40dbe2920",
+          "file_attributes": 32
+        },
+        {
+          "path": "D:\\a\\_temp\\gha-mcp\\WINDOWS_RESEARCH_RUN\\work\\itl\\fixtures\\dynamic\\media\\beta.wav",
+          "bytes": 88244,
+          "mtime_ns": 1788952792649909300,
+          "sha256": "8ff22420cc586cfdaa5a865db713c3a2d92c2bcde2991a71cca447e314d5ce5a",
+          "file_attributes": 32
+        },
+        {
+          "path": "D:\\a\\_temp\\gha-mcp\\WINDOWS_RESEARCH_RUN\\work\\itl\\fixtures\\dynamic\\media\\gamma.wav",
+          "bytes": 88244,
+          "mtime_ns": 1788952792664977600,
+          "sha256": "de7fa062391c8d6ef91385f64d4d04bf990f4ea5c743cc535d305edbc0b34136",
+          "file_attributes": 32
+        },
+        {
+          "path": "D:\\a\\_temp\\gha-mcp\\WINDOWS_RESEARCH_RUN\\work\\itl\\fixtures\\dynamic\\phase3\\constructed-media\\fresh-constructor-003.wav",
+          "bytes": 88244,
+          "mtime_ns": 1788962400000000000,
+          "sha256": "2c2d55b585f92d6ddce719234fbe5946279488cda3b68299325f32ccdcc78642",
+          "file_attributes": 32
+        }
+      ],
+      "itunes_pid": 1536,
+      "worker_command": [
+        "D:\\a\\_temp\\gha-mcp\\WINDOWS_RESEARCH_RUN\\work\\itl\\tools\\py\\Scripts\\python.exe",
+        "-B",
+        "-u",
+        "D:\\a\\_temp\\gha-mcp\\WINDOWS_RESEARCH_RUN\\work\\itl\\wt\\dynamic\\scripts\\windows\\import_native.py",
+        "worker",
+        "--spec",
+        "D:\\a\\_temp\\gha-mcp\\WINDOWS_RESEARCH_RUN\\work\\itl\\reports\\dynamic\\phase3\\runs\\fresh-constructed-wav-003-v2-reload1\\spec.json",
+        "--out",
+        "D:\\a\\_temp\\gha-mcp\\WINDOWS_RESEARCH_RUN\\work\\itl\\reports\\dynamic\\phase3\\runs\\fresh-constructed-wav-003-v2-reload1\\com.json"
+      ],
+      "worker_exit_code": 0,
+      "itunes_exit_code": 0,
+      "saved": {
+        "path": "D:\\a\\_temp\\gha-mcp\\WINDOWS_RESEARCH_RUN\\work\\itl\\fixtures\\dynamic\\phase3\\snapshots\\fresh-constructed-wav-003-v2-reload1.itl",
+        "bytes": 5262,
+        "mtime_ns": 1788968276768749500,
+        "sha256": "d81d0828faa58cbc3b0e673817499a83cdccea821a22f92b5882cf1001c0df00",
+        "file_attributes": 32
+      },
+      "profile_after": {
+        "file_bytes": 5262,
+        "file_sha256": "d81d0828faa58cbc3b0e673817499a83cdccea821a22f92b5882cf1001c0df00",
+        "header_bytes": 144,
+        "encryption_flag": 2,
+        "compression_flag": 1,
+        "cap": 102400,
+        "body_bytes": 5118,
+        "encrypted_bytes": 5104,
+        "clear_tail_bytes": 14,
+        "expanded_bytes": 104765,
+        "expanded_sha256": "4c19f39b428ee99d88b5d3784dfed190d85ee1555abc76c26a5d2caf2944b0b9",
+        "decoded_body_sha256": "ed4895e03efbd84d10c5adac8637ed2d8975ab0c538412d9c69c1ea5e71883e5",
+        "header_hex": "6864666d000000900000148e004300010a31322e31332e31302e330000000000000000000000000000000000000000000000000bd2f61be0a69ca3020000006f02020001000000040000000e000000040038010000000004000000640001900000000000000000000000000000000000e6c72dc300000000000000000000000000000000000000000000000000000000",
+        "target_persisted_record": {
+          "persistent_id": "62F368A925010BFC",
+          "raw_0x6d": 0,
+          "raw_0xee": 0,
+          "raw_0x290_u32": 3000,
+          "header_bytes": 756,
+          "record_bytes": 1188,
+          "record_sha256": "8f709b7a1954c38aedba19365c44e4092c09a66ee49c33c6cb9c8d6f9ce1b5fa"
+        }
+      },
+      "accepted": true,
+      "observation_completed": true,
+      "errors": [],
+      "final_target": {
+        "Name": "Fresh Constructed WAV 003",
+        "Unplayed": true,
+        "Rating": 0,
+        "RatingKind": 1,
+        "AlbumRating": 0,
+        "AlbumRatingKind": 1,
+        "PlayedCount": 0,
+        "ModificationDate": "2026-09-09T14:00:00+00:00"
+      },
+      "com_evidence": "D:\\a\\_temp\\gha-mcp\\WINDOWS_RESEARCH_RUN\\work\\itl\\reports\\dynamic\\phase3\\runs\\fresh-constructed-wav-003-v2-reload1\\com.json",
+      "media_unchanged": true
+    },
+    {
+      "name": "fresh-constructed-wav-003-v2",
+      "cycle": 2,
+      "ui": [
+        {
+          "action": "dismiss_audio_warning",
+          "pid": 7204,
+          "window": {
+            "hwnd": 10420344,
+            "pid": 7204,
+            "class": "iTunesCustomModalDialog",
+            "title": "iTunes",
+            "children": [
+              {
+                "hwnd": 15204700,
+                "class": "Static",
+                "text": "iTunes has detected a problem with your audio configuration.\rAudio/Video playback may not operate properly.",
+                "id": 101,
+                "enabled": true,
+                "visible": true
+              },
+              {
+                "hwnd": 1638888,
+                "class": "Static",
+                "text": "",
+                "id": 103,
+                "enabled": true,
+                "visible": false
+              },
+              {
+                "hwnd": 12714322,
+                "class": "Button",
+                "text": "",
+                "id": 104,
+                "enabled": true,
+                "visible": false
+              },
+              {
+                "hwnd": 1704470,
+                "class": "Button",
+                "text": "OK",
+                "id": 1,
+                "enabled": true,
+                "visible": true
+              },
+              {
+                "hwnd": 1442364,
+                "class": "Button",
+                "text": "More Info",
+                "id": 105,
+                "enabled": true,
+                "visible": false
+              },
+              {
+                "hwnd": 1114660,
+                "class": "Static",
+                "text": "",
+                "id": 102,
+                "enabled": true,
+                "visible": true
+              }
+            ]
+          }
+        }
+      ],
+      "active_library": "D:\\a\\_temp\\gha-mcp\\WINDOWS_RESEARCH_RUN\\work\\itl\\fixtures\\dynamic\\phase3\\live\\iTunes Library.itl",
+      "prelaunch": {
+        "path": "D:\\a\\_temp\\gha-mcp\\WINDOWS_RESEARCH_RUN\\work\\itl\\fixtures\\dynamic\\phase3\\live\\iTunes Library.itl",
+        "bytes": 5262,
+        "mtime_ns": 1788968259367282100,
+        "sha256": "d81d0828faa58cbc3b0e673817499a83cdccea821a22f92b5882cf1001c0df00",
+        "file_attributes": 32
+      },
+      "profile_before": {
+        "file_bytes": 5262,
+        "file_sha256": "d81d0828faa58cbc3b0e673817499a83cdccea821a22f92b5882cf1001c0df00",
+        "header_bytes": 144,
+        "encryption_flag": 2,
+        "compression_flag": 1,
+        "cap": 102400,
+        "body_bytes": 5118,
+        "encrypted_bytes": 5104,
+        "clear_tail_bytes": 14,
+        "expanded_bytes": 104765,
+        "expanded_sha256": "4c19f39b428ee99d88b5d3784dfed190d85ee1555abc76c26a5d2caf2944b0b9",
+        "decoded_body_sha256": "ed4895e03efbd84d10c5adac8637ed2d8975ab0c538412d9c69c1ea5e71883e5",
+        "header_hex": "6864666d000000900000148e004300010a31322e31332e31302e330000000000000000000000000000000000000000000000000bd2f61be0a69ca3020000006f02020001000000040000000e000000040038010000000004000000640001900000000000000000000000000000000000e6c72dc300000000000000000000000000000000000000000000000000000000",
+        "target_persisted_record": {
+          "persistent_id": "62F368A925010BFC",
+          "raw_0x6d": 0,
+          "raw_0xee": 0,
+          "raw_0x290_u32": 3000,
+          "header_bytes": 756,
+          "record_bytes": 1188,
+          "record_sha256": "8f709b7a1954c38aedba19365c44e4092c09a66ee49c33c6cb9c8d6f9ce1b5fa"
+        }
+      },
+      "media_prelaunch": [
+        {
+          "path": "D:\\a\\_temp\\gha-mcp\\WINDOWS_RESEARCH_RUN\\work\\itl\\fixtures\\dynamic\\media\\alpha.wav",
+          "bytes": 88244,
+          "mtime_ns": 1788952792633317400,
+          "sha256": "c9ca928550abefdb3d209b6d0f4ea067a64b85924be5eca2475da3d40dbe2920",
+          "file_attributes": 32
+        },
+        {
+          "path": "D:\\a\\_temp\\gha-mcp\\WINDOWS_RESEARCH_RUN\\work\\itl\\fixtures\\dynamic\\media\\beta.wav",
+          "bytes": 88244,
+          "mtime_ns": 1788952792649909300,
+          "sha256": "8ff22420cc586cfdaa5a865db713c3a2d92c2bcde2991a71cca447e314d5ce5a",
+          "file_attributes": 32
+        },
+        {
+          "path": "D:\\a\\_temp\\gha-mcp\\WINDOWS_RESEARCH_RUN\\work\\itl\\fixtures\\dynamic\\media\\gamma.wav",
+          "bytes": 88244,
+          "mtime_ns": 1788952792664977600,
+          "sha256": "de7fa062391c8d6ef91385f64d4d04bf990f4ea5c743cc535d305edbc0b34136",
+          "file_attributes": 32
+        },
+        {
+          "path": "D:\\a\\_temp\\gha-mcp\\WINDOWS_RESEARCH_RUN\\work\\itl\\fixtures\\dynamic\\phase3\\constructed-media\\fresh-constructor-003.wav",
+          "bytes": 88244,
+          "mtime_ns": 1788962400000000000,
+          "sha256": "2c2d55b585f92d6ddce719234fbe5946279488cda3b68299325f32ccdcc78642",
+          "file_attributes": 32
+        }
+      ],
+      "itunes_pid": 7204,
+      "worker_command": [
+        "D:\\a\\_temp\\gha-mcp\\WINDOWS_RESEARCH_RUN\\work\\itl\\tools\\py\\Scripts\\python.exe",
+        "-B",
+        "-u",
+        "D:\\a\\_temp\\gha-mcp\\WINDOWS_RESEARCH_RUN\\work\\itl\\wt\\dynamic\\scripts\\windows\\import_native.py",
+        "worker",
+        "--spec",
+        "D:\\a\\_temp\\gha-mcp\\WINDOWS_RESEARCH_RUN\\work\\itl\\reports\\dynamic\\phase3\\runs\\fresh-constructed-wav-003-v2-reload2\\spec.json",
+        "--out",
+        "D:\\a\\_temp\\gha-mcp\\WINDOWS_RESEARCH_RUN\\work\\itl\\reports\\dynamic\\phase3\\runs\\fresh-constructed-wav-003-v2-reload2\\com.json"
+      ],
+      "worker_exit_code": 0,
+      "itunes_exit_code": 0,
+      "saved": {
+        "path": "D:\\a\\_temp\\gha-mcp\\WINDOWS_RESEARCH_RUN\\work\\itl\\fixtures\\dynamic\\phase3\\snapshots\\fresh-constructed-wav-003-v2-reload2.itl",
+        "bytes": 5267,
+        "mtime_ns": 1788968320700523800,
+        "sha256": "7353d3fe7d417ec01098e89828e88810281d88f6af25313ca21a382e66b5a43e",
+        "file_attributes": 32
+      },
+      "profile_after": {
+        "file_bytes": 5267,
+        "file_sha256": "7353d3fe7d417ec01098e89828e88810281d88f6af25313ca21a382e66b5a43e",
+        "header_bytes": 144,
+        "encryption_flag": 2,
+        "compression_flag": 1,
+        "cap": 102400,
+        "body_bytes": 5123,
+        "encrypted_bytes": 5120,
+        "clear_tail_bytes": 3,
+        "expanded_bytes": 104765,
+        "expanded_sha256": "9c6e47525ac0a727b8483af5303f26dbf6c6982f35deafab6843963c5e7601a6",
+        "decoded_body_sha256": "4dfba724c64dd8cb0167f0dc746781d363c3a2672d8fefdacf6f324a26992a7f",
+        "header_hex": "6864666d0000009000001493004300010a31322e31332e31302e330000000000000000000000000000000000000000000000000bd2f61be0a69ca3020000006f02020001000000040000000e000000040038010000000004000000640001900000000000000000000000000000000000e6c72dfb00000000000000000000000000000000000000000000000000000000",
+        "target_persisted_record": {
+          "persistent_id": "62F368A925010BFC",
+          "raw_0x6d": 0,
+          "raw_0xee": 0,
+          "raw_0x290_u32": 3000,
+          "header_bytes": 756,
+          "record_bytes": 1188,
+          "record_sha256": "8f709b7a1954c38aedba19365c44e4092c09a66ee49c33c6cb9c8d6f9ce1b5fa"
+        }
+      },
+      "accepted": true,
+      "observation_completed": true,
+      "errors": [],
+      "final_target": {
+        "Name": "Fresh Constructed WAV 003",
+        "Unplayed": true,
+        "Rating": 0,
+        "RatingKind": 1,
+        "AlbumRating": 0,
+        "AlbumRatingKind": 1,
+        "PlayedCount": 0,
+        "ModificationDate": "2026-09-09T14:00:00+00:00"
+      },
+      "com_evidence": "D:\\a\\_temp\\gha-mcp\\WINDOWS_RESEARCH_RUN\\work\\itl\\reports\\dynamic\\phase3\\runs\\fresh-constructed-wav-003-v2-reload2\\com.json",
+      "media_unchanged": true
+    }
+  ]
+}

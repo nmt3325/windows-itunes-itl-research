@@ -21,19 +21,19 @@ def track(tid=1, pid=None, title='Synthetic Track'):
     children=text(2,title)+text(4,'Synthetic Artist')+text(3,'Synthetic Album')
     h=bytearray(record(b'mith',756,count=3)); u32(h,8,756+len(children));u32(h,0x10,tid)
     u64(h,0x80,0xABCD000000000000+tid if pid is None else pid)
-    u32(h,0x6c,20);u32(h,0x2bc,0x10008001)
+    u32(h,0x6c,20);u32(h,0x2bc,0x10008001);u32(h,0x1f4,300+tid)
     return bytes(h)+children
 
 def item(tid, iid):
     h=bytearray(record(b'mtph',84,count=0));u32(h,0x10,iid);u32(h,0x18,tid);u32(h,0x20,iid);u64(h,0x44,0x9911000000000000+iid)
     return bytes(h)
 
-def playlist(tids=(), pid=0xBEEF000000000001, name='Synthetic Playlist', *, smart=False, master=False):
+def playlist(tids=(), pid=0xBEEF000000000001, name='Synthetic Playlist', *, smart=False, master=False, local_id=4):
     strings=text(100,name)
     if smart: strings+=record(b'mhoh',24,b'Uninterpreted smart rules',fields=[(12,101)])
     payload=strings+b''.join(item(tid,10+i) for i,tid in enumerate(tids))
     h=bytearray(record(b'miph',3500,count=2 if smart else 1));u32(h,8,len(h)+len(payload));u32(h,16,len(tids))
-    u64(h,0x1b8,pid);u32(h,0xd40,4);u32(h,0x14,0x10000 if master else 0)
+    u64(h,0x1b8,pid);u32(h,0xd40,local_id);u32(h,0x14,0x10000 if master else 0)
     return bytes(h)+payload
 
 def list_record(tag, hlen, records):

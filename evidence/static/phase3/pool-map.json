@@ -1,0 +1,543 @@
+{
+  "module_sha256": "30d91209b5d81c47bbad2da9d89764fcab08bf5cd9af1a9571668001376c5d7d",
+  "notation": {
+    "C": "common track",
+    "F": "file/track instance; C=*(F+8), principal F=*(C+0x58)",
+    "L": "library; *(C+0x10)=*(reader/writer+0x1e00270)",
+    "member_hex": "All member suffixes are hexadecimal, not decimal."
+  },
+  "public_source": {
+    "file": "wt/codec/itlkit/library.py",
+    "sha256": "dafc2931cac4e1d040aabae3429fb075474841a9aebc78852afe7994ecde77b0",
+    "lines": [
+      15,
+      31
+    ],
+    "declared_text_fields": 15,
+    "excluded_read_only": [
+      "kind",
+      "purchaser_name"
+    ],
+    "editable_candidates": 13,
+    "note": "Source declaration scope, not a renewed compatibility audit or a promise every mutation is enabled. URL relocation and indexed fields have separate gates."
+  },
+  "fields": [
+    {
+      "field": "name",
+      "record": "mith",
+      "type": 2,
+      "pool": "L+0x178",
+      "member_hex": "C+b0",
+      "external_id": "mhoh+0x10",
+      "reader_mode": 1,
+      "options": 0,
+      "writer_encoding_argument": 1,
+      "reader": {
+        "file": "reports/static/decompiled/0107b460.c",
+        "lines": [
+          1141,
+          1146
+        ],
+        "sha256": "0473d0cdbc555a40354e3dfaf4a8f54a4f2aceb11622f96ed8468bfe83660a13"
+      },
+      "writer": {
+        "file": "reports/static/decompiled/0106daf0.c",
+        "lines": [
+          366,
+          411
+        ],
+        "sha256": "19aaec8cdadd024da5e10f2fc91642a657999982ef4725be5df1f3aac6ffb547"
+      },
+      "confidence": "high for this binary"
+    },
+    {
+      "field": "album",
+      "record": "mith",
+      "type": 3,
+      "pool": "L+0x1c0",
+      "member_hex": "C+bc",
+      "external_id": "mhoh+0x10",
+      "reader_mode": 1,
+      "options": 0,
+      "writer_encoding_argument": 1,
+      "reader": {
+        "file": "reports/static/decompiled/0107b460.c",
+        "lines": [
+          1147,
+          1152
+        ],
+        "sha256": "0473d0cdbc555a40354e3dfaf4a8f54a4f2aceb11622f96ed8468bfe83660a13"
+      },
+      "writer": {
+        "file": "reports/static/decompiled/0106daf0.c",
+        "lines": [
+          552,
+          596
+        ],
+        "sha256": "19aaec8cdadd024da5e10f2fc91642a657999982ef4725be5df1f3aac6ffb547"
+      },
+      "confidence": "high for this binary"
+    },
+    {
+      "field": "artist",
+      "record": "mith",
+      "type": 4,
+      "pool": "L+0x208",
+      "member_hex": "C+b4",
+      "external_id": "mhoh+0x10",
+      "reader_mode": 1,
+      "options": 0,
+      "writer_encoding_argument": 1,
+      "reader": {
+        "file": "reports/static/decompiled/0107b460.c",
+        "lines": [
+          1153,
+          1158
+        ],
+        "sha256": "0473d0cdbc555a40354e3dfaf4a8f54a4f2aceb11622f96ed8468bfe83660a13"
+      },
+      "writer": {
+        "file": "reports/static/decompiled/0106daf0.c",
+        "lines": [
+          413,
+          458
+        ],
+        "sha256": "19aaec8cdadd024da5e10f2fc91642a657999982ef4725be5df1f3aac6ffb547"
+      },
+      "confidence": "high for this binary"
+    },
+    {
+      "field": "genre",
+      "record": "mith",
+      "type": 5,
+      "pool": "L+0x328",
+      "member_hex": "C+c8",
+      "external_id": "mhoh+0x10",
+      "reader_mode": 1,
+      "options": 0,
+      "writer_encoding_argument": 1,
+      "reader": {
+        "file": "reports/static/decompiled/0107b460.c",
+        "lines": [
+          1159,
+          1164
+        ],
+        "sha256": "0473d0cdbc555a40354e3dfaf4a8f54a4f2aceb11622f96ed8468bfe83660a13"
+      },
+      "writer": {
+        "file": "reports/static/decompiled/0106daf0.c",
+        "lines": [
+          644,
+          689
+        ],
+        "sha256": "19aaec8cdadd024da5e10f2fc91642a657999982ef4725be5df1f3aac6ffb547"
+      },
+      "confidence": "high for this binary"
+    },
+    {
+      "field": "comment",
+      "record": "mith",
+      "type": 8,
+      "pool": "L+0x400",
+      "member_hex": "C+d4",
+      "external_id": "mhoh+0x10",
+      "reader_mode": 1,
+      "options": 0,
+      "writer_encoding_argument": 1,
+      "reader": {
+        "file": "reports/static/decompiled/0107b460.c",
+        "lines": [
+          1189,
+          1194
+        ],
+        "sha256": "0473d0cdbc555a40354e3dfaf4a8f54a4f2aceb11622f96ed8468bfe83660a13"
+      },
+      "writer": {
+        "file": "reports/static/decompiled/0106daf0.c",
+        "lines": [
+          803,
+          847
+        ],
+        "sha256": "19aaec8cdadd024da5e10f2fc91642a657999982ef4725be5df1f3aac6ffb547"
+      },
+      "confidence": "high for this binary"
+    },
+    {
+      "field": "composer",
+      "record": "mith",
+      "type": 12,
+      "pool": "L+0x208",
+      "member_hex": "C+c4",
+      "external_id": "mhoh+0x10",
+      "reader_mode": 1,
+      "options": 0,
+      "writer_encoding_argument": 1,
+      "reader": {
+        "file": "reports/static/decompiled/0107b460.c",
+        "lines": [
+          1233,
+          1238
+        ],
+        "sha256": "0473d0cdbc555a40354e3dfaf4a8f54a4f2aceb11622f96ed8468bfe83660a13"
+      },
+      "writer": {
+        "file": "reports/static/decompiled/0106daf0.c",
+        "lines": [
+          506,
+          550
+        ],
+        "sha256": "19aaec8cdadd024da5e10f2fc91642a657999982ef4725be5df1f3aac6ffb547"
+      },
+      "confidence": "high for this binary"
+    },
+    {
+      "field": "album_artist",
+      "record": "mith",
+      "type": 27,
+      "pool": "L+0x208",
+      "member_hex": "C+b8",
+      "external_id": "mhoh+0x10",
+      "reader_mode": 1,
+      "options": 0,
+      "writer_encoding_argument": 1,
+      "reader": {
+        "file": "reports/static/decompiled/0107b460.c",
+        "lines": [
+          1418,
+          1423
+        ],
+        "sha256": "0473d0cdbc555a40354e3dfaf4a8f54a4f2aceb11622f96ed8468bfe83660a13"
+      },
+      "writer": {
+        "file": "reports/static/decompiled/0106daf0.c",
+        "lines": [
+          460,
+          504
+        ],
+        "sha256": "19aaec8cdadd024da5e10f2fc91642a657999982ef4725be5df1f3aac6ffb547"
+      },
+      "confidence": "high for this binary"
+    },
+    {
+      "field": "sort_name",
+      "record": "mith",
+      "type": 30,
+      "pool": "L+0x1768",
+      "member_hex": "C+160",
+      "external_id": "mhoh+0x10",
+      "reader_mode": 1,
+      "options": 0,
+      "writer_encoding_argument": 1,
+      "reader": {
+        "file": "reports/static/decompiled/0107b460.c",
+        "lines": [
+          1438,
+          1470
+        ],
+        "sha256": "0473d0cdbc555a40354e3dfaf4a8f54a4f2aceb11622f96ed8468bfe83660a13"
+      },
+      "writer": {
+        "file": "reports/static/decompiled/0106daf0.c",
+        "lines": [
+          941,
+          1002
+        ],
+        "sha256": "19aaec8cdadd024da5e10f2fc91642a657999982ef4725be5df1f3aac6ffb547"
+      },
+      "confidence": "high for this binary"
+    },
+    {
+      "field": "sort_album",
+      "record": "mith",
+      "type": 31,
+      "pool": "L+0x17b0",
+      "member_hex": "C+164",
+      "external_id": "mhoh+0x10",
+      "reader_mode": 1,
+      "options": 0,
+      "writer_encoding_argument": 1,
+      "reader": {
+        "file": "reports/static/decompiled/0107b460.c",
+        "lines": [
+          1471,
+          1503
+        ],
+        "sha256": "0473d0cdbc555a40354e3dfaf4a8f54a4f2aceb11622f96ed8468bfe83660a13"
+      },
+      "writer": {
+        "file": "reports/static/decompiled/0106daf0.c",
+        "lines": [
+          941,
+          1002
+        ],
+        "sha256": "19aaec8cdadd024da5e10f2fc91642a657999982ef4725be5df1f3aac6ffb547"
+      },
+      "confidence": "high for this binary"
+    },
+    {
+      "field": "sort_artist",
+      "record": "mith",
+      "type": 32,
+      "pool": "L+0x17f8",
+      "member_hex": "C+168",
+      "external_id": "mhoh+0x10",
+      "reader_mode": 1,
+      "options": 0,
+      "writer_encoding_argument": 1,
+      "reader": {
+        "file": "reports/static/decompiled/0107b460.c",
+        "lines": [
+          1504,
+          1536
+        ],
+        "sha256": "0473d0cdbc555a40354e3dfaf4a8f54a4f2aceb11622f96ed8468bfe83660a13"
+      },
+      "writer": {
+        "file": "reports/static/decompiled/0106daf0.c",
+        "lines": [
+          941,
+          1002
+        ],
+        "sha256": "19aaec8cdadd024da5e10f2fc91642a657999982ef4725be5df1f3aac6ffb547"
+      },
+      "confidence": "high for this binary"
+    },
+    {
+      "field": "sort_album_artist",
+      "record": "mith",
+      "type": 33,
+      "pool": "L+0x17f8",
+      "member_hex": "C+16c",
+      "external_id": "mhoh+0x10",
+      "reader_mode": 1,
+      "options": 0,
+      "writer_encoding_argument": 1,
+      "reader": {
+        "file": "reports/static/decompiled/0107b460.c",
+        "lines": [
+          1537,
+          1568
+        ],
+        "sha256": "0473d0cdbc555a40354e3dfaf4a8f54a4f2aceb11622f96ed8468bfe83660a13"
+      },
+      "writer": {
+        "file": "reports/static/decompiled/0106daf0.c",
+        "lines": [
+          941,
+          1002
+        ],
+        "sha256": "19aaec8cdadd024da5e10f2fc91642a657999982ef4725be5df1f3aac6ffb547"
+      },
+      "confidence": "high for this binary"
+    },
+    {
+      "field": "url",
+      "record": "mith",
+      "type": 11,
+      "pool": "*(F+0x2c8)",
+      "member_hex": "FILE F+2c0 / HTTP F+2b8",
+      "external_id": 0,
+      "variants": [
+        {
+          "wire_kind": 1,
+          "runtime_kind": "FILE",
+          "reader_mode": 5,
+          "writer_encoding_argument": 2
+        },
+        {
+          "wire_kind": 2,
+          "runtime_kind": "HTTP",
+          "reader_mode": 0,
+          "writer_encoding_argument": 0
+        }
+      ],
+      "reader": {
+        "file": "reports/static/decompiled/0107b460.c",
+        "lines": [
+          1207,
+          1232
+        ],
+        "sha256": "0473d0cdbc555a40354e3dfaf4a8f54a4f2aceb11622f96ed8468bfe83660a13"
+      },
+      "writer_asm_rvas": [
+        "0x1070153",
+        "0x1070174",
+        "0x10701b5",
+        "0x1070204"
+      ],
+      "confidence": "high for these native kinds; charset/relocation limitations remain"
+    },
+    {
+      "field": "path",
+      "record": "mith",
+      "type": 13,
+      "pool": "*(F+0x2c8)",
+      "member_hex": "F+2b8",
+      "external_id": 0,
+      "reader_mode": 1,
+      "writer_encoding_argument": 1,
+      "native_writer_kind": "FILE",
+      "reader": {
+        "file": "reports/static/decompiled/0107b460.c",
+        "lines": [
+          1239,
+          1243
+        ],
+        "sha256": "0473d0cdbc555a40354e3dfaf4a8f54a4f2aceb11622f96ed8468bfe83660a13"
+      },
+      "writer_evidence": "reports/static/phase2/url-and-field-evidence.txt",
+      "confidence": "high for FILE path pool; semantic relocation not established"
+    }
+  ],
+  "shared_and_related_domains": [
+    {
+      "pool": "L+0x178",
+      "consumers": {
+        "mith": [
+          2
+        ]
+      }
+    },
+    {
+      "pool": "L+0x1c0",
+      "consumers": {
+        "mith": [
+          3
+        ],
+        "miah": [
+          300
+        ]
+      }
+    },
+    {
+      "pool": "L+0x208",
+      "consumers": {
+        "mith": [
+          4,
+          12,
+          27
+        ],
+        "miah": [
+          301,
+          302
+        ],
+        "miih": [
+          400
+        ]
+      }
+    },
+    {
+      "pool": "L+0x328",
+      "consumers": {
+        "mith": [
+          5
+        ]
+      }
+    },
+    {
+      "pool": "L+0x400",
+      "consumers": {
+        "mith": [
+          8
+        ]
+      }
+    },
+    {
+      "pool": "L+0x1768",
+      "consumers": {
+        "mith": [
+          30
+        ]
+      }
+    },
+    {
+      "pool": "L+0x17b0",
+      "consumers": {
+        "mith": [
+          31
+        ]
+      }
+    },
+    {
+      "pool": "L+0x17f8",
+      "consumers": {
+        "mith": [
+          32,
+          33,
+          34
+        ],
+        "miih": [
+          401
+        ]
+      }
+    },
+    {
+      "pool": "L+0x640",
+      "consumers": {
+        "mith": [
+          24
+        ],
+        "miah": [
+          304
+        ]
+      }
+    },
+    {
+      "pool": "L+0x1840",
+      "consumers": {
+        "mith": [
+          35
+        ]
+      },
+      "base": "L+0x640 / *(C+0x70)+0x28",
+      "sort_id": "C+0x174"
+    }
+  ],
+  "related_readers": [
+    {
+      "file": "reports/static/phase2/decompiled/01078140.c",
+      "lines": [
+        252,
+        300
+      ],
+      "sha256": "7f05db1b3e491278a4d7a15d345b118f0ae32f1e9ad75fe54d5844558b95e7e3"
+    },
+    {
+      "file": "reports/static/phase2/decompiled/01078bb0.c",
+      "lines": [
+        260,
+        283
+      ],
+      "sha256": "109a5e00b231a0da6cf893d1f96b9f2809bbf7d5fdbefbb4b05ae449bae3ac6d"
+    }
+  ],
+  "read_only_text": [
+    {
+      "field": "kind",
+      "type": 6,
+      "pool": "L+0x370",
+      "member": "C+0xcc"
+    },
+    {
+      "field": "purchaser_name",
+      "type": 60,
+      "pool": "L+0x910",
+      "member": "*(F+0x10)+0x78",
+      "also_type": 62
+    }
+  ],
+  "sort_helper": {
+    "rva": "0xeb8130",
+    "code_end_exclusive": "0xeb855a",
+    "jump_table": "0xeb855c",
+    "proof": "offline-descriptor-proof.json",
+    "index7": "Artist/AlbumArtist runtime fallback, wire type0; not an extra emitted mhoh. Writer loops0..5."
+  },
+  "unknowns": [
+    "Not every consumer in every record family/version is mapped.",
+    "miah301/302 business-role distinctions remain incomplete.",
+    "No SortAlbum miah counterpart established; miah306 is not a recognized text case in the examined reader.",
+    "Show/SortShow labels for native24/35 are inferences, while pool addresses are verified.",
+    "Playlist title100 is a distinct local pool P+0x130 (reader107ee90 C676-685), not L+0x178. Full playlist-writer mapping was not extended in this phase."
+  ]
+}

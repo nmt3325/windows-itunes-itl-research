@@ -1,0 +1,610 @@
+
+C_EVIDENCE decompiled/0106daf0.c
+352:   }
+353:   else if (iVar10 == 0x53485244) {
+354:     *(undefined4 *)(param_1 + 0xa0013c) = 3;
+355:     *(undefined8 *)(param_1 + 0xa003a8) = *(undefined8 *)(param_2 + 0x80);
+356:     *(undefined1 *)(param_1 + 0xa00395) = *(undefined1 *)(param_2 + 0x90);
+357:     *(undefined4 *)(param_1 + 0xa00378) = *(undefined4 *)(param_2 + 0x98);
+358:     *(undefined4 *)(param_1 + 0xa0037c) = *(undefined4 *)(param_2 + 0x9c);
+359:     *(undefined1 *)(param_1 + 0xa0035a) = *(undefined1 *)(param_2 + 0x94);
+360:     *(undefined1 *)(param_1 + 0xa0035b) = *(undefined1 *)(param_2 + 0x95);
+361:     cVar7 = FUN_140fa9b00(param_2);
+362:     if ((cVar7 != '\0') && (*(char *)(param_2 + 0x3d) == '\x01')) {
+363:       *(undefined1 *)(param_1 + 0xa00387) = 1;
+364:     }
+365:   }
+366:   iVar10 = *(int *)(puVar4 + 0x16);
+367:   if (iVar10 == 0) {
+368: LAB_14106e89c:
+369:     if ((int)uVar19 != 0) {
+370:       return uVar19;
+371:     }
+372:   }
+373:   else {
+374:     if ((int *)(lVar14 + 0x178) == (int *)0x0) {
+375:       return 0xffffffce;
+376:     }
+377:     if (*(int *)(lVar14 + 0x178) != 0x73747263) {
+
+C_EVIDENCE decompiled/0106daf0.c
+635:     if (iVar21 == 0) goto LAB_14106ecab;
+636:     plStack_308 = &lStack_2f0;
+637:     plStack_310 = (longlong *)CONCAT44(plStack_310._4_4_,1);
+638:     uStack_318 = (longlong *)CONCAT44(uStack_318._4_4_,0xe);
+639:     uVar9 = FUN_14106ac80(param_1,lVar17,iVar21);
+640:     uVar13 = (ulonglong)uVar9;
+641:     if (uVar9 != 0) goto LAB_14106ecab;
+642:     *(int *)(param_1 + 0xa00134) = *(int *)(param_1 + 0xa00134) + 1;
+643:   }
+644:   iVar10 = *(int *)(puVar4 + 0x19);
+645:   uVar13 = 0;
+646:   if (iVar10 == 0) {
+647: LAB_14106ed7b:
+648:     if ((int)uVar13 != 0) {
+649:       return uVar13;
+650:     }
+651:   }
+652:   else {
+653:     iVar21 = 0;
+654:     lVar17 = 0;
+655:     if ((int *)(lVar14 + 0x328) == (int *)0x0) {
+656:       return 0xffffffce;
+657:     }
+658:     if (*(int *)(lVar14 + 0x328) != 0x73747263) {
+659:       return 0xffffffce;
+660:     }
+661:     if (*(int *)(lVar14 + 0x364) == 0) {
+662:       return 0xffffffce;
+663:     }
+664:     if (iVar10 < 1) {
+665:       return 0xffffffce;
+666:     }
+667:     if (*(int *)(lVar14 + 0x354) < iVar10) {
+668:       return 0xffffffce;
+669:     }
+670:     piVar12 = (int *)(**(longlong **)(lVar14 + 0x338) + ((longlong)iVar10 + -1) * 8);
+671:     if (((piVar12 == (int *)0x0) || (*piVar12 < 0)) || (piVar12[1] < 1)) {
+672:       uVar13 = 0xffffffce;
+673:     }
+674:     else {
+675:       lVar17 = (longlong)*piVar12 + **(longlong **)(lVar14 + 0x348);
+676:       iVar21 = piVar12[1];
+677:     }
+678:     if ((int)uVar13 != 0) {
+679:       return uVar13;
+680:     }
+681:     if (iVar21 == 0) goto LAB_14106ed7b;
+682:     plStack_308 = &lStack_2f0;
+683:     plStack_310 = (longlong *)CONCAT44(plStack_310._4_4_,1);
+684:     uStack_318 = (longlong *)CONCAT44(uStack_318._4_4_,5);
+685:     uVar9 = FUN_14106ac80(param_1,lVar17,iVar21);
+686:     uVar13 = (ulonglong)uVar9;
+687:     if (uVar9 != 0) goto LAB_14106ed7b;
+688:     *(int *)(param_1 + 0xa00134) = *(int *)(param_1 + 0xa00134) + 1;
+689:   }
+690:   iVar10 = *(int *)((longlong)puVar4 + 0xcc);
+691:   uVar13 = 0;
+692:   if (iVar10 == 0) {
+693: LAB_14106ee4b:
+694:     if ((int)uVar13 != 0) {
+695:       return uVar13;
+696:     }
+697:   }
+698:   else {
+699:     iVar21 = 0;
+700:     lVar17 = 0;
+701:     if ((int *)(lVar14 + 0x370) == (int *)0x0) {
+702:       return 0xffffffce;
+703:     }
+704:     if (*(int *)(lVar14 + 0x370) != 0x73747263) {
+705:       return 0xffffffce;
+706:     }
+707:     if (*(int *)(lVar14 + 0x3ac) == 0) {
+708:       return 0xffffffce;
+709:     }
+710:     if (iVar10 < 1) {
+711:       return 0xffffffce;
+712:     }
+713:     if (*(int *)(lVar14 + 0x39c) < iVar10) {
+714:       return 0xffffffce;
+715:     }
+716:     piVar12 = (int *)(**(longlong **)(lVar14 + 0x380) + ((longlong)iVar10 + -1) * 8);
+717:     if (((piVar12 == (int *)0x0) || (*piVar12 < 0)) || (piVar12[1] < 1)) {
+718:       uVar13 = 0xffffffce;
+719:     }
+720:     else {
+721:       lVar17 = (longlong)*piVar12 + **(longlong **)(lVar14 + 0x390);
+722:       iVar21 = piVar12[1];
+723:     }
+724:     if ((int)uVar13 != 0) {
+725:       return uVar13;
+726:     }
+727:     if (iVar21 == 0) goto LAB_14106ee4b;
+728:     plStack_308 = &lStack_2f0;
+729:     plStack_310 = (longlong *)CONCAT44(plStack_310._4_4_,1);
+730:     uStack_318 = (longlong *)CONCAT44(uStack_318._4_4_,6);
+731:     uVar9 = FUN_14106ac80(param_1,lVar17,iVar21);
+732:     uVar13 = (ulonglong)uVar9;
+733:     if (uVar9 != 0) goto LAB_14106ee4b;
+734:     *(int *)(param_1 + 0xa00134) = *(int *)(param_1 + 0xa00134) + 1;
+735:   }
+736:   uVar13 = 0;
+737:   if (*(int *)(puVar4 + 0x1a) == 0) {
+738: LAB_14106eed0:
+739:     if ((int)uVar13 != 0) {
+740:       return uVar13;
+741:     }
+742:   }
+743:   else {
+744:     uVar9 = FUN_140bff470(*(longlong *)(param_1 + 0x1e00270) + 0x3b8,*(int *)(puVar4 + 0x1a),
+745:                           &uStack_248);
+746:     uVar13 = (ulonglong)uVar9;
+747:     if ((uVar9 != 0) || (uStack_248 == 0)) goto LAB_14106eed0;
+748:     FUN_140ea9f50(&uStack_248,&uStack_248);
+749:     plStack_308 = &lStack_2f0;
+750:     plStack_310 = (longlong *)CONCAT44(plStack_310._4_4_,1);
+751:     uStack_318 = (longlong *)CONCAT44(uStack_318._4_4_,7);
+752:     uVar9 = FUN_14106ac80(param_1,auStack_246,(uint)uStack_248 * 2,*(undefined4 *)(puVar4 + 0x1a));
+753:     uVar13 = (ulonglong)uVar9;
+754:     if (uVar9 != 0) goto LAB_14106eed0;
+755:     *(int *)(param_1 + 0xa00134) = *(int *)(param_1 + 0xa00134) + 1;
+756:   }
+757:   iVar10 = *(int *)(puVar4 + 0x1a);
+758:   uVar13 = 0;
+759:   if (iVar10 == 0) {
+760: LAB_14106efa0:
+761:     if ((int)uVar13 != 0) {
+762:       return uVar13;
+763:     }
+764:   }
+765:   else {
+766:     iVar21 = 0;
+767:     lVar17 = 0;
+768:     if ((int *)(lVar14 + 0x3b8) == (int *)0x0) {
+769:       return 0xffffffce;
+770:     }
+771:     if (*(int *)(lVar14 + 0x3b8) != 0x73747263) {
+772:       return 0xffffffce;
+773:     }
+774:     if (*(int *)(lVar14 + 0x3f4) == 0) {
+775:       return 0xffffffce;
+776:     }
+777:     if (iVar10 < 1) {
+778:       return 0xffffffce;
+779:     }
+780:     if (*(int *)(lVar14 + 0x3e4) < iVar10) {
+781:       return 0xffffffce;
+782:     }
+783:     piVar12 = (int *)(**(longlong **)(lVar14 + 0x3c8) + ((longlong)iVar10 + -1) * 8);
+784:     if (((piVar12 == (int *)0x0) || (*piVar12 < 0)) || (piVar12[1] < 1)) {
+785:       uVar13 = 0xffffffce;
+786:     }
+787:     else {
+788:       lVar17 = (longlong)*piVar12 + **(longlong **)(lVar14 + 0x3d8);
+789:       iVar21 = piVar12[1];
+790:     }
+791:     if ((int)uVar13 != 0) {
+792:       return uVar13;
+793:     }
+794:     if (iVar21 == 0) goto LAB_14106efa0;
+795:     plStack_308 = &lStack_2f0;
+796:     plStack_310 = (longlong *)CONCAT44(plStack_310._4_4_,1);
+797:     uStack_318 = (longlong *)CONCAT44(uStack_318._4_4_,7);
+798:     uVar9 = FUN_14106ac80(param_1,lVar17,iVar21);
+799:     uVar13 = (ulonglong)uVar9;
+800:     if (uVar9 != 0) goto LAB_14106efa0;
+801:     *(int *)(param_1 + 0xa00134) = *(int *)(param_1 + 0xa00134) + 1;
+802:   }
+803:   iVar10 = *(int *)((longlong)puVar4 + 0xd4);
+804:   uVar13 = 0;
+805:   if (iVar10 == 0) {
+806: LAB_14106f070:
+807:     if ((int)uVar13 != 0) {
+808:       return uVar13;
+809:     }
+810:   }
+811:   else {
+812:     iVar21 = 0;
+813:     lVar17 = 0;
+814:     if ((int *)(lVar14 + 0x400) == (int *)0x0) {
+815:       return 0xffffffce;
+816:     }
+817:     if (*(int *)(lVar14 + 0x400) != 0x73747263) {
+818:       return 0xffffffce;
+819:     }
+820:     if (*(int *)(lVar14 + 0x43c) == 0) {
+821:       return 0xffffffce;
+822:     }
+823:     if (iVar10 < 1) {
+824:       return 0xffffffce;
+825:     }
+826:     if (*(int *)(lVar14 + 0x42c) < iVar10) {
+827:       return 0xffffffce;
+828:     }
+829:     piVar12 = (int *)(**(longlong **)(lVar14 + 0x410) + ((longlong)iVar10 + -1) * 8);
+830:     if (((piVar12 == (int *)0x0) || (*piVar12 < 0)) || (piVar12[1] < 1)) {
+831:       uVar13 = 0xffffffce;
+832:     }
+833:     else {
+834:       lVar17 = (longlong)*piVar12 + **(longlong **)(lVar14 + 0x420);
+835:       iVar21 = piVar12[1];
+836:     }
+837:     if ((int)uVar13 != 0) {
+838:       return uVar13;
+839:     }
+840:     if (iVar21 == 0) goto LAB_14106f070;
+841:     plStack_308 = &lStack_2f0;
+842:     plStack_310 = (longlong *)CONCAT44(plStack_310._4_4_,1);
+843:     uStack_318 = (longlong *)CONCAT44(uStack_318._4_4_,8);
+844:     uVar9 = FUN_14106ac80(param_1,lVar17,iVar21);
+845:     uVar13 = (ulonglong)uVar9;
+846:     if (uVar9 != 0) goto LAB_14106f070;
+847:     *(int *)(param_1 + 0xa00134) = *(int *)(param_1 + 0xa00134) + 1;
+
+C_EVIDENCE decompiled/0107b460.c
+1720:                                      (_DAT_1420a6090,0,kCFTypeDictionaryKeyCallBacks_exref,
+1721:                                       kCFTypeDictionaryValueCallBacks_exref);
+1722:                   *(longlong *)(pcVar4 + 0x2d0) = lVar15;
+1723:                   uVar23 = uVar21;
+1724:                   if (lVar15 != 0) goto code_r0x00014107e4ad;
+1725:                 }
+1726:                 else {
+1727: code_r0x00014107e4ad:
+1728:                   uVar8 = FUN_141077ff0(param_1,lVar15,uVar8);
+1729:                   uVar23 = (ulonglong)uVar8;
+1730:                 }
+1731:                 if ((int)uVar23 != 0) {
+1732:                   return uVar23;
+1733:                 }
+1734:               }
+1735:               goto LAB_14107e4f7;
+1736:             case 0x39:
+1737:               FUN_140f92f00(uVar13);
+1738:               piStack_798 = (int *)(*(longlong *)(uVar13 + 0x68) + 0x2c);
+1739:               uStack_790 = CONCAT44(uStack_790._4_4_,1);
+1740:               uVar8 = FUN_1410773d0(param_1,0,lStack_780 + 0x5f8,auStack_350[2]);
+1741:               break;
+1742:             case 0x3a:
+1743:               FUN_140f92f00(uVar13);
+1744:               piStack_798 = (int *)(*(longlong *)(uVar13 + 0x68) + 0x28);
+1745:               uStack_790 = uStack_790 & 0xffffffff00000000;
+1746:               uVar8 = FUN_1410773d0(param_1,0,lStack_780 + 0x5b0,auStack_350[2]);
+1747:               uStack_370 = uStack_370 | 0x40000;
+1748:               break;
+1749:             case 0x3b:
+1750:               FUN_140fa6150(pcVar4);
+1751:               piStack_798 = (int *)(*(longlong *)(pcVar4 + 0x10) + 0x74);
+1752:               uStack_790 = uStack_790 & 0xffffffff00000000;
+1753:               uVar8 = FUN_1410773d0(param_1,1,lStack_780 + 0x8c8,auStack_350[2]);
+1754:               uStack_368 = uStack_368 | 0x800000;
+1755:               break;
+1756:             case 0x3c:
+1757:               FUN_140fa6150(pcVar4);
+1758:               piStack_798 = (int *)(*(longlong *)(pcVar4 + 0x10) + 0x78);
+1759:               uStack_790 = uStack_790 & 0xffffffff00000000;
+1760:               uVar8 = FUN_1410773d0(param_1,1,lStack_780 + 0x910,auStack_350[2]);
+1761:               uStack_368 = uStack_368 | 0x400000;
+1762:               break;
+1763:             case 0x3d:
+1764:               FUN_140fa6150(pcVar4);
+1765:               piStack_798 = (int *)(*(longlong *)(pcVar4 + 0x10) + 0x7c);
+1766:               uStack_790 = uStack_790 & 0xffffffff00000000;
+1767:               uVar8 = FUN_1410773d0(param_1,1,lStack_780 + 0x8c8,auStack_350[2]);
+1768:               uStack_368 = uStack_368 | 0x80000;
+1769:               break;
+1770:             case 0x3e:
+1771:               FUN_140fa6150(pcVar4);
+1772:               piStack_798 = (int *)(*(longlong *)(pcVar4 + 0x10) + 0x80);
+1773:               uStack_790 = uStack_790 & 0xffffffff00000000;
+1774:               uVar8 = FUN_1410773d0(param_1,1,lStack_780 + 0x910,auStack_350[2]);
+1775:               uStack_368 = uStack_368 | 0x40000;
+1776:               break;
+1777:             case 0x3f:
+1778:               FUN_140f92f00(uVar13);
+1779:               piStack_798 = (int *)(*(longlong *)(uVar13 + 0x68) + 0x18);
+1780:               uStack_790 = uStack_790 & 0xffffffff00000000;
+1781:               uVar8 = FUN_1410773d0(param_1,1,lStack_780 + 0x298,auStack_350[2]);
+1782:               uStack_368 = uStack_368 | 0x1000000;
+1783:               break;
+1784:             case 0x40:
+1785:               FUN_140f92f00(uVar13);
+1786:               piStack_798 = (int *)(*(longlong *)(uVar13 + 0x68) + 0x1c);
+1787:               uStack_790 = uStack_790 & 0xffffffff00000000;
+1788:               uVar8 = FUN_1410773d0(param_1,1,lStack_780 + 0x2e0,auStack_350[2]);
+1789:               uStack_368 = uStack_368 | 0x8000000000;
+1790:               break;
+1791:             case 0x41:
+1792:               FUN_140f92f70(uVar13);
+1793:               piStack_798 = (int *)(*(longlong *)(uVar13 + 0x70) + 0x30);
+1794:               uStack_790 = uStack_790 & 0xffffffff00000000;
+1795:               uVar8 = FUN_1410773d0(param_1,1,lStack_780 + 0x6d0,auStack_350[2]);
+1796:               uStack_368 = uStack_368 | 0x800000000000;
+1797:             }
+1798:             uVar23 = (ulonglong)uVar8;
+1799: code_r0x00014107e3e3:
+1800:             if ((int)uVar23 != 0) {
+1801:               return uVar23;
+1802:             }
+1803: LAB_14107e4f7:
+1804:             uStack_778 = uStack_778 + 1;
+1805:             lVar15 = lStack_780;
+1806:           } while (uStack_778 < (uint)aiStack_670[1]);
+1807:         }
+1808:         if (((*(char *)(param_1 + 0x1e002f2) != '\0') &&
+1809:             (((*(longlong *)(*(longlong *)(pcVar4 + 0x20) + 8) != 0 ||
+1810:               (*(char *)(uVar13 + 0x8a) != '\0')) && (*(longlong *)(uVar13 + 0x10) != 0)))) &&
+1811:            ((*(byte *)(uVar13 + 0x9a) & 1) != 0)) {
+1812:           iVar11 = *(int *)(*(longlong *)(uVar13 + 0x68) + 0x10);
+1813:           if (iVar11 == 0) {
+1814:             if (*(int *)(uVar13 + 0xac) == 0) {
+1815:               iVar11 = FUN_140f91240(uVar13);
+1816:               *(int *)(uVar13 + 0xac) = iVar11;
+1817:               if (iVar11 != 0) {
+1818:                 FUN_140f94100(uVar13,0x3c);
+1819:               }
+1820:             }
+1821:             iVar11 = *(int *)(uVar13 + 0xac);
+1822:           }
+1823:           if (((iVar11 == 1) || (iVar11 == 0x10)) || ((iVar11 == 0x20 || (iVar11 == 0x10001)))) {
+1824:             FUN_140faa080(pcVar4,0,0,0);
+1825:             *(undefined1 *)(uVar13 + 0x8a) = 0;
+
+C_EVIDENCE phase2/decompiled/01078140.c
+240:                  (auStack_110[0] << 0x10 | auStack_110[0] & 0xff00) << 8;
+241:             auStack_110[1] =
+242:                  (auStack_110[1] & 0xff0000 | auStack_110[1] >> 0x10) >> 8 |
+243:                  (auStack_110[1] << 0x10 | auStack_110[1] & 0xff00) << 8;
+244:             auStack_110[2] =
+245:                  (auStack_110[2] & 0xff0000 | auStack_110[2] >> 0x10) >> 8 |
+246:                  (auStack_110[2] << 0x10 | auStack_110[2] & 0xff00) << 8;
+247:             uStack_114 = uVar9;
+248:           }
+249:           if (uStack_118 != 0x686f686d) {
+250:             return -0xd0;
+251:           }
+252:           switch(auStack_110[1]) {
+253:           case 300:
+254:             lVar10 = lStack_1b0 + 0x1c0;
+255:             goto code_r0x0001410788ee;
+256:           case 0x12d:
+257:             ppcStack_1e8 = (char **)(auStack_178 + 4);
+258:             lVar10 = lStack_1b0 + 0x208;
+259:             break;
+260:           case 0x12e:
+261:             ppcStack_1e8 = (char **)&uStack_170;
+262:             lVar10 = lStack_1b0 + 0x208;
+263:             break;
+264:           case 0x12f:
+265:             ppcStack_1e8 = &pcStack_1a0;
+266:             lVar10 = lStack_1b0 + 0x5b0;
+267:             uStack_1e0 = CONCAT44(uStack_1e0._4_4_,1);
+268:             uVar6 = 0;
+269:             goto code_r0x0001410788ff;
+270:           case 0x130:
+271:             lVar10 = lStack_1b0 + 0x640;
+272: code_r0x0001410788ee:
+273:             ppcStack_1e8 = (char **)auStack_178;
+274:             break;
+275:           case 0x131:
+276:             ppcStack_1e8 = (char **)(auStack_150 + 4);
+277:             lVar10 = lStack_1b0 + 0x5b0;
+278:             uStack_1e0 = CONCAT44(uStack_1e0._4_4_,1);
+279:             uVar6 = 0;
+280:             goto code_r0x0001410788ff;
+281:           default:
+282:             uVar7 = (longlong)(int)(auStack_110[0] - uVar9) + *(longlong *)(param_1 + 0x1e00170);
+283:             *(ulonglong *)(param_1 + 0x1e00170) = uVar7;
+284:             if ((uVar7 < *(ulonglong *)(param_1 + 0x1e00178)) ||
+285:                (*(ulonglong *)(param_1 + 0x1e00178) + *(longlong *)(param_1 + 0x1e00180) <= uVar7))
+286:             {
+287:               *(undefined8 *)(param_1 + 0x1e00180) = 0;
+288:             }
+289:             goto LAB_14107894f;
+290:           case 0x133:
+291:             ppcStack_1e8 = (char **)auStack_148;
+292:             lVar10 = lStack_1b0 + 0x5b0;
+293:             uVar6 = 0;
+294:             goto code_r0x0001410788f7;
+295:           }
+296:           uVar6 = 1;
+297: code_r0x0001410788f7:
+298:           uStack_1e0 = (ulonglong)uStack_1e0._4_4_ << 0x20;
+299: code_r0x0001410788ff:
+300:           iVar4 = FUN_1410773d0(param_1,uVar6,lVar10,auStack_110[2]);
+301:           if (iVar4 != 0) {
+302:             return iVar4;
+303:           }
+304: LAB_14107894f:
+305:           uVar8 = uVar8 + 1;
+306:         } while (uVar8 < auStack_f0[1]);
+307:         lVar10 = lStack_1b0;
+308:         iVar4 = (int)pcStack_1a0;
+
+C_EVIDENCE phase2/decompiled/01078bb0.c
+240:           }
+241:           if ((uVar3 < uVar14) && (iVar6 = itl_106a520(param_1,uVar14 - uVar3), iVar6 != 0))
+242:           goto LAB_141079712;
+243:           uVar14 = (uint)uVar12;
+244:           if (*pcVar16 == '\0') {
+245:             uStack_138 = (uStack_138 & 0xff0000 | uStack_138 >> 0x10) >> 8 |
+246:                          (uStack_138 << 0x10 | uStack_138 & 0xff00) << 8;
+247:             uVar14 = (uVar14 & 0xff0000 | (uint)(uVar12 >> 0x10) & 0xffff) >> 8 |
+248:                      (uVar14 << 0x10 | uVar14 & 0xff00) << 8;
+249:             auStack_130[0] =
+250:                  (auStack_130[0] & 0xff0000 | auStack_130[0] >> 0x10) >> 8 |
+251:                  (auStack_130[0] << 0x10 | auStack_130[0] & 0xff00) << 8;
+252:             auStack_130[1] =
+253:                  (auStack_130[1] & 0xff0000 | auStack_130[1] >> 0x10) >> 8 |
+254:                  (auStack_130[1] << 0x10 | auStack_130[1] & 0xff00) << 8;
+255:             auStack_130[2] =
+256:                  (auStack_130[2] & 0xff0000 | auStack_130[2] >> 0x10) >> 8 |
+257:                  (auStack_130[2] << 0x10 | auStack_130[2] & 0xff00) << 8;
+258:             uStack_134 = uVar14;
+259:           }
+260:           if (uStack_138 != 0x686f686d) goto LAB_14107970d;
+261:           if (auStack_130[1] == 400) {
+262:             lVar15 = lStack_190 + 0x208;
+263:             ppcStack_1c8 = &pcStack_198;
+264: LAB_1410794ac:
+265:             uStack_1c0 = uStack_1c0 & 0xffffffff00000000;
+266:             iVar6 = FUN_1410773d0(param_1,1,lVar15,auStack_130[2]);
+267: LAB_1410794cb:
+268:             if (iVar6 != 0) goto LAB_141079712;
+269:           }
+270:           else {
+271:             if (auStack_130[1] == 0x191) {
+272:               lVar15 = lStack_190 + 0x17f8;
+273:               ppcStack_1c8 = (char **)&uStack_1a0;
+274:               goto LAB_1410794ac;
+275:             }
+276:             if (auStack_130[1] == 0x192) {
+277:               uStack_1a8 = 0;
+278:               iVar6 = FUN_141077ee0(param_1,auStack_130[0] - uVar14,&uStack_1a8);
+279:               if ((uStack_1a8 != 0) &&
+280:                  (uStack_180 = uStack_1a8, bVar17 = uVar8 != 0, uVar8 = uStack_1a8, bVar17)) {
+281:                 CFRelease();
+282:               }
+283:               goto LAB_1410794cb;
+284:             }
+285:             uVar12 = (longlong)(int)(auStack_130[0] - uVar14) + *(longlong *)(param_1 + 0x1e00170);
+286:             *(ulonglong *)(param_1 + 0x1e00170) = uVar12;
+287:             if ((uVar12 < *(ulonglong *)(param_1 + 0x1e00178)) ||
+288:                (*(ulonglong *)(param_1 + 0x1e00178) + *(longlong *)(param_1 + 0x1e00180) <= uVar12))
+289:             {
+290:               *(undefined8 *)(param_1 + 0x1e00180) = 0;
+291:             }
+292:           }
+293:           uVar13 = uVar13 + 1;
+294:           uStack_1a8 = CONCAT44(uStack_1a8._4_4_,uVar13);
+295:         } while (uVar13 < auStack_110[1]);
+296:         uVar12 = (ulonglong)pcStack_198 & 0xffffffff;
+297:         lVar15 = lStack_190;
+298:       }
+299:       if (cStack_fc == '\x02') {
+300:         pplStack_1b0 = &plStack_188;
+301:         uStack_1b8 = uStack_dc;
+302:         uStack_1c0 = uStack_f8;
+303:         ppcStack_1c8 = (char **)CONCAT71(ppcStack_1c8._1_7_,uStack_fb);
+304:         iVar6 = FUN_140f6e820(lVar15,uVar12,uStack_1a0,uStack_104);
+305:         plVar10 = plStack_188;
+306:         if (iVar6 != 0) {
+307: LAB_141079712:
+308:           if (uVar8 == 0) {
+309:             return iVar6;
+310:           }
+311:           CFRelease(uVar8);
+312:           return iVar6;
+313:         }
+314:         if (uVar8 != 0) {
+315:           (**(code **)(*plStack_188 + 0x90))(plStack_188,&lStack_178,1);
+
+READER_SORT_ASM
+0107dbf9 movdqa     xmmword ptr [rbp - 0x40], xmm9
+0107dbff movdqa     xmmword ptr [rbp - 0x30], xmm8
+0107dc05 test       rcx, rcx
+0107dc08 je         0x14107dc2b
+0107dc0a lea        rax, [rcx + 0x208]
+0107dc11 mov        qword ptr [rbp - 0x70], rax
+0107dc15 lea        r8, [rcx + 0x17f8]
+0107dc1c lea        rax, [rbx + 0xc4]
+0107dc23 mov        qword ptr [rbp - 0x60], r8
+0107dc27 mov        qword ptr [rbp - 0x68], rax
+0107dc2b mov        dword ptr [rsp + 0x28], r13d
+0107dc30 mov        rcx, r14
+0107dc33 mov        qword ptr [rsp + 0x20], rdx
+0107dc38 mov        edx, 1
+0107dc3d call       0x1410773d0
+
+SORT_DESCRIPTOR_JUMPTABLE ['0xeb81d2', '0xeb8253', '0xeb82d4', '0xeb8355', '0xeb83cb', '0xeb8441', '0xeb8550', '0xeb84c6']
+
+CODEC_MUTATOR_DECLARATION_SHA dafc2931cac4e1d040aabae3429fb075474841a9aebc78852afe7994ecde77b0
+156:             return read_text(nodes[0]) if nodes else None
+157:         raise UnsupportedError(f'unknown track field: {field}')
+158: 
+159:     def set(self, **fields) -> None:
+160:         if not any(n is self.node for n in self.library._records(1, b'mith')):
+161:             raise ValueError('stale track handle; reselect by persistent ID after a library transaction')
+162:         self.library._require_semantic_profile()
+163:         for name in ('url', 'path'):
+164:             if name in fields and fields[name] != self.get(name) and any(
+165:                     c.tag == b'mhoh' and c.type_code == 1 for c in self.node.children or ()):
+166:                 raise UnsupportedError('relocation requires updating the opaque file-location object; refusing a URL/path-only change')
+167:         if any(name in INDEXED_TEXT_FIELDS for name in fields):
+168:             from .trackops import set_indexed_fields
+169:             updated = set_indexed_fields(self.library, self.persistent_id, fields)
+170:             self.node = updated.node
+171:             return
+172:         if len(self.node.header) != 756:
+173:             raise UnsupportedError('track writes require the observed 756-byte mith profile')
+174:         candidate = copy.deepcopy(self.node)
+175:         for field, value in fields.items():
+176:             if field in READ_ONLY_FIELDS:
+177:                 raise UnsupportedError(f'{field} is read-only (identity/derived/provenance field)')
+178:             if field in INDEXED_TEXT_FIELDS:
+179:                 raise UnsupportedError(f'{field} changes require unresolved album/artist index maintenance')
+180:             if field in TEXT_FIELDS:
+181:                 set_text(candidate, TEXT_FIELDS[field], value)
+182:             elif field == 'loved':
+183:                 if type(value) is not bool:
+184:                     raise ValueError('loved must be true or false')
+185:                 flags = uint(candidate.header, 0x2bf, 1)
+186:                 put(candidate.header, 0x2bf, flags | 0x02 if value else flags & ~0x02, 1)
+187:             elif field in NUMBER_FIELDS:
+188:                 if field == 'rating' and (type(value) is not int or not 0 <= value <= 100):
+189:                     raise ValueError('rating must be an integer from 0 to 100')
+190:                 off, size = NUMBER_FIELDS[field]
+191:                 put(candidate.header, off, value, size)
+192:                 # Native COM writes prove +0x60/+0x118 are NOT unconditional mirrors.
+193:                 # Preserve those unknown counters rather than corrupt their independent state.
+194:             else:
+195:                 raise UnsupportedError(f'unknown track field: {field}')
+196:         self.node.header, self.node.children, self.node.payload = candidate.header, candidate.children, candidate.payload
+197: 
+198:     def to_dict(self) -> dict:
+199:         result = {}
+200:         for field in [*NUMBER_FIELDS, *TEXT_FIELDS, 'loved', 'compilation']:
+201:             try:
+202:                 value = self.get(field)
+203:             except (FormatError, UnsupportedError) as exc:
+204:                 result.setdefault('field_errors', {})[field] = str(exc)
+205:                 continue
+206:             result[field] = f'{value:016X}' if field == 'persistent_id' else value
+207:         return result
+208: 
+209: 
+210: class Playlist:
+211:     def __init__(self, library: Library, node: Node):
+212:         self.library, self.node = library, node
+213: 
+214:     @property
+215:     def persistent_id(self) -> int:
+216:         return uint(self.node.header, 0x1b8, 8)
+217: 
+218:     @property
+219:     def playlist_id(self) -> int:
+220:         return uint(self.node.header, 0xd40)
+221: 
+222:     @property
+223:     def name(self) -> str | None:
+224:         nodes = text_nodes(self.node, 100)
+225:         if len(nodes) > 1:
+226:             raise UnsupportedError('duplicate playlist title')
+227:         return read_text(nodes[0]) if nodes else None
+228: 
+229:     @property
+230:     def items(self) -> list[Node]:
+231:         return [c for c in self.node.children or () if c.tag == b'mtph']
+232: 
+233:     @property
+234:     def track_ids(self) -> list[int]:
+235:         return [uint(c.header, 0x18) for c in self.items]
+236: 
+237:     @property
+238:     def is_master(self) -> bool:
+239:         return bool(uint(self.node.header, 0x14) & 0x10000)
+240: 
+241:     @property
+242:     def is_smart(self) -> bool:
+243:         return any(c.type_code in (101, 102) for c in self.node.children or () if c.tag == b'mhoh')
+244: 

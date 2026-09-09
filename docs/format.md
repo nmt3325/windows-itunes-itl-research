@@ -98,7 +98,7 @@ All values here are unsigned LE integers. Values not covered by this table remai
 | compilation | 0x50 | 4 | read only, bit 0x01000000; grouping side effects are not guessed |
 | loved | 0x2bf | 1 | legacy API label; toggles bit 0x02 only; full UI semantics remain unverified |
 
-Native counter differentials establish that 0x60 and 0x118 do **not** change when COM changes PlayedCount/SkippedCount. They are exposed read-only as `play_count_aux_raw`/`skip_count_aux_raw`, not overwritten as supposed mirrors. Native unrated WAV fixtures have bytes `00 01 00 00` at 0x6c, proving that a u32 rating getter would incorrectly return 256. The adjacent byte is exposed as `rating_aux_raw` and preserved. The 0x14 value is 1 even for synthetic WAV files with no embedded artwork; an artwork-count interpretation is not certified.
+Native counter differentials establish that 0x60 and 0x118 do **not** change when COM changes PlayedCount/SkippedCount. They are exposed read-only as `play_count_aux_raw`/`skip_count_aux_raw`, not overwritten as supposed mirrors. Native unrated WAV fixtures have bytes `00 01 00 00` at 0x6c, proving that a u32 rating getter would incorrectly return 256. The adjacent byte is exposed as `name_refresh_flag_raw`, with backward-compatible raw alias `rating_aux_raw`; it is not RatingKind or Unplayed. The verified Name-edit exception is described below. The 0x14 value is 1 even for synthetic WAV files with no embedded artwork; an artwork-count interpretation is not certified.
 
 The native writer stores +0x2bc and +0x2bf as independent bytes. The previous u32 mask 0x02000000 did preserve adjacent bytes on LE; no corruption was reproduced for that mask. Access is now explicitly one-byte at +0x2bf with mask 0x02. The rest of that byte and +0x2bc/+0x2bd/+0x2be remain unchanged. The legacy loved name is not a claim that all loved/disliked state has been dynamically verified.
 
@@ -125,7 +125,7 @@ The type code is at header+12. Observed string headers are 24 bytes. Their body 
 
 The native ordinary text writer can shrink short UTF-16 strings whose code units are all <=255 into encoding 3. Codec non-ASCII writes may instead retain valid UTF-16LE; native small-string optimization is not required for meaning preservation. Types 1, 0x13 and 0x42 use direct binary payloads rather than the text prefix and are rejected by the text helpers. Encoding 0 is an unimplemented legacy/codepage path, not guessed Unicode. Raw bytes for unsupported representations remain lossless.
 
-The initial static phase-2 census found 131 URL occurrences across 46 repeated snapshots but only 3 distinct URL payloads: all local FILE/encoding-2 ASCII, without percent escapes or non-ASCII bytes. This corroborates that narrow reading subset, not every URL/media profile or the new-URL writer's full application semantics. Dedicated URL decoding and global string-ID/shared-index alias behavior are under separate investigation; no new alias maintenance is claimed in the compatibility phase.
+The initial static phase-2 census found 131 URL occurrences across 46 repeated snapshots but only 3 distinct URL payloads: all local FILE/encoding-2 ASCII, without percent escapes or non-ASCII bytes. This corroborates that narrow reading subset, not every URL/media profile or the new-URL writer's full application semantics. Dedicated URL decoding and general string-ID allocation/shared-index COW remain incomplete. The phase-4 guards below reject detected unsafe aliases; they do not implement a general allocator or certify all pool consumers.
 
 Absent text is `None`, not an empty string. Duplicate named string objects are ambiguous and refused by semantic getters/writers. Missing supported text can be added while updating mhoh length, mith length/child count, msdh size, mfdh logical size and hdfm compressed size.
 
@@ -203,3 +203,52 @@ lib.write('edited-copy.itl')
 ```
 
 The equivalent restoration CLI is `python -m itlkit import-track INPUT DONOR HEX16 NEW_OUTPUT`. Other structural operations are available through the transactional `patch` operations array.
+
+## Review hardening: validation, retained state and publication
+
+`Library` verifies both outer hdfm+0x30 and inner mfdh+0x30 against the parsed section count. For the observed record sizes, secondary track IDs, album PIDs, artist PIDs and playlist local IDs must each be nonzero and unique within their own namespace. Item local IDs and PIDs must be nonzero and unique within each playlist. These are not a global string-atom namespace or a rule equating current item IDs with order tokens. Ambiguous same-PID auxiliary imports are refused before selecting any record, including equivalent-first/conflicting-later duplicates. The lower-level `Container` remains the opaque forensic route for invalid semantic identities.
+
+Album/artist edits, reuse and orphan collection reject unknown text-header/prefix extensions or trailing suffixes, including on clear-to-empty. Equal text keys do not justify discarding distinct retained album-header state. Raw reads and no-op serialization still preserve these bytes. Stale Playlist.replace_members handles are rejected by current node identity, even after deleting and recreating a different playlist with the same PID.
+
+Reference checks cover all retained bytes, including the outer header, playlist-section/list headers and metadata retained during membership replacement. They omit only removed record spans and known independent self-identity fields at verified header sizes. Same-kind identity aliases remain conservatively visible. Ignored spans are not concatenated, so the scan does not invent adjacent bytes. Matching opaque bytes remain a reason to refuse; these checks do not claim to decode all references.
+
+HFS conversion uses arithmetic from the 1904 wall-time epoch, not platform C-runtime timestamps. Values 1 through uint32 maximum therefore decode on Windows, including early 1904 dates. Zero remains unset; an explicit offset is still required and historical timezone rules are not inferred.
+
+### Exclusive atomic output publication
+
+All output commands use a new sibling temporary file. Bytes are written in full, flushed, fsynced and the stream closed **before** a hard-link publication step. The link operation cannot replace an existing destination, including a racing writer's file or an existing alias. A filesystem without the required hard-link support fails closed: there is no overwriting-rename fallback. Parent directories must exist and be trusted against hostile concurrent replacement.
+
+Before publication, write/flush/sync/close/link failures leave the destination absent (or leave a preexisting/racing destination unchanged). Temporary-file cleanup is attempted. If cleanup also fails, the primary error records the temporary path. After the publication commit, a cleanup error explicitly says that a **complete output was published**; that destination is not deleted. Do not blindly retry or interpret every error as proof that no destination exists. A process crash can leave a temporary file or a complete published destination. File fsync is not a guarantee of power-loss durability for directory entries or every network filesystem. No partial file is intentionally exposed at the final output name.
+
+### Native fixture coverage is not a single pass count
+
+Structural byte-exact/forced-reconstruction tests and COM concordance tests are separate. A fixture without an after-state COM oracle is explicitly skipped only in the COM test; its structural test still runs. The frozen review cohort contains 55 structural fixtures and 50 COM after-states. The five structural-only fixtures are not called COM successes.
+
+COM checks require complete, unique track enumeration matching both the declared count and file identity set, all selected captured fields, valid membership enumeration, and coverage of every modeled ordinary/master playlist. Extra ordinary playlists or empty/truncated oracle arrays cannot silently pass. Raw nonplain/system playlists that COM does not expose are reported as unrepresented scope, not falsely equated with the COM collection. In the frozen cohort seven such raw playlists per oracle are unrepresented; these bytes and all other unasserted fields are not certified by the selected-field comparison. Offline agreement still does not constitute a new native launch/save test.
+
+## Phase 4: Name persistence, explicit Unplayed and scoped refusal
+
+The exact Windows 12.13.10.3 reader/writer maps **mith+0x6d bit0 to common-track+0x9a bit4**. Missing-Name/path-derived fallback sets this state; a selected nonempty Name update clears it. Rating is separate at common-track+0x104. The narrowly supported interpretation is path/default-title refresh, not RatingKind or Unplayed. In the eight native A/B/C cases, all four A=0 candidates lost the edited Name and all four A=1 candidates retained it after two saved reloads. A changed only +0x6d; B changed the title atom ID and C cleared +0x290. B or C alone did not fix the rollback. No native application was launched by the codec implementer; saved artifacts and dynamic-owner COM results were independently hash-checked.
+
+`Track.set(name=nonempty_new_text)` now clears only +0x6d bit0 for the observed 12.13.10.3/756-byte profile. Same-value and empty-name requests do not trigger this correction. Other bits, +0x290 and the remaining rank/cache words, rating, played state and unrelated objects remain untouched. Native canonical 0/1 cases are the dynamic evidence; preservation tests for other raw bit patterns are not native certifications. The older 12.13.9.1 profile does not receive this newly inferred state correction. Empty/missing Name fallback, complete metadata callback behavior, and general sort-rank regeneration remain unresolved.
+
+**Unplayed is independent.** Wire +0xee bit0 maps to common-track+0x9e bit2. A second native control pair differed only at alpha mith+0xee, 0 versus 1; both had PlayedCount=7 and Name-refresh=0. In both saved cycles, COM Unplayed was respectively true and false. The explicit API is `track.get('unplayed')` and `track.set(unplayed=True/False)` for 12.13.10.3/756-byte records. The write toggles only the low bit of +0xee, preserving upper bits and all counters/dates. `played_flag_raw` is read-only. Values other than booleans are refused. Older profiles keep raw access but reject this semantic getter/setter.
+
+Changing play_count remains a scalar edit, not a simulated playback event or a complete implementation of the COM PlayedCount setter. It never mechanically infers Unplayed, resets dates, or changes Name. A caller that wants both values must request both explicitly, for example `track.set(play_count=7, unplayed=False)`. The selected-field COM regression now also asserts Unplayed; raw 6d is never used as its oracle.
+
+### Known pool guards, not COW support
+
+The semantic writers distinguish qualified known pools: track Name; album plus miah-300; artist/composer/album-artist plus miah-301/302 and miih-400; genre; comment; sort Name; sort Album; and shared sort Artist/AlbumArtist/Composer plus miih-401. File-local URL/path and playlist-local names are not falsely grouped into these global domains. Equal integers in different pools are valid. The scanner follows parsed owner/child boundaries, not byte-tag searching.
+
+Before a text update, known nonempty positive-ID bindings must be consistent. If an unchanged known consumer shares the identity, replacements disagree, or an unkeyed addition would enter a populated explicit-ID domain, the operation refuses rather than zeroing, inventing huge IDs, or silently using the first string. Indexed edits also refuse changing an album/artist object used by another track. Same-lineage restoration checks known bindings after the candidate import and before committing it. Reusing the supported same-key index object is not general shared-object COW.
+
+These are intentionally conservative guards. Some combinations of simultaneously changed shared fields can be refused even when a more complete native allocator might implement them. Unknown pools, complete callback/ownership semantics, reference-only encodings and general cross-library allocation remain unsupported. Raw Container/Node research access still preserves bytes and is not upgraded into a semantic-safety guarantee by these guards.
+
+
+## Phase 5: fail-closed epoch and playlist boundaries
+
+`hfs_from_datetime` keeps its aware, displayed-wall-time policy. It now checks the exact signed timedelta interval `[0, 2**32 seconds)` before quantization, then uses integer days/seconds instead of a float. Negative subsecond dates cannot become raw0. Nonnegative fractions still truncate to the earlier whole wall second; epoch/raw0 remains the existing unset ambiguity. No new timezone/DST/fold policy is implied.
+
+Track structural/index operations preflight every primary playlist, including retained items unrelated to the selected track. Only the admitted 3500-byte playlist header and flat, recognized 84-byte item profile are accepted; grouped/nested, extended, opaque-payload or unknown-state item shapes are refused before changes. Raw parsing/no-op preservation and unrelated scalar editing are not promoted to recursive-semantic support.
+
+Same-lineage restoration now requires the non-ordinary system/master definition PID sets to agree, and matches master/plain/smart classification, exact special-kind value and existing opaque 101/102/103 rule signatures before allocation. No unknown rule or kind is zeroed or interpreted. Unmatched ordinary definitions keep the earlier leave/ignore policy. Existing source/target transactions, same-lineage restriction, COW and reference guards remain in force. These are refusal fixes; they do not implement recursive playlists, arbitrary system rules or cross-library importing.

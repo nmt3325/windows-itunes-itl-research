@@ -1,0 +1,173 @@
+{
+  "created_utc": "2026-09-09T14:03:29.261000+00:00",
+  "expected_characters": 240034,
+  "expected_utf8_sha256": "c9d3c0093096998296363ac36394c58312bf82e842cc1c220df6bc54a52305f6",
+  "native_com_exact_value_gate_passed": false,
+  "com_values": [
+    {
+      "cycle": 1,
+      "characters": 255,
+      "exact_prefix_of_expected": true,
+      "utf8_sha256": "6271981566b7d7089777cffe1f065bbd3b12ba887dac9f6d0803d5d0536b20cd"
+    },
+    {
+      "cycle": 2,
+      "characters": 255,
+      "exact_prefix_of_expected": true,
+      "utf8_sha256": "6271981566b7d7089777cffe1f065bbd3b12ba887dac9f6d0803d5d0536b20cd"
+    }
+  ],
+  "files": [
+    {
+      "file": {
+        "path": "D:\\a\\_temp\\gha-mcp\\WINDOWS_RESEARCH_RUN\\work\\itl\\fixtures\\dynamic\\phase2\\candidates\\large-direct-comment.itl",
+        "bytes": 235599,
+        "mtime_ns": 1788962380161643500,
+        "sha256": "625edbc39ff3173e454add0cdec0d490860ee8d8e421ede12f3e0c4a98370a16",
+        "file_attributes": 32
+      },
+      "profile": {
+        "file_bytes": 235599,
+        "file_sha256": "625edbc39ff3173e454add0cdec0d490860ee8d8e421ede12f3e0c4a98370a16",
+        "header_bytes": 144,
+        "encryption_flag": 2,
+        "compression_flag": 1,
+        "cap": 102400,
+        "body_bytes": 235455,
+        "encrypted_bytes": 102400,
+        "clear_tail_bytes": 133055,
+        "expanded_bytes": 590108,
+        "expanded_sha256": "20dbd9e225bdfd3780a2acf3d4990e74cd25f6970ec9a429108242882e9e44da",
+        "decoded_body_sha256": "8c67645dee96a9bf7c7bb2997f060256b6df6194b6cd8e19ecf02284b56cb33a",
+        "header_hex": "6864666d000000900003984f004300010a31322e31332e31302e330000000000000000000000000000000000000000000000000bd2f61be0a69ca3020000006f02020001000000030000000f000000030038010000000003000000640001900000000000000000000000000000000000e6c6f37000000000000000000000000000000000000000000000000000000000",
+        "target_persisted_record": {
+          "persistent_id": "D018EAABC195E072",
+          "raw_0x6d": 0,
+          "raw_0xee": 1,
+          "raw_0x290_u32": 1000,
+          "header_bytes": 756,
+          "record_bytes": 481383,
+          "record_sha256": "f3c6c5442b0a3eebf499c4de379797bf41c345e1eabee544a7778c52378bb335"
+        }
+      },
+      "comment_mhoh_blocks": [
+        {
+          "record_offset": 1032,
+          "bytes": 480108,
+          "sha256": "a0cc2197fa53ab586d66a60dc826232dd980142b1799e452c924cf489fe40816",
+          "header40_hex": "6d686f68180000006c53070008000000010000000000000001000000445307000000000000000000",
+          "full_expected_string_matches": [
+            {
+              "bytes_encoding": "utf-16le",
+              "offset": 40,
+              "encoded_bytes": 480068,
+              "ends_at_block_end": true
+            }
+          ]
+        }
+      ],
+      "full_expected_comment_present_in_target_mhoh8": true
+    },
+    {
+      "file": {
+        "path": "D:\\a\\_temp\\gha-mcp\\WINDOWS_RESEARCH_RUN\\work\\itl\\fixtures\\dynamic\\phase2\\snapshots\\large-direct-comment-reload1.itl",
+        "bytes": 246277,
+        "mtime_ns": 1788962408880600800,
+        "sha256": "79e556623574767489b61dc65a700f411e7c38008193e219cf21f648461b2cb7",
+        "file_attributes": 32
+      },
+      "profile": {
+        "file_bytes": 246277,
+        "file_sha256": "79e556623574767489b61dc65a700f411e7c38008193e219cf21f648461b2cb7",
+        "header_bytes": 144,
+        "encryption_flag": 2,
+        "compression_flag": 1,
+        "cap": 102400,
+        "body_bytes": 246133,
+        "encrypted_bytes": 102400,
+        "clear_tail_bytes": 143733,
+        "expanded_bytes": 590108,
+        "expanded_sha256": "da4576e08d38321ce4311d679a8ddce356f9d262a3d363dc6800ff69e56173a8",
+        "decoded_body_sha256": "05eb97c2083cf24d19ea664903389389afe8346fbd471a90c243b53d1dc6972f",
+        "header_hex": "6864666d000000900003c205004300010a31322e31332e31302e330000000000000000000000000000000000000000000000000bd2f61be0a69ca3020000006f02020001000000030000000f000000030038010000000003000000640001900000000000000000000000000000000000e6c716e300000000000000000000000000000000000000000000000000000000",
+        "target_persisted_record": {
+          "persistent_id": "D018EAABC195E072",
+          "raw_0x6d": 0,
+          "raw_0xee": 1,
+          "raw_0x290_u32": 1000,
+          "header_bytes": 756,
+          "record_bytes": 481383,
+          "record_sha256": "f3c6c5442b0a3eebf499c4de379797bf41c345e1eabee544a7778c52378bb335"
+        }
+      },
+      "comment_mhoh_blocks": [
+        {
+          "record_offset": 1032,
+          "bytes": 480108,
+          "sha256": "a0cc2197fa53ab586d66a60dc826232dd980142b1799e452c924cf489fe40816",
+          "header40_hex": "6d686f68180000006c53070008000000010000000000000001000000445307000000000000000000",
+          "full_expected_string_matches": [
+            {
+              "bytes_encoding": "utf-16le",
+              "offset": 40,
+              "encoded_bytes": 480068,
+              "ends_at_block_end": true
+            }
+          ]
+        }
+      ],
+      "full_expected_comment_present_in_target_mhoh8": true
+    },
+    {
+      "file": {
+        "path": "D:\\a\\_temp\\gha-mcp\\WINDOWS_RESEARCH_RUN\\work\\itl\\fixtures\\dynamic\\phase2\\snapshots\\large-direct-comment-reload2.itl",
+        "bytes": 246276,
+        "mtime_ns": 1788962432705187800,
+        "sha256": "372995c8d7c44c48531776cafa74a50a62a367bea92226279d3984ffa2ff337e",
+        "file_attributes": 32
+      },
+      "profile": {
+        "file_bytes": 246276,
+        "file_sha256": "372995c8d7c44c48531776cafa74a50a62a367bea92226279d3984ffa2ff337e",
+        "header_bytes": 144,
+        "encryption_flag": 2,
+        "compression_flag": 1,
+        "cap": 102400,
+        "body_bytes": 246132,
+        "encrypted_bytes": 102400,
+        "clear_tail_bytes": 143732,
+        "expanded_bytes": 590108,
+        "expanded_sha256": "e06cdc158213063557e580ebf219e99859ca8f0500b36917d56d9b36cc50b487",
+        "decoded_body_sha256": "31fe33980e6daa1561c943fbc53e0a049956216af322f0541e9b0d830f55894a",
+        "header_hex": "6864666d000000900003c204004300010a31322e31332e31302e330000000000000000000000000000000000000000000000000bd2f61be0a69ca3020000006f02020001000000030000000f000000030038010000000003000000640001900000000000000000000000000000000000e6c716fb00000000000000000000000000000000000000000000000000000000",
+        "target_persisted_record": {
+          "persistent_id": "D018EAABC195E072",
+          "raw_0x6d": 0,
+          "raw_0xee": 1,
+          "raw_0x290_u32": 1000,
+          "header_bytes": 756,
+          "record_bytes": 481383,
+          "record_sha256": "f3c6c5442b0a3eebf499c4de379797bf41c345e1eabee544a7778c52378bb335"
+        }
+      },
+      "comment_mhoh_blocks": [
+        {
+          "record_offset": 1032,
+          "bytes": 480108,
+          "sha256": "a0cc2197fa53ab586d66a60dc826232dd980142b1799e452c924cf489fe40816",
+          "header40_hex": "6d686f68180000006c53070008000000010000000000000001000000445307000000000000000000",
+          "full_expected_string_matches": [
+            {
+              "bytes_encoding": "utf-16le",
+              "offset": 40,
+              "encoded_bytes": 480068,
+              "ends_at_block_end": true
+            }
+          ]
+        }
+      ],
+      "full_expected_comment_present_in_target_mhoh8": true
+    }
+  ],
+  "interpretation": "Separate COM projection from serialized target Comment bytes; native positive envelope/save evidence does not turn the full-COM-value gate into a pass."
+}

@@ -1,0 +1,24 @@
+[
+  {
+    "name": "001-one-track-reloaded",
+    "expected_before": 1,
+    "expected_after": 1
+  },
+  {
+    "name": "002-three-tracks",
+    "expected_before": 1,
+    "expected_after": 3,
+    "action": {
+      "kind": "add_files",
+      "paths": [
+        "D:\\a\\_temp\\gha-mcp\\WINDOWS_RESEARCH_RUN\\work\\itl\\fixtures\\dynamic\\media\\beta.wav",
+        "D:\\a\\_temp\\gha-mcp\\WINDOWS_RESEARCH_RUN\\work\\itl\\fixtures\\dynamic\\media\\gamma.wav"
+      ]
+    }
+  },
+  {
+    "name": "003-three-tracks-reloaded",
+    "expected_before": 3,
+    "expected_after": 3
+  }
+]

@@ -1,0 +1,58 @@
+{
+  "trace_dir": "D:\\a\\_temp\\gha-mcp\\WINDOWS_RESEARCH_RUN\\work\\itl\\reports\\dynamic\\traced-runs\\060-attached-native-save\\trace",
+  "containers": [
+    {
+      "path": "D:\\a\\_temp\\gha-mcp\\WINDOWS_RESEARCH_RUN\\work\\itl\\fixtures\\dynamic\\snapshots\\060-attached-native-save.itl",
+      "file_sha256": "b0b984b0a1493ae40f9f78903547ae6cd5c91f4238d01aac23dc3d6806fc0ca1",
+      "file_bytes": 5245,
+      "header_bytes": 144,
+      "encrypted_bytes": 5088,
+      "encryption_limit": 102400,
+      "clear_tail_bytes": 13,
+      "zlib_unused_bytes": 0,
+      "compressed_sha256": "3a1f58cea12d81c7309e07e208e163a59580941b7ede96beea50da2ac652ddd9",
+      "expanded_sha256": "06225e21b863de60f45454fe90bdd673fcad4262ff1546c959d27161e635c867",
+      "compressed_bytes": 5101,
+      "expanded_bytes": 103659,
+      "expanded_prefix": "6d73646860000000f0000000100000000000000000000000"
+    }
+  ],
+  "streams": [
+    {
+      "function": "deflate",
+      "stream": "0x61b75ff630",
+      "seqs": [
+        3,
+        4,
+        5,
+        6
+      ],
+      "closed": true,
+      "complete_capture": true,
+      "stack": [
+        "iTunes.exe+0x1075757",
+        "iTunes.exe+0x1076865",
+        "iTunes.exe+0xbcfecb",
+        "ucrtbase.dll+0x37b0",
+        "KERNEL32.DLL+0x2e8d7",
+        "ntdll.dll+0x8c53c"
+      ],
+      "compressed_bytes": 5101,
+      "expanded_bytes": 103659,
+      "compressed_sha256": "3a1f58cea12d81c7309e07e208e163a59580941b7ede96beea50da2ac652ddd9",
+      "expanded_sha256": "06225e21b863de60f45454fe90bdd673fcad4262ff1546c959d27161e635c867",
+      "expanded_prefix": "6d73646860000000f0000000100000000000000000000000",
+      "captured_transform_valid": true,
+      "matches": [
+        "D:\\a\\_temp\\gha-mcp\\WINDOWS_RESEARCH_RUN\\work\\itl\\fixtures\\dynamic\\snapshots\\060-attached-native-save.itl"
+      ]
+    }
+  ],
+  "matched_functions": [
+    "deflate"
+  ],
+  "staging_projection": {
+    "omitted_unmatched_streams": 0,
+    "reason": "unbound incidental process activity is outside the approved synthetic proof"
+  }
+}

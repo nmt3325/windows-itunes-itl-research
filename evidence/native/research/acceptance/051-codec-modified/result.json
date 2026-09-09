@@ -1,0 +1,40 @@
+{
+  "name": "051-codec-modified",
+  "candidate": "D:\\a\\_temp\\gha-mcp\\WINDOWS_RESEARCH_RUN\\work\\itl\\reports\\codec\\native-three-modified.itl",
+  "expected_sha256": "bdf1ac5648bc958d29b530e524a961950f56e31dc5fa1acdc9fa211d8f664419",
+  "status": "passed",
+  "cycles": [
+    {
+      "name": "051-codec-modified-reload1",
+      "fixture_path": "D:\\a\\_temp\\gha-mcp\\WINDOWS_RESEARCH_RUN\\work\\itl\\fixtures\\dynamic\\snapshots\\051-codec-modified-reload1.itl",
+      "fixture_sha256": "9efb1671d1df5735caf50b5850bd24dc228300045784217ebbf92d4ae3633d9c",
+      "prelaunch_sha256": "bdf1ac5648bc958d29b530e524a961950f56e31dc5fa1acdc9fa211d8f664419",
+      "itunes_exit_code": 0,
+      "worker_exit_code": 0,
+      "library_persistent_id": "9751B29CECF5340B",
+      "track_persistent_ids": [
+        "D018EAABC195E072",
+        "8F11E62B0DC9F837",
+        "C8ADF4DC10AFC270"
+      ]
+    },
+    {
+      "name": "051-codec-modified-reload2",
+      "fixture_path": "D:\\a\\_temp\\gha-mcp\\WINDOWS_RESEARCH_RUN\\work\\itl\\fixtures\\dynamic\\snapshots\\051-codec-modified-reload2.itl",
+      "fixture_sha256": "cf8b3860fe5f31d9b2c9ec37eab8ab08efb7edfc5e6fce4e07862fbdef5cb7e9",
+      "prelaunch_sha256": "9efb1671d1df5735caf50b5850bd24dc228300045784217ebbf92d4ae3633d9c",
+      "itunes_exit_code": 0,
+      "worker_exit_code": 0,
+      "library_persistent_id": "9751B29CECF5340B",
+      "track_persistent_ids": [
+        "D018EAABC195E072",
+        "8F11E62B0DC9F837",
+        "C8ADF4DC10AFC270"
+      ]
+    }
+  ],
+  "previous_live_sha256": "0f0164e2107bb92c1ada926ccd912476cc2aa20416ef7fa4ab09234f5252675f",
+  "staged_sha256": "bdf1ac5648bc958d29b530e524a961950f56e31dc5fa1acdc9fa211d8f664419",
+  "native_acceptance": true,
+  "note": "Both full-state gates passed inside bounded COM workers before native Quit; both actual native processes exited zero. No unexpected modal was dismissed."
+}

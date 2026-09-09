@@ -1,0 +1,19 @@
+{
+  "classification": "Conservative handoff, not production changes or native acceptance",
+  "rules": [
+    "Preserve unchanged bytes/IDs on no-op and lossless paths; do not renumber merely on read.",
+    "Key string allocation by library instance AND exact pool. Artist/Composer/AlbumArtist share L+208; sort artist/album artist/composer and miih401 share L+17f8.",
+    "For a changed occurrence, choose a small unused positive external ID in the confirmed domain; preserve the old ID/payload for unaffected users. Observed ID4 is not a required constant.",
+    "Only compact a domain after complete consumer coverage and an atomic rewrite of all its users. Unknown/opaque consumers mean preserve original numbering or refuse compaction.",
+    "Native bfe500 first-ID-wins is conditional on pool flag bit0 and does not replace/compare payloads. Do not alias unequal text under an occupied ID.",
+    "Do not blanket-zero IDs. bfe1f0 unkeyed registration can reject a pool with an existing explicit-ID map; empty payloads are not reference-only strings.",
+    "String COW is not album/artist object COW. Keep miah/miih local IDs, mith+dc/+1e0 object links, persistent IDs and seven rank/cache words separate.",
+    "When indexed object semantics change, clone/reuse/repoint transactionally and preserve all unaffected references; shared-object native acceptance is not established here.",
+    "Base and sort pools are separate. Do not deduplicate normalization-sensitive text by raw SHA alone or invent unresolved native normalization.",
+    "Wire6d bit0 maps to common9a bit4, not Rating. A selected nonempty native Name-update branch clears it, supporting an experiment but not blanket production zeroing.",
+    "Name/sort processing explicitly resets C+e0 / mith+290. This is not a whole-rank regeneration rule and is independent of title-ID reassignment.",
+    "The parent owns the 2^3 experiment for6d/titleID/290. Static generated/executed no factorial candidates and did not establish Fresh rollback causality.",
+    "FILE URL11 encoding2 is legitimate native output; HTTP uses encoding0. URL/path registration is externalID0 in the file-instance pool, not a global wire-ID reference.",
+    "Preserve unknown raw URL bytes. Strict ASCII viewing is supported by the synthetic cohort, not a universal encoding2 charset. Relocation must account for opaque type1 location data."
+  ]
+}

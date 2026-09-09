@@ -1,0 +1,241 @@
+{
+  "status": "passed",
+  "module_sha256": "30d91209b5d81c47bbad2da9d89764fcab08bf5cd9af1a9571668001376c5d7d",
+  "tests": [
+    {
+      "kind": "original_sort_descriptor_leaf",
+      "index": 0,
+      "album_artist_nonzero": true,
+      "return_u32": "0x0",
+      "wire_type": 30,
+      "pool_offset": "0x1768",
+      "base_pool_offset": "0x178",
+      "base_member_offset": "0xb0",
+      "stored_sort_id": "0x12340000",
+      "passed": true
+    },
+    {
+      "kind": "original_sort_descriptor_leaf",
+      "index": 1,
+      "album_artist_nonzero": true,
+      "return_u32": "0x0",
+      "wire_type": 31,
+      "pool_offset": "0x17b0",
+      "base_pool_offset": "0x1c0",
+      "base_member_offset": "0xbc",
+      "stored_sort_id": "0x12340001",
+      "passed": true
+    },
+    {
+      "kind": "original_sort_descriptor_leaf",
+      "index": 2,
+      "album_artist_nonzero": true,
+      "return_u32": "0x0",
+      "wire_type": 32,
+      "pool_offset": "0x17f8",
+      "base_pool_offset": "0x208",
+      "base_member_offset": "0xb4",
+      "stored_sort_id": "0x12340002",
+      "passed": true
+    },
+    {
+      "kind": "original_sort_descriptor_leaf",
+      "index": 3,
+      "album_artist_nonzero": true,
+      "return_u32": "0x0",
+      "wire_type": 33,
+      "pool_offset": "0x17f8",
+      "base_pool_offset": "0x208",
+      "base_member_offset": "0xb8",
+      "stored_sort_id": "0x12340003",
+      "passed": true
+    },
+    {
+      "kind": "original_sort_descriptor_leaf",
+      "index": 4,
+      "album_artist_nonzero": true,
+      "return_u32": "0x0",
+      "wire_type": 34,
+      "pool_offset": "0x17f8",
+      "base_pool_offset": "0x208",
+      "base_member_offset": "0xc4",
+      "stored_sort_id": "0x12340004",
+      "passed": true
+    },
+    {
+      "kind": "original_sort_descriptor_leaf",
+      "index": 5,
+      "album_artist_nonzero": true,
+      "return_u32": "0x0",
+      "wire_type": 35,
+      "pool_offset": "0x1840",
+      "base_pool_offset": "0x640",
+      "base_member_offset": "0x628",
+      "stored_sort_id": "0x12340005",
+      "passed": true
+    },
+    {
+      "kind": "original_sort_descriptor_leaf",
+      "index": 7,
+      "album_artist_nonzero": false,
+      "return_u32": "0x0",
+      "wire_type": 0,
+      "pool_offset": "0x17f8",
+      "base_pool_offset": "0x208",
+      "base_member_offset": "0xb4",
+      "stored_sort_id": "0x12340002",
+      "passed": true
+    },
+    {
+      "kind": "original_sort_descriptor_leaf",
+      "index": 7,
+      "album_artist_nonzero": true,
+      "return_u32": "0x0",
+      "wire_type": 0,
+      "pool_offset": "0x17f8",
+      "base_pool_offset": "0x208",
+      "base_member_offset": "0xb8",
+      "stored_sort_id": "0x12340003",
+      "passed": true
+    },
+    {
+      "kind": "original_sort_descriptor_leaf",
+      "index": 6,
+      "album_artist_nonzero": false,
+      "return_u32": "0xffffffce",
+      "wire_type": 0,
+      "pool_offset": null,
+      "base_pool_offset": null,
+      "base_member_offset": null,
+      "stored_sort_id": "0x0",
+      "passed": true
+    },
+    {
+      "kind": "original_sort_descriptor_leaf",
+      "index": 8,
+      "album_artist_nonzero": false,
+      "return_u32": "0xffffffce",
+      "wire_type": 0,
+      "pool_offset": null,
+      "base_pool_offset": null,
+      "base_member_offset": null,
+      "stored_sort_id": "0x0",
+      "passed": true
+    },
+    {
+      "kind": "original_writer_instruction_slice",
+      "flags9a": 0,
+      "wire6d": 0,
+      "passed": true
+    },
+    {
+      "kind": "original_writer_instruction_slice",
+      "flags9a": 16,
+      "wire6d": 1,
+      "passed": true
+    },
+    {
+      "kind": "original_writer_instruction_slice",
+      "flags9a": 239,
+      "wire6d": 0,
+      "passed": true
+    },
+    {
+      "kind": "original_writer_instruction_slice",
+      "flags9a": 255,
+      "wire6d": 1,
+      "passed": true
+    },
+    {
+      "kind": "original_writer_instruction_slice",
+      "flags9a": 85,
+      "wire6d": 1,
+      "passed": true
+    },
+    {
+      "kind": "original_writer_instruction_slice",
+      "flags9a": 170,
+      "wire6d": 0,
+      "passed": true
+    },
+    {
+      "kind": "original_writer_instruction_slice",
+      "flags9a": 128,
+      "wire6d": 0,
+      "passed": true
+    },
+    {
+      "kind": "original_writer_instruction_slice",
+      "flags9a": 4,
+      "wire6d": 0,
+      "passed": true
+    },
+    {
+      "kind": "original_reader_instruction_slice",
+      "wire6d": 0,
+      "initial_flags9a": 170,
+      "result_flags9a": 170,
+      "passed": true
+    },
+    {
+      "kind": "original_reader_instruction_slice",
+      "wire6d": 1,
+      "initial_flags9a": 170,
+      "result_flags9a": 186,
+      "passed": true
+    },
+    {
+      "kind": "original_reader_instruction_slice",
+      "wire6d": 2,
+      "initial_flags9a": 170,
+      "result_flags9a": 170,
+      "passed": true
+    },
+    {
+      "kind": "original_reader_instruction_slice",
+      "wire6d": 3,
+      "initial_flags9a": 170,
+      "result_flags9a": 186,
+      "passed": true
+    },
+    {
+      "kind": "original_reader_instruction_slice",
+      "wire6d": 128,
+      "initial_flags9a": 170,
+      "result_flags9a": 170,
+      "passed": true
+    },
+    {
+      "kind": "original_reader_instruction_slice",
+      "wire6d": 129,
+      "initial_flags9a": 170,
+      "result_flags9a": 186,
+      "passed": true
+    },
+    {
+      "kind": "original_reader_instruction_slice",
+      "wire6d": 254,
+      "initial_flags9a": 170,
+      "result_flags9a": 170,
+      "passed": true
+    },
+    {
+      "kind": "original_reader_instruction_slice",
+      "wire6d": 255,
+      "initial_flags9a": 170,
+      "result_flags9a": 186,
+      "passed": true
+    }
+  ],
+  "test_count": 26,
+  "original_leaf_cases": 10,
+  "original_writer_slice_cases": 8,
+  "original_reader_slice_cases": 8,
+  "host_calls": 0,
+  "native_itunes_execution": false,
+  "limits": [
+    "Descriptor uses synthetic C/L pointers and seeded sort IDs.",
+    "Reader/writer checks execute bounded original instruction slices, not complete reader/writer functions.",
+    "These checks establish pointer and bit mappings, not Fresh rollback causality or native CRUD acceptance."
+  ]
+}
