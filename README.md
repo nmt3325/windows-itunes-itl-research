@@ -39,3 +39,19 @@ python -m itlkit patch "library-copy.itl" operations.json "modified.itl"
 既存ファイルへの上書きは拒否します。`operations.json` の仕様とサポート範囲は `docs/format.md` を参照してください。未知の構造は保全を優先し、安全性を確認できない編集は拒否します。
 
 解析元の作業履歴には非公開の参照情報が含まれるため、ここには内容を選別した独立の配送履歴を保存します。解析用コミットと配送用コミットは別です。
+
+## 配布ファイルと固定コホートの検証
+
+```sh
+python scripts/research/verify_delivery.py
+```
+
+PowerShell で55ファイルの固定コホートも含める場合:
+
+```powershell
+$env:ITLKIT_NATIVE_ROOT = (Resolve-Path evidence/native/snapshots).Path
+$env:ITLKIT_NATIVE_REPORTS = (Resolve-Path evidence/native/oracles).Path
+python -m pytest -q -p no:cacheprovider
+```
+
+テキストは配送用にパスと改行を正規化しています。元の解析記録内のハッシュは元の解析出力を指し、配送されたファイルのSHA-256は `DELIVERY-MANIFEST.json` を参照してください。ITLバイナリは変更していません。COM記録は51ファイルあり、50ファイルに対応する非空のafter-stateがあります。
