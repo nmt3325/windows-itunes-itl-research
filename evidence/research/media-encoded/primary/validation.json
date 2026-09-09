@@ -1,0 +1,53 @@
+{
+  "status": "passed_for_generated_files",
+  "media_count": 3,
+  "blocked_count": 0,
+  "checks": [
+    {
+      "id": "media-mp3",
+      "validation": {
+        "status": "passed",
+        "readers": [
+          "ffmpeg_decode"
+        ],
+        "lossless_pcm_equal": null,
+        "decoded_frames": 66150,
+        "decoded_pcm_s16le_sha256": "402cdd8c2690fd1ffa947c87291aa9a1eb8d6d70541cba4fc30399d968ffd2f7",
+        "peak_sample": 1561,
+        "rms_sample": 1100.334448
+      },
+      "ffprobe_status": "passed"
+    },
+    {
+      "id": "media-aac-m4a",
+      "validation": {
+        "status": "passed",
+        "readers": [
+          "ffmpeg_decode"
+        ],
+        "lossless_pcm_equal": null,
+        "decoded_frames": 66560,
+        "decoded_pcm_s16le_sha256": "b5094ab0b5995fd4f06823e59b6d60ad32c5b473036a59ff3136346ff64b19d7",
+        "peak_sample": 3442,
+        "rms_sample": 1161.072246
+      },
+      "ffprobe_status": "passed"
+    },
+    {
+      "id": "media-alac-m4a",
+      "validation": {
+        "status": "passed",
+        "readers": [
+          "ffmpeg_decode"
+        ],
+        "lossless_pcm_equal": true,
+        "decoded_frames": 66150,
+        "decoded_pcm_s16le_sha256": "8e6145fde5ede33ff049b3dee264c228f0b9abdbfff0ba70bd3e193b0c905b72",
+        "peak_sample": 1638,
+        "rms_sample": 1158.231253
+      },
+      "ffprobe_status": "passed"
+    }
+  ],
+  "native_acceptance": "untested"
+}

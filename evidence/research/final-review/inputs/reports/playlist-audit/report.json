@@ -1,0 +1,372 @@
+{
+  "schema": "itl-playlist-independent-audit-v1",
+  "task": "playlist-audit",
+  "completion_marker": "PLAYLIST_AUDIT_DONE",
+  "status": "done_with_findings",
+  "completed_utc": "2026-09-09T14:45:22.636798+00:00",
+  "source": {
+    "base_and_head": "56309a258d7b1aadea72738561d1d9fae2e30bc0",
+    "branch": "feat/itl-20260909/playlist-audit",
+    "working_tree_clean": true,
+    "source_anchors": {
+      "itlkit/library.py": [
+        {
+          "line": 231,
+          "source": "def items(self) -> list[Node]:"
+        },
+        {
+          "line": 379,
+          "source": "def _validate_ids_and_refs(self) -> None:"
+        }
+      ],
+      "itlkit/trackops.py": [
+        {
+          "line": 19,
+          "source": "def _profile(library) -> None:"
+        },
+        {
+          "line": 174,
+          "source": "def _rule_signature(playlist) -> tuple:"
+        },
+        {
+          "line": 187,
+          "source": "def add_track_from(library, source, persistent_id) -> Track:"
+        },
+        {
+          "line": 209,
+          "source": "if donor is None:"
+        },
+        {
+          "line": 226,
+          "source": "def delete_track(library, persistent_id) -> None:"
+        }
+      ],
+      "itlkit/references.py": [
+        {
+          "line": 16,
+          "source": "def possible_reference(library, persistent_id: int, *, excluded=None,"
+        }
+      ]
+    }
+  },
+  "scope": {
+    "production_changed": false,
+    "commit_push": false,
+    "native_iTunes_COM_UI_Frida_used": false,
+    "subagents_spawned": false,
+    "shared_dependencies_or_config_changed": false,
+    "write_owner": "D:\\a\\_temp\\gha-mcp\\WINDOWS_RESEARCH_RUN\\work\\itl\\reports\\playlist-audit",
+    "computer_use": "local UTF-8 authoring/compilation only; deployed hashes matched; Windows execution used assigned GHA environment"
+  },
+  "acceptance": {
+    "audit_deliverables_complete": true,
+    "product_safe_for_all_profiles": false,
+    "cross_library_or_new_media_certified": false,
+    "new_native_acceptance": false,
+    "contract_changes_needed": []
+  },
+  "findings": [
+    {
+      "id": "F1",
+      "severity": "high if such input is admitted; native reachability unproven",
+      "category": "dangerous_fail_closed_omission",
+      "title": "Retained grouped mtph can retain a deleted track reference",
+      "evidence": [
+        {
+          "case": "F1-nested-retained-item-dangling-track-ref",
+          "status": "finding_reproduced",
+          "evidence": {
+            "before": {
+              "path": "D:\\a\\_temp\\gha-mcp\\WINDOWS_RESEARCH_RUN\\work\\itl\\reports\\playlist-audit\\run-02\\repro\\nested-before.itl",
+              "sha256": "f5c5d1c125613a17e27a864bad22e795bfe809ede13ba24c4c00507091bf883c",
+              "bytes": 909
+            },
+            "after": {
+              "path": "D:\\a\\_temp\\gha-mcp\\WINDOWS_RESEARCH_RUN\\work\\itl\\reports\\playlist-audit\\run-02\\repro\\nested-after.itl",
+              "sha256": "0b9d30c71a5987b45377bc9f859b54da2d4215eb80df0b5155f6566a3884b958",
+              "bytes": 821
+            },
+            "dangling": [
+              {
+                "section": 2,
+                "owner_pid": "F001000000000002",
+                "track_id": 2,
+                "local_id": 9123,
+                "order_token": 9124,
+                "item_pid": "FF01234567891234",
+                "depth": 2,
+                "offset": 16868
+              }
+            ],
+            "native_reachability": "not observed; synthetic parsed nested mtph shape",
+            "classification": "dangerous fail-closed omission, not a native corruption claim"
+          },
+          "seconds": 0.0139
+        }
+      ],
+      "normal_control": "grouped-target-removal-refused passes; flat deletes pass",
+      "mechanism": "Deletion and semantic reference validation traverse immediate Playlist.items. A retained outer group containing a nested item referring to the removed track is not checked. Recursive wire walk finds mtph+0x18=2 with no primary track 2 after public deletion and reparse.",
+      "recommendation": "Reject unsupported grouped/extended mtph throughout the admitted primary playlist tree before mutation; alternatively implement fully evidenced recursive semantics and recursive post-validation. Never guess or blanket-rewrite unknown integers/PIDs.",
+      "native_claim": "No native group observed in 12 pinned snapshots. This is a parser/profile refusal hole, not demonstrated iTunes corruption."
+    },
+    {
+      "id": "F2",
+      "severity": "medium guard-boundary inconsistency; native effect unknown",
+      "category": "dangerous_under_rejection_at_system_definition_boundary",
+      "title": "Non-smart system playlists bypass restore definition matching",
+      "evidence": [
+        {
+          "case": "F2-unmatched_system",
+          "status": "finding_reproduced",
+          "evidence": {
+            "before_members": [
+              1
+            ],
+            "after_members": [
+              1
+            ],
+            "system_kind": 2561,
+            "is_plain": false,
+            "is_smart": false,
+            "before": {
+              "path": "D:\\a\\_temp\\gha-mcp\\WINDOWS_RESEARCH_RUN\\work\\itl\\reports\\playlist-audit\\run-02\\repro\\unmatched_system-before.itl",
+              "sha256": "bae21375803613ffc9da7b3ead43899a6f1157c30048a1d248a8e2854d935a6d",
+              "bytes": 803
+            },
+            "donor": {
+              "path": "D:\\a\\_temp\\gha-mcp\\WINDOWS_RESEARCH_RUN\\work\\itl\\reports\\playlist-audit\\run-02\\repro\\unmatched_system-donor.itl",
+              "sha256": "aa4ee37a7b1e841faa7e930b0028872f0e92e1f6c5f81f9e16d0b2bc9901dcd8",
+              "bytes": 879
+            },
+            "after": {
+              "path": "D:\\a\\_temp\\gha-mcp\\WINDOWS_RESEARCH_RUN\\work\\itl\\reports\\playlist-audit\\run-02\\repro\\unmatched_system-after.itl",
+              "sha256": "52c0bc661ae9a5bd92c0ed0d5244b8b10d535e4a0aa77bf219dbd1a59fcc198e",
+              "bytes": 894
+            },
+            "classification": "documented system-definition refusal boundary bypass; native outcome untested"
+          },
+          "seconds": 0.0174
+        },
+        {
+          "case": "F2-mismatched_kind",
+          "status": "finding_reproduced",
+          "evidence": {
+            "before_members": [
+              1
+            ],
+            "after_members": [
+              1,
+              306
+            ],
+            "system_kind": 2561,
+            "is_plain": false,
+            "is_smart": false,
+            "before": {
+              "path": "D:\\a\\_temp\\gha-mcp\\WINDOWS_RESEARCH_RUN\\work\\itl\\reports\\playlist-audit\\run-02\\repro\\mismatched_kind-before.itl",
+              "sha256": "587c075c23d814f09997ddec0aaace62b24966cff823e1de4dc6692faf03d369",
+              "bytes": 798
+            },
+            "donor": {
+              "path": "D:\\a\\_temp\\gha-mcp\\WINDOWS_RESEARCH_RUN\\work\\itl\\reports\\playlist-audit\\run-02\\repro\\mismatched_kind-donor.itl",
+              "sha256": "aa4ee37a7b1e841faa7e930b0028872f0e92e1f6c5f81f9e16d0b2bc9901dcd8",
+              "bytes": 879
+            },
+            "after": {
+              "path": "D:\\a\\_temp\\gha-mcp\\WINDOWS_RESEARCH_RUN\\work\\itl\\reports\\playlist-audit\\run-02\\repro\\mismatched_kind-after.itl",
+              "sha256": "605e2714c8f89cb1afeba982ff0779cf3594ecdd8a103565efeb03b48a8e7bba",
+              "bytes": 908
+            },
+            "classification": "documented system-definition refusal boundary bypass; native outcome untested"
+          },
+          "seconds": 0.0179
+        },
+        {
+          "case": "F2-native-derived-unmatched-system",
+          "status": "finding_reproduced",
+          "evidence": {
+            "system_pid": "163E1BABA17E9CE0",
+            "kind": 2561,
+            "is_plain": false,
+            "is_smart": false,
+            "result": "accepted with donor missing non-smart system definition",
+            "before": {
+              "path": "D:\\a\\_temp\\gha-mcp\\WINDOWS_RESEARCH_RUN\\work\\itl\\reports\\playlist-audit\\supplement-01\\native-system-target.itl",
+              "sha256": "4df35a0a82bf879edfefb15d0e2cc3c77e1b96740646a8f822784143c0149ca4",
+              "bytes": 15780
+            },
+            "donor": {
+              "path": "D:\\a\\_temp\\gha-mcp\\WINDOWS_RESEARCH_RUN\\work\\itl\\reports\\playlist-audit\\supplement-01\\native-system-donor-missing-podcasts.itl",
+              "sha256": "2580bbdf0015254980bd4c6720079d75cda40132c9d8ab9c248f326e6ca3b519",
+              "bytes": 15946
+            },
+            "after": {
+              "path": "D:\\a\\_temp\\gha-mcp\\WINDOWS_RESEARCH_RUN\\work\\itl\\reports\\playlist-audit\\supplement-01\\native-system-accepted.itl",
+              "sha256": "20775c868c8d53f1ad9b2d8bd13a6f848badbbbae6bdd630e3319d7aa69cbadb",
+              "bytes": 16150
+            },
+            "provenance": "target is native-donor32-derived successful deletion; donor is native-donor32 with only Podcasts definition removed and counts rebuilt",
+            "native_validity_of_derived_donor": "untested; guard-boundary evidence only"
+          }
+        }
+      ],
+      "normal_controls": [
+        "unmatched ordinary playlist is left unchanged",
+        "unmatched smart playlist is refused transactionally"
+      ],
+      "mechanism": "Missing donor is refused for smart/master only, not every non-plain system playlist. Matching by PID compares 101/102/103 bytes but not special-kind header at miph+0x238. A changed-kind synthetic target receives appended donor ordinary membership. Genuine native Podcasts headers (kind2561, nonplain, nonsmart) also pass with a donor-derived source missing that system definition.",
+      "recommendation": "Define an explicit ordinary-versus-system profile. Refuse missing donor definitions for all modeled system/master kinds. Compare complete understood system classification/rule signatures before appending memberships; preserve unsupported bytes or reject instead of guessing.",
+      "native_claim": "Native-shaped system profile is observed, but derived missing/changed definitions were not loaded in iTunes. No actual native data-loss claim."
+    }
+  ],
+  "tests": {
+    "main_audit": {
+      "case_count": 131,
+      "passed": 128,
+      "finding_reproduced": 3,
+      "result": {
+        "path": "D:\\a\\_temp\\gha-mcp\\WINDOWS_RESEARCH_RUN\\work\\itl\\reports\\playlist-audit\\run-02\\audit-results.json",
+        "sha256": "3d964cc9f898dd1e7e991253eef995289b708eed44f59a75471152383d1c7427",
+        "bytes": 64272
+      }
+    },
+    "supplement": {
+      "case_count": 15,
+      "passed": 14,
+      "finding_reproduced": 1,
+      "result": {
+        "path": "D:\\a\\_temp\\gha-mcp\\WINDOWS_RESEARCH_RUN\\work\\itl\\reports\\playlist-audit\\supplement-01\\results.json",
+        "sha256": "8c4a058bda6e8e32a8f92ba6c100eb82e1591be63cdab8e4943432fd70b21cd8",
+        "bytes": 12369
+      }
+    },
+    "existing_pinned_tests": {
+      "passed": 118,
+      "seconds": 1.26,
+      "files": [
+        "tests/test_codec_tracks.py",
+        "tests/test_codec_playlists.py",
+        "tests/test_codec_review_hardening.py"
+      ],
+      "cache_disabled": true,
+      "all_temp_outputs_owned": true
+    },
+    "checker_negative_controls": 7,
+    "reproduced_finding_case_count": 4,
+    "distinct_finding_families": 2
+  },
+  "conservation_checks": {
+    "primary_references": "Independent recursive record walk checks item mtph+0x18 against primary mith+0x10 and checks framing/counts. Uses production Container only for decryption/decompression.",
+    "counts": "Independent primary list count comparisons against hdfm big-endian and mfdh little-endian offsets 0x44/0x48/0x4c/0x54. List counts and record lengths independently traversed.",
+    "retained_tracks": "Entire serialized records byte-exact for every old retained track; no field/string/PID/local-reference rewrite.",
+    "restored_track": "Donor bytes may differ only at mith+0x10, +0xdc, +0x1e0, +0x1f4, all 4-byte known local fields. Donor track PID and text/location/opaque bytes preserved.",
+    "master": "Exactly one master and exact surviving/imported track membership. File and master persistent identities unchanged.",
+    "playlists": "All retained playlist IDs, order, header non-count bytes, and non-item metadata exact. Delete removes only matching direct items. Restore appends donor occurrence multiplicity, including duplicates, without reordering old items.",
+    "item_identity": "Retained raw items preserve localID/PID/creation-order-token independently. Restoration fresh IDs/tokens/PIDs checked disjoint from all old playlist item values. Public replacement generates new item identities; low-level identity-preserving permutation is a separate research control.",
+    "auxiliary": "Exact expected album/artist PID sets, typed-reference resolution, unchanged retained records, and new auxiliary bytes differing only at localID. Delete may GC only selected orphan dependencies. Native shared-aux 32->31 keeps all16 albums and4 artists.",
+    "headers_and_opaque": "Unchanged retained outer/mfdh/section/list/header bytes outside framing/counters; unaffected opaque sections byte-exact. Seven regions x four removed identity types x four encodings =112 conservative PID marker refusals; refused bytes and handles stay unchanged.",
+    "unsupported_profiles": "History section20, nonempty secondary13/14, extended stsh, unknown global514 rejected transactionally."
+  },
+  "rejection_assessment": {
+    "conservative": "112 opaque PID-marker refusals pass. Markers are not proven semantic references, so these may intentionally over-reject. Do not loosen the safety guard from these controls alone.",
+    "under_rejection": [
+      "F1 known nested mtph track-reference survives deletion",
+      "F2 incomplete system-definition matching"
+    ],
+    "unproven_scan_limit": "An opaque uint32 matching local track ID survives unchanged; this proves PID scan is not a universal local-ref decoder, not that that integer was a semantic reference. No blanket rewrites attempted."
+  },
+  "native_evidence": {
+    "snapshot_count": 12,
+    "frozen_com_oracle_matches": 8,
+    "raw_visibility_difference_expected": "14 serialized vs7 COM-visible, or15 vs8; seven unrepresented nonplain system playlists are not a corruption finding. Master/ordinary coverage and visible membership were checked.",
+    "nested_grouped_items_observed": 0,
+    "local_id_neq_token_native_count_example": 96,
+    "native_order_observation": {
+      "playlist_pid": "5F8F30E1ABE6E4A2",
+      "before_track_ids": [
+        75,
+        79,
+        77
+      ],
+      "after_track_ids": [
+        77,
+        75,
+        79
+      ],
+      "before_count": 3,
+      "after_count": 3,
+      "common_item_pids": 0,
+      "common_order_tokens_preserved": null,
+      "same_item_pid_set": false,
+      "local_ids_changed_count": 0,
+      "interpretation": "031 -> 033 changes member order but shares zero item PIDs; no identity-preserving native reorder demonstrated. The raw report all(empty) value is vacuous."
+    },
+    "census": {
+      "path": "D:\\a\\_temp\\gha-mcp\\WINDOWS_RESEARCH_RUN\\work\\itl\\reports\\playlist-audit\\run-02\\native-census.json",
+      "sha256": "d2d20c027c834478249a966d334b0183cd211b955e752f0dc30ed4f954845d89",
+      "bytes": 5745
+    },
+    "pending_native_requests": {
+      "path": "D:\\a\\_temp\\gha-mcp\\WINDOWS_RESEARCH_RUN\\work\\itl\\reports\\playlist-audit\\native-requests.json",
+      "sha256": "078720dde2a469dd8c02cc4ebc6a1e72c268549e7e7a47138106f595d8b7afe4",
+      "bytes": 29059
+    },
+    "candidate_track_counts": [
+      31,
+      32
+    ]
+  },
+  "resources": {
+    "main_python": {
+      "peak_working_set_bytes": 43184128,
+      "peak_pagefile_bytes": 33865728,
+      "limit_bytes": 536870912
+    },
+    "supplement_python": {
+      "peak_working_set_bytes": 39432192,
+      "peak_pagefile_bytes": 30781440,
+      "limit_bytes": 536870912
+    },
+    "parallel_audit_workers": 1,
+    "initial_launcher_measurement": "run-01-resource.json measured the venv launcher, not the real Python working set; do not use it as the true audit peak. V2 and supplement instrument actual Python.",
+    "pytest_peak_memory": "not separately instrumented"
+  },
+  "limitations": [
+    "synthetic nested shape is not demonstrated in native snapshots; refusal is safer than guessing grouped semantics",
+    "markers in opaque bytes are conservative rejection controls, not proof of real references",
+    "raw low-level identity-preserving permutation is not an implemented high-level reorder API",
+    "native candidate acceptance remains untested; no cross-library/new-media support certified",
+    "Native 031->033 item identity sets differ; do not infer identity preservation from order changes.",
+    "Reuse of pinned synthetic builders and Container means fixture construction/crypto are not independent reimplementations.",
+    "Only the existing bounded same-lineage WAV restore/delete API was exercised; future cross-library/new-media gates remain prospective."
+  ],
+  "future_import_invariants": [
+    "Never alter any old track or retained playlist item identity/field/order without explicit operation semantics.",
+    "Resolve every known typed track, auxiliary and membership reference; reject unmodeled grouped/history/system dependencies.",
+    "Allocate destination local IDs and item identities without collisions while keeping track identity policy explicit across libraries.",
+    "Preserve master/file identities and full old+new track/field/location sets through two native saves/restarts with no fallback.",
+    "Keep public member replacement semantics separate from an identity-preserving reorder feature.",
+    "Do not treat COM visibility exclusions, pooled atom IDs, order tokens or opaque integer matches as interchangeable namespaces."
+  ],
+  "harness_corrections": {
+    "run_01": "Seven KeyError(section) harness failures retained. Corrected raw inventory annotation in audit-v2.py; all rerun checks passed except intentionally reproduced product guard findings.",
+    "v1_script": {
+      "path": "D:\\a\\_temp\\gha-mcp\\WINDOWS_RESEARCH_RUN\\work\\itl\\reports\\playlist-audit\\audit.py",
+      "sha256": "b99d292df395c8c5bd7ca901d8d43a8af36dc731aa93b45e14c31f23316571b8",
+      "bytes": 29026
+    },
+    "accepted_script": {
+      "path": "D:\\a\\_temp\\gha-mcp\\WINDOWS_RESEARCH_RUN\\work\\itl\\reports\\playlist-audit\\audit-v2.py",
+      "sha256": "682c558247df9b084d83670148f513d24044a71327db4ad8309ea3cdbff6f92c",
+      "bytes": 29999
+    },
+    "supplement_script": {
+      "path": "D:\\a\\_temp\\gha-mcp\\WINDOWS_RESEARCH_RUN\\work\\itl\\reports\\playlist-audit\\supplement.py",
+      "sha256": "f085876cd7f15dca2d098577e19abcb38abe80a6abef46f8ca45ccf63b30b6d4",
+      "bytes": 10772
+    }
+  },
+  "inputs_all_hash_verified_unchanged": true,
+  "execution_ledger": "execution-ledger.json",
+  "final_verification_receipts": "verification-tail.json",
+  "files_changed_scope": "reports/playlist-audit/** only"
+}

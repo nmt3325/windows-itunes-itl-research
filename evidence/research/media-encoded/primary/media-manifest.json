@@ -1,0 +1,396 @@
+{
+  "schema": "itl.media.manifest.v1",
+  "status": "complete",
+  "created_utc": "2026-09-09T15:22:20.688274+00:00",
+  "provenance": "Every audio sample is generated from a sine formula; no existing audio/library is read, copied or changed.",
+  "base_commit": "56309a258d7b1aadea72738561d1d9fae2e30bc0",
+  "tools": {
+    "python": "3.12.10 (tags/v3.12.10:0cc8128, Apr  8 2025, 12:21:36) [MSC v.1943 64 bit (AMD64)]",
+    "generator_version": "itl-media-generator-v1",
+    "generator_sha256": "53eb3ad20194743804c88601060fd4dc85b7e7869d0f0a7af48f30d44cc383a9",
+    "ffmpeg": {
+      "path": "D:\\a\\_temp\\gha-mcp\\WINDOWS_RESEARCH_RUN\\work\\itl\\reports\\media\\tools\\ffmpeg-8.1.2\\bin\\ffmpeg.exe",
+      "version": "ffmpeg version 8.1.2-essentials_build-www.gyan.dev Copyright (c) 2000-2026 the FFmpeg developers\r\nbuilt with gcc 16.1.0 (Rev2, Built by MSYS2 project)\r\nconfiguration: --enable-gpl --enable-version3 --enable-static --disable-w32threads --disable-autodetect --enable-cairo --enable-fontconfig --enable-iconv --enable-gnutls --enable-libxml2 --enable-gmp --enable-bzlib --enable-lzma --enable-zlib --enable-libsrt --enable-libssh --enable-libzmq --enable-avisynth --enable-sdl2 --enable-libwebp --enable-libx264 --enable-libx265 --enable-libxvid --enable-libaom --enable-libopenjpeg --enable-libvpx --enable-mediafoundation --enable-libass --enable-libfreetype --enable-libfribidi --enable-libharfbuzz --enable-libvidstab --enable-libvmaf --enable-libzimg --enable-amf --enable-cuda-llvm --enable-cuvid --enable-dxva2 --enable-d3d11va --enable-d3d12va --enable-ffnvcodec --enable-libvpl --enable-nvdec --enable-nvenc --enable-vaapi --enable-openal --enable-libgme --enable-libopenmpt --enable-libopencore-amrwb --enable-libmp3lame --enable-libtheora --enable-libvo-amrwbenc --enable-libgsm --enable-libopencore-amrnb --enable-libopus --enable-libspeex --enable-libvorbis --enable-librubberband\r\nlibavutil      60. 26.102 / 60. 26.102\r\nlibavcodec     62. 28.102 / 62. 28.102\r\nlibavformat    62. 12.102 / 62. 12.102\r\nlibavdevice    62.  3.102 / 62.  3.102\r\nlibavfilter    11. 14.102 / 11. 14.102\r\nlibswscale      9.  5.102 /  9.  5.102\r\nlibswresample   6.  3.102 /  6.  3.102\r\n\r\nExiting with exit code 0\r\n",
+      "sha256": "1326dde4c84ff1f96fe6b8916c5bed29e163e9b5dccf995f6f3db069d143ec5e"
+    },
+    "ffprobe": {
+      "path": "D:\\a\\_temp\\gha-mcp\\WINDOWS_RESEARCH_RUN\\work\\itl\\reports\\media\\tools\\ffmpeg-8.1.2\\bin\\ffprobe.exe",
+      "version": "ffprobe version 8.1.2-essentials_build-www.gyan.dev Copyright (c) 2007-2026 the FFmpeg developers\r\nbuilt with gcc 16.1.0 (Rev2, Built by MSYS2 project)\r\nconfiguration: --enable-gpl --enable-version3 --enable-static --disable-w32threads --disable-autodetect --enable-cairo --enable-fontconfig --enable-iconv --enable-gnutls --enable-libxml2 --enable-gmp --enable-bzlib --enable-lzma --enable-zlib --enable-libsrt --enable-libssh --enable-libzmq --enable-avisynth --enable-sdl2 --enable-libwebp --enable-libx264 --enable-libx265 --enable-libxvid --enable-libaom --enable-libopenjpeg --enable-libvpx --enable-mediafoundation --enable-libass --enable-libfreetype --enable-libfribidi --enable-libharfbuzz --enable-libvidstab --enable-libvmaf --enable-libzimg --enable-amf --enable-cuda-llvm --enable-cuvid --enable-dxva2 --enable-d3d11va --enable-d3d12va --enable-ffnvcodec --enable-libvpl --enable-nvdec --enable-nvenc --enable-vaapi --enable-openal --enable-libgme --enable-libopenmpt --enable-libopencore-amrwb --enable-libmp3lame --enable-libtheora --enable-libvo-amrwbenc --enable-libgsm --enable-libopencore-amrnb --enable-libopus --enable-libspeex --enable-libvorbis --enable-librubberband\r\nlibavutil      60. 26.102 / 60. 26.102\r\nlibavcodec     62. 28.102 / 62. 28.102\r\nlibavformat    62. 12.102 / 62. 12.102\r\nlibavdevice    62.  3.102 / 62.  3.102\r\nlibavfilter    11. 14.102 / 11. 14.102\r\nlibswscale      9.  5.102 /  9.  5.102\r\nlibswresample   6.  3.102 /  6.  3.102\r\n",
+      "sha256": "b49ccc7c6547b141ad5a2f6ec69cc04323d7133d7704d70b331b904c63eecb07"
+    }
+  },
+  "resource_policy": {
+    "encoder_threads": 1,
+    "max_concurrent_encoders": 1,
+    "per_command_timeout_seconds": 40,
+    "source_audio_bytes_per_file": 132300,
+    "max_fixture_bytes": 1048576,
+    "memory_budget_bytes": 536870912
+  },
+  "media": [
+    {
+      "id": "media-mp3",
+      "filename": "itl_media_03_mp3.mp3",
+      "codec": "mp3",
+      "encoder": "libmp3lame",
+      "format": "mp3",
+      "lossless": false,
+      "hz": 660,
+      "number": 3,
+      "metadata": {
+        "title": "ITL Media 03 MP3",
+        "artist": "ITL Synthetic Artist 03",
+        "album": "ITL Media Album 03"
+      },
+      "path": "D:\\a\\_temp\\gha-mcp\\WINDOWS_RESEARCH_RUN\\work\\itl\\reports\\media\\encoded-v2\\primary\\media\\itl_media_03_mp3.mp3",
+      "size_bytes": 12675,
+      "sha256": "fbd6e772b8bf6e9fbf02ac6b78e74970e45451389f35520250c9c21425fccd87",
+      "source_pcm_s16le_sha256": "82dc294fb832af5a6937f44dec93a8c6852a90d6eca158f503d9904d97a88f54",
+      "source_frames": 66150,
+      "source_duration_seconds": 1.5,
+      "sample_rate": 44100,
+      "channels": 1,
+      "source_bits_per_sample": 16,
+      "compression": "lossy",
+      "source": {
+        "path": "D:\\a\\_temp\\gha-mcp\\WINDOWS_RESEARCH_RUN\\work\\itl\\reports\\media\\encoded-v2\\primary\\inputs\\media-mp3-source.wav",
+        "size_bytes": 132344,
+        "sha256": "8aa8ddba8fa576e8705abb10a7f2539e9ffbd3f6b7680c80c32a6b16097c3f6c"
+      },
+      "validation": {
+        "status": "passed",
+        "readers": [
+          "ffmpeg_decode"
+        ],
+        "lossless_pcm_equal": null,
+        "decoded_frames": 66150,
+        "decoded_pcm_s16le_sha256": "402cdd8c2690fd1ffa947c87291aa9a1eb8d6d70541cba4fc30399d968ffd2f7",
+        "peak_sample": 1561,
+        "rms_sample": 1100.334448
+      },
+      "ffprobe": {
+        "status": "passed",
+        "executable": "D:\\a\\_temp\\gha-mcp\\WINDOWS_RESEARCH_RUN\\work\\itl\\reports\\media\\tools\\ffmpeg-8.1.2\\bin\\ffprobe.exe",
+        "evidence": "D:\\a\\_temp\\gha-mcp\\WINDOWS_RESEARCH_RUN\\work\\itl\\reports\\media\\encoded-v2\\primary\\logs\\media-mp3-ffprobe.json",
+        "data": {
+          "streams": [
+            {
+              "index": 0,
+              "codec_name": "mp3",
+              "codec_long_name": "MP3 (MPEG audio layer 3)",
+              "codec_type": "audio",
+              "codec_tag_string": "[0][0][0][0]",
+              "codec_tag": "0x0000",
+              "mime_codec_string": "mp4a.40.34",
+              "sample_fmt": "fltp",
+              "sample_rate": "44100",
+              "channels": 1,
+              "channel_layout": "mono",
+              "bits_per_sample": 0,
+              "initial_padding": 0,
+              "r_frame_rate": "0/0",
+              "avg_frame_rate": "0/0",
+              "time_base": "1/14112000",
+              "start_pts": 353600,
+              "start_time": "0.025057",
+              "duration_ts": 21168000,
+              "duration": "1.500000",
+              "bit_rate": "64000",
+              "disposition": {
+                "default": 0,
+                "dub": 0,
+                "original": 0,
+                "comment": 0,
+                "lyrics": 0,
+                "karaoke": 0,
+                "forced": 0,
+                "hearing_impaired": 0,
+                "visual_impaired": 0,
+                "clean_effects": 0,
+                "attached_pic": 0,
+                "timed_thumbnails": 0,
+                "non_diegetic": 0,
+                "captions": 0,
+                "descriptions": 0,
+                "metadata": 0,
+                "dependent": 0,
+                "still_image": 0,
+                "multilayer": 0
+              }
+            }
+          ],
+          "format": {
+            "filename": "D:\\a\\_temp\\gha-mcp\\WINDOWS_RESEARCH_RUN\\work\\itl\\reports\\media\\encoded-v2\\primary\\media\\itl_media_03_mp3.mp3",
+            "nb_streams": 1,
+            "nb_programs": 0,
+            "nb_stream_groups": 0,
+            "format_name": "mp3",
+            "format_long_name": "MP2/3 (MPEG audio layer 2/3)",
+            "start_time": "0.025057",
+            "duration": "1.500000",
+            "size": "12675",
+            "bit_rate": "67600",
+            "probe_score": 51,
+            "tags": {
+              "title": "ITL Media 03 MP3",
+              "artist": "ITL Synthetic Artist 03",
+              "album": "ITL Media Album 03",
+              "encoder": "Lavf62.12.102"
+            }
+          }
+        }
+      },
+      "native_acceptance": "untested"
+    },
+    {
+      "id": "media-aac-m4a",
+      "filename": "itl_media_04_aac.m4a",
+      "codec": "aac",
+      "encoder": "aac",
+      "format": "aac",
+      "lossless": false,
+      "hz": 770,
+      "number": 4,
+      "metadata": {
+        "title": "ITL Media 04 AAC M4A",
+        "artist": "ITL Synthetic Artist 04",
+        "album": "ITL Media Album 04"
+      },
+      "path": "D:\\a\\_temp\\gha-mcp\\WINDOWS_RESEARCH_RUN\\work\\itl\\reports\\media\\encoded-v2\\primary\\media\\itl_media_04_aac.m4a",
+      "size_bytes": 13594,
+      "sha256": "b2dc2bc255fc5e3619938a1f4339397bf08db65db2b97018a8555715ef0f913f",
+      "source_pcm_s16le_sha256": "83340bfb03959361a36a834f70bf4f6e609ea65f2efb13fe68ed3d9efcb41f79",
+      "source_frames": 66150,
+      "source_duration_seconds": 1.5,
+      "sample_rate": 44100,
+      "channels": 1,
+      "source_bits_per_sample": 16,
+      "compression": "lossy",
+      "source": {
+        "path": "D:\\a\\_temp\\gha-mcp\\WINDOWS_RESEARCH_RUN\\work\\itl\\reports\\media\\encoded-v2\\primary\\inputs\\media-aac-m4a-source.wav",
+        "size_bytes": 132344,
+        "sha256": "c70f4c3227686418c2a4544aa39e0eebf8f1484bd6c9940863f268bc879b0ffa"
+      },
+      "validation": {
+        "status": "passed",
+        "readers": [
+          "ffmpeg_decode"
+        ],
+        "lossless_pcm_equal": null,
+        "decoded_frames": 66560,
+        "decoded_pcm_s16le_sha256": "b5094ab0b5995fd4f06823e59b6d60ad32c5b473036a59ff3136346ff64b19d7",
+        "peak_sample": 3442,
+        "rms_sample": 1161.072246
+      },
+      "ffprobe": {
+        "status": "passed",
+        "executable": "D:\\a\\_temp\\gha-mcp\\WINDOWS_RESEARCH_RUN\\work\\itl\\reports\\media\\tools\\ffmpeg-8.1.2\\bin\\ffprobe.exe",
+        "evidence": "D:\\a\\_temp\\gha-mcp\\WINDOWS_RESEARCH_RUN\\work\\itl\\reports\\media\\encoded-v2\\primary\\logs\\media-aac-m4a-ffprobe.json",
+        "data": {
+          "streams": [
+            {
+              "index": 0,
+              "codec_name": "aac",
+              "codec_long_name": "AAC (Advanced Audio Coding)",
+              "profile": "LC",
+              "codec_type": "audio",
+              "codec_tag_string": "mp4a",
+              "codec_tag": "0x6134706d",
+              "mime_codec_string": "mp4a.40.2",
+              "sample_fmt": "fltp",
+              "sample_rate": "44100",
+              "channels": 1,
+              "channel_layout": "mono",
+              "bits_per_sample": 0,
+              "initial_padding": 0,
+              "id": "0x1",
+              "r_frame_rate": "0/0",
+              "avg_frame_rate": "0/0",
+              "time_base": "1/44100",
+              "start_pts": 0,
+              "start_time": "0.000000",
+              "duration_ts": 66150,
+              "duration": "1.500000",
+              "bit_rate": "65072",
+              "nb_frames": "66",
+              "extradata_size": 5,
+              "disposition": {
+                "default": 1,
+                "dub": 0,
+                "original": 0,
+                "comment": 0,
+                "lyrics": 0,
+                "karaoke": 0,
+                "forced": 0,
+                "hearing_impaired": 0,
+                "visual_impaired": 0,
+                "clean_effects": 0,
+                "attached_pic": 0,
+                "timed_thumbnails": 0,
+                "non_diegetic": 0,
+                "captions": 0,
+                "descriptions": 0,
+                "metadata": 0,
+                "dependent": 0,
+                "still_image": 0,
+                "multilayer": 0
+              },
+              "tags": {
+                "language": "und",
+                "handler_name": "SoundHandler"
+              }
+            }
+          ],
+          "format": {
+            "filename": "D:\\a\\_temp\\gha-mcp\\WINDOWS_RESEARCH_RUN\\work\\itl\\reports\\media\\encoded-v2\\primary\\media\\itl_media_04_aac.m4a",
+            "nb_streams": 1,
+            "nb_programs": 0,
+            "nb_stream_groups": 0,
+            "format_name": "mov,mp4,m4a,3gp,3g2,mj2",
+            "format_long_name": "QuickTime / MOV",
+            "start_time": "0.000000",
+            "duration": "1.500000",
+            "size": "13594",
+            "bit_rate": "72501",
+            "probe_score": 100,
+            "tags": {
+              "major_brand": "M4A ",
+              "minor_version": "512",
+              "compatible_brands": "M4A isomiso2",
+              "title": "ITL Media 04 AAC M4A",
+              "artist": "ITL Synthetic Artist 04",
+              "album": "ITL Media Album 04",
+              "encoder": "Lavf62.12.102"
+            }
+          }
+        }
+      },
+      "native_acceptance": "untested"
+    },
+    {
+      "id": "media-alac-m4a",
+      "filename": "itl_media_05_alac.m4a",
+      "codec": "alac",
+      "encoder": "alac",
+      "format": "alac",
+      "lossless": true,
+      "hz": 880,
+      "number": 5,
+      "metadata": {
+        "title": "ITL Media 05 ALAC M4A",
+        "artist": "ITL Synthetic Artist 05",
+        "album": "ITL Media Album 05"
+      },
+      "path": "D:\\a\\_temp\\gha-mcp\\WINDOWS_RESEARCH_RUN\\work\\itl\\reports\\media\\encoded-v2\\primary\\media\\itl_media_05_alac.m4a",
+      "size_bytes": 25924,
+      "sha256": "1b1ed61f5f17d86cf7947a77a932d22ca25690ae09a7ef84468697b2bbb627a5",
+      "source_pcm_s16le_sha256": "8e6145fde5ede33ff049b3dee264c228f0b9abdbfff0ba70bd3e193b0c905b72",
+      "source_frames": 66150,
+      "source_duration_seconds": 1.5,
+      "sample_rate": 44100,
+      "channels": 1,
+      "source_bits_per_sample": 16,
+      "compression": "lossless_compressed",
+      "source": {
+        "path": "D:\\a\\_temp\\gha-mcp\\WINDOWS_RESEARCH_RUN\\work\\itl\\reports\\media\\encoded-v2\\primary\\inputs\\media-alac-m4a-source.wav",
+        "size_bytes": 132344,
+        "sha256": "af277f6e05a94ef963ca7cca026b8be7a9d01f22601230b11cb44c0202c6138f"
+      },
+      "validation": {
+        "status": "passed",
+        "readers": [
+          "ffmpeg_decode"
+        ],
+        "lossless_pcm_equal": true,
+        "decoded_frames": 66150,
+        "decoded_pcm_s16le_sha256": "8e6145fde5ede33ff049b3dee264c228f0b9abdbfff0ba70bd3e193b0c905b72",
+        "peak_sample": 1638,
+        "rms_sample": 1158.231253
+      },
+      "ffprobe": {
+        "status": "passed",
+        "executable": "D:\\a\\_temp\\gha-mcp\\WINDOWS_RESEARCH_RUN\\work\\itl\\reports\\media\\tools\\ffmpeg-8.1.2\\bin\\ffprobe.exe",
+        "evidence": "D:\\a\\_temp\\gha-mcp\\WINDOWS_RESEARCH_RUN\\work\\itl\\reports\\media\\encoded-v2\\primary\\logs\\media-alac-m4a-ffprobe.json",
+        "data": {
+          "streams": [
+            {
+              "index": 0,
+              "codec_name": "alac",
+              "codec_long_name": "ALAC (Apple Lossless Audio Codec)",
+              "codec_type": "audio",
+              "codec_tag_string": "alac",
+              "codec_tag": "0x63616c61",
+              "sample_fmt": "s16p",
+              "sample_rate": "44100",
+              "channels": 1,
+              "channel_layout": "mono",
+              "bits_per_sample": 0,
+              "initial_padding": 0,
+              "id": "0x1",
+              "r_frame_rate": "0/0",
+              "avg_frame_rate": "0/0",
+              "time_base": "1/44100",
+              "start_pts": 0,
+              "start_time": "0.000000",
+              "duration_ts": 66150,
+              "duration": "1.500000",
+              "bit_rate": "133264",
+              "bits_per_raw_sample": "16",
+              "nb_frames": "17",
+              "extradata_size": 36,
+              "disposition": {
+                "default": 1,
+                "dub": 0,
+                "original": 0,
+                "comment": 0,
+                "lyrics": 0,
+                "karaoke": 0,
+                "forced": 0,
+                "hearing_impaired": 0,
+                "visual_impaired": 0,
+                "clean_effects": 0,
+                "attached_pic": 0,
+                "timed_thumbnails": 0,
+                "non_diegetic": 0,
+                "captions": 0,
+                "descriptions": 0,
+                "metadata": 0,
+                "dependent": 0,
+                "still_image": 0,
+                "multilayer": 0
+              },
+              "tags": {
+                "language": "und",
+                "handler_name": "SoundHandler"
+              }
+            }
+          ],
+          "format": {
+            "filename": "D:\\a\\_temp\\gha-mcp\\WINDOWS_RESEARCH_RUN\\work\\itl\\reports\\media\\encoded-v2\\primary\\media\\itl_media_05_alac.m4a",
+            "nb_streams": 1,
+            "nb_programs": 0,
+            "nb_stream_groups": 0,
+            "format_name": "mov,mp4,m4a,3gp,3g2,mj2",
+            "format_long_name": "QuickTime / MOV",
+            "start_time": "0.000000",
+            "duration": "1.500000",
+            "size": "25924",
+            "bit_rate": "138261",
+            "probe_score": 100,
+            "tags": {
+              "major_brand": "M4A ",
+              "minor_version": "512",
+              "compatible_brands": "M4A isomiso2",
+              "title": "ITL Media 05 ALAC M4A",
+              "artist": "ITL Synthetic Artist 05",
+              "album": "ITL Media Album 05",
+              "encoder": "Lavf62.12.102"
+            }
+          }
+        }
+      },
+      "native_acceptance": "untested"
+    }
+  ],
+  "blocked": []
+}

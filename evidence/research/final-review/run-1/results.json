@@ -1,0 +1,151 @@
+{
+  "source_commit": "9268e159950186c4bc844cd673733eec3406296a",
+  "groups": {
+    "dates": {
+      "status": "passed",
+      "evidence": {
+        "original_three": [
+          {
+            "input": "1903-12-31T23:59:59.000001+00:00",
+            "refusal": "datetime is outside the HFS uint32 range"
+          },
+          {
+            "input": "1903-12-31T23:59:59.500000+00:00",
+            "refusal": "datetime is outside the HFS uint32 range"
+          },
+          {
+            "input": "1903-12-31T23:59:59.999999+00:00",
+            "refusal": "datetime is outside the HFS uint32 range"
+          }
+        ],
+        "positive_wall_time_controls": 48,
+        "edge_refusals": 6
+      }
+    },
+    "four_original_witnesses": {
+      "status": "passed",
+      "evidence": {
+        "F1_nested": {
+          "refusal": "unknown playlist item dependencies",
+          "bytes_unchanged": true,
+          "handles_unchanged": true,
+          "before_allocator": true
+        },
+        "unmatched_system": {
+          "refusal": "system/master playlist definitions are missing or differ",
+          "bytes_unchanged": true,
+          "handles_unchanged": true,
+          "before_allocator": true
+        },
+        "mismatched_kind": {
+          "refusal": "system/master playlist definitions are missing or differ",
+          "bytes_unchanged": true,
+          "handles_unchanged": true,
+          "before_allocator": true
+        },
+        "native_derived_missing_podcasts": {
+          "refusal": "system/master playlist definitions are missing or differ",
+          "bytes_unchanged": true,
+          "handles_unchanged": true,
+          "before_allocator": true
+        }
+      }
+    },
+    "opaque_rules_and_scope": {
+      "status": "passed",
+      "evidence": {
+        "101_different": {
+          "refusal": "source and destination playlist rules differ",
+          "bytes_unchanged": true,
+          "handles_unchanged": true,
+          "before_allocator": true
+        },
+        "101_equal": "accepted; opaque bytes and old items preserved",
+        "102_different": {
+          "refusal": "source and destination playlist rules differ",
+          "bytes_unchanged": true,
+          "handles_unchanged": true,
+          "before_allocator": true
+        },
+        "102_equal": "accepted; opaque bytes and old items preserved",
+        "103_different": {
+          "refusal": "source and destination playlist rules differ",
+          "bytes_unchanged": true,
+          "handles_unchanged": true,
+          "before_allocator": true
+        },
+        "103_equal": "accepted; opaque bytes and old items preserved",
+        "unmatched_ordinary": "unchanged and accepted",
+        "cross_lineage": {
+          "refusal": "track restoration currently requires snapshots of the same library lineage",
+          "bytes_unchanged": true,
+          "handles_unchanged": true,
+          "before_allocator": true
+        }
+      }
+    },
+    "same_lineage_controls": {
+      "status": "passed",
+      "evidence": {
+        "synthetic": {
+          "restored": true,
+          "all_playlist_membership_multisets_equal": true,
+          "peer_records_unchanged": true
+        },
+        "closed_native_003": {
+          "restored": true,
+          "all_playlist_membership_multisets_equal": true,
+          "peer_records_unchanged": true
+        }
+      }
+    }
+  },
+  "inputs": {
+    "reports/playlist-audit/run-02/repro/nested-before.itl": {
+      "sha256": "f5c5d1c125613a17e27a864bad22e795bfe809ede13ba24c4c00507091bf883c",
+      "bytes": 909
+    },
+    "reports/playlist-audit/run-02/repro/unmatched_system-before.itl": {
+      "sha256": "bae21375803613ffc9da7b3ead43899a6f1157c30048a1d248a8e2854d935a6d",
+      "bytes": 803
+    },
+    "reports/playlist-audit/run-02/repro/unmatched_system-donor.itl": {
+      "sha256": "aa4ee37a7b1e841faa7e930b0028872f0e92e1f6c5f81f9e16d0b2bc9901dcd8",
+      "bytes": 879
+    },
+    "reports/playlist-audit/run-02/repro/mismatched_kind-before.itl": {
+      "sha256": "587c075c23d814f09997ddec0aaace62b24966cff823e1de4dc6692faf03d369",
+      "bytes": 798
+    },
+    "reports/playlist-audit/run-02/repro/mismatched_kind-donor.itl": {
+      "sha256": "aa4ee37a7b1e841faa7e930b0028872f0e92e1f6c5f81f9e16d0b2bc9901dcd8",
+      "bytes": 879
+    },
+    "reports/playlist-audit/supplement-01/native-system-target.itl": {
+      "sha256": "4df35a0a82bf879edfefb15d0e2cc3c77e1b96740646a8f822784143c0149ca4",
+      "bytes": 15780
+    },
+    "reports/playlist-audit/supplement-01/native-system-donor-missing-podcasts.itl": {
+      "sha256": "2580bbdf0015254980bd4c6720079d75cda40132c9d8ab9c248f326e6ca3b519",
+      "bytes": 15946
+    },
+    "reports/parent/phase1-frozen/snapshots/003-three-tracks-reloaded.itl": {
+      "sha256": "a93cbc94da00eb60d1f5a45ac70af55948d4ecbae2ea735744af04b7b46128e4",
+      "bytes": 4955
+    }
+  },
+  "pytest_exit_code": 0,
+  "pytest": {
+    "name": "pytest",
+    "errors": "0",
+    "failures": "0",
+    "skipped": "5",
+    "tests": "981",
+    "time": "4.269",
+    "timestamp": "2026-09-09T15:57:41.445143+00:00",
+    "hostname": "runnervmeef0v"
+  },
+  "peak_working_set_bytes": 52523008,
+  "native_actions": false,
+  "utc": "2026-09-09T15:57:45.826502+00:00"
+}

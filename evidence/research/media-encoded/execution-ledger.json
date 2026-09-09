@@ -1,0 +1,69 @@
+{
+  "base_sha": "56309a258d7b1aadea72738561d1d9fae2e30bc0",
+  "cwd": "D:\\a\\_temp\\gha-mcp\\WINDOWS_RESEARCH_RUN\\work\\itl\\wt\\media",
+  "shell": "pwsh",
+  "checks": [
+    {
+      "command": "Scope/clock/branch/frozen handoff check",
+      "command_id": "10527466d49646b9",
+      "state": "exited",
+      "exit_code": 0,
+      "eof": true,
+      "next_byte": 1221,
+      "runtime_ms": 752,
+      "log": "v1-preservation-before.json"
+    },
+    {
+      "command": "HTTPS official and vendor pages; extract actual archive/checksum links",
+      "command_id": "45df97365b514fbb",
+      "state": "exited",
+      "exit_code": 0,
+      "eof": true,
+      "next_byte": 3318,
+      "runtime_ms": 2623,
+      "reads": [
+        {
+          "from_byte": 0,
+          "next_byte": 3318,
+          "eof": true
+        }
+      ],
+      "log": "../tools/provenance/gyan-builds-links.json"
+    },
+    {
+      "command": "Download linked fixed 8.1.2 release essentials ZIP and provided SHA256; require equality before extraction",
+      "command_id": "79b3dd2954f645bb",
+      "state": "exited",
+      "exit_code": 0,
+      "eof": true,
+      "next_byte": 1044,
+      "runtime_ms": 5654,
+      "reads": [
+        {
+          "from_byte": 173,
+          "next_byte": 1044,
+          "eof": true
+        }
+      ],
+      "log": "../tools/provenance/archive-verification.json"
+    },
+    {
+      "command": "Recheck archive hash; extract only ffmpeg/ffprobe; generate/reproduce 3 codecs; probe/decode all 5; preserve v1",
+      "command_id": "66a3ce86515f421e",
+      "state": "exited",
+      "exit_code": 0,
+      "eof": true,
+      "next_byte": 4200,
+      "runtime_ms": 7032,
+      "reads": [
+        {
+          "from_byte": 120,
+          "next_byte": 4200,
+          "eof": true
+        }
+      ],
+      "log": "logs/encode-and-verify.log"
+    }
+  ],
+  "publication_note": "Sanitize runtime identifiers before publication. No binary/tool staging was performed."
+}

@@ -1,0 +1,82 @@
+{
+  "status": "REVIEW_PHASE4_DONE",
+  "utc": "2026-09-09T15:59:19.002861+00:00",
+  "reviewed_sha": "9268e159950186c4bc844cd673733eec3406296a",
+  "patch_sha": "f98a6aaf2dbb4747d9fb3aa59984bf75aa38a153",
+  "comparison_sha": "70c5b8251a56933ad1b4acf44eeacc718b1d226a",
+  "four_owned_files_match_patch": true,
+  "source_archive_sha256": "91e9b91e7e58fcc14eca6ee0bdc3992241d4beb21a643edda53781a47ba0b899",
+  "conclusion": "Accept the three fail-closed fixes in the four owned files. All original witnesses now refuse; normal controls remain usable. No new defect was demonstrated in this bounded final-diff review.",
+  "resolved": [
+    {
+      "id": "DATES-001",
+      "source": "itlkit/library.py:40-50",
+      "result": "All three original negative fractions raise ValueError; 48 positive controls and six boundary refusals pass."
+    },
+    {
+      "id": "F1",
+      "source": "itlkit/trackops.py:20-32,228-233,269-291",
+      "result": "Original retained nested item refuses atomically, before allocation. This is refusal, not recursive support."
+    },
+    {
+      "id": "F2",
+      "source": "itlkit/trackops.py:200-225,236-266",
+      "result": "Original unmatched-system, changed-kind and native-derived missing-Podcasts witnesses refuse atomically before allocation. Opaque101/102/103 differences refuse; equal rules and old items remain preserved."
+    }
+  ],
+  "tests": {
+    "passed": 976,
+    "skipped": 5,
+    "failed": 0,
+    "errors": 0,
+    "independent_groups": 4,
+    "peak_working_set_bytes": 52523008,
+    "frozen_snapshots_sha_unchanged": 55,
+    "structural_and_COM_gates": "55 structural and 50 nonempty COM gates retained; five missing COM/after-state cases remain explicit skips"
+  },
+  "controls": "Synthetic and closed-native003 delete/restore recover all track PIDs and all playlist membership multisets with peer records unchanged. Unmatched ordinary definitions remain accepted/unchanged; cross-lineage restoration still refuses.",
+  "evidence": [
+    "source-manifest.json",
+    "owned.diff",
+    "final_probes.py",
+    "execution.log",
+    "run-1/results.json",
+    "run-1/pytest.log",
+    "run-1/pytest.xml"
+  ],
+  "replay": "Shared Python -B final_probes.py --root ROOT --out ROOT/reports/review/phase4/NEW_DIRECTORY; UTF8/no-bytecode, disabled pytest plugin autoload, same frozen snapshot/oracle environment.",
+  "remaining_constraints": [
+    "Aware displayed-wall-time and raw0/unset policy unchanged; no new DST policy.",
+    "Unsupported grouped/system profiles refuse rather than implementing their semantics; general COW and cross-lineage allocation remain outside support.",
+    "No native actions here. Parent separately reports current full raw/COM/PID audits for three of six native columns and35 unchanged files; not independently repeated by this final-diff pass. The old partial handoff pending-raw-audit statement is historical, not a current general conclusion."
+  ],
+  "history": "Phase2/3 reports and reproducers remain untouched and scoped to their old commits. These three findings are resolved for9268 only.",
+  "execution_ledger": [
+    {
+      "command_id": "7c6d04b9db0243e3",
+      "exit_code": 0,
+      "next_byte": 41659,
+      "eof": true
+    },
+    {
+      "command_id": "9016d43150b14e6a",
+      "exit_code": 0,
+      "next_byte": 5526,
+      "eof": true
+    }
+  ],
+  "safety": {
+    "native_actions": false,
+    "production_edits": false,
+    "worktree_clean": true,
+    "worktree_head": "56309a258d7b1aadea72738561d1d9fae2e30bc0",
+    "previous_hashes_verified": {
+      "report.json": "80f3db2ab97ecdd9cefda7369c6d860dfeceeccdb23af606683b1f20da4fcbbd",
+      "phase2/report.json": "302728fead29b8428dd98db7863676c9e1496e1636f35037fd8d6c4b3331711f",
+      "phase3/report.json": "dcfb817f04979cbbf72cd79049bef25bceddea70b3a1e274a901b8864bf91623",
+      "phase3/independent_probes.py": "0be480544bf0790f904f319e12d112b33f1c17db164a3cd7a7991a2b9e904624",
+      "phase2/hardening_probes.py": "addaded022743cfc047759b52d726e2180a3c4f4b3859565c74f76f99f31be1e"
+    },
+    "transport_note": "One copied gzip chunk hash failed; it was retained and replaced with a verified chunk before decompression or execution."
+  }
+}

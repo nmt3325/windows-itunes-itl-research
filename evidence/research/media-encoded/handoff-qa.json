@@ -1,0 +1,132 @@
+{
+  "status": "passed",
+  "verified_utc": "2026-09-09T15:23:59.327998+00:00",
+  "all_five_media_verified": [
+    {
+      "id": "media-wav-pcm16",
+      "file": "itl_media_01_wav_pcm16.wav",
+      "size_bytes": 132480,
+      "sha256": "b44cbb7696d8be5f933984ee7130ceb6bc02ed5653b446c9ab8f04a29f408934",
+      "codec": "pcm_s16le",
+      "sample_rate": 44100,
+      "channels": 1,
+      "container_duration_seconds": 1.5,
+      "embedded_tags": {
+        "title": "ITL Media 01 WAV PCM16",
+        "artist": "ITL Synthetic Artist 01",
+        "album": "ITL Media Album 01"
+      }
+    },
+    {
+      "id": "media-aiff-pcm16",
+      "file": "itl_media_02_aiff_pcm16.aiff",
+      "size_bytes": 132534,
+      "sha256": "3287247e3d07804d763b8e103e027420dc289a1a2800018793bc2b43683853a2",
+      "codec": "pcm_s16be",
+      "sample_rate": 44100,
+      "channels": 1,
+      "container_duration_seconds": 1.5,
+      "embedded_tags": {
+        "title": "ITL Media 02 AIFF PCM16",
+        "artist": "ITL Synthetic Artist 02",
+        "album": "ITL Media Album 02"
+      }
+    },
+    {
+      "id": "media-mp3",
+      "file": "itl_media_03_mp3.mp3",
+      "size_bytes": 12675,
+      "sha256": "fbd6e772b8bf6e9fbf02ac6b78e74970e45451389f35520250c9c21425fccd87",
+      "codec": "mp3",
+      "sample_rate": 44100,
+      "channels": 1,
+      "container_duration_seconds": 1.5,
+      "embedded_tags": {
+        "title": "ITL Media 03 MP3",
+        "artist": "ITL Synthetic Artist 03",
+        "album": "ITL Media Album 03"
+      }
+    },
+    {
+      "id": "media-aac-m4a",
+      "file": "itl_media_04_aac.m4a",
+      "size_bytes": 13594,
+      "sha256": "b2dc2bc255fc5e3619938a1f4339397bf08db65db2b97018a8555715ef0f913f",
+      "codec": "aac",
+      "sample_rate": 44100,
+      "channels": 1,
+      "container_duration_seconds": 1.5,
+      "embedded_tags": {
+        "title": "ITL Media 04 AAC M4A",
+        "artist": "ITL Synthetic Artist 04",
+        "album": "ITL Media Album 04"
+      }
+    },
+    {
+      "id": "media-alac-m4a",
+      "file": "itl_media_05_alac.m4a",
+      "size_bytes": 25924,
+      "sha256": "1b1ed61f5f17d86cf7947a77a932d22ca25690ae09a7ef84468697b2bbb627a5",
+      "codec": "alac",
+      "sample_rate": 44100,
+      "channels": 1,
+      "container_duration_seconds": 1.5,
+      "embedded_tags": {
+        "title": "ITL Media 05 ALAC M4A",
+        "artist": "ITL Synthetic Artist 05",
+        "album": "ITL Media Album 05"
+      }
+    }
+  ],
+  "v1_files_unchanged": 27,
+  "single_thread_command_records_verified": 22,
+  "command_records": [
+    "primary\\logs\\media-aac-m4a-decode.json",
+    "primary\\logs\\media-aac-m4a-encode.json",
+    "primary\\logs\\media-aac-m4a-ffprobe.json",
+    "primary\\logs\\media-aiff-pcm16-ffprobe.json",
+    "primary\\logs\\media-aiff-pcm16-v2-decode.json",
+    "primary\\logs\\media-alac-m4a-decode.json",
+    "primary\\logs\\media-alac-m4a-encode.json",
+    "primary\\logs\\media-alac-m4a-ffprobe.json",
+    "primary\\logs\\media-mp3-decode.json",
+    "primary\\logs\\media-mp3-encode.json",
+    "primary\\logs\\media-mp3-ffprobe.json",
+    "primary\\logs\\media-wav-pcm16-ffprobe.json",
+    "primary\\logs\\media-wav-pcm16-v2-decode.json",
+    "reproduction\\logs\\media-aac-m4a-decode.json",
+    "reproduction\\logs\\media-aac-m4a-encode.json",
+    "reproduction\\logs\\media-aac-m4a-ffprobe.json",
+    "reproduction\\logs\\media-alac-m4a-decode.json",
+    "reproduction\\logs\\media-alac-m4a-encode.json",
+    "reproduction\\logs\\media-alac-m4a-ffprobe.json",
+    "reproduction\\logs\\media-mp3-decode.json",
+    "reproduction\\logs\\media-mp3-encode.json",
+    "reproduction\\logs\\media-mp3-ffprobe.json"
+  ],
+  "byte_exact_reproduction": {
+    "status": "passed",
+    "cases": [
+      {
+        "id": "media-mp3",
+        "byte_exact_regeneration": true,
+        "encoded_sha256": "fbd6e772b8bf6e9fbf02ac6b78e74970e45451389f35520250c9c21425fccd87",
+        "decoded_pcm_sha256": "402cdd8c2690fd1ffa947c87291aa9a1eb8d6d70541cba4fc30399d968ffd2f7"
+      },
+      {
+        "id": "media-aac-m4a",
+        "byte_exact_regeneration": true,
+        "encoded_sha256": "b2dc2bc255fc5e3619938a1f4339397bf08db65db2b97018a8555715ef0f913f",
+        "decoded_pcm_sha256": "b5094ab0b5995fd4f06823e59b6d60ad32c5b473036a59ff3136346ff64b19d7"
+      },
+      {
+        "id": "media-alac-m4a",
+        "byte_exact_regeneration": true,
+        "encoded_sha256": "1b1ed61f5f17d86cf7947a77a932d22ca25690ae09a7ef84468697b2bbb627a5",
+        "decoded_pcm_sha256": "8e6145fde5ede33ff049b3dee264c228f0b9abdbfff0ba70bd3e193b0c905b72"
+      }
+    ]
+  },
+  "native_acceptance": "untested",
+  "binary_provenance_reverified": true
+}

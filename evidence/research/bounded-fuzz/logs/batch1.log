@@ -1,0 +1,50 @@
+{
+  "status": "completed_selected_corpus",
+  "planned": 503,
+  "actually_executed": 503,
+  "unexecuted": 0,
+  "by_family": {
+    "atomic": {
+      "refused": 40,
+      "accepted": 8
+    },
+    "boundary": {
+      "accepted": 16,
+      "refused": 16
+    },
+    "container": {
+      "refused": 79,
+      "accepted": 49
+    },
+    "control": {
+      "accepted": 7
+    },
+    "frame": {
+      "refused": 89,
+      "accepted": 39
+    },
+    "identity_ref": {
+      "refused": 96
+    },
+    "json": {
+      "refused": 59,
+      "accepted": 5
+    }
+  },
+  "anomaly_count": 0,
+  "elapsed_seconds": 1.7161082999991777,
+  "max_case_ms": 29.2488,
+  "resources": {
+    "peak_working_set_bytes": 39305216,
+    "peak_pagefile_bytes": 30363648,
+    "private_bytes": 28094464,
+    "own_phase_disk_bytes": 480266,
+    "measurement": "Windows GetProcessMemoryInfo of current Python only; OS peak working set and peak pagefile/private metrics after every executed case, disk sum at close; not whole-environment memory"
+  },
+  "preservation": {
+    "old_identity_artifacts_unchanged": true,
+    "all7_input_hashes_unchanged": true,
+    "exported_source_unchanged": true
+  },
+  "completed_at_utc": "2026-09-09T15:37:03.328561+00:00"
+}

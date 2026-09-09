@@ -1,0 +1,823 @@
+{
+  "source_independent_candidate": {
+    "path": "D:\\a\\_temp\\gha-mcp\\WINDOWS_RESEARCH_RUN\\work\\itl\\reports\\add-constructor\\candidates\\fresh-037-v2.itl",
+    "bytes": 4446,
+    "mtime_ns": 1788966876498465900,
+    "sha256": "a813f8ad7d493214aaefc9f20d536fc86883e511dfeaf30dd8735baf5895dc39",
+    "file_attributes": 32
+  },
+  "live_copy_before": {
+    "path": "D:\\a\\_temp\\gha-mcp\\WINDOWS_RESEARCH_RUN\\work\\itl\\fixtures\\dynamic\\phase3\\live\\iTunes Library.itl",
+    "bytes": 4446,
+    "mtime_ns": 1788966876498465900,
+    "sha256": "a813f8ad7d493214aaefc9f20d536fc86883e511dfeaf30dd8735baf5895dc39",
+    "file_attributes": 32
+  },
+  "media_input": {
+    "path": "D:\\a\\_temp\\gha-mcp\\WINDOWS_RESEARCH_RUN\\work\\itl\\fixtures\\dynamic\\phase3\\control-media\\allocator-followup.wav",
+    "bytes": 88244,
+    "mtime_ns": 1788952792633317400,
+    "sha256": "c9ca928550abefdb3d209b6d0f4ea067a64b85924be5eca2475da3d40dbe2920",
+    "file_attributes": 32
+  },
+  "ui": [
+    {
+      "action": "dismiss_audio_warning",
+      "pid": 3164,
+      "window": {
+        "hwnd": 2097772,
+        "pid": 3164,
+        "class": "iTunesCustomModalDialog",
+        "title": "iTunes",
+        "children": [
+          {
+            "hwnd": 2622048,
+            "class": "Static",
+            "text": "iTunes has detected a problem with your audio configuration.\rAudio/Video playback may not operate properly.",
+            "id": 101,
+            "enabled": true,
+            "visible": true
+          },
+          {
+            "hwnd": 13042002,
+            "class": "Static",
+            "text": "",
+            "id": 103,
+            "enabled": true,
+            "visible": false
+          },
+          {
+            "hwnd": 19530254,
+            "class": "Button",
+            "text": "",
+            "id": 104,
+            "enabled": true,
+            "visible": false
+          },
+          {
+            "hwnd": 1704508,
+            "class": "Button",
+            "text": "OK",
+            "id": 1,
+            "enabled": true,
+            "visible": true
+          },
+          {
+            "hwnd": 2097736,
+            "class": "Button",
+            "text": "More Info",
+            "id": 105,
+            "enabled": true,
+            "visible": false
+          },
+          {
+            "hwnd": 1442396,
+            "class": "Static",
+            "text": "",
+            "id": 102,
+            "enabled": true,
+            "visible": true
+          }
+        ]
+      }
+    }
+  ],
+  "classification": "Native AddFile on a separate working copy of the already-qualified independent candidate; not an independent-writer acceptance case.",
+  "itunes_pid": 3164,
+  "worker_exit_code": 0,
+  "itunes_exit_code": 0,
+  "ok": true,
+  "new_track_pid": "F20377F9F2DAF23E",
+  "new_track": {
+    "persistent_id": "F20377F9F2DAF23E",
+    "Name": "allocator-followup",
+    "Artist": "",
+    "Album": "",
+    "AlbumArtist": "",
+    "Composer": "",
+    "Genre": "",
+    "Comment": "",
+    "Grouping": "",
+    "Lyrics": "",
+    "SortName": "",
+    "SortArtist": "",
+    "SortAlbum": "",
+    "SortAlbumArtist": "",
+    "Rating": 0,
+    "AlbumRating": 0,
+    "PlayedCount": 0,
+    "PlayedDate": "1899-12-30T00:00:00+00:00",
+    "SkippedCount": 0,
+    "SkippedDate": "1899-12-30T00:00:00+00:00",
+    "DateAdded": "2026-09-09T15:47:18+00:00",
+    "ModificationDate": "2026-09-09T11:19:52+00:00",
+    "TrackNumber": 0,
+    "TrackCount": 0,
+    "DiscNumber": 0,
+    "DiscCount": 0,
+    "Year": 0,
+    "BPM": 0,
+    "Compilation": false,
+    "Enabled": true,
+    "VolumeAdjustment": 0,
+    "Location": "D:\\a\\_temp\\gha-mcp\\WINDOWS_RESEARCH_RUN\\work\\itl\\fixtures\\dynamic\\phase3\\control-media\\allocator-followup.wav",
+    "Duration": 1,
+    "SampleRate": 44100,
+    "BitRate": 705,
+    "Size": 88244,
+    "TrackDatabaseID": 172,
+    "TrackID": 176,
+    "PlayOrderIndex": 2,
+    "Unplayed": true,
+    "RatingKind": 1,
+    "AlbumRatingKind": 1
+  },
+  "old_pids_preserved": true,
+  "ordinary_playlists_preserved": true,
+  "saved": {
+    "path": "D:\\a\\_temp\\gha-mcp\\WINDOWS_RESEARCH_RUN\\work\\itl\\fixtures\\dynamic\\phase3\\snapshots\\native-allocation-after-constructor037-v2.itl",
+    "bytes": 6051,
+    "mtime_ns": 1788968842523091800,
+    "sha256": "c583c45277d38ee795f80d6a4d810f095bee862ce6a6769ce5e5b311c7135db7",
+    "file_attributes": 32
+  },
+  "raw_profile": {
+    "file": {
+      "path": "D:\\a\\_temp\\gha-mcp\\WINDOWS_RESEARCH_RUN\\work\\itl\\fixtures\\dynamic\\phase3\\snapshots\\native-allocation-after-constructor037-v2.itl",
+      "bytes": 6051,
+      "mtime_ns": 1788968842523091800,
+      "sha256": "c583c45277d38ee795f80d6a4d810f095bee862ce6a6769ce5e5b311c7135db7",
+      "file_attributes": 32
+    },
+    "file_pid": "D2F61BE0A69CA302",
+    "expanded_sha256": "e1dfb7e6426fffbffcca93d08c8cfe3a99fd9acce4d7c31693c43c47c7c0e9e9",
+    "sections": [
+      {
+        "type": 16,
+        "bytes": 240,
+        "sha256": "91e4e881a6d3a18a97948ad30566874fa26c7102e553f0169a908badf777aa20"
+      },
+      {
+        "type": 12,
+        "bytes": 542,
+        "sha256": "7a930b9408133d1b89fdaf4cb168fc117ab76c4babdaaefb18e274aa540d9f94"
+      },
+      {
+        "type": 9,
+        "bytes": 811,
+        "sha256": "09f96744a84baf4be5a0678b4251f9ecbb33127a43969f6823cc7366bd64076c"
+      },
+      {
+        "type": 11,
+        "bytes": 760,
+        "sha256": "8b26e81bf9ab3025f41e6a299de3e0893fe4247adbd85c0bde027c8de53d580e"
+      },
+      {
+        "type": 1,
+        "bytes": 6095,
+        "sha256": "654ce39e7fe9a56f0f33863fc07e918225b4787d564d0835c793955b2d1f8e16"
+      },
+      {
+        "type": 13,
+        "bytes": 188,
+        "sha256": "a2c1e702bb1cc9ed8d2346933aacff4bd76a3850935e6cf349d73f6a8aab4d31"
+      },
+      {
+        "type": 23,
+        "bytes": 192,
+        "sha256": "37b5ad64a65279bb325176784a55d7c88bdd9be557fc588ca7fbcd5dfbd3c4e2"
+      },
+      {
+        "type": 2,
+        "bytes": 103005,
+        "sha256": "f355648b4c4fae1809bcf7fab542ea47cafd42734bb898ad2c42035eb6761eea"
+      },
+      {
+        "type": 14,
+        "bytes": 188,
+        "sha256": "70ec81865ef6dfad0ca32ac139e08f2e52c191235f7ea831ee18618908295760"
+      },
+      {
+        "type": 21,
+        "bytes": 1107,
+        "sha256": "ef51be68c210638978e9d8177462a7882e4d1f06c2e146a37095a25580baab81"
+      },
+      {
+        "type": 4,
+        "bytes": 198,
+        "sha256": "8ff6515e21e5f7ac029dbc6b89c4a1b3afa234ea5bb50f5de7826e03e98efc0d"
+      }
+    ],
+    "tracks": {
+      "D018EAABC195E072": {
+        "local_id": 77,
+        "album_id": 71,
+        "artist_id": 75,
+        "text": {
+          "2": "A",
+          "4": "合成 Artist Ω",
+          "27": "合成アルバムArtist",
+          "3": "Synthetic Album",
+          "8": "One-field comment — 測定",
+          "13": "D:\\a\\_temp\\gha-mcp\\WINDOWS_RESEARCH_RUN\\work\\itl\\fixtures\\dynamic\\media\\alpha.wav",
+          "11": "file://localhost/D:/a/_temp/gha-mcp/WINDOWS_RESEARCH_RUN/work/itl/fixtures/dynamic/media/alpha.wav"
+        },
+        "record_sha256": "b1e7e0783aa821d7f6a2876d8014b6ff5462a20bffb9cc59ee687ee795463589"
+      },
+      "8F11E62B0DC9F837": {
+        "local_id": 79,
+        "album_id": 69,
+        "artist_id": 73,
+        "text": {
+          "2": "beta",
+          "13": "D:\\a\\_temp\\gha-mcp\\WINDOWS_RESEARCH_RUN\\work\\itl\\fixtures\\dynamic\\media\\beta.wav",
+          "11": "file://localhost/D:/a/_temp/gha-mcp/WINDOWS_RESEARCH_RUN/work/itl/fixtures/dynamic/media/beta.wav"
+        },
+        "record_sha256": "2c9645cd9117e92f784a6dcc447b3ff173894b6a1c7c5c3196e620bd1f59c5a7"
+      },
+      "C8ADF4DC10AFC270": {
+        "local_id": 81,
+        "album_id": 70,
+        "artist_id": 74,
+        "text": {
+          "2": "gamma",
+          "13": "D:\\a\\_temp\\gha-mcp\\WINDOWS_RESEARCH_RUN\\work\\itl\\fixtures\\dynamic\\media\\gamma.wav",
+          "11": "file://localhost/D:/a/_temp/gha-mcp/WINDOWS_RESEARCH_RUN/work/itl/fixtures/dynamic/media/gamma.wav"
+        },
+        "record_sha256": "cc1dfdfec2c67fc48a1c193938cb4c2c93e8298fc9736e017bd408e3c2cffaf0"
+      },
+      "412ABAD099FB1F36": {
+        "local_id": 83,
+        "album_id": 72,
+        "artist_id": 76,
+        "text": {
+          "2": "Fresh Constructed WAV 037",
+          "13": "D:\\a\\_temp\\gha-mcp\\WINDOWS_RESEARCH_RUN\\work\\itl\\fixtures\\dynamic\\phase3\\constructed-media\\fresh-constructor-037.wav",
+          "11": "file://localhost/D:/a/_temp/gha-mcp/WINDOWS_RESEARCH_RUN/work/itl/fixtures/dynamic/phase3/constructed-media/fresh-constructor-037.wav"
+        },
+        "record_sha256": "19b32d884fcb98513be84f84d5d66526625f7e58493efb6c92b5af77a6ef6d24"
+      },
+      "F20377F9F2DAF23E": {
+        "local_id": 172,
+        "album_id": 174,
+        "artist_id": 175,
+        "text": {
+          "2": "allocator-followup",
+          "13": "D:\\a\\_temp\\gha-mcp\\WINDOWS_RESEARCH_RUN\\work\\itl\\fixtures\\dynamic\\phase3\\control-media\\allocator-followup.wav",
+          "11": "file://localhost/D:/a/_temp/gha-mcp/WINDOWS_RESEARCH_RUN/work/itl/fixtures/dynamic/phase3/control-media/allocator-followup.wav"
+        },
+        "record_sha256": "38d68516fff9f3127264c0bc9f68f4abfd15a775eff033d8030623a46cc4568b"
+      }
+    },
+    "playlists": {
+      "9751B29CECF5340B": {
+        "name": "####!####",
+        "is_master": true,
+        "kind_word": 0,
+        "member_pids": [
+          "D018EAABC195E072",
+          "8F11E62B0DC9F837",
+          "C8ADF4DC10AFC270",
+          "412ABAD099FB1F36",
+          "F20377F9F2DAF23E"
+        ]
+      },
+      "04E2F2CF5464E974": {
+        "name": "Downloaded",
+        "is_master": false,
+        "kind_word": 16640,
+        "member_pids": [
+          "D018EAABC195E072",
+          "8F11E62B0DC9F837",
+          "C8ADF4DC10AFC270",
+          "412ABAD099FB1F36",
+          "F20377F9F2DAF23E"
+        ]
+      },
+      "F799EAAF82E6D6D2": {
+        "name": "Music",
+        "is_master": false,
+        "kind_word": 1024,
+        "member_pids": [
+          "D018EAABC195E072",
+          "8F11E62B0DC9F837",
+          "C8ADF4DC10AFC270",
+          "412ABAD099FB1F36",
+          "F20377F9F2DAF23E"
+        ]
+      },
+      "B6FAFDD1A965974E": {
+        "name": "Music Videos",
+        "is_master": false,
+        "kind_word": 12032,
+        "member_pids": []
+      },
+      "06B3DCCE00D9D561": {
+        "name": "TV & Movies",
+        "is_master": false,
+        "kind_word": 16384,
+        "member_pids": []
+      },
+      "24C9E83187DD10FC": {
+        "name": "Rentals",
+        "is_master": false,
+        "kind_word": 1792,
+        "member_pids": []
+      },
+      "70B21584CA504C4C": {
+        "name": "Downloaded",
+        "is_master": false,
+        "kind_word": 16896,
+        "member_pids": []
+      },
+      "DFF0736451283253": {
+        "name": "Movies",
+        "is_master": false,
+        "kind_word": 512,
+        "member_pids": []
+      },
+      "DFE2CB99595B0C51": {
+        "name": "Home Videos",
+        "is_master": false,
+        "kind_word": 12288,
+        "member_pids": []
+      },
+      "EEBABBF800A27358": {
+        "name": "Downloaded",
+        "is_master": false,
+        "kind_word": 17152,
+        "member_pids": []
+      },
+      "4381F95B09864C81": {
+        "name": "TV Shows",
+        "is_master": false,
+        "kind_word": 768,
+        "member_pids": []
+      },
+      "4B5E4C2AB261986A": {
+        "name": "Podcasts",
+        "is_master": false,
+        "kind_word": 2561,
+        "member_pids": []
+      },
+      "60BD8E3BBF2C43F5": {
+        "name": "Audiobooks",
+        "is_master": false,
+        "kind_word": 1280,
+        "member_pids": []
+      },
+      "D6494A456368F014": {
+        "name": "Genius",
+        "is_master": false,
+        "kind_word": 6656,
+        "member_pids": []
+      },
+      "5F8F30E1ABE6E4A2": {
+        "name": "Synthetic 調査 🎼",
+        "is_master": false,
+        "kind_word": 0,
+        "member_pids": [
+          "8F11E62B0DC9F837",
+          "C8ADF4DC10AFC270"
+        ]
+      }
+    },
+    "albums": {
+      "69": {
+        "persistent_id": "EC341D8E4BAE64D8",
+        "record_sha256": "17fa0390a93d03f89c2552d0ffba8d487459d9c2d6fd8a923dec6f75cba1ea72"
+      },
+      "70": {
+        "persistent_id": "7938F7EB5479B221",
+        "record_sha256": "4734014030363fb85178fcb4842af13016726b1a68eaf9613c0296337d673d25"
+      },
+      "71": {
+        "persistent_id": "D5D22B6972B742E3",
+        "record_sha256": "5d23171bed269267dc8efe9f801b1d0927f52ab486ee859098dc4b37c93b091f"
+      },
+      "72": {
+        "persistent_id": "1EEDD0B3934705E2",
+        "record_sha256": "fe8122ee6157cfaa3d569661e05b16740e5181a8776a7965737244b087463d47"
+      },
+      "174": {
+        "persistent_id": "DECA28C4C24EA043",
+        "record_sha256": "d38fe7dcdee81534d94e6b97c19d29085c0dbc049f9cc3a2a5994b62a2910779"
+      }
+    },
+    "artists": {
+      "73": {
+        "persistent_id": "6B704814BA5BB154",
+        "record_sha256": "d66d599215759795167dbf5a1d297874bb5ab7d3340e8e87ff75b49e50657ac8"
+      },
+      "74": {
+        "persistent_id": "E05B7D1331CB740A",
+        "record_sha256": "4af2fbc108b35c9eec58137ea5e7903a2d7d1fd2520f9f7ad5af3119040422da"
+      },
+      "75": {
+        "persistent_id": "7B02C419C094D021",
+        "record_sha256": "583311ff36cbd414356af4fcf5cbd775f0e43ab596cc849c143fc7fa8e7dc617"
+      },
+      "76": {
+        "persistent_id": "347ED705214FD5F7",
+        "record_sha256": "da00bb8df7783773fd6c9cbe061a9962ef6221a583f2a5bd3739c3612cf84046"
+      },
+      "175": {
+        "persistent_id": "DA3568432298DBBD",
+        "record_sha256": "f79651ee169cf600ddc5df93eb7d368957f250bd4262225217ab9377ac41a8ae"
+      }
+    }
+  },
+  "reload_cycles": [
+    {
+      "name": "native-allocation-control",
+      "cycle": 1,
+      "ui": [
+        {
+          "action": "dismiss_audio_warning",
+          "pid": 2988,
+          "window": {
+            "hwnd": 10093174,
+            "pid": 2988,
+            "class": "iTunesCustomModalDialog",
+            "title": "iTunes",
+            "children": [
+              {
+                "hwnd": 13369942,
+                "class": "Static",
+                "text": "iTunes has detected a problem with your audio configuration.\rAudio/Video playback may not operate properly.",
+                "id": 101,
+                "enabled": true,
+                "visible": true
+              },
+              {
+                "hwnd": 9371912,
+                "class": "Static",
+                "text": "",
+                "id": 103,
+                "enabled": true,
+                "visible": false
+              },
+              {
+                "hwnd": 3015216,
+                "class": "Button",
+                "text": "",
+                "id": 104,
+                "enabled": true,
+                "visible": false
+              },
+              {
+                "hwnd": 19661326,
+                "class": "Button",
+                "text": "OK",
+                "id": 1,
+                "enabled": true,
+                "visible": true
+              },
+              {
+                "hwnd": 2359414,
+                "class": "Button",
+                "text": "More Info",
+                "id": 105,
+                "enabled": true,
+                "visible": false
+              },
+              {
+                "hwnd": 1638760,
+                "class": "Static",
+                "text": "",
+                "id": 102,
+                "enabled": true,
+                "visible": true
+              }
+            ]
+          }
+        }
+      ],
+      "active_library": "D:\\a\\_temp\\gha-mcp\\WINDOWS_RESEARCH_RUN\\work\\itl\\fixtures\\dynamic\\phase3\\live\\iTunes Library.itl",
+      "prelaunch": {
+        "path": "D:\\a\\_temp\\gha-mcp\\WINDOWS_RESEARCH_RUN\\work\\itl\\fixtures\\dynamic\\phase3\\live\\iTunes Library.itl",
+        "bytes": 6051,
+        "mtime_ns": 1788968842523091800,
+        "sha256": "c583c45277d38ee795f80d6a4d810f095bee862ce6a6769ce5e5b311c7135db7",
+        "file_attributes": 32
+      },
+      "profile_before": {
+        "file_bytes": 6051,
+        "file_sha256": "c583c45277d38ee795f80d6a4d810f095bee862ce6a6769ce5e5b311c7135db7",
+        "header_bytes": 144,
+        "encryption_flag": 2,
+        "compression_flag": 1,
+        "cap": 102400,
+        "body_bytes": 5907,
+        "encrypted_bytes": 5904,
+        "clear_tail_bytes": 3,
+        "expanded_bytes": 113326,
+        "expanded_sha256": "e1dfb7e6426fffbffcca93d08c8cfe3a99fd9acce4d7c31693c43c47c7c0e9e9",
+        "decoded_body_sha256": "989c64e2b5370374585018de7a4d92f85304d1c468e7470e8aa5fa7d07cad810",
+        "header_hex": "6864666d00000090000017a3004300010a31322e31332e31302e330000000000000000000000000000000000000000000000000bd2f61be0a69ca3020000006f02020001000000050000000f000000050038010000000005000000640001900000000000000000000000000000000000e6c7300a00000000000000000000000000000000000000000000000000000000",
+        "target_persisted_record": {
+          "persistent_id": "F20377F9F2DAF23E",
+          "raw_0x6d": 1,
+          "raw_0xee": 0,
+          "raw_0x290_u32": 0,
+          "header_bytes": 756,
+          "record_bytes": 1167,
+          "record_sha256": "38d68516fff9f3127264c0bc9f68f4abfd15a775eff033d8030623a46cc4568b"
+        }
+      },
+      "media_prelaunch": [
+        {
+          "path": "D:\\a\\_temp\\gha-mcp\\WINDOWS_RESEARCH_RUN\\work\\itl\\fixtures\\dynamic\\media\\alpha.wav",
+          "bytes": 88244,
+          "mtime_ns": 1788952792633317400,
+          "sha256": "c9ca928550abefdb3d209b6d0f4ea067a64b85924be5eca2475da3d40dbe2920",
+          "file_attributes": 32
+        },
+        {
+          "path": "D:\\a\\_temp\\gha-mcp\\WINDOWS_RESEARCH_RUN\\work\\itl\\fixtures\\dynamic\\media\\beta.wav",
+          "bytes": 88244,
+          "mtime_ns": 1788952792649909300,
+          "sha256": "8ff22420cc586cfdaa5a865db713c3a2d92c2bcde2991a71cca447e314d5ce5a",
+          "file_attributes": 32
+        },
+        {
+          "path": "D:\\a\\_temp\\gha-mcp\\WINDOWS_RESEARCH_RUN\\work\\itl\\fixtures\\dynamic\\media\\gamma.wav",
+          "bytes": 88244,
+          "mtime_ns": 1788952792664977600,
+          "sha256": "de7fa062391c8d6ef91385f64d4d04bf990f4ea5c743cc535d305edbc0b34136",
+          "file_attributes": 32
+        },
+        {
+          "path": "D:\\a\\_temp\\gha-mcp\\WINDOWS_RESEARCH_RUN\\work\\itl\\fixtures\\dynamic\\phase3\\constructed-media\\fresh-constructor-037.wav",
+          "bytes": 88244,
+          "mtime_ns": 1788962400000000000,
+          "sha256": "eef503b3075e1ee675516a824360f82f5db1cb73da51bf9f6c1b402b0af0d4ae",
+          "file_attributes": 32
+        },
+        {
+          "path": "D:\\a\\_temp\\gha-mcp\\WINDOWS_RESEARCH_RUN\\work\\itl\\fixtures\\dynamic\\phase3\\control-media\\allocator-followup.wav",
+          "bytes": 88244,
+          "mtime_ns": 1788952792633317400,
+          "sha256": "c9ca928550abefdb3d209b6d0f4ea067a64b85924be5eca2475da3d40dbe2920",
+          "file_attributes": 32
+        }
+      ],
+      "itunes_pid": 2988,
+      "worker_command": [
+        "D:\\a\\_temp\\gha-mcp\\WINDOWS_RESEARCH_RUN\\work\\itl\\tools\\py\\Scripts\\python.exe",
+        "-B",
+        "-u",
+        "D:\\a\\_temp\\gha-mcp\\WINDOWS_RESEARCH_RUN\\work\\itl\\wt\\dynamic\\scripts\\windows\\import_native.py",
+        "worker",
+        "--spec",
+        "D:\\a\\_temp\\gha-mcp\\WINDOWS_RESEARCH_RUN\\work\\itl\\reports\\dynamic\\phase3\\runs\\native-allocation-control-reload1\\spec.json",
+        "--out",
+        "D:\\a\\_temp\\gha-mcp\\WINDOWS_RESEARCH_RUN\\work\\itl\\reports\\dynamic\\phase3\\runs\\native-allocation-control-reload1\\com.json"
+      ],
+      "worker_exit_code": 0,
+      "itunes_exit_code": 0,
+      "saved": {
+        "path": "D:\\a\\_temp\\gha-mcp\\WINDOWS_RESEARCH_RUN\\work\\itl\\fixtures\\dynamic\\phase3\\snapshots\\native-allocation-control-reload1.itl",
+        "bytes": 6061,
+        "mtime_ns": 1788968871716169200,
+        "sha256": "b5e0b0f0524c93001443024c565380dc2242905e56d7b8230e98742006ecb597",
+        "file_attributes": 32
+      },
+      "profile_after": {
+        "file_bytes": 6061,
+        "file_sha256": "b5e0b0f0524c93001443024c565380dc2242905e56d7b8230e98742006ecb597",
+        "header_bytes": 144,
+        "encryption_flag": 2,
+        "compression_flag": 1,
+        "cap": 102400,
+        "body_bytes": 5917,
+        "encrypted_bytes": 5904,
+        "clear_tail_bytes": 13,
+        "expanded_bytes": 113327,
+        "expanded_sha256": "bb2e2252eb65809f689276cda541b93428279b24e963b276a7fffd2374263981",
+        "decoded_body_sha256": "45349e8460b5caff49316aac6b697d612cb93c154dd95d958593c9bd87bc76ed",
+        "header_hex": "6864666d00000090000017ad004300010a31322e31332e31302e330000000000000000000000000000000000000000000000000bd2f61be0a69ca3020000006f02020001000000050000000f000000050038010000000005000000640001900000000000000000000000000000000000e6c7302200000000000000000000000000000000000000000000000000000000",
+        "target_persisted_record": {
+          "persistent_id": "F20377F9F2DAF23E",
+          "raw_0x6d": 1,
+          "raw_0xee": 0,
+          "raw_0x290_u32": 2000,
+          "header_bytes": 756,
+          "record_bytes": 1167,
+          "record_sha256": "1d84b7a76e937adfb8e143f7462fd29818cc31ab09152e9d35ecd7252c1e9f84"
+        }
+      },
+      "accepted": true,
+      "observation_completed": true,
+      "errors": [],
+      "final_target": {
+        "Name": "allocator-followup",
+        "Unplayed": true,
+        "Rating": 0,
+        "RatingKind": 1,
+        "AlbumRating": 0,
+        "AlbumRatingKind": 1,
+        "PlayedCount": 0,
+        "ModificationDate": "2026-09-09T11:19:52+00:00"
+      },
+      "com_evidence": "D:\\a\\_temp\\gha-mcp\\WINDOWS_RESEARCH_RUN\\work\\itl\\reports\\dynamic\\phase3\\runs\\native-allocation-control-reload1\\com.json",
+      "media_unchanged": true
+    },
+    {
+      "name": "native-allocation-control",
+      "cycle": 2,
+      "ui": [
+        {
+          "action": "dismiss_audio_warning",
+          "pid": 6608,
+          "window": {
+            "hwnd": 1638948,
+            "pid": 6608,
+            "class": "iTunesCustomModalDialog",
+            "title": "iTunes",
+            "children": [
+              {
+                "hwnd": 11141470,
+                "class": "Static",
+                "text": "iTunes has detected a problem with your audio configuration.\rAudio/Video playback may not operate properly.",
+                "id": 101,
+                "enabled": true,
+                "visible": true
+              },
+              {
+                "hwnd": 5308770,
+                "class": "Static",
+                "text": "",
+                "id": 103,
+                "enabled": true,
+                "visible": false
+              },
+              {
+                "hwnd": 2294344,
+                "class": "Button",
+                "text": "",
+                "id": 104,
+                "enabled": true,
+                "visible": false
+              },
+              {
+                "hwnd": 3146288,
+                "class": "Button",
+                "text": "OK",
+                "id": 1,
+                "enabled": true,
+                "visible": true
+              },
+              {
+                "hwnd": 10945098,
+                "class": "Button",
+                "text": "More Info",
+                "id": 105,
+                "enabled": true,
+                "visible": false
+              },
+              {
+                "hwnd": 2294282,
+                "class": "Static",
+                "text": "",
+                "id": 102,
+                "enabled": true,
+                "visible": true
+              }
+            ]
+          }
+        }
+      ],
+      "active_library": "D:\\a\\_temp\\gha-mcp\\WINDOWS_RESEARCH_RUN\\work\\itl\\fixtures\\dynamic\\phase3\\live\\iTunes Library.itl",
+      "prelaunch": {
+        "path": "D:\\a\\_temp\\gha-mcp\\WINDOWS_RESEARCH_RUN\\work\\itl\\fixtures\\dynamic\\phase3\\live\\iTunes Library.itl",
+        "bytes": 6061,
+        "mtime_ns": 1788968866278419300,
+        "sha256": "b5e0b0f0524c93001443024c565380dc2242905e56d7b8230e98742006ecb597",
+        "file_attributes": 32
+      },
+      "profile_before": {
+        "file_bytes": 6061,
+        "file_sha256": "b5e0b0f0524c93001443024c565380dc2242905e56d7b8230e98742006ecb597",
+        "header_bytes": 144,
+        "encryption_flag": 2,
+        "compression_flag": 1,
+        "cap": 102400,
+        "body_bytes": 5917,
+        "encrypted_bytes": 5904,
+        "clear_tail_bytes": 13,
+        "expanded_bytes": 113327,
+        "expanded_sha256": "bb2e2252eb65809f689276cda541b93428279b24e963b276a7fffd2374263981",
+        "decoded_body_sha256": "45349e8460b5caff49316aac6b697d612cb93c154dd95d958593c9bd87bc76ed",
+        "header_hex": "6864666d00000090000017ad004300010a31322e31332e31302e330000000000000000000000000000000000000000000000000bd2f61be0a69ca3020000006f02020001000000050000000f000000050038010000000005000000640001900000000000000000000000000000000000e6c7302200000000000000000000000000000000000000000000000000000000",
+        "target_persisted_record": {
+          "persistent_id": "F20377F9F2DAF23E",
+          "raw_0x6d": 1,
+          "raw_0xee": 0,
+          "raw_0x290_u32": 2000,
+          "header_bytes": 756,
+          "record_bytes": 1167,
+          "record_sha256": "1d84b7a76e937adfb8e143f7462fd29818cc31ab09152e9d35ecd7252c1e9f84"
+        }
+      },
+      "media_prelaunch": [
+        {
+          "path": "D:\\a\\_temp\\gha-mcp\\WINDOWS_RESEARCH_RUN\\work\\itl\\fixtures\\dynamic\\media\\alpha.wav",
+          "bytes": 88244,
+          "mtime_ns": 1788952792633317400,
+          "sha256": "c9ca928550abefdb3d209b6d0f4ea067a64b85924be5eca2475da3d40dbe2920",
+          "file_attributes": 32
+        },
+        {
+          "path": "D:\\a\\_temp\\gha-mcp\\WINDOWS_RESEARCH_RUN\\work\\itl\\fixtures\\dynamic\\media\\beta.wav",
+          "bytes": 88244,
+          "mtime_ns": 1788952792649909300,
+          "sha256": "8ff22420cc586cfdaa5a865db713c3a2d92c2bcde2991a71cca447e314d5ce5a",
+          "file_attributes": 32
+        },
+        {
+          "path": "D:\\a\\_temp\\gha-mcp\\WINDOWS_RESEARCH_RUN\\work\\itl\\fixtures\\dynamic\\media\\gamma.wav",
+          "bytes": 88244,
+          "mtime_ns": 1788952792664977600,
+          "sha256": "de7fa062391c8d6ef91385f64d4d04bf990f4ea5c743cc535d305edbc0b34136",
+          "file_attributes": 32
+        },
+        {
+          "path": "D:\\a\\_temp\\gha-mcp\\WINDOWS_RESEARCH_RUN\\work\\itl\\fixtures\\dynamic\\phase3\\constructed-media\\fresh-constructor-037.wav",
+          "bytes": 88244,
+          "mtime_ns": 1788962400000000000,
+          "sha256": "eef503b3075e1ee675516a824360f82f5db1cb73da51bf9f6c1b402b0af0d4ae",
+          "file_attributes": 32
+        },
+        {
+          "path": "D:\\a\\_temp\\gha-mcp\\WINDOWS_RESEARCH_RUN\\work\\itl\\fixtures\\dynamic\\phase3\\control-media\\allocator-followup.wav",
+          "bytes": 88244,
+          "mtime_ns": 1788952792633317400,
+          "sha256": "c9ca928550abefdb3d209b6d0f4ea067a64b85924be5eca2475da3d40dbe2920",
+          "file_attributes": 32
+        }
+      ],
+      "itunes_pid": 6608,
+      "worker_command": [
+        "D:\\a\\_temp\\gha-mcp\\WINDOWS_RESEARCH_RUN\\work\\itl\\tools\\py\\Scripts\\python.exe",
+        "-B",
+        "-u",
+        "D:\\a\\_temp\\gha-mcp\\WINDOWS_RESEARCH_RUN\\work\\itl\\wt\\dynamic\\scripts\\windows\\import_native.py",
+        "worker",
+        "--spec",
+        "D:\\a\\_temp\\gha-mcp\\WINDOWS_RESEARCH_RUN\\work\\itl\\reports\\dynamic\\phase3\\runs\\native-allocation-control-reload2\\spec.json",
+        "--out",
+        "D:\\a\\_temp\\gha-mcp\\WINDOWS_RESEARCH_RUN\\work\\itl\\reports\\dynamic\\phase3\\runs\\native-allocation-control-reload2\\com.json"
+      ],
+      "worker_exit_code": 0,
+      "itunes_exit_code": 0,
+      "saved": {
+        "path": "D:\\a\\_temp\\gha-mcp\\WINDOWS_RESEARCH_RUN\\work\\itl\\fixtures\\dynamic\\phase3\\snapshots\\native-allocation-control-reload2.itl",
+        "bytes": 6062,
+        "mtime_ns": 1788968895732849800,
+        "sha256": "cb725b68e22aa2c110ad2ccc953cc204ea32301229facc03c0f10cf9694b8830",
+        "file_attributes": 32
+      },
+      "profile_after": {
+        "file_bytes": 6062,
+        "file_sha256": "cb725b68e22aa2c110ad2ccc953cc204ea32301229facc03c0f10cf9694b8830",
+        "header_bytes": 144,
+        "encryption_flag": 2,
+        "compression_flag": 1,
+        "cap": 102400,
+        "body_bytes": 5918,
+        "encrypted_bytes": 5904,
+        "clear_tail_bytes": 14,
+        "expanded_bytes": 113327,
+        "expanded_sha256": "5eea9e8ca8f4c0a3f963e323c35ad37c001441aa213a35bb768a5f6c03f21085",
+        "decoded_body_sha256": "ba2d7028ffe49280326b371716c7bd9b97aa9e1626a1a16c2edb0323dc225a17",
+        "header_hex": "6864666d00000090000017ae004300010a31322e31332e31302e330000000000000000000000000000000000000000000000000bd2f61be0a69ca3020000006f02020001000000050000000f000000050038010000000005000000640001900000000000000000000000000000000000e6c7303a00000000000000000000000000000000000000000000000000000000",
+        "target_persisted_record": {
+          "persistent_id": "F20377F9F2DAF23E",
+          "raw_0x6d": 1,
+          "raw_0xee": 0,
+          "raw_0x290_u32": 2000,
+          "header_bytes": 756,
+          "record_bytes": 1167,
+          "record_sha256": "1d84b7a76e937adfb8e143f7462fd29818cc31ab09152e9d35ecd7252c1e9f84"
+        }
+      },
+      "accepted": true,
+      "observation_completed": true,
+      "errors": [],
+      "final_target": {
+        "Name": "allocator-followup",
+        "Unplayed": true,
+        "Rating": 0,
+        "RatingKind": 1,
+        "AlbumRating": 0,
+        "AlbumRatingKind": 1,
+        "PlayedCount": 0,
+        "ModificationDate": "2026-09-09T11:19:52+00:00"
+      },
+      "com_evidence": "D:\\a\\_temp\\gha-mcp\\WINDOWS_RESEARCH_RUN\\work\\itl\\reports\\dynamic\\phase3\\runs\\native-allocation-control-reload2\\com.json",
+      "media_unchanged": true
+    }
+  ],
+  "two_reload_cycles_passed": true
+}

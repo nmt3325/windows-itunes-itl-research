@@ -82,3 +82,7 @@ AppleのEXE/MSI/DLL、他社実行ファイル、提供された個人のITL・�
 ## 曲追加の限定再現ツール
 
 `scripts/experimental-import/README.md` に、既知3入力SHAだけを受け入れる明示的opt-in CLIがあります。公開APIとは別物で、媒体のLocation移動や任意のITLへの追加は拒否します。新規WAV構築の歴史的builderは `evidence/research/constructor/`、既知クロスライブラリ手順は `evidence/research/cross-library/` にあります。これらの歴史的資料のnative-pending表記は作成時点の状態で、最新結果は `evidence/native/phase3/parent-independent-audit.json` を参照してください。
+
+## Final qualification supplement
+
+`evidence/final-supplement.json` records the final source and offline checks. It adds the independent final review, bounded historical fuzz results, encoded-media generation/provenance (not native-qualified formats), original generated WAV prerequisites, and native allocation/playback/restoration controls. The follow-up native AddFile allocation passed; the silent playback attempt did not establish playback. The original selected library bytes and volume were restored and iTunes exited normally. These controls are not extra independent writer candidates.

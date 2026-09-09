@@ -1,0 +1,114 @@
+{
+  "status": "REVIEW_PHASE3_DONE",
+  "task": "Bounded independent read-only audit of Name refresh, explicit Unplayed, and known-pool guards",
+  "reviewed_sha": "56069f1e2a17d9aea62c1d753b2bd93ed404a000",
+  "new_core_change_sha": "70c5b8251a56933ad1b4acf44eeacc718b1d226a",
+  "comparison_sha": "56309a258d7b1aadea72738561d1d9fae2e30bc0",
+  "worktree_sha_unchanged": "56309a258d7b1aadea72738561d1d9fae2e30bc0",
+  "source_pin": {
+    "method": "git archive of the assigned immutable commit; extracted into reviewer-owned reports, not a checkout or worktree change",
+    "archive": "source.tar",
+    "archive_bytes": 368640,
+    "archive_sha256": "bdc02661ad940a4672a90fd82d214bf2ec767a8ab5bef4702417f3cd3d37e6be",
+    "manifest": "source-manifest.json",
+    "files": 50,
+    "sha256": {
+      "itlkit/atoms.py": "0aff0098621427d9e0820fadc7758e065003edd9688b6ca169e9300fc5c78db4",
+      "itlkit/library.py": "0d4423683b2804e3f44d75d744863fb3a18abac26ffb16fc0dedebc03067d65c",
+      "itlkit/trackops.py": "e7b259177815bcf17e5441c15083bb4934e387a66c966429f111c596b3da3489",
+      "tests/test_codec_fresh_state.py": "6e915cac604e8233779840d83f187f5e88819788aa883b8401e730c8170ef68d",
+      "docs/format.md": "fc4922bf9e71439a610f18f22116f5ca6a1c9a17029ed643179e883aa5cfe993"
+    }
+  },
+  "summary": {
+    "pytest": {"total": 917, "passed": 912, "skipped": 5, "failed": 0, "errors": 0},
+    "independent_probe_groups_completed": 6,
+    "unexpected_probe_failures": 0,
+    "flag_subcases": 768,
+    "field_order_permutations": 24,
+    "invalid_unplayed_types": 11,
+    "known_shared_atom_refusal_cases": 15,
+    "original_donor_cow_hazards_now_refused": 4,
+    "existing_findings_still_reproduced": ["F1", "F2", "DATES-001"],
+    "new_core_defects_demonstrated_in_added_Name_Unplayed_pool_logic": 0,
+    "pytest_peak_working_set_bytes": 47976448,
+    "independent_probe_peak_working_set_bytes": 35999744,
+    "reviewer_native_runs": 0,
+    "interpretation": "A passed observation group can assert that an existing bug STILL reproduces. Six completed groups do not mean all existing findings are fixed."
+  },
+  "verified_improvements": [
+    {"id":"P3-NAME","result":"Changed nonempty Name clears only wire 0x6d bit0 in the supported 12.13.10.3/756-byte record. All 256 raw byte values were tested; upper bits, 0xee, rank/cache word 0x290 and unrelated track nodes remained unchanged. Serialized/reparsed Name matched. Same-value and empty-name controls do not clear the bit; the older supported version does not receive the new correction.","source":["itlkit/library.py:166-220"],"evidence":"probe-run-1/results.json:groups.flag_bits and groups.mixed_and_rollback","limit":"This certifies deterministic bit preservation, not native acceptance of every upper-bit pattern or empty/missing Name fallback."},
+    {"id":"P3-UNPLAYED","result":"The explicit Boolean getter/setter uses inverse bit0 at 0xee, independently of Name, rating and play_count. Both requested values were tested for all 256 raw byte values, with serialization/reparse and peer preservation. Eleven non-Boolean inputs refuse atomically; 24 field-order permutations and a late failing operation-list transaction preserve the intended success/rollback boundary.","source":["itlkit/library.py:148-164","itlkit/library.py:166-220"],"evidence":"probe-run-1/results.json:groups.flag_bits and groups.mixed_and_rollback","limit":"No simulated playback, COM setter side effects, implicit date updates, or PlayedCount-to-Unplayed inference is certified."},
+    {"id":"P3-POOLS","result":"Fifteen independent alias controls across track Name, genre, comment, composer, sort fields, miah301/302 and miih400/401 refuse without changing bytes or current node identities. Same integer in separate pools remains allowed. Unkeyed insertion into a populated explicit pool, conflicting existing bindings during text change, and a conflicting same-lineage restore refuse atomically.","source":["itlkit/atoms.py:9-45","itlkit/atoms.py:48-90","itlkit/trackops.py:123-168","itlkit/trackops.py:205-242"],"evidence":"probe-run-1/results.json:groups.known_pool_matrix","limit":"These are known-domain refusal guards, not a scoped allocator or general COW implementation. Raw reads can still preserve an already conflicting pool; that is not semantic resolution."}
+  ],
+  "old_identities_counterexamples": {
+    "old_report": "inputs/reports/identities/report.json",
+    "old_report_sha256": "a075d450adda2ccd914ddd2e7eb7f902210f49c3d8dec7884b529ab9dbba879e",
+    "old_scope": "56309 including 8454; old outcomes are read from the identities role's completed evidence, not retroactively attributed to 70c",
+    "fixture": "fixtures/dynamic/phase2/snapshots/donor032-reloaded.itl",
+    "fixture_sha256": "7edd4ea85ca937103165bb40a5656ba84cd9c08b73580beb2482d963f5728083",
+    "comparison": [
+      {"field":"album","before":"Returned a new object while reusing occupied album-pool ID1 for different text.","after":"UnsupportedError: shared album/artist object COW is not native-verified","bytes_unchanged":true},
+      {"field":"artist","before":"Returned conflicting artist-pool ID5 text.","after":"UnsupportedError: shared string atom requires unimplemented scoped COW","bytes_unchanged":true},
+      {"field":"album_artist","before":"Created new album/artist objects while reusing artist-pool ID1 for different text.","after":"UnsupportedError: shared album/artist object COW is not native-verified","bytes_unchanged":true},
+      {"field":"composer","before":"Inserted unkeyed ID0 after keyed artist-pool registration.","after":"UnsupportedError: new/unkeyed text in an explicit string pool requires unimplemented scoped allocation","bytes_unchanged":true}
+    ],
+    "positive_control":"A new Genre in the unused pool succeeds; all other 31 track node states and auxiliary node states remain unchanged.",
+    "classification":"The dangerous accepted transformations are now prevented. Their requested editing features remain unsupported; do not call this implemented COW.",
+    "source":["itlkit/atoms.py:48-90","itlkit/trackops.py:123-168"]
+  },
+  "known_remaining_findings": [
+    {"id":"F1","origin":"playlist-audit","severity":"high conditional on admitting this synthetic nested profile; native reachability unproven","status":"independently_reproduced_on_56069","fix_owner":"codec","title":"A retained grouped playlist item still contains a deleted track reference","source":["itlkit/trackops.py:245-267","itlkit/library.py:254-259","itlkit/library.py:402-438"],"result":"Public deletion returns and reparses with primary track2 absent but a recursively discovered mtph still references local2. Result bytes exactly match the original counterexample output hash.","evidence":"probe-run-1/known-F1-after.itl","after_sha256":"0b9d30c71a5987b45377bc9f859b54da2d4215eb80df0b5155f6566a3884b958","recommendation":"Reject unsupported grouped/extended item profiles across the admitted tree before mutation, or implement independently evidenced recursive semantics. No reviewer production fix was made."},
+    {"id":"F2","origin":"playlist-audit","severity":"medium guard-boundary inconsistency; native effect unknown","status":"independently_reproduced_on_56069","fix_owner":"codec","title":"Non-smart system definitions still bypass restoration matching","source":["itlkit/trackops.py:192-194","itlkit/trackops.py:205-242"],"result":"Both original synthetic unmatched-system and mismatched-kind before/donor pairs still accept restoration under the new pool guards. This remains a documented refusal-boundary gap, not demonstrated native loss.","evidence":["probe-run-1/known-F2-unmatched_system-after.itl","probe-run-1/known-F2-mismatched_kind-after.itl"],"recommendation":"Require matching modeled system definitions and understood classification/rule signatures, including non-smart system kinds. Preserve the separate original native-derived evidence; it was not rerun here."},
+    {"id":"DATES-001","origin":"dates","severity":"low, rare boundary data loss","status":"independently_reproduced_on_56069","fix_owner":"codec","title":"Negative fractional pre-epoch values still truncate to the unset sentinel","source":["itlkit/library.py:40-48"],"result":"1903-12-31T23:59:59 plus 1, 500000 or 999999 microseconds encodes as raw0 rather than refusing the out-of-range value. The prior integer HFS fix is not a fix for this fractional-boundary defect.","evidence":"probe-run-1/results.json:groups.preserved_existing_findings.evidence.DATES-001","recommendation":"Validate signed timedelta bounds before quantization and avoid float truncation across the lower bound, keeping the established wall-time policy."}
+  ],
+  "closed_native_evidence": {
+    "report":"inputs/reports/dynamic/phase3/first-handoff-1500.json",
+    "report_sha256":"3b2bf5d9bee5be09e47acf7629a379b247750e59b42faa16ea712a3656b73441",
+    "owner_report_status":"PARTIAL_NATIVE_HANDOFF; dynamic retains exclusive native ownership",
+    "independently_checked":"Four closed saved fixture hashes, complete recorded track PID sets/counts, target Name/Rating/PlayedCount/Unplayed plus raw6d/rawEE, and member multisets of all seven represented playlists agree with the handoff. No live library path was read.",
+    "cases":[
+      {"case":"p4-fresh-api","recorded_cycles":2,"tracks":3,"saved_sha256":["2562f9465fb4788d7fb7a920427e7a1bf4b24993d1159eb9ff4924c935e7a23a","73b52bd5a292be783a4007d6af5e773e3e2b40501d64f116e454642e8283da19"]},
+      {"case":"crud3-cross-one-003","recorded_cycles":2,"tracks":4,"saved_sha256":["526bb2410054f1de217589725c33d7b59effc992817b2115bf39b9bce701d8fb","d11966e748ce2eb72c967b6ec169a84c6711a007af1305fa7069c4beb88dfa33"]}
+    ],
+    "not_independently_certified":["The working phase3 native-harness modifications are not this immutable source pin; no moving dynamic source was modified or executed.","Full replay of every native sample, delayed getter, media hash, and old-track property was not performed by this reviewer.","Each saved file has fourteen raw playlists; only seven represented membership sets were checked. The remaining raw playlists are not silently counted as certified.","Cross-one is explicitly a research raw-model transformation. Production add_track_from remains cross-lineage guarded; this is not production cross-library API qualification."],
+    "distinction":"Receipt/disk concordance supports the owner's bounded observations but is not a new reviewer native execution or universal writer proof."
+  },
+  "tests_and_reproduction": {
+    "script":"independent_probes.py",
+    "script_sha256":"0be480544bf0790f904f319e12d112b33f1c17db164a3cd7a7991a2b9e904624",
+    "result":"probe-run-1/results.json",
+    "log":"independent-probes.log",
+    "pytest_log":"pytest-resource-confirmed.log",
+    "pytest_xml":"pytest-resource-confirmed.xml",
+    "pytest_verification":"pytest-resource-verification.json",
+    "original_pytest_evidence_preserved":["pytest.log","pytest.xml","pytest-verification.json"],
+    "command":"From ROOT/wt/review in pwsh: set PYTHONDONTWRITEBYTECODE=1, PYTHONUTF8=1 and PYTEST_DISABLE_PLUGIN_AUTOLOAD=1; run ROOT/tools/py/Scripts/python.exe -B ROOT/reports/review/phase3/independent_probes.py --root ROOT --out ROOT/reports/review/phase3/NEW_NONEXISTENT_DIRECTORY",
+    "pytest_import_control":"The wrapper explicitly prepends phase3/source and phase3/source/tests and asserts the imported itlkit path. Tests were not accidentally run against the unchanged review worktree.",
+    "output_hash_policy":"Per-run restored object identities can be generated anew; output fixture hashes pin this invocation rather than promising identical hashes on every replay. Input/source hashes must always match."
+  },
+  "execution_ledger": [
+    {"command_id":"d5a65bc57f8045b8","result":"Target and partial native handoff read","exit_code":0,"next_byte":29976,"eof":true},
+    {"command_id":"9714f4cc439947e3","result":"Immutable source and completed prior evidence pinned; source changes read","exit_code":0,"next_byte":52131,"eof":true},
+    {"command_id":"0a64d49d63134634","result":"912 passed/5 skipped, followed by reviewer memory-probe AssertionError; no codec test failed","exit_code":1,"next_byte":580,"eof":true},
+    {"command_id":"fc40ea7ae2404a60","result":"Original COW witnesses and current transaction source read","exit_code":0,"next_byte":17031,"eof":true},
+    {"command_id":"d8e79fec1e464d87","result":"All six bounded independent groups completed; known defects still reproduced","exit_code":0,"next_byte":9671,"eof":true},
+    {"command_id":"5d6e83b285224708","result":"912 passed/5 skipped with corrected pointer-width memory instrumentation","exit_code":0,"next_byte":1166,"eof":true}
+  ],
+  "safety_and_limits": [
+    "Writes only in reports/review; original phase1/phase2 reports, reproductions and worktree are unchanged.",
+    "No production modifications, checkout, branch/commit/push, native iTunes/COM/UI/Frida actions, environment lifecycle, package installation, secret inspection or child sessions.",
+    "One bounded lightweight Python process at a time, bytecode disabled and UTF8 explicit. Confirmed peaks are below512MiB.",
+    "Initial pytest resource instrumentation omitted the 64-bit HANDLE prototype and produced an invalid zero measurement. Its run was collected and evidence preserved; the same pinned test suite was rerun successfully with explicit pointer types. Zero was never treated as a real memory measurement.",
+    "The added script's six groups reuse pinned synthetic builders and the production parser for construction/reads. They are independent assertions, not a second independent binary-format implementation.",
+    "Known pools and profile-specific refusal are narrower than native global allocation/callback semantics. Some otherwise feasible joint edits are intentionally refused.",
+    "The three phase2 native-harness observations are scoped to that report's pinned source. Working phase3 harness improvement claims are not retrospectively substituted for it.",
+    "No newer main/codec commit is silently included. Pending fixes must be checked against their own immutable commit before being marked resolved."
+  ],
+  "release_recommendation": {
+    "added_Name_Unplayed_logic":"Accept within the documented observed profile and deterministic preservation tests; no new defect was demonstrated in this bounded pass.",
+    "known_pool_logic":"Accept as fail-closed prevention of the four demonstrated old COW hazards, not implementation of the unsupported editing features.",
+    "remaining_release_gates":"Keep F1, F2 and DATES-001 open until codec fixes are independently verified. Do not infer unrestricted full read/write, full playlist preservation or production cross-library construction from the passing tests or research native candidate.",
+    "completion_scope":"This assigned phase3 read-only audit is complete. Remaining product gaps and excluded native checks are explicit, not background work."
+  }
+}

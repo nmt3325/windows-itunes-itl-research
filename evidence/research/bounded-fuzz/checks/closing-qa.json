@@ -1,0 +1,29 @@
+{
+  "checked_at_utc": "2026-09-09T15:40:23.253707+00:00",
+  "executed_cases": 503,
+  "unexecuted_counted_as_success": 0,
+  "accepted_noop_exact_cases": 116,
+  "successful_complete_new_publications": 8,
+  "existing_target_unchanged_refusals": 16,
+  "injected_absent_target_cleanup_refusals": 16,
+  "in_memory_atomic_refusals": 8,
+  "independent_oracle_unavailable_accepted_cases": 1,
+  "out_of_core_read_contract_observations": {
+    "pool_external_id_conflict": 2
+  },
+  "exception_histogram": {
+    "FormatError": 316,
+    "UnsupportedError": 12,
+    "ValueError": 11,
+    "FileExistsError": 16,
+    "OSError": 16,
+    "other controlled refusal": 8
+  },
+  "old_artifacts_hashes_verified": 42,
+  "input_hashes_verified": 7,
+  "source_hashes_verified": 13,
+  "harness_and_archive_hashes_verified": true,
+  "all_owner_disk_bytes": 2341985,
+  "selected_corpus_only": true,
+  "scope_note": "Refused means the exercised decode/validation/serialization or mutation/publication pipeline raised an enumerated input/I/O exception; do not relabel all of these as parser-only rejections."
+}

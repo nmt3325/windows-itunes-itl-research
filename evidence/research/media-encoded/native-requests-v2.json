@@ -1,0 +1,346 @@
+{
+  "schema": "itl.media.native-requests.v2",
+  "descriptive_only": true,
+  "not_a_native_harness_api": true,
+  "not_an_independently_written_itl_candidate": true,
+  "status": "requires_dynamic_native_identity_binding",
+  "media_manifest": {
+    "path": "D:\\a\\_temp\\gha-mcp\\WINDOWS_RESEARCH_RUN\\work\\itl\\reports\\media\\encoded-v2\\media-manifest-v2.json",
+    "sha256": "ea88d97a155110b6cedf2e2a904b24789184c80225f71bcc25fb933e8950231a"
+  },
+  "requests": [
+    {
+      "case_id": "media-wav-pcm16",
+      "request_type": "native_donor_creation_from_fresh_media",
+      "priority": 1,
+      "media": {
+        "path": "D:\\a\\_temp\\gha-mcp\\WINDOWS_RESEARCH_RUN\\work\\itl\\reports\\media\\pcm-v1\\media\\itl_media_01_wav_pcm16.wav",
+        "sha256": "b44cbb7696d8be5f933984ee7130ceb6bc02ed5653b446c9ab8f04a29f408934",
+        "size_bytes": 132480
+      },
+      "candidate_itl": null,
+      "baseline_itl": null,
+      "donor_itl": null,
+      "serialized_file_pid": null,
+      "com_library_pid": null,
+      "track_pid": null,
+      "identity_binding_status": "dynamic_must_capture_not_guessed",
+      "intended_operation": "Import exactly this one newly generated synthetic audio file into an explicitly selected disposable native library; record raw tag recognition before any optional donor metadata setters.",
+      "expected": {
+        "track_count_delta": 1,
+        "preserve_all_old_tracks": true,
+        "sample_rate": 44100,
+        "channels": 1,
+        "content_duration_ms": 1500,
+        "com_duration_integer_seconds_range": [
+          1,
+          2
+        ],
+        "media_file_size": 132480,
+        "metadata_in_file": {
+          "title": "ITL Media 01 WAV PCM16",
+          "artist": "ITL Synthetic Artist 01",
+          "album": "ITL Media Album 01"
+        },
+        "desired_donor_com_fields": {
+          "Name": "ITL Media 01 WAV PCM16",
+          "Artist": "ITL Synthetic Artist 01",
+          "Album": "ITL Media Album 01"
+        },
+        "location_policy": "Exact absolute path of the hash-verified dynamic-owned copy; bind it in the native request. Do not silently accept the source or an unrelated file.",
+        "membership_change": "One added track in native master/music collections as actually observed; old ordinary/manual memberships unchanged unless explicitly requested."
+      },
+      "native_gates": [
+        "Verify media SHA256 before copying and again before import. Never edit the media-owned originals.",
+        "Select a disposable native baseline and capture its hash, distinct file/master PIDs, full track identities/fields and full playlist memberships before the import.",
+        "Import one file; require exactly one new unique nonzero track PID and intact old tracks. Capture raw Name/Artist/Album/Kind/Duration/Size/SampleRate/Location and initial media hash before any metadata setters.",
+        "Treat tag-recognition mismatch as a recorded negative tag result, not a codec/container failure or a successful metadata gate. If donor preparation needs explicit field setters, use a writable disposable media copy and retain separate pre-set/post-set evidence and hashes.",
+        "Require selected native library identity, complete enumeration, no damaged/empty fallback, existing exact file location and two completed save/restart cycles with passive re-observation.",
+        "Optional silent playback is dynamic-owner-only and must record any changed play counters/state independently.",
+        "A subsequently independently written ITL needs a separate candidate path/hash and complete bound baseline/donor identities, tracks and membership expectations; this media request alone does not satisfy that gate."
+      ],
+      "known_unknowns": [
+        "iTunes embedded-tag recognition is untested; WAV INFO in particular may be ignored.",
+        "No iTunes/COM/UI/Frida activity was performed by media.",
+        "Persistent IDs and library/playlist identities are native-assigned and must not be fabricated.",
+        "Offline media decoding does not certify native iTunes tag recognition or independent ITL construction for any codec.",
+        "MP3/AAC packet delay and padding are recorded by ffprobe/PCM QA; native Duration/TotalTime must be observed, not copied blindly from source 1500 ms."
+      ],
+      "native_acceptance": "untested",
+      "offline_observation": {
+        "ffprobe_status": "passed",
+        "container_duration_seconds": 1.5,
+        "codec": "pcm_s16le",
+        "source_duration_seconds": 1.5,
+        "decoded_frames": 66150
+      }
+    },
+    {
+      "case_id": "media-aiff-pcm16",
+      "request_type": "native_donor_creation_from_fresh_media",
+      "priority": 5,
+      "media": {
+        "path": "D:\\a\\_temp\\gha-mcp\\WINDOWS_RESEARCH_RUN\\work\\itl\\reports\\media\\pcm-v1\\media\\itl_media_02_aiff_pcm16.aiff",
+        "sha256": "3287247e3d07804d763b8e103e027420dc289a1a2800018793bc2b43683853a2",
+        "size_bytes": 132534
+      },
+      "candidate_itl": null,
+      "baseline_itl": null,
+      "donor_itl": null,
+      "serialized_file_pid": null,
+      "com_library_pid": null,
+      "track_pid": null,
+      "identity_binding_status": "dynamic_must_capture_not_guessed",
+      "intended_operation": "Import exactly this one newly generated synthetic audio file into an explicitly selected disposable native library; record raw tag recognition before any optional donor metadata setters.",
+      "expected": {
+        "track_count_delta": 1,
+        "preserve_all_old_tracks": true,
+        "sample_rate": 44100,
+        "channels": 1,
+        "content_duration_ms": 1500,
+        "com_duration_integer_seconds_range": [
+          1,
+          2
+        ],
+        "media_file_size": 132534,
+        "metadata_in_file": {
+          "title": "ITL Media 02 AIFF PCM16",
+          "artist": "ITL Synthetic Artist 02",
+          "album": "ITL Media Album 02"
+        },
+        "desired_donor_com_fields": {
+          "Name": "ITL Media 02 AIFF PCM16",
+          "Artist": "ITL Synthetic Artist 02",
+          "Album": "ITL Media Album 02"
+        },
+        "location_policy": "Exact absolute path of the hash-verified dynamic-owned copy; bind it in the native request. Do not silently accept the source or an unrelated file.",
+        "membership_change": "One added track in native master/music collections as actually observed; old ordinary/manual memberships unchanged unless explicitly requested."
+      },
+      "native_gates": [
+        "Verify media SHA256 before copying and again before import. Never edit the media-owned originals.",
+        "Select a disposable native baseline and capture its hash, distinct file/master PIDs, full track identities/fields and full playlist memberships before the import.",
+        "Import one file; require exactly one new unique nonzero track PID and intact old tracks. Capture raw Name/Artist/Album/Kind/Duration/Size/SampleRate/Location and initial media hash before any metadata setters.",
+        "Treat tag-recognition mismatch as a recorded negative tag result, not a codec/container failure or a successful metadata gate. If donor preparation needs explicit field setters, use a writable disposable media copy and retain separate pre-set/post-set evidence and hashes.",
+        "Require selected native library identity, complete enumeration, no damaged/empty fallback, existing exact file location and two completed save/restart cycles with passive re-observation.",
+        "Optional silent playback is dynamic-owner-only and must record any changed play counters/state independently.",
+        "A subsequently independently written ITL needs a separate candidate path/hash and complete bound baseline/donor identities, tracks and membership expectations; this media request alone does not satisfy that gate."
+      ],
+      "known_unknowns": [
+        "iTunes embedded-tag recognition is untested; WAV INFO in particular may be ignored.",
+        "No iTunes/COM/UI/Frida activity was performed by media.",
+        "Persistent IDs and library/playlist identities are native-assigned and must not be fabricated.",
+        "Offline media decoding does not certify native iTunes tag recognition or independent ITL construction for any codec.",
+        "MP3/AAC packet delay and padding are recorded by ffprobe/PCM QA; native Duration/TotalTime must be observed, not copied blindly from source 1500 ms."
+      ],
+      "native_acceptance": "untested",
+      "offline_observation": {
+        "ffprobe_status": "passed",
+        "container_duration_seconds": 1.5,
+        "codec": "pcm_s16be",
+        "source_duration_seconds": 1.5,
+        "decoded_frames": 66150
+      }
+    },
+    {
+      "case_id": "media-mp3",
+      "request_type": "native_donor_creation_from_fresh_media",
+      "priority": 5,
+      "media": {
+        "path": "D:\\a\\_temp\\gha-mcp\\WINDOWS_RESEARCH_RUN\\work\\itl\\reports\\media\\encoded-v2\\primary\\media\\itl_media_03_mp3.mp3",
+        "sha256": "fbd6e772b8bf6e9fbf02ac6b78e74970e45451389f35520250c9c21425fccd87",
+        "size_bytes": 12675
+      },
+      "candidate_itl": null,
+      "baseline_itl": null,
+      "donor_itl": null,
+      "serialized_file_pid": null,
+      "com_library_pid": null,
+      "track_pid": null,
+      "identity_binding_status": "dynamic_must_capture_not_guessed",
+      "intended_operation": "Import exactly this one newly generated synthetic audio file into an explicitly selected disposable native library; record raw tag recognition before any optional donor metadata setters.",
+      "expected": {
+        "track_count_delta": 1,
+        "preserve_all_old_tracks": true,
+        "sample_rate": 44100,
+        "channels": 1,
+        "content_duration_ms": 1500,
+        "com_duration_integer_seconds_range": [
+          1,
+          2
+        ],
+        "media_file_size": 12675,
+        "metadata_in_file": {
+          "title": "ITL Media 03 MP3",
+          "artist": "ITL Synthetic Artist 03",
+          "album": "ITL Media Album 03"
+        },
+        "desired_donor_com_fields": {
+          "Name": "ITL Media 03 MP3",
+          "Artist": "ITL Synthetic Artist 03",
+          "Album": "ITL Media Album 03"
+        },
+        "location_policy": "Exact absolute path of the hash-verified dynamic-owned copy; bind it in the native request. Do not silently accept the source or an unrelated file.",
+        "membership_change": "One added track in native master/music collections as actually observed; old ordinary/manual memberships unchanged unless explicitly requested."
+      },
+      "native_gates": [
+        "Verify media SHA256 before copying and again before import. Never edit the media-owned originals.",
+        "Select a disposable native baseline and capture its hash, distinct file/master PIDs, full track identities/fields and full playlist memberships before the import.",
+        "Import one file; require exactly one new unique nonzero track PID and intact old tracks. Capture raw Name/Artist/Album/Kind/Duration/Size/SampleRate/Location and initial media hash before any metadata setters.",
+        "Treat tag-recognition mismatch as a recorded negative tag result, not a codec/container failure or a successful metadata gate. If donor preparation needs explicit field setters, use a writable disposable media copy and retain separate pre-set/post-set evidence and hashes.",
+        "Require selected native library identity, complete enumeration, no damaged/empty fallback, existing exact file location and two completed save/restart cycles with passive re-observation.",
+        "Optional silent playback is dynamic-owner-only and must record any changed play counters/state independently.",
+        "A subsequently independently written ITL needs a separate candidate path/hash and complete bound baseline/donor identities, tracks and membership expectations; this media request alone does not satisfy that gate."
+      ],
+      "known_unknowns": [
+        "iTunes embedded-tag recognition is untested; WAV INFO in particular may be ignored.",
+        "No iTunes/COM/UI/Frida activity was performed by media.",
+        "Persistent IDs and library/playlist identities are native-assigned and must not be fabricated.",
+        "Offline media decoding does not certify native iTunes tag recognition or independent ITL construction for any codec.",
+        "MP3/AAC packet delay and padding are recorded by ffprobe/PCM QA; native Duration/TotalTime must be observed, not copied blindly from source 1500 ms."
+      ],
+      "native_acceptance": "untested",
+      "offline_observation": {
+        "ffprobe_status": "passed",
+        "container_duration_seconds": 1.5,
+        "codec": "mp3",
+        "source_duration_seconds": 1.5,
+        "decoded_frames": 66150
+      }
+    },
+    {
+      "case_id": "media-aac-m4a",
+      "request_type": "native_donor_creation_from_fresh_media",
+      "priority": 5,
+      "media": {
+        "path": "D:\\a\\_temp\\gha-mcp\\WINDOWS_RESEARCH_RUN\\work\\itl\\reports\\media\\encoded-v2\\primary\\media\\itl_media_04_aac.m4a",
+        "sha256": "b2dc2bc255fc5e3619938a1f4339397bf08db65db2b97018a8555715ef0f913f",
+        "size_bytes": 13594
+      },
+      "candidate_itl": null,
+      "baseline_itl": null,
+      "donor_itl": null,
+      "serialized_file_pid": null,
+      "com_library_pid": null,
+      "track_pid": null,
+      "identity_binding_status": "dynamic_must_capture_not_guessed",
+      "intended_operation": "Import exactly this one newly generated synthetic audio file into an explicitly selected disposable native library; record raw tag recognition before any optional donor metadata setters.",
+      "expected": {
+        "track_count_delta": 1,
+        "preserve_all_old_tracks": true,
+        "sample_rate": 44100,
+        "channels": 1,
+        "content_duration_ms": 1500,
+        "com_duration_integer_seconds_range": [
+          1,
+          2
+        ],
+        "media_file_size": 13594,
+        "metadata_in_file": {
+          "title": "ITL Media 04 AAC M4A",
+          "artist": "ITL Synthetic Artist 04",
+          "album": "ITL Media Album 04"
+        },
+        "desired_donor_com_fields": {
+          "Name": "ITL Media 04 AAC M4A",
+          "Artist": "ITL Synthetic Artist 04",
+          "Album": "ITL Media Album 04"
+        },
+        "location_policy": "Exact absolute path of the hash-verified dynamic-owned copy; bind it in the native request. Do not silently accept the source or an unrelated file.",
+        "membership_change": "One added track in native master/music collections as actually observed; old ordinary/manual memberships unchanged unless explicitly requested."
+      },
+      "native_gates": [
+        "Verify media SHA256 before copying and again before import. Never edit the media-owned originals.",
+        "Select a disposable native baseline and capture its hash, distinct file/master PIDs, full track identities/fields and full playlist memberships before the import.",
+        "Import one file; require exactly one new unique nonzero track PID and intact old tracks. Capture raw Name/Artist/Album/Kind/Duration/Size/SampleRate/Location and initial media hash before any metadata setters.",
+        "Treat tag-recognition mismatch as a recorded negative tag result, not a codec/container failure or a successful metadata gate. If donor preparation needs explicit field setters, use a writable disposable media copy and retain separate pre-set/post-set evidence and hashes.",
+        "Require selected native library identity, complete enumeration, no damaged/empty fallback, existing exact file location and two completed save/restart cycles with passive re-observation.",
+        "Optional silent playback is dynamic-owner-only and must record any changed play counters/state independently.",
+        "A subsequently independently written ITL needs a separate candidate path/hash and complete bound baseline/donor identities, tracks and membership expectations; this media request alone does not satisfy that gate."
+      ],
+      "known_unknowns": [
+        "iTunes embedded-tag recognition is untested; WAV INFO in particular may be ignored.",
+        "No iTunes/COM/UI/Frida activity was performed by media.",
+        "Persistent IDs and library/playlist identities are native-assigned and must not be fabricated.",
+        "Offline media decoding does not certify native iTunes tag recognition or independent ITL construction for any codec.",
+        "MP3/AAC packet delay and padding are recorded by ffprobe/PCM QA; native Duration/TotalTime must be observed, not copied blindly from source 1500 ms."
+      ],
+      "native_acceptance": "untested",
+      "offline_observation": {
+        "ffprobe_status": "passed",
+        "container_duration_seconds": 1.5,
+        "codec": "aac",
+        "source_duration_seconds": 1.5,
+        "decoded_frames": 66560
+      }
+    },
+    {
+      "case_id": "media-alac-m4a",
+      "request_type": "native_donor_creation_from_fresh_media",
+      "priority": 5,
+      "media": {
+        "path": "D:\\a\\_temp\\gha-mcp\\WINDOWS_RESEARCH_RUN\\work\\itl\\reports\\media\\encoded-v2\\primary\\media\\itl_media_05_alac.m4a",
+        "sha256": "1b1ed61f5f17d86cf7947a77a932d22ca25690ae09a7ef84468697b2bbb627a5",
+        "size_bytes": 25924
+      },
+      "candidate_itl": null,
+      "baseline_itl": null,
+      "donor_itl": null,
+      "serialized_file_pid": null,
+      "com_library_pid": null,
+      "track_pid": null,
+      "identity_binding_status": "dynamic_must_capture_not_guessed",
+      "intended_operation": "Import exactly this one newly generated synthetic audio file into an explicitly selected disposable native library; record raw tag recognition before any optional donor metadata setters.",
+      "expected": {
+        "track_count_delta": 1,
+        "preserve_all_old_tracks": true,
+        "sample_rate": 44100,
+        "channels": 1,
+        "content_duration_ms": 1500,
+        "com_duration_integer_seconds_range": [
+          1,
+          2
+        ],
+        "media_file_size": 25924,
+        "metadata_in_file": {
+          "title": "ITL Media 05 ALAC M4A",
+          "artist": "ITL Synthetic Artist 05",
+          "album": "ITL Media Album 05"
+        },
+        "desired_donor_com_fields": {
+          "Name": "ITL Media 05 ALAC M4A",
+          "Artist": "ITL Synthetic Artist 05",
+          "Album": "ITL Media Album 05"
+        },
+        "location_policy": "Exact absolute path of the hash-verified dynamic-owned copy; bind it in the native request. Do not silently accept the source or an unrelated file.",
+        "membership_change": "One added track in native master/music collections as actually observed; old ordinary/manual memberships unchanged unless explicitly requested."
+      },
+      "native_gates": [
+        "Verify media SHA256 before copying and again before import. Never edit the media-owned originals.",
+        "Select a disposable native baseline and capture its hash, distinct file/master PIDs, full track identities/fields and full playlist memberships before the import.",
+        "Import one file; require exactly one new unique nonzero track PID and intact old tracks. Capture raw Name/Artist/Album/Kind/Duration/Size/SampleRate/Location and initial media hash before any metadata setters.",
+        "Treat tag-recognition mismatch as a recorded negative tag result, not a codec/container failure or a successful metadata gate. If donor preparation needs explicit field setters, use a writable disposable media copy and retain separate pre-set/post-set evidence and hashes.",
+        "Require selected native library identity, complete enumeration, no damaged/empty fallback, existing exact file location and two completed save/restart cycles with passive re-observation.",
+        "Optional silent playback is dynamic-owner-only and must record any changed play counters/state independently.",
+        "A subsequently independently written ITL needs a separate candidate path/hash and complete bound baseline/donor identities, tracks and membership expectations; this media request alone does not satisfy that gate."
+      ],
+      "known_unknowns": [
+        "iTunes embedded-tag recognition is untested; WAV INFO in particular may be ignored.",
+        "No iTunes/COM/UI/Frida activity was performed by media.",
+        "Persistent IDs and library/playlist identities are native-assigned and must not be fabricated.",
+        "Offline media decoding does not certify native iTunes tag recognition or independent ITL construction for any codec.",
+        "MP3/AAC packet delay and padding are recorded by ffprobe/PCM QA; native Duration/TotalTime must be observed, not copied blindly from source 1500 ms."
+      ],
+      "native_acceptance": "untested",
+      "offline_observation": {
+        "ffprobe_status": "passed",
+        "container_duration_seconds": 1.5,
+        "codec": "alac",
+        "source_duration_seconds": 1.5,
+        "decoded_frames": 66150
+      }
+    }
+  ],
+  "raw_native_observations": null,
+  "native_acceptance": "untested",
+  "instructions": "Dynamic imports hash-verified writable copies only. Capture raw metadata before any setters and bind exact copy locations and native IDs. v1 media and reports remain immutable."
+}

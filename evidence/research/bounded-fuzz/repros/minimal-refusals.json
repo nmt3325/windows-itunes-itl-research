@@ -1,0 +1,134 @@
+[
+  {
+    "family": "container",
+    "case_index": 7,
+    "recipe": {
+      "family": "container",
+      "label": "synthetic003",
+      "ordinal": 0,
+      "case_seed": 539363600,
+      "source_sha256": "a93cbc94da00eb60d1f5a45ac70af55948d4ecbae2ea735744af04b7b46128e4",
+      "operation": "xor_byte",
+      "offset": 2354,
+      "mask": 8
+    },
+    "observed_result": {
+      "outcome": "refused",
+      "exception": "FormatError",
+      "message": "invalid encrypted/zlib payload: Error -3 while decompressing data: incorrect data check at 0x90"
+    },
+    "minimality": "single mutated bit/field or one byte beyond explicit expansion limit where applicable; no global delta-minimality claim",
+    "replay": "python.exe -B scripts/bounded_fuzz.py --replay 7"
+  },
+  {
+    "family": "frame",
+    "case_index": 135,
+    "recipe": {
+      "family": "frame",
+      "label": "synthetic003",
+      "ordinal": 0,
+      "case_seed": 539363728,
+      "source_sha256": "a93cbc94da00eb60d1f5a45ac70af55948d4ecbae2ea735744af04b7b46128e4",
+      "operation": "payload_u32",
+      "offset": 26806,
+      "value": 0,
+      "candidate_sha256": "b4c6666e4f006f33bd2b76dd98e75a653f776c319e42991d4c223f26ca406266"
+    },
+    "observed_result": {
+      "outcome": "refused",
+      "exception": "FormatError",
+      "message": "invalid b'mtph' header length 0 at 0x68b6"
+    },
+    "minimality": "single mutated bit/field or one byte beyond explicit expansion limit where applicable; no global delta-minimality claim",
+    "replay": "python.exe -B scripts/bounded_fuzz.py --replay 135"
+  },
+  {
+    "family": "identity_ref",
+    "case_index": 263,
+    "recipe": {
+      "family": "identity_ref",
+      "label": "synthetic003",
+      "ordinal": 0,
+      "case_seed": 539363856,
+      "source_sha256": "a93cbc94da00eb60d1f5a45ac70af55948d4ecbae2ea735744af04b7b46128e4",
+      "operation": "identity_u32_or_u64",
+      "offset": 1934,
+      "width": 4,
+      "before_hex": "4b000000",
+      "after_hex": "00000000",
+      "candidate_sha256": "7d31c2d7cec8c9128927dbfc7fb6064637a30df7728ab76c500854e2ec414e83"
+    },
+    "observed_result": {
+      "outcome": "refused",
+      "exception": "FormatError",
+      "message": "zero or duplicate track identity"
+    },
+    "minimality": "single mutated bit/field or one byte beyond explicit expansion limit where applicable; no global delta-minimality claim",
+    "replay": "python.exe -B scripts/bounded_fuzz.py --replay 263"
+  },
+  {
+    "family": "json",
+    "case_index": 359,
+    "recipe": {
+      "family": "json",
+      "label": "synthetic003",
+      "ordinal": 0,
+      "case_seed": 539363952,
+      "source_sha256": "a93cbc94da00eb60d1f5a45ac70af55948d4ecbae2ea735744af04b7b46128e4",
+      "mutation": 0,
+      "json_sha256": "6b9aadd8bccef81f02d6c1597a70ff9a67d035945665276894d7edd3428f5128",
+      "max_bytes": 432729
+    },
+    "observed_result": {
+      "outcome": "refused",
+      "exception": "FormatError",
+      "message": "unsupported library JSON schema"
+    },
+    "minimality": "single mutated bit/field or one byte beyond explicit expansion limit where applicable; no global delta-minimality claim",
+    "replay": "python.exe -B scripts/bounded_fuzz.py --replay 359"
+  },
+  {
+    "family": "atomic",
+    "case_index": 423,
+    "recipe": {
+      "family": "atomic",
+      "label": "synthetic003",
+      "ordinal": 0,
+      "case_seed": 539364016,
+      "source_sha256": "a93cbc94da00eb60d1f5a45ac70af55948d4ecbae2ea735744af04b7b46128e4",
+      "mode": 0,
+      "target": "tmp\\target-423.bin",
+      "sentinel_sha256": "3cd28a56291d8384ff33dccf456e3e2b6d01d0cb49b9340f63a4fcc643b2280f"
+    },
+    "observed_result": {
+      "outcome": "refused",
+      "exception": "FileExistsError",
+      "existing_target_unchanged": true
+    },
+    "minimality": "single mutated bit/field or one byte beyond explicit expansion limit where applicable; no global delta-minimality claim",
+    "replay": null
+  },
+  {
+    "family": "boundary",
+    "case_index": 488,
+    "recipe": {
+      "family": "boundary",
+      "label": "donor032_reloaded",
+      "ordinal": 17,
+      "case_seed": 539364081,
+      "source_sha256": "7edd4ea85ca937103165bb40a5656ba84cd9c08b73580beb2482d963f5728083",
+      "operation": "bounded_expansion",
+      "max_plain_bytes": 15,
+      "actual_plain_bytes": 16,
+      "compression": true,
+      "input_sha256": "549aa9591563d9770f9445eabd0f2c624b3b3ffeb7703fb155f9308f04778545"
+    },
+    "observed_result": {
+      "outcome": "refused",
+      "exception": "FormatError",
+      "message": "decompressed payload exceeds 15 bytes at 0x90"
+    },
+    "minimality": "single mutated bit/field or one byte beyond explicit expansion limit where applicable; no global delta-minimality claim",
+    "replay": "python.exe -B scripts/bounded_fuzz.py --replay 488"
+  }
+]

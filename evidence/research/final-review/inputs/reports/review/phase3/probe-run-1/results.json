@@ -1,0 +1,264 @@
+{
+  "status": "completed",
+  "source_sha": "56069f1e2a17d9aea62c1d753b2bd93ed404a000",
+  "groups": {
+    "flag_bits": {
+      "status": "passed",
+      "evidence": {
+        "cases": 768,
+        "all_256_byte_patterns": true,
+        "native_certification_of_upper_bits": false
+      }
+    },
+    "mixed_and_rollback": {
+      "status": "passed",
+      "evidence": {
+        "permutations": 24,
+        "invalid_types": 11,
+        "noop_empty_legacy_and_late_transaction_controls": true,
+        "native_empty_name_behavior": "not_tested"
+      }
+    },
+    "core8454_cow_comparison": {
+      "status": "passed",
+      "evidence": {
+        "album": {
+          "refusal": "shared album/artist object COW is not native-verified",
+          "exact_bytes_unchanged": true
+        },
+        "artist": {
+          "refusal": "shared string atom requires unimplemented scoped COW",
+          "exact_bytes_unchanged": true
+        },
+        "album_artist": {
+          "refusal": "shared album/artist object COW is not native-verified",
+          "exact_bytes_unchanged": true
+        },
+        "composer": {
+          "refusal": "new/unkeyed text in an explicit string pool requires unimplemented scoped allocation",
+          "exact_bytes_unchanged": true
+        },
+        "unused_genre_positive": {
+          "returned": true,
+          "other_31_track_nodes_unchanged": true,
+          "aux_nodes_unchanged": true
+        }
+      }
+    },
+    "known_pool_matrix": {
+      "status": "passed",
+      "evidence": {
+        "refusal_cases": [
+          {
+            "field": "name",
+            "other_owner": "track",
+            "refusal": "shared string atom requires unimplemented scoped COW"
+          },
+          {
+            "field": "genre",
+            "other_owner": "track",
+            "refusal": "shared string atom requires unimplemented scoped COW"
+          },
+          {
+            "field": "comment",
+            "other_owner": "track",
+            "refusal": "shared string atom requires unimplemented scoped COW"
+          },
+          {
+            "field": "composer",
+            "other_owner": "track",
+            "refusal": "shared string atom requires unimplemented scoped COW"
+          },
+          {
+            "field": "sort_name",
+            "other_owner": "track",
+            "refusal": "shared string atom requires unimplemented scoped COW"
+          },
+          {
+            "field": "sort_album",
+            "other_owner": "track",
+            "refusal": "shared string atom requires unimplemented scoped COW"
+          },
+          {
+            "field": "sort_artist",
+            "other_owner": "track",
+            "refusal": "shared string atom requires unimplemented scoped COW"
+          },
+          {
+            "field": "sort_album_artist",
+            "other_owner": "track",
+            "refusal": "shared string atom requires unimplemented scoped COW"
+          },
+          {
+            "field": "composer",
+            "other_owner": "track",
+            "other_code": 4,
+            "refusal": "shared string atom requires unimplemented scoped COW"
+          },
+          {
+            "field": "composer",
+            "other_owner": "track",
+            "other_code": 27,
+            "refusal": "shared string atom requires unimplemented scoped COW"
+          },
+          {
+            "field": "composer",
+            "other_owner": "album",
+            "other_code": 301,
+            "refusal": "shared string atom requires unimplemented scoped COW"
+          },
+          {
+            "field": "composer",
+            "other_owner": "album",
+            "other_code": 302,
+            "refusal": "shared string atom requires unimplemented scoped COW"
+          },
+          {
+            "field": "composer",
+            "other_owner": "artist",
+            "other_code": 400,
+            "refusal": "shared string atom requires unimplemented scoped COW"
+          },
+          {
+            "field": "sort_artist",
+            "other_owner": "track",
+            "other_code": 34,
+            "refusal": "shared string atom requires unimplemented scoped COW"
+          },
+          {
+            "field": "sort_artist",
+            "other_owner": "artist",
+            "other_code": 401,
+            "refusal": "shared string atom requires unimplemented scoped COW"
+          }
+        ],
+        "different_pool_same_integer_positive": true,
+        "unkeyed_allocation_refused": true,
+        "raw_collision_preserved_but_text_change_refused": true,
+        "same_lineage_conflicting_restore_refused": true,
+        "general_COW_implemented": false
+      }
+    },
+    "preserved_existing_findings": {
+      "status": "passed",
+      "evidence": {
+        "DATES-001": [
+          {
+            "input": "1903-12-31T23:59:59.000001+00:00",
+            "raw": 0,
+            "classification": "existing_unresolved_finding"
+          },
+          {
+            "input": "1903-12-31T23:59:59.500000+00:00",
+            "raw": 0,
+            "classification": "existing_unresolved_finding"
+          },
+          {
+            "input": "1903-12-31T23:59:59.999999+00:00",
+            "raw": 0,
+            "classification": "existing_unresolved_finding"
+          }
+        ],
+        "F1": {
+          "still_reproduces": true,
+          "dangling_local_ids": [
+            2
+          ],
+          "after_sha256": "0b9d30c71a5987b45377bc9f859b54da2d4215eb80df0b5155f6566a3884b958",
+          "native_reachability": "unproven"
+        },
+        "F2": [
+          {
+            "case": "unmatched_system",
+            "still_accepted": true,
+            "after_sha256": "8cbe701dfb81496fc133f546cfeb6b3b830dc2780889dcf6aad89e7dc06a41d1",
+            "native_effect": "unknown"
+          },
+          {
+            "case": "mismatched_kind",
+            "still_accepted": true,
+            "after_sha256": "28578e70c18c2038cf040ec3912b0cac72e54f98d725d4855a7318a429033c2e",
+            "native_effect": "unknown"
+          }
+        ]
+      }
+    },
+    "closed_native_receipts": {
+      "status": "passed",
+      "evidence": {
+        "cycles": [
+          {
+            "case": "p4-fresh-api",
+            "saved_sha256": "2562f9465fb4788d7fb7a920427e7a1bf4b24993d1159eb9ff4924c935e7a23a",
+            "tracks": 3,
+            "raw_playlists": 14,
+            "represented_playlists_checked": 7,
+            "normal_native_exit_receipt": 0,
+            "target_fields_match": true
+          },
+          {
+            "case": "p4-fresh-api",
+            "saved_sha256": "73b52bd5a292be783a4007d6af5e773e3e2b40501d64f116e454642e8283da19",
+            "tracks": 3,
+            "raw_playlists": 14,
+            "represented_playlists_checked": 7,
+            "normal_native_exit_receipt": 0,
+            "target_fields_match": true
+          },
+          {
+            "case": "crud3-cross-one-003",
+            "saved_sha256": "526bb2410054f1de217589725c33d7b59effc992817b2115bf39b9bce701d8fb",
+            "tracks": 4,
+            "raw_playlists": 14,
+            "represented_playlists_checked": 7,
+            "normal_native_exit_receipt": 0,
+            "target_fields_match": true
+          },
+          {
+            "case": "crud3-cross-one-003",
+            "saved_sha256": "d11966e748ce2eb72c967b6ec169a84c6711a007af1305fa7069c4beb88dfa33",
+            "tracks": 4,
+            "raw_playlists": 14,
+            "represented_playlists_checked": 7,
+            "normal_native_exit_receipt": 0,
+            "target_fields_match": true
+          }
+        ],
+        "reviewer_native_runs": 0,
+        "live_paths_not_read": true,
+        "runtime_native_harness_source": "not covered by immutable core pin; owner reports working changes",
+        "cross_library_candidate": "research raw-model transform, not production add_track_from support"
+      }
+    }
+  },
+  "failures": [],
+  "inputs": {
+    "fixtures/dynamic/phase2/snapshots/donor032-reloaded.itl": {
+      "sha256": "7edd4ea85ca937103165bb40a5656ba84cd9c08b73580beb2482d963f5728083",
+      "bytes": 19158
+    },
+    "reports/playlist-audit/run-02/repro/nested-before.itl": {
+      "sha256": "f5c5d1c125613a17e27a864bad22e795bfe809ede13ba24c4c00507091bf883c",
+      "bytes": 909
+    },
+    "reports/playlist-audit/run-02/repro/unmatched_system-before.itl": {
+      "sha256": "bae21375803613ffc9da7b3ead43899a6f1157c30048a1d248a8e2854d935a6d",
+      "bytes": 803
+    },
+    "reports/playlist-audit/run-02/repro/unmatched_system-donor.itl": {
+      "sha256": "aa4ee37a7b1e841faa7e930b0028872f0e92e1f6c5f81f9e16d0b2bc9901dcd8",
+      "bytes": 879
+    },
+    "reports/playlist-audit/run-02/repro/mismatched_kind-before.itl": {
+      "sha256": "587c075c23d814f09997ddec0aaace62b24966cff823e1de4dc6692faf03d369",
+      "bytes": 798
+    },
+    "reports/playlist-audit/run-02/repro/mismatched_kind-donor.itl": {
+      "sha256": "aa4ee37a7b1e841faa7e930b0028872f0e92e1f6c5f81f9e16d0b2bc9901dcd8",
+      "bytes": 879
+    }
+  },
+  "peak_working_set_bytes": 35999744,
+  "native_actions": false,
+  "utc": "2026-09-09T15:29:19.807029+00:00"
+}

@@ -1,0 +1,61 @@
+[
+  {
+    "classification": "confirmed_codec_bug",
+    "id": "DATES-001",
+    "recommendation": "Check signed timedelta bounds before quantization; use delta.days*86400+delta.seconds to avoid float. Keep wall-time semantics. Production remains unmodified.",
+    "reproductions": [
+      {
+        "cause": "int(negative_fraction) truncates toward zero",
+        "expected": "ValueError before quantization",
+        "id": "DATES-001",
+        "input": "1903-12-31T23:59:59.000001+00:00",
+        "observed_raw": 0
+      },
+      {
+        "cause": "int(negative_fraction) truncates toward zero",
+        "expected": "ValueError before quantization",
+        "id": "DATES-001",
+        "input": "1903-12-31T23:59:59.500000+00:00",
+        "observed_raw": 0
+      },
+      {
+        "cause": "int(negative_fraction) truncates toward zero",
+        "expected": "ValueError before quantization",
+        "id": "DATES-001",
+        "input": "1903-12-31T23:59:59.999999+00:00",
+        "observed_raw": 0
+      }
+    ],
+    "severity": "boundary_data_loss",
+    "summary": "Pre-epoch fractional instants are silently encoded as raw0/unset."
+  },
+  {
+    "classification": "confirmed_offline_semantics_native_zone_scope_limited",
+    "id": "DATES-002",
+    "limit": "Native observations were on UTC. Tokyo/Pacific controls are arithmetic/.NET, not native iTunes cross-zone acceptance.",
+    "summary": "Encoding ignores offset after requiring awareness: same wall across zones -> same raw, same instant -> different raw. Fixed-offset decode only attaches caller offset."
+  },
+  {
+    "classification": "confirmed_information_loss",
+    "id": "DATES-003",
+    "recommendation": "For instant interpretation require a named source zone and explicit ambiguity policy; validate gap by UTC roundtrip. Do not compute elapsed duration from wall scalars across DST.",
+    "summary": "Scalar carries no zone/fold. Pacific 2026 fold pair collides; gap values can be aware yet nonexistent and are accepted. One real second across DST gives raw +3601 or -3599."
+  },
+  {
+    "classification": "confirmed_boundary_policy",
+    "id": "DATES-004",
+    "recommendation": "Distinguish unset from actual epoch. Require explicit precision policy; never add/subtract the Unix-HFS delta as a timezone conversion.",
+    "summary": "raw0 returns None; encoding exact1904 epoch produces0. Supported non-sentinel range is 1904-01-01 00:00:01 through 2040-02-06 06:28:15 wall. Fractions are currently truncated."
+  },
+  {
+    "classification": "confirmed_native_cohort",
+    "id": "DATES-005",
+    "summary": "Date/counter/Unplayed/Name state must stay independent; native COM count setter side effects cannot be inferred for direct raw writes."
+  },
+  {
+    "classification": "api_validation_policy_observation",
+    "id": "DATES-006",
+    "recommendation": "Consider strict integer offset type validation and consistent validation even for unset, subject to compatibility policy.",
+    "summary": "utc_offset_seconds accepts bool/fractional numbers through timedelta; raw0 bypasses invalid-offset validation. Not a demonstrated native data bug."
+  }
+]

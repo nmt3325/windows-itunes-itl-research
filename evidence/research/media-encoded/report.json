@@ -1,0 +1,65 @@
+{
+  "task": "media-encoded-v2",
+  "status": "MEDIA_ENCODED_V2_DONE",
+  "completed_utc": "2026-09-09T15:22:21.688998+00:00",
+  "native_acceptance": "untested",
+  "base_sha": "56309a258d7b1aadea72738561d1d9fae2e30bc0",
+  "production_changes": [],
+  "commits": [],
+  "new_media_files": [
+    {
+      "id": "media-mp3",
+      "path": "D:\\a\\_temp\\gha-mcp\\WINDOWS_RESEARCH_RUN\\work\\itl\\reports\\media\\encoded-v2\\primary\\media\\itl_media_03_mp3.mp3",
+      "size_bytes": 12675,
+      "sha256": "fbd6e772b8bf6e9fbf02ac6b78e74970e45451389f35520250c9c21425fccd87",
+      "codec": "mp3",
+      "source_duration_seconds": 1.5,
+      "container_duration_seconds": 1.5,
+      "decoded_frames": 66150
+    },
+    {
+      "id": "media-aac-m4a",
+      "path": "D:\\a\\_temp\\gha-mcp\\WINDOWS_RESEARCH_RUN\\work\\itl\\reports\\media\\encoded-v2\\primary\\media\\itl_media_04_aac.m4a",
+      "size_bytes": 13594,
+      "sha256": "b2dc2bc255fc5e3619938a1f4339397bf08db65db2b97018a8555715ef0f913f",
+      "codec": "aac",
+      "source_duration_seconds": 1.5,
+      "container_duration_seconds": 1.5,
+      "decoded_frames": 66560
+    },
+    {
+      "id": "media-alac-m4a",
+      "path": "D:\\a\\_temp\\gha-mcp\\WINDOWS_RESEARCH_RUN\\work\\itl\\reports\\media\\encoded-v2\\primary\\media\\itl_media_05_alac.m4a",
+      "size_bytes": 25924,
+      "sha256": "1b1ed61f5f17d86cf7947a77a932d22ca25690ae09a7ef84468697b2bbb627a5",
+      "codec": "alac",
+      "source_duration_seconds": 1.5,
+      "container_duration_seconds": 1.5,
+      "decoded_frames": 66150
+    }
+  ],
+  "old_files_preserved": 27,
+  "offline_qa": {
+    "all_five_ffprobe": true,
+    "all_five_pcm_decode": true,
+    "three_new_byte_reproduction": true,
+    "alac_pcm_equals_source": true
+  },
+  "manifest": {
+    "path": "D:\\a\\_temp\\gha-mcp\\WINDOWS_RESEARCH_RUN\\work\\itl\\reports\\media\\media-manifest-v2.json",
+    "sha256": "ea88d97a155110b6cedf2e2a904b24789184c80225f71bcc25fb933e8950231a"
+  },
+  "native_requests": {
+    "path": "D:\\a\\_temp\\gha-mcp\\WINDOWS_RESEARCH_RUN\\work\\itl\\reports\\media\\native-requests-v2.json",
+    "sha256": "2e5c5484620ccf06badadc7431b852be84a5a9fd634f379fd82a710214bf3aba"
+  },
+  "tool_provenance": "D:\\a\\_temp\\gha-mcp\\WINDOWS_RESEARCH_RUN\\work\\itl\\reports\\media\\tools\\provenance\\portable-tool-verification.json",
+  "limitations": [
+    "Native import/metadata recognition/restart/playback is untested.",
+    "Source is 66150 frames (1.5s); encoded packet duration and decoded padding can differ for lossy formats.",
+    "Success applies only to these five synthesized fixtures, not general ITL format support."
+  ],
+  "publication_exclude": [
+    "D:\\a\\_temp\\gha-mcp\\WINDOWS_RESEARCH_RUN\\work\\itl\\reports\\media\\tools"
+  ]
+}

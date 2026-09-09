@@ -1,0 +1,19 @@
+{
+  "argv": [
+    "D:\\a\\_temp\\gha-mcp\\WINDOWS_RESEARCH_RUN\\work\\itl\\reports\\media\\tools\\ffmpeg-8.1.2\\bin\\ffprobe.exe",
+    "-threads",
+    "1",
+    "-v",
+    "error",
+    "-show_format",
+    "-show_streams",
+    "-of",
+    "json",
+    "D:\\a\\_temp\\gha-mcp\\WINDOWS_RESEARCH_RUN\\work\\itl\\reports\\media\\encoded-v2\\reproduction\\media\\itl_media_05_alac.m4a"
+  ],
+  "exit_code": 0,
+  "stderr": "",
+  "stdout_bytes": 2578,
+  "stdout_sha256": "67819daf8f01d30d47f1c08a960d47522520f68896a49518e8d3974c9b8ac9ce",
+  "stdout": "{\r\n    \"streams\": [\r\n        {\r\n            \"index\": 0,\r\n            \"codec_name\": \"alac\",\r\n            \"codec_long_name\": \"ALAC (Apple Lossless Audio Codec)\",\r\n            \"codec_type\": \"audio\",\r\n            \"codec_tag_string\": \"alac\",\r\n            \"codec_tag\": \"0x63616c61\",\r\n            \"sample_fmt\": \"s16p\",\r\n            \"sample_rate\": \"44100\",\r\n            \"channels\": 1,\r\n            \"channel_layout\": \"mono\",\r\n            \"bits_per_sample\": 0,\r\n            \"initial_padding\": 0,\r\n            \"id\": \"0x1\",\r\n            \"r_frame_rate\": \"0/0\",\r\n            \"avg_frame_rate\": \"0/0\",\r\n            \"time_base\": \"1/44100\",\r\n            \"start_pts\": 0,\r\n            \"start_time\": \"0.000000\",\r\n            \"duration_ts\": 66150,\r\n            \"duration\": \"1.500000\",\r\n            \"bit_rate\": \"133264\",\r\n            \"bits_per_raw_sample\": \"16\",\r\n            \"nb_frames\": \"17\",\r\n            \"extradata_size\": 36,\r\n            \"disposition\": {\r\n                \"default\": 1,\r\n                \"dub\": 0,\r\n                \"original\": 0,\r\n                \"comment\": 0,\r\n                \"lyrics\": 0,\r\n                \"karaoke\": 0,\r\n                \"forced\": 0,\r\n                \"hearing_impaired\": 0,\r\n                \"visual_impaired\": 0,\r\n                \"clean_effects\": 0,\r\n                \"attached_pic\": 0,\r\n                \"timed_thumbnails\": 0,\r\n                \"non_diegetic\": 0,\r\n                \"captions\": 0,\r\n                \"descriptions\": 0,\r\n                \"metadata\": 0,\r\n                \"dependent\": 0,\r\n                \"still_image\": 0,\r\n                \"multilayer\": 0\r\n            },\r\n            \"tags\": {\r\n                \"language\": \"und\",\r\n                \"handler_name\": \"SoundHandler\"\r\n            }\r\n        }\r\n    ],\r\n    \"format\": {\r\n        \"filename\": \"D:\\\\a\\\\_temp\\\\gha-mcp\\\\WINDOWS_RESEARCH_RUN\\\\work\\\\itl\\\\reports\\\\media\\\\encoded-v2\\\\reproduction\\\\media\\\\itl_media_05_alac.m4a\",\r\n        \"nb_streams\": 1,\r\n        \"nb_programs\": 0,\r\n        \"nb_stream_groups\": 0,\r\n        \"format_name\": \"mov,mp4,m4a,3gp,3g2,mj2\",\r\n        \"format_long_name\": \"QuickTime / MOV\",\r\n        \"start_time\": \"0.000000\",\r\n        \"duration\": \"1.500000\",\r\n        \"size\": \"25924\",\r\n        \"bit_rate\": \"138261\",\r\n        \"probe_score\": 100,\r\n        \"tags\": {\r\n            \"major_brand\": \"M4A \",\r\n            \"minor_version\": \"512\",\r\n            \"compatible_brands\": \"M4A isomiso2\",\r\n            \"title\": \"ITL Media 05 ALAC M4A\",\r\n            \"artist\": \"ITL Synthetic Artist 05\",\r\n            \"album\": \"ITL Media Album 05\",\r\n            \"encoder\": \"Lavf62.12.102\"\r\n        }\r\n    }\r\n}\r\n"
+}
