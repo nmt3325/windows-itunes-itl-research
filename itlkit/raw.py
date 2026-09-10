@@ -249,7 +249,7 @@ def _specs(tag, kind, hlen, section, version, owner=None, code=None):
             add(name,o,w,'named_accessor',refs=('itlkit/container.py:from_bytes/properties', 'itlkit/library.py:Library._validate'))
     elif known_shape and tag==b'mith':
         for name,(o,w) in NUMBER_FIELDS.items():
-            if name=='sample_rate': continue  # parent core correction is separate
+            if name in ('sample_rate', 'mith_0xf4_u64_raw'): continue  # one canonical f4 span
             raw = name.endswith('_raw') or name=='record_kind_raw'
             level = 'raw_slot' if raw else 'named_accessor'
             mask = 1 if name in ('name_refresh_flag_raw','played_flag_raw','rating_aux_raw') else None

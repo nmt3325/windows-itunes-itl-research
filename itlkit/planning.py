@@ -6,13 +6,14 @@ The seal detects accidental/data tampering; it is not a sandbox against Python
 code that can modify this module or a trusted engine's closure.
 """
 from __future__ import annotations
-from dataclasses import dataclass, field
+from dataclasses import dataclass, field, replace
 from collections.abc import Mapping
 from typing import Protocol
 import hashlib
 import hmac
 import secrets
 import json
+import math
 from .library import Library, NUMBER_FIELDS, READ_ONLY_FIELDS
 from .container import Container
 from .model import Node
@@ -112,6 +113,8 @@ class PreparedMutation:
     profile_report: ProfileReport
     baseline_digest: str
     input_digests: object
+    resource_digests: object
+    resource_facts: object
     allocation_ledger: AllocationLedger
     typed_patches: tuple
     opaque_preservation: tuple
@@ -120,6 +123,11 @@ class PreparedMutation:
     _candidate: bytes = field(repr=False)
     _target: bytes = field(repr=False)
     _sources: object = field(repr=False)
+    _resources: object = field(repr=False)
+    _validate_resources: object = field(repr=False)
+    _resource_facts_json: bytes = field(repr=False)
+    _input_cost: int = field(repr=False)
+    _facts_cost: int = field(repr=False)
     _limits: ReadLimits = field(repr=False)
     _state_digest: str = field(repr=False)
     _validate: object = field(repr=False)
@@ -157,6 +165,111 @@ def _snapshot_sources(sources, limits):
         limits.check('file', len(v))
     limits.check('memory', 12 * sum(len(v) for v in sources.values()))
     return dict(sources)
+
+
+def _snapshot_resources(resources, sources, limits):
+    """Separate bounded immutable snapshots; never reinterpret them as ITL."""
+    if resources is None:
+        return {}
+    if type(resources) is not dict:
+        raise TypeError('resources must be an exact dict of names to immutable bytes')
+    limits.check('nodes', len(resources))
+    if len(resources) > 128:
+        raise LimitError('resource count exceeds 128')
+    text_size = 0; wire_size = 0
+    for name, data in resources.items():
+        if type(name) is not str or not 0 < len(name) <= 128:
+            raise ValueError('resource names must contain 1..128 characters')
+        text_size += len(name.encode('utf-8', 'strict'))
+        limits.check('text', text_size)
+        if name in sources:
+            raise FormatError('resource and ITL source namespaces overlap')
+        if type(data) is not bytes:
+            raise TypeError('resource snapshots require exact immutable bytes')
+        limits.check('file', len(data)); wire_size += len(data)
+    limits.check('memory', 12 * wire_size + 1024 * len(resources))
+    return dict(resources)
+
+
+def _resource_pins(resources):
+    return {k: {'sha256': digest(v), 'size_bytes': len(v)} for k, v in resources.items()}
+
+
+def _resource_kwargs(resources):
+    return {'resources': dict(resources)} if resources else {}
+
+
+def _check_resource_argument(kwargs, expected):
+    if not expected:
+        return
+    actual = kwargs['resources']
+    if type(actual) is not dict or set(actual) != set(expected) or any(
+            type(actual[k]) is not bytes or actual[k] != expected[k] for k in expected):
+        raise FormatError('trusted callback changed its resource snapshot map')
+
+
+def _bounded_resource_json(value, limits, retained_cost):
+    """Strict finite JSON, charged before copying/encoding. No DTO conversion.
+
+    Reservations are conservative process-admission estimates, not a sandbox for
+    arbitrary Python callbacks. Keys count toward text/node budgets too.
+    """
+    stack = [(value, 0, frozenset())]; count = 0; text_size = 0
+    while stack:
+        v, depth, ancestors = stack.pop(); count += 1
+        limits.check('nodes', count); limits.check('depth', depth)
+        limits.check('memory', retained_cost + 512 * (count + len(stack)))
+        if type(v) is str:
+            limits.check('text', text_size + len(v))
+            limits.check('memory', retained_cost + 512 * (count + len(stack)) +
+                         4 * (text_size + len(v)))
+            text_size += len(v.encode('utf-8', 'strict')); limits.check('text', text_size)
+        elif v is None or type(v) in (int, bool):
+            pass
+        elif type(v) is float:
+            if not math.isfinite(v):
+                raise FormatError('resource facts require finite JSON numbers')
+        elif isinstance(v, Mapping) or type(v) in (tuple, list):
+            if id(v) in ancestors:
+                raise FormatError('cyclic resource JSON')
+            lineage = ancestors | {id(v)}
+            n = len(v) * (2 if isinstance(v, Mapping) else 1)
+            limits.check('nodes', count + len(stack) + n)
+            limits.check('memory', retained_cost + 512 * (count + len(stack) + n))
+            if isinstance(v, Mapping):
+                for k, item in v.items():
+                    if type(k) is not str:
+                        raise TypeError('resource JSON keys must be exact strings')
+                    stack.append((k, depth + 1, lineage))
+                    stack.append((item, depth + 1, lineage))
+            else:
+                stack.extend((item, depth + 1, lineage) for item in v)
+        else:
+            raise TypeError('resource facts must be JSON values, not records or callbacks')
+    available = limits.memory_budget_bytes - retained_cost - 512 * count
+    if available < 64:
+        raise LimitError('resource JSON aggregate memory budget exceeded')
+    # Restrict serialization before allocation using the remaining aggregate
+    # budget. Reserve room for detached/frozen facts and later report copies.
+    scoped = replace(limits, max_json_bytes=min(limits.max_json_bytes, available // 32),
+                     memory_budget_bytes=available)
+    encoded = encode_json(value, limits=scoped)
+    cost = 512 * count + 32 * len(encoded)
+    limits.check('memory', retained_cost + cost)
+    return encoded, cost
+
+
+def _probe_resources(callback, resources, limits, retained_cost):
+    if not resources:
+        return b'{}', 0
+    if not callable(callback):
+        raise TypeError('nonempty resources require trusted validate_resources code')
+    args = {'resources': dict(resources)}
+    facts = callback(args['resources'], limits=limits)
+    _check_resource_argument(args, resources)
+    if not isinstance(facts, Mapping) or len(facts) != len(resources) or set(facts) != set(resources):
+        raise FormatError('resource facts must have exactly the resource names')
+    return _bounded_resource_json(facts, limits, retained_cost)
 
 
 def _history_ledgers(history, limits):
@@ -367,6 +480,9 @@ def _mac(p):
                str(id(p._validate))).encode('ascii')
     private += encode_json(plain(p._limits), limits=p._limits)
     private += encode_json({k: digest(v) for k, v in p._sources.items()}, limits=p._limits)
+    private += encode_json(_resource_pins(p._resources), limits=p._limits)
+    private += (str(id(p._validate_resources)) + ':' + str(p._input_cost) + ':' +
+                str(p._facts_cost) + ':' + digest(p._resource_facts_json)).encode('ascii')
     return hmac.digest(_KEY, body + private, 'sha256')
 
 
@@ -383,32 +499,57 @@ def _verify_seal(p):
 
 
 def prepare_mutation(engine: str, target_bytes: bytes, intent, sources=None, *,
-                     limits=None, seed=None, build, validate) -> PreparedMutation | ProfileReport:
-    """Trusted-engine adapter. build and validate are CODE, never JSON callbacks.
+                     limits=None, seed=None, build, validate, resources=None,
+                     validate_resources=None) -> PreparedMutation | ProfileReport:
+    """Reviewed in-process engine adapter, not caller-issued write authority.
 
-    build(target_bytes, detached_intent, detached_sources, *, limits, seed)
-      -> MutationDraft | blocked ProfileReport
-    validate(target_bytes, detached_intent, detached_sources, candidate_bytes,
-             detached_evidence_report, *, limits) -> exactly True
-    validate runs here AND before apply; it must be pure and check every engine
-    postcondition/ledger/opaque claim. No builder/allocator runs during apply.
+    Nonempty resources require a pure validate_resources(resources, *, limits)
+    returning exact named JSON facts. Only then do build/validate receive the
+    additional resources= keyword. Empty resources preserve legacy signatures.
+    Every input admission precedes callbacks; facts are checked before build.
     """
     limits = get_limits(limits)
     if not isinstance(engine, str) or not engine or not callable(build) or not callable(validate):
         raise TypeError('engine name and trusted build/validate callables required')
-    intent_copy = json.loads(encode_json(intent, limits=limits))
+    if validate_resources is not None and not callable(validate_resources):
+        raise TypeError('validate_resources must be trusted callable code')
+    if type(target_bytes) is not bytes:
+        raise TypeError('immutable target bytes required')
+    limits.check('file', len(target_bytes))
+    inputs = _snapshot_sources(sources, limits)
+    resource_inputs = _snapshot_resources(resources, inputs, limits)
+    if resource_inputs and validate_resources is None:
+        raise TypeError('nonempty resources require validate_resources')
+    pins = _resource_pins(resource_inputs)
+    input_cost = 12 * (len(target_bytes) + sum(map(len, inputs.values())) +
+                       sum(map(len, resource_inputs.values()))) + 1024 * len(resource_inputs)
+    limits.check('memory', input_cost)
+    if resource_inputs:
+        encoded, json_cost = _bounded_resource_json(
+            {'intent': intent, 'sources': _resource_pins(inputs), 'resources': pins},
+            limits, input_cost)
+        intent_copy = json.loads(encoded)['intent']; input_cost += json_cost
+    else:
+        intent_copy = json.loads(encode_json(intent, limits=limits))
     if type(intent_copy) is not dict:
         raise FormatError('intent must be a JSON object')
-    inputs = _snapshot_sources(sources, limits)
     target = load_library(target_bytes, limits=limits)
     state = library_state_digest(target, limits=limits)
-    total_file = len(target_bytes); total_plain = len(target.container.payload)
+    total_plain = len(target.container.payload)
+    limits.check('memory', input_cost + total_plain * 8)
     for v in inputs.values():
         lib = load_library(v, limits=limits)
-        total_file += len(v); total_plain += len(lib.container.payload)
-    limits.check('memory', total_file * 12 + total_plain * 8)
+        total_plain += len(lib.container.payload)
+        limits.check('memory', input_cost + total_plain * 8)
+        del lib
+    input_cost += total_plain * 8
+    facts_json, facts_cost = _probe_resources(validate_resources, resource_inputs, limits, input_cost)
+    # Both retained facts and one re-probe must fit, including candidate storage.
+    limits.check('memory', input_cost + 2 * facts_cost)
+    build_kwargs = _resource_kwargs(resource_inputs)
     draft = build(target_bytes, json.loads(encode_json(intent_copy, limits=limits)),
-                  dict(inputs), limits=limits, seed=seed)
+                  dict(inputs), limits=limits, seed=seed, **build_kwargs)
+    _check_resource_argument(build_kwargs, resource_inputs)
     if type(draft) is ProfileReport:
         if not draft.blocked:
             raise FormatError('engine returned an unblocked profile without a candidate')
@@ -417,43 +558,66 @@ def prepare_mutation(engine: str, target_bytes: bytes, intent, sources=None, *,
         raise TypeError('engine must return MutationDraft with typed profile and ledger')
     if draft.profile_report.blocked:
         return draft.profile_report
-    _check_ledger_inputs(draft.allocation_ledger,target_bytes,inputs,limits)
+    _check_ledger_inputs(draft.allocation_ledger, target_bytes, inputs, limits)
+    if type(draft.candidate_bytes) is not bytes:
+        raise TypeError('candidate must be immutable bytes')
+    limits.check('file', len(draft.candidate_bytes))
+    limits.check('memory', input_cost + 2 * facts_cost + 12 * len(draft.candidate_bytes))
     load_library(draft.candidate_bytes, limits=limits)
-    limits.check('memory', total_file * 12 + total_plain * 8 + len(draft.candidate_bytes) * 12)
     p = object.__new__(PreparedMutation)
     data = dict(engine=engine, intent=freeze(intent_copy), profile_report=draft.profile_report,
                 baseline_digest=digest(target_bytes), input_digests=freeze({k: digest(v) for k,v in inputs.items()}),
+                resource_digests=freeze(pins), resource_facts=freeze(json.loads(facts_json)),
                 allocation_ledger=draft.allocation_ledger, typed_patches=freeze(draft.typed_patches),
                 opaque_preservation=freeze(draft.opaque_preservation), postconditions=freeze(draft.postconditions),
                 prepared_candidate_digest=digest(draft.candidate_bytes), _candidate=draft.candidate_bytes,
-                _target=target_bytes, _sources=None,
-                _limits=limits, _state_digest=state, _validate=validate)
-    # Bytes are immutable; mapping is separately defensive (freeze intentionally rejects binary reports).
+                _target=target_bytes, _limits=limits, _state_digest=state, _validate=validate,
+                _validate_resources=validate_resources, _resource_facts_json=facts_json,
+                _input_cost=input_cost, _facts_cost=facts_cost)
     from types import MappingProxyType
     data['_sources'] = MappingProxyType(dict(inputs))
+    data['_resources'] = MappingProxyType(dict(resource_inputs))
     for k,v in data.items():
         object.__setattr__(p,k,v)
-    if validate(target_bytes, plain(p.intent), dict(inputs), p._candidate, p.to_dict(), limits=limits) is not True:
+    # Bound the complete evidence report before calling the engine validator.
+    encode_json(p.to_dict(), limits=limits)
+    validate_kwargs = _resource_kwargs(resource_inputs)
+    valid = validate(target_bytes, plain(p.intent), dict(inputs), p._candidate,
+                     p.to_dict(), limits=limits, **validate_kwargs)
+    _check_resource_argument(validate_kwargs, resource_inputs)
+    if valid is not True:
         raise UnsupportedError('engine postcondition validation failed during prepare')
     object.__setattr__(p, '_seal', _mac(p))
     return p
 
 
-def apply(target_library: Library, prepared: PreparedMutation, *, sources=None) -> MutationReceipt:
-    """Validate everything before a single __dict__ adoption; no disk writes.
+def apply(target_library: Library, prepared: PreparedMutation, *, sources=None,
+          resources=None) -> MutationReceipt:
+    """Exact current sources/resources, re-probe, CAS, then one atomic adoption.
 
-    Mutable concurrent callers must synchronize access to a Library externally.
-    A plan with sources requires their current byte snapshots by exact name.
+    No builder/allocator/RNG replay. Mutable callers synchronize externally.
     """
     _verify_seal(prepared); p = prepared; limits = p._limits
     current = _snapshot_sources(sources, limits)
     if {k: digest(v) for k,v in current.items()} != dict(p.input_digests):
         raise FormatError('stale or missing source inputs')
+    current_resources = _snapshot_resources(resources, current, limits)
+    if _resource_pins(current_resources) != plain(p.resource_digests):
+        raise FormatError('stale, extra or missing resource inputs')
     if library_state_digest(target_library, limits=limits) != p._state_digest:
         raise FormatError('stale target model; input Library was not modified')
-    _check_ledger_inputs(p.allocation_ledger,p._target,current,limits)
+    _check_ledger_inputs(p.allocation_ledger, p._target, current, limits)
+    fresh_json, fresh_cost = _probe_resources(p._validate_resources, current_resources,
+        limits, p._input_cost + p._facts_cost + 12 * len(p._candidate))
+    if fresh_json != p._resource_facts_json:
+        raise FormatError('resource facts changed during re-probe')
+    limits.check('memory', p._input_cost + p._facts_cost + fresh_cost + 12 * len(p._candidate))
     candidate = load_library(p._candidate, limits=limits)
-    if p._validate(p._target, plain(p.intent), dict(current), p._candidate, p.to_dict(), limits=limits) is not True:
+    kwargs = _resource_kwargs(current_resources)
+    valid = p._validate(p._target, plain(p.intent), dict(current), p._candidate,
+                        p.to_dict(), limits=limits, **kwargs)
+    _check_resource_argument(kwargs, current_resources)
+    if valid is not True:
         raise UnsupportedError('engine postcondition validation failed during apply')
     _verify_seal(p)
     if library_state_digest(target_library, limits=limits) != p._state_digest:

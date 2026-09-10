@@ -177,4 +177,15 @@ def test_every_current_named_track_accessor_has_a_coverage_entry():
     r=inspect_coverage(Library.from_bytes(library_bytes()))
     track=next(x for x in r.records if x.record_tag=='mith')
     names={f.name for f in track.fields}
-    assert set(TEXT_FIELDS)|set(NUMBER_FIELDS)|{'compilation','loved','unplayed'} <= names
+    # The legacy +f4 alias maps to one offset-named raw span, not another field.
+    assert (set(TEXT_FIELDS)|set(NUMBER_FIELDS)|{'compilation','loved','unplayed'})-{'mith_0xf4_u64_raw'} <= names
+
+
+def test_g2_f4_single_raw_span_and_float_rate_are_distinct():
+    r=inspect_coverage(Library.from_bytes(library_bytes()))
+    track=next(x for x in r.records if x.record_tag=='mith')
+    fields=[f for f in track.fields if f.offset_or_payload_layout==0xf4]
+    assert len(fields)==1 and fields[0].name=='header_0xf4_8_raw'
+    assert fields[0].width==8 and fields[0].write_level=='none' and fields[0].namespace is None
+    rate=next(f for f in track.fields if f.name=='sample_rate')
+    assert rate.offset_or_payload_layout==0x98 and rate.width==4 and rate.read_level=='evidence_mapped_float32'
