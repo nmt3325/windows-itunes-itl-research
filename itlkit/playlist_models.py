@@ -245,13 +245,13 @@ class _Budget:
         self.reserve(4 * size)
 
 
-def _input(data, limit, memory_budget):
+def _input(data, limit, memory_budget, *, memory_factor=4):
     if not isinstance(data, (bytes, bytearray, memoryview)):
         raise TypeError("expected bytes, bytearray or memoryview")
     size = data.nbytes if isinstance(data, memoryview) else len(data)
     if size > limit:
         raise PlaylistLimitError("input byte budget")
-    if 4 * size > memory_budget:
+    if memory_factor * size > memory_budget:
         raise PlaylistLimitError("estimated input memory budget")
     return bytes(data)
 
@@ -581,11 +581,33 @@ def inspect_playlists(data, *, limits=None) -> PlaylistDocument:
     """Inspect immutable hdfm bytes; never calls Library/to_bytes/rebuild/write."""
     from dataclasses import replace
     from .container import Container
+    from .errors import FormatError
     lim = _limits(limits)
-    raw = _input(data, lim["max_file_bytes"], lim["memory_budget_bytes"])
-    _Budget(lim, len(raw))
-    container = Container.from_bytes(raw, max_plain_bytes=lim["max_plain_bytes"])
-    result = inspect_playlist_payload(container.payload, byteorder=container.payload_byteorder, limits=lim)
+    # Reserve wire/copy/AES-body buffers BEFORE copying or invoking the decoder.
+    # This conservative byte estimate is not a process-wide RSS guarantee.
+    raw = _input(data, lim["max_file_bytes"], lim["memory_budget_bytes"], memory_factor=6)
+    remaining = lim["memory_budget_bytes"] - 6 * len(raw)
+    # Container detects an overrun with cap+1; account for that sentinel too.
+    plain_cap = min(lim["max_plain_bytes"], remaining // 4 - 1)
+    if plain_cap < 1:
+        raise PlaylistLimitError("estimated container memory budget")
+    try:
+        container = Container.from_bytes(raw, max_plain_bytes=plain_cap)
+    except FormatError as exc:
+        # Container has no dedicated size-limit subtype. Translate only its
+        # two exact size-error prefixes, and only when memory reduced the cap.
+        # Invalid headers/flags/zlib and an explicit plain-byte cap keep their
+        # original exception, rather than being hidden as memory exhaustion.
+        size_errors = (f"decompressed payload exceeds {plain_cap} bytes",
+                       f"uncompressed payload exceeds {plain_cap} bytes")
+        if plain_cap < lim["max_plain_bytes"] and str(exc).startswith(size_errors):
+            raise PlaylistLimitError("estimated container memory budget") from exc
+        raise
+    # Wire buffers coexist with the payload/model; do not reuse their budget
+    # for nodes/text. Other caps and the standalone payload API are unchanged.
+    payload_limits = dict(lim, memory_budget_bytes=remaining)
+    result = inspect_playlist_payload(container.payload, byteorder=container.payload_byteorder,
+                                      limits=payload_limits)
     return replace(result, envelope_sha256=hashlib.sha256(raw).hexdigest())
 
 

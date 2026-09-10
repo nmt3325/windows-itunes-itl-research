@@ -144,13 +144,47 @@ ReadLimits implementation.
   decoded text bytes and JSON byte output have independent limits. The document
   records max_observed_depth; JSON export also rejects a stricter depth cap below
   that observation, without conflating graph-edge depth with physical/tree depth.
-- Global resource exhaustion raises PlaylistLimitError, not a partial success
-  or a local unsupported-field diagnostic. JSON uses escaped ASCII and measures
+- Global model/input/export resource exhaustion raises PlaylistLimitError, not a partial
+  success or a local unsupported-field diagnostic. Existing Container format/explicit
+  plain-size errors remain format errors. JSON uses escaped ASCII and measures
   every emitted byte, with one optional raw source. No JSON import exists.
 - A conservative model/export memory estimate is checked against the declared
   process research budget. This is NOT an RSS guarantee: measured Python peaks
   for actual regression/stress runs belong in the report. Adversarial process
   memory still needs external containment/calibration beyond plaintext caps.
+
+
+### Pre-inflate envelope memory admission (G2-RESOURCE-01)
+
+For `inspect_playlists`, let W be the actual wire byte count (memoryview.nbytes,
+not its element count), M be memory_budget_bytes, and R = M - 6*W. Six bytes per
+wire byte conservatively cover the retained input/defensive copy and the
+Container header/body/AES temporary buffers. This reservation precedes copying.
+The decoder receives `min(max_plain_bytes, R//4 - 1)` as its plaintext cap. A cap
+below 1 is refused before Container decoding or the payload-parser callback.
+Four bytes per allowed plaintext byte align with the existing model estimate;
+the additional byte accounts for Container's bounded overrun detector (cap+1).
+Thus even its over-limit output obeys `4*(cap+1) <= R`.
+
+After a successful decode, only R remains available to the existing payload,
+node and text accounting (`4*plain + 2048*nodes + 4*decoded_text`). The wire
+reservation cannot be spent again on model objects. Caller limits are not
+mutated; file/plain/node/depth/text/JSON caps, local diagnostics and all evidence
+levels are unchanged. The returned estimated_model_bytes remains the payload
+model estimate; the temporary envelope buffers are not retained by that model.
+The standalone payload/SLst APIs retain their existing four-byte input estimate.
+
+A memory-derived Container size refusal is reported as PlaylistLimitError with
+the original format error chained. An explicit max_plain_bytes refusal and
+malformed/unsupported container errors retain their original types. No partial
+model is returned. This is conservative byte accounting, NOT a promise that
+Python, AES or zlib allocator/workspace overhead or process-wide RSS fits an
+arbitrarily tiny declared budget; external containment/calibration is still needed.
+
+The regression uses a genuinely compressed synthetic 512KiB opaque section,
+plus zero/small remainder, exact-cap, uncompressed AES ordering, residual-model,
+BE opaque, duplicate/order and unchanged-limit controls. These are allocation
+boundary tests, not native writer/semantic qualification or an observed OOM.
 
 Unresolved folder parents, full smart-leaf classes/evaluation/freshness, view and
 sort semantics, second-list links, queue/history/cache dependencies and grouped

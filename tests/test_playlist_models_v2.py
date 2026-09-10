@@ -383,3 +383,145 @@ def test_input_memory_admission_precedes_defensive_copy(reader):
             raise AssertionError("copied before memory admission")
     with pytest.raises(PlaylistLimitError, match="estimated input memory budget"):
         reader(NoCopy(b"x" * 100), limits={"memory_budget_bytes": 1})
+
+
+# G2-RESOURCE-01: allocation-order controls, not native acceptance tests.
+def test_g2_memory_real_inflater_output_is_bounded(monkeypatch):
+    from itlkit import Container, FormatError
+    from itlkit import container as envelope
+    from test_core_support import library_bytes
+    data = library_bytes(opaque=b"Z" * (512 * 1024))
+    budget = 6 * len(data) + 4096
+    # Real nominal decode is only a size/control measurement, outside the probe.
+    assert len(Container.from_bytes(data).payload) > 512 * 1024
+    requested, allocated = [], []
+    real_factory = envelope.zlib.decompressobj
+    real_decode = Container.from_bytes
+    class ObservedInflater:
+        def __init__(self, *args, **kwargs):
+            self.real = real_factory(*args, **kwargs)
+        def __getattr__(self, name):
+            return getattr(self.real, name)
+        def decompress(self, value, max_length=0):
+            result = self.real.decompress(value, max_length)
+            allocated.append((max_length, len(result)))
+            return result
+    def observed(data, **kwargs):
+        requested.append(kwargs["max_plain_bytes"])
+        return real_decode(data, **kwargs)
+    monkeypatch.setattr(envelope.zlib, "decompressobj", ObservedInflater)
+    monkeypatch.setattr(Container, "from_bytes", observed)
+    with pytest.raises((PlaylistLimitError, FormatError)):
+        inspect_playlists(data, limits={"memory_budget_bytes": budget})
+    assert requested == [1023]
+    assert allocated and all(cap <= 1024 and size <= 1024 for cap, size in allocated)
+
+
+def test_g2_memory_wire_charge_precedes_defensive_copy():
+    class NoCopy(bytearray):
+        def __bytes__(self):
+            raise AssertionError("wire copied before six-byte memory admission")
+    with pytest.raises(PlaylistLimitError, match="estimated input memory budget"):
+        inspect_playlists(NoCopy(b"x" * 100), limits={"memory_budget_bytes": 599})
+
+
+@pytest.mark.parametrize("remaining", [0, 1, 3, 4, 7])
+def test_g2_memory_no_decode_or_payload_callback_without_allowance(monkeypatch, remaining):
+    from itlkit import Container
+    from itlkit import playlist_models as model
+    from test_core_support import library_bytes
+    data = library_bytes()
+    def forbidden(*args, **kwargs):
+        raise AssertionError("decode/callback entered without a positive bounded plain cap")
+    monkeypatch.setattr(Container, "from_bytes", forbidden)
+    monkeypatch.setattr(model, "inspect_playlist_payload", forbidden)
+    with pytest.raises(PlaylistLimitError):
+        model.inspect_playlists(data, limits={"memory_budget_bytes": 6 * len(data) + remaining})
+
+
+@pytest.mark.parametrize("plain_cap,remaining,expected", [(5000, 8, 1), (5000, 4096, 1023), (17, 4096, 17)])
+def test_g2_memory_effective_plain_cap_intersects_explicit_limit(monkeypatch, plain_cap, remaining, expected):
+    from itlkit import Container
+    from test_core_support import library_bytes
+    data = library_bytes()
+    class ReachedDecode(RuntimeError):
+        pass
+    observed = []
+    def stop(data, **kwargs):
+        observed.append(kwargs["max_plain_bytes"])
+        raise ReachedDecode
+    monkeypatch.setattr(Container, "from_bytes", stop)
+    with pytest.raises(ReachedDecode):
+        inspect_playlists(data, limits={"memory_budget_bytes": 6 * len(data) + remaining,
+                                      "max_plain_bytes": plain_cap})
+    assert observed == [expected]
+
+
+def test_g2_memory_wire_allowance_is_not_reused_for_model_nodes():
+    from itlkit import Container
+    from test_core_support import library_bytes
+    data = library_bytes()
+    plain = Container.from_bytes(data).payload
+    bare = inspect_playlist_payload(plain)
+    expected = 4 * len(plain) + 2048 * bare.node_count + 4 * bare.decoded_text_bytes
+    assert bare.estimated_model_bytes == expected and expected > 4 * (len(plain) + 1)
+    limits = {"memory_budget_bytes": 6 * len(data) + expected - 1}
+    with pytest.raises(PlaylistLimitError):
+        inspect_playlists(data, limits=limits)
+    assert limits == {"memory_budget_bytes": 6 * len(data) + expected - 1}
+    exact = inspect_playlists(data, limits={"memory_budget_bytes": 6 * len(data) + expected})
+    assert replace(exact, envelope_sha256=None) == bare
+
+
+def test_g2_memory_uncompressed_limit_precedes_aes_and_callback(monkeypatch):
+    from itlkit import Container, FormatError
+    from itlkit import container as envelope, playlist_models as model
+    from test_core_support import library_bytes, pack
+    plain = Container.from_bytes(library_bytes(opaque=b"Z" * 4096)).payload
+    data = pack(plain, compression=0, encryption=2)
+    def forbidden(*args, **kwargs):
+        raise AssertionError("AES/callback entered after uncompressed size exceeded memory cap")
+    monkeypatch.setattr(envelope.AES, "new", forbidden)
+    monkeypatch.setattr(model, "inspect_playlist_payload", forbidden)
+    with pytest.raises((PlaylistLimitError, FormatError)):
+        model.inspect_playlists(data, limits={"memory_budget_bytes": 6 * len(data) + 4096})
+
+
+@pytest.mark.parametrize("byteorder", ["little", "big"])
+def test_g2_memory_preserves_opaque_duplicates_order_and_be(byteorder):
+    from test_core_support import pack
+    plain = payload([playlist(metas=[title("First"), metadata(777, b"opaque"), title("Second"),
+                                    metadata(105, b"view-a"), metadata(105, b"view-b")])])
+    bare = inspect_playlist_payload(plain, byteorder=byteorder)
+    data = pack(plain, little=int(byteorder == "little"))
+    limits = {"memory_budget_bytes": 6 * len(data) + bare.estimated_model_bytes + 4}
+    result = inspect_playlists(data, limits=limits)
+    assert replace(result, envelope_sha256=None) == bare
+    assert result.raw.read() == plain and result.native_level == "not-qualified"
+    assert result.semantic_write_level == "none"
+    if byteorder == "little":
+        assert [m.type_code for m in result.playlists[0].metadata] == [100, 777, 100, 105, 105]
+    else:
+        assert not result.sections and "inner_endian" in codes(result.diagnostics)
+
+
+@pytest.mark.parametrize("limit", [{"max_nodes": 1}, {"max_depth": 1}, {"max_text_bytes": 1}])
+def test_g2_memory_does_not_relax_existing_model_limits(limit):
+    from test_core_support import library_bytes
+    with pytest.raises(PlaylistLimitError):
+        inspect_playlists(library_bytes(), limits=limit)
+
+
+def test_g2_memory_malformed_container_is_not_relabelled_as_memory():
+    from itlkit import FormatError
+    from test_core_support import library_bytes
+    data = b"BADD" + library_bytes()[4:]
+    with pytest.raises(FormatError, match="not a supported hdfm"):
+        inspect_playlists(data, limits={"memory_budget_bytes": 6 * len(data) + 4096})
+
+
+def test_g2_memory_explicit_plain_limit_keeps_container_failure():
+    from itlkit import FormatError
+    from test_core_support import library_bytes
+    with pytest.raises(FormatError, match="decompressed payload exceeds 1 bytes"):
+        inspect_playlists(library_bytes(), limits={"max_plain_bytes": 1})
