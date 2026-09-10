@@ -10,7 +10,8 @@ from hashlib import sha256
 import json
 import struct
 
-from .media import MediaError, probe_bytes, limit_value
+from .media import (MediaError, probe_bytes, limit_value, _memory_preflight,
+                    _probe_memory_estimate)
 from .location import LocationError, plan_location, location_records, _text_record
 
 
@@ -74,7 +75,48 @@ def hfs_displayed_wall_time(value):
     return seconds
 
 
+def _metadata_memory_estimate(metadata):
+    # Bound the flat shape before set/dict copies. No encoding or stringification.
+    _need(type(metadata) is dict, 'explicit metadata mapping required')
+    _need(len(metadata) <= 14, 'unknown/identity/derived metadata key')
+    characters = 0
+    for key, value in metadata.items():
+        _need(type(key) is str, 'metadata keys must be strings')
+        characters += len(key)
+        if isinstance(value, str):
+            characters += len(value)
+        else:
+            _need(type(value) in (int, bool), 'metadata values must be text or scalar')
+    return 65536 + 256 * len(metadata) + 32 * characters
+
+
+def _construction_preflight(media_bytes, metadata, location, date_added, date_modified, limits, *, extra=0):
+    """Combined helper-stage estimate before parsing, URI/JSON or record copies.
+
+    Raw path lengths reserve UTF16 and percent-escaped UTF8 expansion without
+    performing either conversion. This is not an engine resource reservation.
+    """
+    checked = _memory_preflight(limits, 65536)
+    if not isinstance(media_bytes, bytes):
+        raise MediaError('media must be immutable bytes')
+    _need(isinstance(location, str), 'explicit Location text required')
+    description = _metadata_memory_estimate(metadata)
+    name = metadata.get('name')
+    name_chars = len(name) if isinstance(name, str) else 0
+    path_chars = len(location)
+    date_chars = sum(len(v) if isinstance(v, str) else 96 for v in (date_added, date_modified))
+    # 756-byte header, four40-byte text wrappers, Kind and URI prefix slack.
+    # Four bytes/Name character and16/path character bound possible encodings.
+    record_bytes = 756 + 4 * 40 + 16 + 4 * name_chars + 16 * path_chars + 16
+    estimate = (_probe_memory_estimate(len(media_bytes), checked) + description +
+                32 * (16 * path_chars + 16 + date_chars) + 8 * record_bytes + extra)
+    _memory_preflight(checked, estimate)
+    return checked
+
+
 def validate_metadata(metadata, *, limits=None):
+    limits = _memory_preflight(limits, 65536)
+    _memory_preflight(limits, _metadata_memory_estimate(metadata))
     _need(type(metadata) is dict, 'explicit metadata mapping required')
     allowed = {'name', 'unplayed', 'rating', 'year', 'track_number', 'track_count', 'disc_number', 'disc_count',
                'album', 'artist', 'album_artist', 'genre', 'composer', 'comment'}
@@ -102,6 +144,7 @@ def materialize_pcm_wave_record(media_bytes, metadata, location, bindings, *, da
     Re-probes bytes rather than trusting a caller-built MediaFacts. Profile refusal
     never falls back to a template from a different codec/channel/configuration.
     """
+    limits = _construction_preflight(media_bytes, metadata, location, date_added, date_modified, limits)
     facts = probe_bytes(media_bytes, limits=limits)
     _need(facts.format == 'WAV' and facts.channels == 1 and facts.bits_per_sample == 16 and
           facts.sample_rate in (44100, 48000), 'unqualified PCM channel/bit-depth/rate profile')
@@ -114,6 +157,9 @@ def materialize_pcm_wave_record(media_bytes, metadata, location, bindings, *, da
     for rank in sort_ranks:
         _uint(rank, 4, 'rank')
     added, modified = hfs_displayed_wall_time(date_added), hfs_displayed_wall_time(date_modified)
+    # These are ASCII in the admitted recipe; check before encoding any child.
+    text_bytes = len(values['name']) + len('WAV audio file') + len(bundle.path) + len(bundle.url)
+    _need(text_bytes <= limit_value(limits, 'max_text_bytes'), 'aggregate record text budget')
     path_record, url_record = location_records(bundle, limits=limits)
     records = (_text_record(2, bindings.name_atom, values['name'], 3),
                _text_record(6, bindings.kind_atom, 'WAV audio file', 3), path_record, url_record)
@@ -175,6 +221,7 @@ def declare_intent(media_bytes, metadata, location, *, date_added, date_modified
     """
     from .schema import get_limits, encode_json
     checked = get_limits(limits)
+    _construction_preflight(media_bytes, metadata, location, date_added, date_modified, checked)
     facts = probe_bytes(media_bytes, limits=checked)
     _need(facts.format == 'WAV' and facts.channels == 1 and facts.bits_per_sample == 16 and
           facts.sample_rate in (44100, 48000), 'unqualified PCM recipe')
@@ -201,15 +248,32 @@ def prepare(target_bytes, intent, sources=None, *, limits=None, seed=None):
     from .trackops import _profile
     from .errors import UnsupportedError
     checked = get_limits(limits)
+    _memory_preflight(checked, 65536)
     if type(target_bytes) is not bytes:
         raise TypeError('target must be immutable bytes')
     checked.check('file', len(target_bytes))
-    if type(intent) is not dict or set(intent) != {'op','location','metadata','date_added','date_modified','media'}:
+    if type(intent) is not dict or len(intent) != 6 or set(intent) != {'op','location','metadata','date_added','date_modified','media'}:
         raise ConstructionError('intent must have exactly op/location/metadata/date_added/date_modified/media')
-    if type(sources) is not dict or set(sources) != {'media'} or type(sources['media']) is not bytes:
+    if type(sources) is not dict or len(sources) != 1 or set(sources) != {'media'} or type(sources['media']) is not bytes:
         raise TypeError('constructor sources must contain exactly immutable media bytes')
     _need(intent['op'] == 'append_pcm_wave', 'unsupported construction operation')
     _need(type(intent['date_added']) is str and type(intent['date_modified']) is str, 'JSON intent dates must be explicit ISO strings')
+    # Reject unbounded/nested claimed-media descriptions before JSON copying.
+    claim = intent['media']
+    _need(type(claim) is dict and len(claim) == 9 and set(claim) == {
+        'format', 'sha256', 'size_bytes', 'sample_rate_hz', 'channels',
+        'bits_per_sample', 'pcm_source_frames', 'duration_ms', 'bitrate_kbps'},
+        'media declaration exact keys')
+    claim_chars = 0
+    for key, value in claim.items():
+        if key in ('format', 'sha256'):
+            _need(type(value) is str, 'media declaration text type')
+            claim_chars += len(value)
+        else:
+            _need(type(value) is int and 0 <= value < 1 << 64, 'media declaration numeric range/type')
+    _construction_preflight(sources['media'], intent['metadata'], intent['location'],
+        intent['date_added'], intent['date_modified'], checked,
+        extra=12 * len(target_bytes) + 32 * claim_chars)
     detached = json.loads(encode_json(intent, limits=checked))
     expected = declare_intent(sources['media'], detached['metadata'], detached['location'],
                               date_added=detached['date_added'], date_modified=detached['date_modified'], limits=checked)

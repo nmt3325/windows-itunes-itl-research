@@ -191,3 +191,131 @@ def test_review_construct01_prequantization_bounds_and_normal_writes():
         WaveRecordBindings(103,105,0x1111222233334444,101,102,4,1),date_added=one,date_modified=one,sort_ranks=(4000,1000,1000,1000,1000,1000,1000))
     assert struct.unpack_from('<I',record.record_bytes,0x78)[0]==struct.unpack_from('<I',record.record_bytes,0x20)[0]==1
     assert not record.native_accepted
+
+
+# G2 budget regressions retain all prior helper safety tests verbatim above.
+def _g2_budget_record(data, metadata=None, *, limits=None, location=r'D:\budget-control.wav'):
+    return materialize_pcm_wave_record(data, {'name': 'Budget control'} if metadata is None else metadata,
+        location, IDS, date_added=DATE, date_modified=DATE, sort_ranks=RANKS, limits=limits)
+
+
+@pytest.mark.parametrize('entry', ['record', 'intent'])
+def test_g2_budget_one_constructor_before_probe_and_location(monkeypatch, entry):
+    from itlkit import construct
+    from itlkit.schema import ReadLimits
+    data = pcm(frames=257)
+    calls = []
+    probe, plan = construct.probe_bytes, construct.plan_location
+    def observed_probe(*args, **kwargs):
+        calls.append('probe')
+        return probe(*args, **kwargs)
+    def observed_plan(*args, **kwargs):
+        calls.append('location')
+        return plan(*args, **kwargs)
+    monkeypatch.setattr(construct, 'probe_bytes', observed_probe)
+    monkeypatch.setattr(construct, 'plan_location', observed_plan)
+    with pytest.raises(ValueError, match='memory budget'):
+        if entry == 'record':
+            _g2_budget_record(data, limits=ReadLimits(memory_budget_bytes=1))
+        else:
+            declare_intent(data, {'name': 'Budget control'}, r'D:\budget-control.wav',
+                date_added=DATE, date_modified=DATE, limits=ReadLimits(memory_budget_bytes=1))
+    assert calls == []
+
+
+@pytest.mark.parametrize('entry', ['record', 'intent', 'metadata'])
+def test_g2_budget_text_refused_before_record_or_location_materialization(monkeypatch, entry):
+    from itlkit import construct
+    from itlkit.schema import ReadLimits
+    data = pcm(frames=257)
+    metadata = {'name': 'X' * 200000}
+    calls = []
+    originals = {name: getattr(construct, name) for name in ('probe_bytes', 'plan_location', 'location_records', '_text_record')}
+    def wrapper(name):
+        def observed(*args, **kwargs):
+            calls.append(name)
+            return originals[name](*args, **kwargs)
+        return observed
+    for name in originals:
+        monkeypatch.setattr(construct, name, wrapper(name))
+    with pytest.raises(ValueError, match='memory budget'):
+        if entry == 'record':
+            _g2_budget_record(data, metadata, limits=ReadLimits(memory_budget_bytes=1024 * 1024))
+        elif entry == 'intent':
+            declare_intent(data, metadata, r'D:\budget-control.wav', date_added=DATE,
+                date_modified=DATE, limits=ReadLimits(memory_budget_bytes=1024 * 1024))
+        else:
+            construct.validate_metadata(metadata, limits=ReadLimits(memory_budget_bytes=1024 * 1024))
+    assert calls == []
+
+
+def test_g2_budget_metadata_one_refused():
+    from itlkit.construct import validate_metadata
+    from itlkit.schema import ReadLimits
+    with pytest.raises(ValueError, match='memory budget'):
+        validate_metadata({'name': 'Budget control'}, limits=ReadLimits(memory_budget_bytes=1))
+
+
+def test_g2_budget_prepare_before_json_or_media(monkeypatch):
+    from itlkit import schema, construct
+    from test_core_support import library_bytes
+    source = pcm(frames=257)
+    target = library_bytes()
+    intent = declare_intent(source, {'name': 'Budget control'}, r'D:\budget-control.wav',
+                            date_added=DATE, date_modified=DATE)
+    calls = []
+    original_json, original_probe = schema.encode_json, construct.probe_bytes
+    def observed_json(*args, **kwargs):
+        calls.append('json')
+        return original_json(*args, **kwargs)
+    def observed_probe(*args, **kwargs):
+        calls.append('probe')
+        return original_probe(*args, **kwargs)
+    monkeypatch.setattr(schema, 'encode_json', observed_json)
+    monkeypatch.setattr(construct, 'probe_bytes', observed_probe)
+    with pytest.raises(ValueError, match='memory budget'):
+        prepare(target, intent, {'media': source}, limits=schema.ReadLimits(memory_budget_bytes=1))
+    assert calls == []
+
+
+@pytest.mark.parametrize('bad', [True, False, 1.0, 0.0, -1.0, -1, 0, '1', None])
+def test_g2_budget_record_limit_type_contract(bad):
+    from itlkit.media import MediaError
+    with pytest.raises(MediaError, match='invalid shared ReadLimits'):
+        _g2_budget_record(pcm(frames=257), limits={'memory_budget_bytes': bad})
+
+
+def test_g2_budget_engine_and_declaration_require_actual_limits():
+    from itlkit.schema import ReadLimits
+    from test_core_support import library_bytes
+    source = pcm(frames=257)
+    intent = declare_intent(source, {'name': 'Budget control'}, r'D:\budget-control.wav',
+                            date_added=DATE, date_modified=DATE)
+    class Subclass(ReadLimits):
+        pass
+    for value in ({'memory_budget_bytes': 64 * 1024 * 1024}, True, 1.0, Subclass()):
+        with pytest.raises(TypeError, match='limits must be ReadLimits'):
+            declare_intent(source, {'name': 'Budget control'}, r'D:\budget-control.wav',
+                           date_added=DATE, date_modified=DATE, limits=value)
+        with pytest.raises(TypeError, match='limits must be ReadLimits'):
+            prepare(library_bytes(), intent, {'media': source}, limits=value)
+
+
+@pytest.mark.parametrize('budget', [32 * 1024 * 1024, 64 * 1024 * 1024])
+def test_g2_budget_sufficient_preserves_record_intent_and_blockers(budget):
+    from itlkit.schema import ReadLimits, ProfileReport
+    from test_core_support import library_bytes
+    import copy
+    source = pcm(frames=60000, sample=5)
+    metadata = {'name': 'Independent budget control', 'year': 2026, 'rating': 80, 'unplayed': False}
+    before = dict(metadata)
+    limited = _g2_budget_record(source, metadata, limits=ReadLimits(memory_budget_bytes=budget))
+    assert limited == _g2_budget_record(source, metadata)
+    assert not limited.native_accepted and limited.record_bytes[:4] == b'mith'
+    intent = declare_intent(source, metadata, r'D:\budget-control.wav', date_added=DATE,
+                            date_modified=DATE, limits=ReadLimits(memory_budget_bytes=budget))
+    saved = copy.deepcopy(intent)
+    result = prepare(library_bytes(), intent, {'media': source}, limits=ReadLimits(memory_budget_bytes=budget))
+    assert type(result) is ProfileReport and result.blocked
+    assert {'media_source_adapter_unavailable', 'identity_adapter_pending_authorized_pin'} <= {b.code for b in result.blockers}
+    assert intent == saved and metadata == before and source == pcm(frames=60000, sample=5)

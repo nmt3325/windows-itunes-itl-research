@@ -26,6 +26,36 @@ def limit_value(limits, name):
     return value
 
 
+# Owned helper admission policy, not the separately owned engine resources API.
+# This is a deterministic conservative estimate, never an OS/RSS guarantee.
+_MEDIA_WORKSPACE = 64 * 1024
+
+
+def _memory_preflight(limits, amount):
+    """Apply the real shared memory dimension before helper allocations/IO."""
+    from .schema import ReadLimits, get_limits, LimitError
+    try:
+        checked = ReadLimits(**limits) if type(limits) is dict else get_limits(limits)
+    except (TypeError, ValueError) as exc:
+        raise MediaError('invalid shared ReadLimits: ' + str(exc)) from exc
+    try:
+        checked.check('memory', amount)
+    except LimitError as exc:
+        raise MediaError(str(exc)) from exc
+    return checked
+
+
+def _probe_memory_estimate(size, limits):
+    """Input/buffer/parser copies plus bounded possible eight-byte chunk slots.
+
+    Optional parser internals are not an allocation sandbox. Large valid inputs
+    may be refused by this heuristic even when max_file_bytes permits them.
+    """
+    _need(type(size) is int and size >= 0, 'media estimate size range/type')
+    slots = min(limit_value(limits, 'max_nodes'), max(0, (size - 12) // 8))
+    return _MEDIA_WORKSPACE + 16 * size + 1024 * slots
+
+
 @dataclass(frozen=True, slots=True)
 class MediaFacts:
     format: str
@@ -120,8 +150,10 @@ def _pcm(data, limits):
 
 def probe_bytes(data: bytes, *, limits=None) -> MediaFacts:
     """No IO or implicit tag application. Non-PCM probing requires optional mutagen."""
+    limits = _memory_preflight(limits, _MEDIA_WORKSPACE)
     _need(isinstance(data, bytes), 'media must be immutable bytes')
     _need(12 <= len(data) <= limit_value(limits, 'max_file_bytes'), 'media file size budget')
+    _memory_preflight(limits, _probe_memory_estimate(len(data), limits))
     if data[:4] in (b'RIFF', b'FORM', b'RF64'):
         return _pcm(data, limits)
     try:
@@ -148,8 +180,15 @@ def probe_bytes(data: bytes, *, limits=None) -> MediaFacts:
     rate, channels, seconds = info.sample_rate, info.channels, info.length
     _need(type(rate) is int and rate > 0 and type(channels) is int and channels > 0, 'invalid parsed dimensions')
     _need(isinstance(seconds, (int, float)) and math.isfinite(seconds) and seconds > 0, 'invalid parsed duration')
-    keys = tuple(sorted(str(k) for k in (audio.tags or {})))
-    _need(sum(len(k.encode('utf-8')) for k in keys) <= limit_value(limits, 'max_text_bytes'), 'tag key text budget')
+    tags = audio.tags or {}
+    _need(len(tags) <= limit_value(limits, 'max_nodes'), 'tag key count budget')
+    _need(all(type(k) is str for k in tags), 'parsed tag keys must be strings')
+    characters = sum(len(k) for k in tags)
+    _memory_preflight(limits, _probe_memory_estimate(len(data), limits) +
+                      16 * characters + 256 * len(tags))
+    _need(characters <= limit_value(limits, 'max_text_bytes'), 'tag key text budget')
+    _need(sum(len(k.encode('utf-8')) for k in tags) <= limit_value(limits, 'max_text_bytes'), 'tag key text budget')
+    keys = tuple(sorted(tags))
     return MediaFacts(family, len(data), sha256(data).hexdigest(), rate, channels,
                       getattr(info, 'bits_per_sample', None), None, float(seconds),
                       'parser_only_not_native_wire_duration', getattr(info, 'bitrate', None), codec,
@@ -157,22 +196,29 @@ def probe_bytes(data: bytes, *, limits=None) -> MediaFacts:
 
 
 def probe_file(path, *, expected_sha256=None, expected_size=None, expected_mtime_ns=None, limits=None):
-    """Bounded read with strict pins plus path/open-file identity checks; no saves."""
+    """Budget before IO; retain strict pins and path/open-file identity checks."""
+    limits = _memory_preflight(limits, _MEDIA_WORKSPACE)
     if expected_sha256 is not None:
         _need(type(expected_sha256) is str and len(expected_sha256) == 64 and
               all(c in '0123456789abcdef' for c in expected_sha256), 'SHA256 pin must be canonical lowercase hex')
     for value in (expected_size, expected_mtime_ns):
         _need(value is None or (type(value) is int and value >= 0), 'numeric file pins must be nonnegative integers')
     cap = limit_value(limits, 'max_file_bytes')
-    path = Path(path)
+    path_text = os.fspath(path)
+    _need(type(path_text) is str, 'media path must resolve to text')
+    path_workspace = 16 * len(path_text)
+    _memory_preflight(limits, _MEDIA_WORKSPACE + path_workspace)
+    path = Path(path_text)
     before = path.stat()
     _need(stat.S_ISREG(before.st_mode), 'media is not a regular file')
     _need(before.st_size <= cap, 'media file size budget before read')
+    _memory_preflight(limits, _probe_memory_estimate(before.st_size + 1, limits) + path_workspace)
     identity = lambda s: (s.st_dev, s.st_ino, s.st_size, s.st_mtime_ns)
     with path.open('rb') as stream:
         opened = os.fstat(stream.fileno())
         _need(identity(before) == identity(opened), 'media replaced before open')
-        data = stream.read(cap + 1)
+        # Reserve/read only the verified length plus a growth-detection byte.
+        data = stream.read(opened.st_size + 1)
         completed = os.fstat(stream.fileno())
     _need(identity(opened) == identity(completed) and len(data) == opened.st_size, 'media changed during read')
     facts = probe_bytes(data, limits=limits)

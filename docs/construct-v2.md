@@ -57,3 +57,91 @@ The pinned review tested constructor `10b228fecf03ecc5028a5343535762a7397714af`,
 The 35 additive regression/normal cases preserve every existing test's bytes as a prefix. The red Location run is retained separately from the subsequent green run. See `reports/add-constructor/phase05/` for exact source pins, results and receipts.
 
 This helper repair does not promote the diagnostic mith to a library-ready or native-accepted ITL. Aggregate-resource enforcement, media-source admission, complete-master checks, actual frozen reservations, auxiliary/item/unknown-pool closure and independent/native acceptance remain separate gates. No peer/core merge is implied.
+
+
+## G2 resource admission (new work after exact recovery)
+
+The immutable source recovery checkpoint is `f382a716793763b3e414f22776dcef8aa7558639`.
+Its seven exact files and earlier reports/results remain historical evidence. This
+new G2 change follows the parent-authorized read-only merge of codec
+`66bdf7c9e9acad3158bbdd7096babde6ede23fd9` (four files). That recovery did not
+recover three original codec test files and does not contain the new shared
+`resources`/`validate_resources` extension. This helper change creates neither
+that shared API nor a substitute allocation/resource reservation record.
+
+### Admission estimates, not OS memory limits
+
+The estimates below use lengths and bounded flat shapes **before** media parsing,
+path open/read, URI conversion, metadata copying, JSON encoding, or record/header
+construction. A fixed64KiB helper workspace ensures that a memory budget of1 is
+refused immediately. The shared `ReadLimits.check('memory', amount)` performs the
+actual comparison. The owned helper converts `LimitError` into `MediaError` with
+the original memory-budget message; this remains a `ValueError`. Helper-only
+limit dictionaries use the real `ReadLimits` constructor; unknown fields, bool,
+float,0,negative or non-integer limits refuse. Declaration/engine boundaries still
+require exact `ReadLimits` or None, rejecting dictionaries and subclasses.
+
+For media length `N`, the probe policy is:
+
+```
+K = min(max_nodes, max(0, (N - 12) // 8))
+P(N) = 65536 + 16*N + 1024*K
+```
+
+This reserves input/buffer/parser/hash copies and conservatively possible
+8-byte-framed chunk bookkeeping. PCM still checks its actual chunk count before
+adding entries. Optional parser tag keys must be strings, with bounded count and
+aggregate characters before sorting/UTF8 copies; those copies add
+`16*characters + 256*key_count` to the probe estimate. Valid large inputs can be
+rejected even below max_file_bytes. This is a conservative admission heuristic,
+not a sandbox or a proven upper bound on third-party parser/internal callbacks,
+interpreter memory, arbitrary concurrent writers, or process/aggregate RSS.
+
+`probe_file` checks the workspace before path conversion, then reserves
+`65536 + 16*path_characters` before constructing Path. After a regular-file stat,
+`P(stat_size + 1) + 16*path_characters` must fit **before opening**. It keeps all
+MEDIA-01 device/inode/size/mtime checks on one actual handle. The read requests
+only `opened.st_size + 1`, rather than max_file_bytes+1: the extra byte detects
+growth without allocating a cap-sized read for a tiny file. Exact read length,
+post-fstat, pathname identity and external SHA/size/mtime pins remain mandatory.
+
+For a constructor description, let `T` be total key/string-value characters in
+at most14 flat metadata fields, `L` raw Location characters, `D` the total input
+ISO-date characters (or96 per datetime), and `S` Name characters:
+
+```
+M = 65536 + 256*metadata_fields + 32*T
+B = 756 + 4*40 + 16 + 4*S + 16*L + 16
+E = P(media_size) + M + 32*(16*L + 16 + D) + 8*B
+```
+
+M is also enforced by standalone validate_metadata before its copies. E covers
+simultaneous media workspace, metadata/JSON, conservative UTF16/percent-URI
+expansion and record-copy pressure before the first probe or Location builder.
+The exact ASCII aggregate child-text budget is checked again before encoding
+children; the original post-encoding check remains too. Prepare also reserves
+12*target_wire_bytes and32*claimed-media-text characters before JSON copying,
+and rejects oversized/nested/incorrectly typed claimed-media shapes first.
+The real target reader retains its own separate model/decompression checks.
+
+### New verification and still-blocked stages
+
+New red precedes these production edits. New green, owned and full regression
+runs use separate exclusive logs, temporary paths, exact source/dependency pins
+and measured one-process peaks. The roots are explicitly
+NativeROOT=`R2/baseline/evidence/native/snapshots`,
+REPORTS=`R2/baseline/evidence/native/oracles`, and
+FRESH=`R2/recovered/checkpoint-01/native-snapshots`.
+Tests only read archived synthetic ITLs/oracles; they do not run native software
+or create a native oracle. The fixed G2 recovery, all old tests, the new red and
+prior failures are retained. G2 phase02 reports, not older stage reports, carry
+the actual newly executed outcomes.
+
+A successful helper budget check is not aggregate whole-engine resource
+qualification or an OS RSS guarantee. Shared resources integration, media-source
+and complete-master admission, actual frozen reservations, auxiliary/item and
+unknown-pool closure, and independent/native acceptance remain real gates.
+DOS space-alias classification and both HFS pre-quantization/encoded-nonzero
+checks are unchanged. No template fallback, donor relabeling, unchecked ledger,
+full candidate, apply, publication or native writer acceptance is introduced.
+A media mith record remains diagnostic recipe data, never a complete ITL.
