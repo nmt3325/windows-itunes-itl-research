@@ -1,0 +1,219 @@
+{
+  "schema": "itl4-codec-shared-contract-proposal.v1",
+  "status": "ADOPTED_DESIGN_NOT_NATIVE_QUALIFICATION",
+  "legacy_compatibility": "Keep Container/Node/Library/Track/Playlist and all existing CLI and library.v1 behavior unchanged. New modules wrap the current non-vendored core; no guard deletion or experimental vendor substitution.",
+  "shared_types": [
+    {
+      "name": "ReadLimits",
+      "fields": [
+        "max_file_bytes",
+        "max_plain_bytes",
+        "max_nodes",
+        "max_depth",
+        "max_text_bytes",
+        "max_json_bytes",
+        "memory_budget_bytes"
+      ],
+      "rule": "Separate decoded-size cap from resident-process budget. Keep legacy512MiB plain cap unchanged; new research defaults16MiB file/plain, depth32, bounded node/JSON admission must be calibrated below512MiB RSS. Do not claim512MiB plain means512MiB RSS."
+    },
+    {
+      "name": "FieldSpec",
+      "fields": [
+        "record_tag",
+        "section_kind",
+        "profile",
+        "header_size",
+        "offset_or_payload_layout",
+        "width",
+        "endian",
+        "signedness_or_mask",
+        "namespace",
+        "read_level",
+        "write_level",
+        "evidence_refs",
+        "opaque_ranges"
+      ],
+      "rule": "No automatic semantic setter for a raw slot or decoded string. Unknown intervals and unverified mask bits remain explicit."
+    },
+    {
+      "name": "ProfileReport",
+      "fields": [
+        "version",
+        "endian",
+        "record_shapes",
+        "invariants",
+        "capabilities",
+        "blockers",
+        "evidence_refs"
+      ],
+      "rule": "Admission uses decoded shape/invariants, not fixture SHA. Digests are provenance and concurrency only; unsupported shape is a typed blocker."
+    },
+    {
+      "name": "ScopedID",
+      "fields": [
+        "namespace",
+        "scope",
+        "value",
+        "width"
+      ],
+      "rule": "Distinguish file/master/track/album/artist/playlist/item PIDs, their local IDs, secondary IDs, playlist-local order tokens, library+domain pool IDs and sort caches."
+    },
+    {
+      "name": "ReferenceGraph",
+      "fields": [
+        "typed_edges",
+        "owners",
+        "opaque_possible_edges",
+        "coverage"
+      ],
+      "rule": "An opaque byte match is a possible edge, not a decoded reference. No global replacement, zeroing, or deleting conservative guards before edge coverage is proven."
+    },
+    {
+      "name": "AllocationLedger",
+      "fields": [
+        "namespace",
+        "scope",
+        "old_identity",
+        "reserved_identity",
+        "consumers",
+        "capacity_check"
+      ],
+      "rule": "Freeze every allocation during preparation. Pool IDs stay compact and scoped, never arbitrary64-bit PIDs. No fresh randomness during apply."
+    },
+    {
+      "name": "PreparedMutation",
+      "fields": [
+        "engine",
+        "intent",
+        "profile_report",
+        "baseline_digest",
+        "input_digests",
+        "allocation_ledger",
+        "typed_patches",
+        "opaque_preservation",
+        "postconditions",
+        "prepared_candidate_digest"
+      ],
+      "rule": "Prepare on isolated state; validate all inputs before adoption/publication. Reuse frozen allocations or a sealed in-memory prepared candidate. Serialized reports are NOT blindly executable capabilities."
+    }
+  ],
+  "recommended_APIs": [
+    {
+      "surface": "inspect_coverage(library_or_container, limits) -> CoverageReport",
+      "purpose": "read-only complete known-field/opaque-span accounting"
+    },
+    {
+      "surface": "export_raw_tree(container, limits) / import_raw_tree(document, research_only, limits)",
+      "purpose": "new raw schema, never reinterpret library.v1; initially preserve shapes/header bytes and permit only equal-sized opaque leaf replacements; resizing/header edits require later explicit structural contracts"
+    },
+    {
+      "surface": "prepare(target, intent, sources, limits) -> PreparedMutation",
+      "purpose": "side-effect-free operation-specific preflight plus reserved scoped allocations"
+    },
+    {
+      "surface": "apply(target, prepared) -> MutationReceipt",
+      "purpose": "optimistic digest check, postcondition validation, one atomic adoption; publication still uses existing write_new"
+    },
+    {
+      "surface": "engine.prepare(profile, graph, intent, allocator) -> candidate + proof",
+      "purpose": "separate import/COW/constructor/relocate/playlist engines; unknown operation refuses instead of falling back to raw edits"
+    }
+  ],
+  "proposed_ownership_only": [
+    {
+      "owner": "codec after explicit reassignment",
+      "new_files": [
+        "itlkit/schema.py",
+        "itlkit/raw.py",
+        "itlkit/planning.py",
+        "tests/test_codec_schema.py",
+        "tests/test_codec_raw.py",
+        "tests/test_codec_planning.py"
+      ]
+    },
+    {
+      "owner": "identities after explicit reassignment",
+      "new_files": [
+        "itlkit/identity.py",
+        "itlkit/graph.py",
+        "itlkit/cow.py"
+      ]
+    },
+    {
+      "owner": "crud-research after explicit reassignment",
+      "new_files": [
+        "itlkit/importer.py"
+      ]
+    },
+    {
+      "owner": "add-constructor after explicit reassignment; static supplies evidence",
+      "new_files": [
+        "itlkit/construct.py",
+        "itlkit/location.py"
+      ]
+    },
+    {
+      "owner": "playlist-audit after explicit reassignment",
+      "new_files": [
+        "itlkit/playlist_models.py"
+      ]
+    },
+    {
+      "owner": "parent only until assigned",
+      "shared_files": [
+        "itlkit/library.py",
+        "itlkit/model.py",
+        "itlkit/atoms.py",
+        "itlkit/references.py",
+        "itlkit/operations.py",
+        "itlkit/__init__.py",
+        "itlkit/__main__.py",
+        "pyproject.toml",
+        "docs/format.md"
+      ]
+    }
+  ],
+  "operation_obligations": {
+    "cross_import": [
+      "independent namespaces and target profile",
+      "all imported and retained identities/opaque references",
+      "master/system definitions and memberships",
+      "ordinary ordering and target-owned new identities",
+      "no whole-file SHA admission gate in general API"
+    ],
+    "COW": [
+      "enumerate every known consumer in the correct pool/object scope",
+      "distinguish string aliases from shared album/artist objects",
+      "retained owner equality and unknown-state preservation",
+      "new compact ID plus typed reference rewrite, sort state policy"
+    ],
+    "constructor": [
+      "verified genuinely new media descriptor and new identities",
+      "media size/rate/type/tag provenance",
+      "coherent Location object and URL/path",
+      "required master/system enrollment and derived counts"
+    ],
+    "Location": [
+      "coupled object/URL/path schema",
+      "Unicode/escaping and local-path semantics",
+      "unknown location bytes refuse",
+      "native reload and separate playback proof"
+    ],
+    "folder_smart": [
+      "classification and parent/group edges",
+      "rule/view/sort codec versus opaque preservation",
+      "recursive membership semantics",
+      "pre/post raw and full COM oracles"
+    ]
+  },
+  "prototype_status": "Raw same-sized opaque edits and deterministic legacy metadata planning tested. create_playlist and replace_playlist_members replay safely refuses because existing allocator generates new random PIDs: this is a prototype boundary demonstrating why AllocationLedger is required, not a production regression.",
+  "promotion_gates": [
+    "normal,boundary,adversarial,metamorphic controls",
+    "f98 epoch/F1/F2 and6d/ee independence retained",
+    "95 synthetic byte/JSON/rebuild corpus plus fixed976/5 regression",
+    "bounded resource accounting",
+    "new passive45s/30s native acceptance with full/raw closure for each promoted profile"
+  ],
+  "proposal_sha256": "ed42d361cf243eed18f818fe19967275202110bfa9fdce535c8803a1e0f68933",
+  "adoption_note": "Parent stage2 document is authoritative for exact ownership and staged activation. Types are protocol contracts; no source change or native qualification follows merely from this JSON."
+}
