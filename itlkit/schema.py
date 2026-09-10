@@ -425,10 +425,17 @@ class AllocationLedger(Record):
 
 
 def encode_json(value, *, limits=None) -> bytes:
-    """Bound depth, aggregate elements, and serialized UTF-8 before joining."""
+    """Admit keys, values and their ASCII JSON expansion before encoding/copying."""
     limits = get_limits(limits)
     stack = [(value, 0, frozenset())]
-    count = 0
+    count = text_bytes = text_chars = json_bytes = 0
+
+    def admit(extra=0):
+        limits.check('json', json_bytes)
+        limits.check('text', text_bytes)
+        limits.check('memory', (count + len(stack) + extra) * 256 +
+                     4 * text_chars + 4 * json_bytes)
+
     while stack:
         v, depth, ancestors = stack.pop()
         if depth > limits.max_depth * 3 + 16:
@@ -440,37 +447,86 @@ def encode_json(value, *, limits=None) -> bytes:
             if id(v) in ancestors:
                 raise FormatError('cyclic JSON')
             lineage = ancestors | {id(v)}
-            if is_dataclass(v):
-                values = [getattr(v, f.name) for f in fields(v) if not f.name.startswith('_')]
-            elif isinstance(v, Mapping):
-                if any(type(k) is not str for k in v):
-                    raise FormatError('JSON keys must be strings')
-                values = list(v.values())
+            record = is_dataclass(v)
+            mapping = record or isinstance(v, Mapping)
+            if record:
+                public = tuple(f for f in fields(v) if not f.name.startswith('_'))
+                length = len(public)
             else:
-                values = v
-            if len(values) > limits.max_nodes * 32:
+                length = len(v)
+            children = length * (2 if mapping else 1)
+            if count + len(stack) + children > limits.max_nodes * 32:
                 raise LimitError('JSON aggregate element budget exceeded')
-            limits.check('memory', (count + len(stack) + len(values)) * 256)
-            stack.extend((item, depth + 1, lineage) for item in values)
+            # Brackets, commas, and mapping colons; strings include their quotes.
+            json_bytes += 2 + max(0, length - 1) + (length if mapping else 0)
+            admit(children)  # Before materializing a container's traversal stack.
+            if mapping:
+                pairs = ((f.name, getattr(v, f.name)) for f in public) if record else v.items()
+                for key, item in pairs:
+                    if type(key) is not str:
+                        raise FormatError('JSON keys must be strings')
+                    stack.append((key, depth + 1, lineage))
+                    stack.append((item, depth + 1, lineage))
+            else:
+                stack.extend((item, depth + 1, lineage) for item in v)
         elif type(v) is str:
-            if len(v) > limits.max_json_bytes:
-                raise LimitError('JSON string budget exceeded')
-        elif v is not None and type(v) not in (int, bool, float):
+            # Cheap lower bounds refuse huge existing strings before any encoding.
+            limits.check('text', text_bytes + len(v))
+            limits.check('json', json_bytes + len(v) + 2)
+            limits.check('memory', (count + len(stack)) * 256 +
+                         4 * (text_chars + len(v)) + 4 * (json_bytes + len(v) + 2))
+            text_chars += len(v)
+            json_bytes += 2
+            for char in v:
+                cp = ord(char)
+                # Surrogates retain stdlib ensure_ascii behavior, counted as three
+                # logical UTF-8 bytes (surrogatepass), never encoded as raw UTF-8.
+                text_bytes += 1 if cp < 128 else 2 if cp < 2048 else 3 if cp < 65536 else 4
+                json_bytes += (2 if char in '\"\\\b\f\n\r\t' else
+                               6 if cp < 32 or 127 <= cp <= 65535 else
+                               12 if cp > 65535 else 1)
+                if text_bytes > limits.max_text_bytes or json_bytes > limits.max_json_bytes:
+                    admit()
+                if (count + len(stack)) * 256 + 4 * (text_chars + json_bytes) > limits.memory_budget_bytes:
+                    admit()
+        elif v is None:
+            json_bytes += 4
+        elif type(v) is bool:
+            json_bytes += 4 if v else 5
+        elif type(v) is int:
+            # A lower bound is enough to reject enormous ints before decimal str().
+            lower = max(1, (v.bit_length() - 1) * 30102 // 100000 + 1) + (v < 0)
+            limits.check('json', json_bytes + lower)
+            limits.check('memory', (count + len(stack)) * 256 + 4 * text_chars +
+                         4 * (json_bytes + lower + 1))
+            try:
+                json_bytes += len(str(v))
+            except ValueError as exc:
+                raise FormatError(f'invalid JSON: {exc}') from exc
+        elif type(v) is float and math.isfinite(v):
+            json_bytes += len(repr(v))
+        else:
             raise FormatError('non-JSON value')
+        admit()
     value = plain(value)
     chunks = []
     size = 0
     try:
         for part in json.JSONEncoder(ensure_ascii=True, allow_nan=False, sort_keys=True,
                                      separators=(',', ':')).iterencode(value):
-            b = part.encode('utf8'); size += len(b)
+            # ensure_ascii output is ASCII; check before allocating encoded bytes.
+            size += len(part)
             limits.check('json', size)
-            limits.check('memory', 4 * size)
-            chunks.append(b)
+            limits.check('memory', count * 256 + 4 * text_chars + 4 * size)
+            if size > json_bytes:
+                raise FormatError('JSON changed during encoding')
+            chunks.append(part.encode('ascii'))
     except (ValueError, TypeError, RecursionError) as exc:
         if isinstance(exc, (FormatError, UnsupportedError)):
             raise
         raise FormatError(f'invalid JSON: {exc}') from exc
+    if size != json_bytes:
+        raise FormatError('JSON changed during encoding')
     return b''.join(chunks)
 
 
@@ -536,9 +592,16 @@ def load_container(data: bytes, *, limits=None) -> Container:
     limits = get_limits(limits)
     if type(data) is not bytes:
         raise TypeError('immutable bytes required')
-    limits.check('file', len(data)); limits.check('memory', 6 * len(data))
-    container = Container.from_bytes(data, max_plain_bytes=limits.max_plain_bytes)
-    limits.check('memory', 6 * len(data) + 6 * len(container.payload))
+    wire_cost = 6 * len(data)
+    limits.check('file', len(data)); limits.check('memory', wire_cost)
+    # Retain the sixfold estimate and reserve one plaintext slot for the core's
+    # cap+1 overflow sentinel. The legacy Container default is unchanged.
+    memory_cap = (limits.memory_budget_bytes - wire_cost) // 6 - 1
+    if memory_cap < 1:
+        raise LimitError('insufficient memory budget for bounded decompression')
+    plain_cap = min(limits.max_plain_bytes, memory_cap)
+    container = Container.from_bytes(data, max_plain_bytes=plain_cap)
+    limits.check('memory', wire_cost + 6 * len(container.payload))
     return container
 
 
@@ -553,16 +616,32 @@ def load_library(data: bytes, *, limits=None):
 
 
 def read_bytes(path, *, limits=None) -> bytes:
-    """Stat before allocation, bounded read, and detect file replacement/growth."""
+    """Bound allocation before opening; verify descriptor and final pathname CAS."""
     limits = get_limits(limits)
-    path = Path(path); first = path.stat(); limits.check('file', first.st_size)
-    with path.open('rb') as f:
+    def identity(s):
+        # stat/fstat ctime can denote different clocks on Windows/Python.
+        # Compare that field within each observation series, not across them.
+        return (s.st_dev, s.st_ino, s.st_size, s.st_mtime_ns, s.st_mode)
+    path = Path(path)
+    first = path.stat()
+    limits.check('file', first.st_size)
+    # Include the one-byte growth sentinel, even for an empty file. Raw FileIO
+    # avoids an implicit buffered-reader read-ahead beyond that admitted extent.
+    limits.check('memory', 6 * (first.st_size + 1))
+    with path.open('rb', buffering=0) as f:
         opened = os.fstat(f.fileno())
-        if (first.st_dev, first.st_ino, first.st_size, first.st_mtime_ns) != (opened.st_dev, opened.st_ino, opened.st_size, opened.st_mtime_ns):
+        if identity(first) != identity(opened):
             raise FormatError('input changed before read')
-        data = f.read(limits.max_file_bytes + 1)
+        data = f.read(opened.st_size + 1)
         last = os.fstat(f.fileno())
     limits.check('file', len(data))
-    if (opened.st_size, opened.st_mtime_ns) != (last.st_size, last.st_mtime_ns) or len(data) != opened.st_size:
+    if (identity(opened) != identity(last) or opened.st_ctime_ns != last.st_ctime_ns
+            or len(data) != opened.st_size):
         raise FormatError('input changed during read')
+    try:
+        final = path.stat()
+    except OSError as exc:
+        raise FormatError('input changed after read') from exc
+    if identity(last) != identity(final) or first.st_ctime_ns != final.st_ctime_ns:
+        raise FormatError('input changed after read')
     return data

@@ -405,3 +405,49 @@ The legacy +f4 raw alias is represented by one canonical offset-named
 `header_0xf4_8_raw` field of8 bytes, with no semantic interpretation or write
 permission. Sample rate remains the separate float32 evidence entry at+0x98.
 The core module and CLI are not changed.
+
+
+## G2 schema budget admission correction
+
+The independent G2-RESOURCE-01/02 counterexamples are corrected at the shared
+bounded entry points. This is new G2 implementation and new testing, not recovery
+of the three missing b985 test revisions. No core, CLI, planning/raw, engine,
+ReadLimits default, evidence dataclass, seed or allocation contract is changed.
+
+- `read_bytes` admits `6 * (stat_size + 1)` memory before opening. It uses raw
+  binary FileIO and reads at most verified opened size plus one growth sentinel,
+  never the configured maximum file size. Descriptor identity, size, mtime,
+  ctime and mode are compared before/after the read and with the final pathname.
+  Same-size/same-mtime inode substitution and observed growth/shrink refuse.
+  These observations are not a filesystem lock: a hostile writer that restores
+  every observable identity/metadata field between observations can evade any
+  stat-only protocol (especially where Windows ctime denotes creation time).
+  Inputs must remain quiescent; do not claim arbitrary ABA detection or immunity
+  to changes after the final pathname check.
+- `load_container` retains sixfold wire and plaintext admission. Before calling
+  the core, plaintext cap is the smaller of `max_plain_bytes` and
+  `(memory_budget_bytes - 6 * wire_size) // 6 - 1`. One sixfold plaintext slot is
+  reserved for the core's cap-plus-one overflow detection. A cap below one is an
+  existing `LimitError`; exceeding the forwarded cap is the core's existing
+  `FormatError`. Post-decode memory validation remains defense in depth.
+- `encode_json` walks mapping keys, public dataclass field names and values
+  before detaching or invoking the JSON encoder. It bounds aggregate elements,
+  depth, logical UTF-8 text size, exact ensure-ASCII JSON expansion and estimated
+  memory, including escaping/quotes and container punctuation. Surrogates keep
+  stdlib escaped-ASCII behavior; text accounting uses surrogatepass width without
+  constructing a UTF-8 copy. Memory includes 256 bytes per visited/pending item,
+  four bytes per string character and four per serialized byte. Keys now count
+  in aggregate element and text admission. Lowered limits can therefore reject
+  reports previously admitted by an incomplete check; no limits are raised.
+
+All are conservative admission estimates, not OS peak-memory proofs, semantic
+write permissions or native qualification. Exact boundary positives and small
+compressed/uncompressed controls are tested separately from negative callback
+spies. The resource lane and Node.kind guards are retained unchanged.
+
+Windows/Python path-stat and descriptor-fstat ctime observations can differ for
+closed unchanged files. Ctime is therefore compared separately within the path
+series and within the descriptor series, while identity/size/mtime/mode are
+compared across all observations. Real same-size/same-mtime in-place overwrite
+and A-to-B-to-A byte restoration are negative controls, not proof against a
+writer capable of restoring every observable metadata field.
