@@ -1,0 +1,93 @@
+{
+  "schema": "itlkit.g2.final-source-checkpoint.v1",
+  "tested_source": "612167a45148b230c90bdeeb76a55c12063ec16f",
+  "tests": {
+    "collected": 2131,
+    "failed": 0,
+    "errors": 0,
+    "skipped": 6,
+    "passed": 2125
+  },
+  "separate_subtests_passed": 36,
+  "warnings": {
+    "count": 4,
+    "reason": "pytest record_property with xunit2; not test failures"
+  },
+  "input_count": 116,
+  "input_sha_size_mtime_preserved": true,
+  "new_source_pins": [
+    "899143df0989307a46a861769febde1800b4deac",
+    "f71a52465f6f44d2ffa9999cf94410bbad9b5482"
+  ],
+  "prior_cases_missing": [],
+  "source_files": {
+    "docs/experimental-api.md": "5fdb8d553dd856c4486e901eeb1d0dbbeb203e89c1d0f22d76ca66a760b19374",
+    "itlkit/schema.py": "fbe2362ad1754d15b7888153e1a59d4f302c251721158b24b0d7adaee8c7e7d7",
+    "tests/test_codec_schema.py": "1169ce57d74bbe49bc6e1cc6bbf923c5fcd3df8a94e1003ec924a413360bfa6a",
+    "docs/construct-v2.md": "389cf52d530cd6f81ac44f929506e878a1c77167d243d27d08810cb980ab4d40",
+    "itlkit/construct.py": "f72790dd23ec923adf1861b579beb337ba05907d651a7d4cab966661ecdc0748",
+    "tests/test_construct_v2.py": "cc27684622b65da16db11f285755e2f3baef8a95080532a9d43d5dfc488eaea9"
+  },
+  "full_semantic_read_write": false,
+  "g2_native_actions": 0,
+  "independent_writer_acceptance": false,
+  "guard_proposal": {
+    "commit": "aa6940d02c770ec73bd444df2f449bd02acb4b3e",
+    "ref": "refs/heads/proposals/itl-20260910-g2-native-guard",
+    "merged_into_library": false,
+    "parent_executed": false,
+    "owner_checks": {
+      "matched": 45,
+      "total": 45,
+      "old_regressions_passed": 86,
+      "held": 1
+    },
+    "source_sha256": {
+      "scripts/windows/continuation20260910/G2_OFFLINE_SELFTEST.md": "59f610af14f0f0bc4d06878537d08d1a797aee5fc618092b2b76ab93b6758b43",
+      "scripts/windows/continuation20260910/g2_acceptance_guard.py": "ac9c63134f72a78100f572fb2ec17e33a5627aa4e58fc0f3d41847cb14c466b8",
+      "scripts/windows/continuation20260910/g2_guard_fix_regression.py": "3492dcc9f6b3afb208a05c35024740167ef22d4bcdf7c238930a1f7c86b650c4",
+      "scripts/windows/continuation20260910/g2_guard_selftest.py": "51884532503a6979d6f4e8bf29c22b1fb39bf1e2c623031f7a50bed33c5092be",
+      "scripts/windows/continuation20260910/g2_native_acceptance.py": "42e07fd0ecf4d9ce46d375a9d28c4fe6f2481c35a45a3d13c31af1cc6b730555",
+      "scripts/windows/continuation20260910/g2_native_select.py": "65e6b5e546c6de98da9e917ae64f7a0680aafd4fbdaed26505e18e35dfee5a83",
+      "scripts/windows/continuation20260910/native_oracle.py": "b2c90403b192c517264d26d758dbf394aa8b34e837e9c9450d7388f9ce8b331e",
+      "scripts/windows/continuation20260910/native_select.py": "a6fd076effe6b6ea69b49e404e20793304c715e60ee0c2ca558177f92c8bead3",
+      "scripts/windows/continuation20260910/oracle_actions.py": "a6072beb707f9c290da8b49303eae6ca1ab142542bdebd2a920f1c6d614693a4",
+      "scripts/windows/continuation20260910/oracle_selftest.py": "06136d54f0929e69c4b2d6aa9d4f04c0928c9fcc23468a226138fbdf53b63d94",
+      "scripts/windows/continuation20260910/raw_capture.py": "4689486f5179874fdbee1f3494cbb23a79a04cab6bb7424fed8b0310431641bd"
+    }
+  },
+  "new_pcm": {
+    "file": "ITL-G2-PCM-48000-001.wav",
+    "bytes": 144044,
+    "sha256": "87e45bff7acf44a05a818fa0f33edec429d6648751bcd8aa91ccf91a764b2e05",
+    "original_mtime_ns": 1789026300000000000,
+    "sample_rate_hz": 48000,
+    "channels": 1,
+    "bits_per_sample": 16,
+    "frames": 72000,
+    "duration_ms": 1500,
+    "native_imported": false,
+    "pcm_sha256": "fe61bf3cd0c6e2676070e044124ff9c06ba170fe61b9429e484511622a1ad46e",
+    "formula": "sample[n]=(64*(48-abs((n%192)-96))*min(n,71999-n,480))//480, n=0..71999; signed little-endian int16",
+    "chunks": [
+      "fmt ",
+      "data"
+    ],
+    "embedded_tags": {},
+    "mtime_policy": "fixed new-fixture mtime, not inherited from an old file"
+  },
+  "native_discovery_preparation": {
+    "owner_offline_checks_passed": 30,
+    "backend_connected": false,
+    "ready": false
+  },
+  "remaining": [
+    "Real reservations and SourceBinding/name-kind pool registration in full constructor",
+    "Master/system/unknown-reference closure and foreign-history semantics",
+    "Legacy entry points do not automatically enforce the opt-in master helper",
+    "Independent native save/restart acceptance for new general writer",
+    "Playback success",
+    "Three original b985 test revisions missing",
+    "Guard independent review and native backend binding"
+  ]
+}
