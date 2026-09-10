@@ -292,7 +292,11 @@ class Playlist:
         self.node = current.node
 
     def to_dict(self) -> dict:
-        result = {'name': self.name, 'track_ids': self.track_ids}
+        result = {'track_ids': self.track_ids}
+        try:
+            result['name'] = self.name
+        except (FormatError, UnsupportedError) as exc:
+            result['field_errors'] = {'name': str(exc)}
         for name in ('persistent_id', 'playlist_id', 'is_master', 'is_smart', 'is_plain'):
             try:
                 value = getattr(self, name)

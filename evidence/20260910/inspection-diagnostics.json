@@ -1,0 +1,25 @@
+{
+  "schema": "itl4.inspection-diagnostics.v1",
+  "baseline_commit": "77899f1bad52f8b31d63011c9970957a4a0509ab",
+  "source_sha256": {
+    "itlkit/library.py": "1566973e014544089fea9e61c4fab2cf42fb882da7d8b1243cf83fbce017b94a",
+    "tests/test_inspection_diagnostics.py": "5d43e541bd2d8eefea1ede0e524160ec889234c3ed1124f27dc211bf3c65c0fe"
+  },
+  "before": {
+    "total": 12,
+    "failed": 5,
+    "passed": 7
+  },
+  "after": {
+    "total": 993,
+    "passed": 988,
+    "skipped": 5,
+    "failed": 0
+  },
+  "new_cases": 12,
+  "read_only_presentation": true,
+  "legacy_rename_guard_preserved": true,
+  "byte_and_json_noop_preserved": true,
+  "native_operations": 0,
+  "complete_semantic_read_write": false
+}
