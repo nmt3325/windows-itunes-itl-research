@@ -123,3 +123,394 @@ def test_source_pins_and_rechecked_postconditions():
     allow[0]=False
     with pytest.raises(ValueError,match='postcondition'):apply(target,p,sources={'donor':data})
     assert target.__dict__==state
+
+
+# NEW G2 resource controls. These are not recovered G1/b985 tests or native proof.
+def _g2_hash_facts(resources, *, limits):
+    return {k:{'sha256':digest(v),'size_bytes':len(v)} for k,v in resources.items()}
+
+
+def _g2_noop(resources, *, probe=_g2_hash_facts, limits=None, sources=None, calls=None):
+    calls=[] if calls is None else calls
+    def build(d,i,s,*,limits,seed,**kw):
+        calls.append('build')
+        return MutationDraft(d,ProfileReport(capabilities=('resource-transport-test-only',)))
+    def validate(d,i,s,c,r,*,limits,**kw):
+        calls.append('validate')
+        return c==d and r['resource_digests']==_g2_hash_facts(kw.get('resources',{}),limits=limits)
+    return prepare_mutation('g2-transport-test-only',library_bytes(),{},sources,
+        resources=resources,validate_resources=probe,limits=limits,build=build,validate=validate)
+
+
+def test_g2_resources_accept_and_reprobe():
+    seen=[]
+    def probe(r,*,limits):seen.append(dict(r));return _g2_hash_facts(r,limits=limits)
+    inputs={'blob':b'non ITL bytes'};p=_g2_noop(inputs,probe=probe)
+    inputs['blob']=b'changed caller';target=Library.from_bytes(library_bytes())
+    before=(target.container,target.sections)
+    with pytest.raises(ValueError):apply(target,p)
+    assert len(seen)==1
+    assert not apply(target,p,resources={'blob':b'non ITL bytes'}).changed
+    assert len(seen)==2 and (target.container,target.sections)==before
+    assert p.resource_facts['blob']['size_bytes']==13
+    with pytest.raises(TypeError):p.resource_facts['blob']['size_bytes']=1
+    report=p.to_dict();report['resource_facts']['blob']['size_bytes']=1
+    assert p.resource_facts['blob']['size_bytes']==13
+
+
+@pytest.mark.parametrize('empty',[None,{}])
+def test_g2_empty_resources_do_not_change_legacy_signatures(empty):
+    def fail(*a,**k):raise AssertionError('unused resource callback called')
+    def build(d,i,s,*,limits,seed):return MutationDraft(d,ProfileReport())
+    def validate(d,i,s,c,r,*,limits):return c==d
+    p=prepare_mutation('legacy-signature',library_bytes(),{},resources=empty,
+        validate_resources=fail,build=build,validate=validate)
+    assert not apply(Library.from_bytes(library_bytes()),p,resources=empty).changed
+
+
+@pytest.mark.parametrize('callback',[None,True,{},'probe_bytes',b'code'])
+def test_g2_nonempty_resources_require_code(callback):
+    calls=[]
+    with pytest.raises((ValueError,TypeError)):_g2_noop({'blob':b'x'},probe=callback,calls=calls)
+    assert calls==[]
+
+
+@pytest.mark.parametrize('resources',[[],b'x',True,{'':b'x'},{1:b'x'},{'x'*129:b'x'},
+    {'\ud800':b'x'},{'blob':bytearray(b'x')},{'blob':memoryview(b'x')},{'blob':'x'},
+    {'blob':None},{'blob':False}])
+def test_g2_bad_resource_inputs_precede_callbacks(resources):
+    calls=[]
+    def probe(*a,**k):calls.append('probe');raise AssertionError('callback reached')
+    with pytest.raises((ValueError,TypeError)):_g2_noop(resources,probe=probe,calls=calls)
+    assert not calls
+
+
+def test_g2_resources_require_exact_dict_and_bounded_count():
+    from types import MappingProxyType
+    class Custom(dict):pass
+    for value in (MappingProxyType({'x':b'x'}),Custom(x=b'x'),{str(i):b'' for i in range(129)}):
+        calls=[]
+        with pytest.raises((ValueError,TypeError)):_g2_noop(value,calls=calls)
+        assert not calls
+
+
+@pytest.mark.parametrize('facts',[None,True,[],{}, {'extra':1}, {'blob':b'x'},
+    {'blob':object()}, {'blob':ReadLimits()}, {'blob':float('nan')},
+    {'blob':float('inf')}, {'blob':{1:'not a JSON key'}}, {'blob':'\ud800'}])
+def test_g2_bad_resource_facts_precede_build(facts):
+    calls=[]
+    with pytest.raises((ValueError,TypeError)):
+        _g2_noop({'blob':b'x'},probe=lambda r,limits:facts,calls=calls)
+    assert not calls
+
+
+def test_g2_cyclic_facts_and_callback_map_mutation_refused():
+    facts={};facts['blob']=facts
+    with pytest.raises(ValueError,match='cyclic'):_g2_noop({'blob':b'x'},probe=lambda r,limits:facts)
+    def bad(r,*,limits):r['blob']=b'y';return {'blob':1}
+    raw={'blob':b'x'}
+    with pytest.raises(ValueError,match='changed'):_g2_noop(raw,probe=bad)
+    assert raw=={'blob':b'x'}
+
+
+@pytest.mark.parametrize('limits',[ReadLimits(max_file_bytes=1),ReadLimits(max_plain_bytes=1),
+    ReadLimits(max_nodes=1),ReadLimits(max_depth=1),ReadLimits(max_text_bytes=1),
+    ReadLimits(max_json_bytes=8),ReadLimits(memory_budget_bytes=128)])
+def test_g2_input_budget_refusal_happens_before_any_callback(limits):
+    seen=[]
+    def probe(r,*,limits):seen.append('probe');return _g2_hash_facts(r,limits=limits)
+    with pytest.raises(ValueError):_g2_noop({'blob':b'x'},limits=limits,probe=probe,calls=seen)
+    assert seen==[]
+
+
+@pytest.mark.parametrize('dimension',['text','nodes','depth','json','memory'])
+def test_g2_output_facts_budgets_precede_builder(dimension):
+    limits=ReadLimits();facts={'blob':'x'*5000}
+    if dimension=='text':limits=ReadLimits(max_text_bytes=4096)
+    elif dimension=='nodes':limits=ReadLimits(max_nodes=1000);facts={'blob':[None]*2000}
+    elif dimension=='json':limits=ReadLimits(max_json_bytes=2048)
+    elif dimension=='memory':limits=ReadLimits(memory_budget_bytes=3*1024*1024);facts={'blob':'x'*120000}
+    else:
+        limits=ReadLimits(max_depth=8);facts={'blob':None}
+        for _ in range(20):facts={'blob':facts}
+    seen=[]
+    def probe(r,*,limits):seen.append('probe');return facts
+    with pytest.raises(ValueError):_g2_noop({'blob':b'x'},limits=limits,probe=probe,calls=seen)
+    assert seen==['probe']
+
+
+@pytest.mark.parametrize('current',[None,{}, {'blob':b'b'}, {'blob':b'longer'},
+    {'extra':b'a'},{'blob':b'a','extra':b'a'}, {'blob':bytearray(b'a')}, []])
+def test_g2_apply_requires_exact_explicit_resource_snapshots(current):
+    calls=[];p=_g2_noop({'blob':b'a'},calls=calls);target=Library.from_bytes(library_bytes())
+    before=copy.deepcopy(target.__dict__);calls.clear()
+    with pytest.raises((ValueError,TypeError)):apply(target,p,resources=current)
+    assert target.__dict__==before and calls==[]
+
+
+def test_g2_namespace_collisions_and_old_itl_source_cas_preserved():
+    data=library_bytes()
+    with pytest.raises(ValueError,match='overlap'):_g2_noop({'donor':b'x'},sources={'donor':data})
+    p=_g2_noop({'blob':b'x'},sources={'donor':data});target=Library.from_bytes(data)
+    for source in (None,{}, {'donor':b'changed'},{'extra':data},{'donor':data,'extra':data}):
+        before=copy.deepcopy(target.__dict__)
+        with pytest.raises(ValueError):apply(target,p,sources=source,resources={'blob':b'x'})
+        assert target.__dict__==before
+    assert not apply(target,p,sources={'donor':data},resources={'blob':b'x'}).changed
+    legacy=prepare(data,{'operations':[]})
+    with pytest.raises(ValueError):apply(target,legacy,resources={'blob':b'x'})
+
+
+def test_g2_changed_facts_and_python_bool_int_equality_do_not_bypass_reprobe():
+    value=[1]
+    def probe(r,*,limits):return {'blob':{'number':value[0]}}
+    p=_g2_noop({'blob':b'x'},probe=probe);target=Library.from_bytes(library_bytes())
+    for new in (True,1.0,2):
+        value[0]=new;before=copy.deepcopy(target.__dict__)
+        with pytest.raises(ValueError,match='facts changed'):apply(target,p,resources={'blob':b'x'})
+        assert target.__dict__==before
+    value[0]=1;assert not apply(target,p,resources={'blob':b'x'}).changed
+
+
+@pytest.mark.parametrize('field,value',[('resource_digests',{}),('resource_facts',{}),
+    ('_resources',{}),('_resource_facts_json',b'{}'),('_validate_resources',None),
+    ('_input_cost',0),('_facts_cost',0),('_candidate',b'bad')])
+def test_g2_resource_private_and_public_fields_are_sealed(field,value):
+    p=_g2_noop({'blob':b'x'});target=Library.from_bytes(library_bytes());before=copy.deepcopy(target.__dict__)
+    object.__setattr__(p,field,value)
+    with pytest.raises((ValueError,TypeError)):apply(target,p,resources={'blob':b'x'})
+    assert target.__dict__==before
+
+
+def test_g2_stale_target_precedes_reprobe_without_serializing():
+    seen=[]
+    def probe(r,*,limits):seen.append('probe');return _g2_hash_facts(r,limits=limits)
+    p=_g2_noop({'blob':b'x'},probe=probe);target=Library.from_bytes(library_bytes())
+    put(target.tracks[0].node.header,8,999);before=copy.deepcopy(target.__dict__)
+    def fail(*a,**k):raise AssertionError('input serialization')
+    target.to_bytes=fail
+    with pytest.raises(ValueError,match='stale target'):apply(target,p,resources={'blob':b'x'})
+    assert target.container==before['container'] and target.sections==before['sections'] and seen==['probe']
+
+
+def _g2_pcm():
+    import io,wave
+    buf=io.BytesIO()
+    with wave.open(buf,'wb') as w:w.setnchannels(1);w.setsampwidth(2);w.setframerate(48000);w.writeframes(b'\0'*96)
+    return buf.getvalue()
+
+
+def _g2_test_only_pcm_probe(resources,*,limits):
+    # Independent stdlib physical control, NOT a replacement for itlkit.media.
+    import io,wave
+    result={}
+    for name,raw in resources.items():
+        with wave.open(io.BytesIO(raw),'rb') as w:
+            facts={'sample_rate':w.getframerate(),'channels':w.getnchannels(),
+                   'sample_width':w.getsampwidth(),'frames':w.getnframes(),'sha256':digest(raw)}
+            if w.getcomptype()!='NONE' or len(w.readframes(facts['frames']))!=facts['frames']*facts['channels']*facts['sample_width']:
+                raise ValueError('test PCM is not complete uncompressed frames')
+        result[name]=facts
+    return result
+
+
+def test_g2_default_wav_in_itl_sources_is_still_refused_before_build():
+    called=[]
+    def build(*a,**k):called.append('build');raise AssertionError('WAV in ITL lane reached builder')
+    with pytest.raises(ValueError,match='hdfm'):
+        prepare_mutation('wrong-lane',library_bytes(),{}, {'media':_g2_pcm()},build=build,validate=lambda *a,**k:True)
+    assert called==[]
+
+
+@pytest.mark.parametrize('control',['positive','wrong_declared_rate','fake_probe_facts'])
+def test_g2_minimal_pcm_scalar_candidate_with_independent_intent(control,monkeypatch):
+    from itlkit import Container
+    data=Library.from_bytes(library_bytes()).to_bytes();raw=_g2_pcm();resources={'clip.wav':raw}
+    intent={'year':2037,'sample_rate':48000,'channels':1,'sample_width':2,'frames':48}
+    if control=='wrong_declared_rate':intent['sample_rate']=44100
+    calls=[]
+    def probe(r,*,limits):
+        calls.append('probe');facts=_g2_test_only_pcm_probe(r,limits=limits)
+        if control=='fake_probe_facts':facts['clip.wav']['sample_rate']=44100
+        return facts
+    def build(d,i,s,*,limits,seed,resources):
+        calls.append('build');lib=Library.from_bytes(d);lib.track(track_id=1).set(year=i['year'])
+        return MutationDraft(lib.to_bytes(),ProfileReport(capabilities=('PCM-transport-scalar-test-only',)))
+    def validate(d,i,s,c,r,*,limits,resources):
+        actual=_g2_test_only_pcm_probe(resources,limits=limits)
+        if actual!=r['resource_facts'] or any(actual['clip.wav'][key]!=i[key] for key in ('sample_rate','channels','sample_width','frames')):return False
+        before=Container.from_bytes(d);after=Container.from_bytes(c);expected=bytearray(before.payload)
+        put(expected,Library.from_bytes(d).track(track_id=1).node.offset+0x34,i['year'])
+        return after.payload==bytes(expected) and after.trailer==before.trailer and after.header[:8]+after.header[12:]==before.header[:8]+before.header[12:]
+    def prepare_it():return prepare_mutation('PCM-transport-scalar-test-only',data,intent,resources=resources,validate_resources=probe,build=build,validate=validate)
+    if control!='positive':
+        with pytest.raises(ValueError,match='postcondition'):prepare_it()
+        return
+    p=prepare_it();assert calls==['probe','build']
+    def no_random(*a,**k):raise AssertionError('RNG replay at apply')
+    monkeypatch.setattr('itlkit.planning.secrets.token_bytes',no_random)
+    for _ in range(2):
+        target=Library.from_bytes(data);receipt=apply(target,p,resources=resources)
+        assert receipt.changed and not receipt.native_qualified and target.to_bytes()==p.candidate_bytes
+    assert calls==['probe','build','probe','probe']
+
+
+def test_g2_real_media_probe_integration_requires_actual_owner_module():
+    media=pytest.importorskip('itlkit.media',reason='actual reviewed media.probe_bytes dependency not integrated; stdlib control is separate')
+    raw=_g2_pcm()
+    def probe(r,*,limits):return {k:dataclasses.asdict(media.probe_bytes(v,limits=limits)) for k,v in r.items()}
+    p=_g2_noop({'clip.wav':raw},probe=probe)
+    assert p.resource_facts['clip.wav']['sample_rate']==48000
+    assert not apply(Library.from_bytes(library_bytes()),p,resources={'clip.wav':raw}).changed
+
+
+def test_g2_blocked_profile_and_wrong_ledger_do_not_become_capabilities():
+    from itlkit.schema import Blocker,snapshot_key
+    data=library_bytes()
+    def blocked(d,i,s,*,limits,seed,resources):return ProfileReport(blockers=(Blocker('pool-unproved','No pool permission'),))
+    p=prepare_mutation('blocked',data,{},resources={'blob':b'x'},validate_resources=_g2_hash_facts,build=blocked,validate=lambda *a,**k:True)
+    assert p.blocked
+    with pytest.raises(TypeError):apply(Library.from_bytes(data),p,resources={'blob':b'x'})
+    def wrong(d,i,s,*,limits,seed,resources):return MutationDraft(d,ProfileReport(),AllocationLedger(snapshot=snapshot_key(d),sources={}))
+    with pytest.raises(ValueError,match='SnapshotKey'):
+        prepare_mutation('wrong-ledger',data,{}, {'donor':data},resources={'blob':b'x'},validate_resources=_g2_hash_facts,build=wrong,validate=lambda *a,**k:True)
+    for fake in (p.to_dict(),{'passed':True}):
+        with pytest.raises(TypeError):apply(Library.from_bytes(data),fake,resources={'blob':b'x'})
+
+
+@pytest.mark.parametrize('case',['file','aggregate','names','pin-json'])
+def test_g2_resource_specific_input_budgets_precede_probe(case):
+    from itlkit.schema import ReadLimits
+    seen=[];resources={'blob':b'x'};limits=ReadLimits()
+    if case=='file':
+        cap=len(library_bytes())+1;limits=ReadLimits(max_file_bytes=cap);resources={'blob':b'x'*(cap+1)}
+    elif case=='aggregate':
+        limits=ReadLimits(memory_budget_bytes=524288);resources={'a':b'x'*32768,'b':b'y'*32768}
+    elif case=='names':
+        limits=ReadLimits(max_text_bytes=4096);resources={str(i).zfill(128):b'' for i in range(33)}
+    else:limits=ReadLimits(max_json_bytes=100)
+    def probe(r,*,limits):seen.append('probe');return _g2_hash_facts(r,limits=limits)
+    with pytest.raises(ValueError):_g2_noop(resources,probe=probe,limits=limits,calls=seen)
+    assert not seen
+
+
+@pytest.mark.parametrize('where',['build','validate'])
+def test_g2_engine_resource_map_mutation_is_refused(where):
+    resources={'blob':b'x'}
+    def build(d,i,s,*,limits,seed,resources):
+        if where=='build':resources.clear()
+        return MutationDraft(d,ProfileReport())
+    def validate(d,i,s,c,r,*,limits,resources):
+        if where=='validate':resources['blob']=bytearray(b'x')
+        return True
+    with pytest.raises(ValueError,match='changed'):
+        prepare_mutation('mutation-negative-only',library_bytes(),{},resources=resources,
+            validate_resources=_g2_hash_facts,build=build,validate=validate)
+    assert resources=={'blob':b'x'}
+
+
+def test_g2_fact_aliases_detached_before_adoption():
+    data={'blob':{'nested':[1]}}
+    def probe(r,*,limits):return data
+    p=_g2_noop({'blob':b'x'},probe=probe)
+    data['blob']['nested'].append(2)
+    assert tuple(p.resource_facts['blob']['nested'])==(1,)
+    target=Library.from_bytes(library_bytes());before=copy.deepcopy(target.__dict__)
+    with pytest.raises(ValueError,match='facts changed'):apply(target,p,resources={'blob':b'x'})
+    assert target.__dict__==before
+
+
+def test_g2_resources_cannot_stand_in_for_ledger_itl_sources():
+    from itlkit.schema import snapshot_key
+    data=library_bytes();key=snapshot_key(data)
+    def build(d,i,s,*,limits,seed,resources):
+        return MutationDraft(d,ProfileReport(),AllocationLedger(snapshot=key,sources={'donor':key}))
+    with pytest.raises(ValueError,match='SnapshotKey'):
+        prepare_mutation('negative-ledger-only',data,{},resources={'donor':data},
+            validate_resources=_g2_hash_facts,build=build,validate=lambda *a,**k:True)
+
+
+# Canonical in-memory kind checks; not restored b985 tests or native evidence.
+class _G2KindString(str):
+    pass
+
+
+class _G2KindEncodingHook(str):
+    def encode(self, *args, **kwargs):
+        raise AssertionError('custom kind encoding must not be called')
+
+
+_G2_INVALID_KINDS = [
+    None, 0, [], {}, False, 0.0, b'total', bytearray(b'total'), (), set(),
+    '', 'TOTAL', 'track', 'outer', 'unknown', 'total ', 'total\x00',
+    '\u65e5\u672c\u8a9e', '\ud800', _G2KindString('total'), _G2KindEncodingHook('total'),
+]
+_G2_INVALID_KIND_IDS = [
+    'none', 'zero', 'list', 'dict', 'bool', 'float', 'bytes', 'bytearray',
+    'tuple', 'set', 'empty', 'case-change', 'track-not-kind', 'outer-not-node-kind',
+    'unknown', 'trailing-space', 'nul', 'non-ascii', 'surrogate', 'str-subclass',
+    'str-encoding-hook',
+]
+
+
+@pytest.mark.parametrize('location', ['section', 'track'])
+@pytest.mark.parametrize('kind', _G2_INVALID_KINDS, ids=_G2_INVALID_KIND_IDS)
+def test_g2_node_kind_digest_refuses_noncanonical_values(location, kind):
+    from itlkit.errors import FormatError
+    from itlkit.raw import inspect_coverage
+    lib = Library.from_bytes(library_bytes())
+    node = lib.sections[0] if location == 'section' else lib.tracks[0].node
+    node.kind = copy.deepcopy(kind)
+    before = pickle.dumps(lib.__dict__, protocol=4)
+    for reader in (library_state_digest, inspect_coverage):
+        with pytest.raises(FormatError, match='invalid node kind'):
+            reader(lib)
+        assert pickle.dumps(lib.__dict__, protocol=4) == before
+
+
+@pytest.mark.parametrize('location', ['section', 'track'])
+@pytest.mark.parametrize('kind', [None, 0, [], {}], ids=['none', 'zero', 'list', 'dict'])
+@pytest.mark.parametrize('has_resources', [False, True])
+def test_g2_node_kind_apply_refuses_before_probe_or_validator(location, kind, has_resources):
+    from itlkit.errors import FormatError
+    data = library_bytes()
+    calls = []
+    resources = {'blob': b'test-only resource'} if has_resources else None
+    def probe(r, *, limits):
+        calls.append('probe')
+        return {k: {'sha256': digest(v)} for k, v in r.items()}
+    def build(d, i, s, *, limits, seed, **kwargs):
+        calls.append('build')
+        return MutationDraft(d, ProfileReport(capabilities=('kind-negative-control-only',)))
+    def validate(d, i, s, c, report, *, limits, **kwargs):
+        calls.append('validate')
+        return c == d
+    p = prepare_mutation('kind-negative-control-only', data, {}, {'donor': data},
+        resources=resources, validate_resources=probe if has_resources else None,
+        build=build, validate=validate)
+    calls.clear()
+    lib = Library.from_bytes(data)
+    node = lib.sections[0] if location == 'section' else lib.tracks[0].node
+    node.kind = copy.deepcopy(kind)
+    before = pickle.dumps(lib.__dict__, protocol=4)
+    with pytest.raises(FormatError, match='invalid node kind'):
+        apply(lib, p, sources={'donor': data}, resources=resources)
+    assert not calls
+    assert pickle.dumps(lib.__dict__, protocol=4) == before
+    assert p.candidate_bytes == data
+
+
+@pytest.mark.parametrize('location', ['section', 'track'])
+def test_g2_node_kind_valid_different_value_remains_stale_cas(location):
+    from itlkit.errors import FormatError
+    data = library_bytes()
+    p = prepare(data, {'operations': []})
+    lib = Library.from_bytes(data)
+    original = library_state_digest(lib)
+    node = lib.sections[0] if location == 'section' else lib.tracks[0].node
+    node.kind = 'fixed'
+    assert library_state_digest(lib) != original
+    before = pickle.dumps(lib.__dict__, protocol=4)
+    with pytest.raises(FormatError, match='stale target'):
+        apply(lib, p)
+    assert pickle.dumps(lib.__dict__, protocol=4) == before

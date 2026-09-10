@@ -45,7 +45,7 @@ Malformed intents/limits raise ValueError/TypeError; unsupported capabilities ca
 return a ProfileReport containing typed Blockers. A profile alone cannot be applied.
 
 `itlkit.planning.prepare_mutation(engine, target_bytes, intent, sources=None, *,
-limits=None, seed=None, build, validate)` is the adapter for **reviewed in-process
+limits=None, seed=None, build, validate, resources=None, validate_resources=None)` is the adapter for **reviewed in-process
 engine code**, not a user-data candidate adoption API:
 
 ```python
@@ -67,7 +67,7 @@ prepare. The engine validator must not allocate or replay random operations.
 Reports/graphs/ledgers are **not** unchecked coverage certificates. Callbacks are
 code supplied by the engine, never executable references decoded from JSON.
 
-`apply(target_library, prepared, *, sources=None) -> MutationReceipt` validates
+`apply(target_library, prepared, *, sources=None, resources=None) -> MutationReceipt` validates
 the in-memory seal, exact current model, source pins, candidate and postconditions
 before a single dictionary adoption. For plans with sources, pass the current
 named byte snapshots explicitly; missing/extra/changed sources refuse. No disk
@@ -80,6 +80,17 @@ raw model fields, including stale derived headers, without normalization or
 repair. A dirty target whose exact model differs from the prepared byte snapshot
 refuses, even if serializing it could repair/mask the difference. Serialize edits
 explicitly before preparation. Offsets are diagnostic, not part of wire identity.
+
+In-memory Node.kind must be an exact built-in str from the existing model.KINDS:
+`total`, `section`, `count`, `fixed`, or `mixed`. These are the tokens produced by
+the core parser. Non-string storage, str subclasses (including custom encoding
+hooks), non-ASCII strings and unknown kinds raise FormatError before encoding.
+There is no str coercion, case folding, normalization or kind-vocabulary extension.
+This canonical inspection/adoption boundary does not change the core Node API,
+validate arbitrary kind/tag combinations, or confer writer/native permission.
+Unknown record tags and opaque payload bytes are not kind identifiers and remain
+preserved. Coverage uses this guard before report construction; apply uses it
+before resource re-probing, candidate validation or target adoption.
 
 `PreparedMutation.to_dict()` returns `itlkit.prepared-report.v1` with
 `executable: false`. There is no from_dict, pickle, generic report replay, or
@@ -301,7 +312,7 @@ string-prefix normalization cannot establish namespace equivalence.
 
 ### Concrete verification and remaining limits
 
-`tests/test_codec_planning.py` contains executable real-allocator controls for the
+The original G1 `tests/test_codec_planning.py` contained executable real-allocator controls for the
 reviewer's generated foreign PID and SourceBinding paths, namespace/width/source/
 capacity/seed failures, complete recompression/retirement/history retention,
 source staleness, seal tampering and bounded preflight. Its test-only evidence
@@ -328,3 +339,69 @@ old incorrect `NUMBER_FIELDS['sample_rate'] == (0xf4,4)` claim. The full eight b
 sample-rate or other semantic interpretation. Both entries have no new write
 permission. The parent owns the separate legacy core correction. Historical
 checkpoint coverage reports are preserved, not rewritten or reinterpreted.
+
+
+## G2 resource lane: new implementation, not recovered G1 bytes
+
+The four b985 source/document files were recovered exactly, but its three full
+original test revisions were not recovered. The raw test baseline was recovered
+from earlier9db. The real-allocator checks described above are historical G1
+checks, not a claim that those missing tests ran on G2. This resource extension
+and its new tests are separately implemented and verified on G2; the old222
+focused passes are not reused. Existing schema records, SourceBinding, complete
+history/retirement/seed checks, and non-normalizing target CAS remain unchanged.
+
+The shared adapter adds keyword-only `resources=None, validate_resources=None`.
+`apply(..., resources=None)` requires a fresh explicit complete resource map for
+nonempty-resource plans, just as sources require fresh named ITL snapshots.
+None or an empty dict keeps legacy callback signatures and skips the resource
+probe. A non-None noncallable validator is rejected as a configuration error.
+
+Nonempty resources must be an exact dict:1..128-character strict-UTF8 names and
+exact immutable bytes, at most128 entries and also within max_nodes. Names must
+not overlap ITL sources. Names are opaque keys: no path access, case folding or
+Unicode normalization. Every resource obeys max_file_bytes. Aggregate names,
+wire storage, JSON pins/intent/source descriptions, parsed ITL inputs and model
+budgets are admitted before any callback. Resources are never parsed as ITL.
+Putting WAV in the default ITL `sources` lane still fails before build.
+
+The reviewed trusted pure function
+`validate_resources(resources, *, limits)` must return a mapping with exactly
+the same names, containing finite JSON facts. Strings/keys, nesting, nodes, JSON
+size and aggregate memory are bounded before copying/encoding and before build.
+Bytes, dataclasses, callbacks, non-string keys, cycles and NaN/Infinity refuse.
+The returned report is detached and frozen; there is no executable inverse.
+
+With nonempty resources only, build and the ordinary candidate validator receive
+an extra `resources=` keyword containing a fresh detached dictionary. Mutating
+that dictionary is detected and refused. Build still runs only during prepare:
+no supplied builder, allocator or RNG replay occurs during apply.
+
+The seal binds resource names, byte sizes and SHA256s, immutable facts, exact
+resource bytes, callback identity and admission estimates, in addition to the
+existing target/source/candidate/ledger/intent evidence. Apply rejects missing,
+extra, changed, wrong-type or colliding resource snapshots before adoption. It
+re-probes and compares canonical JSON (so1, True and1.0 are different), then runs
+the ordinary validator and final seal/model CAS before one target adoption.
+Reports and caller-issued ledgers remain evidence, never write permission.
+
+Admission reserves12 times aggregate wire bytes plus1024 per resource,8 times
+ITL plaintext,512 per resource-JSON node/key and32 times encoded resource JSON.
+Preparation reserves the retained facts and another probe; apply checks the
+combined retention again. These are conservative admission estimates, not an
+OS RSS guarantee or a sandbox for arbitrary callback code. Trusted callbacks
+must themselves be pure and bounded, and the engine must prove its complete
+candidate/closure/opaque preservation and independently declared source intent.
+
+Media engines must use the reviewed physical `itlkit.media.probe_bytes` with
+independent declared intent. The G2 stdlib PCM/scalar control demonstrates
+transport, independent raw candidate verification and fail-closed wrong/fake
+facts; it is not a media-engine replacement, new-track constructor, allocator,
+pool qualification or native acceptance. The actual-owner integration test is
+explicitly skipped when that module is absent. No missing dependency is replaced
+with a fake production callback or ledger.
+
+The legacy +f4 raw alias is represented by one canonical offset-named
+`header_0xf4_8_raw` field of8 bytes, with no semantic interpretation or write
+permission. Sample rate remains the separate float32 evidence entry at+0x98.
+The core module and CLI are not changed.
