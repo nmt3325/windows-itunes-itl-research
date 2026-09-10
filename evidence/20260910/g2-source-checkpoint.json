@@ -1,0 +1,466 @@
+{
+  "schema": "itl4.g2-source-checkpoint.v1",
+  "kind": "interim_source_and_offline_evidence_record",
+  "publication_status": "proposal_pending_parent_review",
+  "date": "2026-09-10",
+  "execution_generation": "G2",
+  "source_checkpoint": {
+    "commit": "47820efb5fd28001556b32fe21d76774dd987c39",
+    "tree": "11d35e9fd665570faa922874abedfa06e050528a",
+    "parents": [
+      "e3f0e334627dc9e68e9401b019f9e12932141d51",
+      "c976b964ae9eb01690c6e554cc75ac98a8e29178"
+    ],
+    "recovery_foundation": "ef65c5b36bbc7c3b3ee6010a962c6ec062d085f3",
+    "scope": "This fixed checkpoint, not the latest moving branch."
+  },
+  "qualification": {
+    "full_semantic_read_write": false,
+    "independent_writer_native_acceptance_new_run": false,
+    "G2_new_native_actions": 0,
+    "G2_playback_tested": false,
+    "label": "discovery and offline checks, not independent writer/native acceptance"
+  },
+  "verification_scope": {
+    "method": "Read-only Git-object, SHA256/size, saved JUnit/log and closed-input checks. No production tests rerun by this packaging audit.",
+    "source_file_assurance": "Identity with fixed Git blobs; not a blanket semantic review of every component.",
+    "identity_integration_reviewed_files": 7,
+    "identity_integration_exact_blob_matches": 7,
+    "core_library_sha256": "f70f5f51b534d08c6dd55c721e10732a0df5a49df88bf5442fbab1c0583899ba",
+    "old_G2_case_keys_checked": 1212,
+    "old_G2_case_keys_missing": 0,
+    "source_files": [
+      {
+        "path": "docs/identities-v2.md",
+        "sha256": "bf61a149d5d150824cf0ada7f29492462bfb22cabfd8facb1c672fd3ad4a8b90",
+        "size_bytes": 17329,
+        "git_blob": "1ed1b7f223d89065f929a5050a9dc4b5e692f437"
+      },
+      {
+        "path": "docs/inspection-cli.md",
+        "sha256": "0a90928096472cdd287e638e7e16d3afe760a31ed7e74c80ea6393a6497ac6bb",
+        "size_bytes": 2347,
+        "git_blob": "74616cf91ccb980d8151da25e5781ad80bb687a1"
+      },
+      {
+        "path": "itlkit/__main__.py",
+        "sha256": "b3885b6c843efba20216eb81467e119b448382538d35e8b186dde27543e5bdc0",
+        "size_bytes": 8243,
+        "git_blob": "76c710eed0a60d1b5aefeafa2e6a9e86ac168219"
+      },
+      {
+        "path": "itlkit/cow.py",
+        "sha256": "016a29ff523e9b3e6886e5f43013eb3768d4f21e67ec8612ed28a635e21ab1d3",
+        "size_bytes": 22594,
+        "git_blob": "84957af13a48a44e92c87e040ec2049015c7a844"
+      },
+      {
+        "path": "itlkit/graph.py",
+        "sha256": "c0a9d4d614a005ddba5fd69be3e17aa595eb017479986bab39258f41750bba5c",
+        "size_bytes": 27822,
+        "git_blob": "481e16a04e38667a253c4a864a585edde1d04b2c"
+      },
+      {
+        "path": "itlkit/identity.py",
+        "sha256": "c66a66dbd1cf1bd95ab8466269369ffda30f8be62c11c82f8991735b5c4f3eee",
+        "size_bytes": 45933,
+        "git_blob": "4bbe60478bebdba54ac58c7234c846df0071a6cb"
+      },
+      {
+        "path": "itlkit/library.py",
+        "sha256": "f70f5f51b534d08c6dd55c721e10732a0df5a49df88bf5442fbab1c0583899ba",
+        "size_bytes": 30230,
+        "git_blob": "7d47c0beaf8ca655f43b2cc0900e3b29ca1b4f7f"
+      },
+      {
+        "path": "itlkit/planning.py",
+        "sha256": "9439e59e40cccc591c14fb60524e501f104fa1a3a7da990fb9a5e21ef0ef2f70",
+        "size_bytes": 26254,
+        "git_blob": "0b26d115be95e737037911ac3a15b979b213bb84"
+      },
+      {
+        "path": "itlkit/raw.py",
+        "sha256": "ed4635b1e5b86eebbc34739f87b97e3cdeeb3c3a65bc20e6285313e35def1fc7",
+        "size_bytes": 22243,
+        "git_blob": "8391597ddad12689297b0fa4933c60b9b7a7900c"
+      },
+      {
+        "path": "pyproject.toml",
+        "sha256": "aa9b2de88d8eb1ffaf32ae8d0626631cb258fdd1f51217d9c2fd0d3f59360aa5",
+        "size_bytes": 569,
+        "git_blob": "acaac55afb356c845af83af947af60ba56e2f723"
+      },
+      {
+        "path": "tests/test_codec_native_profiles.py",
+        "sha256": "7441a6bb315171866bfa61fb5a3a741e71530428be2e9224c684743fd46d894f",
+        "size_bytes": 7314,
+        "git_blob": "b7fc44a356170cc42b84c475564a60ac711956ad"
+      },
+      {
+        "path": "tests/test_cow_v2.py",
+        "sha256": "b6e99df50446a7f8b6131e15038ab1b220da613ed781144162ec6b81b95eed9b",
+        "size_bytes": 18622,
+        "git_blob": "beeec2a6dc560e8b46350011b3fc88cf7dc18eac"
+      },
+      {
+        "path": "tests/test_graph_v2.py",
+        "sha256": "85bdf35b5b637524df92c2f8f1c7334b2c10da457a0019cffde7008a56047fef",
+        "size_bytes": 10686,
+        "git_blob": "e7891f21668da308f8a9b47e8dc8e900be1f81fe"
+      },
+      {
+        "path": "tests/test_identity_v2.py",
+        "sha256": "022c73f57769e377c8e2060f288c2434c40b01cdd1e8010ee12a1cf7111dcecc",
+        "size_bytes": 27579,
+        "git_blob": "78273d834acdcd7361982015e44db35894dfaafd"
+      },
+      {
+        "path": "tests/test_inspection_cli_v2.py",
+        "sha256": "738427d8d4dd24b8aa615c4e6b7624b41da6ba35b14c62a5949d432a312a3e26",
+        "size_bytes": 5391,
+        "git_blob": "506d52de1e2b40cddeca7fec5ddad9036998ba20"
+      }
+    ]
+  },
+  "integrated_source_ancestry": [
+    {
+      "component": "codec",
+      "commit": "66bdf7c9e9acad3158bbdd7096babde6ede23fd9",
+      "ancestor_of_checkpoint": true,
+      "assurance": "Git ancestry verified; no wholesale component code copied into this proposal."
+    },
+    {
+      "component": "identities",
+      "commit": "c976b964ae9eb01690c6e554cc75ac98a8e29178",
+      "ancestor_of_checkpoint": true,
+      "assurance": "Git ancestry verified; no wholesale component code copied into this proposal."
+    },
+    {
+      "component": "crud",
+      "commit": "702869558a441b8e4770270357dc469a1d9465bf",
+      "ancestor_of_checkpoint": true,
+      "assurance": "Git ancestry verified; no wholesale component code copied into this proposal."
+    },
+    {
+      "component": "playlist",
+      "commit": "ca68e72d0761886752bf01d57dfbac97a12a75f9",
+      "ancestor_of_checkpoint": true,
+      "assurance": "Git ancestry verified; no wholesale component code copied into this proposal."
+    },
+    {
+      "component": "media",
+      "commit": "f842e265ea86b4b51a3da485eb7e0642ae14629e",
+      "ancestor_of_checkpoint": true,
+      "assurance": "Git ancestry verified; no wholesale component code copied into this proposal."
+    }
+  ],
+  "tests": {
+    "counting_rule": "Collected testcase rows and separate pytest subtests are different units; never add subtests to the passed-case total.",
+    "G1_historical_parent_report": {
+      "source_commit": "3627f4ea56ccac3e93a1cf19cc1dd6ac1c23ad67",
+      "passed": 1387,
+      "skipped": 6,
+      "separate_subtests_passed": 36,
+      "assurance": "Historical parent-reported result; not transferred or rerun by this audit. Same totals do not identify the G2 run."
+    },
+    "G2_parent_checkpoint": {
+      "source_commit": "47820efb5fd28001556b32fe21d76774dd987c39",
+      "collected": 1393,
+      "passed": 1387,
+      "skipped": 6,
+      "failed": 0,
+      "errors": 0,
+      "separate_subtests_passed": 36,
+      "junit_testcase_rows": 1393,
+      "junit_suite_tests_including_subtests": 1429,
+      "pytest_exit": 0,
+      "receipt": {
+        "sha256": "10fcc2f22d45c33b49be242467fc6d9c102141a1e7f7854795c0f638b61daec2",
+        "size_bytes": 4049,
+        "raw_record_included": false
+      },
+      "junit_sha256": "2b056b978d50f598dd0b9a580d8adaef46977d73a1834debb1d8551f297a7c81",
+      "log_sha256": "c36cb780020b3dfa996751a79599205568c45ee681f1a5cfde48af17931238b2",
+      "skip_reasons": {
+        "historical_COM_after_oracle_missing": 5,
+        "dependency_absence_test_inapplicable_because_real_dependency_is_present": 1
+      }
+    },
+    "G2_identity_delta": {
+      "source_commit": "c976b964ae9eb01690c6e554cc75ac98a8e29178",
+      "owned_baseline_cases": 132,
+      "owned_current_cases": 181,
+      "owned_current_passed": 180,
+      "owned_current_skipped": 1,
+      "new_case_keys": 49,
+      "old_case_keys_missing": 0,
+      "new_case_keys_missing_from_parent": 0,
+      "baseline_junit_sha256": "11b687a484dc1685d6ae33191dae986798465ec99f7c9b3ede07476dbdef5fa0",
+      "current_junit_sha256": "ae632f448c3272a8b6721172694f9c4c9b715fc06c57b82c8a2f6d666d53a862",
+      "role_report": {
+        "sha256": "1328af21e6fc64a687725543dd8b13297a8c40cf4b03f590224430d76f0b7b70",
+        "size_bytes": 13267,
+        "raw_record_included": false
+      },
+      "qualification": "New G2 implementation/tests; 49 is the owned 132-to-181 delta, not the parent 1212-to-1393 delta."
+    }
+  },
+  "CLI_red_to_green": {
+    "commands": [
+      "inspect-coverage",
+      "inspect-playlists"
+    ],
+    "test_path": "tests/test_inspection_cli_v2.py",
+    "test_sha256": "738427d8d4dd24b8aa615c4e6b7624b41da6ba35b14c62a5949d432a312a3e26",
+    "red": {
+      "base_commit": "dff7198eb2f2f9e9b638aeb64651035c4fbe592e",
+      "collected": 22,
+      "failed": 22,
+      "pytest_exit": 1,
+      "failure_kind": "all diagnostic commands were unknown and returned argparse exit 2",
+      "qualification": "Expected red against unchanged tracked source plus the new test text.",
+      "receipt": {
+        "sha256": "ee35b767a83deb23751caefc30abd7811d8578c528b170e5db1885d856ce59b1",
+        "size_bytes": 505,
+        "raw_record_included": false
+      },
+      "junit_sha256": "369a1edca4c721114e516af7f75191a0b602ab57ff67e6d0478d38acba1e2f2f"
+    },
+    "green": {
+      "base_commit": "dff7198eb2f2f9e9b638aeb64651035c4fbe592e",
+      "working_source_patch": true,
+      "commit_created_during_run": false,
+      "cli_sha256": "b3885b6c843efba20216eb81467e119b448382538d35e8b186dde27543e5bdc0",
+      "test_sha256": "738427d8d4dd24b8aa615c4e6b7624b41da6ba35b14c62a5949d432a312a3e26",
+      "collected": 22,
+      "passed": 22,
+      "skipped": 0,
+      "pytest_exit": 0,
+      "bytes_match_fixed_checkpoint": true,
+      "receipt": {
+        "sha256": "293a28ecf61db382a05c2f472bc65f6a841dc6baa30aa6e4f8be17f2a8217730",
+        "size_bytes": 1028,
+        "raw_record_included": false
+      },
+      "junit_sha256": "a8fba06484db7a4d3a7420b6a667ba9fe63f9612ff81f42a176d463e1a0e1f5a"
+    },
+    "qualification": "Diagnostic JSON production and refusals only. Exit 0 is not semantic validity, repair, import or native acceptance."
+  },
+  "media_cohort_correction": {
+    "source_commit": "e3f0e334627dc9e68e9401b019f9e12932141d51",
+    "initial": {
+      "collected": 1212,
+      "passed": 1161,
+      "skipped": 51,
+      "separate_subtests_passed": 26,
+      "receipt": {
+        "sha256": "71e238f79ce7569ca0e775b419d5c0e4fad238b53f05a6a2dc34919412dab53c",
+        "size_bytes": 10483,
+        "raw_record_included": false
+      }
+    },
+    "corrected": {
+      "collected": 1212,
+      "passed": 1207,
+      "skipped": 5,
+      "separate_subtests_passed": 36,
+      "pytest_exit": 0,
+      "receipt": {
+        "sha256": "63278f7cc212dbb3a59fda3035bee3f21607be79460d602a186a287e6ed39405",
+        "size_bytes": 2004,
+        "raw_record_included": false
+      },
+      "junit_sha256": "d9213b18cd08b31aee2d43b90c3ebcff29ca75e3ee610557bd093f6f62d9aa0f"
+    },
+    "change": "Supply ITLKIT_FRESH_SNAPSHOT_DIR with the existing ten pinned closed snapshots; no source change, repeated merge or media generation.",
+    "initial_receipt_preserved": true
+  },
+  "input_cohort": {
+    "files": 116,
+    "groups": [
+      {
+        "path": "evidence/native/snapshots",
+        "files": 55,
+        "git_tree": "7fa05ffbf9cfcf7567c61e2add91f2534e13da91",
+        "generation": "historical_synthetic_snapshots"
+      },
+      {
+        "path": "evidence/native/oracles",
+        "files": 51,
+        "git_tree": "6fea25d670ceb59fba00453a7c7b179cbfbd236a",
+        "generation": "historical_saved_oracle_documents"
+      },
+      {
+        "path": "evidence/20260910/checkpoint-01/native-snapshots",
+        "files": 10,
+        "git_tree": "b8b0baf0009389f983569216d998adf1558d8f48",
+        "generation": "G1_published_discovery_snapshots_reused_offline_in_G2"
+      }
+    ],
+    "all_bytes_equal_fixed_git": true,
+    "SHA_size_mtime_preserved_against_G2_cohort_receipt": true,
+    "qualification": "mtime preservation refers only to the G2 test/audit interval. Git checkout does not preserve original G1 run mtimes or recreate historical Locations. 51 oracle documents do not mean 51 available after-states.",
+    "input_pin_record": {
+      "sha256": "f8e65cd5a5152307effa2782a4ead98ba89c916bb1a89d6933d423af87524b15",
+      "size_bytes": 38563,
+      "raw_record_included": false
+    }
+  },
+  "recovery_classification": {
+    "scope_note": "Package-recovery closure is limited to the earlier package audit, not a census of all peer recoveries. Identity/codec original-test gaps are from the reviewed C976 report.",
+    "prior_package_scope_only": {
+      "status": "partial_original_recovery_plus_new_reconstruction",
+      "exact_original_texts": [
+        {
+          "label": "scoped manifest verifier",
+          "size_bytes": 7889,
+          "sha256": "13523774817c8bbc3c845044f371684025af8a71f54f7cfbf195c4af01f7d078"
+        },
+        {
+          "label": "independent dates validator",
+          "size_bytes": 16593,
+          "sha256": "fc4eb34a36a39c6c9b88dfc8ee033d1cb29dfccfee6ee71d98d9e72e6d8a3da2"
+        },
+        {
+          "label": "PCM4 action intent specification",
+          "size_bytes": 1871,
+          "sha256": "d5f859f866039105ddbb3a91f88add4dbf2dc2aa64d87a00db76df153ae07707"
+        }
+      ],
+      "raw_original_bodies_in_this_proposal": false,
+      "sealed_partial_bundle_physical_files": 13,
+      "sealed_partial_bundle_indexed_files": 12,
+      "sealed_manifest_sha256": "db4bbb958508ba130484326d67cf757adf1d8d7288aadb22b7efe0466a6c0fb9",
+      "sealed_readme_sha256": "a28f20d14818a2cfde3118f2c19f81b1019e8fcb2aedab5ebf18862462334327",
+      "all_13_files_rechecked_unchanged": true,
+      "prior_report": {
+        "sha256": "bccbdc8002340bde4a5b214e682b2dbc8cceed77fc2a62dddaad1c62d23ecade",
+        "size_bytes": 8908,
+        "raw_record_included": false
+      }
+    },
+    "new_reconstruction_or_development": [
+      "Earlier G2 package verifier controls: 61, and scalar numeric-policy checks: 76. Not original historical 192-case validation or current core pytest totals.",
+      "C976 seven-file identity implementation is new G2 development; exact admission of its current blobs is not an assertion that they are unchanged G1 originals.",
+      "This document and JSON are new checkpoint projections, not recovered original reports."
+    ],
+    "missing_originals_or_closure": [
+      "Complete original G1 sanitized bundle, its original README/manifest and verifier test source.",
+      "Two original identity/graph test texts and three original codec test texts; new tests do not recover their bytes.",
+      "Complete historical independent dates/float-control inputs and outputs.",
+      "PCM4 and folder media/expected state/full oracle/saved ITLs/save-chain/producer closure.",
+      "Full new static-stage1 C/ASM/replay closure."
+    ]
+  },
+  "open_findings": {
+    "reader_fuzz": {
+      "status": "UNRESOLVED_AT_CHECKPOINT_NOT_PASSED",
+      "campaign_source_commit": "209fb892d02f9df22ea1d6c20627945f980d3655",
+      "report": {
+        "sha256": "c5578ead20fa708eff7cc72910441ffbcdf5cf53b4b340c7b14f2e2cd66a5fe2",
+        "size_bytes": 17566,
+        "raw_record_included": false
+      },
+      "planned_cases": 434,
+      "actual_cases": 434,
+      "accepted": 238,
+      "safe_refusal": 188,
+      "unexpected_AttributeError": 8,
+      "unexecuted": 0,
+      "affected_nodes": [
+        "section",
+        "track"
+      ],
+      "invalid_kind_types": [
+        "NoneType",
+        "int",
+        "list",
+        "dict"
+      ],
+      "affected_sources": [
+        {
+          "path": "itlkit/raw.py",
+          "sha256": "ed4635b1e5b86eebbc34739f87b97e3cdeeb3c3a65bc20e6285313e35def1fc7",
+          "unchanged_from_campaign_at_checkpoint": true
+        },
+        {
+          "path": "itlkit/planning.py",
+          "sha256": "9439e59e40cccc591c14fb60524e501f104fa1a3a7da990fb9a5e21ef0ef2f70",
+          "unchanged_from_campaign_at_checkpoint": true
+        }
+      ],
+      "input_models_unchanged_for_all_8_exceptions": true,
+      "seed_hex": "0x20260910209fb892",
+      "script_sha256": "c50d13b76d1e338068016daec7c596cb9350629dcb001a8b558a4bc2401592b7",
+      "results_sha256": "84ef14c5b6fe07bdd33d1c579d5e7cbd858bddb99133bdd1b7ec3c4d58c3daf7",
+      "old_634_case_replay": false,
+      "qualification": "New similar synthetic cases; old baseline missing. Complete means campaign finished, not passed. API cases have no per-call OS exit; CLI cases use in-process main(argv). No fix success is asserted."
+    },
+    "not_admitted_at_fixed_checkpoint": [
+      "Later codec resource extension",
+      "Constructor budget fix",
+      "Native production guards"
+    ],
+    "unimplemented_or_unqualified": [
+      "Complete semantic read/write, arbitrary cross-library mutation, general import/COW acceptance.",
+      "Foreign-source/history mutation engine and nondefault allocation policies.",
+      "Section4/23/msph, blank/unknown auxiliary records, smart and opaque semantic closures.",
+      "Current independent-writer native acceptance and playback."
+    ]
+  },
+  "historical_native_context": {
+    "independent_candidates": 6,
+    "passive_cycle_seconds": [
+      45,
+      30
+    ],
+    "generation": "historical_only",
+    "qualification": "Historical evidence only; not a new G2 run and not qualification of this source checkpoint."
+  },
+  "reproduction": {
+    "platform_observed": "Windows",
+    "python": "3.12.10",
+    "pytest": "9.1.1",
+    "pycryptodome": "3.23.0",
+    "source_root": "separate checkout of the fixed source commit",
+    "environment": {
+      "PYTHONDONTWRITEBYTECODE": "1",
+      "PYTHONUTF8": "1",
+      "PYTHONIOENCODING": "utf-8",
+      "PYTHONOPTIMIZE": "0",
+      "ITLKIT_NATIVE_ROOT": "evidence/native/snapshots",
+      "ITLKIT_NATIVE_REPORTS": "evidence/native/oracles",
+      "ITLKIT_FRESH_SNAPSHOT_DIR": "evidence/20260910/checkpoint-01/native-snapshots"
+    },
+    "targeted_argv": [
+      "python",
+      "-B",
+      "-m",
+      "pytest",
+      "tests/test_inspection_cli_v2.py",
+      "-q",
+      "-p",
+      "no:cacheprovider",
+      "--basetemp",
+      "NEW_OUTPUT/cli-tmp",
+      "--junitxml",
+      "NEW_OUTPUT/cli.xml"
+    ],
+    "full_argv": [
+      "python",
+      "-B",
+      "-m",
+      "pytest",
+      "tests",
+      "-q",
+      "-rs",
+      "-p",
+      "no:cacheprovider",
+      "--basetemp",
+      "NEW_OUTPUT/full-tmp",
+      "--junitxml",
+      "NEW_OUTPUT/full.xml"
+    ],
+    "status": "Commands transcribed for reproduction; not rerun as production tests in this packaging audit. No clean-install or other-platform success asserted."
+  }
+}

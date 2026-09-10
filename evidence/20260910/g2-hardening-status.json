@@ -1,0 +1,48 @@
+{
+  "schema": "itl4.g2-hardening-status.v1",
+  "source_commit": "0a7dcda20b8222bf5b23184ef3752d29a6f75d66",
+  "verified_at_utc": "2026-09-10T07:33:30.453648+00:00",
+  "scope": "fixed-code parent integration tests; not a moving-branch or universal-writer claim",
+  "full_semantic_read_write": false,
+  "integrated_pins": {
+    "resource_and_node_kind": "cef2f4d31d58846dda3d764438d9cb4155c8d773",
+    "playlist_memory": "ff6e092376185497e58daefca885e790eb884a1d",
+    "opt_in_master_helper": "c69bb86d9ab17784164aaf91c7cb17e3dcee67c1"
+  },
+  "parent_tests": {
+    "collected": 2024,
+    "passed": 2018,
+    "skipped": 6,
+    "failed": 0,
+    "errors": 0,
+    "subtests_passed_separate": 36,
+    "previous_case_count": 1800,
+    "previous_cases_missing": 0,
+    "log_sha256": "b39b1d9e1e28f2d9617f24584c0cfd08834052099fe6c5b8481d4546db0af984"
+  },
+  "preservation": {
+    "fixed_input_files": 116,
+    "input_sha_size_mtime_preserved": true,
+    "unrelated_tracked_files_preserved_in_last_merge": 917,
+    "core_sha256": "f70f5f51b534d08c6dd55c721e10732a0df5a49df88bf5442fbab1c0583899ba",
+    "checkout_recreates_original_native_mtime_or_location": false
+  },
+  "qualification": {
+    "master_helper_automatically_activated_in_legacy_core": false,
+    "legacy_masterless_mutation_gap_closed": false,
+    "reported_integration_native_actions": 0,
+    "G2_independent_writer_native_acceptance": false,
+    "G2_playback_tested": false,
+    "old_434_fuzz_relabelled_as_all_passed": false,
+    "original_missing_test_revisions_recovered_by_new_tests": false,
+    "process_wide_RSS_guarantee": false
+  },
+  "pending_at_this_code_checkpoint": [
+    "shared schema pre-read/pre-inflate budget and JSON-key admission fixes",
+    "constructor resource facade, actual reservations, pool registration and unknown-reference closure",
+    "master admission activation and compatibility migration in legacy mutation entrypoints",
+    "system-role, smart/opaque/auxiliary and foreign-history semantics",
+    "native harness unknown-header preservation fix and reviewed fresh native discovery",
+    "G2 independent-writer native acceptance and playback"
+  ]
+}
