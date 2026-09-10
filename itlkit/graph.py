@@ -432,3 +432,14 @@ def revalidate_graph(graph):
 def stable_graph(graph):
     graph=revalidate_graph(graph)
     return _immutable(_stable_projection(graph.to_dict()))
+
+
+def to_canonical_graph(graph, *, limits=None):
+    """Transport a REAL raw-backed graph; coverage stays diagnostic only.
+
+    The shared adapter re-decodes and retains complete owner/scope/edge/opaque
+    evidence. Its canonical result cannot be supplied as allocator authority.
+    """
+    from .planning import adapt_identity_graph
+    from .identity import _canonical_limits
+    return adapt_identity_graph(graph, limits=_canonical_limits(limits))

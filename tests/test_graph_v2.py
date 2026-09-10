@@ -159,3 +159,35 @@ def test_reconstructed_actual_codec_limits_protocol():
     g=build_graph(sample(),limits=ReadLimits())
     assert g.coverage['read_limits_protocol_enforced'] and not g.coverage['complete_semantic']
     with pytest.raises(FormatError):build_graph(sample(),limits=ReadLimits(max_nodes=1))
+
+
+# New G2 canonical graph controls, not recovered f5 original tests.
+def test_g2_canonical_graph_preserves_actual_owner_edges_and_opaque_levels():
+    from itlkit.graph import to_canonical_graph
+    from itlkit import schema
+    c=Container.from_bytes(sample());c.trailer=b'opaque trailer'
+    g=build_graph(c.to_bytes(rebuild=True));canonical=to_canonical_graph(g,limits=schema.ReadLimits())
+    assert type(canonical) is schema.ReferenceGraph
+    assert canonical.snapshot.to_dict()=={'digest':g.snapshot.digest,'file_pid':g.snapshot.file_pid,'plain_digest':g.snapshot.plain_digest}
+    assert len(canonical.typed_edges)==len(g.typed_edges)
+    for old,new in zip(g.typed_edges,canonical.typed_edges):
+        assert (new.owner_locator,new.relation,new.evidence_level)==(old.owner,old.field,old.evidence_level)
+        assert new.target.to_dict()=={'namespace':old.target.namespace,'scope':old.target.scope,'value':old.target.value,'width':old.target.width}
+        assert new.source in canonical.owners and new.source_snapshot==canonical.snapshot
+    assert canonical.coverage['transport_only'] is True
+    assert canonical.coverage['complete_semantic'] is False
+    assert canonical.coverage['opaque_gc_authorized'] is False
+    assert 'pool-disjointness-unproved:compression-trailer' in canonical.coverage['pool_blockers']
+    assert canonical.opaque_possible_edges
+
+
+def test_g2_canonical_graph_cannot_replace_raw_graph_or_forged_coverage():
+    import json
+    from itlkit.graph import to_canonical_graph
+    from itlkit.identity import ReservationAllocator
+    g=build_graph(sample(opaque=True));canonical=to_canonical_graph(g)
+    with pytest.raises(TypeError):ReservationAllocator(canonical,seed=1)
+    with pytest.raises(TypeError):to_canonical_graph(g.to_dict())
+    document=g.to_dict();document['coverage']['pool_blockers']=[]
+    with pytest.raises(UnsupportedError):to_canonical_graph(replace(g,_document=json.dumps(document).encode()))
+    with pytest.raises((UnsupportedError,FormatError)):to_canonical_graph(g,limits=limits(max_nodes=1))

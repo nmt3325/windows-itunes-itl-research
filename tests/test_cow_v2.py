@@ -182,3 +182,126 @@ def test_typed_cow_patches_are_required_without_decoding_forged_reports():
     q=_prepare_candidate(sample(),intent(name='ScopeCheck'),seed=23)
     assert not _validate_candidate(replace(q,text_patches=list(q.text_patches)))
     assert not _validate_candidate(replace(q,intent_json=b'x'*4096),limits={'max_file_bytes':16777216,'max_plain_bytes':16777216,'max_nodes':100000,'max_depth':32,'max_text_bytes':4194304,'max_json_bytes':32,'memory_budget_bytes':536870912})
+
+
+# New G2 canonical integration controls, not recovered f5 original tests.
+@pytest.mark.parametrize('field',['name','comment','composer','artist','album','album_artist'])
+def test_g2_cow_uses_full_canonical_ledger_not_lossy_bridge(field,monkeypatch):
+    from itlkit import identity,schema,planning
+    def forbidden(*args,**kwargs):raise AssertionError('legacy lossy ledger bridge called')
+    monkeypatch.setattr(identity,'to_shared_ledger',forbidden)
+    raw=sample();result=prepare(raw,intent(**{field:'G2 canonical value'}),seed='G2/seed')
+    assert type(result) is planning.PreparedMutation
+    ledger=result.allocation_ledger
+    assert ledger.snapshot.digest==result.baseline_digest and ledger.seed_commitment
+    assert ledger.sources=={} and ledger.history==() and ledger.retired==()
+    for row in ledger:
+        assert row.target_snapshot==ledger.snapshot
+        assert row.capacity_check['validation']=='identity.raw-backed.default-policy.v1'
+        assert row.capacity_check['seed_commitment_verified'] is True
+        if row.old_identity is not None:
+            assert type(row.old_identity) is schema.SourceBinding
+            assert row.old_identity.snapshot==ledger.snapshot
+    monkeypatch.setattr('itlkit.cow.ReservationAllocator',forbidden)
+    monkeypatch.setattr('itlkit.identity.ReservationAllocator',forbidden)
+    monkeypatch.setattr('itlkit.identity.seed_from_text',forbidden)
+    monkeypatch.setattr('itlkit.cow._prepare_candidate',forbidden)
+    monkeypatch.setattr('itlkit.identity.secrets.token_bytes',forbidden)
+    target=Library.from_bytes(raw);planning.apply(target,result)
+    assert target.to_bytes()==result.candidate_bytes
+
+
+def test_g2_cow_seed_preimage_and_derived_pid_tampering_refuse():
+    import hashlib
+    q=_prepare_candidate(sample(),intent(album_artist='G2 ensemble'),seed=23)
+    assert q.journal.seed_commitment==hashlib.sha256(q._seed_material).hexdigest()
+    assert not _validate_candidate(replace(q,_seed_material=b'wrong but immutable'))
+    assert not _validate_candidate(replace(q,journal=replace(q.journal,seed_commitment='0'*64)))
+    assert not _validate_candidate(replace(q,_seed_material=bytearray(q._seed_material)))
+    assert _validate_candidate(q)
+
+
+def test_g2_none_seed_drawn_once_and_never_during_apply(monkeypatch):
+    from itlkit import planning
+    calls=[]
+    def once(n):calls.append(n);return b'Z'*n
+    monkeypatch.setattr('itlkit.identity.secrets.token_bytes',once)
+    raw=sample();result=prepare(raw,intent(album='New seeded album'))
+    assert type(result) is planning.PreparedMutation and calls==[32]
+    def forbidden(*args,**kwargs):raise AssertionError('randomness after prepare')
+    monkeypatch.setattr('itlkit.identity.secrets.token_bytes',forbidden)
+    planning.apply(Library.from_bytes(raw),result)
+    assert calls==[32]
+
+
+def test_g2_cow_extra_sources_and_seal_tamper_are_atomic():
+    from itlkit import planning
+    from itlkit.errors import FormatError
+    raw=sample();result=prepare(raw,intent(name='Atomic'),seed=23)
+    target=Library.from_bytes(raw);before=planning.library_state_digest(target)
+    with pytest.raises(FormatError):planning.apply(target,result,sources={'extra':raw})
+    assert planning.library_state_digest(target)==before
+    old=result.allocation_ledger
+    object.__setattr__(result,'allocation_ledger',replace(old,seed_commitment='0'*64))
+    with pytest.raises(FormatError):planning.apply(target,result)
+    assert planning.library_state_digest(target)==before
+
+
+def test_g2_explicit_synthetic_foreign_pid_plan_uses_real_checkers(monkeypatch):
+    """Generated two-PID wire control, NOT a general/native import writer.
+
+    Real allocator -> production canonical checker -> real planning seal. The
+    test-only candidate checker independently checks ALL plaintext/header/trailer
+    bytes and source-derived old PID intent; it is not an always-true callback.
+    """
+    from dataclasses import asdict
+    from test_identity_v2 import _g2_foreign_bytes
+    from itlkit import identity,planning,schema
+    from itlkit.errors import FormatError
+    raw=sample();donor=_g2_foreign_bytes();held=[];canonical=[]
+    exact_intent={'source':'donor','source_track_pid':'DDEE333344445555','target_track_pids':['AACC000000000001','AACC000000000002']}
+    def build(data,declared,sources,*,limits,seed):
+        assert declared==exact_intent and set(sources)=={'donor'}
+        g=build_graph(data,limits=limits);sg=build_graph(sources['donor'],limits=limits)
+        old=next(i for i in sg.owners if i.namespace=='track.pid' and i.value==int(declared['source_track_pid'],16))
+        a=identity.ReservationAllocator(g,sources=(sg,),seed=seed)
+        new=(a.persistent('track',old),a.persistent('track'));journal=a.freeze()
+        ledger=identity.to_canonical_ledger(journal,data,sources,seed_material=a.seed_material,limits=limits)
+        lib=Library.from_bytes(data)
+        for track,pid in zip(lib.tracks,new):put(track.node.header,0x80,pid.value,8)
+        candidate=encode(lib);held.append((journal,a.seed_material));canonical.append(ledger.to_dict())
+        return planning.MutationDraft(candidate,schema.ProfileReport(capabilities=('generated_two_pid_test_only',)),ledger,
+               typed_patches=tuple(asdict(v) for v in new))
+    def validate(data,declared,sources,candidate,report,*,limits):
+        if declared!=exact_intent or set(sources)!={'donor'} or len(held)!=1:return False
+        journal,seed_bytes=held[0]
+        identity.validate_allocation_ledger(journal,data,sources,seed_material=seed_bytes,limits=limits)
+        if report['allocation_ledger']!=canonical[0]:return False
+        g=build_graph(data,limits=limits);sg=build_graph(sources['donor'],limits=limits)
+        source_pid=next((i for i in sg.owners if i.namespace=='track.pid' and i.value==int(declared['source_track_pid'],16)),None)
+        if source_pid is None or journal.entries[0].old_identity!=source_pid:return False
+        rows=g.to_dict()['tracks']
+        if [r['pid'] for r in rows]!=declared['target_track_pids']:return False
+        ids=tuple(e.reserved_identity for e in journal.entries)
+        if report['typed_patches']!=[asdict(i) for i in ids]:return False
+        before=Container.from_bytes(data);after=Container.from_bytes(candidate)
+        expected=bytearray(before.payload)
+        for row,pid in zip(rows,ids):put(expected,row['offset']+0x80,pid.value,8)
+        header=bytearray(before.header);put(header,8,len(candidate),endian='big')
+        return bytes(expected)==after.payload and bytes(header)==after.header and before.trailer==after.trailer and not build_graph(candidate,limits=limits).to_dict()['issues']
+    result=planning.prepare_mutation('generated-two-pid-control',raw,exact_intent,{'donor':donor},seed=23,build=build,validate=validate)
+    assert type(result) is planning.PreparedMutation
+    target=Library.from_bytes(raw);before=planning.library_state_digest(target)
+    altered=Container.from_bytes(donor).to_bytes(rebuild=True,compression_level=1)
+    for bad in (None,{}, {'renamed':donor},{'donor':donor,'extra':raw},{'donor':altered}):
+        with pytest.raises(FormatError):planning.apply(target,result,sources=bad)
+        assert planning.library_state_digest(target)==before
+    forged=Library.from_bytes(result.candidate_bytes);forged.tracks[1].node.header[0xee]^=1
+    assert not validate(raw,exact_intent,{'donor':donor},encode(forged),result.to_dict(),limits=schema.ReadLimits())
+    def forbidden(*args,**kwargs):raise AssertionError('allocator/RNG/seed encoder at apply')
+    monkeypatch.setattr(identity,'ReservationAllocator',forbidden)
+    monkeypatch.setattr(identity,'seed_from_text',forbidden)
+    monkeypatch.setattr(identity.secrets,'token_bytes',forbidden)
+    planning.apply(target,result,sources={'donor':donor})
+    assert target.to_bytes()==result.candidate_bytes
+    with pytest.raises(FormatError):planning.apply(target,result,sources={'donor':donor})

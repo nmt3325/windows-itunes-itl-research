@@ -4,7 +4,7 @@ No fallback from a legacy refusal. This engine has its own explicit, narrower
 closure gates. Missing codec integration is reported, never replaced by a stub.
 """
 from __future__ import annotations
-from dataclasses import dataclass,asdict
+from dataclasses import dataclass,asdict,field
 import copy
 import hashlib
 import json
@@ -13,7 +13,8 @@ from .container import Container
 from .library import Library,set_text,read_text,text_nodes
 from .errors import FormatError,UnsupportedError
 from .graph import build_graph,_limit_values,_bounded_json,Rejected
-from .identity import ReservationAllocator,AllocationLedger,source_binding,ScopedID,SourceBinding,_check_journal
+from .identity import (ReservationAllocator,AllocationLedger,source_binding,ScopedID,
+                       SourceBinding,_check_journal,validate_allocation_ledger)
 from .trackops import _aux_profile
 
 _FIELDS={'name':2,'album':3,'artist':4,'comment':8,'composer':12,'album_artist':27}
@@ -49,6 +50,7 @@ class _Candidate:
     candidate_bytes: bytes
     journal: AllocationLedger
     text_patches: tuple[TextPatch,...]
+    _seed_material: bytes = field(repr=False,default=b'')
     # A validated private candidate, not a PreparedMutation/adoption capability.
 
 
@@ -152,7 +154,7 @@ def _prepare_candidate(data,intent,*,limits=None,seed=None):
         if len(payload)>values['max_plain_bytes']:raise UnsupportedError('candidate plaintext budget')
         candidate=Container(lib.container.header,payload,lib.container.trailer).to_bytes()
     else:candidate=data
-    result=_Candidate(data,canonical,candidate,journal,tuple(patches))
+    result=_Candidate(data,canonical,candidate,journal,tuple(patches),allocator.seed_material)
     if not _validate_candidate(result,limits=values):raise UnsupportedError('independent COW closure verification failed')
     return result
 
@@ -256,7 +258,9 @@ def _validate_candidate(result,*,limits=None):
     try:
         _check_journal(result.journal,10000,min(bounds['max_json_bytes'],bounds['memory_budget_bytes']//8))
         intent=json.loads(result.intent_json)
-    except (TypeError,ValueError,UnsupportedError):return False
+        validate_allocation_ledger(result.journal,result.baseline,
+            seed_material=result._seed_material,limits=bounds)
+    except (TypeError,ValueError,FormatError,UnsupportedError):return False
     context=_analyse(result.baseline,intent,bounds)
     if type(context) is BlockedCOW:return False
     values,g,before,target,changed,old_aux,changed_aux,canonical=context
@@ -343,14 +347,15 @@ def prepare(target_bytes,intent,sources=None,*,limits=None,seed=None):
         return schema.ProfileReport(blockers=tuple(schema.Blocker('cow_dependency',r) for r in context.blockers))
     private=[];expected=[]
     def build(data,intent,sources,*,limits,seed):
-        from .identity import to_shared_ledger
+        from .identity import to_canonical_ledger
         result=_prepare_candidate(data,intent,limits=limits,seed=seed)
         if type(result) is BlockedCOW:return schema.ProfileReport(blockers=tuple(schema.Blocker('cow_dependency',r) for r in result.blockers))
         private.append(result)
         draft=planning.MutationDraft(result.candidate_bytes,
             schema.ProfileReport(context[2].container.version,context[2].container.payload_byteorder,capabilities=('scoped_metadata_COW_experimental',),
                 invariants=({'check':'independent exact closure','passed':True},),evidence_refs=('docs/identities-v2.md','static phase3 keyed dispatch')),
-            to_shared_ledger(result.journal),
+            to_canonical_ledger(result.journal,data,sources,
+                seed_material=result._seed_material,limits=limits),
             typed_patches=tuple(asdict(p) for p in result.text_patches),
             opaque_preservation=({'check':'all unselected records/old aux/opaque sections exact; no GC','passed':True},),
             postconditions=({'check':'source-derived exact expected plaintext/headers','passed':True},

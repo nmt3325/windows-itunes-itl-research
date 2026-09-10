@@ -70,3 +70,78 @@ The actual codec dependency has now been exercised by the shared COW prepare/app
 `seed_from_text(text)` returns `SHA256(b'itl.identity.text-seed.v1\0' + len(utf8).to_bytes(4,'big') + utf8).digest()`, using strict UTF8 and at most4096 encoded bytes. No locale or Unicode normalization is performed; empty text is deterministic. `ReservationAllocator(...,seed=text)` applies this same conversion. Existing None/integer/binary behavior and PID derivation remain unchanged. The ledger commitment remains SHA256 of the resulting seed bytes. This is not a promise that a PID will survive a different target snapshot.
 
 The independent COW validator now checks immutable journal shape and bounds, canonical seed commitment format, complete original SourceBinding snapshot/pool/wire/value digest, all old consumers, exact dense-capacity evidence and sequential new pool IDs, and bounded local/PID capacity/probe fields. It verifies evidence against the original target graph and selected/auxiliary old owners without invoking an allocator or reconstructing a builder. This target-local engine rejects foreign/historical reservations and retirement rather than altering their scope. The seed preimage/probe RNG history is not reconstructed; the prepared capability remains sealed by the real planning layer. These checks do not supply missing native cache/opaque consumer closure or solve the pending common-ledger transport contract.
+
+## New G2 canonical integration (not original-source recovery)
+
+The prior checkpoint preserves five exact f5 files and two reconstructed test
+files. This section and the new adapter controls are NEW G2 implementation,
+not newly discovered original f5 text. The historical sections above describe
+those earlier checkpoints; their unfinished bridge is now superseded as follows.
+
+`to_canonical_ledger(ledger, target_bytes, sources=None, *, seed_material,
+history=(), limits=None, requested_pids=())` uses the real
+`planning.adapt_identity_ledger` with an internal independently checked callback.
+There is no caller-supplied acceptance callback or fake shared-record fallback.
+`validate_allocation_ledger` has the same arguments and returns recomputed
+metadata facts, not a mutation capability. `to_canonical_graph(real_graph, *,
+limits=None)` uses the real graph transport and preserves diagnostic-only scope,
+owner, edge, and opaque coverage; it does not turn a graph into write authority.
+
+The bridge supports the DEFAULT identity allocation policy: dense IDs65535,
+local/token IDs1000000,4096 probes,10000 journal entries/retirements and64MiB
+aggregate byte probes. A nondefault allocator policy is not silently widened;
+incompatible reported bounds refuse. Raw inputs are re-decoded within the
+seven-field ReadLimits and aggregate retained-graph bounds. At most32 current
+named sources (nonempty names up to512 characters) are supported. Source hashes
+are exact provenance/CAS, never eligibility allowlists.
+
+Full original SnapshotKeys, foreign ScopedID scopes, SourceBindings, registered
+UTF16 value membership and ALL consumer aliases are retained and rechecked.
+Fresh local/token/PID/pool exclusions, positive widths, exact sequential dense
+capacity, local search/probe results and generated PID derivation are recomputed
+without invoking an allocator. Token scopes must identify a current or earlier
+reserved target playlist. File/master identities are not fresh allocations.
+Integer-requested PIDs require explicit `requested_pids=(target_id,...)` intent
+at this bridge; typed foreign source requests are checked against raw membership.
+Requested values do not masquerade as seeded generation and still require full
+collision/opaque-byte exclusion. The operation's candidate checker must prove
+that the requested mode, source role and actual field uses match its intent.
+
+`allocator.seed_material` exposes the immutable already-chosen bytes to trusted
+in-process validation code. It never draws randomness or encodes a seed. The
+journal commitment must equal SHA256 of those EXACT bytes. Generated PID probes
+are checked from this material; requested PIDs retain their distinct policy.
+The original int/bytes/text/None encodings and old vector outputs are unchanged.
+Seed material is held privately by COW, not added to its report or legacy ledger.
+
+Canonical history is a complete ordered exclusion prefix, including unchanged
+source snapshots, capacity evidence, retirements and earlier seed commitments.
+Dropped, reordered, changed or relabeled historical entries refuse. Earlier raw
+sources need not be current sources: historical checks are copied unchanged as
+HISTORICAL evidence, not claimed to be newly revalidated membership. They can
+only add exclusions, never authorize a fresh source binding, coverage, deletion,
+GC or native edit. Fresh retirements must be actual target/new reserved typed
+identities. Complete-history traversal is independently bounded to10000 visited
+reservation/retirement entries (including repeats in nested union histories).
+
+COW now calls the canonical adapter, not the old `to_shared_ledger` conversion.
+Its separate exact candidate checker still proves intent, new text, affected
+reference closure, all peers/orphans/old auxiliaries, plaintext/header/trailer
+preservation, and6d/ee/rank independence. It additionally checks exact seed
+commitment/derivation and metadata before prepare and apply. COW still accepts
+NO foreign sources or historical/retirement mutation intent; the generic bridge
+supports their evidence/exclusion transport, not a new cross-library writer.
+The old helper remains only for historical API compatibility and must not be
+used for new canonical prepared plans.
+
+New generated tests cover real foreign PID/binding transport and historical
+recompression/exclusion retention. A test-only two-PID wire patch uses the real
+allocator, production metadata checker, an independent full-byte candidate
+checker, and real planning seal/apply with source CAS and atomic refusal. It is
+NOT a production import writer or native qualification. Allocator/RNG/seed
+encoding are disabled during apply controls. The missing three codec original
+tests and missing two f5 identity/graph original test texts remain missing.
+
+No section4/23/msph, blank/unknown auxiliary, custom-smart or other unproved gate
+is removed. No resource-extension dependency, shared/core/CLI change, native
+operation, publication, or process-wide memory guarantee is introduced.
