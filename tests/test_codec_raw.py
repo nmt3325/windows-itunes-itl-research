@@ -189,3 +189,95 @@ def test_g2_f4_single_raw_span_and_float_rate_are_distinct():
     assert fields[0].width==8 and fields[0].write_level=='none' and fields[0].namespace is None
     rate=next(f for f in track.fields if f.name=='sample_rate')
     assert rate.offset_or_payload_layout==0x98 and rate.width==4 and rate.read_level=='evidence_mapped_float32'
+
+
+# New G2 node-kind regression cases from the 434-case reader campaign.
+# These synthetic inputs are not from the historical 634-case campaign.
+_G2_KIND_INPUTS = {
+    'section': ('1827d78478546ab9d0b1727087e1012ada3f267ab354ed1f52264a6b1dc2f583',
+        'aGRmbQAAAJAAAAEjAAAAAAoxMi4xMy4xMC4zAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABvr7/P0BAgMEAAAAAAACAAEAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAZAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABI0VniavN7wTdTZysWO3kKyAKXzreKmIFZLAL1JFdACkguo56CqNb/9FJavwvmrPEJ7Nw9bsLbZ7KlsJlth3X0Fu4hClobDwho87w3aecINEV0cOCqdqkQeTfRJ0HOn9hbQ+S2xq+zYur0/7P3fNYoDZMhaCA1tPzhpc4IcK5Ydind3mibTFVq+eepaDhrfEfG7u9GhSMiuTipZ'),
+    'track': ('07fcbc875273b1b2f8829e76f1f5416d997b74389b6168b124ac8f03f0e616d3',
+        'aGRmbQAAAJAAAAI1AAAAAAoxMi4xMy4xMC4zAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAB/r7/P0BAgMEAAAAAAACAAEAAAACAAAAAQAAAAAAAAEAAAAAAAAAAAAAAZAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABI0VniavN7wTdTZysWO3kKyAKXzreKmIAt4ROmrvhQrfLwCrsLLUHddm/IqoWsEz33v0gr7amoucMrnZ4EIuZmm889fgM0XzRuyzCVK9tmxO3CmdyAinv1I5IbvUo+zYWN4wXAW5d0G64AXD0l6mzL4hAmmjU5RDm9Aq7R9EGzk4RKrnHrOO1BcBwuHaP9dLIlXbeUM7J9a1EvZY4tMHpZe10/oXdWJ/cOvfC/vhuhz4pf/Pt5Qki9lmgqaQ3kzcpejkP3Q8wToDkP6I0kKtvZHg89S5q84qH40XfyDps3h95ksp4wXaSoHwuFSTY28l01LoAM2a7LnA73EsJ5Oe4+Xp3qX19hXJzSqg5RFg7NJ2G6NiYzVHmqwEtAuqRPo8KvohKtlDaYl8vYOzySEBfxDVig8YnZsU+qls24BDY6GfS1/WXjccPTD60wkjgK4oIFddekUaQotlYGQv3Z6+0uRKVAbMIefS23J6H6JyV3Pan7g7bEsBwoITqyAOYTgJomdeQ51bdfGloUltYehCKSGcFjLuXxljk1vE1ZeHuTjtnWYmw/4470A9Wp89A=='),
+}
+
+
+def _g2_kind_fixture(location):
+    expected, encoded = _G2_KIND_INPUTS[location]
+    data = base64.b64decode(encoded, validate=True)
+    assert sha(data) == expected
+    return data
+
+
+@pytest.mark.parametrize('location', ['section', 'track'])
+@pytest.mark.parametrize('kind', [None, 0, [], {}], ids=['none', 'zero', 'list', 'dict'])
+def test_g2_node_kind_fuzz_refusal(location, kind, tmp_path, monkeypatch, capsys):
+    import pickle
+    from itlkit.errors import FormatError
+    from itlkit.model import Node
+    from itlkit.schema import encode_json
+    data = _g2_kind_fixture(location)
+    path = tmp_path / 'input.itl'
+    path.write_bytes(data)
+    mtime = path.stat().st_mtime_ns
+    output = tmp_path / 'result.json'
+    lib = Library.from_bytes(path.read_bytes())
+    node = lib.sections[0] if location == 'section' else lib.tracks[0].node
+    node.kind = copy.deepcopy(kind)
+    before = pickle.dumps(lib.__dict__, protocol=4)
+    def no_serialize(*args, **kwargs):
+        raise AssertionError('diagnostic must not serialize or repair the model')
+    for cls, name in [(Library, 'to_bytes'), (Library, '_sync'),
+                      (Container, 'to_bytes'), (Node, 'to_bytes')]:
+        monkeypatch.setattr(cls, name, no_serialize)
+    limits = ReadLimits(max_file_bytes=262144, max_plain_bytes=262144,
+        max_nodes=2048, max_depth=32, max_text_bytes=131072,
+        max_json_bytes=2097152, memory_budget_bytes=134217728)
+    try:
+        with pytest.raises(FormatError, match='invalid node kind'):
+            report = inspect_coverage(lib, limits=limits)
+            output.write_bytes(encode_json(report, limits=limits))
+    finally:
+        assert pickle.dumps(lib.__dict__, protocol=4) == before
+        assert path.read_bytes() == data and path.stat().st_mtime_ns == mtime
+        assert not output.exists()
+        assert capsys.readouterr().out == ''
+
+
+def test_g2_node_kind_opaque_contents_are_not_kind_values():
+    import pickle
+    opaque = b'None total mixed mith msdh\x00\xff not a Node.kind'
+    data = library_bytes(opaque=opaque, trailer=b'G2 retained trailer')
+    lib = Library.from_bytes(data)
+    before = pickle.dumps(lib.__dict__, protocol=4)
+    result = inspect_coverage(lib)
+    assert result.profile_report.blocked
+    assert lib.sections[-1].kind == 'section' and lib.sections[-1].payload == opaque
+    assert pickle.dumps(lib.__dict__, protocol=4) == before
+    exported = export_raw_tree(lib.container)
+    assert bytes.fromhex(exported['sections'][-1]['payload_hex']) == opaque
+    assert import_raw_tree(exported, research_only=True,
+        expected_baseline_digest=sha(data)).to_bytes() == data
+
+
+def test_g2_node_kind_parser_vocabulary_is_unchanged():
+    import pickle
+    from itlkit.model import KINDS, parse_sections
+    from itlkit.planning import library_state_digest
+    # Build a complete synthetic library, including its required mfdh framing.
+    # Fixture serialization is explicit and precedes the inspection snapshots.
+    synthesized = Library.from_bytes(_g2_kind_fixture('track'))
+    synthesized.sections.extend(parse_sections(
+        section(20, record(b'mlqh', 24, fields=[(12, 0), (16, 0)]))))
+    inputs = [_g2_kind_fixture('track'), synthesized.to_bytes()]
+    observed = set()
+    for data in inputs:
+        lib = Library.from_bytes(data)
+        before = pickle.dumps(lib.__dict__, protocol=4)
+        for sec in lib.sections:
+            for node in sec.walk():
+                assert type(node.kind) is str
+                observed.add(node.kind)
+        assert len(library_state_digest(lib)) == 64
+        assert inspect_coverage(lib).profile_report.blocked
+        assert pickle.dumps(lib.__dict__, protocol=4) == before
+    assert observed == KINDS == {'total', 'section', 'count', 'fixed', 'mixed'}

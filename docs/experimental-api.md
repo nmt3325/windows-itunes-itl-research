@@ -81,6 +81,17 @@ repair. A dirty target whose exact model differs from the prepared byte snapshot
 refuses, even if serializing it could repair/mask the difference. Serialize edits
 explicitly before preparation. Offsets are diagnostic, not part of wire identity.
 
+In-memory Node.kind must be an exact built-in str from the existing model.KINDS:
+`total`, `section`, `count`, `fixed`, or `mixed`. These are the tokens produced by
+the core parser. Non-string storage, str subclasses (including custom encoding
+hooks), non-ASCII strings and unknown kinds raise FormatError before encoding.
+There is no str coercion, case folding, normalization or kind-vocabulary extension.
+This canonical inspection/adoption boundary does not change the core Node API,
+validate arbitrary kind/tag combinations, or confer writer/native permission.
+Unknown record tags and opaque payload bytes are not kind identifiers and remain
+preserved. Coverage uses this guard before report construction; apply uses it
+before resource re-probing, candidate validation or target adoption.
+
 `PreparedMutation.to_dict()` returns `itlkit.prepared-report.v1` with
 `executable: false`. There is no from_dict, pickle, generic report replay, or
 unsafe bypass. An in-process seal is not a security sandbox against arbitrary

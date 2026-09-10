@@ -428,3 +428,89 @@ def test_g2_resources_cannot_stand_in_for_ledger_itl_sources():
     with pytest.raises(ValueError,match='SnapshotKey'):
         prepare_mutation('negative-ledger-only',data,{},resources={'donor':data},
             validate_resources=_g2_hash_facts,build=build,validate=lambda *a,**k:True)
+
+
+# Canonical in-memory kind checks; not restored b985 tests or native evidence.
+class _G2KindString(str):
+    pass
+
+
+class _G2KindEncodingHook(str):
+    def encode(self, *args, **kwargs):
+        raise AssertionError('custom kind encoding must not be called')
+
+
+_G2_INVALID_KINDS = [
+    None, 0, [], {}, False, 0.0, b'total', bytearray(b'total'), (), set(),
+    '', 'TOTAL', 'track', 'outer', 'unknown', 'total ', 'total\x00',
+    '\u65e5\u672c\u8a9e', '\ud800', _G2KindString('total'), _G2KindEncodingHook('total'),
+]
+_G2_INVALID_KIND_IDS = [
+    'none', 'zero', 'list', 'dict', 'bool', 'float', 'bytes', 'bytearray',
+    'tuple', 'set', 'empty', 'case-change', 'track-not-kind', 'outer-not-node-kind',
+    'unknown', 'trailing-space', 'nul', 'non-ascii', 'surrogate', 'str-subclass',
+    'str-encoding-hook',
+]
+
+
+@pytest.mark.parametrize('location', ['section', 'track'])
+@pytest.mark.parametrize('kind', _G2_INVALID_KINDS, ids=_G2_INVALID_KIND_IDS)
+def test_g2_node_kind_digest_refuses_noncanonical_values(location, kind):
+    from itlkit.errors import FormatError
+    from itlkit.raw import inspect_coverage
+    lib = Library.from_bytes(library_bytes())
+    node = lib.sections[0] if location == 'section' else lib.tracks[0].node
+    node.kind = copy.deepcopy(kind)
+    before = pickle.dumps(lib.__dict__, protocol=4)
+    for reader in (library_state_digest, inspect_coverage):
+        with pytest.raises(FormatError, match='invalid node kind'):
+            reader(lib)
+        assert pickle.dumps(lib.__dict__, protocol=4) == before
+
+
+@pytest.mark.parametrize('location', ['section', 'track'])
+@pytest.mark.parametrize('kind', [None, 0, [], {}], ids=['none', 'zero', 'list', 'dict'])
+@pytest.mark.parametrize('has_resources', [False, True])
+def test_g2_node_kind_apply_refuses_before_probe_or_validator(location, kind, has_resources):
+    from itlkit.errors import FormatError
+    data = library_bytes()
+    calls = []
+    resources = {'blob': b'test-only resource'} if has_resources else None
+    def probe(r, *, limits):
+        calls.append('probe')
+        return {k: {'sha256': digest(v)} for k, v in r.items()}
+    def build(d, i, s, *, limits, seed, **kwargs):
+        calls.append('build')
+        return MutationDraft(d, ProfileReport(capabilities=('kind-negative-control-only',)))
+    def validate(d, i, s, c, report, *, limits, **kwargs):
+        calls.append('validate')
+        return c == d
+    p = prepare_mutation('kind-negative-control-only', data, {}, {'donor': data},
+        resources=resources, validate_resources=probe if has_resources else None,
+        build=build, validate=validate)
+    calls.clear()
+    lib = Library.from_bytes(data)
+    node = lib.sections[0] if location == 'section' else lib.tracks[0].node
+    node.kind = copy.deepcopy(kind)
+    before = pickle.dumps(lib.__dict__, protocol=4)
+    with pytest.raises(FormatError, match='invalid node kind'):
+        apply(lib, p, sources={'donor': data}, resources=resources)
+    assert not calls
+    assert pickle.dumps(lib.__dict__, protocol=4) == before
+    assert p.candidate_bytes == data
+
+
+@pytest.mark.parametrize('location', ['section', 'track'])
+def test_g2_node_kind_valid_different_value_remains_stale_cas(location):
+    from itlkit.errors import FormatError
+    data = library_bytes()
+    p = prepare(data, {'operations': []})
+    lib = Library.from_bytes(data)
+    original = library_state_digest(lib)
+    node = lib.sections[0] if location == 'section' else lib.tracks[0].node
+    node.kind = 'fixed'
+    assert library_state_digest(lib) != original
+    before = pickle.dumps(lib.__dict__, protocol=4)
+    with pytest.raises(FormatError, match='stale target'):
+        apply(lib, p)
+    assert pickle.dumps(lib.__dict__, protocol=4) == before

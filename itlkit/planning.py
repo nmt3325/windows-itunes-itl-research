@@ -16,7 +16,7 @@ import json
 import math
 from .library import Library, NUMBER_FIELDS, READ_ONLY_FIELDS
 from .container import Container
-from .model import Node
+from .model import Node, KINDS
 from .binary import uint
 from .schema import (Record, ReadLimits, ProfileReport, Blocker, AllocationLedger,
                      freeze, plain, encode_json, get_limits, load_library, LimitError,
@@ -72,6 +72,9 @@ def library_state_digest(library: Library, *, limits=None) -> str:
         limits.check('plain', model_bytes)
         if node.tag == b'mhoh':
             text_bytes += len(node.payload); limits.check('text', text_bytes)
+        # Match parser-produced kind storage and the existing model vocabulary.
+        if type(node.kind) is not str or node.kind not in KINDS:
+            raise FormatError('invalid node kind in model')
         add(node.kind.encode('ascii')); add(node.header); add(node.payload)
         if node.children is None:
             add(b'leaf')
