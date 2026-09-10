@@ -1,0 +1,25 @@
+{
+  "schema": "itlkit.diagnostic-cli.verification.v1",
+  "verified_utc": "2026-09-10T04:49:05.485032+00:00",
+  "source_base_commit": "dff7198eb2f2f9e9b638aeb64651035c4fbe592e",
+  "status": "read_only_diagnostics_tested",
+  "source_sha256": {
+    "itlkit/__main__.py": "b3885b6c843efba20216eb81467e119b448382538d35e8b186dde27543e5bdc0",
+    "tests/test_inspection_cli_v2.py": "738427d8d4dd24b8aa615c4e6b7624b41da6ba35b14c62a5949d432a312a3e26",
+    "docs/inspection-cli.md": "0a90928096472cdd287e638e7e16d3afe760a31ed7e74c80ea6393a6497ac6bb"
+  },
+  "red": {"collected": 22, "failed": 22, "errors": 0, "skipped": 0, "reason": "Commands not implemented: SystemExit 2"},
+  "green": {"collected": 22, "passed": 22, "failed": 0, "errors": 0, "skipped": 0},
+  "full_regression": {"collected": 1212, "passed": 1207, "failed": 0, "errors": 0, "skipped": 5, "separately_reported_subtests_passed": 36},
+  "skip_reason": "Five existing snapshots lack the required COM after-state oracle; structural tests are separate.",
+  "test_inputs": "Independent synthetic bytes for the 22 new cases; existing fixed cohort for the full regression.",
+  "other_tracked_source_hashes_preserved": true,
+  "core_sha256": "f70f5f51b534d08c6dd55c721e10732a0df5a49df88bf5442fbab1c0583899ba",
+  "qualified_scope": ["Read-only coverage and playlist reports", "Unknown title encoding remains a local diagnostic", "Explicit opaque treatment of big-endian payloads", "Positive reductions-only file, decoded and JSON limits", "No overwrite and no partial report file on refusal"],
+  "codec_recovery_at_this_verified_tree": {"original_source_and_document_files": 4, "original_b985_test_versions_not_restored": ["tests/test_codec_schema.py", "tests/test_codec_raw.py", "tests/test_codec_planning.py"], "resource_extension_included": false},
+  "rejected_transfers_before_code_application": 2,
+  "new_native_trials": 0,
+  "full_semantic_read_write": false,
+  "cross_library_admission_unblocked": false,
+  "qualifications": ["A diagnostic exit code 0 is not native acceptance or complete semantic validity.", "Historical native evidence is not a new native trial.", "General media construction, pool/reference closure and arbitrary smart/folder semantics remain unqualified."]
+}

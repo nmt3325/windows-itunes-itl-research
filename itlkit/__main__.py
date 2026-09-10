@@ -18,6 +18,21 @@ def build_parser() -> argparse.ArgumentParser:
     info = commands.add_parser('inspect', help='validate and print a semantic JSON summary')
     info.add_argument('input', type=Path)
     info.add_argument('--output', type=Path)
+    for name, label in (
+        ('inspect-coverage', 'read-only field coverage; not semantic or native qualification'),
+        ('inspect-playlists', 'read-only raw playlist and smart-rule diagnostics')):
+        diagnostic = commands.add_parser(name, help=label)
+        diagnostic.add_argument('input', type=Path)
+        diagnostic.add_argument('--output', type=Path, help='new JSON file; default is stdout')
+        diagnostic.add_argument('--max-file-bytes', type=int, default=16*1024**2,
+                                help='reduce the 16 MiB encoded input cap')
+        diagnostic.add_argument('--max-plain-bytes', type=int, default=16*1024**2,
+                                help='reduce the 16 MiB decoded input cap')
+        diagnostic.add_argument('--max-json-bytes', type=int, default=64*1024**2,
+                                help='reduce the 64 MiB diagnostic output cap')
+        if name == 'inspect-playlists':
+            diagnostic.add_argument('--include-raw', action='store_true',
+                                    help='include one exact decompressed payload as hex')
     check = commands.add_parser('check', help='validate, verify exact no-op and forced container reconstruction')
     check.add_argument('input', type=Path)
     rt = commands.add_parser('roundtrip', help='write an unchanged or forcibly reconstructed library')
@@ -45,11 +60,40 @@ def _json(value) -> bytes:
     return (json.dumps(value, ensure_ascii=False, indent=2) + '\n').encode('utf-8')
 
 
+def _inspect_diagnostic(args) -> None:
+    # Bounded read binds pathname stat to one opened handle. Outputs are reports,
+    # not importable plans, semantic edits, or proof of native acceptance.
+    from .schema import ReadLimits, read_bytes, encode_json
+    defaults = ReadLimits()
+    values = {name: getattr(args, name) for name in
+              ('max_file_bytes', 'max_plain_bytes', 'max_json_bytes')}
+    if any(type(value) is not int or not 0 < value <= getattr(defaults, name)
+           for name, value in values.items()):
+        raise ValueError('diagnostic byte limits may only reduce positive default caps')
+    limits = ReadLimits(**values)
+    raw = read_bytes(args.input, limits=limits)
+    if args.command == 'inspect-coverage':
+        from .raw import inspect_coverage
+        data = encode_json(inspect_coverage(raw, limits=limits), limits=limits)
+    else:
+        from .playlist_models import inspect_playlists, models_json
+        model = inspect_playlists(raw, limits=limits)
+        data = models_json(model, limits=limits, include_raw=args.include_raw).encode('ascii')
+    limits.check('json', len(data) + 1)
+    data += b'\n'
+    if args.output is not None:
+        write_new(args.output, data)
+    else:
+        sys.stdout.write(data.decode('ascii'))
+
+
 def main(argv: list[str] | None = None) -> int:
     parser = build_parser()
     args = parser.parse_args(argv)
     try:
-        if args.command == 'decode':
+        if args.command in ('inspect-coverage', 'inspect-playlists'):
+            _inspect_diagnostic(args)
+        elif args.command == 'decode':
             write_new(args.output, Container.read(args.input).payload)
         elif args.command == 'encode':
             container = Container.read(args.template)
