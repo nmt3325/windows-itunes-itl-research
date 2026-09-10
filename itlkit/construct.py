@@ -235,52 +235,129 @@ def declare_intent(media_bytes, metadata, location, *, date_added, date_modified
     return json.loads(encode_json(result, limits=checked))
 
 
-def prepare(target_bytes, intent, sources=None, *, limits=None, seed=None):
-    """Validate independent intent and return the actual shared blocked ProfileReport.
+@dataclass(frozen=True, slots=True)
+class _FacadeAdmission:
+    # Only immutable limits/costs, never media bytes, target bytes or caller facts.
+    shared: object
+    model: object
+    probe: object
+    work: object
+    fixed_cost: int
+    probe_cost: int
+    model_cost: int
+    floor: int
 
-    The integrated codec pin parses every source as ITL before build, so WAV
-    must NOT be hidden in JSON/a closure or passed as an invented ITL donor.
-    Actual opaque/media-source support plus authorized graph/allocator integration
-    are required before a full candidate can be sealed. No fallback is provided.
+
+def _facade_shape(target_bytes, intent, media_bytes, checked):
+    _memory_preflight(checked, 65536)
+    if type(target_bytes) is not bytes or type(media_bytes) is not bytes:
+        raise TypeError('target and media must be exact immutable bytes')
+    checked.check('file', len(target_bytes)); checked.check('file', len(media_bytes))
+    keys = {'op', 'location', 'metadata', 'date_added', 'date_modified', 'media'}
+    _need(type(intent) is dict and len(intent) == 6 and all(type(k) is str for k in intent) and set(intent) == keys,
+          'intent must have exactly op/location/metadata/date_added/date_modified/media')
+    _need(type(intent['op']) is str and intent['op'] == 'append_pcm_wave', 'unsupported construction operation')
+    for k in ('location', 'date_added', 'date_modified'):
+        _need(type(intent[k]) is str, 'JSON Location/dates must be exact strings')
+    meta = intent['metadata']
+    meta_cost = _metadata_memory_estimate(meta)
+    _need(all(type(v) in (str, int, bool) for v in meta.values()), 'metadata scalar exact types')
+    for value in meta.values():
+        if type(value) is int:
+            _uint(value, 8, 'metadata scalar')
+    claim = intent['media']
+    media_keys = {'format', 'sha256', 'size_bytes', 'sample_rate_hz', 'channels',
+                  'bits_per_sample', 'pcm_source_frames', 'duration_ms', 'bitrate_kbps'}
+    _need(type(claim) is dict and len(claim) == 9 and all(type(k) is str for k in claim) and set(claim) == media_keys,
+          'media declaration exact keys')
+    for k, v in claim.items():
+        if k in ('format', 'sha256'):
+            _need(type(v) is str, 'media declaration text type')
+        else:
+            _uint(v, 8, 'media declaration numeric')
+    # Flat closed input shape: bound escaped JSON BEFORE encoding/copying it.
+    chars = sum(len(k) + (len(v) if type(v) is str else 20) for k, v in meta.items())
+    chars += sum(len(k) + (len(v) if type(v) is str else 20) for k, v in claim.items())
+    chars += sum(len(intent[k]) for k in ('op', 'location', 'date_added', 'date_modified'))
+    json_bound = 1024 + 6 * chars + 32 * (len(meta) + 15)
+    fixed = 262144 + 24 * (len(target_bytes) + len(media_bytes)) + 128 * json_bound + meta_cost
+    return fixed
+
+
+def _facade_admission(target_bytes, intent, media_bytes, checked):
+    """Partition this BLOCKED prepare path before JSON, decode or physical probe.
+
+    Reserve wire/intent/facts/text work plus the real media helper workspace.
+    Two bounded model slots cover planning's retained target and our builder's
+    diagnostic model. Each obeys 64*plain +8192*nodes <= model_cost. Tight caps
+    can conservatively refuse otherwise valid inputs; this is not an RSS limit.
+    Candidate/history/allocator accounting is intentionally not implemented.
     """
-    from .schema import get_limits, encode_json, load_library, ProfileReport, Blocker
+    from dataclasses import replace
+    fixed = _facade_shape(target_bytes, intent, media_bytes, checked)
+    probe_cost = _probe_memory_estimate(len(media_bytes), checked) + 65536
+    floor = fixed + probe_cost + 2 * 2097152
+    _memory_preflight(checked, floor)
+    model_cost = (checked.memory_budget_bytes - fixed - probe_cost) // 2
+    plain_cap = min(checked.max_plain_bytes, model_cost // 128)
+    node_cap = min(checked.max_nodes, model_cost // 16384)
+    shared = replace(checked, memory_budget_bytes=checked.memory_budget_bytes - probe_cost,
+                     max_plain_bytes=plain_cap, max_nodes=node_cap)
+    return _FacadeAdmission(shared, replace(shared, memory_budget_bytes=model_cost),
+        replace(checked, memory_budget_bytes=probe_cost), replace(checked, memory_budget_bytes=fixed),
+        fixed, probe_cost, model_cost, floor)
+
+
+def _resource_media(resources):
+    if type(resources) is not dict or len(resources) != 1 or any(type(k) is not str for k in resources) or set(resources) != {'media'} or type(resources['media']) is not bytes:
+        raise TypeError('constructor resources must contain exactly immutable media bytes')
+    return resources['media']
+
+
+def _constructor_resource_facts(resources, *, limits, admission):
+    """Bounded pure JSON projection, physically probed; not a caller DTO adapter."""
+    from .media import MediaFacts
+    from .schema import get_limits
+    _need(type(admission) is _FacadeAdmission and get_limits(limits) is admission.shared, 'constructor admission context mismatch')
+    data = _resource_media(resources)
+    # Changed/larger callback inputs cannot borrow planning's reserved memory.
+    _memory_preflight(admission.probe, _probe_memory_estimate(len(data), admission.probe) + 65536)
+    facts = probe_bytes(data, limits=admission.probe)
+    _need(type(facts) is MediaFacts, 'actual typed MediaFacts required')
+    for k in ('size_bytes', 'sample_rate', 'channels', 'bits_per_sample', 'frames', 'bitrate_bps'):
+        _uint(getattr(facts, k), 8, 'physical media facts ' + k)
+    _need(type(facts.format) is str and facts.format == 'WAV' and facts.channels == 1 and
+          facts.bits_per_sample == 16 and facts.sample_rate in (44100, 48000), 'unqualified PCM recipe')
+    _need(type(facts.sha256) is str and facts.sha256 == sha256(data).hexdigest() and facts.size_bytes == len(data),
+          'physical media size/hash mismatch')
+    _need(facts.duration_quality == 'exact_pcm_frames' and type(facts.duration_seconds) is float and
+          facts.duration_seconds == facts.frames / facts.sample_rate, 'physical PCM duration mismatch')
+    # Exactly nine scalar fields bound facts JSON independently of arbitrary tags
+    # or chunk observations. No dataclass, byte payload or callable crosses lanes.
+    return {'media': _media_declaration(facts)}
+
+
+def _constructor_check_intent(intent, facts, admission):
+    claim = intent['media']; actual = facts['media']
+    _need(type(claim) is dict and set(claim) == set(actual) and
+          all(type(claim[k]) is type(v) and claim[k] == v for k, v in actual.items()),
+          'media declaration differs from actual immutable bytes')
+    values = validate_metadata(intent['metadata'], limits=admission.work)
+    bundle = plan_location(intent['location'], limits=admission.work)
+    _need(bundle.path.isascii() and '%' not in bundle.url, 'native qualification pending for escaped/UTF16 constructor Location')
+    _wall_datetime(intent['date_added']); _wall_datetime(intent['date_modified'])
+    return values, bundle
+
+
+def _constructor_blocked_build(data, intent, sources, *, limits, seed, resources, admission):
+    from .schema import load_library, ProfileReport, Blocker
     from .atoms import assert_pool_bindings
     from .trackops import _profile
     from .errors import UnsupportedError
-    checked = get_limits(limits)
-    _memory_preflight(checked, 65536)
-    if type(target_bytes) is not bytes:
-        raise TypeError('target must be immutable bytes')
-    checked.check('file', len(target_bytes))
-    if type(intent) is not dict or len(intent) != 6 or set(intent) != {'op','location','metadata','date_added','date_modified','media'}:
-        raise ConstructionError('intent must have exactly op/location/metadata/date_added/date_modified/media')
-    if type(sources) is not dict or len(sources) != 1 or set(sources) != {'media'} or type(sources['media']) is not bytes:
-        raise TypeError('constructor sources must contain exactly immutable media bytes')
-    _need(intent['op'] == 'append_pcm_wave', 'unsupported construction operation')
-    _need(type(intent['date_added']) is str and type(intent['date_modified']) is str, 'JSON intent dates must be explicit ISO strings')
-    # Reject unbounded/nested claimed-media descriptions before JSON copying.
-    claim = intent['media']
-    _need(type(claim) is dict and len(claim) == 9 and set(claim) == {
-        'format', 'sha256', 'size_bytes', 'sample_rate_hz', 'channels',
-        'bits_per_sample', 'pcm_source_frames', 'duration_ms', 'bitrate_kbps'},
-        'media declaration exact keys')
-    claim_chars = 0
-    for key, value in claim.items():
-        if key in ('format', 'sha256'):
-            _need(type(value) is str, 'media declaration text type')
-            claim_chars += len(value)
-        else:
-            _need(type(value) is int and 0 <= value < 1 << 64, 'media declaration numeric range/type')
-    _construction_preflight(sources['media'], intent['metadata'], intent['location'],
-        intent['date_added'], intent['date_modified'], checked,
-        extra=12 * len(target_bytes) + 32 * claim_chars)
-    detached = json.loads(encode_json(intent, limits=checked))
-    expected = declare_intent(sources['media'], detached['metadata'], detached['location'],
-                              date_added=detached['date_added'], date_modified=detached['date_modified'], limits=checked)
-    claimed = detached['media']
-    _need(type(claimed) is dict and set(claimed) == set(expected['media']), 'media declaration exact keys')
-    _need(all(type(claimed[k]) is type(v) and claimed[k] == v for k,v in expected['media'].items()), 'media declaration differs from actual immutable bytes')
-    library = load_library(target_bytes, limits=checked)
+    _need(type(sources) is dict and not sources, 'constructor ITL source lane must be empty')
+    facts = _constructor_resource_facts(resources, limits=limits, admission=admission)
+    _constructor_check_intent(intent, facts, admission)
+    library = load_library(data, limits=admission.model)
     blockers = []
     try:
         _profile(library)
@@ -288,13 +365,49 @@ def prepare(target_bytes, intent, sources=None, *, limits=None, seed=None):
     except UnsupportedError as exc:
         blockers.append(Blocker('retained_profile_or_pools', str(exc)))
     blockers.extend((
-        Blocker('media_source_adapter_unavailable', 'Authorized planning adapter loads every source as ITL before build; constructor requires bounded media source snapshot/hash/revalidation without ITL parsing', evidence_refs=('itlkit/planning.py:prepare_mutation source loop',)),
-        Blocker('identity_adapter_pending_authorized_pin', 'Actual graph/allocator and auxiliary/item/pool closure adapter await a new parent pin; no unchecked supplied ledger, pool guard deletion, or donor relabeling is used'),
+        Blocker('identity_pool_master_closure_pending', 'Real graph/identity dependency is present; actual reservations, SourceBinding, Name/Kind registration, auxiliary/items/history, complete master and system-role/unknown-pool closure remain unimplemented'),
+        Blocker('constructor_candidate_unavailable', 'No full new-track builder or independent candidate acceptance; no repair, donor relabeling, fabricated ledger or no-op candidate'),
+        Blocker('candidate_accounting_pending', 'Partitioned admission covers only this blocked preparation path, not future candidate/allocator/history work or OS RSS'),
     ))
     return ProfileReport(library.container.version, library.container.payload_byteorder,
-                         invariants=({'check':'input-derived media/metadata declaration','passed':True},
-                                     {'check':'bounded target decoding','passed':True},
-                                     {'check':'baseline digest is provenance only','sha256':sha256(target_bytes).hexdigest()}),
-                         capabilities=('media_probe','independent_intent_validation','standalone_pcm_record_recipe'),
-                         blockers=tuple(blockers),
-                         evidence_refs=('docs/construct-v2.md','docs/experimental-api.md'))
+        invariants=({'check': 'independent media declaration', 'passed': True, 'media_facts': facts['media']},
+                    {'check': 'partitioned blocked-prepare budget', 'fixed_bytes': admission.fixed_cost,
+                     'probe_bytes': admission.probe_cost, 'model_bytes_each': admission.model_cost,
+                     'floor_bytes': admission.floor, 'plain_cap': admission.model.max_plain_bytes,
+                     'node_cap': admission.model.max_nodes},
+                    {'check': 'baseline digest is provenance only', 'sha256': sha256(data).hexdigest()}),
+        capabilities=('media_probe', 'independent_intent_validation',
+                      'media_resource_lane', 'pure_json_media_facts', 'partitioned_blocked_prepare_admission'),
+        blockers=tuple(blockers), evidence_refs=('docs/construct-v2.md', 'docs/experimental-api.md'))
+
+
+def _constructor_reject_candidate(data, intent, sources, candidate, report, *, limits, resources, admission):
+    # Contract-ready resources keyword, but no candidate can be accepted yet.
+    # Never replay the builder, allocator or RNG here (including at apply).
+    _need(type(sources) is dict and not sources, 'constructor ITL source lane must be empty')
+    facts = _constructor_resource_facts(resources, limits=limits, admission=admission)
+    _constructor_check_intent(intent, facts, admission)
+    return False
+
+
+def prepare(target_bytes, intent, sources=None, *, limits=None, seed=None):
+    """Real media-resource facade; always explicitly blocked before any candidate."""
+    from functools import partial
+    from .schema import get_limits, encode_json
+    from .planning import prepare_mutation
+    checked = get_limits(limits)
+    _memory_preflight(checked, 65536)
+    if type(sources) is not dict or len(sources) != 1 or any(type(k) is not str for k in sources) or set(sources) != {'media'} or type(sources['media']) is not bytes:
+        raise TypeError('constructor sources must contain exactly immutable media bytes')
+    media_bytes = sources['media']
+    admission = _facade_admission(target_bytes, intent, media_bytes, checked)
+    detached = json.loads(encode_json(intent, limits=admission.work))
+    _need(_facade_shape(target_bytes, detached, media_bytes, checked) <= admission.fixed_cost,
+          'intent changed beyond admitted shape')
+    # Partial closures contain only immutable cost/limit records, never media,
+    # target, intent or fake identity/ledger data. Actual bytes travel explicitly.
+    return prepare_mutation('constructor-pcm-resource.v1', target_bytes, detached, None,
+        limits=admission.shared, seed=seed, resources={'media': media_bytes},
+        validate_resources=partial(_constructor_resource_facts, admission=admission),
+        build=partial(_constructor_blocked_build, admission=admission),
+        validate=partial(_constructor_reject_candidate, admission=admission))
