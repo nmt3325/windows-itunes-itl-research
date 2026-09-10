@@ -18,7 +18,10 @@ from .container import Container
 from .model import Node
 from .binary import uint
 from .schema import (Record, ReadLimits, ProfileReport, Blocker, AllocationLedger,
-                     freeze, plain, encode_json, get_limits, load_library, LimitError)
+                     freeze, plain, encode_json, get_limits, load_library, LimitError,
+                     SnapshotKey, SourceBinding, ScopedID, AllocationReservation,
+                     ReferenceGraph, ReferenceEdge, snapshot_key, identity_snapshot_digest,
+                     IDENTITY_V2_POOLS)
 from .errors import FormatError, UnsupportedError
 
 _KEY = secrets.token_bytes(32)
@@ -40,7 +43,7 @@ def library_state_digest(library: Library, *, limits=None) -> str:
     if type(library) is not Library or type(library.container) is not Container:
         raise TypeError('exact Library/Container types required for atomic adoption')
     limits = get_limits(limits); c = library.container
-    h = hashlib.sha256(); total = 0; n = 0; seen = set()
+    h = hashlib.sha256(); total = 0; n = 0; seen = set(); model_bytes = 0; text_bytes = 0
 
     def add(b):
         nonlocal total
@@ -64,6 +67,10 @@ def library_state_digest(library: Library, *, limits=None) -> str:
         if type(node) is not Node or id(node) in seen:
             raise FormatError('cyclic, shared, or unsupported node model')
         seen.add(id(node)); n += 1; limits.check('nodes', n); limits.check('depth', depth)
+        model_bytes += len(node.header) + len(node.payload)
+        limits.check('plain', model_bytes)
+        if node.tag == b'mhoh':
+            text_bytes += len(node.payload); limits.check('text', text_bytes)
         add(node.kind.encode('ascii')); add(node.header); add(node.payload)
         if node.children is None:
             add(b'leaf')
@@ -152,6 +159,208 @@ def _snapshot_sources(sources, limits):
     return dict(sources)
 
 
+def _history_ledgers(history, limits):
+    encode_json(history, limits=limits)  # cycle/depth/aggregate check before traversal
+    stack = list(history); out = []
+    while stack:
+        past = stack.pop()
+        if type(past) is not AllocationLedger or past.snapshot is None:
+            raise TypeError('history requires complete canonical provenance ledgers')
+        out.append(past); limits.check('nodes', len(out))
+        stack.extend(past.history)
+    return tuple(out)
+
+
+def _check_ledger_inputs(ledger, data, sources, limits):
+    """Provenance/CAS only. Engine code still proves membership/closure/intent."""
+    if ledger.snapshot is None:
+        if any(type(r.old_identity) is SourceBinding or r.source_snapshot is not None or
+               r.target_snapshot is not None or (type(r.old_identity) is ScopedID and
+               r.old_identity.scope != r.scope) for r in ledger):
+            raise FormatError('cross-snapshot ledger requires complete input provenance')
+        return
+    target = snapshot_key(data, limits=limits)
+    actual = {k:snapshot_key(v, limits=limits) for k,v in sources.items()}
+    if ledger.snapshot != target or dict(ledger.sources) != actual:
+        raise FormatError('ledger input SnapshotKey mismatch')
+    current = {v.digest:v for v in (target,*actual.values())}
+    past = _history_ledgers(ledger.history, limits)
+    if any(h.snapshot.file_pid != target.file_pid for h in past):
+        raise FormatError('ledger history lineage mismatch')
+    old_entries = tuple(r for h in past for r in h)
+    old_retired = tuple(r for h in past for r in h.retired)
+    for r in ledger:
+        if r.target_snapshot != target:
+            if r not in old_entries:
+                raise FormatError('historical reservation was dropped, changed or relabeled')
+            continue
+        identity_snapshot_digest(r.reserved_identity, identity_v2=True)
+        if r.old_identity is not None:
+            key = r.source_snapshot
+            if key is None or current.get(key.digest) != key:
+                raise FormatError('reservation source is not an exact current input snapshot')
+    for r in ledger.retired:
+        scope = identity_snapshot_digest(r, identity_v2=True)
+        if scope != target.digest and r not in old_retired:
+            raise FormatError('retirement history is not preserved')
+    # An inherited journal is an exclusion union: it may not silently lose entries.
+    if any(r not in ledger.reservations for r in old_entries) or any(
+            r not in ledger.retired for r in old_retired):
+        raise FormatError('inherited reservation/retirement exclusion was dropped')
+
+
+def adapt_identity_ledger(ledger, target_bytes, sources=None, *, history=(),
+                          limits=None, validate):
+    """Explicit identity-v2 -> canonical evidence adapter, NOT write authority.
+
+    validate(target_bytes, detached_sources, detached_identity_report,
+             detached_history_reports, *, limits) -> one capacity-check mapping
+    per original ordered entry, each with passed is True. Reviewed engine CODE
+    must recompute source membership/bindings/aliases, bounds and exclusions,
+    retirement history and seed commitment from pinned inputs. There is no default
+    validator, no JSON callback, no allocation and no serialized-report adoption.
+    The engine's candidate/postcondition validator runs separately at prepare/apply.
+    """
+    from . import identity as ids
+    limits = get_limits(limits)
+    if not callable(validate): raise TypeError('explicit evidence validator code required')
+    if type(ledger) is not ids.AllocationLedger or type(ledger.entries) is not tuple or type(ledger.retired) is not tuple:
+        raise TypeError('real immutable identity AllocationLedger required, not a report')
+    if type(history) not in (tuple,list): raise TypeError('history must be a ledger sequence')
+    encode_json(ledger, limits=limits)
+    past = _history_ledgers(history, limits)
+    limits.check('nodes', len(ledger.entries)+len(ledger.retired)+len(past))
+    inputs = _snapshot_sources(sources, limits)
+    wire_estimate=12*(len(target_bytes)+sum(map(len,inputs.values())))
+    limits.check('memory',wire_estimate)
+    plain_total=0
+    for raw in (target_bytes,*inputs.values()):
+        # A wire/plain digest alone does not enforce node/depth/text limits.
+        parsed=load_library(raw,limits=limits)
+        plain_total+=len(parsed.container.payload)
+        limits.check('memory',wire_estimate+8*plain_total)
+        del parsed
+    target = snapshot_key(target_bytes, limits=limits)
+    source_keys = {k:snapshot_key(v,limits=limits) for k,v in inputs.items()}
+    catalog = {}
+    def add_key(key):
+        if key.digest in catalog and catalog[key.digest] != key:
+            raise FormatError('conflicting SnapshotKey provenance')
+        catalog[key.digest] = key
+    for key in (target,*source_keys.values()): add_key(key)
+    for h in past:
+        add_key(h.snapshot)
+        for key in h.sources.values(): add_key(key)
+    def key_copy(v):
+        if type(v) is not ids.SnapshotKey: raise TypeError('real identity SnapshotKey required')
+        return SnapshotKey(v.digest,v.file_pid,v.plain_digest)
+    if key_copy(ledger.snapshot) != target:
+        raise FormatError('identity ledger target snapshot is stale')
+    def scoped(v):
+        if type(v) is not ids.ScopedID: raise TypeError('real identity ScopedID required')
+        result = ScopedID(v.namespace,v.scope,v.value,v.width)
+        identity_snapshot_digest(result, identity_v2=True)
+        if not result.value: raise ValueError('zero is not an allocated/owned identity')
+        return result
+    def binding(v):
+        if type(v) is not ids.SourceBinding: raise TypeError('real SourceBinding required')
+        result = SourceBinding(key_copy(v.snapshot),v.pool,v.wire_id,v.value_digest)
+        if result.pool not in IDENTITY_V2_POOLS: raise ValueError('unknown source pool domain')
+        return result
+    rows=[]
+    for entry in ledger.entries:
+        if type(entry) is not ids.Reservation or type(entry.consumers) is not tuple or type(entry.capacity_check) is not tuple:
+            raise TypeError('immutable typed identity reservation required')
+        if any(type(c) is not str or not c or len(c)>512 for c in entry.consumers):
+            raise TypeError('immutable bounded consumers required')
+        checks = entry.capacity_check
+        if len(checks)>16 or any(type(c) is not tuple or len(c)!=2 or
+                type(c[0]) is not str or c[0] not in ('upper_bound','dense_bytes','probes','width') or
+                type(c[1]) is not int or not 0<=c[1]<2**64 for c in checks) or len(dict(checks))!=len(checks):
+            raise TypeError('immutable, unique reported capacity fields required')
+        new = scoped(entry.reserved_identity)
+        if (entry.namespace,entry.scope)!=(new.namespace,new.scope):
+            raise ValueError('identity entry namespace/scope mismatch')
+        old = entry.old_identity
+        if type(old) is ids.ScopedID: old=scoped(old)
+        elif type(old) is ids.SourceBinding: old=binding(old)
+        elif old is not None: raise TypeError('untyped mutable old identity refused')
+        newkey=catalog.get(identity_snapshot_digest(new))
+        if newkey is None: raise FormatError('reservation target snapshot missing from history')
+        oldkey = old.snapshot if type(old) is SourceBinding else catalog.get(
+            identity_snapshot_digest(old)) if old is not None else None
+        if old is not None and (oldkey is None or catalog.get(oldkey.digest)!=oldkey):
+            raise FormatError('source SnapshotKey missing or changed')
+        # Shape validation happens before the engine callback, but no passed flag is invented.
+        if type(old) is ScopedID and (old.namespace,old.width)!=(new.namespace,new.width):
+            raise ValueError('old identity namespace/width mismatch')
+        if type(old) is SourceBinding and (new.namespace,new.width)!=('pool:'+old.pool,4):
+            raise ValueError('source binding namespace/width mismatch')
+        rows.append((entry,new,old,newkey,oldkey))
+    retired = tuple(scoped(v) for v in ledger.retired)
+    report=json.loads(encode_json(ledger,limits=limits))
+    checked=validate(target_bytes,dict(inputs),report,plain(tuple(history)),limits=limits)
+    if type(checked) not in (tuple,list) or len(checked)!=len(rows):
+        raise TypeError('validator must return one recomputed check per ordered reservation')
+    encode_json(checked,limits=limits)
+    reservations=[]
+    for (entry,new,old,newkey,oldkey),check in zip(rows,checked):
+        if not isinstance(check,Mapping) or check.get('passed') is not True or 'allocator_reported' in check:
+            raise UnsupportedError('evidence validator did not return a successful independent check')
+        check=dict(check);check['allocator_reported']=dict(entry.capacity_check)
+        reservations.append(AllocationReservation(entry.namespace,entry.scope,old,new,
+            entry.consumers,check,source_snapshot=oldkey,target_snapshot=newkey))
+    result=AllocationLedger(tuple(reservations),target,source_keys,retired,
+                            ledger.seed_commitment,tuple(history))
+    _check_ledger_inputs(result,target_bytes,inputs,limits)
+    encode_json(result,limits=limits)
+    return result
+
+
+def adapt_identity_graph(graph, *, limits=None):
+    """Copy redecoded known-wire graph evidence, retaining owner locator/level.
+
+    The result is a canonical diagnostic, never a replacement for raw graph
+    revalidation by an allocator or an engine-specific semantic validator.
+    """
+    from . import graph as graphs
+    from . import identity as ids
+    limits=get_limits(limits)
+    if type(graph) is not graphs.ReferenceGraph:
+        raise TypeError('real identity ReferenceGraph required, not a report')
+    load_library(graph.data,limits=limits)  # canonical framing/resource preflight first
+    fresh=graphs.revalidate_graph(graph)
+    key=snapshot_key(fresh.data,limits=limits)
+    if (fresh.snapshot.digest,fresh.snapshot.file_pid,fresh.snapshot.plain_digest)!=(key.digest,key.file_pid,key.plain_digest):
+        raise FormatError('graph SnapshotKey mismatch')
+    encode_json(fresh.to_dict(),limits=limits)
+    def convert(v):
+        if type(v) is not ids.ScopedID: raise TypeError('real identity graph endpoint required')
+        x=ScopedID(v.namespace,v.scope,v.value,v.width)
+        if identity_snapshot_digest(x,identity_v2=True)!=key.digest:
+            raise FormatError('graph owner snapshot mismatch')
+        return x
+    owners=tuple(convert(x) for x in fresh.owners); edges=[]
+    for edge in fresh.typed_edges:
+        parts=edge.owner.split(':')
+        if len(parts)==2 and parts[0] in ('track','album','artist','playlist'):
+            ns=parts[0]+'.pid'; scope=key.digest; value=parts[1]
+        elif len(parts)==3 and parts[0]=='item':
+            ns='item.pid';scope=key.digest+'/playlist:'+parts[1];value=parts[2]
+        else: raise UnsupportedError('unmapped graph edge owner locator')
+        if len(value)!=16 or any(c not in '0123456789ABCDEF' for c in value):
+            raise FormatError('invalid graph owner PID locator')
+        owner=ScopedID(ns,scope,int(value,16),8)
+        if owner not in owners: raise FormatError('graph owner locator is not a typed owner')
+        edges.append(ReferenceEdge(owner,convert(edge.target),edge.field,
+            ('identity-v2 known-wire graph; not semantic permission',),edge.owner,key,edge.evidence_level))
+    coverage=dict(fresh.coverage)
+    coverage['transport_only']=True;coverage['identity_graph_issues']=fresh.to_dict()['issues']
+    result=ReferenceGraph(tuple(edges),owners,fresh.opaque_possible_edges,coverage,key)
+    encode_json(result,limits=limits)
+    return result
+
+
 def _mac(p):
     body = encode_json(p.to_dict(), limits=p._limits)
     private = (digest(p._candidate) + digest(p._target) + p._state_digest +
@@ -208,6 +417,7 @@ def prepare_mutation(engine: str, target_bytes: bytes, intent, sources=None, *,
         raise TypeError('engine must return MutationDraft with typed profile and ledger')
     if draft.profile_report.blocked:
         return draft.profile_report
+    _check_ledger_inputs(draft.allocation_ledger,target_bytes,inputs,limits)
     load_library(draft.candidate_bytes, limits=limits)
     limits.check('memory', total_file * 12 + total_plain * 8 + len(draft.candidate_bytes) * 12)
     p = object.__new__(PreparedMutation)
@@ -241,6 +451,7 @@ def apply(target_library: Library, prepared: PreparedMutation, *, sources=None) 
         raise FormatError('stale or missing source inputs')
     if library_state_digest(target_library, limits=limits) != p._state_digest:
         raise FormatError('stale target model; input Library was not modified')
+    _check_ledger_inputs(p.allocation_ledger,p._target,current,limits)
     candidate = load_library(p._candidate, limits=limits)
     if p._validate(p._target, plain(p.intent), dict(current), p._candidate, p.to_dict(), limits=limits) is not True:
         raise UnsupportedError('engine postcondition validation failed during apply')
