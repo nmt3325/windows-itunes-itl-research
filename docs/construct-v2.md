@@ -1,6 +1,6 @@
 # Experimental constructor v2: first additive implementation
 
-This checkpoint provides real, bounded pure helpers and a PCM mith record emitter. It does **not** yet provide a complete new-library constructor, a validated PreparedMutation, or native writer acceptance. Existing core, CLI, library.v1 and historical same-lineage guards are unchanged. The parent-authorized codec revision is now integrated; identities/importer remain read-only until a new parent pin.
+This checkpoint provides real, bounded pure helpers and a PCM mith record emitter. It does **not** yet provide a complete new-library constructor, a validated PreparedMutation, or native writer acceptance. Existing core, CLI, library.v1 and historical same-lineage guards are unchanged. The parent-authorized resource and identity dependencies are integrated read-only; no constructor allocation or closure gate is removed.
 
 ## Surfaces
 
@@ -8,7 +8,7 @@ This checkpoint provides real, bounded pure helpers and a PCM mith record emitte
 - `location.plan_location(path, *, type1_payload=None, limits=None) -> LocationBundle`: drive-absolute Windows, no type1, strict Unicode and one UTF8 percent-encoding pass. No normalization between NFC/NFD, no unquote_plus. UNC/device/ADS/traversal/reserved/trailing-dot/long-path aliases refuse. `location_records` emits canonical mhoh13/11 with file-local IDs1/2; `inspect_location_records` verifies exactly that representation and refuses unknown prefixes/suffixes. Encoding3 is ASCII in this initial canonical profile; non-ASCII output uses UTF16LE1. URI/text roundtrip is not native path acceptance.
 - `construct.materialize_pcm_wave_record(media_bytes, metadata, location, bindings, *, date_added, date_modified, sort_ranks, limits=None) -> WaveRecord`: re-probes immutable media bytes and emits one complete756-byte-header mith plus Name/Kind/path/URL children. It neither allocates graph identities nor modifies/adopts/publishes a library. Typed `WaveRecordBindings` and explicit seven ranks are data, never a caller-issued allocation/coverage certificate. The future full engine must independently reserve and verify them.
 - `construct.declare_intent(media_bytes, metadata, location, *, date_added, date_modified, limits=None)`: independent, detached JSON expectations from actual media bytes and explicit metadata, without reading a candidate. It normalizes aware wall datetimes to ISO strings and includes exact media SHA/size/dimensions.
-- `construct.prepare(target_bytes, intent, sources=None, *, limits=None, seed=None)`: validates exact intent/media agreement, uses the real shared bounded target reader and returns the actual immutable shared `ProfileReport` with typed blockers. There is no executable plan or fallback while the source adapter and identity integration gates remain unresolved.
+- `construct.prepare(target_bytes, intent, sources=None, *, limits=None, seed=None)`: validates exact intent/media agreement, uses the real shared bounded target reader and returns the actual immutable shared `ProfileReport` with typed blockers. There is no executable plan or fallback while full candidate, allocation and closure gates remain unresolved.
 
 Exact intent keys are `op`, `location`, `metadata`, `date_added`, `date_modified`, `media`; `op` is `append_pcm_wave`; sources is exactly `{"media": bytes}`. The declaration helper accepts aware datetimes or aware ISO strings; the engine JSON intent uses ISO strings only. Displayed wall components are encoded without an implicit UTC shift. The media object has exactly format, sha256, size_bytes, sample_rate_hz, channels, bits_per_sample, pcm_source_frames, duration_ms and bitrate_kbps; claims are checked against a fresh bounded probe, including exact numeric types. Inputs/reports containing caller ledgers, IDs, byte patches or other extras are not accepted as authority. A serialization/replay format is not promised at this checkpoint.
 
@@ -35,7 +35,7 @@ Consume the actual parent-integrated shared PreparedMutation/apply implementatio
 A native request must be built from predeclared source/intent/media expectations, not only from the resulting candidate. It requires genuinely new source media, complete old/new identities and metadata, every visible/hidden membership, exact Location and media pins,45s/30s passive reopens, normal saves/exits, no repairs or fallback, and separate playback/allocator-follow-up checks. No invalid standalone mith is handed to native as an ITL candidate.
 
 
-## Current concrete integration blockers
+## Historical concrete integration blockers (pre-resource adapter)
 
 The authorized `planning.prepare_mutation` parses **every** named source as an ITL before invoking an engine builder. A real PCM WAV is therefore rejected before construction. The source-hash/apply machinery is useful, but a bounded trusted-engine media/opaque-source classification or validation hook is required. Default ITL parsing should remain for existing engines; changed/missing/extra media sources must still be rejected on apply. Constructor does not hide media in a closure/JSON, masquerade it as a donor ITL, drop source pins, or alter codec-owned code.
 
@@ -145,3 +145,47 @@ DOS space-alias classification and both HFS pre-quantization/encoded-nonzero
 checks are unchanged. No template fallback, donor relabeling, unchecked ledger,
 full candidate, apply, publication or native writer acceptance is introduced.
 A media mith record remains diagnostic recipe data, never a complete ITL.
+
+
+## G2 facade-resource-01: real input lane, still no full constructor candidate
+
+This section supersedes the earlier adapter-unavailable status, not its frozen evidence.
+The public prepare(target_bytes, intent, sources=None, *, limits=None, seed=None) signature
+and exact sources={media: bytes} interface remain. Media is snapshotted once and passed
+explicitly as planning resources; the ITL source lane is empty. No bytes are hidden in JSON
+or callback closures. Closures hold only a frozen record of ReadLimits and integer costs.
+
+The private resource callback physically probes bytes and checks exact MediaFacts type,
+unsigned64 integer fields (not bool/float), physical size/hash and exact PCM duration.
+Only the nine existing PCM declaration scalars cross as pure JSON facts. Arbitrary tags
+and chunk observations are not serialized or used as metadata. The builder independently
+re-probes and compares every declared scalar with exact types, then retains metadata,
+ASCII/unescaped Location, DOS and aware/nonzero encoded HFS guards. No profile is widened.
+
+### Conservative disjoint admission for the blocked preparation path
+
+Let T/M be immutable target/media wire sizes; C is the sum of key and string characters
+plus20 per non-string scalar across the closed flat intent shape. Metadata scalar integers
+are bounded to unsigned64 before any JSON encoding. Let F be the number of metadata fields.
+J=1024+6*C+32*(F+15) bounds escaped intent JSON; D is the prior metadata helper estimate.
+fixed=262144+24*(T+M)+128*J+D covers retained wires, detached/serialized intent, nine-scalar
+facts, text work and fixed diagnostic reports. probe=P(M)+65536 uses the unchanged media
+helper estimate plus projection/hash slack. Before JSON, decoding or probing, require
+budget >= fixed+probe+2*2097152. Each model slot gets (budget-fixed-probe)//2.
+The planning memory budget is budget-probe, never the original full budget in parallel
+with the reserved probe workspace. The physical callback uses only its probe budget.
+Model plain cap=min(original, slot//128); node cap=min(original, slot//16384), so
+64*plain+8192*nodes <= slot. Both planning's retained model and the builder's diagnostic
+model are separately covered. Text/helper work uses the fixed partition, not model/probe.
+Caps can conservatively refuse valid highly compressed or node-dense targets. This is
+a documented admission estimate, not an OS RSS guarantee or an arbitrary-parser sandbox.
+
+The real C976 graph/identity dependency exists. Actual reservations, SourceBinding, Name/Kind
+registration, auxiliary/item/history, complete master/system roles and unknown/keyed/opaque
+pool closure are NOT implemented here. Retained _profile and pool checks remain. The builder
+returns blocked ProfileReport for every admitted input and never constructs MutationDraft,
+PreparedMutation, a fabricated ledger, repaired target, donor relabeling or no-op success.
+The private candidate validator accepts resources= but always refuses after input validation;
+it never replays builder/allocator/RNG. Candidate/history/allocator aggregate accounting and
+independent candidate acceptance remain explicit gates. Old51/20 and old40 results stay old;
+new RED/GREEN/full run counts, source pins and preservation are recorded in the new phase.

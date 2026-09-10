@@ -102,7 +102,7 @@ def test_dates_and_mutation_free_dependency_block():
     result=prepare(target,intent,{'media':source},seed=123)
     assert type(result) is ProfileReport and result.blocked
     codes={b.code for b in result.blockers}
-    assert {'media_source_adapter_unavailable','identity_adapter_pending_authorized_pin'} <= codes
+    assert {'constructor_candidate_unavailable','identity_pool_master_closure_pending'} <= codes
     assert source==pcm() and target==library_bytes()
     with pytest.raises(TypeError):prepare(target,intent,{'media':source},limits={'max_file_bytes':False})
 
@@ -317,5 +317,175 @@ def test_g2_budget_sufficient_preserves_record_intent_and_blockers(budget):
     saved = copy.deepcopy(intent)
     result = prepare(library_bytes(), intent, {'media': source}, limits=ReadLimits(memory_budget_bytes=budget))
     assert type(result) is ProfileReport and result.blocked
-    assert {'media_source_adapter_unavailable', 'identity_adapter_pending_authorized_pin'} <= {b.code for b in result.blockers}
+    assert {'constructor_candidate_unavailable', 'identity_pool_master_closure_pending'} <= {b.code for b in result.blockers}
     assert intent == saved and metadata == before and source == pcm(frames=60000, sample=5)
+
+
+# New G2 facade/resource cohort; not a replay of previous report-only51/20.
+def _g2fac_input(frames=257, *, sample=0):
+    from test_core_support import library_bytes
+    source = pcm(frames=frames, sample=sample)
+    intent = declare_intent(source, {'name': 'Facade control'}, r'D:\facade.wav', date_added=DATE, date_modified=DATE)
+    return library_bytes(), intent, source
+
+
+def _g2fac_floor(target, intent, source):
+    # Independent copy of the documented scalar bound, no production estimator.
+    meta, claim = intent['metadata'], intent['media']
+    chars = sum(len(k) + (len(v) if type(v) is str else 20) for k, v in meta.items())
+    chars += sum(len(k) + (len(v) if type(v) is str else 20) for k, v in claim.items())
+    chars += sum(len(intent[k]) for k in ('op', 'location', 'date_added', 'date_modified'))
+    jb = 1024 + 6 * chars + 32 * (len(meta) + 15)
+    mc = 65536 + 256 * len(meta) + 32 * sum(len(k) + (len(v) if type(v) is str else 0) for k, v in meta.items())
+    fixed = 262144 + 24 * (len(target) + len(source)) + 128 * jb + mc
+    probe = 65536 + 16 * len(source) + 1024 * min(100000, max(0, (len(source) - 12) // 8)) + 65536
+    return fixed + probe + 2 * 2097152
+
+
+def _g2fac_observe(monkeypatch):
+    from itlkit import construct, planning
+    seen = []; original = planning.prepare_mutation
+    def observed(*a, **kw):
+        seen.append((a, kw))
+        return original(*a, **kw)
+    monkeypatch.setattr(planning, 'prepare_mutation', observed)
+    return seen
+
+
+@pytest.mark.parametrize('budget', [32 * 1024 * 1024, 64 * 1024 * 1024])
+def test_g2_facade_real_resource_lane_but_no_candidate(monkeypatch, budget):
+    from itlkit.schema import ReadLimits, ProfileReport
+    from itlkit import construct
+    target, intent, source = _g2fac_input(60000)
+    seen = _g2fac_observe(monkeypatch)
+    result = prepare(target, intent, {'media': source}, limits=ReadLimits(memory_budget_bytes=budget), seed=123)
+    assert type(result) is ProfileReport and result.blocked
+    assert len(seen) == 1
+    args, kw = seen[0]
+    assert args[3] is None and kw['resources'] == {'media': source}
+    assert 'media_resource_lane' in result.capabilities
+    assert {'identity_pool_master_closure_pending', 'constructor_candidate_unavailable', 'candidate_accounting_pending'} <= {b.code for b in result.blockers}
+    assert not ({'media_source_adapter_unavailable', 'identity_adapter_pending_authorized_pin'} & {b.code for b in result.blockers})
+    assert set(kw['validate_resources'].keywords) == {'admission'}
+    spec = kw['validate_resources'].keywords['admission']
+    assert spec.fixed_cost + spec.probe_cost + 2 * spec.model_cost <= budget
+    assert spec.shared.memory_budget_bytes + spec.probe.memory_budget_bytes == budget
+    assert 64 * spec.model.max_plain_bytes + 8192 * spec.model.max_nodes <= spec.model_cost
+    assert kw['validate_resources']({'media': source}, limits=kw['limits']) == {'media': intent['media']}
+    # Even identical bytes/report never grant a candidate or call build at apply.
+    assert kw['validate'](target, intent, {}, target, {}, limits=kw['limits'], resources={'media': source}) is False
+
+
+@pytest.mark.parametrize('delta', [-1, 0, 1])
+def test_g2_facade_combined_floor_boundary_before_work(monkeypatch, delta):
+    from itlkit import construct, schema
+    target, intent, source = _g2fac_input()
+    floor = _g2fac_floor(target, intent, source)
+    seen = _g2fac_observe(monkeypatch); calls = []
+    for name, module in [('probe_bytes', construct), ('load_library', schema), ('encode_json', schema)]:
+        original = getattr(module, name)
+        def wrapper(*a, _name=name, _original=original, **kw):
+            calls.append(_name); return _original(*a, **kw)
+        monkeypatch.setattr(module, name, wrapper)
+    if delta < 0:
+        with pytest.raises(ValueError, match='memory budget'):
+            prepare(target, intent, {'media': source}, limits=schema.ReadLimits(memory_budget_bytes=floor + delta))
+        assert calls == seen == []
+    else:
+        result = prepare(target, intent, {'media': source}, limits=schema.ReadLimits(memory_budget_bytes=floor + delta))
+        assert result.blocked and len(seen) == 1 and 'probe_bytes' in calls
+
+
+def test_g2_facade_large_media_small_target_separate_fit_is_not_combined_fit(monkeypatch):
+    from itlkit import construct
+    from itlkit.schema import ReadLimits
+    target, intent, source = _g2fac_input(240000)
+    floor = _g2fac_floor(target, intent, source)
+    calls = []; original = construct.probe_bytes
+    def observed(*a, **kw): calls.append(kw['limits'].memory_budget_bytes); return original(*a, **kw)
+    monkeypatch.setattr(construct, 'probe_bytes', observed)
+    with pytest.raises(ValueError, match='memory budget'):
+        prepare(target, intent, {'media': source}, limits=ReadLimits(memory_budget_bytes=floor - 1))
+    assert calls == []
+    assert prepare(target, intent, {'media': source}, limits=ReadLimits(memory_budget_bytes=128 * 1024 * 1024)).blocked
+    assert len(calls) == 2 and all(n < 128 * 1024 * 1024 for n in calls)
+
+
+def test_g2_facade_large_target_small_media_caps_before_probe(monkeypatch):
+    from itlkit import construct
+    from itlkit.schema import ReadLimits
+    from test_core_support import library_bytes, track
+    _, intent, source = _g2fac_input()
+    target = library_bytes(tracks=[track(title='L' * 60000)])
+    seen = []; original = construct.probe_bytes
+    def observed(*a, **kw): seen.append('probe'); return original(*a, **kw)
+    monkeypatch.setattr(construct, 'probe_bytes', observed)
+    with pytest.raises(ValueError):
+        prepare(target, intent, {'media': source}, limits=ReadLimits(memory_budget_bytes=_g2fac_floor(target, intent, source)))
+    assert seen == []
+    assert prepare(target, intent, {'media': source}, limits=ReadLimits(memory_budget_bytes=64 * 1024 * 1024)).blocked
+    assert seen == ['probe', 'probe']
+
+
+@pytest.mark.parametrize('key,bad', [('channels', True), ('sample_rate_hz', 48000.0), ('size_bytes', 1),
+    ('sha256', '0' * 64), ('pcm_source_frames', 258), ('duration_ms', 0), ('bitrate_kbps', 1)])
+def test_g2_facade_wrong_declared_types_dimensions_and_pins(key, bad):
+    target, intent, source = _g2fac_input(); intent['media'][key] = bad
+    with pytest.raises(ConstructionError): prepare(target, intent, {'media': source})
+
+
+@pytest.mark.parametrize('key,bad', [('channels', True), ('sample_rate', 48000.0), ('frames', 257.0),
+    ('size_bytes', 1), ('sha256', '0' * 64), ('duration_seconds', 1.0)])
+def test_g2_facade_fake_physical_facts_rejected(monkeypatch, key, bad):
+    from itlkit import construct
+    target, intent, source = _g2fac_input(); original = construct.probe_bytes
+    def fault(*a, **kw): return replace(original(*a, **kw), **{key: bad})
+    monkeypatch.setattr(construct, 'probe_bytes', fault)
+    with pytest.raises(ConstructionError): prepare(target, intent, {'media': source})
+
+
+@pytest.mark.parametrize('where', ['intent', 'media', 'sources', 'metadata'])
+def test_g2_facade_authority_and_excess_keys_remain_refused(where):
+    target, intent, source = _g2fac_input(); sources = {'media': source}
+    if where == 'sources': sources['other'] = target
+    elif where == 'intent': intent['candidate_bytes'] = 'x'
+    else: intent[where]['unexpected'] = 1
+    with pytest.raises((ConstructionError, TypeError)): prepare(target, intent, sources)
+
+
+def test_g2_facade_changed_resource_and_candidate_callback_refusal(monkeypatch):
+    from itlkit import construct
+    target, intent, source = _g2fac_input(); changed = pcm(frames=257, sample=1)
+    with pytest.raises(ConstructionError): prepare(target, intent, {'media': changed})
+    seen = _g2fac_observe(monkeypatch)
+    assert prepare(target, intent, {'media': source}).blocked
+    assert len(seen) == 1
+    _, kw = seen[0]
+    with pytest.raises(ConstructionError):
+        kw['validate'](target, intent, {}, target, {}, limits=kw['limits'], resources={'media': changed})
+    for resource in ({}, {'media': source, 'other': source}, {'media': bytearray(source)}):
+        with pytest.raises(TypeError): kw['validate_resources'](resource, limits=kw['limits'])
+
+
+@pytest.mark.parametrize('change', ['hfs-zero', 'dos', 'escaped', 'grouping', 'wide-year', 'huge-int'])
+def test_g2_facade_profile_restrictions_unchanged(change):
+    target, intent, source = _g2fac_input()
+    if change == 'hfs-zero': intent['date_added'] = '1904-01-01T00:00:00.500000+00:00'
+    elif change == 'dos': intent['location'] = r'D:\NUL .wav'
+    elif change == 'escaped': intent['location'] = r'D:\space name.wav'
+    elif change == 'grouping': intent['metadata']['artist'] = 'not admitted'
+    elif change == 'wide-year': intent['metadata']['year'] = 32768
+    else: intent['metadata']['year'] = 1 << 100000
+    with pytest.raises(ValueError): prepare(target, intent, {'media': source})
+
+
+def test_g2_facade_budget_one_and_masterless_never_emit_prepared(monkeypatch):
+    from itlkit.schema import ReadLimits, ProfileReport
+    target, intent, source = _g2fac_input()
+    seen = _g2fac_observe(monkeypatch)
+    with pytest.raises(ValueError, match='memory budget'): prepare(target, intent, {'media': source}, limits=ReadLimits(memory_budget_bytes=1))
+    assert seen == []
+    result = prepare(target, intent, {'media': source})
+    assert type(result) is ProfileReport and result.blocked and len(seen) == 1
+    assert 'retained_profile_or_pools' in {b.code for b in result.blockers}
+    with pytest.raises(ValueError): prepare(b'not an ITL', intent, {'media': source})
