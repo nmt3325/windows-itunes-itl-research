@@ -84,7 +84,16 @@ def _inspect_diagnostic(args) -> None:
     if args.output is not None:
         write_new(args.output, data)
     else:
-        sys.stdout.write(data.decode('ascii'))
+        # Preserve the prechecked physical byte length on Windows: TextIOWrapper
+        # would otherwise translate the final LF to CRLF. Text-only embeddings
+        # remain supported without assuming a .buffer attribute.
+        binary_stdout = getattr(sys.stdout, 'buffer', None)
+        if binary_stdout is not None:
+            sys.stdout.flush()
+            binary_stdout.write(data)
+            binary_stdout.flush()
+        else:
+            sys.stdout.write(data.decode('ascii'))
 
 
 def main(argv: list[str] | None = None) -> int:
