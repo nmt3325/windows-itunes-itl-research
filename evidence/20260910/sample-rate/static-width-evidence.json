@@ -1,0 +1,46 @@
+{
+  "excerpts": [
+    {
+      "lines": [
+        {
+          "line": 61,
+          "text": "  puVar1 = (undefined4 *)(param_1 + 0xa00128);"
+        },
+        {
+          "line": 83,
+          "text": "  *(undefined4 *)(param_1 + 0xa001c0) = *(undefined4 *)(param_2 + 0x48);"
+        },
+        {
+          "line": 130,
+          "text": "  *(undefined8 *)(param_1 + 0xa0021c) = *(undefined8 *)(param_2 + 0x2e0);"
+        }
+      ],
+      "source_path": "evidence/static/decompiled/0106daf0.c",
+      "source_sha256": "fdb761e632aec2193f0e83108ea209a74141c891341bd91f135d85b8a40f04cf"
+    },
+    {
+      "lines": [
+        {
+          "line": 112,
+          "text": "  undefined4 uStack_5e0;"
+        },
+        {
+          "line": 144,
+          "text": "  undefined8 uStack_584;"
+        },
+        {
+          "line": 475,
+          "text": "        *(undefined4 *)(pcVar4 + 0x48) = uStack_5e0;"
+        },
+        {
+          "line": 511,
+          "text": "        *(undefined8 *)(pcVar4 + 0x2e0) = uStack_584;"
+        }
+      ],
+      "source_path": "evidence/static/decompiled/0107b460.c",
+      "source_sha256": "10127aaa7651e9dea55bca3c92450898a77fc6e18ca83995175104813e6114a6"
+    }
+  ],
+  "qualification": "Decompilation proves four/eight-byte transfers, not float semantics alone; media and COM provide independent interpretation.",
+  "source_extract_sha256": "ce7bef38503521c04ba6dec313472dbb21c12b01ad15c3a42e6a2d6b94d806fe"
+}

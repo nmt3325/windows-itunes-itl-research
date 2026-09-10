@@ -6,6 +6,8 @@ not as a promise that unknown fields may be edited safely.
 from __future__ import annotations
 from pathlib import Path
 import copy
+import math
+import struct
 from datetime import datetime, timedelta, timezone
 from .binary import uint, put
 from .container import Container
@@ -26,10 +28,11 @@ NUMBER_FIELDS = {
     'rating_aux_raw': (0x6d, 1), 'play_count_aux_raw': (0x60, 4), 'skip_count_aux_raw': (0x118, 4),
     'date_added': (0x78, 4), 'persistent_id': (0x80, 8), 'skip_count': (0xd8, 4),
     'album_id': (0xdc, 4), 'skip_date': (0x11c, 4), 'artist_id': (0x1e0, 4),
-    'sample_rate': (0xf4, 4)}
+    'mith_0xf4_u64_raw': (0xf4, 8)}
+FLOAT_FIELDS = {'sample_rate': (0x98, 4)}
 READ_ONLY_FIELDS = {'track_id', 'persistent_id', 'album_id', 'artist_id', 'record_kind_raw',
                     'name_refresh_flag_raw', 'played_flag_raw',
-                    'rating_aux_raw', 'play_count_aux_raw', 'skip_count_aux_raw', 'purchaser_name', 'kind', 'sample_rate'}
+                    'rating_aux_raw', 'play_count_aux_raw', 'skip_count_aux_raw', 'purchaser_name', 'kind', 'sample_rate', 'mith_0xf4_u64_raw'}
 INDEXED_TEXT_FIELDS = {'album', 'artist', 'album_artist'}
 # Encoding 2 is restricted below to the observed ASCII URL subset.
 ENCODINGS = {1: 'utf-16-le', 2: 'ascii', 3: 'latin-1'}
@@ -148,6 +151,16 @@ class Track:
         return uint(self.node.header, 0x80, 8)
 
     def get(self, field: str):
+        if field == 'sample_rate':
+            # Native media+COM controls separate Hz from the independent u64 at +0xf4.
+            if (self.library.container.version != '12.13.10.3'
+                    or self.library.container.payload_byteorder != 'little'
+                    or len(self.node.header) != 756):
+                raise UnsupportedError('sample_rate is verified only for the 12.13.10.3 little-endian 756-byte mith profile')
+            value = struct.unpack_from('<f', self.node.header, FLOAT_FIELDS[field][0])[0]
+            if not math.isfinite(value) or value < 0 or not value.is_integer():
+                raise UnsupportedError('sample_rate is not a finite nonnegative integral Hz value; raw bytes are preserved')
+            return int(value)
         if field in NUMBER_FIELDS:
             return uint(self.node.header, *NUMBER_FIELDS[field])
         if field == 'loved':
@@ -223,7 +236,7 @@ class Track:
 
     def to_dict(self) -> dict:
         result = {}
-        for field in [*NUMBER_FIELDS, *TEXT_FIELDS, 'loved', 'compilation', 'unplayed']:
+        for field in [*NUMBER_FIELDS, *FLOAT_FIELDS, *TEXT_FIELDS, 'loved', 'compilation', 'unplayed']:
             try:
                 value = self.get(field)
             except (FormatError, UnsupportedError) as exc:

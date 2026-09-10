@@ -8,4 +8,4 @@ The new12 synthetic regression cases cover unknown encoding, invalid UTF-16, ove
 
 Run: python -B -m pytest tests/test_inspection_diagnostics.py -q -p no:cacheprovider
 
-A separate new native finding shows the historical sample_rate getter at offset0xf4 is mislabeled for1.25-second48000-Hz media. That scalar correction is still being independently reviewed and is NOT included in this presentation-only commit.
+The historical sample_rate getter at offset0xf4 was separately found to be mislabeled for1.25-second48000-Hz media. It was not changed in the original presentation-only commit. The subsequent independently checked correction and its distinct qualification limits are documented in sample-rate.md.

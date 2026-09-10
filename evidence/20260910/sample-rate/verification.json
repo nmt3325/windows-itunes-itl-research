@@ -1,0 +1,45 @@
+{
+  "before_source_sha256": "1566973e014544089fea9e61c4fab2cf42fb882da7d8b1243cf83fbce017b94a",
+  "expected_red": {
+    "errors": 0,
+    "failed": 14,
+    "passed": 2,
+    "total": 16
+  },
+  "full_semantic_read_write": false,
+  "known_remaining_work": [
+    "cross-source ledger/graph adapters and resource review findings",
+    "general import and new-media materialization",
+    "COW all-consumer and pool dependency closure",
+    "full native acceptance for new independent-writer candidates",
+    "complete opaque/smart/folder semantics and playback"
+  ],
+  "new_native_operations": 0,
+  "original_library_bytes_unchanged": true,
+  "source_sha256": "f70f5f51b534d08c6dd55c721e10732a0df5a49df88bf5442fbab1c0583899ba",
+  "tests": [
+    {
+      "errors": 0,
+      "exit_code": 0,
+      "failures": 0,
+      "log_sha256": "a60b34c82577b0ab6068cb38130299ce77a89d0ac631691c2182602adbb177eb",
+      "passed": 16,
+      "phase": "targeted",
+      "skipped": 0,
+      "tests": 16,
+      "time_seconds": "0.149"
+    },
+    {
+      "errors": 0,
+      "exit_code": 0,
+      "failures": 0,
+      "log_sha256": "847784341b17f7f739207f5fe32931810ce0e405bb9cea87cee64023a7eefbba",
+      "passed": 1059,
+      "phase": "full",
+      "skipped": 5,
+      "tests": 1064,
+      "time_seconds": "4.949"
+    }
+  ],
+  "verified_utc": "2026-09-10T02:18:26.536824+00:00"
+}
