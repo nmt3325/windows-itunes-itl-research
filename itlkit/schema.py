@@ -9,6 +9,8 @@ from collections.abc import Mapping
 from types import MappingProxyType
 from pathlib import Path
 import json
+import hashlib
+import re
 import math
 import os
 from .errors import FormatError, UnsupportedError
@@ -60,7 +62,16 @@ def get_limits(limits=None) -> ReadLimits:
 def freeze(value):
     """Defensively freeze JSON-like descriptions, preserving typed records."""
     if isinstance(value, Record):
-        return value
+        if not is_dataclass(value) or not value.__dataclass_params__.frozen or any(not f.init for f in fields(value)):
+            raise TypeError('only frozen constructor-validated evidence records are supported')
+        # Reconstruct nested records too: a frozen dataclass can still contain a
+        # caller-owned list or MappingProxyType backed by a mutable dictionary.
+        # Do not replay constructors while recursively copying: their own freeze
+        # pass would double-copy every history level. These records are evidence,
+        # already constructed/validated; this is not a public deserializer.
+        detached=object.__new__(type(value))
+        for f in fields(value):object.__setattr__(detached,f.name,freeze(getattr(value,f.name)))
+        return detached
     if isinstance(value, Mapping):
         if any(type(k) is not str for k in value):
             raise TypeError('record mapping keys must be strings')
@@ -180,12 +191,132 @@ class ScopedID(Record):
             raise ValueError('identity outside unsigned storage width')
 
 
+def _sha256_hex(value):
+    if type(value) is not str or re.fullmatch('[0-9a-f]{64}', value) is None:
+        raise ValueError('canonical SHA256 hex required')
+    return value
+
+
+@dataclass(frozen=True)
+class SnapshotKey(Record):
+    """Exact wire/plain provenance, never fixture-based admission."""
+    digest: str
+    file_pid: int
+    plain_digest: str
+
+    def __post_init__(self):
+        super().__post_init__()
+        _sha256_hex(self.digest); _sha256_hex(self.plain_digest)
+        if type(self.file_pid) is not int or not 0 < self.file_pid < 2**64:
+            raise ValueError('file_pid must be a positive uint64')
+
+
+@dataclass(frozen=True)
+class SourceBinding(Record):
+    """A nonempty registered source binding, not just an external-ID argument."""
+    snapshot: SnapshotKey
+    pool: str
+    wire_id: int
+    value_digest: str
+
+    def __post_init__(self):
+        super().__post_init__()
+        if type(self.snapshot) is not SnapshotKey:
+            raise TypeError('typed source SnapshotKey required')
+        if type(self.pool) is not str or not self.pool or len(self.pool) > 64:
+            raise ValueError('exact bounded source pool required')
+        if type(self.wire_id) is not int or not 0 < self.wire_id < 2**31:
+            raise ValueError('registered source wire_id must be positive signed32')
+        _sha256_hex(self.value_digest)
+
+
+# This is the explicit identity-v2 transport vocabulary, not a general format census.
+IDENTITY_V2_POOLS = frozenset(('L+0x178','L+0x1c0','L+0x208','L+0x328',
+    'L+0x370','L+0x400','L+0x1768','L+0x17b0','L+0x17f8','L+0x640',
+    'L+0x1840','L+0x910'))
+IDENTITY_V2_WIDTHS = MappingProxyType({
+    **{k:4 for k in ('track.common_local','track.file_local','album.local',
+                     'artist.local','playlist.local','item.local','item.order_token')},
+    **{k+'.pid':8 for k in ('track','album','artist','playlist','item','file','master')},
+    **{'pool:'+p:4 for p in IDENTITY_V2_POOLS}})
+IMPORTER_POOL_DOMAINS = MappingProxyType(dict(name='L+0x178',album='L+0x1c0',
+    artist='L+0x208',genre='L+0x328',kind='L+0x370',comment='L+0x400',
+    sort_name='L+0x1768',sort_album='L+0x17b0',sort_artist='L+0x17f8'))
+
+
+def importer_pool_domain(alias: str) -> str:
+    """Translate only the pinned importer's exact aliases. Context still matters."""
+    if type(alias) is not str or alias not in IMPORTER_POOL_DOMAINS:
+        raise ValueError('unknown importer pool alias')
+    return IMPORTER_POOL_DOMAINS[alias]
+
+
+def identity_snapshot_digest(identity: ScopedID, *, identity_v2=False) -> str:
+    """Validate snapshot[/playlist:PID] without stripping the retained scope."""
+    if type(identity) is not ScopedID:
+        raise TypeError('typed ScopedID required')
+    if identity_v2 and IDENTITY_V2_WIDTHS.get(identity.namespace) != identity.width:
+        raise ValueError('identity-v2 namespace/width mismatch')
+    m = re.fullmatch(r'([0-9a-f]{64})(?:/playlist:([0-9A-F]{16}))?', identity.scope)
+    if m is None:
+        raise ValueError('canonical snapshot identity scope required')
+    playlist = m.group(2)
+    if playlist is not None and (int(playlist,16)==0 or identity.namespace not in
+                                ('item.local','item.pid','item.order_token')):
+        raise ValueError('invalid playlist-local identity scope')
+    if identity.namespace == 'item.order_token' and playlist is None:
+        raise ValueError('order token requires playlist-local scope')
+    return m.group(1)
+
+
+def snapshot_key(data: bytes, *, limits=None) -> SnapshotKey:
+    """Hash bounded immutable input bytes, never serialize or repair a Library."""
+    c = load_container(data, limits=limits)
+    if len(c.header) < 60:
+        raise FormatError('snapshot file identity header is unavailable')
+    return SnapshotKey(hashlib.sha256(data).hexdigest(),
+        int.from_bytes(c.header[52:60], 'big'), hashlib.sha256(c.payload).hexdigest())
+
+
+def encode_seed(seed: str, *, domain: str) -> bytes:
+    """Deterministic, domain-separated UTF-8 seed transport; no normalization/RNG.
+
+    Pass the resulting32 bytes to identity.ReservationAllocator. Its commitment
+    is SHA256(result), not SHA256(the unencoded user string). None stays None at
+    the engine boundary and randomness is generated once, during prepare only.
+    """
+    if type(seed) is not str or not 0 < len(seed) <= 128:
+        raise ValueError('seed must be a nonempty string of at most128 characters')
+    if type(domain) is not str or re.fullmatch(r'[A-Za-z0-9_.-]{1,64}', domain) is None:
+        raise ValueError('bounded ASCII engine domain required')
+    d = domain.encode('ascii'); b = seed.encode('utf-8','strict')
+    return hashlib.sha256(b'itlkit.seed.v1\0'+len(d).to_bytes(4,'big')+d+
+                          len(b).to_bytes(4,'big')+b).digest()
+
+
 @dataclass(frozen=True)
 class ReferenceEdge(Record):
     source: ScopedID
     target: ScopedID
     relation: str
     evidence_refs: tuple
+    owner_locator: str = ''
+    source_snapshot: SnapshotKey | None = None
+    evidence_level: str = 'known-wire-reference'
+
+    def __post_init__(self):
+        super().__post_init__()
+        if type(self.source) is not ScopedID or type(self.target) is not ScopedID:
+            raise TypeError('reference endpoints must be canonical ScopedID records')
+        if type(self.relation) is not str or not self.relation or not self.evidence_refs:
+            raise ValueError('reference relation and evidence required')
+        if type(self.owner_locator) is not str or type(self.evidence_level) is not str:
+            raise TypeError('reference labels must be immutable strings')
+        if self.source_snapshot is not None:
+            if type(self.source_snapshot) is not SnapshotKey or any(
+                    identity_snapshot_digest(x) != self.source_snapshot.digest
+                    for x in (self.source,self.target)):
+                raise ValueError('reference snapshot/scope mismatch')
 
 
 @dataclass(frozen=True)
@@ -194,46 +325,103 @@ class ReferenceGraph(Record):
     owners: tuple = ()
     opaque_possible_edges: tuple = ()
     coverage: object = field(default_factory=dict)
+    snapshot: SnapshotKey | None = None
+
+    def __post_init__(self):
+        super().__post_init__()
+        if any(type(x) is not ReferenceEdge for x in self.typed_edges) or any(
+                type(x) is not ScopedID for x in self.owners):
+            raise TypeError('graph requires canonical typed endpoints and edges')
+        if self.snapshot is not None and type(self.snapshot) is not SnapshotKey:
+            raise TypeError('graph SnapshotKey required')
 
 
 @dataclass(frozen=True)
 class AllocationReservation(Record):
     namespace: str
     scope: str
-    old_identity: ScopedID | None
+    old_identity: ScopedID | SourceBinding | None
     reserved_identity: ScopedID
     consumers: tuple
     capacity_check: object
+    source_snapshot: SnapshotKey | None = None
+    target_snapshot: SnapshotKey | None = None
 
     def __post_init__(self):
         super().__post_init__()
-        r = self.reserved_identity
-        if type(r) is not ScopedID or (r.namespace, r.scope) != (self.namespace, self.scope):
+        r = self.reserved_identity; old = self.old_identity
+        if type(r) is not ScopedID or (r.namespace,r.scope) != (self.namespace,self.scope):
             raise ValueError('reservation namespace/scope mismatch')
-        if self.old_identity is not None and (type(self.old_identity) is not ScopedID or
-                (self.old_identity.namespace, self.old_identity.scope) != (self.namespace, self.scope)):
-            raise ValueError('old identity namespace/scope mismatch')
-        if not isinstance(self.capacity_check, Mapping) or self.capacity_check.get('passed') is not True:
+        expected_width=IDENTITY_V2_WIDTHS.get(r.namespace)
+        if expected_width is not None and r.width!=expected_width:
+            raise ValueError('reservation identity-v2 namespace/width mismatch')
+        if type(old) is ScopedID:
+            # Source ownership is retained: foreign snapshots MUST NOT be relabeled.
+            if old.namespace != r.namespace or old.width != r.width:
+                raise ValueError('old identity namespace/width mismatch')
+        elif type(old) is SourceBinding:
+            if r.namespace != 'pool:'+old.pool or r.width != 4:
+                raise ValueError('source binding namespace/width mismatch')
+            if self.source_snapshot is None:
+                object.__setattr__(self,'source_snapshot',old.snapshot)
+            elif self.source_snapshot != old.snapshot:
+                raise ValueError('source binding SnapshotKey mismatch')
+        elif old is not None:
+            raise TypeError('old identity must be canonical ScopedID or SourceBinding')
+        if type(self.consumers) is not tuple or any(type(x) is not str or not x or len(x)>512 for x in self.consumers):
+            raise TypeError('consumers must be bounded immutable strings')
+        if not isinstance(self.capacity_check,Mapping) or self.capacity_check.get('passed') is not True:
             raise ValueError('explicit successful capacity check required')
+        for key in (self.source_snapshot,self.target_snapshot):
+            if key is not None and type(key) is not SnapshotKey:
+                raise TypeError('canonical SnapshotKey required')
+        if self.source_snapshot is not None:
+            if old is None or (type(old) is ScopedID and
+                    identity_snapshot_digest(old)!=self.source_snapshot.digest):
+                raise ValueError('source SnapshotKey/scope mismatch')
+        if self.target_snapshot is not None and identity_snapshot_digest(r)!=self.target_snapshot.digest:
+            raise ValueError('target SnapshotKey/scope mismatch')
 
 
 @dataclass(frozen=True)
 class AllocationLedger(Record):
+    # Positional reservations/iteration/length retain their original API.
     reservations: tuple = ()
+    snapshot: SnapshotKey | None = None
+    sources: object = field(default_factory=dict)
+    retired: tuple = ()
+    seed_commitment: str | None = None
+    history: tuple = ()
 
     def __post_init__(self):
         super().__post_init__()
-        if any(type(x) is not AllocationReservation for x in self.reservations):
+        if type(self.reservations) is not tuple or any(type(x) is not AllocationReservation for x in self.reservations):
             raise TypeError('ledger requires typed AllocationReservation records')
-        ids = [(r.namespace, r.scope, r.reserved_identity.value) for r in self.reservations]
-        if len(ids) != len(set(ids)):
+        ids = [(r.namespace,r.scope,r.reserved_identity.value) for r in self.reservations]
+        if len(ids)!=len(set(ids)):
             raise ValueError('duplicate reservation in the same namespace/scope')
+        if self.snapshot is not None and type(self.snapshot) is not SnapshotKey:
+            raise TypeError('ledger SnapshotKey required')
+        if not isinstance(self.sources,Mapping) or any(type(k) is not str or not k or
+                type(v) is not SnapshotKey for k,v in self.sources.items()):
+            raise TypeError('sources must name typed SnapshotKey records')
+        if type(self.retired) is not tuple or any(type(x) is not ScopedID for x in self.retired):
+            raise TypeError('retirements require canonical ScopedID records')
+        ids = [(x.namespace,x.scope,x.value) for x in self.retired]
+        if len(ids)!=len(set(ids)):
+            raise ValueError('duplicate retired identity')
+        if self.seed_commitment is not None: _sha256_hex(self.seed_commitment)
+        if type(self.history) is not tuple or any(type(x) is not AllocationLedger for x in self.history):
+            raise TypeError('history requires complete canonical ledgers')
+        if (self.sources or self.retired or self.seed_commitment is not None or self.history) and self.snapshot is None:
+            raise ValueError('extended ledger evidence requires target SnapshotKey')
+        if self.snapshot is not None:
+            for past in self.history:
+                if past.snapshot is None or past.snapshot.file_pid!=self.snapshot.file_pid:
+                    raise ValueError('history belongs to a different target file lineage')
 
-    def __iter__(self):
-        return iter(self.reservations)
-
-    def __len__(self):
-        return len(self.reservations)
+    def __iter__(self): return iter(self.reservations)
+    def __len__(self): return len(self.reservations)
 
 
 def encode_json(value, *, limits=None) -> bytes:
@@ -320,7 +508,7 @@ def preflight_payload(payload: bytes, *, limits=None):
         nonlocal nodes, maximum_depth
         nodes += 1; maximum_depth = max(maximum_depth, depth)
         limits.check('nodes', nodes); limits.check('depth', depth)
-        limits.check('memory', len(payload) * 6 + nodes * 1024)
+        limits.check('memory', len(payload) * (maximum_depth + 8) + nodes * 1024)
 
     start = 0
     while start < len(payload):
