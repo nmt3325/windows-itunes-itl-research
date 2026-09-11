@@ -3,7 +3,7 @@ from pathlib import Path
 from collections import defaultdict
 from capstone import Cs,CS_ARCH_X86,CS_MODE_64
 import pefile
-ROOT=Path(r'D:\a\_temp\<CI_BROKER>\WINDOWS_RESEARCH_RUN\work\itl');OUT=ROOT/'reports'/'static'
+ROOT=Path(r'<CI_ROOT_WIN>\<CI_BROKER>\WINDOWS_RESEARCH_RUN\work\itl');OUT=ROOT/'reports'/'static'
 pe=pefile.PE(r'C:\Program Files\iTunes\iTunes.exe');base=pe.OPTIONAL_HEADER.ImageBase
 fs=json.loads((OUT/'pdata.json').read_text());by_start={s:(s,e,u) for s,e,u in fs};owners={};groups=defaultdict(list)
 def owner(t,depth=0):
