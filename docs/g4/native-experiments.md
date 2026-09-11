@@ -241,6 +241,42 @@ The observed outcome was acceptance, so the second bullet is the one that binds:
 set is left exactly as it was.** The gate still refuses 12.13.11.1, and the only way through it remains a
 research script that lives outside `itlkit/` and says so in its first line.
 
+## EXP-04 - pre-registered: does the acceptance generalise past one operation?
+
+**Status: tooling built and controlled offline; native result pending.**
+
+EXP-03 answered a question about exactly one call: `create_playlist`. It would be an easy and
+wrong move to promote that into "itlkit can write playlists on 12.13.11.1". EXP-04 asks whether
+the other two playlist operations itlkit refuses on this version - replacing members and deleting -
+produce libraries the application also accepts, or whether creation happened to be the benign case.
+
+The probe is `research/g4/exp04/playlist_ops.py`. It imports the EXP-03 bypass rather than
+reimplementing it, so there is one version spoof in the tree and it is still only the version string
+that is relaxed. Offline, on a supported 12.13.10.3 snapshot, the full round trip create -> empty ->
+refill -> delete runs through the **real** gate and each stage re-reads correctly:
+
+```
+after-create   3554  playlists=15  present=True   members=1
+after-empty    3524  playlists=15  present=True   members=0
+after-refill   3554  playlists=15  present=True   members=1
+after-delete   3427  playlists=14  present=False  members=0
+```
+
+That is a control for the tooling, not evidence about iTunes.
+
+A byte comparison between the gated and bypassed round trips showed a one-byte difference at
+`after-create`, which looks incriminating and is not. Running the **gated** path twice reproduces the
+same difference: each playlist item is given a freshly allocated id, so every stage that carries
+members varies run to run, while the member-free stages (`after-empty`, `after-delete`) are
+byte-identical. This is the second time byte comparison has nearly produced a false alarm in this
+work, after the same trap in EXP-03, and the third time non-determinism has had to be measured
+rather than assumed - iTunes' own post-quit rewrite was the first.
+
+The native protocol will present two candidates built from the live 12.13.11.1 library: the refilled
+playlist, and the state after the playlist has been created and then deleted again. Acceptance
+criteria are the same as EXP-03's, pre-registered per candidate, with the same explicit non-acceptance
+list. Results, whichever way they fall, are appended here.
+
 ## What these results license
 
 Together the experiment, its negative control and its baseline control support

@@ -12,6 +12,12 @@ precondition is still checked by the real, unmodified itlkit code.
 The offline round trip here is a control for the tooling, not evidence about iTunes.
 Only the native protocol - declare, install, open, quit, restart twice - can say
 anything about what the application accepts.
+
+Byte comparisons here are close to useless and are not used as evidence. Pinning
+--persistent-id fixes the playlist's own id, but each playlist *item* gets a freshly
+allocated id, so any stage that carries members differs between two runs with identical
+inputs - including two runs that both went through the real gate. Stages with no members
+(after-empty, after-delete) do reproduce byte-for-byte.
 """
 
 from __future__ import annotations
