@@ -75,11 +75,39 @@ def relaxed_require_simple_library(library):
 
 @contextlib.contextmanager
 def gate_bypassed():
-    operations.require_simple_library = relaxed_require_simple_library
+    """Rebind every live reference to the gate, not just the one in `operations`.
+
+    The first version of this patched `operations.require_simple_library` alone, and
+    that was not enough: `trackops` does `from .operations import require_simple_library`
+    at import time, so it holds its own reference to the original function and never
+    saw the replacement. EXP-05 found it the honest way - the playlist build succeeded
+    and the track build refused with the version error, using the identical context
+    manager, which is exactly the signature of a stale from-import binding rather than
+    of a real refusal by the format code.
+
+    So the patch walks the imported itlkit modules and replaces every attribute that is
+    the real gate, recording what it touched so the same set can be restored. Modules
+    that import the gate after this block starts are deliberately not chased; if one
+    ever appears, the symptom will be a refusal, which is the safe direction.
+    """
+    import sys
+
+    import itlkit.operations  # noqa: F401
+    import itlkit.trackops  # noqa: F401
+
+    patched = [
+        module
+        for module in list(sys.modules.values())
+        if getattr(module, "__name__", "").startswith("itlkit")
+        and getattr(module, "require_simple_library", None) is _REAL_GATE
+    ]
+    for module in patched:
+        module.require_simple_library = relaxed_require_simple_library
     try:
-        yield
+        yield [module.__name__ for module in patched]
     finally:
-        operations.require_simple_library = _REAL_GATE
+        for module in patched:
+            module.require_simple_library = _REAL_GATE
 
 
 def _playlist_facts(playlist):
