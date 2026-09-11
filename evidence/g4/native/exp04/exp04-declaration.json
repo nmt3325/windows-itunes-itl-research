@@ -1,0 +1,39 @@
+{
+  "experiment": "EXP-04",
+  "authoritative": false,
+  "declared_utc": "2026-09-11T02:41:42Z",
+  "declared_before_any_modification": true,
+  "question": "EXP-03 showed real iTunes 12.13.11.1 accepting one playlist created by itlkit. Does that generalise to the other playlist operations itlkit refuses on this version - replacing a playlist's members, and deleting a playlist - or was creation the benign special case?",
+  "method": {
+    "tool": "research/g4/exp04/playlist_ops.py, which imports the EXP-03 bypass rather than reimplementing it",
+    "what_is_relaxed": "only the version string presented to operations.require_simple_library, for the duration of the gate call",
+    "what_is_not_relaxed": "identity and reference validation, header and trailer rules, section allowlist, empty-grandchild rules, store-index shape, global-metadata child codes",
+    "offline_control": "the same round trip runs through the REAL gate on a supported 12.13.10.3 snapshot before anything is presented to the application"
+  },
+  "candidates": [
+    {"id": "EXP-04a", "file": "after-refill.itl", "built_by": "create_playlist, then replace_playlist_members to empty, then replace_playlist_members back to one track", "expected_if_accepted": "COM enumerates 8 playlists including exp04-itlkit-playlist with 1 track"},
+    {"id": "EXP-04b", "file": "after-delete.itl", "built_by": "the same three calls, then delete_playlist", "expected_if_accepted": "COM enumerates the usual 7 playlists and no exp04-itlkit-playlist, with the track still present"}
+  ],
+  "acceptance_requires_all_of": [
+    "iTunes opens the intended file, not a rebuilt or fallback library",
+    "no damaged-file dialog and no new library file appears",
+    "the COM playlist set matches the candidate's stated expectation",
+    "the single track is still present",
+    "a normal COM Quit, not a kill",
+    "the same COM reading after restart 1 and restart 2",
+    "itlkit can still read the file iTunes leaves behind"
+  ],
+  "does_not_count_as_acceptance": ["a successful COM AddFile", "an empty library being generated", "iTunes merely starting", "itlkit re-reading its own output", "byte identity of anything", "the expected state appearing only before the first Quit"],
+  "failure_signals": ["damaged-file dialog", "rebuild or repair", "iTunes Library (Damaged).itl appears", "the playlist set does not match the expectation", "the track disappears", "a difference between restart 1 and restart 2"],
+  "predictions_recorded_in_advance": {
+    "EXP-04a": "likely accepted if EXP-03 generalises; member replacement rewrites the same structures creation writes",
+    "EXP-04b": "genuinely uncertain; deletion has to leave the surrounding indices consistent, and a stale reference would be exactly the kind of defect the application would reject"
+  },
+  "binding_limits": [
+    "Probe results. Not authoritative.",
+    "Acceptance does NOT widen itlkit's accepted-profile set; the gate stays.",
+    "Rejection of either candidate is reported as plainly as acceptance, and retracts nothing less than the corresponding EXP-03 generalisation.",
+    "The preserved baseline library is restored afterwards."
+  ],
+  "input_library": {"path": "<CI_ROOT_WIN>/.../native/libs/lib01/iTunes Library.itl", "sha256": "19d088455f692cc86f3d4f70c5fc74fd039d1efca0ce22f80f25547b8b876dcb", "bytes": 4524, "version": "12.13.11.1"}
+}

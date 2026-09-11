@@ -1,0 +1,33 @@
+{
+  "experiment": "EXP-04",
+  "authoritative": false,
+  "built_from": {
+    "name": "live library preserved before the run",
+    "bytes": 4524,
+    "sha256": "19d088455f692cc86f3d4f70c5fc74fd039d1efca0ce22f80f25547b8b876dcb",
+    "version": "12.13.11.1"
+  },
+  "stages": [
+    {
+      "name": "after-create.itl",
+      "bytes": 3518,
+      "sha256": "faf094a47e1656bedafa3c4ebefb25eeaf6e2d503ea9b197d324e40d28239087"
+    },
+    {
+      "name": "after-empty.itl",
+      "bytes": 3488,
+      "sha256": "5ca3a34bad533a760ec8d4eb8c5f23c47ec5097b0acfeac29e229f9b6d2c2a23"
+    },
+    {
+      "name": "after-refill.itl",
+      "bytes": 3518,
+      "sha256": "dd3dc0bd17807355ce8e9c19286b71b483f1f6cd246ca6d9b3e805b722061dd6"
+    },
+    {
+      "name": "after-delete.itl",
+      "bytes": 3392,
+      "sha256": "7d86f19f6709af30cdc303c7d2f7e98dc606552fb1792d78ff6cb01ae3ee9754"
+    }
+  ],
+  "note": "Digests are computed from the files on disk, never transcribed. Stages that carry playlist members are not byte-reproducible: each playlist item is assigned a fresh id, and two runs through the real gate already differ."
+}
