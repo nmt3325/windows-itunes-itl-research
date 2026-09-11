@@ -108,6 +108,81 @@ One incidental observation: the file iTunes had renamed to `iTunes Library
 (Damaged).itl` during EXP-02 was still sitting in the directory during this
 control, and iTunes ignored it entirely.
 
+## EXP-03 - pre-registered probe: is the writer-version gate load-bearing, or merely conservative?
+
+**Status: declared and candidate built; the native result is pending and is appended below when it exists.**
+Nothing in this section is authoritative, and nothing in it may be used to widen itlkit's accepted-profile set.
+
+### Why
+
+itlkit refuses semantic writes unless the library was written by a profile it has actually observed
+natively (12.13.9.1 or 12.13.10.3). The machine used for the G4 native work runs 12.13.11.1, so every
+semantic write on it is refused. That refusal is the *conservative* answer. It is not evidence that
+12.13.11.1 would reject a library built by itlkit - nobody had tested that. EXP-03 tests it.
+
+### What is relaxed, and what is not
+
+The probe lives in `research/g4/exp03/gate_bypass.py`, outside `itlkit/`. It does not edit itlkit and
+does not reimplement any check. It relaxes exactly one thing: `Container.version` is made to report
+`12.13.10.3` while the real, unmodified `operations.require_simple_library` runs, and the patch is
+removed before anything is serialized, so the candidate keeps its true version string. Identity and
+reference validation, the 144-byte header rule, the compression-trailer rule, the section allowlist,
+the empty-grandchild rules, the store-index shape and the global-metadata child codes are all still
+enforced by the real code.
+
+### What the two gates say about the live 12.13.11.1 library
+
+```
+version           : 12.13.11.1
+header bytes      : 144
+trailer present   : False
+tracks / playlists: 1 / 14
+real gate    : UnsupportedError: writes require the observed Windows iTunes 12.13.9.1/12.13.10.3 profile
+relaxed gate : PASS
+```
+
+This is already a result, independent of what the application later does: **every structural
+precondition itlkit knows how to check is satisfied by the 12.13.11.1 library.** The only thing
+standing between itlkit and a semantic write on this machine is the version string itself.
+
+### The candidate
+
+`create_playlist(name='exp03-itlkit-playlist', track_persistent_ids=('C54F0D3E83DBDA0F',))`
+produced 3520 bytes, sha256 `109a09644c3a27d3...`, version still `12.13.11.1`, and itlkit re-reads it
+as 1 track / 15 playlists with the new playlist present. itlkit re-reading its own output is *not*
+acceptance; it is only a precondition for putting the file in front of the application.
+
+### Two corrections made while building this probe
+
+1. The first version of the probe tried to assign the spoofed version onto the library object. That
+   failed with `AttributeError: property 'version' of 'Container' object has no setter`, and the failure
+   is recorded rather than quietly edited away. The spoof is now installed on the class for the duration
+   of the gate call only - which is also *required* for correctness, because `create_playlist` gates a
+   deep copy of the library rather than the object it was handed.
+2. The first inertness control compared a gated build against a bypassed build byte-for-byte and
+   reported DIFFERENT. That verdict was wrong, not because the bypass changed anything, but because
+   `create_playlist` is not byte-deterministic: it allocates a fresh persistent id and stamps a
+   timestamp, so two *identical gated* builds already differ. With `--persistent-id` and
+   `--timestamp-hfs` pinned, the gated and bypassed builds are byte-identical
+   (`170ae6d705274b20...` twice) on a supported profile. Only that pinned comparison licenses the claim
+   that the bypass changes nothing except which libraries are allowed through.
+
+### Acceptance criteria (pre-registered, not invented afterwards)
+
+Recorded in the declaration before any modification: iTunes must open the intended file with no
+damaged-file dialog and no new library file; COM must enumerate a user playlist named
+`exp03-itlkit-playlist` containing the expected track; the session must end in a normal COM Quit; the
+playlist must survive restart 1 and restart 2; and itlkit must still be able to read the file iTunes
+leaves behind. A successful COM `AddFile`, an empty library, iTunes merely starting, itlkit re-reading
+its own output, and the playlist appearing only before the first Quit all explicitly do **not** count.
+
+### Binding limits on whatever the result turns out to be
+
+- Rejection means the gate is load-bearing on this version and stays as it is.
+- Acceptance means the gate is conservative on this version - and still does not license widening the
+  accepted-profile set. That would need its own declared native experiment on 12.13.11.1 with a paired
+  negative control, exactly as EXP-02 paired with EXP-01.
+
 ## What these results license
 
 Together the experiment, its negative control and its baseline control support
