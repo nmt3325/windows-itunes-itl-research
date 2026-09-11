@@ -1,0 +1,181 @@
+{
+  "artwork_carriers": [],
+  "bitrate_kbps": 768,
+  "chunk_spans": [
+    [
+      "fmt ",
+      20,
+      16
+    ],
+    [
+      "data",
+      44,
+      144000
+    ]
+  ],
+  "chunks": [
+    "fmt ",
+    "data"
+  ],
+  "declared": {
+    "bits_per_sample": 16,
+    "channels": 1,
+    "duration_ms": 1500,
+    "frames": 72000,
+    "sample_rate": 48000,
+    "sha256": "87e45bff7acf44a05a818fa0f33edec429d6648751bcd8aa91ccf91a764b2e05",
+    "size_bytes": 144044
+  },
+  "declared_matches_observed": true,
+  "duration_is_exact_milliseconds": true,
+  "embedded_metadata_present": false,
+  "fixture_relative_path": "evidence/20260910/g2-new-media/ITL-G2-PCM-48000-001.wav",
+  "metadata_carriers": [],
+  "millisecond_remainder": 0,
+  "mtime_ns_observed": 1789086101544630948,
+  "new_track_media_fields": [
+    {
+      "field": "size_bytes",
+      "note": "",
+      "record_site": "mith 0x24 and 0x144",
+      "status": "derived_exact",
+      "value": 144044
+    },
+    {
+      "field": "media_sha256",
+      "note": "",
+      "record_site": "declaration provenance",
+      "status": "derived_exact",
+      "value": "87e45bff7acf44a05a818fa0f33edec429d6648751bcd8aa91ccf91a764b2e05"
+    },
+    {
+      "field": "sample_rate_hz",
+      "note": "",
+      "record_site": "mith 0x98 float32",
+      "status": "derived_exact",
+      "value": 48000
+    },
+    {
+      "field": "channels",
+      "note": "",
+      "record_site": "profile gate only",
+      "status": "derived_exact",
+      "value": 1
+    },
+    {
+      "field": "bits_per_sample",
+      "note": "",
+      "record_site": "profile gate only",
+      "status": "derived_exact",
+      "value": 16
+    },
+    {
+      "field": "pcm_frames",
+      "note": "mono PCM evidence only; other shapes are unverified",
+      "record_site": "mith 0xf4 uint64",
+      "status": "derived_exact",
+      "value": 72000
+    },
+    {
+      "field": "duration_ms",
+      "note": "frames divide evenly into milliseconds",
+      "record_site": "mith 0x28",
+      "status": "derived_exact",
+      "value": 1500
+    },
+    {
+      "field": "bitrate_kbps",
+      "note": "rate*channels*bits//1000; the native PCM convention is unverified",
+      "record_site": "mith 0x38",
+      "status": "derived_exact",
+      "value": 768
+    },
+    {
+      "field": "format_code",
+      "note": "recipe constant, not re-verified natively in this phase",
+      "record_site": "mith 0x8c",
+      "status": "recipe_constant_unverified",
+      "value": 1463899680
+    },
+    {
+      "field": "kind_text",
+      "note": "recipe constant, not re-verified natively in this phase",
+      "record_site": "mhoh code 6",
+      "status": "recipe_constant_unverified",
+      "value": "WAV audio file"
+    },
+    {
+      "field": "date_modified",
+      "note": "filesystem mtime is observed but its HFS/wall-clock mapping is unverified",
+      "record_site": "mith 0x20",
+      "status": "caller_supplied",
+      "value": 1789086101544630948
+    },
+    {
+      "field": "date_added",
+      "note": "no media or filesystem source; a native or user clock value",
+      "record_site": "mith 0x78",
+      "status": "absent_from_itlkit",
+      "value": null
+    },
+    {
+      "field": "location_path",
+      "note": "filesystem identity, not media content; the destination path must be declared",
+      "record_site": "mhoh code 13",
+      "status": "caller_supplied",
+      "value": "<CI_ROOT>/wt/a05/evidence/20260910/g2-new-media/ITL-G2-PCM-48000-001.wav"
+    },
+    {
+      "field": "location_url",
+      "note": "derived from the declared path, not from media bytes",
+      "record_site": "mhoh code 11",
+      "status": "caller_supplied",
+      "value": "<CI_ROOT>/wt/a05/evidence/20260910/g2-new-media/ITL-G2-PCM-48000-001.wav"
+    },
+    {
+      "field": "name",
+      "note": "tag values are never decoded; bare PCM carries no name at all",
+      "record_site": "mhoh code 2",
+      "status": "absent_from_itlkit",
+      "value": null
+    },
+    {
+      "field": "tag_metadata",
+      "note": "only tag key names are observed; values are never decoded or applied",
+      "record_site": "album/artist/genre/year/track/disc records",
+      "status": "absent_from_itlkit",
+      "value": []
+    },
+    {
+      "field": "artwork",
+      "note": "artwork is never extracted; carriers are only reported",
+      "record_site": "artwork records",
+      "status": "absent_from_itlkit",
+      "value": []
+    }
+  ],
+  "notes": [
+    "read-only probe; the fixture was not imported into iTunes in this phase",
+    "structural and classification evidence only, not native acceptance"
+  ],
+  "observed": {
+    "bits_per_sample": 16,
+    "channels": 1,
+    "duration_ms": 1500,
+    "frames": 72000,
+    "sample_rate": 48000,
+    "sha256": "87e45bff7acf44a05a818fa0f33edec429d6648751bcd8aa91ccf91a764b2e05",
+    "size_bytes": 144044
+  },
+  "unmet_conditions_with_file_observation": [
+    "format_code: recipe_constant_unverified (recipe constant, not re-verified natively in this phase)",
+    "kind_text: recipe_constant_unverified (recipe constant, not re-verified natively in this phase)",
+    "date_modified: caller_supplied (filesystem mtime is observed but its HFS/wall-clock mapping is unverified)",
+    "date_added: absent_from_itlkit (no media or filesystem source; a native or user clock value)",
+    "location_path: caller_supplied (filesystem identity, not media content; the destination path must be declared)",
+    "location_url: caller_supplied (derived from the declared path, not from media bytes)",
+    "name: absent_from_itlkit (tag values are never decoded; bare PCM carries no name at all)",
+    "tag_metadata: absent_from_itlkit (only tag key names are observed; values are never decoded or applied)",
+    "artwork: absent_from_itlkit (artwork is never extracted; carriers are only reported)"
+  ]
+}
