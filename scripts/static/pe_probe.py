@@ -2,7 +2,7 @@ import bisect, hashlib, json, re, sqlite3, struct, time
 from pathlib import Path
 import pefile
 from capstone import Cs, CS_ARCH_X86, CS_MODE_64
-ROOT=Path(r'D:\a\_temp\gha-mcp\WINDOWS_RESEARCH_RUN\work\itl')
+ROOT=Path(r'D:\a\_temp\<CI_BROKER>\WINDOWS_RESEARCH_RUN\work\itl')
 OUT=ROOT/'reports'/'static'
 p=Path(r'C:\Program Files\iTunes\iTunes.exe')
 b=p.read_bytes(); pe=pefile.PE(data=b); base=pe.OPTIONAL_HEADER.ImageBase

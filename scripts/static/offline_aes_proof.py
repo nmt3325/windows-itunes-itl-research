@@ -5,7 +5,7 @@ This is NOT native iTunes acceptance and does not exercise UI/COM/DRM/cloud/devi
 """
 from pathlib import Path
 import sys,struct,json,hashlib,time
-ROOT=Path(r'D:\a\_temp\gha-mcp\WINDOWS_RESEARCH_RUN\work\itl');sys.path.insert(0,str(ROOT/'tools/static/pylibs'))
+ROOT=Path(r'D:\a\_temp\<CI_BROKER>\WINDOWS_RESEARCH_RUN\work\itl');sys.path.insert(0,str(ROOT/'tools/static/pylibs'))
 import pefile,unicorn
 from unicorn import Uc,UC_ARCH_X86,UC_MODE_64,UC_HOOK_CODE
 from unicorn.x86_const import *
