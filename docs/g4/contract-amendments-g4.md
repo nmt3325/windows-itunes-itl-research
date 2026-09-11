@@ -46,3 +46,19 @@ that task's own report; this is an index, not a replacement.
 13. `itlkit/operations.py require_simple_library` needs an `stsh-count-guard`,
     because the current predicate accepts libraries whose section count does
     not match the header.
+
+## Amendment: a native acceptance claim requires a paired negative control
+
+EXP-01 and EXP-02 establish a rule for this project. An observation that iTunes
+opened a candidate library proves acceptance only when the same harness, on the
+same machine, is shown to reject a deliberately corrupted candidate. Without
+that pairing, "iTunes opened it" is indistinguishable from "iTunes opened
+something, possibly a library it silently created itself".
+
+The control must be run close in time to the experiment, must differ from the
+accepted candidate only in the corruption, and its rejection must be visible in
+more than one channel. In EXP-02 it was visible in four: the modal dialog text,
+`main_window_ready`, the COM failure code, and the renamed file left on disk.
+
+Amendment: a native acceptance claim without its control is downgraded to a
+suggestive observation and may not be recorded as acceptance.
