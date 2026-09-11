@@ -35,3 +35,38 @@ The historical G2/G3 record for the same commit is 2125 passed, 6 skipped, 36 su
 ## 5. Reporting rules
 
 Every report separates (a) what was actually executed in this phase from what was planned, (b) reconstructed text from originally observed bytes, (c) primary testcase elements from subtests, and (d) structural validity, preservation, semantics, native acceptance, persistence and playback. Missing evidence is recorded as missing and never inferred.
+
+## 6. Canonical gated test environment (added 2026-09-11 after task a12)
+
+Three environment variables decide what the suite collects and what it skips.
+A run that leaves them unset is a valid observation, but it is NOT comparable
+with the historical record and must never be published as the phase baseline.
+
+| variable | what it gates | unset | set |
+| --- | --- | --- | --- |
+| `ITLKIT_NATIVE_ROOT` | `NATIVE_FILES = sorted(Path(NATIVE_ROOT).glob("*.itl"))`, feeding three parametrized functions | one `got empty parameter set` placeholder per function | one item per `.itl` file |
+| `ITLKIT_NATIVE_REPORTS` | the recorded COM oracle lookup in `test_native_byte_exact_and_com_values` | all 55 items skip with `no COM oracle` | 50 pass, 4 skip `no COM oracle`, 1 skips `no after-state COM oracle` |
+| `ITLKIT_FRESH_SNAPSHOT_DIR` | `skipUnless` on `FreshSnapshotImporterTests` (`tests/test_importer_v2.py:213`) | 46 skips, and its 10 `subTest` call sites never run | 46 pass, subtests rise 26 -> 36 |
+
+In-repository corpora: `evidence/native/snapshots` holds 55 `.itl` files and
+`evidence/native/oracles` holds 51 recorded oracles, 51 of which match snapshot
+stems and 50 of which carry an after state. Collection obeys
+`collected = 1966 + 3N` for N `.itl` files visible through `ITLKIT_NATIVE_ROOT`.
+
+Results for commit `dc4b1c7a9e84a7eefad501da3e1ed65d313cf9f3`:
+
+| environment | passed | skipped | elements | subtests | `tests=` |
+| --- | --- | --- | --- | --- | --- |
+| no gates set | 1919 | 50 | 1969 | 26 | 1995 |
+| native root + fresh snapshots | 2075 | 56 | 2131 | 36 | 2167 |
+| all three gates set | 2125 | 6 | 2131 | 36 | 2167 |
+
+The last row reproduces the historical G2 figure exactly, so
+`2125 passed, 6 skipped, 36 subtests` is the authoritative baseline for this
+phase and the earlier "baseline discrepancy" is closed. The historical
+`tests=2189` / 2153-element pair remains unreproduced and stays open; see
+`docs/g4/a12/baseline-discrepancy.md`, which also records the exact directory
+used for `ITLKIT_FRESH_SNAPSHOT_DIR`.
+
+Every published regression result must state which of the three variables were
+set and what they pointed at.
