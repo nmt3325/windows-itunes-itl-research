@@ -5,12 +5,12 @@
   "python": "3.12.10",
   "code_identity": {
     "claim": "tests/, itlkit/ and pyproject.toml are byte identical between dc4b1c7 and 1bb05edc",
-    "command_id": "706278b6a1884918"
+    "command_id": "CMD-01"
   },
   "reproduced_runs": [
     {
       "label": "ungated",
-      "command_id": "04d2e53d7c094601",
+      "command_id": "CMD-12",
       "pytest": "9.1.1",
       "env": {},
       "passed": 1919, "skipped": 50, "subtests": 26,
@@ -19,7 +19,7 @@
     },
     {
       "label": "native root + fresh snapshots",
-      "command_id": "d2382b79e2694e4b",
+      "command_id": "CMD-04",
       "pytest": "9.1.1",
       "env": {"ITLKIT_NATIVE_ROOT": "evidence/native/snapshots", "ITLKIT_FRESH_SNAPSHOT_DIR": "evidence/20260910/checkpoint-01/native-snapshots"},
       "passed": 2075, "skipped": 56, "subtests": 36,
@@ -28,7 +28,7 @@
     },
     {
       "label": "full gate, reproduces the historical record",
-      "command_id": "a08bd7b73ddb40ee",
+      "command_id": "CMD-02",
       "pytest": "9.1.1",
       "env": {"ITLKIT_NATIVE_ROOT": "evidence/native/snapshots", "ITLKIT_FRESH_SNAPSHOT_DIR": "evidence/20260910/checkpoint-01/native-snapshots", "ITLKIT_NATIVE_REPORTS": "evidence/native/oracles"},
       "passed": 2125, "skipped": 6, "subtests": 36,
@@ -40,26 +40,26 @@
   "collection_law": {
     "formula": "collected = 1966 + 3N where N = count of .itl files under ITLKIT_NATIVE_ROOT",
     "points": [{"N": 0, "collected": 1969}, {"N": 7, "collected": 1987}, {"N": 55, "collected": 2131}],
-    "command_ids": ["64fdf2e73f474295", "d2382b79e2694e4b", "a08bd7b73ddb40ee"]
+    "command_ids": ["CMD-03", "CMD-04", "CMD-02"]
   },
   "attribution_of_162_elements": {
-    "command_id": "dfb24c7cad22417a",
+    "command_id": "CMD-05",
     "tests.test_admission_v2": {"ungated": 170, "full_gate": 224, "delta": 54},
     "tests.test_codec_native_profiles": {"ungated": 12, "full_gate": 120, "delta": 108},
     "all_other_modules": {"delta": 0},
     "total_delta": 162
   },
   "disproved_candidates": [
-    {"candidate": "pytest major version", "evidence": "pytest 8.4.2 collects 1969, same as 9.1.1", "command_id": "4a5a6680422b49e6"},
-    {"candidate": "missing frida", "evidence": "no test imports frida", "command_id": "b7f91d6940c6429a"},
-    {"candidate": "iTunes not installed", "evidence": "collection 1969 both before (00:30:20Z, absent) and after (00:45:28Z, present) a10 installed 12.13.11.1", "command_ids": ["706278b6a1884918", "f3bfed9c8ef847af"]},
-    {"candidate": "conftest or pytest-subtests plugin", "evidence": "no conftest.py in the repository, pytest-subtests not installed", "command_id": "11aee4e13677438c"}
+    {"candidate": "pytest major version", "evidence": "pytest 8.4.2 collects 1969, same as 9.1.1", "command_id": "CMD-07"},
+    {"candidate": "missing frida", "evidence": "no test imports frida", "command_id": "CMD-08"},
+    {"candidate": "iTunes not installed", "evidence": "collection 1969 both before (00:30:20Z, absent) and after (00:45:28Z, present) a10 installed 12.13.11.1", "command_ids": ["CMD-01", "f3bfed9c8ef847af"]},
+    {"candidate": "conftest or pytest-subtests plugin", "evidence": "no conftest.py in the repository, pytest-subtests not installed", "command_id": "CMD-10"}
   ],
   "junit_accounting": {
     "rule": "tests= equals primary testcase elements plus subtest reports, on pytest 9.x only",
     "pytest_9_1_1_probe": {"elements": 3, "tests_attribute": 9, "console": "1 failed, 3 passed, 5 subtests passed"},
     "pytest_8_4_2_probe": {"elements": 3, "tests_attribute": 3, "console": "1 failed, 2 passed", "note": "pytest 8.4.2 does not report stdlib subTest outcomes at all"},
-    "command_ids": ["234b5ac2a84d4eac", "4a5a6680422b49e6"]
+    "command_ids": ["CMD-11", "CMD-07"]
   },
   "open_items": [
     {
