@@ -321,6 +321,52 @@ operations on one machine with one track is a narrow result, and **itlkit's acce
 left exactly as it was**. Widening it would need its own declaration, its own controls, and a reason
 better than "the experiments we happened to run passed".
 
+## EXP-05 - pre-registered: does a TRACK edit survive, not just a playlist one?
+
+**Status: probe built and controlled offline; native result pending.**
+
+EXP-03 and EXP-04 between them cover creating a playlist, replacing its members and deleting it.
+All three only rearrange playlist structures. That is the easy half of the format. A track edit has
+to rewrite the shared album and artist objects, the indexed text pools those objects key into, and
+the references that point at them - and then leave the whole graph consistent. If any part of this
+series is going to be rejected by the application, this is where it should happen.
+
+The probe is `research/g4/exp05/track_fields.py`, calling `itlkit.trackops.set_indexed_fields`. It
+imports the EXP-03 bypass instead of reimplementing it. Only the version string is relaxed; the WAV
+template requirement, the shared-object COW refusal, the text-change guard, the pool-binding
+assertions, the reference garbage collection check and the full serialise-and-reread the operation
+performs internally are all still enforced by unmodified itlkit code.
+
+### Asking the code instead of guessing
+
+The last time I assumed I knew what a function accepted - the claim that playlist writes were
+ungated - I was wrong, and the correction is recorded above. So the probe has a `probe-keys` mode
+that tries each candidate field name through the **real** gate on a supported snapshot and reports
+what happens:
+
+```
+accepted: name comment album artist album_artist genre composer sort_name
+          year track_number rating play_count unplayed
+refused : grouping        UnsupportedError: unknown track field: grouping
+          played_count    UnsupportedError: unknown track field: played_count
+```
+
+Thirteen of fifteen accepted, and the two refusals are honest "unknown field" errors rather than
+silent no-ops - worth knowing, because a silent no-op would have produced a native experiment that
+proved nothing while looking successful.
+
+### Design
+
+The native candidate sets `name`, `artist` and `album` on the single track of the live 12.13.11.1
+library. All three are readable over COM, so acceptance does not depend on itlkit re-reading its own
+output, and `artist`/`album` force the shared auxiliary records to be rewritten rather than just a
+plain field being poked.
+
+One failure mode is called out in the declaration in advance, because it would be easy to
+misreport: iTunes may keep the file but re-read the WAV's own tags and overwrite the edited values.
+That is the application accepting the *file* and rejecting the *edit*, and it will be reported as a
+failed edit, not as an acceptance.
+
 ## What these results license
 
 Together the experiment, its negative control and its baseline control support
