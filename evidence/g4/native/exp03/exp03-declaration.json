@@ -1,0 +1,36 @@
+{
+  "experiment": "EXP-03",
+  "authoritative": false,
+  "declared_utc": "2026-09-11T02:26:14Z",
+  "declared_before_any_modification": true,
+  "question": "itlkit refuses semantic writes on 12.13.11.1 because it has only observed 12.13.9.1 and 12.13.10.3 natively. Is that refusal load-bearing, or merely conservative? If the version check alone is bypassed and every other precondition still enforced, will native iTunes 12.13.11.1 accept and persist a playlist that itlkit created?",
+  "method": {
+    "tool": "research/g4/exp03/gate_bypass.py (outside itlkit, not part of the supported surface)",
+    "what_is_relaxed": "Container.version is temporarily made to report 12.13.10.3 while the real, unmodified operations.require_simple_library runs. The patch is removed before anything is serialized, so the candidate keeps its true 12.13.11.1 version string.",
+    "what_is_not_relaxed": "identity and reference validation, the 144-byte header rule, the compression-trailer rule, the section allowlist, the empty-grandchild rules, the store-index shape, the global-metadata child codes",
+    "write_attempted": "operations.create_playlist(name='exp03-itlkit-playlist', track_persistent_ids=('C54F0D3E83DBDA0F',))"
+  },
+  "protocol": ["declare", "inspect both gates against the live library", "build the candidate offline", "verify itlkit can re-read it", "install as the live library", "launch, read COM, normal Quit", "restart 1", "restart 2", "compare bytes and COM at every step", "restore the preserved baseline"],
+  "acceptance_requires_all_of": [
+    "iTunes opens the intended file, not a rebuilt or fallback library",
+    "no damaged-file dialog and no new library file appears",
+    "COM enumerates a user playlist named exp03-itlkit-playlist",
+    "that playlist contains the expected track",
+    "a normal COM Quit, not a kill",
+    "the playlist is still there after restart 1 and restart 2",
+    "itlkit can still read the file iTunes leaves behind"
+  ],
+  "does_not_count_as_acceptance": ["a successful COM AddFile", "an empty library being generated", "iTunes merely starting", "itlkit re-reading its own output", "byte identity of the file iTunes rewrites", "the playlist appearing only before the first Quit"],
+  "failure_signals": ["damaged-file dialog", "rebuild or repair", "iTunes Library (Damaged).itl appears", "the playlist is absent from COM", "the playlist disappears after a restart", "tracks disappear"],
+  "predictions_recorded_in_advance": {
+    "gate_reaction": "the real gate refuses on version; the relaxed gate may still refuse for a structural reason, which would itself answer the question",
+    "native_outcome": "genuinely unknown; both acceptance and rejection are informative"
+  },
+  "binding_limits": [
+    "Whatever happens here is a probe result and is NOT authoritative.",
+    "Acceptance must NOT be used to widen itlkit's accepted-profile set. That would need its own declared native experiment on 12.13.11.1, with a paired negative control.",
+    "Rejection means the gate is load-bearing on this version and must stay.",
+    "The preserved baseline library is restored afterwards; originals are never overwritten in place."
+  ],
+  "input_library": {"path": "<CI_ROOT_WIN>/.../native/libs/lib01/iTunes Library.itl", "sha256": "19d088455f692cc86f3d4f70c5fc74fd039d1efca0ce22f80f25547b8b876dcb", "bytes": 4524, "version": "12.13.11.1"}
+}

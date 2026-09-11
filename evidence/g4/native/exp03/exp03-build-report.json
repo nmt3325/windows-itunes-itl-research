@@ -1,0 +1,62 @@
+{
+  "probe": "EXP-03",
+  "authoritative": false,
+  "bypass_used": true,
+  "bypass_description": "the real require_simple_library, shown a spoofed version string",
+  "source": {
+    "sha256": "19d088455f692cc86f3d4f70c5fc74fd039d1efca0ce22f80f25547b8b876dcb",
+    "bytes": 4524,
+    "version": "12.13.11.1"
+  },
+  "playlists_before": [
+    "####!####",
+    "Downloaded",
+    "Music",
+    "Music Videos",
+    "TV & Movies",
+    "Rentals",
+    "Downloaded",
+    "Movies",
+    "Home Videos",
+    "Downloaded",
+    "TV Shows",
+    "Podcasts",
+    "Audiobooks",
+    "Genius"
+  ],
+  "requested": {
+    "name": "exp03-itlkit-playlist",
+    "track_persistent_ids": [
+      "C54F0D3E83DBDA0F"
+    ]
+  },
+  "outcome": "BUILT",
+  "candidate": {
+    "sha256": "109a09644c3a27d3a297f004c4c6cc9874c06974a16c153fa95ebfb7122406c6",
+    "bytes": 3520,
+    "version_after_build": "12.13.11.1",
+    "version_preserved": true,
+    "playlists_after": [
+      "####!####",
+      "Downloaded",
+      "Music",
+      "Music Videos",
+      "TV & Movies",
+      "Rentals",
+      "Downloaded",
+      "Movies",
+      "Home Videos",
+      "Downloaded",
+      "TV Shows",
+      "Podcasts",
+      "Audiobooks",
+      "Genius",
+      "exp03-itlkit-playlist"
+    ]
+  },
+  "reread": {
+    "tracks": 1,
+    "playlists": 15,
+    "contains_new_name": true
+  }
+}
