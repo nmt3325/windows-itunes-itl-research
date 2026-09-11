@@ -65,3 +65,32 @@ constructed record, and amended a05's parametrization to distinguish three
 things: allowlisted carrier membership, unknown-chunk membership, and the
 derived `embedded_metadata_present`. a05's inventory document was amended to
 state the same rule.
+
+## D6. Publication defects the coordinator introduced, and the gate that now catches them
+
+Three defects were introduced by the coordinator, not by any task, while
+preparing this integration for publication. They are recorded because the
+integrity of the corpus depends on knowing which bytes were touched by whom.
+
+1. **A red branch was pushed.** Redacting the CI media path inside a10's three
+   sidecar JSON files broke `test_sidecar_inspect_json_matches_library_summary`,
+   which compared a redacted sidecar against a summary recomputed from the
+   untouched native bytes. The branch was pushed anyway because the push guard
+   only checked the redaction result. Fixed by normalising path-bearing fields
+   in the comparison and adding a test that pins both the redaction and the
+   retained media file name.
+2. **A syntax error was pushed.** The follow-up guard tested the pytest summary
+   line for the word `failed`, so a collection-time `SyntaxError` reported as
+   `1 error` passed the guard. Fixed in the source and in the guard.
+3. **The leak gate was scoped too narrowly.** Earlier integration gates scanned
+   only `HEAD~1..HEAD`, so identifiers inside files contributed by already
+   merged branches were never examined. The first scan of the whole
+   `BASE..HEAD` range found five runner identifiers, in the coordinator's own
+   resumption addendum and in a07's quoted section 4 values, plus five absolute
+   CI paths inherited from earlier phases in `scripts/static/`.
+
+The push gate is therefore now three conditions, all required: the full
+`BASE..HEAD` range scans clean, the gated suite reports `passed` with neither
+`failed` nor `error`, and the redaction mapping in `docs/g4/redaction-policy.md`
+is the one applied. Pseudonymisation never touches `.itl` bytes; the four a10
+captures were scanned in UTF-8 and UTF-16 and contain no identifier at all.
