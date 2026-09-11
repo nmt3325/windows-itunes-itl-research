@@ -89,7 +89,7 @@ time the harness enumerated them:
 | 2 | Music | 2 | 6 | 1 |
 | 3 | Movies | 2 | 7 | 0 |
 | 4 | TV Shows | 2 | 8 | 0 |
-| 5 | Podcasts | 2 | 9 is Audiobooks; this row is 3, Podcasts | 0 |
+| 5 | Podcasts | 2 | 3 | 0 |
 | 6 | Audiobooks | 2 | 9 | 0 |
 | 7 | Genius | 2 | 11 | 0 |
 
