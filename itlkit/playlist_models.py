@@ -7,10 +7,8 @@ from __future__ import annotations
 
 from collections import Counter
 from collections.abc import Mapping
-from dataclasses import dataclass, field, fields, is_dataclass
+from dataclasses import dataclass, field
 import hashlib
-import io
-import json
 
 __all__ = ["PlaylistLimitError", "Diagnostic", "RawSpan", "WireField",
            "SmartRule", "SmartTree", "MetadataOccurrence", "EntryModel",
@@ -615,8 +613,15 @@ def models_json(model, *, limits=None, include_raw=False) -> str:
     """Bounded diagnostic JSON, never library.v1 or an executable write plan.
 
     Spans are offsets into one optional root payload_hex, not repeated raw copies.
-    Limits bound UTF8 output and a conservative export-memory estimate.
+    Physical model budgets are checked here; the shared schema.encode_json
+    preflight then admits keys, strings and the ASCII expansion before anything
+    is encoded. Keys are emitted sorted, while array order and duplicate
+    occurrences are preserved. Budgets are declared estimates, not an RSS,
+    locking, concurrency or native guarantee.
     """
+    # Local import: the limits protocol above stays independent of the shared
+    # schema class, while the export reuses its single JSON admission.
+    from .schema import LimitError, ReadLimits, encode_json
     lim = _limits(limits)
     if not isinstance(model, (PlaylistDocument, SmartTree)) or type(include_raw) is not bool:
         raise TypeError("expected a playlist document or smart tree and boolean include_raw")
@@ -648,26 +653,27 @@ def models_json(model, *, limits=None, include_raw=False) -> str:
         raise PlaylistLimitError("estimated export memory budget")
     if include_raw and 2 * raw.size > lim["max_json_bytes"]:
         raise PlaylistLimitError("JSON byte budget")
-
-    def default(value):
-        if isinstance(value, RawSpan):
-            return {"offset": value.offset, "size": value.size}
-        if is_dataclass(value):
-            return {f.name: getattr(value, f.name) for f in fields(value) if not f.name.startswith("_")}
-        raise TypeError("not a model value")
-
     document = {"model": model}
     if include_raw:
         if estimated + 6 * raw.size > lim["memory_budget_bytes"]:
             raise PlaylistLimitError("estimated export memory budget")
         document["payload_hex"] = raw.read().hex()
         document["payload_base_offset"] = raw.offset
-    encoder, output, count = json.JSONEncoder(default=default, ensure_ascii=True, separators=(",", ":")), io.StringIO(), 0
-    for chunk in encoder.iterencode(document):
-        count += len(chunk)  # ASCII JSON, including all string escapes.
-        if count > lim["max_json_bytes"]:
-            raise PlaylistLimitError("JSON byte budget")
-        if estimated + 8 * count > lim["memory_budget_bytes"]:
-            raise PlaylistLimitError("estimated export memory budget")
-        output.write(chunk)
-    return output.getvalue()
+    # Retained model memory is already spent, so only the remainder may fund the
+    # export, and that remainder caps the output. The shared preflight admits
+    # keys, strings and the ASCII expansion BEFORE anything is encoded or copied
+    # instead of counting chunks afterwards, so JSON keys and payload_hex are
+    # charged to the shared text budget too. Physical depth stays 1..64 here and
+    # is only mapped onto the shared core ceiling of 32; it is never raised.
+    remaining = lim["memory_budget_bytes"] - estimated
+    cap = min(lim["max_json_bytes"], remaining // 8)
+    if cap < 1:
+        raise PlaylistLimitError("estimated export memory budget")
+    shared = ReadLimits(**dict(lim, max_depth=min(lim["max_depth"], 32),
+                               max_json_bytes=cap, memory_budget_bytes=remaining))
+    try:
+        return encode_json(document, limits=shared).decode("ascii")
+    except LimitError as exc:
+        # One export vocabulary: a shared budget refusal is reported as the
+        # playlist limit error callers already handle.
+        raise PlaylistLimitError("export JSON budget") from exc

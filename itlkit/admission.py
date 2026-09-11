@@ -147,14 +147,20 @@ def _ids_and_refs(tracks: list[Node], playlists: list[Playlist], sections: dict[
     known = _unique((uint(n.header, 16) for n in tracks), 'track local ID')
     _unique((uint(n.header, 0x80, 8) for n in tracks), 'track persistent ID')
     _unique((uint(n.header, 0x1f4) for n in tracks), 'secondary track ID')
-    for kind, root_tag, record_tag, pid_size, reference_offset in (
+    for kind, root_tag, record_tag, header_size, reference_offset in (
         (9, b'mlah', b'miah', 88, 0xdc), (11, b'mlih', b'miih', 100, 0x1e0)
     ):
         root = _root(sections, kind, root_tag)
-        records = [] if root is None else [n for n in root.children if n.tag == record_tag]
+        records = [] if root is None else root.children
+        # Qualify every auxiliary record BEFORE reading any identity from it.
+        # An unknown tag, kind, header width, or an absent child list used to
+        # skip persistent-ID validation while still contributing a local ID.
+        for node in records:
+            if (node.tag != record_tag or node.kind != 'total' or
+                    len(node.header) != header_size or node.children is None):
+                _unsupported('unqualified direct auxiliary album/artist shape')
         local = _unique((uint(n.header, 16) for n in records), 'album/artist local ID')
-        _unique((uint(n.header, 20, 8) for n in records if len(n.header) == pid_size),
-                'album/artist persistent ID')
+        _unique((uint(n.header, 20, 8) for n in records), 'album/artist persistent ID')
         for track in tracks:
             value = uint(track.header, reference_offset)
             if value and value not in local:
