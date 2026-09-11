@@ -1,7 +1,7 @@
 from pathlib import Path
 from collections import defaultdict,Counter
 import re,json,hashlib
-root=Path(r'D:\a\_temp\gha-mcp\WINDOWS_RESEARCH_RUN\work\itl');r=root/'reports/static';out=r/'phase2';chunks=[]
+root=Path(r'<CI_TEMP_WIN>\<CI_BROKER>\WINDOWS_RESEARCH_RUN\work\itl');r=root/'reports/static';out=r/'phase2';chunks=[]
 for name,pat in [('0107b460.c',r'1e002(?:70|c0|d8)|\+ 0x(?:e0|e4|e8|ec|f0|f4|f8)\b'),('0106daf0.c',r'0xa003(?:b8|bc|c0|c4|c8|cc|d0)\b')]:
  ls=(r/'decompiled'/name).read_text().splitlines();keep=set()
  for i,l in enumerate(ls):

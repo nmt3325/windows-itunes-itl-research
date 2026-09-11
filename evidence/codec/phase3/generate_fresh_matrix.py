@@ -94,7 +94,7 @@ def oracle(data):
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument('--root', type=Path, default=Path(r'D:\a\_temp\gha-mcp\WINDOWS_RESEARCH_RUN\work\itl'))
+    parser.add_argument('--root', type=Path, default=Path(r'<CI_TEMP_WIN>\<CI_BROKER>\WINDOWS_RESEARCH_RUN\work\itl'))
     parser.add_argument('--codec-dir', type=Path)
     parser.add_argument('--out', type=Path, default=HERE / 'generated')
     args = parser.parse_args()

@@ -3,7 +3,7 @@ from pathlib import Path
 from collections import Counter
 import json,hashlib,zlib,runpy,datetime
 from Crypto.Cipher import AES
-ROOT=Path(r'D:\a\_temp\gha-mcp\WINDOWS_RESEARCH_RUN\work\itl');R=ROOT/'reports/static';O=R/'phase4';LIMIT=64*1024*1024
+ROOT=Path(r'<CI_TEMP_WIN>\<CI_BROKER>\WINDOWS_RESEARCH_RUN\work\itl');R=ROOT/'reports/static';O=R/'phase4';LIMIT=64*1024*1024
 sha=lambda b:hashlib.sha256(b).hexdigest()
 helper=R/'phase2/census_snapshots.py';assert sha(helper.read_bytes())=='377d6d9a3895c443eb86a517975d0d1281150f5ccfb44eb0244d8647bed2a6f4'
 inspect=runpy.run_path(str(helper),run_name='phase4_readonly_helper')['inspect']

@@ -3,7 +3,7 @@ import json,hashlib,bisect,struct
 import pefile
 from capstone import Cs,CS_ARCH_X86,CS_MODE_64,CS_AC_WRITE
 from capstone.x86 import X86_OP_MEM,X86_OP_IMM
-ROOT=Path(r'D:\a\_temp\gha-mcp\WINDOWS_RESEARCH_RUN\work\itl');R=ROOT/'reports/static';OUT=R/'phase3/scan-extra';OUT.mkdir(exist_ok=True)
+ROOT=Path(r'<CI_TEMP_WIN>\<CI_BROKER>\WINDOWS_RESEARCH_RUN\work\itl');R=ROOT/'reports/static';OUT=R/'phase3/scan-extra';OUT.mkdir(exist_ok=True)
 EXE=Path(r'C:\Program Files\iTunes\iTunes.exe');raw=EXE.read_bytes()
 assert hashlib.sha256(raw).hexdigest()=='30d91209b5d81c47bbad2da9d89764fcab08bf5cd9af1a9571668001376c5d7d'
 pe=pefile.PE(data=raw,fast_load=True);base=pe.OPTIONAL_HEADER.ImageBase

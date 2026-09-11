@@ -1,5 +1,5 @@
 # Bounded reproduction
-Use explicit cwd D:\a\_temp\gha-mcp\WINDOWS_RESEARCH_RUN\work\itl\wt\static and pwsh.
+Use explicit cwd <CI_TEMP_WIN>\<CI_BROKER>\WINDOWS_RESEARCH_RUN\work\itl\wt\static and pwsh.
 Set PYTHONDONTWRITEBYTECODE=1, PYTHONIOENCODING=utf-8, GIT_OPTIONAL_LOCKS=0.
 Run the shared interpreter read-only with -B:
   ROOT\tools\py\Scripts\python.exe -B -u ROOT\reports\static\phase4\resume_verify.py

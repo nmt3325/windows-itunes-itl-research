@@ -2,7 +2,7 @@ from pathlib import Path
 import sys,json,hashlib,datetime,zlib,struct
 import pefile,capstone
 from Crypto.Cipher import AES
-root=Path(r'D:\a\_temp\gha-mcp\WINDOWS_RESEARCH_RUN\work\itl');r=root/'reports/static';out=r/'phase2'
+root=Path(r'<CI_TEMP_WIN>\<CI_BROKER>\WINDOWS_RESEARCH_RUN\work\itl');r=root/'reports/static';out=r/'phase2'
 exe=Path(r'C:\Program Files\iTunes\iTunes.exe');blob=exe.read_bytes();sha=hashlib.sha256(blob).hexdigest();assert sha=='30d91209b5d81c47bbad2da9d89764fcab08bf5cd9af1a9571668001376c5d7d'
 pe=pefile.PE(data=blob,fast_load=True);cs=capstone.Cs(capstone.CS_ARCH_X86,capstone.CS_MODE_64);base=pe.OPTIONAL_HEADER.ImageBase
 G={int(k,16):v for k,v in json.loads((r/'function_groups.json').read_text()).items()}

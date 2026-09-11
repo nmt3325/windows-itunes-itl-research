@@ -152,7 +152,7 @@ zlib1.dll SHA256: `768f2f27015e7244a20952fa423b7aa1adc32ca3e04167886bd1cb5ed9a7b
 ### 実行上の例外を隠さない
 
 1. 最初のGhidra importは成功したがscript lookupは失敗した（launcher exit0でも成功扱いしなかった）。script専用directoryへ隔離し、既存projectを処理して解決。ログ保持。
-2. 最初のimportでGhidraがrunnerの `C:\Users\runneradmin\AppData\Roaming\ghidra\ghidra_12.1.3_PUBLIC\symbols\win64` に自動export cacheを作った。**許可された書込root外への副作用**として記録する。以後APPDATA/LOCALAPPDATAもtools/static/homeへ隔離した。共有cacheの削除等はしていない。原本・production sourceの改変はない。
+2. 最初のimportでGhidraがrunnerの `<CI_HOME>\AppData\Roaming\ghidra\ghidra_12.1.3_PUBLIC\symbols\win64` に自動export cacheを作った。**許可された書込root外への副作用**として記録する。以後APPDATA/LOCALAPPDATAもtools/static/homeへ隔離した。共有cacheの削除等はしていない。原本・production sourceの改変はない。
 3. 最初のオフライン実験はFIPS encrypt/decrypt成功後、未解決memmove importで停止した。PE importを確認して純メモリmodelを追加し、41 tests成功。失敗ログも保存。
 4. 親へのメッセージ送信は配送エラーだったため、この指定report directoryを引継面とする。自己conversation UUIDは確証を得られず、keep-me-awakeは設定していない。推測IDで設定していない。
 

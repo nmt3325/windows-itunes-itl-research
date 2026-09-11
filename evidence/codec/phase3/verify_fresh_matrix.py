@@ -88,7 +88,7 @@ def expected_api_payload(source,fields):
 def main():
  ap=argparse.ArgumentParser(description=__doc__);ap.add_argument('--generated',type=Path,default=P/'generated');args=ap.parse_args();folder=args.generated
  manifest_bytes=(folder/'manifest.json').read_bytes();m=json.loads(manifest_bytes);cases=m['candidates'];assert len(cases)==12
- root=Path(r'D:\a\_temp\gha-mcp\WINDOWS_RESEARCH_RUN\work\itl');source_path=root/'fixtures/dynamic/snapshots/003-three-tracks-reloaded.itl';source_data=source_path.read_bytes();assert sha(source_data)==SOURCE
+ root=Path(r'<CI_TEMP_WIN>\<CI_BROKER>\WINDOWS_RESEARCH_RUN\work\itl');source_path=root/'fixtures/dynamic/snapshots/003-three-tracks-reloaded.itl';source_data=source_path.read_bytes();assert sha(source_data)==SOURCE
  sh,source=envelope(source_data);baseline_expected=expected_api_payload(source,FRESH);bt=alpha(baseline_expected);bn=title(bt);result=[]
  assert {(c['raw_factors']['A'],c['raw_factors']['B'],c['raw_factors']['C']) for c in cases if c['category']=='factorial'}==set(itertools.product((0,1),repeat=3))
  for row in cases:

@@ -1,7 +1,7 @@
 from pathlib import Path
 from collections import defaultdict,Counter
 import json,re,hashlib,subprocess,sys
-root=Path(r'D:\a\_temp\gha-mcp\WINDOWS_RESEARCH_RUN\work\itl');r=root/'reports/static';out=r/'phase2'
+root=Path(r'<CI_TEMP_WIN>\<CI_BROKER>\WINDOWS_RESEARCH_RUN\work\itl');r=root/'reports/static';out=r/'phase2'
 p=out/'census_snapshots.py';s=p.read_text(encoding='utf-8-sig');old='[0x10,0x14,0x120,0x134,0x174,0x290';new='[0x10,0x14,0xdc,0x1e0,0x120,0x134,0x174,0x290'
 assert s.count(old)==1 or new in s
 if old in s:s=s.replace(old,new);p.write_text(s,encoding='utf-8')

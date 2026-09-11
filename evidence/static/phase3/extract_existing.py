@@ -1,6 +1,6 @@
 from pathlib import Path
 import json, re, hashlib, sqlite3
-ROOT=Path(r'D:\a\_temp\gha-mcp\WINDOWS_RESEARCH_RUN\work\itl')
+ROOT=Path(r'<CI_TEMP_WIN>\<CI_BROKER>\WINDOWS_RESEARCH_RUN\work\itl')
 R=ROOT/'reports/static'; OUT=R/'phase3'
 out=[]
 def span(file,a,b):

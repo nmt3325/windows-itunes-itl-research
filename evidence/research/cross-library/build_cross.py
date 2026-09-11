@@ -3,7 +3,7 @@ import sys,json,hashlib,copy,zlib,collections,datetime,os,io,wave
 from pathlib import Path
 sys.dont_write_bytecode=True
 if not __debug__:raise RuntimeError('Validation requires non-optimized Python')
-ROOT=Path(r'D:\a\_temp\gha-mcp\WINDOWS_RESEARCH_RUN\work\itl')
+ROOT=Path(r'<CI_TEMP_WIN>\<CI_BROKER>\WINDOWS_RESEARCH_RUN\work\itl')
 OUT=ROOT/'reports/crud-research/phase3'
 sys.path.insert(0,str(OUT/'core-snapshot'))
 from itlkit import Library

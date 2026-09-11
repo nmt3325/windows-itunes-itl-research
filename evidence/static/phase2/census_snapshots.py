@@ -3,7 +3,7 @@ from pathlib import Path
 from collections import Counter
 import hashlib,json,datetime,re,zlib
 from Crypto.Cipher import AES
-ROOT=Path(r'D:\a\_temp\gha-mcp\WINDOWS_RESEARCH_RUN\work\itl')
+ROOT=Path(r'<CI_TEMP_WIN>\<CI_BROKER>\WINDOWS_RESEARCH_RUN\work\itl')
 OUT=ROOT/'reports/static/phase2';SOURCE=ROOT/'fixtures/dynamic/snapshots'
 LIMIT=64*1024*1024
 sha=lambda b:hashlib.sha256(b).hexdigest()

@@ -1,7 +1,7 @@
 from pathlib import Path
 import json,hashlib,runpy,zlib,datetime
 from Crypto.Cipher import AES
-ROOT=Path(r'D:\a\_temp\gha-mcp\WINDOWS_RESEARCH_RUN\work\itl');OUT=ROOT/'reports/static/phase3'
+ROOT=Path(r'<CI_TEMP_WIN>\<CI_BROKER>\WINDOWS_RESEARCH_RUN\work\itl');OUT=ROOT/'reports/static/phase3'
 # The previously read source has a main guard. Loading this name invokes no census or write.
 mod=runpy.run_path(str(ROOT/'reports/static/phase2/census_snapshots.py'),run_name='phase2_readonly_helpers')
 sha=lambda b:hashlib.sha256(b).hexdigest()

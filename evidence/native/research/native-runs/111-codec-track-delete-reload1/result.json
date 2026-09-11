@@ -4,7 +4,7 @@
     "name": "111-codec-track-delete-reload1",
     "expected_before": 2,
     "expected_after": 2,
-    "expected_state": "D:\\a\\_temp\\gha-mcp\\WINDOWS_RESEARCH_RUN\\work\\itl\\reports\\dynamic\\acceptance\\111-codec-track-delete\\expected.json",
+    "expected_state": "<CI_TEMP_WIN>\\<CI_BROKER>\\WINDOWS_RESEARCH_RUN\\work\\itl\\reports\\dynamic\\acceptance\\111-codec-track-delete\\expected.json",
     "action": {
       "kind": "snapshot"
     }
@@ -75,24 +75,24 @@
   "prelaunch_sha256": "97c1fc67d8aca300241d47b4c2b5ce00a0ddce6504c523ebc5c13074de54a864",
   "itunes_pid": 1888,
   "worker_command": [
-    "D:\\a\\_temp\\gha-mcp\\WINDOWS_RESEARCH_RUN\\work\\itl\\tools\\py\\Scripts\\python.exe",
+    "<CI_TEMP_WIN>\\<CI_BROKER>\\WINDOWS_RESEARCH_RUN\\work\\itl\\tools\\py\\Scripts\\python.exe",
     "-u",
-    "D:\\a\\_temp\\gha-mcp\\WINDOWS_RESEARCH_RUN\\work\\itl\\wt\\dynamic\\scripts\\windows\\native_worker.py",
+    "<CI_TEMP_WIN>\\<CI_BROKER>\\WINDOWS_RESEARCH_RUN\\work\\itl\\wt\\dynamic\\scripts\\windows\\native_worker.py",
     "--root",
-    "D:\\a\\_temp\\gha-mcp\\WINDOWS_RESEARCH_RUN\\work\\itl\\fixtures\\dynamic",
+    "<CI_TEMP_WIN>\\<CI_BROKER>\\WINDOWS_RESEARCH_RUN\\work\\itl\\fixtures\\dynamic",
     "--output",
-    "D:\\a\\_temp\\gha-mcp\\WINDOWS_RESEARCH_RUN\\work\\itl\\reports\\dynamic\\native-runs\\111-codec-track-delete-reload1\\com.json",
+    "<CI_TEMP_WIN>\\<CI_BROKER>\\WINDOWS_RESEARCH_RUN\\work\\itl\\reports\\dynamic\\native-runs\\111-codec-track-delete-reload1\\com.json",
     "--action",
-    "D:\\a\\_temp\\gha-mcp\\WINDOWS_RESEARCH_RUN\\work\\itl\\reports\\dynamic\\native-runs\\111-codec-track-delete-reload1\\action.json",
+    "<CI_TEMP_WIN>\\<CI_BROKER>\\WINDOWS_RESEARCH_RUN\\work\\itl\\reports\\dynamic\\native-runs\\111-codec-track-delete-reload1\\action.json",
     "--quit",
     "--expect-count",
     "2",
     "--expect-state",
-    "D:\\a\\_temp\\gha-mcp\\WINDOWS_RESEARCH_RUN\\work\\itl\\reports\\dynamic\\acceptance\\111-codec-track-delete\\expected.json"
+    "<CI_TEMP_WIN>\\<CI_BROKER>\\WINDOWS_RESEARCH_RUN\\work\\itl\\reports\\dynamic\\acceptance\\111-codec-track-delete\\expected.json"
   ],
   "worker_exit_code": 0,
   "itunes_exit_code": 0,
-  "fixture_path": "D:\\a\\_temp\\gha-mcp\\WINDOWS_RESEARCH_RUN\\work\\itl\\fixtures\\dynamic\\snapshots\\111-codec-track-delete-reload1.itl",
+  "fixture_path": "<CI_TEMP_WIN>\\<CI_BROKER>\\WINDOWS_RESEARCH_RUN\\work\\itl\\fixtures\\dynamic\\snapshots\\111-codec-track-delete-reload1.itl",
   "fixture_sha256": "00ce877fcefe5fab71a8b34bb96a00b831de3f6c3dbe4177ac5e979108ad17b7",
   "fixture_bytes": 5239,
   "observed": {
@@ -131,7 +131,7 @@
         "Compilation": true,
         "Enabled": true,
         "VolumeAdjustment": 0,
-        "Location": "D:\\a\\_temp\\gha-mcp\\WINDOWS_RESEARCH_RUN\\work\\itl\\fixtures\\dynamic\\media\\alpha.wav",
+        "Location": "<CI_TEMP_WIN>\\<CI_BROKER>\\WINDOWS_RESEARCH_RUN\\work\\itl\\fixtures\\dynamic\\media\\alpha.wav",
         "Duration": 1,
         "SampleRate": 44100,
         "BitRate": 705,
@@ -175,7 +175,7 @@
         "Compilation": false,
         "Enabled": true,
         "VolumeAdjustment": 0,
-        "Location": "D:\\a\\_temp\\gha-mcp\\WINDOWS_RESEARCH_RUN\\work\\itl\\fixtures\\dynamic\\media\\gamma.wav",
+        "Location": "<CI_TEMP_WIN>\\<CI_BROKER>\\WINDOWS_RESEARCH_RUN\\work\\itl\\fixtures\\dynamic\\media\\gamma.wav",
         "Duration": 1,
         "SampleRate": 44100,
         "BitRate": 705,

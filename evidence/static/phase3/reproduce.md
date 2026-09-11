@@ -1,9 +1,9 @@
 # Reproduction
-Use pwsh; every command cwd is D:\a\_temp\gha-mcp\WINDOWS_RESEARCH_RUN\work\itl\wt\static.
+Use pwsh; every command cwd is <CI_TEMP_WIN>\<CI_BROKER>\WINDOWS_RESEARCH_RUN\work\itl\wt\static.
 No iTunes/COM/UI/live attach, no production writes, no other-owner scripts or candidates.
 Do not run earlier phase1/phase2 finalizers/censuses.
 
-$root='D:\a\_temp\gha-mcp\WINDOWS_RESEARCH_RUN\work\itl'
+$root='<CI_TEMP_WIN>\<CI_BROKER>\WINDOWS_RESEARCH_RUN\work\itl'
 $env:PYTHONIOENCODING='utf-8';$env:PYTHONDONTWRITEBYTECODE='1';$env:GIT_OPTIONAL_LOCKS='0'
 $py="$root\tools\py\Scripts\python.exe"
 & $py -B -u "$root\reports\static\phase3\prepare_targets.py"

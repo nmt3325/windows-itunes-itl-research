@@ -1,6 +1,6 @@
 {
   "argv": [
-    "D:\\a\\_temp\\gha-mcp\\WINDOWS_RESEARCH_RUN\\work\\itl\\reports\\media\\tools\\ffmpeg-8.1.2\\bin\\ffmpeg.exe",
+    "<CI_TEMP_WIN>\\<CI_BROKER>\\WINDOWS_RESEARCH_RUN\\work\\itl\\reports\\media\\tools\\ffmpeg-8.1.2\\bin\\ffmpeg.exe",
     "-hide_banner",
     "-loglevel",
     "error",
@@ -13,7 +13,7 @@
     "-filter_complex_threads",
     "1",
     "-i",
-    "D:\\a\\_temp\\gha-mcp\\WINDOWS_RESEARCH_RUN\\work\\itl\\reports\\media\\encoded-v2\\primary\\inputs\\media-aac-m4a-source.wav",
+    "<CI_TEMP_WIN>\\<CI_BROKER>\\WINDOWS_RESEARCH_RUN\\work\\itl\\reports\\media\\encoded-v2\\primary\\inputs\\media-aac-m4a-source.wav",
     "-map",
     "0:a:0",
     "-map_metadata",
@@ -38,7 +38,7 @@
     "artist=ITL Synthetic Artist 04",
     "-metadata",
     "album=ITL Media Album 04",
-    "D:\\a\\_temp\\gha-mcp\\WINDOWS_RESEARCH_RUN\\work\\itl\\reports\\media\\encoded-v2\\primary\\media\\itl_media_04_aac.m4a"
+    "<CI_TEMP_WIN>\\<CI_BROKER>\\WINDOWS_RESEARCH_RUN\\work\\itl\\reports\\media\\encoded-v2\\primary\\media\\itl_media_04_aac.m4a"
   ],
   "exit_code": 0,
   "stderr": "",

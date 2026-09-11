@@ -6,7 +6,7 @@ import copy,hashlib,json,struct,zlib,subprocess
 from Crypto.Cipher import AES
 from itlkit import Library,Container,FormatError
 from itlkit.library import text_nodes
-R=Path(r'D:\a\_temp\gha-mcp\WINDOWS_RESEARCH_RUN\work\itl');W=R/'wt/codec';O=R/'reports/codec';P=O/'compatibility';P.mkdir(exist_ok=True)
+R=Path(r'<CI_TEMP_WIN>\<CI_BROKER>\WINDOWS_RESEARCH_RUN\work\itl');W=R/'wt/codec';O=R/'reports/codec';P=O/'compatibility';P.mkdir(exist_ok=True)
 def sha(b):return hashlib.sha256(b).hexdigest()
 def out(p,b):
  with p.open('xb') as f:f.write(b)

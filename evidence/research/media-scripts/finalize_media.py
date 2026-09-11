@@ -49,7 +49,7 @@ Known generated files are 1.5 seconds, 44100 Hz, mono, signed PCM16. WAV is litt
 
 From the assigned media worktree, with pwsh and PYTHONDONTWRITEBYTECODE=1:
 
-    & "D:\a\_temp\gha-mcp\WINDOWS_RESEARCH_RUN\work\itl\tools\py\Scripts\python.exe" -B "D:\a\_temp\gha-mcp\WINDOWS_RESEARCH_RUN\work\itl\reports\media\scripts\generate_media.py" --set-name pcm-v1 --verify
+    & "<CI_TEMP_WIN>\<CI_BROKER>\WINDOWS_RESEARCH_RUN\work\itl\tools\py\Scripts\python.exe" -B "<CI_TEMP_WIN>\<CI_BROKER>\WINDOWS_RESEARCH_RUN\work\itl\reports\media\scripts\generate_media.py" --set-name pcm-v1 --verify
 
 For byte-reproduction, use a new ASCII set name, for example --set-name pcm-repro. Existing sets are refused; do not delete the accepted originals to rerun generation. The two resulting audio SHA256s should match the frozen manifest.
 

@@ -7,7 +7,7 @@ from ctypes import wintypes as w
 from unittest.mock import patch
 import argparse, base64, collections, copy, ctypes, hashlib, json, random, sys, time, traceback, zlib
 from Crypto.Cipher import AES
-ROOT=Path(r'D:\a\_temp\gha-mcp\WINDOWS_RESEARCH_RUN\work\itl')
+ROOT=Path(r'<CI_TEMP_WIN>\<CI_BROKER>\WINDOWS_RESEARCH_RUN\work\itl')
 OUT=ROOT/'reports/identities/phase2-fuzz'; SOURCE=OUT/'source'
 SHA='56069f1e2a17d9aea62c1d753b2bd93ed404a000'; SEED=0x20260909
 CAP=4*1024*1024; MEMORY=512*1024*1024; MAX_BATCH_SECONDS=100

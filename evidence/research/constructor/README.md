@@ -20,7 +20,7 @@ This is not `add_track_from`/same-lineage restoration. The independent native do
 ## Reproduction (assigned Windows worktree only)
 
 ```powershell
-$R='D:\a\_temp\gha-mcp\WINDOWS_RESEARCH_RUN\work\itl'
+$R='<CI_TEMP_WIN>\<CI_BROKER>\WINDOWS_RESEARCH_RUN\work\itl'
 Set-Location "$R\wt\add-constructor"
 $env:PYTHONDONTWRITEBYTECODE='1'
 & "$R\tools\py\Scripts\python.exe" -B "$R\reports\add-constructor\builder.py" --verify-existing

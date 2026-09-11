@@ -3,10 +3,10 @@
   "spec": {
     "name": "fresh-constructed-wav-003-v2",
     "classification": "fresh_constructed_wav",
-    "root": "D:\\a\\_temp\\gha-mcp\\WINDOWS_RESEARCH_RUN\\work\\itl\\fixtures\\dynamic",
-    "report": "D:\\a\\_temp\\gha-mcp\\WINDOWS_RESEARCH_RUN\\work\\itl\\reports\\dynamic\\phase3",
-    "live": "D:\\a\\_temp\\gha-mcp\\WINDOWS_RESEARCH_RUN\\work\\itl\\fixtures\\dynamic\\phase3\\live\\iTunes Library.itl",
-    "candidate": "D:\\a\\_temp\\gha-mcp\\WINDOWS_RESEARCH_RUN\\work\\itl\\reports\\add-constructor\\candidates\\fresh-003-v2.itl",
+    "root": "<CI_TEMP_WIN>\\<CI_BROKER>\\WINDOWS_RESEARCH_RUN\\work\\itl\\fixtures\\dynamic",
+    "report": "<CI_TEMP_WIN>\\<CI_BROKER>\\WINDOWS_RESEARCH_RUN\\work\\itl\\reports\\dynamic\\phase3",
+    "live": "<CI_TEMP_WIN>\\<CI_BROKER>\\WINDOWS_RESEARCH_RUN\\work\\itl\\fixtures\\dynamic\\phase3\\live\\iTunes Library.itl",
+    "candidate": "<CI_TEMP_WIN>\\<CI_BROKER>\\WINDOWS_RESEARCH_RUN\\work\\itl\\reports\\add-constructor\\candidates\\fresh-003-v2.itl",
     "sha256": "41a6a073db030a9ceb9e1a690420a0fa28b73cb0c675af005653f732df6c4a84",
     "file_persistent_id": "D2F61BE0A69CA302",
     "target_track": "62F368A925010BFC",
@@ -54,7 +54,7 @@
           "Compilation": false,
           "Enabled": true,
           "VolumeAdjustment": 0,
-          "Location": "D:\\a\\_temp\\gha-mcp\\WINDOWS_RESEARCH_RUN\\work\\itl\\fixtures\\dynamic\\media\\alpha.wav",
+          "Location": "<CI_TEMP_WIN>\\<CI_BROKER>\\WINDOWS_RESEARCH_RUN\\work\\itl\\fixtures\\dynamic\\media\\alpha.wav",
           "Duration": 1,
           "SampleRate": 44100,
           "BitRate": 705,
@@ -93,7 +93,7 @@
           "Compilation": false,
           "Enabled": true,
           "VolumeAdjustment": 0,
-          "Location": "D:\\a\\_temp\\gha-mcp\\WINDOWS_RESEARCH_RUN\\work\\itl\\fixtures\\dynamic\\media\\beta.wav",
+          "Location": "<CI_TEMP_WIN>\\<CI_BROKER>\\WINDOWS_RESEARCH_RUN\\work\\itl\\fixtures\\dynamic\\media\\beta.wav",
           "Duration": 1,
           "SampleRate": 44100,
           "BitRate": 705,
@@ -132,7 +132,7 @@
           "Compilation": false,
           "Enabled": true,
           "VolumeAdjustment": 0,
-          "Location": "D:\\a\\_temp\\gha-mcp\\WINDOWS_RESEARCH_RUN\\work\\itl\\fixtures\\dynamic\\media\\gamma.wav",
+          "Location": "<CI_TEMP_WIN>\\<CI_BROKER>\\WINDOWS_RESEARCH_RUN\\work\\itl\\fixtures\\dynamic\\media\\gamma.wav",
           "Duration": 1,
           "SampleRate": 44100,
           "BitRate": 705,
@@ -171,7 +171,7 @@
           "Compilation": false,
           "Enabled": true,
           "VolumeAdjustment": 0,
-          "Location": "D:\\a\\_temp\\gha-mcp\\WINDOWS_RESEARCH_RUN\\work\\itl\\fixtures\\dynamic\\phase3\\constructed-media\\fresh-constructor-003.wav",
+          "Location": "<CI_TEMP_WIN>\\<CI_BROKER>\\WINDOWS_RESEARCH_RUN\\work\\itl\\fixtures\\dynamic\\phase3\\constructed-media\\fresh-constructor-003.wav",
           "Duration": 1,
           "SampleRate": 44100,
           "BitRate": 705,
@@ -318,7 +318,7 @@
     ],
     "media": [
       {
-        "path": "D:\\a\\_temp\\gha-mcp\\WINDOWS_RESEARCH_RUN\\work\\itl\\fixtures\\dynamic\\media\\alpha.wav",
+        "path": "<CI_TEMP_WIN>\\<CI_BROKER>\\WINDOWS_RESEARCH_RUN\\work\\itl\\fixtures\\dynamic\\media\\alpha.wav",
         "bytes": 88244,
         "sha256": "c9ca928550abefdb3d209b6d0f4ea067a64b85924be5eca2475da3d40dbe2920",
         "mtime_ns": 1788952792633317400,
@@ -326,7 +326,7 @@
         "file_attributes": 32
       },
       {
-        "path": "D:\\a\\_temp\\gha-mcp\\WINDOWS_RESEARCH_RUN\\work\\itl\\fixtures\\dynamic\\media\\beta.wav",
+        "path": "<CI_TEMP_WIN>\\<CI_BROKER>\\WINDOWS_RESEARCH_RUN\\work\\itl\\fixtures\\dynamic\\media\\beta.wav",
         "bytes": 88244,
         "sha256": "8ff22420cc586cfdaa5a865db713c3a2d92c2bcde2991a71cca447e314d5ce5a",
         "mtime_ns": 1788952792649909300,
@@ -334,7 +334,7 @@
         "file_attributes": 32
       },
       {
-        "path": "D:\\a\\_temp\\gha-mcp\\WINDOWS_RESEARCH_RUN\\work\\itl\\fixtures\\dynamic\\media\\gamma.wav",
+        "path": "<CI_TEMP_WIN>\\<CI_BROKER>\\WINDOWS_RESEARCH_RUN\\work\\itl\\fixtures\\dynamic\\media\\gamma.wav",
         "bytes": 88244,
         "sha256": "de7fa062391c8d6ef91385f64d4d04bf990f4ea5c743cc535d305edbc0b34136",
         "mtime_ns": 1788952792664977600,
@@ -342,7 +342,7 @@
         "file_attributes": 32
       },
       {
-        "path": "D:\\a\\_temp\\gha-mcp\\WINDOWS_RESEARCH_RUN\\work\\itl\\fixtures\\dynamic\\phase3\\constructed-media\\fresh-constructor-003.wav",
+        "path": "<CI_TEMP_WIN>\\<CI_BROKER>\\WINDOWS_RESEARCH_RUN\\work\\itl\\fixtures\\dynamic\\phase3\\constructed-media\\fresh-constructor-003.wav",
         "bytes": 88244,
         "sha256": "2c2d55b585f92d6ddce719234fbe5946279488cda3b68299325f32ccdcc78642",
         "mtime_ns": 1788962400000000000,
@@ -361,42 +361,42 @@
     ],
     "inputs": [
       {
-        "path": "D:\\a\\_temp\\gha-mcp\\WINDOWS_RESEARCH_RUN\\work\\itl\\reports\\dynamic\\phase3\\continuation-constructor-v2-requests.pinned.json",
+        "path": "<CI_TEMP_WIN>\\<CI_BROKER>\\WINDOWS_RESEARCH_RUN\\work\\itl\\reports\\dynamic\\phase3\\continuation-constructor-v2-requests.pinned.json",
         "bytes": 70887,
         "mtime_ns": 1788967969166782500,
         "sha256": "0a7aec91e754aada2d8d124be5d11b72baa070aeb744a2fa8b30451d2bc516da",
         "file_attributes": 32
       },
       {
-        "path": "D:\\a\\_temp\\gha-mcp\\WINDOWS_RESEARCH_RUN\\work\\itl\\reports\\add-constructor\\candidates\\fresh-003-v2.itl",
+        "path": "<CI_TEMP_WIN>\\<CI_BROKER>\\WINDOWS_RESEARCH_RUN\\work\\itl\\reports\\add-constructor\\candidates\\fresh-003-v2.itl",
         "bytes": 4025,
         "mtime_ns": 1788966876411576900,
         "sha256": "41a6a073db030a9ceb9e1a690420a0fa28b73cb0c675af005653f732df6c4a84",
         "file_attributes": 32
       },
       {
-        "path": "D:\\a\\_temp\\gha-mcp\\WINDOWS_RESEARCH_RUN\\work\\itl\\fixtures\\dynamic\\snapshots\\003-three-tracks-reloaded.itl",
+        "path": "<CI_TEMP_WIN>\\<CI_BROKER>\\WINDOWS_RESEARCH_RUN\\work\\itl\\fixtures\\dynamic\\snapshots\\003-three-tracks-reloaded.itl",
         "bytes": 4955,
         "mtime_ns": 1788952966576043200,
         "sha256": "a93cbc94da00eb60d1f5a45ac70af55948d4ecbae2ea735744af04b7b46128e4",
         "file_attributes": 32
       },
       {
-        "path": "D:\\a\\_temp\\gha-mcp\\WINDOWS_RESEARCH_RUN\\work\\itl\\reports\\dynamic\\native-runs\\003-three-tracks-reloaded\\com.json",
+        "path": "<CI_TEMP_WIN>\\<CI_BROKER>\\WINDOWS_RESEARCH_RUN\\work\\itl\\reports\\dynamic\\native-runs\\003-three-tracks-reloaded\\com.json",
         "bytes": 12098,
         "mtime_ns": 1788952957940538300,
         "sha256": "1c3d6a31aeba7d03b31fd4ea30146e04921db261427b2bf5e27154d7cb6cbd50",
         "file_attributes": 32
       },
       {
-        "path": "D:\\a\\_temp\\gha-mcp\\WINDOWS_RESEARCH_RUN\\work\\itl\\reports\\dynamic\\native-runs\\003-three-tracks-reloaded\\result.json",
+        "path": "<CI_TEMP_WIN>\\<CI_BROKER>\\WINDOWS_RESEARCH_RUN\\work\\itl\\reports\\dynamic\\native-runs\\003-three-tracks-reloaded\\result.json",
         "bytes": 8839,
         "mtime_ns": 1788952966577073800,
         "sha256": "36b63b5de4434a3e16284b36a9f64e7b40a1f6cfb3e96f1e5325a98cf04622e1",
         "file_attributes": 32
       },
       {
-        "path": "D:\\a\\_temp\\gha-mcp\\WINDOWS_RESEARCH_RUN\\work\\itl\\fixtures\\dynamic\\snapshots\\003-three-tracks-reloaded.itl",
+        "path": "<CI_TEMP_WIN>\\<CI_BROKER>\\WINDOWS_RESEARCH_RUN\\work\\itl\\fixtures\\dynamic\\snapshots\\003-three-tracks-reloaded.itl",
         "bytes": 4955,
         "mtime_ns": 1788952966576043200,
         "sha256": "a93cbc94da00eb60d1f5a45ac70af55948d4ecbae2ea735744af04b7b46128e4",
@@ -408,13 +408,13 @@
       30
     ],
     "not_after_utc": "2026-09-09T16:00:00+00:00",
-    "selection_evidence": "D:\\a\\_temp\\gha-mcp\\WINDOWS_RESEARCH_RUN\\work\\itl\\reports\\dynamic\\phase3\\089-selection.json",
+    "selection_evidence": "<CI_TEMP_WIN>\\<CI_BROKER>\\WINDOWS_RESEARCH_RUN\\work\\itl\\reports\\dynamic\\phase3\\089-selection.json",
     "producer_request": {
       "case_id": "fresh-constructed-wav-003-v2",
       "status": "offline_verified_native_pending",
       "intended_operation": "Append genuinely new synthesized local PCM WAV, not restore an existing track record/PID/path.",
       "candidate": {
-        "path": "D:\\a\\_temp\\gha-mcp\\WINDOWS_RESEARCH_RUN\\work\\itl\\reports\\add-constructor\\candidates\\fresh-003-v2.itl",
+        "path": "<CI_TEMP_WIN>\\<CI_BROKER>\\WINDOWS_RESEARCH_RUN\\work\\itl\\reports\\add-constructor\\candidates\\fresh-003-v2.itl",
         "bytes": 4025,
         "sha256": "41a6a073db030a9ceb9e1a690420a0fa28b73cb0c675af005653f732df6c4a84",
         "mtime_ns": 1788966876411576900,
@@ -422,7 +422,7 @@
         "file_attributes": 32
       },
       "baseline": {
-        "path": "D:\\a\\_temp\\gha-mcp\\WINDOWS_RESEARCH_RUN\\work\\itl\\fixtures\\dynamic\\snapshots\\003-three-tracks-reloaded.itl",
+        "path": "<CI_TEMP_WIN>\\<CI_BROKER>\\WINDOWS_RESEARCH_RUN\\work\\itl\\fixtures\\dynamic\\snapshots\\003-three-tracks-reloaded.itl",
         "bytes": 4955,
         "sha256": "a93cbc94da00eb60d1f5a45ac70af55948d4ecbae2ea735744af04b7b46128e4",
         "mtime_ns": 1788952966576043200,
@@ -430,7 +430,7 @@
         "file_attributes": 32
       },
       "native_baseline_oracle": {
-        "path": "D:\\a\\_temp\\gha-mcp\\WINDOWS_RESEARCH_RUN\\work\\itl\\reports\\dynamic\\native-runs\\003-three-tracks-reloaded\\com.json",
+        "path": "<CI_TEMP_WIN>\\<CI_BROKER>\\WINDOWS_RESEARCH_RUN\\work\\itl\\reports\\dynamic\\native-runs\\003-three-tracks-reloaded\\com.json",
         "bytes": 12098,
         "sha256": "1c3d6a31aeba7d03b31fd4ea30146e04921db261427b2bf5e27154d7cb6cbd50",
         "mtime_ns": 1788952957940538300,
@@ -438,7 +438,7 @@
         "file_attributes": 32
       },
       "native_baseline_provenance": {
-        "path": "D:\\a\\_temp\\gha-mcp\\WINDOWS_RESEARCH_RUN\\work\\itl\\reports\\dynamic\\native-runs\\003-three-tracks-reloaded\\result.json",
+        "path": "<CI_TEMP_WIN>\\<CI_BROKER>\\WINDOWS_RESEARCH_RUN\\work\\itl\\reports\\dynamic\\native-runs\\003-three-tracks-reloaded\\result.json",
         "bytes": 8839,
         "sha256": "36b63b5de4434a3e16284b36a9f64e7b40a1f6cfb3e96f1e5325a98cf04622e1",
         "mtime_ns": 1788952966577073800,
@@ -447,7 +447,7 @@
       },
       "template": {
         "source": {
-          "path": "D:\\a\\_temp\\gha-mcp\\WINDOWS_RESEARCH_RUN\\work\\itl\\fixtures\\dynamic\\snapshots\\003-three-tracks-reloaded.itl",
+          "path": "<CI_TEMP_WIN>\\<CI_BROKER>\\WINDOWS_RESEARCH_RUN\\work\\itl\\fixtures\\dynamic\\snapshots\\003-three-tracks-reloaded.itl",
           "bytes": 4955,
           "sha256": "a93cbc94da00eb60d1f5a45ac70af55948d4ecbae2ea735744af04b7b46128e4",
           "mtime_ns": 1788952966576043200,
@@ -458,7 +458,7 @@
       },
       "donor_track": null,
       "new_media": {
-        "path": "D:\\a\\_temp\\gha-mcp\\WINDOWS_RESEARCH_RUN\\work\\itl\\fixtures\\dynamic\\phase3\\constructed-media\\fresh-constructor-003.wav",
+        "path": "<CI_TEMP_WIN>\\<CI_BROKER>\\WINDOWS_RESEARCH_RUN\\work\\itl\\fixtures\\dynamic\\phase3\\constructed-media\\fresh-constructor-003.wav",
         "bytes": 88244,
         "sha256": "2c2d55b585f92d6ddce719234fbe5946279488cda3b68299325f32ccdcc78642",
         "mtime_ns": 1788962400000000000,
@@ -476,7 +476,7 @@
       },
       "old_media": [
         {
-          "path": "D:\\a\\_temp\\gha-mcp\\WINDOWS_RESEARCH_RUN\\work\\itl\\fixtures\\dynamic\\media\\alpha.wav",
+          "path": "<CI_TEMP_WIN>\\<CI_BROKER>\\WINDOWS_RESEARCH_RUN\\work\\itl\\fixtures\\dynamic\\media\\alpha.wav",
           "bytes": 88244,
           "sha256": "c9ca928550abefdb3d209b6d0f4ea067a64b85924be5eca2475da3d40dbe2920",
           "mtime_ns": 1788952792633317400,
@@ -484,7 +484,7 @@
           "file_attributes": 32
         },
         {
-          "path": "D:\\a\\_temp\\gha-mcp\\WINDOWS_RESEARCH_RUN\\work\\itl\\fixtures\\dynamic\\media\\beta.wav",
+          "path": "<CI_TEMP_WIN>\\<CI_BROKER>\\WINDOWS_RESEARCH_RUN\\work\\itl\\fixtures\\dynamic\\media\\beta.wav",
           "bytes": 88244,
           "sha256": "8ff22420cc586cfdaa5a865db713c3a2d92c2bcde2991a71cca447e314d5ce5a",
           "mtime_ns": 1788952792649909300,
@@ -492,7 +492,7 @@
           "file_attributes": 32
         },
         {
-          "path": "D:\\a\\_temp\\gha-mcp\\WINDOWS_RESEARCH_RUN\\work\\itl\\fixtures\\dynamic\\media\\gamma.wav",
+          "path": "<CI_TEMP_WIN>\\<CI_BROKER>\\WINDOWS_RESEARCH_RUN\\work\\itl\\fixtures\\dynamic\\media\\gamma.wav",
           "bytes": 88244,
           "sha256": "de7fa062391c8d6ef91385f64d4d04bf990f4ea5c743cc535d305edbc0b34136",
           "mtime_ns": 1788952792664977600,
@@ -518,7 +518,7 @@
           }
         },
         "name": "Fresh Constructed WAV 003",
-        "path": "D:\\a\\_temp\\gha-mcp\\WINDOWS_RESEARCH_RUN\\work\\itl\\fixtures\\dynamic\\phase3\\constructed-media\\fresh-constructor-003.wav",
+        "path": "<CI_TEMP_WIN>\\<CI_BROKER>\\WINDOWS_RESEARCH_RUN\\work\\itl\\fixtures\\dynamic\\phase3\\constructed-media\\fresh-constructor-003.wav",
         "changed_playlist_pids": [
           "04E2F2CF5464E974",
           "9751B29CECF5340B",
@@ -561,9 +561,9 @@
           "genre": null,
           "kind": "WAV audio file",
           "comment": null,
-          "url": "file://localhost/D:/a/_temp/gha-mcp/WINDOWS_RESEARCH_RUN/work/itl/fixtures/dynamic/media/alpha.wav",
+          "url": "file://localhost/<CI_TEMP_WIN>/<CI_BROKER>/WINDOWS_RESEARCH_RUN/work/itl/fixtures/dynamic/media/alpha.wav",
           "composer": null,
-          "path": "D:\\a\\_temp\\gha-mcp\\WINDOWS_RESEARCH_RUN\\work\\itl\\fixtures\\dynamic\\media\\alpha.wav",
+          "path": "<CI_TEMP_WIN>\\<CI_BROKER>\\WINDOWS_RESEARCH_RUN\\work\\itl\\fixtures\\dynamic\\media\\alpha.wav",
           "album_artist": null,
           "sort_name": null,
           "sort_album": null,
@@ -604,9 +604,9 @@
           "genre": null,
           "kind": "WAV audio file",
           "comment": null,
-          "url": "file://localhost/D:/a/_temp/gha-mcp/WINDOWS_RESEARCH_RUN/work/itl/fixtures/dynamic/media/beta.wav",
+          "url": "file://localhost/<CI_TEMP_WIN>/<CI_BROKER>/WINDOWS_RESEARCH_RUN/work/itl/fixtures/dynamic/media/beta.wav",
           "composer": null,
-          "path": "D:\\a\\_temp\\gha-mcp\\WINDOWS_RESEARCH_RUN\\work\\itl\\fixtures\\dynamic\\media\\beta.wav",
+          "path": "<CI_TEMP_WIN>\\<CI_BROKER>\\WINDOWS_RESEARCH_RUN\\work\\itl\\fixtures\\dynamic\\media\\beta.wav",
           "album_artist": null,
           "sort_name": null,
           "sort_album": null,
@@ -647,9 +647,9 @@
           "genre": null,
           "kind": "WAV audio file",
           "comment": null,
-          "url": "file://localhost/D:/a/_temp/gha-mcp/WINDOWS_RESEARCH_RUN/work/itl/fixtures/dynamic/media/gamma.wav",
+          "url": "file://localhost/<CI_TEMP_WIN>/<CI_BROKER>/WINDOWS_RESEARCH_RUN/work/itl/fixtures/dynamic/media/gamma.wav",
           "composer": null,
-          "path": "D:\\a\\_temp\\gha-mcp\\WINDOWS_RESEARCH_RUN\\work\\itl\\fixtures\\dynamic\\media\\gamma.wav",
+          "path": "<CI_TEMP_WIN>\\<CI_BROKER>\\WINDOWS_RESEARCH_RUN\\work\\itl\\fixtures\\dynamic\\media\\gamma.wav",
           "album_artist": null,
           "sort_name": null,
           "sort_album": null,
@@ -690,9 +690,9 @@
           "genre": null,
           "kind": "WAV audio file",
           "comment": null,
-          "url": "file://localhost/D:/a/_temp/gha-mcp/WINDOWS_RESEARCH_RUN/work/itl/fixtures/dynamic/phase3/constructed-media/fresh-constructor-003.wav",
+          "url": "file://localhost/<CI_TEMP_WIN>/<CI_BROKER>/WINDOWS_RESEARCH_RUN/work/itl/fixtures/dynamic/phase3/constructed-media/fresh-constructor-003.wav",
           "composer": null,
-          "path": "D:\\a\\_temp\\gha-mcp\\WINDOWS_RESEARCH_RUN\\work\\itl\\fixtures\\dynamic\\phase3\\constructed-media\\fresh-constructor-003.wav",
+          "path": "<CI_TEMP_WIN>\\<CI_BROKER>\\WINDOWS_RESEARCH_RUN\\work\\itl\\fixtures\\dynamic\\phase3\\constructed-media\\fresh-constructor-003.wav",
           "album_artist": null,
           "sort_name": null,
           "sort_album": null,
@@ -954,7 +954,7 @@
             "Compilation": false,
             "Enabled": true,
             "VolumeAdjustment": 0,
-            "Location": "D:\\a\\_temp\\gha-mcp\\WINDOWS_RESEARCH_RUN\\work\\itl\\fixtures\\dynamic\\media\\alpha.wav",
+            "Location": "<CI_TEMP_WIN>\\<CI_BROKER>\\WINDOWS_RESEARCH_RUN\\work\\itl\\fixtures\\dynamic\\media\\alpha.wav",
             "Duration": 1,
             "SampleRate": 44100,
             "BitRate": 705,
@@ -993,7 +993,7 @@
             "Compilation": false,
             "Enabled": true,
             "VolumeAdjustment": 0,
-            "Location": "D:\\a\\_temp\\gha-mcp\\WINDOWS_RESEARCH_RUN\\work\\itl\\fixtures\\dynamic\\media\\beta.wav",
+            "Location": "<CI_TEMP_WIN>\\<CI_BROKER>\\WINDOWS_RESEARCH_RUN\\work\\itl\\fixtures\\dynamic\\media\\beta.wav",
             "Duration": 1,
             "SampleRate": 44100,
             "BitRate": 705,
@@ -1032,7 +1032,7 @@
             "Compilation": false,
             "Enabled": true,
             "VolumeAdjustment": 0,
-            "Location": "D:\\a\\_temp\\gha-mcp\\WINDOWS_RESEARCH_RUN\\work\\itl\\fixtures\\dynamic\\media\\gamma.wav",
+            "Location": "<CI_TEMP_WIN>\\<CI_BROKER>\\WINDOWS_RESEARCH_RUN\\work\\itl\\fixtures\\dynamic\\media\\gamma.wav",
             "Duration": 1,
             "SampleRate": 44100,
             "BitRate": 705,
@@ -1071,7 +1071,7 @@
             "Compilation": false,
             "Enabled": true,
             "VolumeAdjustment": 0,
-            "Location": "D:\\a\\_temp\\gha-mcp\\WINDOWS_RESEARCH_RUN\\work\\itl\\fixtures\\dynamic\\phase3\\constructed-media\\fresh-constructor-003.wav",
+            "Location": "<CI_TEMP_WIN>\\<CI_BROKER>\\WINDOWS_RESEARCH_RUN\\work\\itl\\fixtures\\dynamic\\phase3\\constructed-media\\fresh-constructor-003.wav",
             "Duration": 1,
             "SampleRate": 44100,
             "BitRate": 705,
@@ -1202,7 +1202,7 @@
       ],
       "supersedes_case_id": "fresh-constructed-wav-003-v1",
       "previous_candidate": {
-        "path": "D:\\a\\_temp\\gha-mcp\\WINDOWS_RESEARCH_RUN\\work\\itl\\reports\\add-constructor\\candidates\\fresh-003-v1.itl",
+        "path": "<CI_TEMP_WIN>\\<CI_BROKER>\\WINDOWS_RESEARCH_RUN\\work\\itl\\reports\\add-constructor\\candidates\\fresh-003-v1.itl",
         "bytes": 4028,
         "sha256": "12b6709e9396d8830284c924d2eaa584058f7c6f4932107ea19d670c4d9a64fc",
         "mtime_ns": 1788964550234307500,
@@ -1313,7 +1313,7 @@
             "Compilation": false,
             "Enabled": true,
             "VolumeAdjustment": 0,
-            "Location": "D:\\a\\_temp\\gha-mcp\\WINDOWS_RESEARCH_RUN\\work\\itl\\fixtures\\dynamic\\media\\alpha.wav",
+            "Location": "<CI_TEMP_WIN>\\<CI_BROKER>\\WINDOWS_RESEARCH_RUN\\work\\itl\\fixtures\\dynamic\\media\\alpha.wav",
             "Duration": 1,
             "SampleRate": 44100,
             "BitRate": 705,
@@ -1357,7 +1357,7 @@
             "Compilation": false,
             "Enabled": true,
             "VolumeAdjustment": 0,
-            "Location": "D:\\a\\_temp\\gha-mcp\\WINDOWS_RESEARCH_RUN\\work\\itl\\fixtures\\dynamic\\media\\beta.wav",
+            "Location": "<CI_TEMP_WIN>\\<CI_BROKER>\\WINDOWS_RESEARCH_RUN\\work\\itl\\fixtures\\dynamic\\media\\beta.wav",
             "Duration": 1,
             "SampleRate": 44100,
             "BitRate": 705,
@@ -1401,7 +1401,7 @@
             "Compilation": false,
             "Enabled": true,
             "VolumeAdjustment": 0,
-            "Location": "D:\\a\\_temp\\gha-mcp\\WINDOWS_RESEARCH_RUN\\work\\itl\\fixtures\\dynamic\\media\\gamma.wav",
+            "Location": "<CI_TEMP_WIN>\\<CI_BROKER>\\WINDOWS_RESEARCH_RUN\\work\\itl\\fixtures\\dynamic\\media\\gamma.wav",
             "Duration": 1,
             "SampleRate": 44100,
             "BitRate": 705,
@@ -1445,7 +1445,7 @@
             "Compilation": false,
             "Enabled": true,
             "VolumeAdjustment": 0,
-            "Location": "D:\\a\\_temp\\gha-mcp\\WINDOWS_RESEARCH_RUN\\work\\itl\\fixtures\\dynamic\\phase3\\constructed-media\\fresh-constructor-003.wav",
+            "Location": "<CI_TEMP_WIN>\\<CI_BROKER>\\WINDOWS_RESEARCH_RUN\\work\\itl\\fixtures\\dynamic\\phase3\\constructed-media\\fresh-constructor-003.wav",
             "Duration": 1,
             "SampleRate": 44100,
             "BitRate": 705,
@@ -1567,28 +1567,28 @@
       "stability_errors": [],
       "media": [
         {
-          "path": "D:\\a\\_temp\\gha-mcp\\WINDOWS_RESEARCH_RUN\\work\\itl\\fixtures\\dynamic\\media\\alpha.wav",
+          "path": "<CI_TEMP_WIN>\\<CI_BROKER>\\WINDOWS_RESEARCH_RUN\\work\\itl\\fixtures\\dynamic\\media\\alpha.wav",
           "bytes": 88244,
           "mtime_ns": 1788952792633317400,
           "sha256": "c9ca928550abefdb3d209b6d0f4ea067a64b85924be5eca2475da3d40dbe2920",
           "file_attributes": 32
         },
         {
-          "path": "D:\\a\\_temp\\gha-mcp\\WINDOWS_RESEARCH_RUN\\work\\itl\\fixtures\\dynamic\\media\\beta.wav",
+          "path": "<CI_TEMP_WIN>\\<CI_BROKER>\\WINDOWS_RESEARCH_RUN\\work\\itl\\fixtures\\dynamic\\media\\beta.wav",
           "bytes": 88244,
           "mtime_ns": 1788952792649909300,
           "sha256": "8ff22420cc586cfdaa5a865db713c3a2d92c2bcde2991a71cca447e314d5ce5a",
           "file_attributes": 32
         },
         {
-          "path": "D:\\a\\_temp\\gha-mcp\\WINDOWS_RESEARCH_RUN\\work\\itl\\fixtures\\dynamic\\media\\gamma.wav",
+          "path": "<CI_TEMP_WIN>\\<CI_BROKER>\\WINDOWS_RESEARCH_RUN\\work\\itl\\fixtures\\dynamic\\media\\gamma.wav",
           "bytes": 88244,
           "mtime_ns": 1788952792664977600,
           "sha256": "de7fa062391c8d6ef91385f64d4d04bf990f4ea5c743cc535d305edbc0b34136",
           "file_attributes": 32
         },
         {
-          "path": "D:\\a\\_temp\\gha-mcp\\WINDOWS_RESEARCH_RUN\\work\\itl\\fixtures\\dynamic\\phase3\\constructed-media\\fresh-constructor-003.wav",
+          "path": "<CI_TEMP_WIN>\\<CI_BROKER>\\WINDOWS_RESEARCH_RUN\\work\\itl\\fixtures\\dynamic\\phase3\\constructed-media\\fresh-constructor-003.wav",
           "bytes": 88244,
           "mtime_ns": 1788962400000000000,
           "sha256": "2c2d55b585f92d6ddce719234fbe5946279488cda3b68299325f32ccdcc78642",
@@ -1596,7 +1596,7 @@
         }
       ],
       "library_file": {
-        "path": "D:\\a\\_temp\\gha-mcp\\WINDOWS_RESEARCH_RUN\\work\\itl\\fixtures\\dynamic\\phase3\\live\\iTunes Library.itl",
+        "path": "<CI_TEMP_WIN>\\<CI_BROKER>\\WINDOWS_RESEARCH_RUN\\work\\itl\\fixtures\\dynamic\\phase3\\live\\iTunes Library.itl",
         "bytes": 4025,
         "mtime_ns": 1788968217672343800,
         "sha256": "41a6a073db030a9ceb9e1a690420a0fa28b73cb0c675af005653f732df6c4a84",
@@ -1665,7 +1665,7 @@
             "Compilation": false,
             "Enabled": true,
             "VolumeAdjustment": 0,
-            "Location": "D:\\a\\_temp\\gha-mcp\\WINDOWS_RESEARCH_RUN\\work\\itl\\fixtures\\dynamic\\media\\alpha.wav",
+            "Location": "<CI_TEMP_WIN>\\<CI_BROKER>\\WINDOWS_RESEARCH_RUN\\work\\itl\\fixtures\\dynamic\\media\\alpha.wav",
             "Duration": 1,
             "SampleRate": 44100,
             "BitRate": 705,
@@ -1709,7 +1709,7 @@
             "Compilation": false,
             "Enabled": true,
             "VolumeAdjustment": 0,
-            "Location": "D:\\a\\_temp\\gha-mcp\\WINDOWS_RESEARCH_RUN\\work\\itl\\fixtures\\dynamic\\media\\beta.wav",
+            "Location": "<CI_TEMP_WIN>\\<CI_BROKER>\\WINDOWS_RESEARCH_RUN\\work\\itl\\fixtures\\dynamic\\media\\beta.wav",
             "Duration": 1,
             "SampleRate": 44100,
             "BitRate": 705,
@@ -1753,7 +1753,7 @@
             "Compilation": false,
             "Enabled": true,
             "VolumeAdjustment": 0,
-            "Location": "D:\\a\\_temp\\gha-mcp\\WINDOWS_RESEARCH_RUN\\work\\itl\\fixtures\\dynamic\\media\\gamma.wav",
+            "Location": "<CI_TEMP_WIN>\\<CI_BROKER>\\WINDOWS_RESEARCH_RUN\\work\\itl\\fixtures\\dynamic\\media\\gamma.wav",
             "Duration": 1,
             "SampleRate": 44100,
             "BitRate": 705,
@@ -1797,7 +1797,7 @@
             "Compilation": false,
             "Enabled": true,
             "VolumeAdjustment": 0,
-            "Location": "D:\\a\\_temp\\gha-mcp\\WINDOWS_RESEARCH_RUN\\work\\itl\\fixtures\\dynamic\\phase3\\constructed-media\\fresh-constructor-003.wav",
+            "Location": "<CI_TEMP_WIN>\\<CI_BROKER>\\WINDOWS_RESEARCH_RUN\\work\\itl\\fixtures\\dynamic\\phase3\\constructed-media\\fresh-constructor-003.wav",
             "Duration": 1,
             "SampleRate": 44100,
             "BitRate": 705,
@@ -1919,28 +1919,28 @@
       "stability_errors": [],
       "media": [
         {
-          "path": "D:\\a\\_temp\\gha-mcp\\WINDOWS_RESEARCH_RUN\\work\\itl\\fixtures\\dynamic\\media\\alpha.wav",
+          "path": "<CI_TEMP_WIN>\\<CI_BROKER>\\WINDOWS_RESEARCH_RUN\\work\\itl\\fixtures\\dynamic\\media\\alpha.wav",
           "bytes": 88244,
           "mtime_ns": 1788952792633317400,
           "sha256": "c9ca928550abefdb3d209b6d0f4ea067a64b85924be5eca2475da3d40dbe2920",
           "file_attributes": 32
         },
         {
-          "path": "D:\\a\\_temp\\gha-mcp\\WINDOWS_RESEARCH_RUN\\work\\itl\\fixtures\\dynamic\\media\\beta.wav",
+          "path": "<CI_TEMP_WIN>\\<CI_BROKER>\\WINDOWS_RESEARCH_RUN\\work\\itl\\fixtures\\dynamic\\media\\beta.wav",
           "bytes": 88244,
           "mtime_ns": 1788952792649909300,
           "sha256": "8ff22420cc586cfdaa5a865db713c3a2d92c2bcde2991a71cca447e314d5ce5a",
           "file_attributes": 32
         },
         {
-          "path": "D:\\a\\_temp\\gha-mcp\\WINDOWS_RESEARCH_RUN\\work\\itl\\fixtures\\dynamic\\media\\gamma.wav",
+          "path": "<CI_TEMP_WIN>\\<CI_BROKER>\\WINDOWS_RESEARCH_RUN\\work\\itl\\fixtures\\dynamic\\media\\gamma.wav",
           "bytes": 88244,
           "mtime_ns": 1788952792664977600,
           "sha256": "de7fa062391c8d6ef91385f64d4d04bf990f4ea5c743cc535d305edbc0b34136",
           "file_attributes": 32
         },
         {
-          "path": "D:\\a\\_temp\\gha-mcp\\WINDOWS_RESEARCH_RUN\\work\\itl\\fixtures\\dynamic\\phase3\\constructed-media\\fresh-constructor-003.wav",
+          "path": "<CI_TEMP_WIN>\\<CI_BROKER>\\WINDOWS_RESEARCH_RUN\\work\\itl\\fixtures\\dynamic\\phase3\\constructed-media\\fresh-constructor-003.wav",
           "bytes": 88244,
           "mtime_ns": 1788962400000000000,
           "sha256": "2c2d55b585f92d6ddce719234fbe5946279488cda3b68299325f32ccdcc78642",
@@ -1948,7 +1948,7 @@
         }
       ],
       "library_file": {
-        "path": "D:\\a\\_temp\\gha-mcp\\WINDOWS_RESEARCH_RUN\\work\\itl\\fixtures\\dynamic\\phase3\\live\\iTunes Library.itl",
+        "path": "<CI_TEMP_WIN>\\<CI_BROKER>\\WINDOWS_RESEARCH_RUN\\work\\itl\\fixtures\\dynamic\\phase3\\live\\iTunes Library.itl",
         "bytes": 4025,
         "mtime_ns": 1788968217672343800,
         "sha256": "41a6a073db030a9ceb9e1a690420a0fa28b73cb0c675af005653f732df6c4a84",
@@ -2017,7 +2017,7 @@
             "Compilation": false,
             "Enabled": true,
             "VolumeAdjustment": 0,
-            "Location": "D:\\a\\_temp\\gha-mcp\\WINDOWS_RESEARCH_RUN\\work\\itl\\fixtures\\dynamic\\media\\alpha.wav",
+            "Location": "<CI_TEMP_WIN>\\<CI_BROKER>\\WINDOWS_RESEARCH_RUN\\work\\itl\\fixtures\\dynamic\\media\\alpha.wav",
             "Duration": 1,
             "SampleRate": 44100,
             "BitRate": 705,
@@ -2061,7 +2061,7 @@
             "Compilation": false,
             "Enabled": true,
             "VolumeAdjustment": 0,
-            "Location": "D:\\a\\_temp\\gha-mcp\\WINDOWS_RESEARCH_RUN\\work\\itl\\fixtures\\dynamic\\media\\beta.wav",
+            "Location": "<CI_TEMP_WIN>\\<CI_BROKER>\\WINDOWS_RESEARCH_RUN\\work\\itl\\fixtures\\dynamic\\media\\beta.wav",
             "Duration": 1,
             "SampleRate": 44100,
             "BitRate": 705,
@@ -2105,7 +2105,7 @@
             "Compilation": false,
             "Enabled": true,
             "VolumeAdjustment": 0,
-            "Location": "D:\\a\\_temp\\gha-mcp\\WINDOWS_RESEARCH_RUN\\work\\itl\\fixtures\\dynamic\\media\\gamma.wav",
+            "Location": "<CI_TEMP_WIN>\\<CI_BROKER>\\WINDOWS_RESEARCH_RUN\\work\\itl\\fixtures\\dynamic\\media\\gamma.wav",
             "Duration": 1,
             "SampleRate": 44100,
             "BitRate": 705,
@@ -2149,7 +2149,7 @@
             "Compilation": false,
             "Enabled": true,
             "VolumeAdjustment": 0,
-            "Location": "D:\\a\\_temp\\gha-mcp\\WINDOWS_RESEARCH_RUN\\work\\itl\\fixtures\\dynamic\\phase3\\constructed-media\\fresh-constructor-003.wav",
+            "Location": "<CI_TEMP_WIN>\\<CI_BROKER>\\WINDOWS_RESEARCH_RUN\\work\\itl\\fixtures\\dynamic\\phase3\\constructed-media\\fresh-constructor-003.wav",
             "Duration": 1,
             "SampleRate": 44100,
             "BitRate": 705,
@@ -2271,28 +2271,28 @@
       "stability_errors": [],
       "media": [
         {
-          "path": "D:\\a\\_temp\\gha-mcp\\WINDOWS_RESEARCH_RUN\\work\\itl\\fixtures\\dynamic\\media\\alpha.wav",
+          "path": "<CI_TEMP_WIN>\\<CI_BROKER>\\WINDOWS_RESEARCH_RUN\\work\\itl\\fixtures\\dynamic\\media\\alpha.wav",
           "bytes": 88244,
           "mtime_ns": 1788952792633317400,
           "sha256": "c9ca928550abefdb3d209b6d0f4ea067a64b85924be5eca2475da3d40dbe2920",
           "file_attributes": 32
         },
         {
-          "path": "D:\\a\\_temp\\gha-mcp\\WINDOWS_RESEARCH_RUN\\work\\itl\\fixtures\\dynamic\\media\\beta.wav",
+          "path": "<CI_TEMP_WIN>\\<CI_BROKER>\\WINDOWS_RESEARCH_RUN\\work\\itl\\fixtures\\dynamic\\media\\beta.wav",
           "bytes": 88244,
           "mtime_ns": 1788952792649909300,
           "sha256": "8ff22420cc586cfdaa5a865db713c3a2d92c2bcde2991a71cca447e314d5ce5a",
           "file_attributes": 32
         },
         {
-          "path": "D:\\a\\_temp\\gha-mcp\\WINDOWS_RESEARCH_RUN\\work\\itl\\fixtures\\dynamic\\media\\gamma.wav",
+          "path": "<CI_TEMP_WIN>\\<CI_BROKER>\\WINDOWS_RESEARCH_RUN\\work\\itl\\fixtures\\dynamic\\media\\gamma.wav",
           "bytes": 88244,
           "mtime_ns": 1788952792664977600,
           "sha256": "de7fa062391c8d6ef91385f64d4d04bf990f4ea5c743cc535d305edbc0b34136",
           "file_attributes": 32
         },
         {
-          "path": "D:\\a\\_temp\\gha-mcp\\WINDOWS_RESEARCH_RUN\\work\\itl\\fixtures\\dynamic\\phase3\\constructed-media\\fresh-constructor-003.wav",
+          "path": "<CI_TEMP_WIN>\\<CI_BROKER>\\WINDOWS_RESEARCH_RUN\\work\\itl\\fixtures\\dynamic\\phase3\\constructed-media\\fresh-constructor-003.wav",
           "bytes": 88244,
           "mtime_ns": 1788962400000000000,
           "sha256": "2c2d55b585f92d6ddce719234fbe5946279488cda3b68299325f32ccdcc78642",
@@ -2300,7 +2300,7 @@
         }
       ],
       "library_file": {
-        "path": "D:\\a\\_temp\\gha-mcp\\WINDOWS_RESEARCH_RUN\\work\\itl\\fixtures\\dynamic\\phase3\\live\\iTunes Library.itl",
+        "path": "<CI_TEMP_WIN>\\<CI_BROKER>\\WINDOWS_RESEARCH_RUN\\work\\itl\\fixtures\\dynamic\\phase3\\live\\iTunes Library.itl",
         "bytes": 5262,
         "mtime_ns": 1788968259367282100,
         "sha256": "d81d0828faa58cbc3b0e673817499a83cdccea821a22f92b5882cf1001c0df00",
@@ -2380,7 +2380,7 @@
         "Compilation": false,
         "Enabled": true,
         "VolumeAdjustment": 0,
-        "Location": "D:\\a\\_temp\\gha-mcp\\WINDOWS_RESEARCH_RUN\\work\\itl\\fixtures\\dynamic\\media\\alpha.wav",
+        "Location": "<CI_TEMP_WIN>\\<CI_BROKER>\\WINDOWS_RESEARCH_RUN\\work\\itl\\fixtures\\dynamic\\media\\alpha.wav",
         "Duration": 1,
         "SampleRate": 44100,
         "BitRate": 705,
@@ -2424,7 +2424,7 @@
         "Compilation": false,
         "Enabled": true,
         "VolumeAdjustment": 0,
-        "Location": "D:\\a\\_temp\\gha-mcp\\WINDOWS_RESEARCH_RUN\\work\\itl\\fixtures\\dynamic\\media\\beta.wav",
+        "Location": "<CI_TEMP_WIN>\\<CI_BROKER>\\WINDOWS_RESEARCH_RUN\\work\\itl\\fixtures\\dynamic\\media\\beta.wav",
         "Duration": 1,
         "SampleRate": 44100,
         "BitRate": 705,
@@ -2468,7 +2468,7 @@
         "Compilation": false,
         "Enabled": true,
         "VolumeAdjustment": 0,
-        "Location": "D:\\a\\_temp\\gha-mcp\\WINDOWS_RESEARCH_RUN\\work\\itl\\fixtures\\dynamic\\media\\gamma.wav",
+        "Location": "<CI_TEMP_WIN>\\<CI_BROKER>\\WINDOWS_RESEARCH_RUN\\work\\itl\\fixtures\\dynamic\\media\\gamma.wav",
         "Duration": 1,
         "SampleRate": 44100,
         "BitRate": 705,
@@ -2512,7 +2512,7 @@
         "Compilation": false,
         "Enabled": true,
         "VolumeAdjustment": 0,
-        "Location": "D:\\a\\_temp\\gha-mcp\\WINDOWS_RESEARCH_RUN\\work\\itl\\fixtures\\dynamic\\phase3\\constructed-media\\fresh-constructor-003.wav",
+        "Location": "<CI_TEMP_WIN>\\<CI_BROKER>\\WINDOWS_RESEARCH_RUN\\work\\itl\\fixtures\\dynamic\\phase3\\constructed-media\\fresh-constructor-003.wav",
         "Duration": 1,
         "SampleRate": 44100,
         "BitRate": 705,
@@ -2656,7 +2656,7 @@
         "Compilation": false,
         "Enabled": true,
         "VolumeAdjustment": 0,
-        "Location": "D:\\a\\_temp\\gha-mcp\\WINDOWS_RESEARCH_RUN\\work\\itl\\fixtures\\dynamic\\media\\alpha.wav",
+        "Location": "<CI_TEMP_WIN>\\<CI_BROKER>\\WINDOWS_RESEARCH_RUN\\work\\itl\\fixtures\\dynamic\\media\\alpha.wav",
         "Duration": 1,
         "SampleRate": 44100,
         "BitRate": 705,
@@ -2700,7 +2700,7 @@
         "Compilation": false,
         "Enabled": true,
         "VolumeAdjustment": 0,
-        "Location": "D:\\a\\_temp\\gha-mcp\\WINDOWS_RESEARCH_RUN\\work\\itl\\fixtures\\dynamic\\media\\beta.wav",
+        "Location": "<CI_TEMP_WIN>\\<CI_BROKER>\\WINDOWS_RESEARCH_RUN\\work\\itl\\fixtures\\dynamic\\media\\beta.wav",
         "Duration": 1,
         "SampleRate": 44100,
         "BitRate": 705,
@@ -2744,7 +2744,7 @@
         "Compilation": false,
         "Enabled": true,
         "VolumeAdjustment": 0,
-        "Location": "D:\\a\\_temp\\gha-mcp\\WINDOWS_RESEARCH_RUN\\work\\itl\\fixtures\\dynamic\\media\\gamma.wav",
+        "Location": "<CI_TEMP_WIN>\\<CI_BROKER>\\WINDOWS_RESEARCH_RUN\\work\\itl\\fixtures\\dynamic\\media\\gamma.wav",
         "Duration": 1,
         "SampleRate": 44100,
         "BitRate": 705,
@@ -2788,7 +2788,7 @@
         "Compilation": false,
         "Enabled": true,
         "VolumeAdjustment": 0,
-        "Location": "D:\\a\\_temp\\gha-mcp\\WINDOWS_RESEARCH_RUN\\work\\itl\\fixtures\\dynamic\\phase3\\constructed-media\\fresh-constructor-003.wav",
+        "Location": "<CI_TEMP_WIN>\\<CI_BROKER>\\WINDOWS_RESEARCH_RUN\\work\\itl\\fixtures\\dynamic\\phase3\\constructed-media\\fresh-constructor-003.wav",
         "Duration": 1,
         "SampleRate": 44100,
         "BitRate": 705,

@@ -1,7 +1,7 @@
 """Execute original x64 leaf/slices in isolated Unicorn memory; no iTunes process or host I/O calls."""
 from pathlib import Path
 import sys,hashlib,json,struct
-ROOT=Path(r'D:\a\_temp\gha-mcp\WINDOWS_RESEARCH_RUN\work\itl');OUT=ROOT/'reports/static/phase3'
+ROOT=Path(r'<CI_TEMP_WIN>\<CI_BROKER>\WINDOWS_RESEARCH_RUN\work\itl');OUT=ROOT/'reports/static/phase3'
 sys.path.insert(0,str(ROOT/'tools/static/pylibs'))
 import pefile
 from unicorn import Uc,UC_ARCH_X86,UC_MODE_64

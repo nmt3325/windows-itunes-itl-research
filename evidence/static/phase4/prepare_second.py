@@ -3,7 +3,7 @@ from pathlib import Path
 import json,hashlib,shutil
 import pefile
 from capstone import Cs,CS_ARCH_X86,CS_MODE_64
-ROOT=Path(r'D:\a\_temp\gha-mcp\WINDOWS_RESEARCH_RUN\work\itl');R=ROOT/'reports/static';O=R/'phase4';EXE=Path(r'C:\Program Files\iTunes\iTunes.exe')
+ROOT=Path(r'<CI_TEMP_WIN>\<CI_BROKER>\WINDOWS_RESEARCH_RUN\work\itl');R=ROOT/'reports/static';O=R/'phase4';EXE=Path(r'C:\Program Files\iTunes\iTunes.exe')
 sha=hashlib.sha256(EXE.read_bytes()).hexdigest();assert sha=='30d91209b5d81c47bbad2da9d89764fcab08bf5cd9af1a9571668001376c5d7d'
 g={int(k,16):v for k,v in json.loads((R/'function_groups.json').read_text()).items()}
 pe=pefile.PE(str(EXE),fast_load=True);base=pe.OPTIONAL_HEADER.ImageBase;md=Cs(CS_ARCH_X86,CS_MODE_64)

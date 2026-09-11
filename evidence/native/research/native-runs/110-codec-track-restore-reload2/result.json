@@ -4,7 +4,7 @@
     "name": "110-codec-track-restore-reload2",
     "expected_before": 2,
     "expected_after": 2,
-    "expected_state": "D:\\a\\_temp\\gha-mcp\\WINDOWS_RESEARCH_RUN\\work\\itl\\reports\\dynamic\\acceptance\\110-codec-track-restore\\expected-after-cycle1.json",
+    "expected_state": "<CI_TEMP_WIN>\\<CI_BROKER>\\WINDOWS_RESEARCH_RUN\\work\\itl\\reports\\dynamic\\acceptance\\110-codec-track-restore\\expected-after-cycle1.json",
     "action": {
       "kind": "snapshot"
     }
@@ -75,24 +75,24 @@
   "prelaunch_sha256": "c5b65efbe53e2c3df8aaba20126e106270cc5043bcee1c7918f539e39626b85b",
   "itunes_pid": 3668,
   "worker_command": [
-    "D:\\a\\_temp\\gha-mcp\\WINDOWS_RESEARCH_RUN\\work\\itl\\tools\\py\\Scripts\\python.exe",
+    "<CI_TEMP_WIN>\\<CI_BROKER>\\WINDOWS_RESEARCH_RUN\\work\\itl\\tools\\py\\Scripts\\python.exe",
     "-u",
-    "D:\\a\\_temp\\gha-mcp\\WINDOWS_RESEARCH_RUN\\work\\itl\\wt\\dynamic\\scripts\\windows\\native_worker.py",
+    "<CI_TEMP_WIN>\\<CI_BROKER>\\WINDOWS_RESEARCH_RUN\\work\\itl\\wt\\dynamic\\scripts\\windows\\native_worker.py",
     "--root",
-    "D:\\a\\_temp\\gha-mcp\\WINDOWS_RESEARCH_RUN\\work\\itl\\fixtures\\dynamic",
+    "<CI_TEMP_WIN>\\<CI_BROKER>\\WINDOWS_RESEARCH_RUN\\work\\itl\\fixtures\\dynamic",
     "--output",
-    "D:\\a\\_temp\\gha-mcp\\WINDOWS_RESEARCH_RUN\\work\\itl\\reports\\dynamic\\native-runs\\110-codec-track-restore-reload2\\com.json",
+    "<CI_TEMP_WIN>\\<CI_BROKER>\\WINDOWS_RESEARCH_RUN\\work\\itl\\reports\\dynamic\\native-runs\\110-codec-track-restore-reload2\\com.json",
     "--action",
-    "D:\\a\\_temp\\gha-mcp\\WINDOWS_RESEARCH_RUN\\work\\itl\\reports\\dynamic\\native-runs\\110-codec-track-restore-reload2\\action.json",
+    "<CI_TEMP_WIN>\\<CI_BROKER>\\WINDOWS_RESEARCH_RUN\\work\\itl\\reports\\dynamic\\native-runs\\110-codec-track-restore-reload2\\action.json",
     "--quit",
     "--expect-count",
     "2",
     "--expect-state",
-    "D:\\a\\_temp\\gha-mcp\\WINDOWS_RESEARCH_RUN\\work\\itl\\reports\\dynamic\\acceptance\\110-codec-track-restore\\expected-after-cycle1.json"
+    "<CI_TEMP_WIN>\\<CI_BROKER>\\WINDOWS_RESEARCH_RUN\\work\\itl\\reports\\dynamic\\acceptance\\110-codec-track-restore\\expected-after-cycle1.json"
   ],
   "worker_exit_code": 0,
   "itunes_exit_code": 0,
-  "fixture_path": "D:\\a\\_temp\\gha-mcp\\WINDOWS_RESEARCH_RUN\\work\\itl\\fixtures\\dynamic\\snapshots\\110-codec-track-restore-reload2.itl",
+  "fixture_path": "<CI_TEMP_WIN>\\<CI_BROKER>\\WINDOWS_RESEARCH_RUN\\work\\itl\\fixtures\\dynamic\\snapshots\\110-codec-track-restore-reload2.itl",
   "fixture_sha256": "65fbd646230f69deff8b097553961a26319ff7b5adefc9034232f8bf28722de2",
   "fixture_bytes": 4774,
   "observed": {
@@ -131,7 +131,7 @@
         "Compilation": false,
         "Enabled": true,
         "VolumeAdjustment": 0,
-        "Location": "D:\\a\\_temp\\gha-mcp\\WINDOWS_RESEARCH_RUN\\work\\itl\\fixtures\\dynamic\\media\\alpha.wav",
+        "Location": "<CI_TEMP_WIN>\\<CI_BROKER>\\WINDOWS_RESEARCH_RUN\\work\\itl\\fixtures\\dynamic\\media\\alpha.wav",
         "Duration": 1,
         "SampleRate": 44100,
         "BitRate": 705,
@@ -175,7 +175,7 @@
         "Compilation": false,
         "Enabled": true,
         "VolumeAdjustment": 0,
-        "Location": "D:\\a\\_temp\\gha-mcp\\WINDOWS_RESEARCH_RUN\\work\\itl\\fixtures\\dynamic\\media\\beta.wav",
+        "Location": "<CI_TEMP_WIN>\\<CI_BROKER>\\WINDOWS_RESEARCH_RUN\\work\\itl\\fixtures\\dynamic\\media\\beta.wav",
         "Duration": 1,
         "SampleRate": 44100,
         "BitRate": 705,

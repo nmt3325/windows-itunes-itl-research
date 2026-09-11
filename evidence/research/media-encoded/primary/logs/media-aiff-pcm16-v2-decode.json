@@ -1,6 +1,6 @@
 {
   "argv": [
-    "D:\\a\\_temp\\gha-mcp\\WINDOWS_RESEARCH_RUN\\work\\itl\\reports\\media\\tools\\ffmpeg-8.1.2\\bin\\ffmpeg.exe",
+    "<CI_TEMP_WIN>\\<CI_BROKER>\\WINDOWS_RESEARCH_RUN\\work\\itl\\reports\\media\\tools\\ffmpeg-8.1.2\\bin\\ffmpeg.exe",
     "-filter_threads",
     "1",
     "-filter_complex_threads",
@@ -12,7 +12,7 @@
     "-threads",
     "1",
     "-i",
-    "D:\\a\\_temp\\gha-mcp\\WINDOWS_RESEARCH_RUN\\work\\itl\\reports\\media\\pcm-v1\\media\\itl_media_02_aiff_pcm16.aiff",
+    "<CI_TEMP_WIN>\\<CI_BROKER>\\WINDOWS_RESEARCH_RUN\\work\\itl\\reports\\media\\pcm-v1\\media\\itl_media_02_aiff_pcm16.aiff",
     "-map",
     "0:a:0",
     "-c:a",
