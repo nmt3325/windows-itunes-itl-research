@@ -1,0 +1,777 @@
+{
+  "schema": "itlkit.g4.a09.fixture-registry.v1",
+  "generator": "research/g4/a09/fixtures.py",
+  "generator_sha256": "76d6490a8051e6e599aa8615a46f27971db853a2483407ecc31d8e8df9c2f520",
+  "authored_on": "gha",
+  "determinism": [
+    "integer arithmetic only, Python floor division",
+    "no randomness, no clock reads, no locale or environment input",
+    "file mtimes are declared constants applied with os.utime",
+    "canonical 44 byte PCM header unless the spec declares extra chunks"
+  ],
+  "fixtures": [
+    {
+      "fixture_id": "ITL-G2-PCM-48000-001",
+      "filename": "ITL-G2-PCM-48000-001.wav",
+      "role": "historical-reference-regeneration",
+      "purpose": "Bit-exact regeneration of the G2 reference fixture from its recorded formula.",
+      "sample_rate_hz": 48000,
+      "channels": 1,
+      "bits_per_sample": 16,
+      "frames": 72000,
+      "duration_ms": 1500.0,
+      "waveform": "triangle",
+      "waveform_params": {
+        "period": 192,
+        "peak_scale": 64,
+        "fade": 480,
+        "channel_offsets": [
+          {
+            "phase": 0,
+            "invert": false
+          }
+        ]
+      },
+      "metadata_shape": "none",
+      "metadata": {},
+      "metadata_placement": "after_data",
+      "mtime_ns": 1789026300000000000,
+      "size_bytes": 144044,
+      "sha256": "87e45bff7acf44a05a818fa0f33edec429d6648751bcd8aa91ccf91a764b2e05",
+      "pcm_sha256": "fe61bf3cd0c6e2676070e044124ff9c06ba170fe61b9429e484511622a1ad46e",
+      "chunks": [
+        {
+          "id": "fmt ",
+          "header_offset": 12,
+          "payload_offset": 20,
+          "payload_size": 16,
+          "pad_bytes": 0
+        },
+        {
+          "id": "data",
+          "header_offset": 36,
+          "payload_offset": 44,
+          "payload_size": 144000,
+          "pad_bytes": 0
+        }
+      ],
+      "pcm": {
+        "samples": 72000,
+        "peak_abs": 3072,
+        "rms": 1765.930479,
+        "nonzero_samples": 71248,
+        "first_samples": [
+          0,
+          -7,
+          -13,
+          -18
+        ],
+        "last_samples": [
+          -18,
+          -12,
+          -7,
+          0
+        ]
+      },
+      "quoted_reference": {
+        "source_record": "evidence/20260910/g2-final-hardening.json#new_pcm",
+        "file": "ITL-G2-PCM-48000-001.wav",
+        "bytes": 144044,
+        "sha256": "87e45bff7acf44a05a818fa0f33edec429d6648751bcd8aa91ccf91a764b2e05",
+        "pcm_sha256": "fe61bf3cd0c6e2676070e044124ff9c06ba170fe61b9429e484511622a1ad46e",
+        "sample_rate_hz": 48000,
+        "channels": 1,
+        "bits_per_sample": 16,
+        "frames": 72000,
+        "duration_ms": 1500,
+        "mtime_ns": 1789026300000000000,
+        "formula": "sample[n]=(64*(48-abs((n%192)-96))*min(n,71999-n,480))//480, n=0..71999; signed little-endian int16"
+      },
+      "matches_quoted_sha256": true,
+      "matches_quoted_pcm_sha256": true,
+      "matches_quoted_size": true
+    },
+    {
+      "fixture_id": "ITL-G4-A09-PCM-44100-MONO-1000",
+      "filename": "ITL-G4-A09-PCM-44100-MONO-1000.wav",
+      "role": "rate-variation",
+      "purpose": "CD sample rate, one second exactly, no embedded metadata.",
+      "sample_rate_hz": 44100,
+      "channels": 1,
+      "bits_per_sample": 16,
+      "frames": 44100,
+      "duration_ms": 1000.0,
+      "waveform": "triangle",
+      "waveform_params": {
+        "period": 300,
+        "peak_scale": 48,
+        "fade": 441,
+        "channel_offsets": [
+          {
+            "phase": 0,
+            "invert": false
+          }
+        ]
+      },
+      "metadata_shape": "none",
+      "metadata": {},
+      "metadata_placement": "after_data",
+      "mtime_ns": 1789084860000000000,
+      "size_bytes": 88244,
+      "sha256": "4997cb388167df3a3f372f211d3cf6decb78c28c8b6a58bf3430ce1cdb73702c",
+      "pcm_sha256": "eea59abc3329728e27937449ff77e6d8d040bd54dcf6d72756e1b08be05f7853",
+      "chunks": [
+        {
+          "id": "fmt ",
+          "header_offset": 12,
+          "payload_offset": 20,
+          "payload_size": 16,
+          "pad_bytes": 0
+        },
+        {
+          "id": "data",
+          "header_offset": 36,
+          "payload_offset": 44,
+          "payload_size": 88200,
+          "pad_bytes": 0
+        }
+      ],
+      "pcm": {
+        "samples": 44100,
+        "peak_abs": 3600,
+        "rms": 2064.777021,
+        "nonzero_samples": 43804,
+        "first_samples": [
+          0,
+          -9,
+          -16,
+          -24
+        ],
+        "last_samples": [
+          -24,
+          -16,
+          -8,
+          0
+        ]
+      }
+    },
+    {
+      "fixture_id": "ITL-G4-A09-PCM-22050-MONO-0500",
+      "filename": "ITL-G4-A09-PCM-22050-MONO-0500.wav",
+      "role": "rate-and-duration-variation",
+      "purpose": "Half CD rate, 500 ms, short-duration handling.",
+      "sample_rate_hz": 22050,
+      "channels": 1,
+      "bits_per_sample": 16,
+      "frames": 11025,
+      "duration_ms": 500.0,
+      "waveform": "triangle",
+      "waveform_params": {
+        "period": 196,
+        "peak_scale": 56,
+        "fade": 220,
+        "channel_offsets": [
+          {
+            "phase": 0,
+            "invert": false
+          }
+        ]
+      },
+      "metadata_shape": "none",
+      "metadata": {},
+      "metadata_placement": "after_data",
+      "mtime_ns": 1789084920000000000,
+      "size_bytes": 22094,
+      "sha256": "3a121b88fbc16b852f91aed95026517ce5c4a42a94d3a5ef82fb4c364047a0fb",
+      "pcm_sha256": "598256fffcdd94cda8e590ebd3a7fee7c368a7d07ff857048b97f16a59988d9b",
+      "chunks": [
+        {
+          "id": "fmt ",
+          "header_offset": 12,
+          "payload_offset": 20,
+          "payload_size": 16,
+          "pad_bytes": 0
+        },
+        {
+          "id": "data",
+          "header_offset": 36,
+          "payload_offset": 44,
+          "payload_size": 22050,
+          "pad_bytes": 0
+        }
+      ],
+      "pcm": {
+        "samples": 11025,
+        "peak_abs": 2744,
+        "rms": 1563.1098,
+        "nonzero_samples": 10911,
+        "first_samples": [
+          0,
+          -13,
+          -24,
+          -36
+        ],
+        "last_samples": [
+          -4,
+          -2,
+          -1,
+          0
+        ]
+      }
+    },
+    {
+      "fixture_id": "ITL-G4-A09-PCM-8000-MONO-3000",
+      "filename": "ITL-G4-A09-PCM-8000-MONO-3000.wav",
+      "role": "rate-and-duration-variation",
+      "purpose": "Low sample rate with the longest duration in the family, 3000 ms.",
+      "sample_rate_hz": 8000,
+      "channels": 1,
+      "bits_per_sample": 16,
+      "frames": 24000,
+      "duration_ms": 3000.0,
+      "waveform": "triangle",
+      "waveform_params": {
+        "period": 80,
+        "peak_scale": 128,
+        "fade": 80,
+        "channel_offsets": [
+          {
+            "phase": 0,
+            "invert": false
+          }
+        ]
+      },
+      "metadata_shape": "none",
+      "metadata": {},
+      "metadata_placement": "after_data",
+      "mtime_ns": 1789084980000000000,
+      "size_bytes": 48044,
+      "sha256": "2c6efb02095e31c59458d0e155865903206c1e0a0e97d83d2dbc9cbb0742b966",
+      "pcm_sha256": "d1fc56d0226db404c90c5ab6bfd27330aaedeee0c9a667becf98d5d43382f87d",
+      "chunks": [
+        {
+          "id": "fmt ",
+          "header_offset": 12,
+          "payload_offset": 20,
+          "payload_size": 16,
+          "pad_bytes": 0
+        },
+        {
+          "id": "data",
+          "header_offset": 36,
+          "payload_offset": 44,
+          "payload_size": 48000,
+          "pad_bytes": 0
+        }
+      ],
+      "pcm": {
+        "samples": 24000,
+        "peak_abs": 2560,
+        "rms": 1475.701268,
+        "nonzero_samples": 23398,
+        "first_samples": [
+          0,
+          -31,
+          -58,
+          -82
+        ],
+        "last_samples": [
+          -77,
+          -55,
+          -29,
+          0
+        ]
+      }
+    },
+    {
+      "fixture_id": "ITL-G4-A09-PCM-48000-STEREO-1500",
+      "filename": "ITL-G4-A09-PCM-48000-STEREO-1500.wav",
+      "role": "channel-variation",
+      "purpose": "Two channels that differ by phase and polarity, so channel order is observable.",
+      "sample_rate_hz": 48000,
+      "channels": 2,
+      "bits_per_sample": 16,
+      "frames": 72000,
+      "duration_ms": 1500.0,
+      "waveform": "triangle",
+      "waveform_params": {
+        "period": 192,
+        "peak_scale": 64,
+        "fade": 480,
+        "channel_offsets": [
+          {
+            "phase": 0,
+            "invert": false
+          },
+          {
+            "phase": 96,
+            "invert": true
+          }
+        ]
+      },
+      "metadata_shape": "none",
+      "metadata": {},
+      "metadata_placement": "after_data",
+      "mtime_ns": 1789085040000000000,
+      "size_bytes": 288044,
+      "sha256": "b8419806d19ebb5cbc761cd473c700ded2ae47a2636a46a9eb5c0bcbd0c765b9",
+      "pcm_sha256": "77170ff894ea7066b38d1de1b018366835b02be28c0ed8769f74f2fc530e85b5",
+      "chunks": [
+        {
+          "id": "fmt ",
+          "header_offset": 12,
+          "payload_offset": 20,
+          "payload_size": 16,
+          "pad_bytes": 0
+        },
+        {
+          "id": "data",
+          "header_offset": 36,
+          "payload_offset": 44,
+          "payload_size": 288000,
+          "pad_bytes": 0
+        }
+      ],
+      "pcm": {
+        "samples": 144000,
+        "peak_abs": 3072,
+        "rms": 1765.930544,
+        "nonzero_samples": 142496,
+        "first_samples": [
+          0,
+          0,
+          -7,
+          -6
+        ],
+        "last_samples": [
+          -7,
+          -6,
+          0,
+          0
+        ]
+      }
+    },
+    {
+      "fixture_id": "ITL-G4-A09-PCM-48000-MONO-0010-SILENCE",
+      "filename": "ITL-G4-A09-PCM-48000-MONO-0010-SILENCE.wav",
+      "role": "negative-control",
+      "purpose": "10 ms of digital silence. Peak and RMS are exactly zero by construction.",
+      "sample_rate_hz": 48000,
+      "channels": 1,
+      "bits_per_sample": 16,
+      "frames": 480,
+      "duration_ms": 10.0,
+      "waveform": "silence",
+      "waveform_params": {},
+      "metadata_shape": "none",
+      "metadata": {},
+      "metadata_placement": "after_data",
+      "mtime_ns": 1789085100000000000,
+      "size_bytes": 1004,
+      "sha256": "f33c27764e56d1c6b80cfb26005f2702978d6614cf42a38b28fb58cae17130c4",
+      "pcm_sha256": "3dc463a76fc170607c07b104c3cb531362ce7d6e10c1a34e0c0f370aeae08ce8",
+      "chunks": [
+        {
+          "id": "fmt ",
+          "header_offset": 12,
+          "payload_offset": 20,
+          "payload_size": 16,
+          "pad_bytes": 0
+        },
+        {
+          "id": "data",
+          "header_offset": 36,
+          "payload_offset": 44,
+          "payload_size": 960,
+          "pad_bytes": 0
+        }
+      ],
+      "pcm": {
+        "samples": 480,
+        "peak_abs": 0,
+        "rms": 0.0,
+        "nonzero_samples": 0,
+        "first_samples": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "last_samples": [
+          0,
+          0,
+          0,
+          0
+        ]
+      }
+    },
+    {
+      "fixture_id": "ITL-G4-A09-PCM-48000-MONO-1500-INFO",
+      "filename": "ITL-G4-A09-PCM-48000-MONO-1500-INFO.wav",
+      "role": "metadata-shape",
+      "purpose": "Reference audio plus an ASCII LIST/INFO chunk placed after the data chunk.",
+      "sample_rate_hz": 48000,
+      "channels": 1,
+      "bits_per_sample": 16,
+      "frames": 72000,
+      "duration_ms": 1500.0,
+      "waveform": "triangle",
+      "waveform_params": {
+        "period": 192,
+        "peak_scale": 64,
+        "fade": 480,
+        "channel_offsets": [
+          {
+            "phase": 0,
+            "invert": false
+          }
+        ]
+      },
+      "metadata_shape": "riff-info-ascii",
+      "metadata": {
+        "info": [
+          [
+            "INAM",
+            "A09 Synthetic Tone INFO"
+          ],
+          [
+            "IART",
+            "A09 Synthetic Artist"
+          ],
+          [
+            "IPRD",
+            "A09 Synthetic Album"
+          ],
+          [
+            "IGNR",
+            "Synthetic Test Tone"
+          ],
+          [
+            "ICMT",
+            "Deterministic a09 fixture, synthetic only"
+          ],
+          [
+            "ICRD",
+            "2026-09-11"
+          ],
+          [
+            "ITRK",
+            "7"
+          ],
+          [
+            "ISFT",
+            "itl-g4-a09-fixtures"
+          ]
+        ]
+      },
+      "metadata_placement": "after_data",
+      "mtime_ns": 1789085160000000000,
+      "size_bytes": 144282,
+      "sha256": "c0e1f2ca8fdd10f32253ac9177e9256609fadc47d7116ddd324a11877cd2a599",
+      "pcm_sha256": "fe61bf3cd0c6e2676070e044124ff9c06ba170fe61b9429e484511622a1ad46e",
+      "chunks": [
+        {
+          "id": "fmt ",
+          "header_offset": 12,
+          "payload_offset": 20,
+          "payload_size": 16,
+          "pad_bytes": 0
+        },
+        {
+          "id": "data",
+          "header_offset": 36,
+          "payload_offset": 44,
+          "payload_size": 144000,
+          "pad_bytes": 0
+        },
+        {
+          "id": "LIST",
+          "header_offset": 144044,
+          "payload_offset": 144052,
+          "payload_size": 230,
+          "pad_bytes": 0,
+          "list_form": "INFO",
+          "subchunks": [
+            {
+              "id": "INAM",
+              "header_offset": 144056,
+              "payload_offset": 144064,
+              "payload_size": 24,
+              "pad_bytes": 0
+            },
+            {
+              "id": "IART",
+              "header_offset": 144088,
+              "payload_offset": 144096,
+              "payload_size": 21,
+              "pad_bytes": 1
+            },
+            {
+              "id": "IPRD",
+              "header_offset": 144118,
+              "payload_offset": 144126,
+              "payload_size": 20,
+              "pad_bytes": 0
+            },
+            {
+              "id": "IGNR",
+              "header_offset": 144146,
+              "payload_offset": 144154,
+              "payload_size": 20,
+              "pad_bytes": 0
+            },
+            {
+              "id": "ICMT",
+              "header_offset": 144174,
+              "payload_offset": 144182,
+              "payload_size": 42,
+              "pad_bytes": 0
+            },
+            {
+              "id": "ICRD",
+              "header_offset": 144224,
+              "payload_offset": 144232,
+              "payload_size": 11,
+              "pad_bytes": 1
+            },
+            {
+              "id": "ITRK",
+              "header_offset": 144244,
+              "payload_offset": 144252,
+              "payload_size": 2,
+              "pad_bytes": 0
+            },
+            {
+              "id": "ISFT",
+              "header_offset": 144254,
+              "payload_offset": 144262,
+              "payload_size": 20,
+              "pad_bytes": 0
+            }
+          ]
+        }
+      ],
+      "pcm": {
+        "samples": 72000,
+        "peak_abs": 3072,
+        "rms": 1765.930479,
+        "nonzero_samples": 71248,
+        "first_samples": [
+          0,
+          -7,
+          -13,
+          -18
+        ],
+        "last_samples": [
+          -18,
+          -12,
+          -7,
+          0
+        ]
+      }
+    },
+    {
+      "fixture_id": "ITL-G4-A09-PCM-48000-MONO-1500-INFO-ODD",
+      "filename": "ITL-G4-A09-PCM-48000-MONO-1500-INFO-ODD.wav",
+      "role": "metadata-shape",
+      "purpose": "Odd length INFO value forcing a RIFF pad byte, with metadata before the data chunk so the audio does not start at byte 44.",
+      "sample_rate_hz": 48000,
+      "channels": 1,
+      "bits_per_sample": 16,
+      "frames": 72000,
+      "duration_ms": 1500.0,
+      "waveform": "triangle",
+      "waveform_params": {
+        "period": 192,
+        "peak_scale": 64,
+        "fade": 480,
+        "channel_offsets": [
+          {
+            "phase": 0,
+            "invert": false
+          }
+        ]
+      },
+      "metadata_shape": "riff-info-odd",
+      "metadata": {
+        "info": [
+          [
+            "INAM",
+            "A09 ODDPAD"
+          ],
+          [
+            "ICMT",
+            "odd length value forces a pad byte"
+          ]
+        ]
+      },
+      "metadata_placement": "before_data",
+      "mtime_ns": 1789085220000000000,
+      "size_bytes": 144120,
+      "sha256": "2a8c375224a58ce830c58588c515c1748a96964f0376c414df3495e1747fe081",
+      "pcm_sha256": "fe61bf3cd0c6e2676070e044124ff9c06ba170fe61b9429e484511622a1ad46e",
+      "chunks": [
+        {
+          "id": "fmt ",
+          "header_offset": 12,
+          "payload_offset": 20,
+          "payload_size": 16,
+          "pad_bytes": 0
+        },
+        {
+          "id": "LIST",
+          "header_offset": 36,
+          "payload_offset": 44,
+          "payload_size": 68,
+          "pad_bytes": 0,
+          "list_form": "INFO",
+          "subchunks": [
+            {
+              "id": "INAM",
+              "header_offset": 48,
+              "payload_offset": 56,
+              "payload_size": 11,
+              "pad_bytes": 1
+            },
+            {
+              "id": "ICMT",
+              "header_offset": 68,
+              "payload_offset": 76,
+              "payload_size": 35,
+              "pad_bytes": 1
+            }
+          ]
+        },
+        {
+          "id": "data",
+          "header_offset": 112,
+          "payload_offset": 120,
+          "payload_size": 144000,
+          "pad_bytes": 0
+        }
+      ],
+      "pcm": {
+        "samples": 72000,
+        "peak_abs": 3072,
+        "rms": 1765.930479,
+        "nonzero_samples": 71248,
+        "first_samples": [
+          0,
+          -7,
+          -13,
+          -18
+        ],
+        "last_samples": [
+          -18,
+          -12,
+          -7,
+          0
+        ]
+      }
+    },
+    {
+      "fixture_id": "ITL-G4-A09-PCM-48000-MONO-1500-ID3U",
+      "filename": "ITL-G4-A09-PCM-48000-MONO-1500-ID3U.wav",
+      "role": "metadata-shape",
+      "purpose": "Reference audio plus an ID3v2.3 chunk with UTF-16 text including non-BMP.",
+      "sample_rate_hz": 48000,
+      "channels": 1,
+      "bits_per_sample": 16,
+      "frames": 72000,
+      "duration_ms": 1500.0,
+      "waveform": "triangle",
+      "waveform_params": {
+        "period": 192,
+        "peak_scale": 64,
+        "fade": 480,
+        "channel_offsets": [
+          {
+            "phase": 0,
+            "invert": false
+          }
+        ]
+      },
+      "metadata_shape": "id3v23-unicode",
+      "metadata": {
+        "id3": [
+          [
+            "TIT2",
+            "A09 埋込タイトル Ω 🎵",
+            1
+          ],
+          [
+            "TPE1",
+            "A09 共有アーティスト",
+            1
+          ],
+          [
+            "TALB",
+            "A09 共通アルバム",
+            1
+          ],
+          [
+            "TCON",
+            "電子音 A09",
+            1
+          ],
+          [
+            "TRCK",
+            "9/9",
+            0
+          ],
+          [
+            "TYER",
+            "2026",
+            0
+          ]
+        ]
+      },
+      "metadata_placement": "after_data",
+      "mtime_ns": 1789085280000000000,
+      "size_bytes": 144242,
+      "sha256": "22f2acf5854bfa5f0afd7bb346b0e7e7298bfb0ddbef18151d2fae5eb4bf01db",
+      "pcm_sha256": "fe61bf3cd0c6e2676070e044124ff9c06ba170fe61b9429e484511622a1ad46e",
+      "chunks": [
+        {
+          "id": "fmt ",
+          "header_offset": 12,
+          "payload_offset": 20,
+          "payload_size": 16,
+          "pad_bytes": 0
+        },
+        {
+          "id": "data",
+          "header_offset": 36,
+          "payload_offset": 44,
+          "payload_size": 144000,
+          "pad_bytes": 0
+        },
+        {
+          "id": "id3 ",
+          "header_offset": 144044,
+          "payload_offset": 144052,
+          "payload_size": 189,
+          "pad_bytes": 1
+        }
+      ],
+      "pcm": {
+        "samples": 72000,
+        "peak_abs": 3072,
+        "rms": 1765.930479,
+        "nonzero_samples": 71248,
+        "first_samples": [
+          0,
+          -7,
+          -13,
+          -18
+        ],
+        "last_samples": [
+          -18,
+          -12,
+          -7,
+          0
+        ]
+      }
+    }
+  ]
+}
