@@ -34,6 +34,7 @@ import pathlib
 import sys
 
 from itlkit import operations
+from itlkit.container import Container
 from itlkit.library import Library
 
 SPOOF_VERSION = "12.13.10.3"
@@ -41,18 +42,28 @@ _REAL_GATE = operations.require_simple_library
 
 
 @contextlib.contextmanager
-def _version_presented_as(library, version):
-    real = library.container.version
-    library.container.version = version
+def _version_reported_as(version):
+    """Make Container.version report `version` for the duration of the block.
+
+    Container.version is a read-only property derived from the container header,
+    so the value cannot simply be assigned; the first attempt at this probe failed
+    with AttributeError and that refusal is recorded rather than hidden. The patch
+    is installed on the class rather than on one instance because
+    operations.create_playlist gates a deep copy of the library, not the object it
+    was handed. It is removed again as soon as the gate returns, so nothing is ever
+    serialized while it is in place and the candidate keeps its true version.
+    """
+    original = Container.version
+    Container.version = property(lambda self: version)
     try:
-        yield real
+        yield
     finally:
-        library.container.version = real
+        Container.version = original
 
 
 def relaxed_require_simple_library(library):
     """The real gate, run against a spoofed version string and nothing else."""
-    with _version_presented_as(library, SPOOF_VERSION):
+    with _version_reported_as(SPOOF_VERSION):
         _REAL_GATE(library)
 
 
