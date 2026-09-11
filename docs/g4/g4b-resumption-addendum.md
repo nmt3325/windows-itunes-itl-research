@@ -16,17 +16,17 @@ All G4-B code, tests, harnesses and reports are authored directly on the GHA run
 
 | env_id | platform | role |
 | --- | --- | --- |
-| win-r6qwbqfz | windows | native operation, authoritative regression, integration, publication |
-| linux-xm801aqb | linux | static analysis, research, fixtures, independent review |
+| RUNNER-G4B-WIN | windows | native operation, authoritative regression, integration, publication |
+| RUNNER-G4B-LINUX | linux | static analysis, research, fixtures, independent review |
 
 Both leases began about 2026-09-11 09:16 JST with a 330 minute TTL, so both expire before 21:00 JST. The coordinator owns renewal, replacement and handoff. Children never call `env_create`, `env_extend`, `env_destroy`, or `exec_kill` with `all`, and never administer git worktrees.
 
-- win-r6qwbqfz: a02, a10, a12
-- linux-xm801aqb: a01, a03, a04, a05, a06, a07, a08, a09, a11
+- RUNNER-G4B-WIN: a02, a10, a12
+- RUNNER-G4B-LINUX: a01, a03, a04, a05, a06, a07, a08, a09, a11
 
 ## 4. Observed baseline discrepancy - do not paper over
 
-A fresh full run at `dc4b1c7a9e84a7eefad501da3e1ed65d313cf9f3` on win-r6qwbqfz with pytest 9.1.1 produced:
+A fresh full run at `dc4b1c7a9e84a7eefad501da3e1ed65d313cf9f3` on RUNNER-G4B-WIN with pytest 9.1.1 produced:
 
 `1919 passed, 50 skipped, 4 warnings, 26 subtests passed`, JUnit `tests=1995`, 1969 testcase elements.
 

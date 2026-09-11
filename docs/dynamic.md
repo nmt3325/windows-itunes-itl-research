@@ -2,7 +2,7 @@
 
 ## Scope and honest acceptance boundary
 
-This run used the official **standalone EXE edition of iTunes 12.13.10.3** on Windows x64, in an interactive runneradmin desktop. Installed `C:\Program Files\iTunes\iTunes.exe` SHA-256:
+This run used the official **standalone EXE edition of iTunes 12.13.10.3** on Windows x64, in an interactive <CI_USER> desktop. Installed `C:\Program Files\iTunes\iTunes.exe` SHA-256:
 
 `30d91209b5d81c47bbad2da9d89764fcab08bf5cd9af1a9571668001376c5d7d`
 
