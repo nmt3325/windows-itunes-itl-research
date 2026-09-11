@@ -1,0 +1,20 @@
+{
+  "experiment": "EXP-02",
+  "role": "negative control for EXP-01",
+  "declared_at": "2026-09-11T01:56:11.487650+00:00",
+  "question": "Does this rig actually discriminate, or would iTunes open anything placed at the library path?",
+  "input": {
+    "derived_from": "EXP-01 itlkit rebuild",
+    "sha256_prefix": "7d86f19f6709af30",
+    "mutation": "XOR 0xFF over 16 bytes at offset 1024, container header left intact"
+  },
+  "itlkit_reads_the_corrupt_file": "FormatError",
+  "protocol": "install as the live library, launch once through the same harness, quit, inspect",
+  "control_is_valid_if_any_of": [
+    "a damaged or repaired library file appears",
+    "the COM track count drops to zero",
+    "the library file is replaced by a freshly generated empty one",
+    "iTunes shows an unexpected modal dialog"
+  ],
+  "control_fails_and_voids_exp01_if": "iTunes opens this corrupted file and reports the same single track, which would prove the harness observes something other than the installed file"
+}

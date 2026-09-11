@@ -1,0 +1,65 @@
+{
+  "experiment": "EXP-01",
+  "declared_utc": "2026-09-11T01:45:50Z",
+  "declared_before_any_modification": true,
+  "question": "Does native iTunes 12.13.11.1 open, use and persist a library file whose track metadata was rewritten by itlkit rather than by iTunes?",
+  "input_library": {
+    "path": "<CI_ROOT_WIN>/.../native/libs/lib01/iTunes Library.itl",
+    "sha256": "19d088455f692cc86f3d4f70c5fc74fd039d1efca0ce22f80f25547b8b876dcb",
+    "bytes": 4524
+  },
+  "planned_edit": {
+    "api": "itlkit.trackops.set_indexed_fields",
+    "target_track_persistent_id": "C54F0D3E83DBDA0F",
+    "value": "ITL research EXP-01 written by itlkit"
+  },
+  "protocol": [
+    "declare",
+    "edit offline",
+    "verify itlkit can re-read",
+    "install as the live library",
+    "launch iTunes and read COM",
+    "normal COM Quit",
+    "restart 1",
+    "restart 2",
+    "compare raw bytes and COM at every step"
+  ],
+  "acceptance_requires_all_of": [
+    "iTunes opens the intended file, not a rebuilt or fallback library",
+    "no damaged-file dialog and no unexpected modal",
+    "no 'iTunes Library (Damaged).itl' and no change in the library file count",
+    "COM reports the value itlkit wrote",
+    "a normal COM Quit, not a kill",
+    "the value is still present after restart 1 and restart 2",
+    "itlkit can still read the file iTunes leaves behind"
+  ],
+  "does_not_count_as_acceptance": [
+    "a successful COM AddFile",
+    "an empty library being generated",
+    "iTunes merely starting",
+    "itlkit re-reading its own output",
+    "byte identity of the file iTunes rewrites"
+  ],
+  "failure_signals": [
+    "damaged-file dialog",
+    "rebuild or repair",
+    "track disappears",
+    "edited value absent from COM",
+    "edited value reverts after a restart"
+  ],
+  "playback": "not tested, reported separately from acceptance",
+  "amendment_1": {
+    "amended_utc": "2026-09-11T01:47:18Z",
+    "reason": "the declared metadata edit is refused by itlkit itself",
+    "observed_refusal": "UnsupportedError: writes require the observed Windows iTunes 12.13.9.1/12.13.10.3 profile",
+    "interpretation": "the semantic write path is version gated, and the only native library available here was written by 12.13.11.1, a build whose record profile itlkit has not observed. This is a finding, not a workaround opportunity: the guard is doing exactly what it was built to do.",
+    "revised_subject": "a container level reconstruction produced by itlkit, which carries the same logical library but is not a file iTunes has ever written",
+    "unchanged": "every acceptance criterion and every non-acceptance rule from the original declaration still applies"
+  },
+  "revised_edit": {
+    "api": "itlkit.library.Library.to_bytes(rebuild=True)",
+    "output_bytes": 3392,
+    "output_sha256": "7d86f19f6709af30cdc303c7d2f7e98dc606552fb1792d78ff6cb01ae3ee9754",
+    "differs_from_source": true
+  }
+}

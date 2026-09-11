@@ -1,0 +1,10 @@
+{
+  "experiment": "ctrl-native-baseline",
+  "declared_at": "2026-09-11T02:07:23.6237433Z",
+  "purpose": "record what COM reports for an UNMODIFIED native library, so the EXP-01 reading of playlist_count=7 can be compared against a control",
+  "modification": "none; the live library is the preserved pre-EXP-01 native original",
+  "prediction_if_com_view_is_narrower": "COM reports 7 playlists here too, while itlkit reads 14; the gap is inherent to the COM surface",
+  "prediction_if_exp01_changed_the_library": "COM reports something other than 7 on this untouched baseline",
+  "live_bytes": 4524,
+  "live_sha256_32": "19D088455F692CC86F3D4F70C5FC74FD"
+}
