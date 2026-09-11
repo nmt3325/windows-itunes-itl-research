@@ -663,3 +663,36 @@ def prepare(target_bytes: bytes, intent, sources=None, *, limits=None, seed=None
     """Concrete non-allocating legacy-scalar engine; no unsafe fallback."""
     return prepare_mutation('legacy-scalars.v1', target_bytes, intent, sources,
                             limits=limits, seed=seed, build=_legacy_build, validate=_legacy_validate)
+
+
+def identity_binding_index(ledger, *, limits=None):
+    """Index a canonical ledger's freshly reserved identities by namespace.
+
+    This is the read-only seam between identity evidence and the wire slots an
+    engine must fill: which typed identity did THIS snapshot reserve for a
+    namespace, and what provenance does it carry. Reservations whose target
+    snapshot differs are retained history/exclusion evidence and are
+    deliberately not indexed as fresh identities. The index is structural
+    evidence only: it proves nothing about record layout, pool coverage,
+    reference closure, semantic permission or native acceptance, and it never
+    becomes a write permit.
+    """
+    from types import MappingProxyType
+    limits = get_limits(limits)
+    if type(ledger) is not AllocationLedger or type(ledger.reservations) is not tuple:
+        raise TypeError('a canonical AllocationLedger is required, not a report or mapping')
+    if type(ledger.snapshot) is not SnapshotKey:
+        raise FormatError('an identity binding index requires the ledger target SnapshotKey')
+    if len(ledger.reservations) > limits.max_nodes:
+        raise LimitError('ledger reservation count exceeds the node bound')
+    index = {}
+    for reservation in ledger.reservations:
+        if type(reservation) is not AllocationReservation:
+            raise TypeError('typed AllocationReservation records are required')
+        if reservation.target_snapshot != ledger.snapshot:
+            continue  # inherited from an earlier snapshot; not a fresh identity
+        identity = reservation.reserved_identity
+        if identity_snapshot_digest(identity, identity_v2=True) != ledger.snapshot.digest:
+            raise FormatError('reserved identity is not scoped to the ledger target snapshot')
+        index.setdefault(reservation.namespace, []).append(reservation)
+    return MappingProxyType({k: tuple(v) for k, v in sorted(index.items())})

@@ -368,6 +368,7 @@ def _constructor_blocked_build(data, intent, sources, *, limits, seed, resources
         Blocker('identity_pool_master_closure_pending', 'Real graph/identity dependency is present; actual reservations, SourceBinding, Name/Kind registration, auxiliary/items/history, complete master and system-role/unknown-pool closure remain unimplemented'),
         Blocker('constructor_candidate_unavailable', 'No full new-track builder or independent candidate acceptance; no repair, donor relabeling, fabricated ledger or no-op candidate'),
         Blocker('candidate_accounting_pending', 'Partitioned admission covers only this blocked preparation path, not future candidate/allocator/history work or OS RSS'),
+        Blocker('identity_binding_closure_unproved', 'Recipe wire slots can be derived from an externally frozen canonical ledger by bindings_from_ledger, but these remain unproved: ' + ', '.join(row['code'] for row in UNMET_CONSTRUCTION_CONDITIONS)),
     ))
     return ProfileReport(library.container.version, library.container.payload_byteorder,
         invariants=({'check': 'independent media declaration', 'passed': True, 'media_facts': facts['media']},
@@ -411,3 +412,121 @@ def prepare(target_bytes, intent, sources=None, *, limits=None, seed=None):
         validate_resources=partial(_constructor_resource_facts, admission=admission),
         build=partial(_constructor_blocked_build, admission=admission),
         validate=partial(_constructor_reject_candidate, admission=admission))
+
+
+# --- Identity-v2 requirement surface for the admitted PCM recipe ------------
+# Every wire slot materialize_pcm_wave_record actually writes, paired with the
+# identity-v2 namespace that must own it. The header offsets and mhoh type
+# codes are the slots emitted above: mith type 2 is Name, type 6 is Kind.
+IDENTITY_REQUIREMENTS = (
+    ('track_local', 'track.common_local', 4, 'header:0x10'),
+    ('secondary_local', 'track.file_local', 4, 'header:0x1f4'),
+    ('album_local', 'album.local', 4, 'header:0xdc'),
+    ('artist_local', 'artist.local', 4, 'header:0x1e0'),
+    ('track_pid', 'track.pid', 8, 'header:0x80'),
+    ('name_atom', 'pool:L+0x178', 4, 'mhoh:mith:2'),
+    ('kind_atom', 'pool:L+0x370', 4, 'mhoh:mith:6'),
+)
+
+# What a complete, self-consistent identity set still does NOT prove. This is
+# evidence about absence: never a plan of record, a capability or a permission.
+UNMET_CONSTRUCTION_CONDITIONS = (
+    {'code': 'kind_atom_outside_constructor_pool_guard',
+     'owner': 'itlkit/atoms.py',
+     'detail': 'graph.POOLS maps mith type 6 to L+0x370 and it is an identity-v2 pool, but '
+               'atoms._POOLS has no type 6 entry, so assert_pool_bindings cannot see the '
+               'Kind atom this recipe writes'},
+    {'code': 'no_container_membership_patch',
+     'owner': 'itlkit/library.py and a reviewed candidate builder',
+     'detail': 'a materialized record is standalone: list/section counts, header track '
+               'counters, auxiliary album/artist rows and playlist item entries are not produced'},
+    {'code': 'no_reverse_reference_closure',
+     'owner': 'itlkit/graph.py',
+     'detail': 'adapt_identity_graph can only re-validate an existing graph; no post-candidate '
+               'ReferenceGraph proves album/artist/item edges close onto the new identities'},
+    {'code': 'no_allocator_inside_prepare',
+     'owner': 'itlkit/construct.py',
+     'detail': 'prepare forwards seed but never runs ReservationAllocator, so bindings must come '
+               'from a ledger frozen and canonicalized outside this engine'},
+    {'code': 'no_candidate_accounting',
+     'owner': 'itlkit/construct.py',
+     'detail': 'the partitioned admission budgets only this blocked path, not candidate, '
+               'allocator or history work'},
+    {'code': 'no_native_acceptance_evidence',
+     'owner': 'native verification task',
+     'detail': 'WaveRecord.native_accepted stays False; nothing here observes or implies that '
+               'iTunes accepts a constructed record'},
+)
+
+
+def unmet_construction_conditions():
+    """Explicit JSON-safe list of what a bound identity set still cannot prove."""
+    return tuple(dict(row) for row in UNMET_CONSTRUCTION_CONDITIONS)
+
+
+def _recipe_namespaces():
+    """Fail closed if the recipe drifts from the shared identity-v2 vocabulary."""
+    from .schema import IDENTITY_V2_POOLS, IDENTITY_V2_WIDTHS, importer_pool_domain
+    for _field, namespace, width, _slot in IDENTITY_REQUIREMENTS:
+        if IDENTITY_V2_WIDTHS.get(namespace) != width:
+            raise ConstructionError('recipe identity namespace is outside the identity-v2 vocabulary')
+        if namespace.startswith('pool:') and namespace[5:] not in IDENTITY_V2_POOLS:
+            raise ConstructionError('recipe pool is outside the identity-v2 pool vocabulary')
+    if (IDENTITY_REQUIREMENTS[5][1] != 'pool:' + importer_pool_domain('name')
+            or IDENTITY_REQUIREMENTS[6][1] != 'pool:' + importer_pool_domain('kind')):
+        raise ConstructionError('recipe pool domains drifted from the pinned importer alias table')
+    return tuple(row[1] for row in IDENTITY_REQUIREMENTS)
+
+
+def _binding_provenance(namespace, reservation):
+    """Report retained provenance for one reservation; never relabel a source."""
+    from .schema import ScopedID, SourceBinding
+    old = reservation.old_identity
+    record = {'namespace': namespace, 'consumers': tuple(reservation.consumers)}
+    if namespace.startswith('pool:'):
+        if old is None:
+            record['source_binding'] = None
+            return record
+        if type(old) is not SourceBinding or 'pool:' + old.pool != namespace:
+            raise ConstructionError('pool reservation carries a foreign or untyped source binding')
+        record['source_binding'] = {'pool': old.pool, 'wire_id': old.wire_id,
+                                    'value_digest': old.value_digest,
+                                    'snapshot': old.snapshot.digest}
+        return record
+    if old is not None and type(old) is not ScopedID:
+        raise ConstructionError('non-pool reservation requires typed retained provenance')
+    record['retained_source'] = None if old is None else {
+        'namespace': old.namespace, 'scope': old.scope, 'value': old.value}
+    return record
+
+
+def bindings_from_ledger(ledger, *, limits=None):
+    """Bind this recipe's wire slots to a canonical AllocationLedger.
+
+    This closes the one integration that was genuinely missing between the
+    constructor and planning: which reserved typed identity fills each slot the
+    recipe writes, and what SourceBinding provenance a pool atom carries.
+
+    It is evidence conversion only. Nothing is allocated, no candidate is built
+    or accepted, no gate is relaxed, and prepare() stays blocked whether or not
+    this succeeds. See unmet_construction_conditions() for what a complete
+    binding still does not prove.
+    """
+    from .planning import identity_binding_index
+    required = _recipe_namespaces()
+    index = identity_binding_index(ledger, limits=limits)
+    if set(index) - set(required):
+        raise ConstructionError('ledger reserves identities outside the admitted recipe set')
+    values, provenance = {}, {}
+    for field_name, namespace, width, slot in IDENTITY_REQUIREMENTS:
+        rows = index.get(namespace, ())
+        if len(rows) != 1:
+            raise ConstructionError('exactly one reservation is required per recipe namespace')
+        identity = rows[0].reserved_identity
+        if identity.width != width or not 0 < identity.value < 1 << (8 * width):
+            raise ConstructionError('reserved identity width or value is unusable in this slot')
+        values[field_name] = identity.value
+        provenance[slot] = _binding_provenance(namespace, rows[0])
+    bindings = WaveRecordBindings(**values)
+    bindings.validate()
+    return bindings, provenance
