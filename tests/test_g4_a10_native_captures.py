@@ -11,7 +11,7 @@ from __future__ import annotations
 
 import hashlib
 import json
-from pathlib import Path
+from pathlib import Path, PureWindowsPath
 
 import pytest
 
@@ -150,7 +150,7 @@ _PATH_KEYS = ("url", "path", "location")
 
 
 def _basename(value: str) -> str:
-    return value.replace("\", "/").rstrip("/").rsplit("/", 1)[-1]
+    return PureWindowsPath(value).name
 
 
 def _normalise_paths(value):
