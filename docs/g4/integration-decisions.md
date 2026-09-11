@@ -94,3 +94,34 @@ The push gate is therefore now three conditions, all required: the full
 `failed` nor `error`, and the redaction mapping in `docs/g4/redaction-policy.md`
 is the one applied. Pseudonymisation never touches `.itl` bytes; the four a10
 captures were scanned in UTF-8 and UTF-16 and contain no identifier at all.
+
+## D7. F3, the depth ceiling, is a documentation defect and the clamp stays
+
+a11 reported that the shared JSON preflight clamps `max_depth` to 32 while
+`docs/playlist-models-v2.md:27` states 64. a11 then established that the depth
+counter is 0 based, so `max_depth=32` admits 33 physical levels, and that the
+two numbers are not measuring the same thing.
+
+Decision: the clamp is kept at 32 and no code changes. A conservative ceiling
+is the correct behaviour for a preflight whose purpose is to refuse work before
+allocating, and no native library observed in this corpus approaches it, so
+raising it would trade a real safety property for an unobserved capability.
+The documentation is what is wrong, and the correction states the effective
+ceiling, the counting basis, and the fact that the two figures differ because
+of it. Status: documentation corrected, behaviour unchanged, no native evidence
+is claimed either way.
+
+## D8. F4, chunk-span tiling, is a wording defect in a05's inventory
+
+a11 measured 255 of 256 bytes tiled by chunk spans in the padded fixture, so
+a05's statement that the spans tile the file byte exactly is false for any file
+carrying a RIFF pad byte. The pad byte belongs to no chunk by construction: it
+exists so that the following chunk starts on an even offset.
+
+Decision: a05's sentence is corrected to say that the spans tile every chunk of
+the file and that RIFF pad bytes lie outside every span, and `MediaFacts`
+keeps reporting them through the preserved byte range rather than inventing a
+chunk for them. No code changes, because the reader already preserves the byte
+and only the description was wrong. This is the second wording defect a11 found
+in the same document, so the inventory is downgraded from a specification to a
+survey until a05's claims are re-derived by someone other than a05.
