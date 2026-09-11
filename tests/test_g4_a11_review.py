@@ -9,7 +9,7 @@ Do not misread a green run as "a02 was reviewed":
   invariant still holds here", never "a02's code is correct".
 * The a05 tests are armed counterexamples. They skip until itlkit/media.py carries
   the a05 intake surface and then fail; both were already reproduced against a
-  read-only snapshot of g4/a05 (command_id e4f697f5c1b74507).
+  read-only snapshot of g4/a05 (command_id CMD-01).
 
 See docs/g4/a11/review-findings.md for the ranked findings.
 """

@@ -1,8 +1,8 @@
 """a11 read-only adversarial probe of the a05 media-intake surface (snapshot of g4/a05)."""
 import dataclasses, importlib.util, struct, sys, traceback
 
-W = "/home/runner/work/_temp/gha-mcp/linux-xm801aqb/work/itl-g4/wt/a11"
-SNAP = "/home/runner/work/_temp/gha-mcp/linux-xm801aqb/work/itl-g4/reports/a11/a05_media_snapshot.py"
+W = "<CI_ROOT>/wt/a11"
+SNAP = "<CI_ROOT>/reports/a11/a05_media_snapshot.py"
 sys.path[:0] = [W]
 
 import itlkit  # noqa: F401  (package needed so the snapshot's relative imports resolve)

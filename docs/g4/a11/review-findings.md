@@ -2,7 +2,7 @@
 
 Reviewer task a11. Production code is read-only for this task. Base commit
 `1bb05edc2494abc9aa9b59cd2392026f830615a2`, branch `g4/a11`, linux env
-`linux-xm801aqb`.
+`RUNNER-G4B-LINUX`.
 
 ## 0. The primary objective is BLOCKED, and that is the most important finding
 
@@ -14,7 +14,7 @@ a judgement call.**
 * `git rev-parse --verify g4/a02` and `refs/remotes/origin/g4/a02` both fail.
 * `git ls-remote origin 'refs/heads/g4/*'` returns zero refs: children never push.
 * Per the resumption addendum, a02, a10 and a12 run on the windows environment
-  `win-r6qwbqfz`; a11 runs on `linux-xm801aqb`. a02's commits exist only in the
+  `RUNNER-G4B-WIN`; a11 runs on `RUNNER-G4B-LINUX`. a02's commits exist only in the
   windows clone, which is outside my assigned environment.
 
 The five review targets quote a code fragment
@@ -46,7 +46,7 @@ document calls the non-stale source of truth, emits `format_code: None` as an
 
 Reproduced: `recipe_status_violations = [('aiff','format_code'),
 ('aiff','kind_text'), ('mp3','format_code'), ('mp3','kind_text')]`,
-command_id `e4f697f5c1b74507`. Armed test:
+command_id `CMD-01`. Armed test:
 `test_g4_a11_counterexample_a05_recipe_status_implies_a_recipe_constant`.
 
 Partial mitigation, stated for fairness: `unmet_new_media_conditions` does add
@@ -73,7 +73,7 @@ an explicit `unknown_chunks` field, instead of extending the allowlist.
 
 Reproduced: `probe:plus_unknown_XYZ` shows `meta_present False` with
 `spans (('fmt ',20,16), ('XYZ ',44,4), ('data',56,200))`, command_id
-`e4f697f5c1b74507`. Armed test:
+`CMD-01`. Armed test:
 `test_g4_a11_counterexample_a05_unknown_chunk_is_an_undecoded_carrier`.
 
 ### F3 - low, reproduced - contract conflict between the two depth ceilings
@@ -98,7 +98,7 @@ preferable. Pinned by
 
 Odd-length chunks carry a RIFF pad byte that is inside no span, so
 `12 + sum(length + 8)` is 255 for a 256-byte file with one odd chunk
-(`tiling:plus_ANNO_odd`, command_id `e4f697f5c1b74507`). The pad is recoverable
+(`tiling:plus_ANNO_odd`, command_id `CMD-01`). The pad is recoverable
 by the odd-length convention, so nothing is lost, but the document's claim that
 the spans let "a round trip be proved byte-exact instead of assumed" is not
 literally satisfied. Fix the sentence or record the pad. Deliberately not
@@ -107,7 +107,7 @@ written as a failing test, because fixing the document is a legitimate answer.
 ## 2. Targets checked with a negative result
 
 Stated explicitly so the coordinator does not read silence as coverage. All of
-these were executed against the base code, command_id `bf21dfe508624608`.
+these were executed against the base code, command_id `CMD-02`.
 
 1. **Depth off-by-one at exactly 32.** Not a defect at base. Depth is 0-based at
    top-level sections, so `max_depth=32` admits 33 physical levels: 32 levels

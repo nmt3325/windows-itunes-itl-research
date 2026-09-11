@@ -1,7 +1,7 @@
 """a11 adversarial probes against the reachable base commit. Read-only on production code."""
 import copy, json, os, random, struct, sys, traceback
 
-WT = "/home/runner/work/_temp/gha-mcp/linux-xm801aqb/work/itl-g4/wt/a11"
+WT = "<CI_ROOT>/wt/a11"
 sys.path[:0] = [WT, os.path.join(WT, "tests")]
 
 from itlkit import Container, FormatError, Library, Node, UnsupportedError
