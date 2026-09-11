@@ -73,3 +73,35 @@ unattributable from git metadata. That is true and unresolved: every commit in
 this phase carries one identity, so the commit message is the only attribution.
 Commit messages in this phase name the task and say when the coordinator acted
 on a task's behalf.
+
+## Inherited corpus: what the range limited gate never examined
+
+Every publication gate in this phase scanned the range a task changed, which
+is the right scope for judging a task but the wrong scope for judging the
+repository. A whole tree scan of all nineteen pushed refs shows that the
+inherited research corpus under `evidence/` carries CI environment strings on
+<b>every</b> ref, including `main` and the two earlier recovery refs, because
+those artifacts were committed in earlier phases and preserved verbatim since.
+
+Representative counts on one task tip: the broker directory name appears about
+3,497 times, the Windows temp root in URL form about 183 times, the same root
+in Windows form about 31 times, and the CI account name three times. The
+integration tip is the least affected of the branch tips because the
+coordinator documents and the static scripts were pseudonymised there.
+
+Three consequences, stated rather than fixed:
+
+1. The corpus is evidence and is preserved byte for byte. Rewriting it to
+   remove strings would destroy the artifacts the research depends on, so it
+   is not done.
+2. No branch tip may be described as clean. Only a specific range relative to
+   the phase base has ever been certified clean.
+3. Anything leaving this private repository must be an export of a sanitised
+   subtree that is scanned whole, never a branch push and never a clone. That
+   export does not exist yet, so nothing may be published outside this
+   repository today.
+
+The live runner identifiers of this phase are a separate matter, because the
+coordinator wrote them, not an earlier phase. They were pseudonymised on the
+branch tips that carried them, by adding a commit rather than by rewriting
+history.
