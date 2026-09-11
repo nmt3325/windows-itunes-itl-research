@@ -71,12 +71,39 @@ class MediaFacts:
     codec: str | None
     chunks: tuple[str, ...] = ()
     tag_keys: tuple[str, ...] = ()
+    # Observation-only intake surface. Spans and carrier names are recorded so
+    # a new-media record cannot silently drop an embedded field; payloads are
+    # never decoded, applied or rewritten.
+    chunk_spans: tuple[tuple[str, int, int], ...] = ()
+    metadata_carriers: tuple[str, ...] = ()
+    artwork_carriers: tuple[str, ...] = ()
 
     @property
     def exact_pcm_milliseconds(self):
         if self.duration_quality != 'exact_pcm_frames' or self.frames is None:
             raise MediaError('not an exact PCM duration')
         return self.frames * 1000 // self.sample_rate
+
+    @property
+    def pcm_millisecond_remainder(self):
+        """Nonzero means exact_pcm_milliseconds truncates; native rounding is unverified."""
+        if self.duration_quality != 'exact_pcm_frames' or self.frames is None:
+            raise MediaError('not an exact PCM duration')
+        return self.frames * 1000 % self.sample_rate
+
+    @property
+    def pcm_milliseconds_are_exact(self):
+        return self.pcm_millisecond_remainder == 0
+
+    @property
+    def embedded_metadata_present(self):
+        """True when the media carries metadata this module deliberately never decodes."""
+        return bool(self.metadata_carriers or self.tag_keys)
+
+    @property
+    def artwork_possible(self):
+        """True when an artwork-capable carrier exists; artwork is never extracted."""
+        return bool(self.artwork_carriers)
 
 
 @dataclass(frozen=True, slots=True)
@@ -143,9 +170,17 @@ def _pcm(data, limits):
         _need(offset == block_size == 0, 'AIFF SSND offset/block profile unverified')
         _need(end - start - 8 == frames * channels * (bits // 8), 'AIFF sample length')
     _need(frames > 0, 'empty PCM media')
+    # Record every chunk, including unknown ones, as (tag, payload offset,
+    # payload length). Presence is reported; no payload is decoded or dropped.
+    spans = tuple((key.decode('ascii', 'backslashreplace'), begin, finish - begin)
+                  for key, (begin, finish) in chunks.items())
+    names = tuple(name for name, _, _ in spans)
     return MediaFacts('WAV' if wave else 'AIFF', len(data), sha256(data).hexdigest(),
                       rate, channels, bits, frames, frames / rate, 'exact_pcm_frames',
-                      rate * channels * bits, 'pcm', tuple(k.decode('ascii', 'backslashreplace') for k in chunks))
+                      rate * channels * bits, 'pcm', names, (),
+                      spans,
+                      tuple(name for name in names if name in _PCM_METADATA_CHUNKS),
+                      tuple(name for name in names if name in _PCM_ARTWORK_CHUNKS))
 
 
 def probe_bytes(data: bytes, *, limits=None) -> MediaFacts:
@@ -192,7 +227,8 @@ def probe_bytes(data: bytes, *, limits=None) -> MediaFacts:
     return MediaFacts(family, len(data), sha256(data).hexdigest(), rate, channels,
                       getattr(info, 'bits_per_sample', None), None, float(seconds),
                       'parser_only_not_native_wire_duration', getattr(info, 'bitrate', None), codec,
-                      tag_keys=keys)
+                      tag_keys=keys,
+                      artwork_carriers=tuple(k for k in keys if k.startswith(_TAG_ARTWORK_PREFIXES)))
 
 
 def probe_file(path, *, expected_sha256=None, expected_size=None, expected_mtime_ns=None, limits=None):
@@ -228,3 +264,159 @@ def probe_file(path, *, expected_sha256=None, expected_size=None, expected_mtime
                                (after.st_mtime_ns, expected_mtime_ns)):
         _need(expected is None or observed == expected, 'sealed media provenance mismatch')
     return FileObservation(str(path), facts.size_bytes, facts.sha256, after.st_mtime_ns, facts)
+
+
+# --- genuinely new-media intake classification ---------------------------
+# Observation and classification only. Nothing below relaxes a writer,
+# constructor or admission gate, decodes a payload, or constitutes native
+# acceptance.
+
+# Container chunks that can carry native-visible metadata or artwork. Only
+# presence is reported; payloads are never decoded or applied.
+_PCM_METADATA_CHUNKS = frozenset({'LIST', 'CSET', 'ID3 ', 'id3 ', 'NAME',
+                                  'AUTH', 'ANNO', 'COMT', '(c) '})
+_PCM_ARTWORK_CHUNKS = frozenset({'ID3 ', 'id3 '})
+_TAG_ARTWORK_PREFIXES = ('APIC', 'PIC', 'covr', 'METADATA_BLOCK_PICTURE')
+
+# Constants the existing admitted PCM recipe writes. Recorded as recipe
+# constants whose native provenance was NOT re-verified in this phase. Other
+# families refuse rather than borrow the WAV template.
+_RECIPE_KIND_TEXT = {'WAV': 'WAV audio file'}
+_RECIPE_FORMAT_CODE = {'WAV': 0x57415620}
+
+FIELD_STATUSES = ('derived_exact', 'recipe_constant_unverified',
+                  'caller_supplied', 'absent_from_itlkit')
+
+
+@dataclass(frozen=True, slots=True)
+class MediaFieldRequirement:
+    """One media-derived field a genuinely new track record needs."""
+    field: str
+    record_site: str
+    status: str
+    value: object = None
+    note: str = ''
+
+
+def recipe_kind_text(facts):
+    """Kind text the admitted recipe writes for this family; never a cross-family guess."""
+    _need(type(facts) is MediaFacts, 'typed MediaFacts required')
+    value = _RECIPE_KIND_TEXT.get(facts.format)
+    _need(value is not None, 'no recipe Kind text for ' + str(facts.format))
+    return value
+
+
+def recipe_format_code(facts):
+    """Format code the admitted recipe writes for this family; never a cross-family guess."""
+    _need(type(facts) is MediaFacts, 'typed MediaFacts required')
+    value = _RECIPE_FORMAT_CODE.get(facts.format)
+    _need(value is not None, 'no recipe format code for ' + str(facts.format))
+    return value
+
+
+def new_track_media_fields(facts, observation=None, *, limits=None):
+    """Classify every media-derived field a genuinely new track record needs.
+
+    Pure classification of an already-probed observation: no IO, no fallback
+    and no authority. 'derived_exact' means the value comes from the actual
+    bytes; every other status marks an open gap that construction must not
+    invent.
+    """
+    _memory_preflight(limits, _MEDIA_WORKSPACE)
+    _need(type(facts) is MediaFacts, 'typed MediaFacts required')
+    _need(observation is None or type(observation) is FileObservation,
+          'typed FileObservation required')
+    rows = [
+        MediaFieldRequirement('size_bytes', 'mith 0x24 and 0x144', 'derived_exact',
+                              facts.size_bytes),
+        MediaFieldRequirement('media_sha256', 'declaration provenance', 'derived_exact',
+                              facts.sha256),
+        MediaFieldRequirement('sample_rate_hz', 'mith 0x98 float32', 'derived_exact',
+                              facts.sample_rate),
+        MediaFieldRequirement('channels', 'profile gate only', 'derived_exact', facts.channels),
+        MediaFieldRequirement('bits_per_sample', 'profile gate only', 'derived_exact',
+                              facts.bits_per_sample),
+    ]
+    if facts.duration_quality == 'exact_pcm_frames' and facts.frames is not None:
+        rows.extend((
+            MediaFieldRequirement('pcm_frames', 'mith 0xf4 uint64', 'derived_exact', facts.frames,
+                                  'mono PCM evidence only; other shapes are unverified'),
+            MediaFieldRequirement('duration_ms', 'mith 0x28', 'derived_exact',
+                                  facts.exact_pcm_milliseconds,
+                                  'frames divide evenly into milliseconds'
+                                  if facts.pcm_milliseconds_are_exact else
+                                  'floor truncates here; the native rounding convention is unverified'),
+            MediaFieldRequirement('bitrate_kbps', 'mith 0x38', 'derived_exact',
+                                  facts.bitrate_bps // 1000,
+                                  'rate*channels*bits//1000; the native PCM convention is unverified'),
+        ))
+    else:
+        rows.extend((
+            MediaFieldRequirement('pcm_frames', 'mith 0xf4 uint64', 'absent_from_itlkit', None,
+                                  'no exact frame count outside the PCM path'),
+            MediaFieldRequirement('duration_ms', 'mith 0x28', 'absent_from_itlkit', None,
+                                  'parser-only duration is not a native wire duration'),
+            MediaFieldRequirement('bitrate_kbps', 'mith 0x38', 'absent_from_itlkit',
+                                  facts.bitrate_bps,
+                                  'parser-reported bitrate is not the native stored value'),
+        ))
+    rows.extend((
+        MediaFieldRequirement('format_code', 'mith 0x8c', 'recipe_constant_unverified',
+                              _RECIPE_FORMAT_CODE.get(facts.format),
+                              'recipe constant, not re-verified natively in this phase'),
+        MediaFieldRequirement('kind_text', 'mhoh code 6', 'recipe_constant_unverified',
+                              _RECIPE_KIND_TEXT.get(facts.format),
+                              'recipe constant, not re-verified natively in this phase'),
+        MediaFieldRequirement('date_modified', 'mith 0x20', 'caller_supplied',
+                              None if observation is None else observation.mtime_ns,
+                              'filesystem mtime is observed but its HFS/wall-clock mapping is unverified'),
+        MediaFieldRequirement('date_added', 'mith 0x78', 'absent_from_itlkit', None,
+                              'no media or filesystem source; a native or user clock value'),
+        MediaFieldRequirement('location_path', 'mhoh code 13', 'caller_supplied',
+                              None if observation is None else observation.path,
+                              'filesystem identity, not media content; the destination path must be declared'),
+        MediaFieldRequirement('location_url', 'mhoh code 11', 'caller_supplied',
+                              None if observation is None else observation.path,
+                              'derived from the declared path, not from media bytes'),
+        MediaFieldRequirement('name', 'mhoh code 2', 'absent_from_itlkit', None,
+                              'tag values are never decoded; bare PCM carries no name at all'),
+        MediaFieldRequirement('tag_metadata', 'album/artist/genre/year/track/disc records',
+                              'absent_from_itlkit', facts.tag_keys,
+                              'only tag key names are observed; values are never decoded or applied'),
+        MediaFieldRequirement('artwork', 'artwork records', 'absent_from_itlkit',
+                              facts.artwork_carriers,
+                              'artwork is never extracted; carriers are only reported'),
+    ))
+    for row in rows:
+        _need(row.status in FIELD_STATUSES, 'unknown field status')
+    return tuple(rows)
+
+
+def unmet_new_media_conditions(facts, observation=None, *, limits=None):
+    """Explicit list of what still blocks genuinely new-media construction."""
+    rows = new_track_media_fields(facts, observation, limits=limits)
+    conditions = ['%s: %s%s' % (row.field, row.status,
+                                ' (' + row.note + ')' if row.note else '')
+                  for row in rows if row.status != 'derived_exact']
+    if facts.format != 'WAV':
+        conditions.append('family: only the WAV PCM recipe is admitted; ' + str(facts.format) +
+                          ' must not borrow it')
+    if facts.channels != 1:
+        conditions.append('channels: only mono is qualified')
+    if facts.bits_per_sample != 16:
+        conditions.append('bit depth: only 16-bit is qualified')
+    if facts.sample_rate not in (44100, 48000):
+        conditions.append('sample rate: only 44100 and 48000 are qualified')
+    if facts.embedded_metadata_present:
+        conditions.append('embedded metadata carriers present and never decoded: ' +
+                          ', '.join(facts.metadata_carriers + facts.tag_keys))
+    if facts.artwork_possible:
+        conditions.append('artwork carriers present and never extracted: ' +
+                          ', '.join(facts.artwork_carriers))
+    if (facts.duration_quality == 'exact_pcm_frames' and facts.frames is not None
+            and not facts.pcm_milliseconds_are_exact):
+        conditions.append('duration: frames*1000 leaves remainder %d; native rounding is unverified'
+                          % facts.pcm_millisecond_remainder)
+    if observation is None:
+        conditions.append('file identity: no FileObservation, so path, size and mtime pins are unobserved')
+    return tuple(conditions)
