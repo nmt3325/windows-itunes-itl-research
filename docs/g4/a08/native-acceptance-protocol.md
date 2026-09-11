@@ -5,7 +5,7 @@ ITL experiments in phase G4-B. It is offline-validated: every blocking gate belo
 has at least one negative control in `tests/test_g4_a08_acceptance.py` that proves
 the checker actually detects the failure.
 
-Authored on the GHA linux runner (env linux-xm801aqb) with exec/file_write.
+Authored on the GHA linux runner (env RUNNER-G4B-LINUX) with exec/file_write.
 No iTunes, COM or UI operation was performed by a08.
 
 ## 0. What acceptance is not

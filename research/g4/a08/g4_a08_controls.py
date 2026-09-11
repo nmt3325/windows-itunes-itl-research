@@ -204,7 +204,7 @@ def good_bundle():
         "declaration": declaration(),
         "environment": {
             "operator": "a10",
-            "env_id": "win-r6qwbqfz",
+            "env_id": "RUNNER-G4B-WIN",
             "itunes_version": AUTHORIZED_VERSION,
             "installer_sha256": AUTHORIZED_INSTALLER,
             "version_evidence": "FileVersion of the installed iTunes.exe, read after install",
