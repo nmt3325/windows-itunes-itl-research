@@ -52,7 +52,7 @@
   "disproved_candidates": [
     {"candidate": "pytest major version", "evidence": "pytest 8.4.2 collects 1969, same as 9.1.1", "command_id": "CMD-07"},
     {"candidate": "missing frida", "evidence": "no test imports frida", "command_id": "CMD-08"},
-    {"candidate": "iTunes not installed", "evidence": "collection 1969 both before (00:30:20Z, absent) and after (00:45:28Z, present) a10 installed 12.13.11.1", "command_ids": ["CMD-01", "f3bfed9c8ef847af"]},
+    {"candidate": "iTunes not installed", "evidence": "collection 1969 both before (00:30:20Z, absent) and after (00:45:28Z, present) a10 installed 12.13.11.1", "command_ids": ["CMD-01", "CMD-09"]},
     {"candidate": "conftest or pytest-subtests plugin", "evidence": "no conftest.py in the repository, pytest-subtests not installed", "command_id": "CMD-10"}
   ],
   "junit_accounting": {
