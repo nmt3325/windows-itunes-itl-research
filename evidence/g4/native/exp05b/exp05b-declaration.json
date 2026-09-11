@@ -1,0 +1,70 @@
+{
+  "experiment": "EXP-05B",
+  "kind": "re-run to obtain class-A evidence after the runner loss",
+  "written_before_the_candidate_existed": true,
+  "declared_at_jst": "2026-09-11T13:12+09:00",
+  "why_this_rerun_exists": "The EXP-05 class-A artifacts (session logs, candidate library, post-quit captures) were lost with the Windows runner before they were pushed. The published EXP-05 section is a class-C reconstruction from the conversation record. This run regenerates first-hand evidence.",
+  "environment": {
+    "itunes_version": "12.13.11.1",
+    "itunes_exe_sha256": "c69e719cd3f2f9374e71c954a6de87002b6988af65129943983a2f17490dd73c",
+    "installer_sha256": "25b28905a81406a5edbf482f7f3ee4831a8641d32d29dceda5d1eb3e8d534c08",
+    "installer_signature": "Apple Inc., Valid"
+  },
+  "baseline": {
+    "how_built": "iTunes itself built it: first launch against an empty library directory, then one COM AddFile of a synthetic 440 Hz tone, then a normal COM Quit. Baseline construction is not an acceptance result and is not counted as one.",
+    "file_count": 4,
+    "itl_bytes": 4486,
+    "itl_sha256": "7cde8b92af084c4b849f5e64b306508f60652bb6809636d69888d697cc20bd1f",
+    "extras_itdb_sha256": "e1937a7a396264a1d85599295ce5d66fe16e5771e91be496987a16b26d406553",
+    "genius_itdb_sha256": "7d056d5b2cb1128c5195c78361ac90b509a1377de37e8667333cfaaa4e4fe5d3",
+    "sentinel_sha256": "747822144bb0f4eb463080b4e45eccad7b89762b2ccaeddf278010774a620b75",
+    "track_persistent_id": "0D65DA3C61288869",
+    "track_name": "tone-440hz-2s",
+    "com_dbid": 135,
+    "com_playlist_count": 7,
+    "com_library_track_count": 1,
+    "this_is_a_different_lineage_than_the_lost_run": {
+      "file_count": "4 here, 5 in the lost run",
+      "itl_bytes": "4486 here, 4524 in the lost run",
+      "com_dbid": "135 here, 71 in the lost run",
+      "consequence": "No byte, size or digest from the lost run may be reused as a control for this run."
+    }
+  },
+  "candidate": {
+    "builder": "research/g4/exp05/track_fields.py set --bypass",
+    "fields_to_set": {
+      "name": "exp05b-renamed-by-itlkit",
+      "artist": "exp05b artist",
+      "album": "exp05b album"
+    },
+    "relaxation_disclosed_up_front": "operation_version_spoofed(): the container version is reported as 12.13.10.3 for the whole operation, not only at the entry gate, because trackops.set_indexed_fields -> Track.set -> library._require_semantic_profile reads the version a second time after the gate. This is strictly wider than the EXP-03 and EXP-04 relaxation, so a pass licenses less, not more.",
+    "still_enforced_by_real_itlkit_code": "identity and reference checks, the 144-byte header rule, the trailer rule, the section allowlist, the empty-grandchild rule, the store index shape and the metadata child codes",
+    "product_code_unchanged": "the relaxation lives in a research script outside itlkit/; itlkit's accepted-version set is not widened"
+  },
+  "protocol": [
+    "declare: this file, committed and pushed before the candidate is built",
+    "import: replace the library .itl with the candidate",
+    "launch and let iTunes read and save",
+    "quit through COM",
+    "restart 1 against the file iTunes wrote",
+    "restart 2 against the file iTunes wrote"
+  ],
+  "acceptance_requires_all_of": [
+    "no corruption modal in any of the three sessions",
+    "no 'iTunes Library (Damaged).itl' and no fallback library created",
+    "the library directory keeps exactly its 4 files in every session",
+    "COM reports version 12.13.11.1 in every session",
+    "COM reports library_track_count=1 and playlist_count=7 in every session",
+    "COM reports the edited name, artist and album in all three sessions",
+    "a normal COM Quit in all three sessions"
+  ],
+  "explicitly_not_acceptance": [
+    "a successful COM AddFile",
+    "an empty or regenerated library",
+    "byte equality of the post-quit .itl, because iTunes' rewrite is not byte-deterministic",
+    "structural validity of the candidate on its own",
+    "audible playback, which is not attempted here"
+  ],
+  "prediction": "Accepted. The lost run reported acceptance under the same relaxation on a different lineage, so a refusal here would mean the earlier report depended on something about that lineage. Recorded so it can be wrong on the record.",
+  "revocation_rule": "If any session shows a corruption modal, a renamed or regenerated library, a changed file count, or a missing edit, the acceptance claim is withdrawn. This file is not rewritten afterwards."
+}
