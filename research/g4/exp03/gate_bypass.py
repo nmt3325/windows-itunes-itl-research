@@ -22,6 +22,12 @@ Anything produced here is a CANDIDATE, not a supported artifact. Whatever the
 native application does with it is a probe result. Acceptance here must NOT be
 used to widen itlkit's accepted-profile set: that would require its own declared
 native experiment, with a negative control, on that version.
+
+On comparing outputs: create_playlist is not byte-deterministic for repeated runs
+with the same inputs, because it allocates a fresh persistent id and stamps a
+timestamp. A byte comparison between a gated build and a bypassed build is only
+meaningful when --persistent-id and --timestamp-hfs are both pinned; without that,
+the two builds differ for reasons that have nothing to do with the bypass.
 """
 
 from __future__ import annotations
@@ -117,6 +123,8 @@ def cmd_build(args):
         kwargs["template_persistent_id"] = args.template
     if args.persistent_id:
         kwargs["persistent_id"] = args.persistent_id
+    if args.timestamp_hfs is not None:
+        kwargs["timestamp_hfs"] = args.timestamp_hfs
     context = gate_bypassed() if args.bypass else contextlib.nullcontext()
     report = {
         "probe": "EXP-03",
@@ -178,6 +186,7 @@ def main(argv=None):
     build.add_argument("--track-pid", action="append", default=[])
     build.add_argument("--template")
     build.add_argument("--persistent-id")
+    build.add_argument("--timestamp-hfs", type=int)
     build.add_argument("--bypass", action="store_true", help="show the gate a spoofed version string")
     build.set_defaults(func=cmd_build)
     args = parser.parse_args(argv)
