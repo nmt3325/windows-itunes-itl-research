@@ -110,7 +110,7 @@ control, and iTunes ignored it entirely.
 
 ## EXP-03 - pre-registered probe: is the writer-version gate load-bearing, or merely conservative?
 
-**Status: declared and candidate built; the native result is pending and is appended below when it exists.**
+**Status: executed on real iTunes 12.13.11.1 on 2026-09-11. The application ACCEPTED the itlkit-built playlist and kept it across two restarts.**
 Nothing in this section is authoritative, and nothing in it may be used to widen itlkit's accepted-profile set.
 
 ### Why
@@ -176,12 +176,70 @@ playlist must survive restart 1 and restart 2; and itlkit must still be able to 
 leaves behind. A successful COM `AddFile`, an empty library, iTunes merely starting, itlkit re-reading
 its own output, and the playlist appearing only before the first Quit all explicitly do **not** count.
 
-### Binding limits on whatever the result turns out to be
+### Result: accepted, and it persisted
+
+Three sessions ran back to back with the same harness used for EXP-01 and EXP-02: install, launch,
+dismiss the audio-access dialog, read the library over COM, normal Quit, then restart, then restart again.
+
+| session | file presented | bytes in | COM playlist_count | `exp03-itlkit-playlist` seen over COM | file left behind |
+| --- | --- | ---: | ---: | --- | ---: |
+| exp03-open | the itlkit candidate | 3520 | 8 | yes - kind=2, special=0, 1 track | 4709 bytes |
+| exp03-restart1 | what iTunes had written | 4709 | 8 | yes | 4709 bytes |
+| exp03-restart2 | what iTunes had written | 4709 | 8 | yes | 4709 bytes |
+
+The count of 8 is exactly the 7 playlists the application always creates - established independently by the
+baseline COM control, run twice - plus the one itlkit created. `sla_dialog_seen=False` in all three sessions,
+no damaged-file dialog appeared, the library directory stayed at 5 files, no `iTunes Library (Damaged).itl`
+was created, and each session ended in a normal COM Quit rather than a kill.
+
+itlkit re-read every stage afterwards:
+
+```
+pre-exp03-native      4524  version=12.13.11.1  tracks=1  playlists=14  exp03_present=False
+candidate-by-itlkit   3520  version=12.13.11.1  tracks=1  playlists=15  exp03_present=True
+exp03-open            4709  version=12.13.11.1  tracks=1  playlists=15  exp03_present=True
+exp03-restart1        4709  version=12.13.11.1  tracks=1  playlists=15  exp03_present=True
+exp03-restart2        4709  version=12.13.11.1  tracks=1  playlists=15  exp03_present=True
+```
+
+So the round trip closes in both directions: itlkit wrote a playlist the application accepted, and the
+application rewrote a file itlkit can still read, with the playlist intact and the track count unchanged.
+The three files the application left behind carry three different digests despite identical semantics,
+which is the same non-determinism the baseline control showed, and is why byte identity was excluded from
+the acceptance criteria in advance.
+
+### What this does and does not establish
+
+It establishes that for this operation, on this version, the version gate is **conservative rather than
+load-bearing**: the file itlkit produced was structurally acceptable to the application that itlkit had
+never been observed writing for.
+
+It does not establish that other operations are safe on 12.13.11.1, that any other version behaves this
+way, that libraries containing real media and large playlists behave this way, that anything about playback
+was verified, or that the file is stable beyond the two restarts actually performed. One machine, one
+version, one track, one playlist, two restarts.
+
+The reason this acceptance is worth anything at all is EXP-02. The same harness, on the same machine, was
+given a deliberately corrupted container and reported rejection unambiguously: two modal dialogs, the
+`iTunes Library (Damaged).itl` rename, `main_window_ready=False`, and six failed COM attempts. A harness
+that called everything acceptance would have called that acceptance too. Without the negative control this
+section would be unfalsifiable and should not have been believed.
+
+**Retraction path.** If a later run shows the playlist disappearing, the library being rebuilt, or itlkit
+failing to read a file the application wrote, this result is withdrawn rather than explained away. The
+sanitized logs, the pre-registered declaration, the build report and the digests are in
+`evidence/g4/native/exp03/` so that the claim can be checked rather than trusted.
+
+### Binding limits on this result
 
 - Rejection means the gate is load-bearing on this version and stays as it is.
 - Acceptance means the gate is conservative on this version - and still does not license widening the
   accepted-profile set. That would need its own declared native experiment on 12.13.11.1 with a paired
   negative control, exactly as EXP-02 paired with EXP-01.
+
+The observed outcome was acceptance, so the second bullet is the one that binds: **itlkit's accepted-profile
+set is left exactly as it was.** The gate still refuses 12.13.11.1, and the only way through it remains a
+research script that lives outside `itlkit/` and says so in its first line.
 
 ## What these results license
 
