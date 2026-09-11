@@ -3,7 +3,7 @@
 
 Reconciles pytest JUnit XML evidence against per-phase console summaries.
 
-Facts encoded here were reproduced on env win-r6qwbqfz on 2026-09-11 at base
+Facts encoded here were reproduced on env RUNNER-G4B-WIN on 2026-09-11 at base
 commit dc4b1c7a9e84a7eefad501da3e1ed65d313cf9f3:
 
 * pytest 9.1.1 counts unittest subTest outcomes in the JUnit tests= attribute

@@ -1,6 +1,6 @@
 # G4-B / a12: why the fresh baseline differs from the historical record
 
-Status: explained and reproduced end to end on runner `win-r6qwbqfz`
+Status: explained and reproduced end to end on runner `RUNNER-G4B-WIN`
 (2026-09-11 UTC), worktree base commit
 `dc4b1c7a9e84a7eefad501da3e1ed65d313cf9f3` (tests/, itlkit/ and pyproject.toml
 are byte identical between that commit and my branch head `1bb05edc`, verified
