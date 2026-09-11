@@ -1,12 +1,16 @@
 # G3 provenance ledger (task a01, G4-B)
 
-Authored on the GHA linux runner (linux-xm801aqb) on 2026-09-11. Branch `g4/a01`,
+Authored on the project's Linux CI runner on 2026-09-11. Branch `g4/a01`,
 base commit `1bb05edc2494abc9aa9b59cd2392026f830615a2`. No production file was read
 for modification and none was changed.
 
-> Handling note: this document contains runner environment IDs, command IDs and
-> absolute runner paths, i.e. operational identifiers. Coordinator review is
-> required before it is included in any published checkpoint.
+> Sanitization note: operational identifiers (runner environment IDs, host names,
+> command identifiers and absolute runner paths) are deliberately withheld from
+> this published record. Recovered command streams are referenced by the stable
+> pseudonyms S1-S5, later commands by X1-X3, and runner roots by <..._ROOT>
+> placeholders. The mapping to the original identifiers and the raw stream
+> transcriptions are retained outside this repository. Sanitization changed only
+> these identifiers; no measurement, hash, count or conclusion was altered.
 
 ## 0. Evidence classes
 
@@ -23,21 +27,21 @@ Every claim below carries one label.
 
 ## 1. Headline: the G3 command output survived, the G3 tree did not
 
-**class A.** All five cached command IDs on the EXPIRED environment `win-qedxvjs0`
+**class A.** All five cached command IDs on the EXPIRED environment `RUNNER-G3-WIN`
 returned their complete output to `exec_read` (from_byte 0, single read each,
 `eof: true`). Every response carried `state: exited`, `returned_because: exit`,
 `source: broker_ring`, `runner_gone: true`, `range_evicted: false`,
 `head_discarded_bytes: 0`, `truncated: false`, and `cwd`
-`D:\a\_temp\gha-mcp\win-qedxvjs0\work\itl-g3\repo`. Byte counts matched the expected
+`<G3_ROOT>\repo`. Byte counts matched the expected
 sizes exactly.
 
 | command_id | role | exit | total_bytes | expected | runtime_ms | idle_seconds |
 | --- | --- | --- | --- | --- | --- | --- |
-| 89c10d09a103492c | baseline | 0 | 1419 | 1419 | 25735 | 52287 |
-| 6b3c4de1f7524eef | red-fix-green-full | 0 | 2350 | 2350 | 24927 | 52100 |
-| cf9b6d01a4ae48a8 | depth/final tests + failure | 1 | 1029 | 1029 | 26678 | 51777 |
-| c33994de5af249d8 | read-only reconciliation | 0 | 1050 | 1050 | 875 | 51639 |
-| 17dbcd791b734e92 | publication-only failure | 1 | 912 | 912 | 3950 | 51552 |
+| S1 | baseline | 0 | 1419 | 1419 | 25735 | 52287 |
+| S2 | red-fix-green-full | 0 | 2350 | 2350 | 24927 | 52100 |
+| S3 | depth/final tests + failure | 1 | 1029 | 1029 | 26678 | 51777 |
+| S4 | read-only reconciliation | 0 | 1050 | 1050 | 875 | 51639 |
+| S5 | publication-only failure | 1 | 912 | 912 | 3950 | 51552 |
 
 No `runner_gone` error, no `range_evicted`, no eviction of any range. The earlier
 working assumption that the G3 evidence was gone is wrong for these five streams.
@@ -47,7 +51,7 @@ JUnit XML files and the modified sources went with the runner. Any G3 fact never
 printed into one of these five streams is **missing**, not recoverable by a01.
 
 **class A, timeline cross-check.** `idle_seconds` places the last output of
-6b3c4de1f7524eef at 2026-09-10T10:00:14Z, which is exactly the timestamp that stream
+S2 at 2026-09-10T10:00:14Z, which is exactly the timestamp that stream
 prints on its own last-but-one line (`2026-09-10T10:00:14.1610168Z`). The same
 arithmetic places the reads at approximately 2026-09-11T00:28:3xZ (09:28 JST) and is
 consistent across all five. These are the original G3 streams, not a replay.
@@ -64,7 +68,7 @@ CRLF on the Windows runner, which the byte deltas confirm (1419/1401, 2350/2317,
 1029/1016, 1050/1043, 912/899 = 18/33/13/7/13 CR bytes). Full transcriptions live in
 the external report dir under `raw/`.
 
-### 2.1 baseline - 89c10d09a103492c (exit 0, 1419 B)
+### 2.1 baseline - S1 (exit 0, 1419 B)
 
 The stream is only the warnings summary and the short test summary; with
 `head_discarded_bytes: 0` and `truncated: false` this is the complete recorded stream,
@@ -77,7 +81,7 @@ not a truncation. Decisive line:
 Skips recorded: 4 + 1 in `tests/test_codec_native_profiles.py` (no COM oracle, no
 after-state COM oracle) and 1 in `tests/test_cow_v2.py:93`.
 
-### 2.2 red-fix-green-full - 6b3c4de1f7524eef (exit 0, 2350 B)
+### 2.2 red-fix-green-full - S2 (exit 0, 2350 B)
 
 ```text
 RED_EXIT=1
@@ -102,7 +106,7 @@ RED_ERRORS=0
 The red stage was 19 tests with 15 failures and 0 errors; after the fix the same 19
 passed and the full suite reported 2144 passed.
 
-### 2.3 depth/final tests and the first publication failure - cf9b6d01a4ae48a8 (exit 1, 1029 B)
+### 2.3 depth/final tests and the first publication failure - S3 (exit 1, 1029 B)
 
 ```text
 depth-red {'tests': 3, 'failures': 3, 'errors': 0, 'skipped': 0, 'exit_code': 1}
@@ -113,7 +117,7 @@ AssertionError at close_and_publish.py line 31:
 throw 'Final scoped publication stopped; inspect before any retry'
 ```
 
-### 2.4 read-only reconciliation - c33994de5af249d8 (exit 0, 1050 B)
+### 2.4 read-only reconciliation - S4 (exit 0, 1050 B)
 
 ```text
 2026-09-10T10:07:55.1873785Z
@@ -128,10 +132,10 @@ full       tests 2186 skipped 6 elements 2150 unique_pairs 2150 duplicates []
 final-full tests 2189 skipped 6 elements 2153 unique_pairs 2153 duplicates []
 ```
 
-All three JUnit suites report host `runnervmeef0v`, timestamps 2026-09-10T09:56:45Z,
+All three JUnit suites report host `HOST-G3`, timestamps 2026-09-10T09:56:45Z,
 09:59:52Z and 10:05:15Z, errors 0 and failures 0. No duplicate testcase pairs.
 
-### 2.5 publication-only failure - 17dbcd791b734e92 (exit 1, 912 B)
+### 2.5 publication-only failure - S5 (exit 1, 912 B)
 
 ```text
 resume_publication.py line 13:
@@ -143,7 +147,7 @@ throw 'Publication-only stage stopped; inspect before retry'
 ## 3. Remote branch reality
 
 **class A.** `git ls-remote origin`, run in this phase from the a01 worktree
-(command_id a79fa3050c3d4f59, exit 0):
+(command_id X1, exit 0):
 
 ```text
 82c10a7ada3e4ee829f222e22d0c2848d9179d79	HEAD
@@ -172,7 +176,7 @@ text exists nowhere a01 can reach.
 
 | artifact | value | class | note |
 | --- | --- | --- | --- |
-| `itlkit/admission.py` at the red-fix-green stage | `5d72aea15cbded646e62b33f050bfff7c3bc8fc67d00c223b6c57ede11bc06df` | class A | printed by 6b3c4de1f7524eef |
+| `itlkit/admission.py` at the red-fix-green stage | `5d72aea15cbded646e62b33f050bfff7c3bc8fc67d00c223b6c57ede11bc06df` | class A | printed by S2 |
 | `itlkit/admission.py` final | same value asserted historically | class B | no recovered stream restates it after the depth correction; equality of stage and final state is not evidenced |
 | `itlkit/playlist_models.py` before the depth correction | `1e1211061e461551ba7765bf87725158b0360c47076595403b724e08058d5523` | class A | explicitly NOT final |
 | `itlkit/playlist_models.py` final | - | missing | never printed into any recovered stream |
@@ -230,10 +234,10 @@ and the contract prohibition on re-running or recreating `close_and_publish.py` 
 
 **class A.** The recovered bytes corroborate that the historical baseline figures were
 genuinely emitted: 2125 passed, 6 skipped, 36 subtests, 2131 elements, on host
-`runnervmeef0v` at 2026-09-10T09:56:45Z, with the tree at
+`HOST-G3` at 2026-09-10T09:56:45Z, with the tree at
 `dc4b1c7a9e84a7eefad501da3e1ed65d313cf9f3`.
 
-**class A.** The gap against the fresh win-r6qwbqfz run recorded in the addendum
+**class A.** The gap against the fresh RUNNER-G4B-WIN run recorded in the addendum
 (1919 passed, 50 skipped, 26 subtests, JUnit tests 1995, 1969 elements) is therefore a
 difference between two real observations, not a bookkeeping invention. a01 adds only
 the anchors: same commit, 6 skipped then against 50 now, 36 subtests then against 26,
@@ -249,7 +253,7 @@ Recorded as missing, not inferred:
 - final `itlkit/playlist_models.py` hash and content - **missing**
 - final 22-test file hash and test names - **missing**
 - all JUnit XML artifacts and the `reports/` directory of the G3 runner - **missing**,
-  gone with `win-qedxvjs0`
+  gone with `RUNNER-G3-WIN`
 - proof that `itlkit/admission.py` was untouched by the depth correction - **missing**,
   the final-equality claim stays **class B**
 - any G3 branch, tag or published directory on the remote - confirmed absent,
@@ -259,7 +263,7 @@ Recorded as missing, not inferred:
 
 ## 8. What a01 did not do
 
-**class A.** No `exec` was issued against `win-qedxvjs0`; only read-only `exec_read`.
+**class A.** No `exec` was issued against `RUNNER-G3-WIN`; only read-only `exec_read`.
 No environment was created, extended or destroyed. No worktree administration, no
 push, no PR, no merge. No production file was modified. No mutation or publication
 script was re-run or recreated. No tests were added, so no pytest run was required.

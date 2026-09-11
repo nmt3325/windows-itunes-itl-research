@@ -2,7 +2,9 @@
 """a01 self-check for docs/g4/a01/g3-provenance.md.
 
 Verifies the ledger is well formed markdown and that every section carries an
-evidence-class label, plus the required provenance anchors.
+evidence-class label, plus the required provenance anchors. Recovered command streams are referenced
+by the sanitized pseudonyms S1-S5, not by runner command identifiers, which are
+withheld from the published record.
 """
 import pathlib
 import re
@@ -13,11 +15,11 @@ DOC = ROOT / "docs" / "g4" / "a01" / "g3-provenance.md"
 
 CLASS_RE = re.compile(r"class A|class B|class C|missing", re.IGNORECASE)
 ANCHORS = [
-    "89c10d09a103492c",
-    "6b3c4de1f7524eef",
-    "cf9b6d01a4ae48a8",
-    "c33994de5af249d8",
-    "17dbcd791b734e92",
+    "baseline - S1 (exit 0, 1419 B)",
+    "red-fix-green-full - S2 (exit 0, 2350 B)",
+    "- S3 (exit 1, 1029 B)",
+    "- S4 (exit 0, 1050 B)",
+    "- S5 (exit 1, 912 B)",
     "hardening/itl-20260910-g3-review",
     "5d72aea15cbded646e62b33f050bfff7c3bc8fc67d00c223b6c57ede11bc06df",
     "1e1211061e461551ba7765bf87725158b0360c47076595403b724e08058d5523",
