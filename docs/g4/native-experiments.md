@@ -243,7 +243,7 @@ research script that lives outside `itlkit/` and says so in its first line.
 
 ## EXP-04 - pre-registered: does the acceptance generalise past one operation?
 
-**Status: tooling built and controlled offline; native result pending.**
+**Status: executed on real iTunes 12.13.11.1 on 2026-09-11. Both candidates were ACCEPTED.**
 
 EXP-03 answered a question about exactly one call: `create_playlist`. It would be an easy and
 wrong move to promote that into "itlkit can write playlists on 12.13.11.1". EXP-04 asks whether
@@ -276,6 +276,50 @@ The native protocol will present two candidates built from the live 12.13.11.1 l
 playlist, and the state after the playlist has been created and then deleted again. Acceptance
 criteria are the same as EXP-03's, pre-registered per candidate, with the same explicit non-acceptance
 list. Results, whichever way they fall, are appended here.
+
+### Result: both candidates accepted
+
+Six sessions, three per candidate, on 2026-09-11.
+
+| Candidate | Installed | COM playlists (open / restart 1 / restart 2) | exp04 playlist | Track | File left behind |
+| --- | --- | --- | --- | --- | --- |
+| EXP-04a (create, empty, refill) | 3,518 B | 8 / 8 / 8 | present, `kind=2 special=0`, 1 track | present | 4,708 B |
+| EXP-04b (the same, then delete) | 3,392 B | 7 / 7 / 7 | absent, as intended | present | 4,524 B |
+
+In all six sessions: `sla_dialog_seen=False`, `main_window_ready=True`, `com_create=ok attempt=1`,
+`com[open] version=12.13.11.1`, `library_track_count=1`, `libcount[prelaunch]=5`,
+`libcount[postquit]=5`, and a normal COM Quit. No damaged-file dialog appeared, no
+`iTunes Library (Damaged).itl` was created, and no fallback library was generated. itlkit re-read
+every capture successfully: 15 playlists with the new one present for EXP-04a, 14 without it for
+EXP-04b, one track and version 12.13.11.1 throughout. The preserved baseline was restored afterwards.
+
+### The prediction that did not hold
+
+The declaration, written before anything was installed, predicted EXP-04a would probably be accepted
+and called EXP-04b **genuinely uncertain** - deletion has to leave the surrounding indices
+consistent, and a stale reference is exactly what the application would be expected to reject. It
+was accepted on the first attempt, in all three sessions. The prediction is left as written rather
+than tidied up after the fact; being wrong in the cautious direction is still being wrong, and the
+next uncertain case should not inherit extra confidence from this one.
+
+One detail worth not over-reading: after EXP-04b the application settles at 4,524 bytes, the same
+size as the preserved baseline, but a different digest (`19d08845...` versus `cedf18d6...`). That is
+the already-measured non-determinism of iTunes' own rewrite, not a demonstration that the two files
+are equivalent.
+
+### What EXP-04 adds, and what it still does not
+
+It adds that acceptance is not peculiar to `create_playlist`. Replacing a playlist's members and
+deleting a playlist both produce libraries this build opens, keeps, and rewrites without complaint
+across two restarts. Together with EXP-02, where the application visibly rejected a corrupted
+container, the reading is that itlkit's playlist writing is structurally sound on 12.13.11.1 and the
+version gate is conservative rather than load-bearing for these three operations.
+
+It still does not establish anything about: other operations, other iTunes builds, libraries holding
+real media or smart and folder playlists, stability past two restarts, or playback. Three accepted
+operations on one machine with one track is a narrow result, and **itlkit's accepted-profile set is
+left exactly as it was**. Widening it would need its own declaration, its own controls, and a reason
+better than "the experiments we happened to run passed".
 
 ## What these results license
 
