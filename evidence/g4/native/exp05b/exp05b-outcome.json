@@ -1,0 +1,114 @@
+{
+  "experiment": "EXP-05B",
+  "evidence_class": "A: observed in this run, with the session logs in this directory",
+  "verdict": "ACCEPTED",
+  "pre_registration": "exp05b-declaration.json, committed and pushed before the candidate was built",
+  "checks_from_the_declaration": {
+    "no corruption modal in any session": true,
+    "no damaged or fallback library file": true,
+    "library directory keeps its 4 files": true,
+    "COM reports 12.13.11.1 in every session": true,
+    "COM reports 1 track and 7 playlists": true,
+    "COM reports the edited name, artist and album": true,
+    "normal COM quit in all three sessions": true
+  },
+  "baseline": {
+    "built_by": "iTunes itself; not an acceptance result",
+    "itl_bytes": 4486,
+    "itl_sha256": "7cde8b92af084c4b849f5e64b306508f60652bb6809636d69888d697cc20bd1f",
+    "track_persistent_id": "0D65DA3C61288869"
+  },
+  "candidate": {
+    "bytes": 3442,
+    "sha256": "0b2ec9088591d313238420312a0a407dd7849253dd52dbfab69d0c2b9fdeda43",
+    "written_by": "itlkit through research/g4/exp05/track_fields.py",
+    "relaxation": "version reported as 12.13.10.3 for the WHOLE operation, which is wider than EXP-03/EXP-04 used",
+    "fields": {
+      "name": "exp05b-renamed-by-itlkit",
+      "artist": "exp05b artist",
+      "album": "exp05b album"
+    }
+  },
+  "sessions": {
+    "exp05b-open": {
+      "sla_dialog_seen": "False",
+      "audio_dialog_seen": "True",
+      "main_window_ready": "True",
+      "com_version": "12.13.11.1",
+      "com_playlist_count": "7",
+      "com_library_track_count": "1",
+      "com_track_line": "com[exp05b-open] track idx=1 dbid=71 name=[exp05b-renamed-by-itlkit] artist=[exp05b artist] album=[exp05b album] kind=[WAV audio file] size=176444 dur=2",
+      "quit_wait_seconds": "9",
+      "forced_kill": "not reported",
+      "libcount_prelaunch": "4",
+      "libcount_postquit": "4",
+      "post_quit_itl": {
+        "bytes": 4610,
+        "sha256": "3ba045c174f0a74c8a8f1675dbaea77827cc0820219beb8936b43bcd36c5aad6"
+      },
+      "itlkit_readback": {
+        "exit": 0,
+        "stdout": [
+          "version=12.13.11.1 tracks=1 playlists=14",
+          "   track pid=0D65DA3C61288869 name='exp05b-renamed-by-itlkit'"
+        ]
+      }
+    },
+    "exp05b-restart1": {
+      "sla_dialog_seen": "False",
+      "audio_dialog_seen": "True",
+      "main_window_ready": "True",
+      "com_version": "12.13.11.1",
+      "com_playlist_count": "7",
+      "com_library_track_count": "1",
+      "com_track_line": "com[exp05b-restart1] track idx=1 dbid=71 name=[exp05b-renamed-by-itlkit] artist=[exp05b artist] album=[exp05b album] kind=[WAV audio file] size=176444 dur=2",
+      "quit_wait_seconds": "12",
+      "forced_kill": "not reported",
+      "libcount_prelaunch": "4",
+      "libcount_postquit": "4",
+      "post_quit_itl": {
+        "bytes": 4607,
+        "sha256": "f22a9ed4c41affe1e8436caa4f8963818596e48cb13288bd8732c4f19cdd89e6"
+      },
+      "itlkit_readback": {
+        "exit": 0,
+        "stdout": [
+          "version=12.13.11.1 tracks=1 playlists=14",
+          "   track pid=0D65DA3C61288869 name='exp05b-renamed-by-itlkit'"
+        ]
+      }
+    },
+    "exp05b-restart2": {
+      "sla_dialog_seen": "False",
+      "audio_dialog_seen": "True",
+      "main_window_ready": "True",
+      "com_version": "12.13.11.1",
+      "com_playlist_count": "7",
+      "com_library_track_count": "1",
+      "com_track_line": "com[exp05b-restart2] track idx=1 dbid=71 name=[exp05b-renamed-by-itlkit] artist=[exp05b artist] album=[exp05b album] kind=[WAV audio file] size=176444 dur=2",
+      "quit_wait_seconds": "9",
+      "forced_kill": "not reported",
+      "libcount_prelaunch": "4",
+      "libcount_postquit": "4",
+      "post_quit_itl": {
+        "bytes": 4608,
+        "sha256": "947a12d26d7ef26999fbec7305041aabb3ca083e63d58d0bc520d584cb1d4d1c"
+      },
+      "itlkit_readback": {
+        "exit": 0,
+        "stdout": [
+          "version=12.13.11.1 tracks=1 playlists=14",
+          "   track pid=0D65DA3C61288869 name='exp05b-renamed-by-itlkit'"
+        ]
+      }
+    }
+  },
+  "post_quit_non_determinism": "the three post-quit files differ in size and digest (4610, 4607, 4608 bytes), which is iTunes' own rewrite behaviour, already observed in EXP-03 and EXP-04",
+  "not_claimed": [
+    "that itlkit can construct a genuinely new track",
+    "that the shipped write gate accepts this edit; it refuses without the research relaxation",
+    "byte determinism of iTunes' rewrite",
+    "playback, which was not attempted"
+  ],
+  "binaries_not_published": "the candidate and the three post-quit captures are kept out of the repository because their location records embed the runner's media path; redacting bytes would falsify the evidence, so only sizes and digests are published"
+}
