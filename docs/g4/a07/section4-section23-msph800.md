@@ -58,7 +58,7 @@ form of section 4; the identification is new to this task.
 - `msdh` header length is 96 and `msdh +8 == 96 + len(payload)`.
 - The corpus contains exactly **two** distinct values:
   - 95 bytes, 54 snapshots:
-    `file://localhost/D:/a/_temp/<CI_BROKER>/RUNNER-G4A2-WIN/work/itl/fixtures/dynamic/live/iTunes%20Media/`
+    `file://localhost/<CI_ROOT_WIN>/<CI_BROKER>/RUNNER-G4A2-WIN/work/itl/fixtures/dynamic/live/iTunes%20Media/`
   - 66 bytes, only `000-empty.itl`:
     `file://localhost/C:/Users/<CI_USER>/Music/iTunes/iTunes%20Media/`
 - The string appears **exactly once** in the whole plaintext payload: no other

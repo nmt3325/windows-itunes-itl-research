@@ -1,6 +1,6 @@
 param([string]$Targets='targets-final.txt',[string]$Output='decompiled',[string]$LogName='ghidra-final')
 $ErrorActionPreference='Stop'
-$root='D:\a\_temp\<CI_BROKER>\WINDOWS_RESEARCH_RUN\work\itl'
+$root='<CI_ROOT_WIN>\<CI_BROKER>\WINDOWS_RESEARCH_RUN\work\itl'
 $env:JAVA_HOME='C:\hostedtoolcache\windows\Java_Temurin-Hotspot_jdk\21.0.12-101.0\x64';$env:PATH="$env:JAVA_HOME\bin;"+$env:PATH
 $env:USERPROFILE="$root\tools\static\home";$env:APPDATA="$env:USERPROFILE\AppData\Roaming";$env:LOCALAPPDATA="$env:USERPROFILE\AppData\Local"
 $env:TEMP="$root\tools\static\tmp";$env:TMP=$env:TEMP
