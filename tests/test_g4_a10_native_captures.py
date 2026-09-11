@@ -146,10 +146,53 @@ def test_both_restart_cycles_are_semantically_identical():
     assert _summary("lib01-restart1") == _summary("lib01-restart2")
 
 
+_PATH_KEYS = ("url", "path", "location")
+
+
+def _basename(value: str) -> str:
+    return value.replace("\", "/").rstrip("/").rsplit("/", 1)[-1]
+
+
+def _normalise_paths(value):
+    """Reduce path-bearing fields to their final component.
+
+    The published sidecars have their CI directory prefixes redacted under
+    docs/g4/redaction-policy.md, while the .itl captures beside them are
+    untouched native bytes. Comparing the two verbatim would compare a redacted
+    string against a real one. A directory prefix is a property of the machine
+    that produced the capture, not of the format, so it is normalised away
+    here. The file name, which the format does bind to the track, is still
+    compared exactly, and the test below asserts the redaction happened at all.
+    """
+    if isinstance(value, dict):
+        return {
+            key: _basename(item)
+            if key in _PATH_KEYS and isinstance(item, str)
+            else _normalise_paths(item)
+            for key, item in value.items()
+        }
+    if isinstance(value, list):
+        return [_normalise_paths(item) for item in value]
+    return value
+
+
 @pytest.mark.parametrize("name", SNAPSHOTS)
 def test_sidecar_inspect_json_matches_library_summary(name):
     sidecar = CAPTURES / ("itlkit-inspect-" + name + ".json")
     if not sidecar.exists():
         pytest.skip("sidecar not present: " + sidecar.name)
     recorded = json.loads(sidecar.read_text(encoding="utf-8"))
-    assert recorded == json.loads(json.dumps(_summary(name)))
+    computed = json.loads(json.dumps(_summary(name)))
+    assert _normalise_paths(recorded) == _normalise_paths(computed)
+
+
+@pytest.mark.parametrize("name", SNAPSHOTS_WITH_TRACK)
+def test_sidecar_media_paths_are_redacted_but_keep_the_file_name(name):
+    sidecar = CAPTURES / ("itlkit-inspect-" + name + ".json")
+    if not sidecar.exists():
+        pytest.skip("sidecar not present: " + sidecar.name)
+    track = json.loads(sidecar.read_text(encoding="utf-8"))["tracks"][0]
+    for field in ("path", "url"):
+        assert "<CI_" in track[field] or "RUNNER-" in track[field]
+        assert _basename(track[field]) == TONE_NAME + ".wav"
+    assert _basename(_only_track(name)["path"]) == _basename(track["path"])

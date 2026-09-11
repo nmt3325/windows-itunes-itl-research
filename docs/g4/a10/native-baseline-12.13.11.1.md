@@ -190,3 +190,20 @@ pwsh -File a10-session.ps1 -Tag restart2
 python -m itlkit check research/g4/a10/captures/lib01-import.itl
 pytest tests/test_g4_a10_native_captures.py
 ```
+
+## 12. Coordinator publication note (2026-09-11)
+
+The four `.itl` captures are published exactly as native iTunes produced them.
+A UTF-16 aware scan found no CI runner identifier inside them in any encoding,
+so no native byte was rewritten for publication.
+
+The three sidecar JSON files did embed the absolute CI media path, so their
+`path` and `url` fields were redacted under `docs/g4/redaction-policy.md`. That
+redaction broke `test_sidecar_inspect_json_matches_library_summary`, which had
+compared the sidecar against a summary recomputed from the untouched native
+bytes. The comparison is now normalised over path-bearing fields, and a second
+test asserts both that the published path really is redacted and that the media
+file name still matches the one the native library binds to the track.
+
+The breakage was introduced by the coordinator during publication, not by task
+a10, and it is recorded here rather than silently repaired.
