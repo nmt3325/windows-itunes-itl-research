@@ -97,7 +97,7 @@ check('CLI output path excluded from identity seed',lambda:yes(r['candidate_sha2
 check('transaction has no leftover temp files',lambda:yes(not list(O.glob('.*.tmp'))))
 check('source inputs unchanged',lambda:yes(Path(a.baseline).read_bytes()==B and Path(a.donor).read_bytes()==D and Path(a.recipient37).read_bytes()==G))
 check('runtime script has no assert statements',lambda:yes(not any(isinstance(n,ast.Assert) for n in ast.walk(ast.parse((HERE/'experimental_import.py').read_text(encoding='utf-8'))))))
-check('runtime has no fixed environment/root dependency',lambda:yes('win-48e85eyn' not in (HERE/'experimental_import.py').read_text(encoding='utf-8')))
+check('runtime has no fixed environment/root dependency',lambda:yes('RUNNER-G4A2-WIN' not in (HERE/'experimental_import.py').read_text(encoding='utf-8')))
 for n,data,receipt in [('group-replay',group,group_report),('different-seed',changed,changed_report)]:
  E.write_new(O/(n+'.itl'),data);(O/(n+'.json')).write_text(json.dumps(receipt,indent=2),encoding='utf-8')
 result={'passed':len(T),'failed':0,'tests':T,'native_actions':0,'core_commit':E.CORE_COMMIT,'python':sys.version,'input_hashes':{'baseline':E.sha(B),'recipient37':E.sha(G),'donor':E.sha(D)},'reproduced':{'one':E.sha(one),'group':E.sha(group)},'changed_seed':{'sha256':E.sha(changed),'explained_by':'only new mtph+0x44..0x4b PID bytes in plaintext; compressed envelope length/content consequently differs'}}
