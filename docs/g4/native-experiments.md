@@ -367,6 +367,38 @@ misreport: iTunes may keep the file but re-read the WAV's own tags and overwrite
 That is the application accepting the *file* and rejecting the *edit*, and it will be reported as a
 failed edit, not as an acceptance.
 
+### Correction, made before anything was installed
+
+The first build attempt refused with the gate's own version error. Two independent traces - one
+against the real 12.13.11.1 library, one simulating an unsupported version on a supported snapshot -
+put it in the same place:
+
+```
+trackops.py:156  set_indexed_fields        ->  track.set(**plain)
+library.py:184   set                       ->  _require_semantic_profile()
+library.py:468   _require_semantic_profile ->  UnsupportedError
+```
+
+Two causes, found in that order. First, `trackops` does `from .operations import
+require_simple_library`, so rebinding the name inside `operations` left the track path holding the
+original function. The bypass now rebinds every live reference and reports which modules it touched.
+Second, and the substantive one: the track path reads the version **again** after the gate, inside
+`Track.set`. Playlist operations consult it once, which is why EXP-03 and EXP-04 never met this. The
+same simulation run against the playlist path succeeds, which rules out the probe as the cause.
+
+So EXP-05 cannot run under the EXP-03/EXP-04 arrangement. It needs the spoofed version held across
+the whole operation - a **strictly larger** relaxation, because every version check during the edit
+then sees a false value. That weakens what an acceptance here would mean compared with EXP-03 and
+EXP-04, and it is recorded in the declaration, in every build report the probe writes, and here,
+before any candidate was built. The container header is not rewritten, so the candidate keeps its
+real version; the probe re-reads its own output outside the patch to confirm that.
+
+One more measurement worth having in advance: two runs of the same track edit **through the real
+gate**, on the same supported snapshot, already produce different bytes. The difference is confined
+to the `miah` and `miih` auxiliary headers at offsets 0x14-0x1b, while the semantic content and even
+the allocated album and artist ids (146 and 147) are identical in both. Byte identity is therefore
+not an acceptance criterion for EXP-05 either.
+
 ## What these results license
 
 Together the experiment, its negative control and its baseline control support

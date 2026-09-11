@@ -110,6 +110,34 @@ def gate_bypassed():
             module.require_simple_library = _REAL_GATE
 
 
+@contextlib.contextmanager
+def operation_version_spoofed():
+    """A deliberately LARGER relaxation than `gate_bypassed`, for the track path only.
+
+    EXP-03 and EXP-04 spoofed the version for the duration of the gate call and no
+    longer: every later check saw the library's true 12.13.11.1 and passed anyway. The
+    track path is different, and that was measured rather than assumed. Under the narrow
+    relaxation `trackops.set_indexed_fields` still refuses:
+
+        trackops.py:156  set_indexed_fields        ->  track.set(**plain)
+        library.py:184   set                       ->  _require_semantic_profile()
+        library.py:468   _require_semantic_profile ->  UnsupportedError
+
+    The identical simulation run against the playlist path succeeds, so the difference
+    belongs to track edits and not to the probe.
+
+    Holding the spoof across the whole operation means every check that consults the
+    version during the edit - library.py:184, library.py:293, cow.py:110 - sees a false
+    value. That is a strictly weaker experimental setup than EXP-03/EXP-04 used, and any
+    result obtained under it has to say so rather than borrow their standing. The
+    container header is never rewritten, so the candidate keeps its true version; the
+    caller is expected to re-read the output outside this context and check.
+    """
+    with _version_reported_as(SPOOF_VERSION):
+        with gate_bypassed() as patched:
+            yield patched
+
+
 def _playlist_facts(playlist):
     d = playlist.to_dict() if hasattr(playlist, "to_dict") else {}
     wanted = (

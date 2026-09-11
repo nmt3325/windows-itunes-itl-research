@@ -37,6 +37,7 @@ _spec = importlib.util.spec_from_file_location("exp03_gate_bypass", _EXP03)
 _exp03 = importlib.util.module_from_spec(_spec)
 _spec.loader.exec_module(_exp03)
 gate_bypassed = _exp03.gate_bypassed
+operation_version_spoofed = _exp03.operation_version_spoofed
 
 CANDIDATE_FIELDS = {
     "name": "exp05-renamed-by-itlkit",
@@ -75,7 +76,10 @@ def _interesting(row):
 
 
 def _apply(library, bypass, fields, persistent_id):
-    with (gate_bypassed() if bypass else contextlib.nullcontext()):
+    # The track path re-reads the version inside Track.set, so the narrow EXP-03
+    # relaxation is not enough here. This is the wider one, and it is labelled as such
+    # in every report this script writes.
+    with (operation_version_spoofed() if bypass else contextlib.nullcontext()):
         trackops.set_indexed_fields(library, persistent_id, fields)
     return library
 
@@ -145,6 +149,7 @@ def cmd_set(args):
             "authoritative": False,
             "fields": fields,
             "bypass": bool(args.bypass),
+            "relaxation": ("version reported as %s for the WHOLE operation, which is wider than EXP-03/EXP-04 used" % _exp03.SPOOF_VERSION) if args.bypass else "none; the shipped gate decided",
             "before": before,
             "after": after,
             "output_bytes": len(data),
