@@ -58,7 +58,7 @@ form of section 4; the identification is new to this task.
 - `msdh` header length is 96 and `msdh +8 == 96 + len(payload)`.
 - The corpus contains exactly **two** distinct values:
   - 95 bytes, 54 snapshots:
-    `file://localhost/D:/a/_temp/<CI_BROKER>/win-48e85eyn/work/itl/fixtures/dynamic/live/iTunes%20Media/`
+    `file://localhost/D:/a/_temp/<CI_BROKER>/RUNNER-G4A2-WIN/work/itl/fixtures/dynamic/live/iTunes%20Media/`
   - 66 bytes, only `000-empty.itl`:
     `file://localhost/C:/Users/<CI_USER>/Music/iTunes/iTunes%20Media/`
 - The string appears **exactly once** in the whole plaintext payload: no other
@@ -196,3 +196,9 @@ read-only for this task: additionally require `uint(payload, 4) == 96`,
 snapshots and write only into that directory, never into the worktree, and
 `census_query.py` prints to stdout rather than emitting a JSON document.
 Recorded `command_id`s for every run are in `$REPORTS/report.json`.
+
+> Publication note (coordinator, 2026-09-11). The CI runner identifier inside
+> the quoted section 4 values is pseudonymised under
+> `docs/g4/redaction-policy.md`. The byte lengths quoted above are those of the
+> original unredacted values as they exist on disk, so a reader reproducing the
+> census will see the same lengths and a different host component.
