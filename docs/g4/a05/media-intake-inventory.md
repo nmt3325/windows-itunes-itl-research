@@ -140,8 +140,10 @@ scheduled, the declaration must carry at least:
    with `pcm_millisecond_remainder`, so a native Total Time that differs by one
    millisecond is classified as a rounding-convention finding and not as a
    failure.
-2. Container inventory: the full `chunk_spans` list plus `metadata_carriers`
-   and `artwork_carriers`. If any carrier is present the candidate is not a
+2. Container inventory: the full `chunk_spans` list plus `metadata_carriers`,
+   `artwork_carriers` and `unknown_chunks` (coordinator decision D4, 2026-09-11:
+   a chunk outside the decoded structural set for the family is an undecoded
+   carrier). If any carrier is present the candidate is not a
    bare-media candidate, because native may read fields itlkit never decoded.
 3. The two recipe constants actually written, 0x8c = 0x57415620 and Kind text
    `WAV audio file`, declared as unverified constants to be confirmed or

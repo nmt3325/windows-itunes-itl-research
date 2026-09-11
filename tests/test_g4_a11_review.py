@@ -20,6 +20,7 @@ import struct
 import pytest
 
 from itlkit import FormatError, Library, Node
+from itlkit.errors import UnsupportedError
 from itlkit import media
 from itlkit import playlist_models as pm
 from itlkit.admission import require_complete_master
@@ -152,7 +153,13 @@ def test_g4_a11_export_preserves_array_order_and_duplicates():
            [(0, 0, "Dup"), (1, 1, "Dup")]
     assert [(e.child_index, e.value("local_id")) for e in ordinary.entries] == [(2, 20), (3, 21)]
     exported = json.loads(pm.models_json(document))
-    assert list(exported["model"].keys())[:3] == ["schema", "raw", "byteorder"]
+    # Coordinator amendment, 2026-09-11 (decision D1). models_json now encodes
+    # through the shared schema.encode_json preflight, which emits object keys
+    # sorted rather than in dataclass field order. Object key order carries no
+    # meaning in JSON; the array order and duplicate occurrences this test is
+    # named for are still pinned above and below. No key was added or removed.
+    assert list(exported["model"].keys()) == sorted(exported["model"].keys())
+    assert set(["schema", "raw", "byteorder"]) <= set(exported["model"])
     assert list(exported["model"]["raw"].keys()) == ["offset", "size"]
     assert [m["text"] for m in exported["model"]["sections"][1]["playlists"][1]["metadata"]] == ["Dup", "Dup"]
 
@@ -208,8 +215,14 @@ def test_g4_a11_aux_persistent_id_width_condition_still_matches_the_core():
 
     widened = _library()
     widened._root(9).children = _aux_records(92, (7, 8), 0xAABB000000000001)
+    # The core validator still ignores an unqualified auxiliary width, unchanged.
     Library._validate_ids_and_refs(widened)
-    assert require_complete_master(widened) is not None
+    # Coordinator amendment, 2026-09-11 (decision D2). The opt-in master predicate
+    # must refuse a shape it cannot fully validate. Admitting an unknown auxiliary
+    # header width is exactly the persistent-ID bypass the reconstructed G3 fix
+    # closes, so the pre-fix expectation here pinned the vulnerability itself.
+    with pytest.raises(UnsupportedError):
+        require_complete_master(widened)
 
 
 def test_g4_a11_aux_section_header_width_is_not_qualified():

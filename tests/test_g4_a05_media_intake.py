@@ -60,10 +60,15 @@ def test_a05_reference_shaped_pcm_reproduces_fixture_dimensions():
     assert not facts.embedded_metadata_present and not facts.artwork_possible
 
 
-@pytest.mark.parametrize('tag,metadata,artwork', [
-    (b'LIST', True, False), (b'ID3 ', True, True), (b'CSET', True, False),
-    (b'Zzz1', False, False)])
-def test_a05_carriers_are_reported_never_decoded_and_never_dropped(tag, metadata, artwork):
+@pytest.mark.parametrize('tag,metadata,artwork,unknown', [
+    (b'LIST', True, False, False), (b'ID3 ', True, True, False),
+    (b'CSET', True, False, False),
+    # Coordinator amendment, 2026-09-11 (decision D4/D5). An unlisted chunk is an
+    # undecoded carrier, not proof of bare media: it is absent from the allowlisted
+    # carrier tuples but is reported through unknown_chunks, and it must still
+    # block a bare-media candidate.
+    (b'Zzz1', False, False, True)])
+def test_a05_carriers_are_reported_never_decoded_and_never_dropped(tag, metadata, artwork, unknown):
     payload = b'INFOINAM' + struct.pack('<I', 4) + b'abc\0'
     data = wav_bytes(frames=257, extra=((tag, payload),))
     facts = probe_bytes(data)
@@ -74,10 +79,11 @@ def test_a05_carriers_are_reported_never_decoded_and_never_dropped(tag, metadata
     assert data[span[1]:span[1] + span[2]] == payload  # bytes preserved, not decoded
     assert (name in facts.metadata_carriers) is metadata
     assert (name in facts.artwork_carriers) is artwork
-    assert facts.embedded_metadata_present is metadata
+    assert (name in facts.unknown_chunks) is unknown
+    assert facts.embedded_metadata_present is (metadata or unknown)
     assert facts.artwork_possible is artwork
     conditions = unmet_new_media_conditions(facts)
-    assert any('embedded metadata carriers' in c for c in conditions) is metadata
+    assert any('embedded metadata carriers' in c for c in conditions) is (metadata or unknown)
     assert any('artwork carriers' in c for c in conditions) is artwork
 
 

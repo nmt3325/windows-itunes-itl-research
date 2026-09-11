@@ -77,6 +77,10 @@ class MediaFacts:
     chunk_spans: tuple[tuple[str, int, int], ...] = ()
     metadata_carriers: tuple[str, ...] = ()
     artwork_carriers: tuple[str, ...] = ()
+    # Chunks outside the decoded structural set and outside the carrier
+    # allowlists. They are preserved and never decoded, so presence is reported
+    # instead of being silently treated as absent metadata (a11 finding F2).
+    unknown_chunks: tuple[str, ...] = ()
 
     @property
     def exact_pcm_milliseconds(self):
@@ -98,7 +102,7 @@ class MediaFacts:
     @property
     def embedded_metadata_present(self):
         """True when the media carries metadata this module deliberately never decodes."""
-        return bool(self.metadata_carriers or self.tag_keys)
+        return bool(self.metadata_carriers or self.tag_keys or self.unknown_chunks)
 
     @property
     def artwork_possible(self):
@@ -175,12 +179,16 @@ def _pcm(data, limits):
     spans = tuple((key.decode('ascii', 'backslashreplace'), begin, finish - begin)
                   for key, (begin, finish) in chunks.items())
     names = tuple(name for name, _, _ in spans)
+    structural = _WAVE_STRUCTURAL if wave else _AIFF_STRUCTURAL
     return MediaFacts('WAV' if wave else 'AIFF', len(data), sha256(data).hexdigest(),
                       rate, channels, bits, frames, frames / rate, 'exact_pcm_frames',
                       rate * channels * bits, 'pcm', names, (),
                       spans,
                       tuple(name for name in names if name in _PCM_METADATA_CHUNKS),
-                      tuple(name for name in names if name in _PCM_ARTWORK_CHUNKS))
+                      tuple(name for name in names if name in _PCM_ARTWORK_CHUNKS),
+                      tuple(name for name in names if name not in structural
+                            and name not in _PCM_METADATA_CHUNKS
+                            and name not in _PCM_ARTWORK_CHUNKS))
 
 
 def probe_bytes(data: bytes, *, limits=None) -> MediaFacts:
@@ -276,6 +284,10 @@ def probe_file(path, *, expected_sha256=None, expected_size=None, expected_mtime
 _PCM_METADATA_CHUNKS = frozenset({'LIST', 'CSET', 'ID3 ', 'id3 ', 'NAME',
                                   'AUTH', 'ANNO', 'COMT', '(c) '})
 _PCM_ARTWORK_CHUNKS = frozenset({'ID3 ', 'id3 '})
+# Structural chunks this module actually decodes, per PCM family. Anything else
+# is an undecoded carrier, not proof of bare media.
+_WAVE_STRUCTURAL = frozenset({'fmt ', 'data'})
+_AIFF_STRUCTURAL = frozenset({'COMM', 'SSND'})
 _TAG_ARTWORK_PREFIXES = ('APIC', 'PIC', 'covr', 'METADATA_BLOCK_PICTURE')
 
 # Constants the existing admitted PCM recipe writes. Recorded as recipe
@@ -361,12 +373,20 @@ def new_track_media_fields(facts, observation=None, *, limits=None):
                                   'parser-reported bitrate is not the native stored value'),
         ))
     rows.extend((
-        MediaFieldRequirement('format_code', 'mith 0x8c', 'recipe_constant_unverified',
+        MediaFieldRequirement('format_code', 'mith 0x8c',
+                              'recipe_constant_unverified'
+                              if facts.format in _RECIPE_FORMAT_CODE else 'absent_from_itlkit',
                               _RECIPE_FORMAT_CODE.get(facts.format),
-                              'recipe constant, not re-verified natively in this phase'),
-        MediaFieldRequirement('kind_text', 'mhoh code 6', 'recipe_constant_unverified',
+                              'recipe constant, not re-verified natively in this phase'
+                              if facts.format in _RECIPE_FORMAT_CODE else
+                              'no recipe constant exists for this family; only the WAV PCM recipe is admitted'),
+        MediaFieldRequirement('kind_text', 'mhoh code 6',
+                              'recipe_constant_unverified'
+                              if facts.format in _RECIPE_KIND_TEXT else 'absent_from_itlkit',
                               _RECIPE_KIND_TEXT.get(facts.format),
-                              'recipe constant, not re-verified natively in this phase'),
+                              'recipe constant, not re-verified natively in this phase'
+                              if facts.format in _RECIPE_KIND_TEXT else
+                              'no recipe constant exists for this family; only the WAV PCM recipe is admitted'),
         MediaFieldRequirement('date_modified', 'mith 0x20', 'caller_supplied',
                               None if observation is None else observation.mtime_ns,
                               'filesystem mtime is observed but its HFS/wall-clock mapping is unverified'),
@@ -409,7 +429,7 @@ def unmet_new_media_conditions(facts, observation=None, *, limits=None):
         conditions.append('sample rate: only 44100 and 48000 are qualified')
     if facts.embedded_metadata_present:
         conditions.append('embedded metadata carriers present and never decoded: ' +
-                          ', '.join(facts.metadata_carriers + facts.tag_keys))
+                          ', '.join(facts.metadata_carriers + facts.tag_keys + facts.unknown_chunks))
     if facts.artwork_possible:
         conditions.append('artwork carriers present and never extracted: ' +
                           ', '.join(facts.artwork_carriers))
