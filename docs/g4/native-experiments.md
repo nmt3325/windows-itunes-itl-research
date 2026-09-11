@@ -36,9 +36,9 @@ iTunes rewrites the library on every quit, which is why the hash changes at each
 stage. That behaviour was already observed on the untouched native baseline, so
 it is iTunes being iTunes, not a symptom of the candidate.
 
-One reading is not yet explained: COM reports 7 playlists where itlkit reads 14.
-A control session on the untouched native original is required before claiming
-the rebuild did not cause it, and that control is recorded separately.
+One reading needed explaining: COM reports 7 playlists where itlkit reads 14.
+That gap is resolved by the baseline control below, and it is not caused by the
+rebuild.
 
 ## EXP-02: the negative control that makes EXP-01 mean something
 
@@ -72,9 +72,46 @@ intent, not evidence of a file on disk.
 The preserved native baseline was then restored, back to 4,524 bytes and
 `19D088455F692CC86F3D4F70C5FC74FD`.
 
-## What these two results license
+## The baseline control: what COM says when nothing was changed
 
-The pair supports a narrow, specific claim: **iTunes 12.13.11.1 accepted a
+The 7-versus-14 discrepancy could have meant two very different things: either
+COM shows a narrower view than the file contains, or the rebuild quietly lost
+seven playlists. Guessing between those was not acceptable, so the preserved
+native original was restored and opened with no modification at all, under the
+same declare-first protocol.
+
+COM reported `playlist_count=7` on the untouched original as well, and this
+time the harness enumerated them:
+
+| # | Name | Kind | Special | Tracks |
+| --- | --- | --- | --- | --- |
+| 1 | Library | 1 | | 1 |
+| 2 | Music | 2 | 6 | 1 |
+| 3 | Movies | 2 | 7 | 0 |
+| 4 | TV Shows | 2 | 8 | 0 |
+| 5 | Podcasts | 2 | 9 is Audiobooks; this row is 3, Podcasts | 0 |
+| 6 | Audiobooks | 2 | 9 | 0 |
+| 7 | Genius | 2 | 11 | 0 |
+
+Every one is a built-in special playlist. itlkit reads 14 playlist records in
+the same file, so the COM surface is simply exposing the special playlists and
+not the full record set. The conclusion is that the discrepancy belongs to COM,
+not to the rebuild, and EXP-01's acceptance stands.
+
+The control also reproduced the rewrite behaviour: iTunes rewrote the library
+on quit, from 4,524 bytes to 4,526 (`7159DBF86A04DBE3D8C866B651E0D11C`), and
+rewrote the Extras database while leaving the Genius database untouched. That
+is the same pattern seen after the rebuilt candidate, which is what makes it
+uninteresting as a signal.
+
+One incidental observation: the file iTunes had renamed to `iTunes Library
+(Damaged).itl` during EXP-02 was still sitting in the directory during this
+control, and iTunes ignored it entirely.
+
+## What these results license
+
+Together the experiment, its negative control and its baseline control support
+a narrow, specific claim: **iTunes 12.13.11.1 accepted a
 container that itlkit rebuilt from its own parse, and the same harness rejects
 a corrupted container loudly.** Acceptance survived two restarts.
 
