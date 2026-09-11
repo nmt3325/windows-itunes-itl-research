@@ -1,0 +1,1190 @@
+{
+  "schema": "itlkit.g4.a09.expectation.v1",
+  "declaration_state": "template",
+  "candidate_id": "TEMPLATE-native-import-discovery",
+  "candidate_kind": "native_import_discovery",
+  "operator": "a10",
+  "authored_by": "a09",
+  "format_alignment": {
+    "format_owner": "a08",
+    "a08_format_published_at_authoring_time": false,
+    "status": "missing",
+    "note": "a08 had published no manifest format when a09 authored these manifests. This schema is a09 defined and covers every field the contract gate requires. Rename or re-nest fields when a08 publishes; do not treat this as a08 approved."
+  },
+  "preflight": {
+    "a08_review_id": null,
+    "a11_review_id": null,
+    "coordinator_slot": null
+  },
+  "library": {
+    "intended_library_path": null,
+    "profile_note": "Isolated synthetic library only. Never a real or personal library.",
+    "input": {
+      "sha256": null,
+      "size_bytes": null,
+      "mtime_ns": null
+    },
+    "expected_output": {
+      "sha256": null,
+      "size_bytes": null,
+      "unpredictable_reason": null,
+      "capture_required": true
+    }
+  },
+  "media_inputs": [
+    {
+      "fixture_id": "ITL-G2-PCM-48000-001",
+      "filename": "ITL-G2-PCM-48000-001.wav",
+      "size_bytes": 144044,
+      "sha256": "87e45bff7acf44a05a818fa0f33edec429d6648751bcd8aa91ccf91a764b2e05",
+      "pcm_sha256": "fe61bf3cd0c6e2676070e044124ff9c06ba170fe61b9429e484511622a1ad46e",
+      "sample_rate_hz": 48000,
+      "channels": 1,
+      "bits_per_sample": 16,
+      "frames": 72000,
+      "duration_ms": 1500.0,
+      "mtime_ns": 1789026300000000000,
+      "metadata_shape": "none",
+      "embedded_metadata": {},
+      "generator": "research/g4/a09/fixtures.py",
+      "declared_location": null,
+      "expected_native_title_source": null
+    },
+    {
+      "fixture_id": "ITL-G4-A09-PCM-44100-MONO-1000",
+      "filename": "ITL-G4-A09-PCM-44100-MONO-1000.wav",
+      "size_bytes": 88244,
+      "sha256": "4997cb388167df3a3f372f211d3cf6decb78c28c8b6a58bf3430ce1cdb73702c",
+      "pcm_sha256": "eea59abc3329728e27937449ff77e6d8d040bd54dcf6d72756e1b08be05f7853",
+      "sample_rate_hz": 44100,
+      "channels": 1,
+      "bits_per_sample": 16,
+      "frames": 44100,
+      "duration_ms": 1000.0,
+      "mtime_ns": 1789084860000000000,
+      "metadata_shape": "none",
+      "embedded_metadata": {},
+      "generator": "research/g4/a09/fixtures.py",
+      "declared_location": null,
+      "expected_native_title_source": null
+    },
+    {
+      "fixture_id": "ITL-G4-A09-PCM-22050-MONO-0500",
+      "filename": "ITL-G4-A09-PCM-22050-MONO-0500.wav",
+      "size_bytes": 22094,
+      "sha256": "3a121b88fbc16b852f91aed95026517ce5c4a42a94d3a5ef82fb4c364047a0fb",
+      "pcm_sha256": "598256fffcdd94cda8e590ebd3a7fee7c368a7d07ff857048b97f16a59988d9b",
+      "sample_rate_hz": 22050,
+      "channels": 1,
+      "bits_per_sample": 16,
+      "frames": 11025,
+      "duration_ms": 500.0,
+      "mtime_ns": 1789084920000000000,
+      "metadata_shape": "none",
+      "embedded_metadata": {},
+      "generator": "research/g4/a09/fixtures.py",
+      "declared_location": null,
+      "expected_native_title_source": null
+    },
+    {
+      "fixture_id": "ITL-G4-A09-PCM-8000-MONO-3000",
+      "filename": "ITL-G4-A09-PCM-8000-MONO-3000.wav",
+      "size_bytes": 48044,
+      "sha256": "2c6efb02095e31c59458d0e155865903206c1e0a0e97d83d2dbc9cbb0742b966",
+      "pcm_sha256": "d1fc56d0226db404c90c5ab6bfd27330aaedeee0c9a667becf98d5d43382f87d",
+      "sample_rate_hz": 8000,
+      "channels": 1,
+      "bits_per_sample": 16,
+      "frames": 24000,
+      "duration_ms": 3000.0,
+      "mtime_ns": 1789084980000000000,
+      "metadata_shape": "none",
+      "embedded_metadata": {},
+      "generator": "research/g4/a09/fixtures.py",
+      "declared_location": null,
+      "expected_native_title_source": null
+    },
+    {
+      "fixture_id": "ITL-G4-A09-PCM-48000-STEREO-1500",
+      "filename": "ITL-G4-A09-PCM-48000-STEREO-1500.wav",
+      "size_bytes": 288044,
+      "sha256": "b8419806d19ebb5cbc761cd473c700ded2ae47a2636a46a9eb5c0bcbd0c765b9",
+      "pcm_sha256": "77170ff894ea7066b38d1de1b018366835b02be28c0ed8769f74f2fc530e85b5",
+      "sample_rate_hz": 48000,
+      "channels": 2,
+      "bits_per_sample": 16,
+      "frames": 72000,
+      "duration_ms": 1500.0,
+      "mtime_ns": 1789085040000000000,
+      "metadata_shape": "none",
+      "embedded_metadata": {},
+      "generator": "research/g4/a09/fixtures.py",
+      "declared_location": null,
+      "expected_native_title_source": null
+    },
+    {
+      "fixture_id": "ITL-G4-A09-PCM-48000-MONO-0010-SILENCE",
+      "filename": "ITL-G4-A09-PCM-48000-MONO-0010-SILENCE.wav",
+      "size_bytes": 1004,
+      "sha256": "f33c27764e56d1c6b80cfb26005f2702978d6614cf42a38b28fb58cae17130c4",
+      "pcm_sha256": "3dc463a76fc170607c07b104c3cb531362ce7d6e10c1a34e0c0f370aeae08ce8",
+      "sample_rate_hz": 48000,
+      "channels": 1,
+      "bits_per_sample": 16,
+      "frames": 480,
+      "duration_ms": 10.0,
+      "mtime_ns": 1789085100000000000,
+      "metadata_shape": "none",
+      "embedded_metadata": {},
+      "generator": "research/g4/a09/fixtures.py",
+      "declared_location": null,
+      "expected_native_title_source": null
+    },
+    {
+      "fixture_id": "ITL-G4-A09-PCM-48000-MONO-1500-INFO",
+      "filename": "ITL-G4-A09-PCM-48000-MONO-1500-INFO.wav",
+      "size_bytes": 144282,
+      "sha256": "c0e1f2ca8fdd10f32253ac9177e9256609fadc47d7116ddd324a11877cd2a599",
+      "pcm_sha256": "fe61bf3cd0c6e2676070e044124ff9c06ba170fe61b9429e484511622a1ad46e",
+      "sample_rate_hz": 48000,
+      "channels": 1,
+      "bits_per_sample": 16,
+      "frames": 72000,
+      "duration_ms": 1500.0,
+      "mtime_ns": 1789085160000000000,
+      "metadata_shape": "riff-info-ascii",
+      "embedded_metadata": {
+        "info": [
+          [
+            "INAM",
+            "A09 Synthetic Tone INFO"
+          ],
+          [
+            "IART",
+            "A09 Synthetic Artist"
+          ],
+          [
+            "IPRD",
+            "A09 Synthetic Album"
+          ],
+          [
+            "IGNR",
+            "Synthetic Test Tone"
+          ],
+          [
+            "ICMT",
+            "Deterministic a09 fixture, synthetic only"
+          ],
+          [
+            "ICRD",
+            "2026-09-11"
+          ],
+          [
+            "ITRK",
+            "7"
+          ],
+          [
+            "ISFT",
+            "itl-g4-a09-fixtures"
+          ]
+        ]
+      },
+      "generator": "research/g4/a09/fixtures.py",
+      "declared_location": null,
+      "expected_native_title_source": null
+    },
+    {
+      "fixture_id": "ITL-G4-A09-PCM-48000-MONO-1500-INFO-ODD",
+      "filename": "ITL-G4-A09-PCM-48000-MONO-1500-INFO-ODD.wav",
+      "size_bytes": 144120,
+      "sha256": "2a8c375224a58ce830c58588c515c1748a96964f0376c414df3495e1747fe081",
+      "pcm_sha256": "fe61bf3cd0c6e2676070e044124ff9c06ba170fe61b9429e484511622a1ad46e",
+      "sample_rate_hz": 48000,
+      "channels": 1,
+      "bits_per_sample": 16,
+      "frames": 72000,
+      "duration_ms": 1500.0,
+      "mtime_ns": 1789085220000000000,
+      "metadata_shape": "riff-info-odd",
+      "embedded_metadata": {
+        "info": [
+          [
+            "INAM",
+            "A09 ODDPAD"
+          ],
+          [
+            "ICMT",
+            "odd length value forces a pad byte"
+          ]
+        ]
+      },
+      "generator": "research/g4/a09/fixtures.py",
+      "declared_location": null,
+      "expected_native_title_source": null
+    },
+    {
+      "fixture_id": "ITL-G4-A09-PCM-48000-MONO-1500-ID3U",
+      "filename": "ITL-G4-A09-PCM-48000-MONO-1500-ID3U.wav",
+      "size_bytes": 144242,
+      "sha256": "22f2acf5854bfa5f0afd7bb346b0e7e7298bfb0ddbef18151d2fae5eb4bf01db",
+      "pcm_sha256": "fe61bf3cd0c6e2676070e044124ff9c06ba170fe61b9429e484511622a1ad46e",
+      "sample_rate_hz": 48000,
+      "channels": 1,
+      "bits_per_sample": 16,
+      "frames": 72000,
+      "duration_ms": 1500.0,
+      "mtime_ns": 1789085280000000000,
+      "metadata_shape": "id3v23-unicode",
+      "embedded_metadata": {
+        "id3": [
+          [
+            "TIT2",
+            "A09 埋込タイトル Ω 🎵",
+            1
+          ],
+          [
+            "TPE1",
+            "A09 共有アーティスト",
+            1
+          ],
+          [
+            "TALB",
+            "A09 共通アルバム",
+            1
+          ],
+          [
+            "TCON",
+            "電子音 A09",
+            1
+          ],
+          [
+            "TRCK",
+            "9/9",
+            0
+          ],
+          [
+            "TYER",
+            "2026",
+            0
+          ]
+        ]
+      },
+      "generator": "research/g4/a09/fixtures.py",
+      "declared_location": null,
+      "expected_native_title_source": null
+    }
+  ],
+  "identities": {
+    "domains": [
+      "track_id",
+      "track_persistent_id",
+      "file_persistent_id",
+      "master_persistent_id",
+      "album_persistent_id",
+      "artist_persistent_id"
+    ],
+    "rule": "Distinct id domains are never equated. Old ids are declared present or explicitly absent with a reason.",
+    "entries": [
+      {
+        "media_fixture_id": "ITL-G2-PCM-48000-001",
+        "domain": "track_id",
+        "old": {
+          "present": null,
+          "value": null,
+          "absent_reason": null
+        },
+        "new": {
+          "assignment": "native_assigned_to_observe",
+          "value": null,
+          "observation_slot": "observations.observed_identities"
+        }
+      },
+      {
+        "media_fixture_id": "ITL-G2-PCM-48000-001",
+        "domain": "track_persistent_id",
+        "old": {
+          "present": null,
+          "value": null,
+          "absent_reason": null
+        },
+        "new": {
+          "assignment": "native_assigned_to_observe",
+          "value": null,
+          "observation_slot": "observations.observed_identities"
+        }
+      },
+      {
+        "media_fixture_id": "ITL-G2-PCM-48000-001",
+        "domain": "file_persistent_id",
+        "old": {
+          "present": null,
+          "value": null,
+          "absent_reason": null
+        },
+        "new": {
+          "assignment": "native_assigned_to_observe",
+          "value": null,
+          "observation_slot": "observations.observed_identities"
+        }
+      },
+      {
+        "media_fixture_id": "ITL-G2-PCM-48000-001",
+        "domain": "master_persistent_id",
+        "old": {
+          "present": null,
+          "value": null,
+          "absent_reason": null
+        },
+        "new": {
+          "assignment": "native_assigned_to_observe",
+          "value": null,
+          "observation_slot": "observations.observed_identities"
+        }
+      },
+      {
+        "media_fixture_id": "ITL-G2-PCM-48000-001",
+        "domain": "album_persistent_id",
+        "old": {
+          "present": null,
+          "value": null,
+          "absent_reason": null
+        },
+        "new": {
+          "assignment": "native_assigned_to_observe",
+          "value": null,
+          "observation_slot": "observations.observed_identities"
+        }
+      },
+      {
+        "media_fixture_id": "ITL-G2-PCM-48000-001",
+        "domain": "artist_persistent_id",
+        "old": {
+          "present": null,
+          "value": null,
+          "absent_reason": null
+        },
+        "new": {
+          "assignment": "native_assigned_to_observe",
+          "value": null,
+          "observation_slot": "observations.observed_identities"
+        }
+      },
+      {
+        "media_fixture_id": "ITL-G4-A09-PCM-44100-MONO-1000",
+        "domain": "track_id",
+        "old": {
+          "present": null,
+          "value": null,
+          "absent_reason": null
+        },
+        "new": {
+          "assignment": "native_assigned_to_observe",
+          "value": null,
+          "observation_slot": "observations.observed_identities"
+        }
+      },
+      {
+        "media_fixture_id": "ITL-G4-A09-PCM-44100-MONO-1000",
+        "domain": "track_persistent_id",
+        "old": {
+          "present": null,
+          "value": null,
+          "absent_reason": null
+        },
+        "new": {
+          "assignment": "native_assigned_to_observe",
+          "value": null,
+          "observation_slot": "observations.observed_identities"
+        }
+      },
+      {
+        "media_fixture_id": "ITL-G4-A09-PCM-44100-MONO-1000",
+        "domain": "file_persistent_id",
+        "old": {
+          "present": null,
+          "value": null,
+          "absent_reason": null
+        },
+        "new": {
+          "assignment": "native_assigned_to_observe",
+          "value": null,
+          "observation_slot": "observations.observed_identities"
+        }
+      },
+      {
+        "media_fixture_id": "ITL-G4-A09-PCM-44100-MONO-1000",
+        "domain": "master_persistent_id",
+        "old": {
+          "present": null,
+          "value": null,
+          "absent_reason": null
+        },
+        "new": {
+          "assignment": "native_assigned_to_observe",
+          "value": null,
+          "observation_slot": "observations.observed_identities"
+        }
+      },
+      {
+        "media_fixture_id": "ITL-G4-A09-PCM-44100-MONO-1000",
+        "domain": "album_persistent_id",
+        "old": {
+          "present": null,
+          "value": null,
+          "absent_reason": null
+        },
+        "new": {
+          "assignment": "native_assigned_to_observe",
+          "value": null,
+          "observation_slot": "observations.observed_identities"
+        }
+      },
+      {
+        "media_fixture_id": "ITL-G4-A09-PCM-44100-MONO-1000",
+        "domain": "artist_persistent_id",
+        "old": {
+          "present": null,
+          "value": null,
+          "absent_reason": null
+        },
+        "new": {
+          "assignment": "native_assigned_to_observe",
+          "value": null,
+          "observation_slot": "observations.observed_identities"
+        }
+      },
+      {
+        "media_fixture_id": "ITL-G4-A09-PCM-22050-MONO-0500",
+        "domain": "track_id",
+        "old": {
+          "present": null,
+          "value": null,
+          "absent_reason": null
+        },
+        "new": {
+          "assignment": "native_assigned_to_observe",
+          "value": null,
+          "observation_slot": "observations.observed_identities"
+        }
+      },
+      {
+        "media_fixture_id": "ITL-G4-A09-PCM-22050-MONO-0500",
+        "domain": "track_persistent_id",
+        "old": {
+          "present": null,
+          "value": null,
+          "absent_reason": null
+        },
+        "new": {
+          "assignment": "native_assigned_to_observe",
+          "value": null,
+          "observation_slot": "observations.observed_identities"
+        }
+      },
+      {
+        "media_fixture_id": "ITL-G4-A09-PCM-22050-MONO-0500",
+        "domain": "file_persistent_id",
+        "old": {
+          "present": null,
+          "value": null,
+          "absent_reason": null
+        },
+        "new": {
+          "assignment": "native_assigned_to_observe",
+          "value": null,
+          "observation_slot": "observations.observed_identities"
+        }
+      },
+      {
+        "media_fixture_id": "ITL-G4-A09-PCM-22050-MONO-0500",
+        "domain": "master_persistent_id",
+        "old": {
+          "present": null,
+          "value": null,
+          "absent_reason": null
+        },
+        "new": {
+          "assignment": "native_assigned_to_observe",
+          "value": null,
+          "observation_slot": "observations.observed_identities"
+        }
+      },
+      {
+        "media_fixture_id": "ITL-G4-A09-PCM-22050-MONO-0500",
+        "domain": "album_persistent_id",
+        "old": {
+          "present": null,
+          "value": null,
+          "absent_reason": null
+        },
+        "new": {
+          "assignment": "native_assigned_to_observe",
+          "value": null,
+          "observation_slot": "observations.observed_identities"
+        }
+      },
+      {
+        "media_fixture_id": "ITL-G4-A09-PCM-22050-MONO-0500",
+        "domain": "artist_persistent_id",
+        "old": {
+          "present": null,
+          "value": null,
+          "absent_reason": null
+        },
+        "new": {
+          "assignment": "native_assigned_to_observe",
+          "value": null,
+          "observation_slot": "observations.observed_identities"
+        }
+      },
+      {
+        "media_fixture_id": "ITL-G4-A09-PCM-8000-MONO-3000",
+        "domain": "track_id",
+        "old": {
+          "present": null,
+          "value": null,
+          "absent_reason": null
+        },
+        "new": {
+          "assignment": "native_assigned_to_observe",
+          "value": null,
+          "observation_slot": "observations.observed_identities"
+        }
+      },
+      {
+        "media_fixture_id": "ITL-G4-A09-PCM-8000-MONO-3000",
+        "domain": "track_persistent_id",
+        "old": {
+          "present": null,
+          "value": null,
+          "absent_reason": null
+        },
+        "new": {
+          "assignment": "native_assigned_to_observe",
+          "value": null,
+          "observation_slot": "observations.observed_identities"
+        }
+      },
+      {
+        "media_fixture_id": "ITL-G4-A09-PCM-8000-MONO-3000",
+        "domain": "file_persistent_id",
+        "old": {
+          "present": null,
+          "value": null,
+          "absent_reason": null
+        },
+        "new": {
+          "assignment": "native_assigned_to_observe",
+          "value": null,
+          "observation_slot": "observations.observed_identities"
+        }
+      },
+      {
+        "media_fixture_id": "ITL-G4-A09-PCM-8000-MONO-3000",
+        "domain": "master_persistent_id",
+        "old": {
+          "present": null,
+          "value": null,
+          "absent_reason": null
+        },
+        "new": {
+          "assignment": "native_assigned_to_observe",
+          "value": null,
+          "observation_slot": "observations.observed_identities"
+        }
+      },
+      {
+        "media_fixture_id": "ITL-G4-A09-PCM-8000-MONO-3000",
+        "domain": "album_persistent_id",
+        "old": {
+          "present": null,
+          "value": null,
+          "absent_reason": null
+        },
+        "new": {
+          "assignment": "native_assigned_to_observe",
+          "value": null,
+          "observation_slot": "observations.observed_identities"
+        }
+      },
+      {
+        "media_fixture_id": "ITL-G4-A09-PCM-8000-MONO-3000",
+        "domain": "artist_persistent_id",
+        "old": {
+          "present": null,
+          "value": null,
+          "absent_reason": null
+        },
+        "new": {
+          "assignment": "native_assigned_to_observe",
+          "value": null,
+          "observation_slot": "observations.observed_identities"
+        }
+      },
+      {
+        "media_fixture_id": "ITL-G4-A09-PCM-48000-STEREO-1500",
+        "domain": "track_id",
+        "old": {
+          "present": null,
+          "value": null,
+          "absent_reason": null
+        },
+        "new": {
+          "assignment": "native_assigned_to_observe",
+          "value": null,
+          "observation_slot": "observations.observed_identities"
+        }
+      },
+      {
+        "media_fixture_id": "ITL-G4-A09-PCM-48000-STEREO-1500",
+        "domain": "track_persistent_id",
+        "old": {
+          "present": null,
+          "value": null,
+          "absent_reason": null
+        },
+        "new": {
+          "assignment": "native_assigned_to_observe",
+          "value": null,
+          "observation_slot": "observations.observed_identities"
+        }
+      },
+      {
+        "media_fixture_id": "ITL-G4-A09-PCM-48000-STEREO-1500",
+        "domain": "file_persistent_id",
+        "old": {
+          "present": null,
+          "value": null,
+          "absent_reason": null
+        },
+        "new": {
+          "assignment": "native_assigned_to_observe",
+          "value": null,
+          "observation_slot": "observations.observed_identities"
+        }
+      },
+      {
+        "media_fixture_id": "ITL-G4-A09-PCM-48000-STEREO-1500",
+        "domain": "master_persistent_id",
+        "old": {
+          "present": null,
+          "value": null,
+          "absent_reason": null
+        },
+        "new": {
+          "assignment": "native_assigned_to_observe",
+          "value": null,
+          "observation_slot": "observations.observed_identities"
+        }
+      },
+      {
+        "media_fixture_id": "ITL-G4-A09-PCM-48000-STEREO-1500",
+        "domain": "album_persistent_id",
+        "old": {
+          "present": null,
+          "value": null,
+          "absent_reason": null
+        },
+        "new": {
+          "assignment": "native_assigned_to_observe",
+          "value": null,
+          "observation_slot": "observations.observed_identities"
+        }
+      },
+      {
+        "media_fixture_id": "ITL-G4-A09-PCM-48000-STEREO-1500",
+        "domain": "artist_persistent_id",
+        "old": {
+          "present": null,
+          "value": null,
+          "absent_reason": null
+        },
+        "new": {
+          "assignment": "native_assigned_to_observe",
+          "value": null,
+          "observation_slot": "observations.observed_identities"
+        }
+      },
+      {
+        "media_fixture_id": "ITL-G4-A09-PCM-48000-MONO-0010-SILENCE",
+        "domain": "track_id",
+        "old": {
+          "present": null,
+          "value": null,
+          "absent_reason": null
+        },
+        "new": {
+          "assignment": "native_assigned_to_observe",
+          "value": null,
+          "observation_slot": "observations.observed_identities"
+        }
+      },
+      {
+        "media_fixture_id": "ITL-G4-A09-PCM-48000-MONO-0010-SILENCE",
+        "domain": "track_persistent_id",
+        "old": {
+          "present": null,
+          "value": null,
+          "absent_reason": null
+        },
+        "new": {
+          "assignment": "native_assigned_to_observe",
+          "value": null,
+          "observation_slot": "observations.observed_identities"
+        }
+      },
+      {
+        "media_fixture_id": "ITL-G4-A09-PCM-48000-MONO-0010-SILENCE",
+        "domain": "file_persistent_id",
+        "old": {
+          "present": null,
+          "value": null,
+          "absent_reason": null
+        },
+        "new": {
+          "assignment": "native_assigned_to_observe",
+          "value": null,
+          "observation_slot": "observations.observed_identities"
+        }
+      },
+      {
+        "media_fixture_id": "ITL-G4-A09-PCM-48000-MONO-0010-SILENCE",
+        "domain": "master_persistent_id",
+        "old": {
+          "present": null,
+          "value": null,
+          "absent_reason": null
+        },
+        "new": {
+          "assignment": "native_assigned_to_observe",
+          "value": null,
+          "observation_slot": "observations.observed_identities"
+        }
+      },
+      {
+        "media_fixture_id": "ITL-G4-A09-PCM-48000-MONO-0010-SILENCE",
+        "domain": "album_persistent_id",
+        "old": {
+          "present": null,
+          "value": null,
+          "absent_reason": null
+        },
+        "new": {
+          "assignment": "native_assigned_to_observe",
+          "value": null,
+          "observation_slot": "observations.observed_identities"
+        }
+      },
+      {
+        "media_fixture_id": "ITL-G4-A09-PCM-48000-MONO-0010-SILENCE",
+        "domain": "artist_persistent_id",
+        "old": {
+          "present": null,
+          "value": null,
+          "absent_reason": null
+        },
+        "new": {
+          "assignment": "native_assigned_to_observe",
+          "value": null,
+          "observation_slot": "observations.observed_identities"
+        }
+      },
+      {
+        "media_fixture_id": "ITL-G4-A09-PCM-48000-MONO-1500-INFO",
+        "domain": "track_id",
+        "old": {
+          "present": null,
+          "value": null,
+          "absent_reason": null
+        },
+        "new": {
+          "assignment": "native_assigned_to_observe",
+          "value": null,
+          "observation_slot": "observations.observed_identities"
+        }
+      },
+      {
+        "media_fixture_id": "ITL-G4-A09-PCM-48000-MONO-1500-INFO",
+        "domain": "track_persistent_id",
+        "old": {
+          "present": null,
+          "value": null,
+          "absent_reason": null
+        },
+        "new": {
+          "assignment": "native_assigned_to_observe",
+          "value": null,
+          "observation_slot": "observations.observed_identities"
+        }
+      },
+      {
+        "media_fixture_id": "ITL-G4-A09-PCM-48000-MONO-1500-INFO",
+        "domain": "file_persistent_id",
+        "old": {
+          "present": null,
+          "value": null,
+          "absent_reason": null
+        },
+        "new": {
+          "assignment": "native_assigned_to_observe",
+          "value": null,
+          "observation_slot": "observations.observed_identities"
+        }
+      },
+      {
+        "media_fixture_id": "ITL-G4-A09-PCM-48000-MONO-1500-INFO",
+        "domain": "master_persistent_id",
+        "old": {
+          "present": null,
+          "value": null,
+          "absent_reason": null
+        },
+        "new": {
+          "assignment": "native_assigned_to_observe",
+          "value": null,
+          "observation_slot": "observations.observed_identities"
+        }
+      },
+      {
+        "media_fixture_id": "ITL-G4-A09-PCM-48000-MONO-1500-INFO",
+        "domain": "album_persistent_id",
+        "old": {
+          "present": null,
+          "value": null,
+          "absent_reason": null
+        },
+        "new": {
+          "assignment": "native_assigned_to_observe",
+          "value": null,
+          "observation_slot": "observations.observed_identities"
+        }
+      },
+      {
+        "media_fixture_id": "ITL-G4-A09-PCM-48000-MONO-1500-INFO",
+        "domain": "artist_persistent_id",
+        "old": {
+          "present": null,
+          "value": null,
+          "absent_reason": null
+        },
+        "new": {
+          "assignment": "native_assigned_to_observe",
+          "value": null,
+          "observation_slot": "observations.observed_identities"
+        }
+      },
+      {
+        "media_fixture_id": "ITL-G4-A09-PCM-48000-MONO-1500-INFO-ODD",
+        "domain": "track_id",
+        "old": {
+          "present": null,
+          "value": null,
+          "absent_reason": null
+        },
+        "new": {
+          "assignment": "native_assigned_to_observe",
+          "value": null,
+          "observation_slot": "observations.observed_identities"
+        }
+      },
+      {
+        "media_fixture_id": "ITL-G4-A09-PCM-48000-MONO-1500-INFO-ODD",
+        "domain": "track_persistent_id",
+        "old": {
+          "present": null,
+          "value": null,
+          "absent_reason": null
+        },
+        "new": {
+          "assignment": "native_assigned_to_observe",
+          "value": null,
+          "observation_slot": "observations.observed_identities"
+        }
+      },
+      {
+        "media_fixture_id": "ITL-G4-A09-PCM-48000-MONO-1500-INFO-ODD",
+        "domain": "file_persistent_id",
+        "old": {
+          "present": null,
+          "value": null,
+          "absent_reason": null
+        },
+        "new": {
+          "assignment": "native_assigned_to_observe",
+          "value": null,
+          "observation_slot": "observations.observed_identities"
+        }
+      },
+      {
+        "media_fixture_id": "ITL-G4-A09-PCM-48000-MONO-1500-INFO-ODD",
+        "domain": "master_persistent_id",
+        "old": {
+          "present": null,
+          "value": null,
+          "absent_reason": null
+        },
+        "new": {
+          "assignment": "native_assigned_to_observe",
+          "value": null,
+          "observation_slot": "observations.observed_identities"
+        }
+      },
+      {
+        "media_fixture_id": "ITL-G4-A09-PCM-48000-MONO-1500-INFO-ODD",
+        "domain": "album_persistent_id",
+        "old": {
+          "present": null,
+          "value": null,
+          "absent_reason": null
+        },
+        "new": {
+          "assignment": "native_assigned_to_observe",
+          "value": null,
+          "observation_slot": "observations.observed_identities"
+        }
+      },
+      {
+        "media_fixture_id": "ITL-G4-A09-PCM-48000-MONO-1500-INFO-ODD",
+        "domain": "artist_persistent_id",
+        "old": {
+          "present": null,
+          "value": null,
+          "absent_reason": null
+        },
+        "new": {
+          "assignment": "native_assigned_to_observe",
+          "value": null,
+          "observation_slot": "observations.observed_identities"
+        }
+      },
+      {
+        "media_fixture_id": "ITL-G4-A09-PCM-48000-MONO-1500-ID3U",
+        "domain": "track_id",
+        "old": {
+          "present": null,
+          "value": null,
+          "absent_reason": null
+        },
+        "new": {
+          "assignment": "native_assigned_to_observe",
+          "value": null,
+          "observation_slot": "observations.observed_identities"
+        }
+      },
+      {
+        "media_fixture_id": "ITL-G4-A09-PCM-48000-MONO-1500-ID3U",
+        "domain": "track_persistent_id",
+        "old": {
+          "present": null,
+          "value": null,
+          "absent_reason": null
+        },
+        "new": {
+          "assignment": "native_assigned_to_observe",
+          "value": null,
+          "observation_slot": "observations.observed_identities"
+        }
+      },
+      {
+        "media_fixture_id": "ITL-G4-A09-PCM-48000-MONO-1500-ID3U",
+        "domain": "file_persistent_id",
+        "old": {
+          "present": null,
+          "value": null,
+          "absent_reason": null
+        },
+        "new": {
+          "assignment": "native_assigned_to_observe",
+          "value": null,
+          "observation_slot": "observations.observed_identities"
+        }
+      },
+      {
+        "media_fixture_id": "ITL-G4-A09-PCM-48000-MONO-1500-ID3U",
+        "domain": "master_persistent_id",
+        "old": {
+          "present": null,
+          "value": null,
+          "absent_reason": null
+        },
+        "new": {
+          "assignment": "native_assigned_to_observe",
+          "value": null,
+          "observation_slot": "observations.observed_identities"
+        }
+      },
+      {
+        "media_fixture_id": "ITL-G4-A09-PCM-48000-MONO-1500-ID3U",
+        "domain": "album_persistent_id",
+        "old": {
+          "present": null,
+          "value": null,
+          "absent_reason": null
+        },
+        "new": {
+          "assignment": "native_assigned_to_observe",
+          "value": null,
+          "observation_slot": "observations.observed_identities"
+        }
+      },
+      {
+        "media_fixture_id": "ITL-G4-A09-PCM-48000-MONO-1500-ID3U",
+        "domain": "artist_persistent_id",
+        "old": {
+          "present": null,
+          "value": null,
+          "absent_reason": null
+        },
+        "new": {
+          "assignment": "native_assigned_to_observe",
+          "value": null,
+          "observation_slot": "observations.observed_identities"
+        }
+      }
+    ]
+  },
+  "locations": {
+    "before": [
+      {
+        "fixture_id": "ITL-G2-PCM-48000-001",
+        "path": null
+      },
+      {
+        "fixture_id": "ITL-G4-A09-PCM-44100-MONO-1000",
+        "path": null
+      },
+      {
+        "fixture_id": "ITL-G4-A09-PCM-22050-MONO-0500",
+        "path": null
+      },
+      {
+        "fixture_id": "ITL-G4-A09-PCM-8000-MONO-3000",
+        "path": null
+      },
+      {
+        "fixture_id": "ITL-G4-A09-PCM-48000-STEREO-1500",
+        "path": null
+      },
+      {
+        "fixture_id": "ITL-G4-A09-PCM-48000-MONO-0010-SILENCE",
+        "path": null
+      },
+      {
+        "fixture_id": "ITL-G4-A09-PCM-48000-MONO-1500-INFO",
+        "path": null
+      },
+      {
+        "fixture_id": "ITL-G4-A09-PCM-48000-MONO-1500-INFO-ODD",
+        "path": null
+      },
+      {
+        "fixture_id": "ITL-G4-A09-PCM-48000-MONO-1500-ID3U",
+        "path": null
+      }
+    ],
+    "after": [
+      {
+        "fixture_id": "ITL-G2-PCM-48000-001",
+        "path": null
+      },
+      {
+        "fixture_id": "ITL-G4-A09-PCM-44100-MONO-1000",
+        "path": null
+      },
+      {
+        "fixture_id": "ITL-G4-A09-PCM-22050-MONO-0500",
+        "path": null
+      },
+      {
+        "fixture_id": "ITL-G4-A09-PCM-8000-MONO-3000",
+        "path": null
+      },
+      {
+        "fixture_id": "ITL-G4-A09-PCM-48000-STEREO-1500",
+        "path": null
+      },
+      {
+        "fixture_id": "ITL-G4-A09-PCM-48000-MONO-0010-SILENCE",
+        "path": null
+      },
+      {
+        "fixture_id": "ITL-G4-A09-PCM-48000-MONO-1500-INFO",
+        "path": null
+      },
+      {
+        "fixture_id": "ITL-G4-A09-PCM-48000-MONO-1500-INFO-ODD",
+        "path": null
+      },
+      {
+        "fixture_id": "ITL-G4-A09-PCM-48000-MONO-1500-ID3U",
+        "path": null
+      }
+    ]
+  },
+  "playlists": [
+    {
+      "name": "A09 Import Discovery Order",
+      "persistent_id": {
+        "assignment": "native_assigned_to_observe",
+        "value": null
+      },
+      "membership": [
+        "ITL-G2-PCM-48000-001",
+        "ITL-G4-A09-PCM-44100-MONO-1000",
+        "ITL-G4-A09-PCM-22050-MONO-0500",
+        "ITL-G4-A09-PCM-8000-MONO-3000",
+        "ITL-G4-A09-PCM-48000-STEREO-1500",
+        "ITL-G4-A09-PCM-48000-MONO-0010-SILENCE",
+        "ITL-G4-A09-PCM-48000-MONO-1500-INFO",
+        "ITL-G4-A09-PCM-48000-MONO-1500-INFO-ODD",
+        "ITL-G4-A09-PCM-48000-MONO-1500-ID3U"
+      ],
+      "order": [
+        "ITL-G2-PCM-48000-001",
+        "ITL-G4-A09-PCM-44100-MONO-1000",
+        "ITL-G4-A09-PCM-22050-MONO-0500",
+        "ITL-G4-A09-PCM-8000-MONO-3000",
+        "ITL-G4-A09-PCM-48000-STEREO-1500",
+        "ITL-G4-A09-PCM-48000-MONO-0010-SILENCE",
+        "ITL-G4-A09-PCM-48000-MONO-1500-INFO",
+        "ITL-G4-A09-PCM-48000-MONO-1500-INFO-ODD",
+        "ITL-G4-A09-PCM-48000-MONO-1500-ID3U"
+      ]
+    }
+  ],
+  "permitted_native_changes": {
+    "allowed": [
+      "date_added",
+      "library_internal_ordering_keys",
+      "native_assigned_identifiers"
+    ],
+    "must_not_change": [
+      "media_file_bytes",
+      "media_file_mtime",
+      "playlist_membership",
+      "playlist_order",
+      "library_track_count"
+    ],
+    "note": "Anything not listed as allowed is a finding, not an acceptable variation."
+  },
+  "acceptance": {
+    "restart_cycles": 2,
+    "damaged_file_fallback_allowed": false,
+    "repair_allowed": false,
+    "normal_save_and_exit_required": true,
+    "raw_disk_comparison_required": true,
+    "com_comparison_required": true,
+    "playback_is_separate_endpoint": true
+  },
+  "observations": {
+    "library_output_sha256": null,
+    "native_raw_fields": null,
+    "observed_identities": null,
+    "observed_locations": null,
+    "observed_playlists": null,
+    "restart_cycle_results": null,
+    "raw_disk_comparison": null,
+    "com_comparison": null
+  },
+  "run_completed": false
+}
