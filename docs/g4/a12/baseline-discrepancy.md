@@ -129,3 +129,27 @@ environments:
 | all three gates set | 2125 | 6 | 2131 | 36 | 2167 |
 
 Any published claim must state which of these three environments produced it.
+
+## Resolution, measured 2026-09-11 15:00 JST
+
+The gap is caused by test parameterisation over native evidence. It is not a
+pytest version change and not a set of lost tests. Both totals were re-measured
+on one machine, with one pytest version, minutes apart, in a detached worktree
+at `dc4b1c7a9e84a7eefad501da3e1ed65d313cf9f3`:
+
+| configuration | result | cases |
+| --- | --- | --- |
+| `ITLKIT_NATIVE_ROOT`, `ITLKIT_NATIVE_REPORTS`, `ITLKIT_FRESH_SNAPSHOT_DIR` unset | `1919 passed, 50 skipped, 26 subtests passed` | 1969 |
+| the same three variables set | `2125 passed, 6 skipped, 36 subtests passed` | 2131 |
+
+`2131 - 1969 = 162`, which is the reported gap exactly, and the gated run
+reproduces the historical baseline figure to the test. The three directories are
+present in that commit as well, holding 55, 51 and 10 entries.
+
+The same pair was measured on the current integration tip: unset gives
+`2168 passed, 50 skipped, 26 subtests passed` and set gives
+`2374 passed, 6 skipped, 36 subtests passed`, a difference of
+`2380 - 2218 = 162` again.
+
+Consequence: quoting either total without naming the three variables is
+incomplete, and a run reporting 50 skips is not evidence of a regression.
