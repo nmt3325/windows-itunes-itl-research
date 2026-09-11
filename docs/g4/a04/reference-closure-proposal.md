@@ -11,7 +11,7 @@ modified by this task. The artifacts are task-local:
 ## 0. Scope, baseline and provenance
 
 - Branch `g4/a04`, base commit `1bb05edc2494abc9aa9b59cd2392026f830615a2`.
-- Executed on GHA runner env `linux-xm801aqb` (linux, bash), pytest 9.1.1.
+- Executed on GHA runner env `RUNNER-G4B-LINUX` (linux, bash), pytest 9.1.1.
 - Verification executed: `python3 -m pytest -q -k a04` → `19 passed, 1969 deselected`
   (command_id `c5abc0f7d12c4944`, state exited, exit_code 0).
   This is a **selection-scoped** result. It is not a full-suite run and must not
