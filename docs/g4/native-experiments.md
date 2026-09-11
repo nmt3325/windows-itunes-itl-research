@@ -499,6 +499,71 @@ absolute media path, and editing bytes inside evidence would falsify it. Sizes a
 outcome are in `evidence/g4/native/exp05b/`.
 
 
+### EXP-06: deleting a track and putting it back
+
+EXP-05B changed a track's text and left every identifier alone. This one could not. To
+restore a track, `trackops.add_track_from` has to allocate a fresh local record ID for it
+and fresh persistent IDs for its playlist memberships. Every candidate iTunes had accepted
+up to this point preserved the numbering it was given, so the honest question was whether
+iTunes cares: does it reconcile those identifiers against state it keeps outside the `.itl`
+file, such as the Extras and Genius sidecar databases that itlkit never writes?
+
+The donor was the library iTunes itself wrote on quit at the end of the EXP-05B restart-2
+session. On copies of it, `trackops.delete_track` removed the only track, and then
+`trackops.add_track_from` restored that track from the donor. The zero-track library in
+between is an intermediate, not a result; an empty library is not a pass under any reading
+of this experiment, and the build report records its digest so the intermediate stays
+checkable.
+
+Both calls profile their inputs through `require_simple_library`, so the whole operation
+needed the wider EXP-05B relaxation, not the narrow EXP-03 one. EXP-06 therefore licenses
+nothing new about which iTunes builds this writer may target. The candidate was re-read
+after writing and still reports its true `12.13.11.1` container version, so the spoof did
+not leak into the file.
+
+The declaration was committed and pushed before the candidate existed. The build step
+recorded, in the same run, that the candidate file was absent at that moment, so the
+ordering does not rest on being believed. The prediction was stated as accepted at 0.6
+confidence, with the sidecar databases named as the specific reason it might fail.
+
+#### Result
+
+Accepted, in all three sessions. No modal dialog blocked startup and the modal window class
+appears zero times across the three session logs. No `Damaged` file was produced. The
+library directory kept its four files. After both restarts the track was present with its
+persistent ID `0D65DA3C61288869`, its name, artist and album intact, and its master-playlist
+membership held. COM reported one track and seven playlists in every session.
+
+The named reason the prediction might fail did not materialise. `iTunes Library Extras.itdb`
+changed digest in every session, exactly as in EXP-05B, while the Genius database and the
+sentinel did not, and none of that produced a rejection.
+
+#### The part that was not predicted
+
+iTunes did not keep the local record ID itlkit chose. itlkit allocated 122; all three
+captures came back carrying 71, the donor's original value. The persistent ID is what
+survived.
+
+That points at local record IDs being file-internal numbering which iTunes reassigns on its
+own rewrite, rather than durable identity. It is worth saying plainly that one run cannot
+separate two explanations: iTunes may have restored the previous numbering, or it may
+renumber from its own counter and that counter happened to produce the same value in a
+single-track library. Both fit the data. The experiment was not designed to tell them apart,
+so it does not claim to, and the outcome file carries the same caveat.
+
+#### What it adds
+
+The writer can remove a track and put it back, and real iTunes treats the result as a
+library rather than as damage. That is a stronger structural exercise than EXP-05B: it
+rebuilds the track record, its album and artist references and its playlist membership
+rows, and the pool-binding assertions and the master-playlist check both run before any
+bytes are written.
+
+It does not move the boundary that matters. Genuinely new track construction is still
+blocked, because restoration requires a donor from the same library lineage and
+`add_track_from` enforces that with an explicit refusal. Nothing here was played, and
+nothing here generalises past a single-track WAV library on one Windows build.
+
 ## What these results license
 
 Together the experiment, its negative control and its baseline control support

@@ -1,0 +1,49 @@
+{
+  "authoritative": false,
+  "experiment": "EXP-06",
+  "operation": "trackops.delete_track then trackops.add_track_from (same-lineage restoration)",
+  "bypass": true,
+  "relaxation": "version reported as 12.13.10.3 for the WHOLE operation, which is wider than EXP-03/EXP-04 used and the same width EXP-05B used",
+  "donor": {
+    "bytes": 4608,
+    "sha256": "947a12d26d7ef26999fbec7305041aabb3ca083e63d58d0bc520d584cb1d4d1c",
+    "tracks": 1,
+    "playlists": 14,
+    "rows": [
+      {
+        "persistent_id": "0D65DA3C61288869",
+        "name": "exp05b-renamed-by-itlkit",
+        "track_id": 71
+      }
+    ],
+    "master_members": [
+      71
+    ]
+  },
+  "intermediate_reduced": {
+    "bytes": 2972,
+    "sha256": "5d45acb9a768428a23bcadd43b20b0de632efc74f78d7e4abcb815b87a7e42ce",
+    "tracks": 0,
+    "note": "a zero-track library is an intermediate, never a result; an empty library is explicitly not a pass"
+  },
+  "candidate": {
+    "bytes": 3455,
+    "sha256": "02cd42ad138806a3a61403af5df38cda26108208ef560b2f734ba569d798c915",
+    "tracks": 1,
+    "playlists": 14,
+    "rows": [
+      {
+        "persistent_id": "0D65DA3C61288869",
+        "name": "exp05b-renamed-by-itlkit",
+        "track_id": 122
+      }
+    ],
+    "master_members": [
+      122
+    ],
+    "container_version_after_write": "12.13.11.1"
+  },
+  "local_id_changed": true,
+  "candidate_equals_donor": false,
+  "uninformative": false
+}

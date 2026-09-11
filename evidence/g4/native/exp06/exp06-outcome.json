@@ -1,0 +1,211 @@
+{
+  "experiment": "EXP-06",
+  "evidence_class": "A: observed in this run, with the session logs in this directory",
+  "verdict": "ACCEPTED",
+  "pre_registration": "exp06-declaration.json, committed and pushed before the candidate was built; the build step recorded that the candidate file did not yet exist",
+  "prediction_stated_in_advance": {
+    "outcome": "ACCEPTED",
+    "confidence": 0.6,
+    "held": true
+  },
+  "checks_from_the_declaration": {
+    "iTunes reached its main window in all three sessions": true,
+    "no file matching Damaged appeared, in any session or in the library now": true,
+    "the library directory kept exactly its four files after every quit": true,
+    "iTunes rewrote the library on every quit and itlkit re-read all three captures": true,
+    "the restored track kept its persistent ID in all three captures": true,
+    "the restored track kept its name in all three captures": true,
+    "the restored track is in the master playlist of the restart-2 capture": true,
+    "COM reported exactly one track in every session": true,
+    "the candidate was not byte-identical to the donor, so the run is informative": true
+  },
+  "operation": "trackops.delete_track then trackops.add_track_from, same-lineage restoration",
+  "relaxation": "version reported as 12.13.10.3 for the WHOLE operation, which is wider than EXP-03/EXP-04 used and the same width EXP-05B used",
+  "donor": {
+    "built_by": "iTunes itself, on quit at the end of the EXP-05B restart-2 session; not an acceptance result",
+    "bytes": 4608,
+    "sha256": "947a12d26d7ef26999fbec7305041aabb3ca083e63d58d0bc520d584cb1d4d1c",
+    "tracks": 1,
+    "playlists": 14,
+    "master_members": [
+      71
+    ],
+    "rows": [
+      {
+        "track_id": 71,
+        "persistent_id": "0D65DA3C61288869",
+        "name": "exp05b-renamed-by-itlkit",
+        "artist": "exp05b artist",
+        "album": "exp05b album"
+      }
+    ],
+    "container_version": "12.13.11.1"
+  },
+  "intermediate_reduced_library": {
+    "bytes": 2972,
+    "sha256": "5d45acb9a768428a23bcadd43b20b0de632efc74f78d7e4abcb815b87a7e42ce",
+    "tracks": 0,
+    "note": "a zero-track library is an intermediate, never a result; an empty library is explicitly not a pass"
+  },
+  "candidate": {
+    "written_by": "itlkit through research/g4/exp06/restore_track.py",
+    "bytes": 3455,
+    "sha256": "02cd42ad138806a3a61403af5df38cda26108208ef560b2f734ba569d798c915",
+    "tracks": 1,
+    "playlists": 14,
+    "master_members": [
+      122
+    ],
+    "rows": [
+      {
+        "track_id": 122,
+        "persistent_id": "0D65DA3C61288869",
+        "name": "exp05b-renamed-by-itlkit",
+        "artist": "exp05b artist",
+        "album": "exp05b album"
+      }
+    ],
+    "container_version": "12.13.11.1"
+  },
+  "unexpected_finding_local_record_ids": {
+    "donor_local_id": 71,
+    "local_id_itlkit_allocated_in_the_candidate": 122,
+    "local_ids_iTunes_wrote_in_the_three_captures": [
+      71,
+      71,
+      71
+    ],
+    "itlkit_local_id_survived": false,
+    "what_it_means": "iTunes accepted a track record carrying a local ID that itlkit chose, and then renumbered it on its own rewrite. The persistent ID is what it preserved. Local record IDs therefore look like file-internal numbering that iTunes reassigns freely, not durable identity. This was not predicted in the declaration and is recorded here as an observation, not as a criterion that was met.",
+    "caveat": "the value iTunes wrote happens to equal the donor's local ID, so this single run cannot distinguish 'iTunes restored the previous numbering' from 'iTunes renumbers from its own counter and that counter produced the same value'. Both are consistent with the data and the experiment was not designed to separate them."
+  },
+  "sessions": {
+    "exp06-open": {
+      "sla_dialog_seen": "False",
+      "audio_dialog_seen": "True",
+      "main_window_ready": "True",
+      "modal_dialog_class_hits_in_log": 0,
+      "com_version": "12.13.11.1",
+      "com_playlist_count": "7",
+      "com_library_track_count": "1",
+      "com_track_line": "com[exp06-open] track idx=1 dbid=71 name=[exp05b-renamed-by-itlkit] artist=[exp05b artist] album=[exp05b album] kind=[WAV audio file] size=176444 dur=2",
+      "quit_wait_seconds": "4",
+      "forced_kill": "not reported",
+      "libcount_prelaunch": "4",
+      "libcount_postquit": "4",
+      "post_quit_file_names": [
+        "iTunes Library Extras.itdb",
+        "iTunes Library Genius.itdb",
+        "iTunes Library.itl",
+        "sentinel"
+      ],
+      "itlkit_readback": {
+        "bytes": 4610,
+        "sha256": "6197d404553d281d9e6ca4cbca5f9022bdd91358c4daa13b14be03db6bcdd865",
+        "container_version": "12.13.11.1",
+        "tracks": 1,
+        "playlists": 14,
+        "master_members": [
+          71
+        ],
+        "rows": [
+          {
+            "track_id": 71,
+            "persistent_id": "0D65DA3C61288869",
+            "name": "exp05b-renamed-by-itlkit",
+            "artist": "exp05b artist",
+            "album": "exp05b album"
+          }
+        ]
+      }
+    },
+    "exp06-restart1": {
+      "sla_dialog_seen": "False",
+      "audio_dialog_seen": "True",
+      "main_window_ready": "True",
+      "modal_dialog_class_hits_in_log": 0,
+      "com_version": "12.13.11.1",
+      "com_playlist_count": "7",
+      "com_library_track_count": "1",
+      "com_track_line": "com[exp06-restart1] track idx=1 dbid=71 name=[exp05b-renamed-by-itlkit] artist=[exp05b artist] album=[exp05b album] kind=[WAV audio file] size=176444 dur=2",
+      "quit_wait_seconds": "4",
+      "forced_kill": "not reported",
+      "libcount_prelaunch": "4",
+      "libcount_postquit": "4",
+      "post_quit_file_names": [
+        "iTunes Library Extras.itdb",
+        "iTunes Library Genius.itdb",
+        "iTunes Library.itl",
+        "sentinel"
+      ],
+      "itlkit_readback": {
+        "bytes": 4611,
+        "sha256": "1e4d0bed937601dd1983c234038491d66b24d3ebec6c14b5d58abe1abd9fca80",
+        "container_version": "12.13.11.1",
+        "tracks": 1,
+        "playlists": 14,
+        "master_members": [
+          71
+        ],
+        "rows": [
+          {
+            "track_id": 71,
+            "persistent_id": "0D65DA3C61288869",
+            "name": "exp05b-renamed-by-itlkit",
+            "artist": "exp05b artist",
+            "album": "exp05b album"
+          }
+        ]
+      }
+    },
+    "exp06-restart2": {
+      "sla_dialog_seen": "False",
+      "audio_dialog_seen": "True",
+      "main_window_ready": "True",
+      "modal_dialog_class_hits_in_log": 0,
+      "com_version": "12.13.11.1",
+      "com_playlist_count": "7",
+      "com_library_track_count": "1",
+      "com_track_line": "com[exp06-restart2] track idx=1 dbid=71 name=[exp05b-renamed-by-itlkit] artist=[exp05b artist] album=[exp05b album] kind=[WAV audio file] size=176444 dur=2",
+      "quit_wait_seconds": "4",
+      "forced_kill": "not reported",
+      "libcount_prelaunch": "4",
+      "libcount_postquit": "4",
+      "post_quit_file_names": [
+        "iTunes Library Extras.itdb",
+        "iTunes Library Genius.itdb",
+        "iTunes Library.itl",
+        "sentinel"
+      ],
+      "itlkit_readback": {
+        "bytes": 4610,
+        "sha256": "deacad78bebb36f0f4747635ae8b57634b765bf2c19e07e5a1310d86d1d7b323",
+        "container_version": "12.13.11.1",
+        "tracks": 1,
+        "playlists": 14,
+        "master_members": [
+          71
+        ],
+        "rows": [
+          {
+            "track_id": 71,
+            "persistent_id": "0D65DA3C61288869",
+            "name": "exp05b-renamed-by-itlkit",
+            "artist": "exp05b artist",
+            "album": "exp05b album"
+          }
+        ]
+      }
+    }
+  },
+  "post_quit_non_determinism": "the three post-quit files differ in size and digest (4610, 4611, 4610 bytes with three distinct digests), which is iTunes' own rewrite behaviour, already observed in EXP-03, EXP-04 and EXP-05B",
+  "sidecar_behaviour": "iTunes Library Extras.itdb changed digest in every session while iTunes Library Genius.itdb and the sentinel did not, matching EXP-05B. The reasons_against in the declaration supposed the sidecars might cause a rejection; they did not.",
+  "not_claimed": [
+    "that itlkit can construct a genuinely new track; restoration needs a donor from the same lineage and three separate refusals still block anything else",
+    "that the shipped write gate accepts this operation; it refuses without the research relaxation",
+    "that local record IDs chosen by itlkit persist; they demonstrably did not",
+    "playback, which was not attempted",
+    "anything beyond a single-track WAV library on one Windows build"
+  ],
+  "binaries_not_published": "the candidate and the three post-quit captures stay out of the repository because their location records embed an absolute media path from the test machine; redacting bytes would falsify the evidence, so only sizes and digests are published, in capture-manifest.json"
+}
