@@ -40,8 +40,8 @@ qualification:
   guarded_reader: implemented_and_offline_verified_for_observed_profiles
   compatible_editor: partial_exact_candidate_native_qualification
   independent_parser_validator_diff: implemented_without_itlkit_imports
-  independent_from_scratch_generation: implemented_for_two_reference_fixtures
-  independent_from_scratch_native_acceptance: unverified
+  independent_from_scratch_generation: implemented_and_native_qualified_for_two_exact_reference_fixtures
+  independent_from_scratch_native_acceptance: verified_for_two_exact_hashes
   smart_playlist: lossless_ast_and_structural_view_only
   path_time: bounded_native_matrix_only
   audible_playback: not_established
@@ -50,7 +50,7 @@ qualification:
 validation:
   integrated_tests:
     status: passed
-    passed: 1024
+    passed: 1026
     skipped: 5
     failed: 0
     command: python -B -m pytest tests -q -rs -p no:cacheprovider
@@ -62,7 +62,7 @@ validation:
   delivery_manifest: verified
   root_corpus_manifest:
     status: verified
-    itl_files: 142
+    itl_files: 150
   path_time_snapshots:
     parsed: 39
     errors: 0
@@ -91,11 +91,16 @@ completion:
   valid_itl_parse_pass_rate: null
   no_op_roundtrip_pass_rate: null
   edit_roundtrip_pass_rate: null
-  new_itl_generation_pass_rate: 0
-  repeated_open_save_pass_rate: null
-  opened_without_repair: null
-  opened_without_backup_restore: null
-  opened_without_xml_rebuild: null
+  new_itl_generation_pass_rate: 100
+  new_itl_generation_cases: 2
+  new_itl_generation_scope: exact_reference_fixture_hashes_only
+  repeated_open_save_pass_rate: 100
+  repeated_open_save_cycles: 4
+  repeated_open_save_scope: exact_reference_fixture_hashes_only
+  opened_without_repair: true
+  opened_without_backup_restore: true
+  opened_without_xml_rebuild: true
+  native_open_scope: exact_reference_fixture_hashes_only
   critical_unresolved_items: 7
   major_unresolved_items: 11
   evidence_linked_to_every_spec_item: false
@@ -104,7 +109,7 @@ completion:
 prohibited_conclusions:
   - complete_or_universal_itl_read_write_support
   - full_analysis_or_specification_confirmed
-  - native_acceptance_for_reference_generated_itl
+  - native_acceptance_generalized_beyond_two_reference_hashes
   - support_for_all_itunes_versions_or_editions
   - arbitrary_cross_library_or_media_import_support
   - one_hundred_percent_completion

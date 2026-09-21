@@ -267,3 +267,20 @@ These are intentionally conservative guards. Some combinations of simultaneously
 Track structural/index operations preflight every primary playlist, including retained items unrelated to the selected track. Only the admitted 3500-byte playlist header and flat, recognized 84-byte item profile are accepted; grouped/nested, extended, opaque-payload or unknown-state item shapes are refused before changes. Raw parsing/no-op preservation and unrelated scalar editing are not promoted to recursive-semantic support.
 
 Same-lineage restoration now requires the non-ordinary system/master definition PID sets to agree, and matches master/plain/smart classification, exact special-kind value and existing opaque 101/102/103 rule signatures before allocation. No unknown rule or kind is zeroed or interpreted. Unmatched ordinary definitions keep the earlier leave/ignore policy. Existing source/target transactions, same-lineage restriction, COW and reference guards remain in force. These are refusal fixes; they do not implement recursive playlists, arbitrary system rules or cross-library importing.
+
+## 2026-09-22 exact from-scratch fixture profile
+
+**Status:** native-qualified only for the two exact hashes below on standalone Windows x64 iTunes 12.13.10.3. This is not a general-format acceptance claim.
+
+| Fixture | Bytes | Compression | Encryption | Cap | SHA-256 |
+| --- | ---: | ---: | ---: | ---: | --- |
+| raw | 10,566 | 0 | 0 | 0 | `c6c68171d57350ceb3cf379eee13a764ea199536ef18238fe4faf80583492d74` |
+| zlib | 775 | 1 | 2 | 102400 | `25f8aba00330caaa0ef4b529f67a203cd6da2b3d652923f7e44c7396f7bd13ad` |
+
+Both are built by [`TEST_CORPUS/generate.py`](TEST_CORPUS/generate.py) from explicit constants and logical values. No native ITL header, record blob, section, or template is read during construction. The admitted payload has section order `16, 12, 9, 11, 1, 13, 23, 2, 14, 4` and declared counts `(sections=10, tracks=1, playlists=2, albums=1, artists=1)`. Section 23 is a 96-byte `stsh` object; section 4 is the profile media-folder file URL. Section 21 was not required by these minimal accepted candidates.
+
+The current construction uses a 144-byte outer `hdfm`, a 144-byte `mfdh`, a 280-byte `mhgh`, 88-byte `miah`, 100-byte `miih`, 756-byte `mith`, and 3500-byte `miph`. `miph+0x0c` is the count of metadata objects only; `mtph` items are counted separately at `+0x10`. The master `miph` and ordinary `miph` each contain one name object and one membership item. The generated master playlist PID equals the outer/file PID `5245464552454E43`, and both master and ordinary playlists reference track PID `A17E000000000001`.
+
+The strict harness started each profile with only the candidate ITL, forbade XML, `Previous iTunes Libraries`, repair/rebuild/migration dialogs, identity fallback, and abnormal exit, and required two stable COM samples plus independent parsing after each save. Cycle 2 consumed the exact cycle-1 save. Results and hash chains are in [`evidence/native/reference-generated-20260922-passed/qualification-summary.json`](evidence/native/reference-generated-20260922-passed/qualification-summary.json).
+
+Native save canonicalized both files, added system/smart playlists, and renumbered local/session IDs while retaining the tested library, track, custom-playlist, and membership persistent identities. Therefore only persistent identity and declared semantics are acceptance anchors; byte equality after native save is not expected. Constants whose user-visible semantics remain unknown are still unresolved, so this evidence closes the two-fixture generation gate but not the complete-analysis gate.

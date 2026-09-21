@@ -60,8 +60,8 @@ Identity values are not interchangeable merely because they have the same width.
 
 | Domain | Record/offset | Width/order | Invariant |
 | --- | --- | --- | --- |
-| File/header persistent ID | `hdfm+0x34` | u64 BE | File lineage identity; distinct from COM LibraryPlaylist identity. |
-| Master playlist persistent ID | `miph+0x1b8` | u64 LE | Reported by COM for the library playlist; not the file ID. |
+| File/header persistent ID | `hdfm+0x34` | u64 BE | File lineage identity domain. The accepted from-scratch profile intentionally gives it the same value as the master playlist PID. |
+| Master playlist persistent ID | `miph+0x1b8` | u64 LE | Reported by COM for the library playlist. It is a distinct field/domain, but the accepted generated profile requires value equality with the file PID. |
 | Track local ID | `mith+0x10` | u32 LE | Nonzero and unique among main tracks. |
 | Track persistent ID | `mith+0x80` | u64 LE | Nonzero and unique among main tracks. |
 | Secondary track local ID | `mith+0x1f4` | u32 LE | Nonzero/unique for the observed 756-byte profile. |
@@ -164,3 +164,9 @@ The following are deliberately not promoted into semantic entities:
 - COM session IDs as persistent IDs;
 - experimental cross-library/constructor transformations as production APIs;
 - historical evidence status labels as current implementation behavior.
+
+### Exact generated-library invariants
+
+For the two 2026-09-22 template-free fixtures only, the logical model contains one track, one album object, one artist object, a master playlist, and an ordinary playlist. The master playlist PID equals the file PID and includes the track; omitting this master identity/membership pattern in earlier sparse candidates caused iTunes to expose a different library identity or an empty master track collection. The ordinary playlist has its own persistent ID and includes the same track.
+
+Native iTunes preserves these persistent identities but allocates new local/database IDs and adds its normal system/smart playlists on first save. The reference model therefore treats generated local IDs as seed values, not stable interoperability identities. This model is qualified only for the exact two fixture hashes; arbitrary counts, duplicate membership, folders, smart rules, paths, and additional media records remain outside this generated profile.

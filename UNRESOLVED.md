@@ -118,7 +118,7 @@ Closure requires a deterministic target-playing state plus position advance or t
 
 ### U-16 — native evidence generalization
 
-Native acceptance is exact-candidate evidence. The repository does not contain a proof that all values, combinations, counts, library sizes, or unknown bytes within a nominal profile are safe.
+Two exact template-free reference hashes now pass the strict two-cycle native gate. Native acceptance is still exact-candidate evidence: the repository does not contain a proof that all values, combinations, counts, library sizes, or unknown bytes within a nominal profile are safe.
 
 Closure requires a deliberately sampled compatibility matrix, retained failures, independent reproduction, and confidence intervals or an explicit finite supported domain.
 
@@ -140,3 +140,7 @@ Closure requires a clean disposable bootstrap, pinned tool versions, synthetic/p
 - A future change may close one item only with a concrete implementation, negative tests, evidence links, and an updated [`VERSION_MATRIX.md`](VERSION_MATRIX.md)/[`completion-status.yaml`](completion-status.yaml).
 - “Implemented” without native qualification must stay distinguishable from “native-qualified.”
 - No percentage-complete claim should be derived from the number of resolved rows; the unknown format surface is not a measured denominator.
+
+### Resolved bounded checkpoint — exact template-free fixtures
+
+The raw hash `c6c68171…92d74` and zlib/AES hash `25f8aba0…13ad` are no longer pending: each passed two isolated iTunes 12.13.10.3 open/save/restart cycles with the required identity and no-fallback gates. This resolves only the exact reference-fixture qualification. U-01 through U-18, full declared-field editing, arbitrary smart semantics, version breadth, unknown/integrity bytes, and independent reimplementation remain open; the complete-analysis/specification gate remains false.

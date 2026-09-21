@@ -8,8 +8,9 @@ Windows版の**Apple公式スタンドアロンEXE版 iTunes 12.13.10.3**を対�
 
 ## 今回確認したこと
 
-- 回帰テスト：**1024 passed / 5 skipped**（独立リファレンスツール19件を含む）。合成テストに加え、固定55個のネイティブITL構造と50個の対応COM記録を検査しました。5件はCOM記録がない明示的スキップで、ネイティブ操作の回数ではありません。
+- 回帰テスト：**1026 passed / 5 skipped**（独立リファレンスツール21件を含む）。合成テストに加え、固定55個のネイティブITL構造と50個の対応COM記録を検査しました。5件はCOM記録がない明示的スキップで、ネイティブ操作の回数ではありません。
 - 日時の負の端数が1904年エポックの0へ化ける問題を修正。保持される入れ子・未知のプレイリスト項目、復元元と不一致のシステム定義は変更前に拒否します。
+- テンプレートを使わず構築したraw/zlibの2つの参照ITLは、隔離したiTunesで各2回のopen/save/restartに合格しました。合格は2つの正確なSHA-256だけに限定され、任意入力や完全仕様を意味しません。
 - 下記6候補を**実iTunesで選択して開き、各2回保存・終了・再起動**。最初45秒、次30秒の観察後にも期待値を確認しました。
 
 | 実験 | 既存曲 | 追加曲 | 結果 |
@@ -40,7 +41,7 @@ Windows版の**Apple公式スタンドアロンEXE版 iTunes 12.13.10.3**を対�
 - validator：既知の構造、件数、ID一意性、曲・プレイリスト・album/artist参照を検査。未知領域は走査したことにせず警告します。
 - writer：同一versionのbyte-exact copyのみ対応。実変換の対応表がないcross-versionは出力前にfail-closedです。
 - semantic diff：Persistent IDを安定キーに既知フィールドを比較し、未モデル化変更はsection SHA-256差分として残します。
-- test corpus：ゼロから構築したraw/zlib fixture、生成provenance、SHA-256付き `corpus-manifest.json` を収録します。生成物のnative iTunes受理は実機launch/save/reload未実施のため必ず `unverified` です。
+- test corpus：ゼロから構築したraw/zlib fixture、生成provenance、SHA-256付き `corpus-manifest.json` を収録します。チェックイン済み2ハッシュだけは実機2サイクルで `verified`、値を変えた生成物とtemplate-envelope生成物は `unverified` です。
 
 ```powershell
 python -B -m REFERENCE_PARSER detect file.itl
@@ -55,15 +56,16 @@ python -B -m TEST_CORPUS manifest --check
 
 - [`SMART_PLAYLIST_SPEC.md`](SMART_PLAYLIST_SPEC.md) and [`itlkit/smart.py`](itlkit/smart.py) provide a lossless `SLst` AST/parser/serializer and type-102 structural view. The census parsed 95/95 retained ITLs, covering 1,235 smart/system playlist instances. User-created rule semantics, evaluation, and arbitrary editing remain unresolved.
 - [`PATH_AND_TIME_SPEC.md`](PATH_AND_TIME_SPEC.md) records 30 path cases and 8 `PlayedDate` mutations on isolated Windows iTunes 12.13.10.3. It retains 39 native-saved snapshots, all parseable; physical external media, remote SMB, drive reassignment, and a direct Japanese filesystem path remain unresolved.
-- [`evidence/native/fresh-20260921/`](evidence/native/fresh-20260921/) records a genuinely fresh iTunes-created library through empty/one/three-track, traced edit, and repeated saves. Because iTunes created it, this is not proof that the independent from-scratch writer is accepted.
-- [`corpus-manifest.json`](corpus-manifest.json) hashes all 142 retained ITLs and links the nested reference, fresh-native, path/time, and smart-playlist manifests/analyses. The two template-free reference fixtures still have `native_acceptance: unverified`.
+- [`evidence/native/fresh-20260921/`](evidence/native/fresh-20260921/) records a genuinely fresh iTunes-created library through empty/one/three-track, traced edit, and repeated saves. Because iTunes created it, this cohort alone is not reference-writer evidence.
+- [`evidence/native/reference-generated-20260922-passed/`](evidence/native/reference-generated-20260922-passed/) records strict two-cycle acceptance of the two exact template-free fixture hashes, with no XML, no `Previous iTunes Libraries`, no repair/rebuild/migration dialog, exact persistent identities, normal quit, and independent validation after each save.
+- [`corpus-manifest.json`](corpus-manifest.json) hashes all 150 retained ITLs and links the nested reference, fresh-native, path/time, smart-playlist, and reference-generation analyses. The two checked-in reference fixtures are `verified` only for their pinned hashes.
 
 ## 基本的な実行
 
 Python 3.12以降を使用します。確認した環境は Python 3.12.10 / PyCryptodome 3.23.0 / pytest 9.1.1 です。
 
 ```powershell
-python -m pip install pycryptodome==3.23.0 pytest==9.1.1
+python -m pip install pycryptodome==3.23.0 pytest==9.1.1 tzdata==2026.4
 python -m pip install -e .
 python -B -m itlkit --help
 python -B -m itlkit check 'copy.itl'

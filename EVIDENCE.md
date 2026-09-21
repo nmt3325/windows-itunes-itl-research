@@ -100,4 +100,14 @@ Use a fresh temporary path outside the repository. These commands are offline; t
 | Six of eight `PlayedDate` setter cases persisted; fold identity was lost and a DST gap normalized | N1/O | path/time harness and codec tests | [`evidence/path-time/native/native-summary.json`](evidence/path-time/native/native-summary.json); only the tested field/zone/build is qualified |
 | All retained ITLs and subordinate corpus analyses are hash-addressed by one root inventory | O | [`scripts/research/build_manifests.py`](scripts/research/build_manifests.py) | [`corpus-manifest.json`](corpus-manifest.json); presence does not imply native acceptance |
 
-The integrated offline regression is 1024 passed / 5 skipped when run with the frozen native fixture roots documented below. This count is not a native-interoperability percentage.
+The integrated offline regression is 1026 passed / 5 skipped when run with the frozen native fixture roots documented below. This count is not a native-interoperability percentage.
+
+## 2026-09-22 template-free generation qualification
+
+| Claim | Grade | Implementation/tests | Evidence and boundary |
+| --- | --- | --- | --- |
+| Exact raw fixture `c6c681…d74` is accepted from an ITL-only isolated profile for two open/save/restart cycles | N2 | [`TEST_CORPUS/generate.py`](TEST_CORPUS/generate.py); [`tests/test_reference_tools.py`](tests/test_reference_tools.py); [`scripts/windows/reference_generated_native.py`](scripts/windows/reference_generated_native.py) | [`evidence/native/reference-generated-20260922-passed/`](evidence/native/reference-generated-20260922-passed/); no XML, backup restore, `Previous iTunes Libraries`, repair/rebuild/migration dialog, identity fallback, or abnormal exit |
+| Exact zlib/AES fixture `25f8ab…13ad` passes the same two-cycle gate | N2 | same | same; cycle 2 input is the exact cycle-1 native save and all native saves independently parse/validate |
+| Sparse generator v1 outputs were not acceptable as the intended library | F | retained strict negative harness | [Negative-control summary](evidence/native/reference-generated-20260922-negative-controls.md), [`reference-generated-20260922/`](evidence/native/reference-generated-20260922/), and [`reference-generated-20260922-clean/`](evidence/native/reference-generated-20260922-clean/); migration/backup behavior or wrong library/master identity and empty master track set |
+
+The accepted generator explicitly constructs current-profile global, album, artist, track, master-playlist, ordinary-playlist, section-23, and media-folder records. It does not read template bytes. The checked-in claim remains pinned to the raw-unencrypted and zlib/encryption-2 fixture hashes. Native acceptance does not certify arbitrary names, paths, counts, records, flags, versions, unknown fields, audible playback, or independent reimplementation.

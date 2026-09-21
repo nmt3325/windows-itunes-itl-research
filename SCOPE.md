@@ -7,6 +7,7 @@ This document defines what this repository can claim at integrated evidence base
 - **Specification deliverables:** complete when the files listed in [`completion-status.yaml`](completion-status.yaml) exist, are mutually linked, pass the documented checks, and remain evidence-bounded.
 - **Implementation:** a guarded research implementation with substantial verified behavior.
 - **Universal ITL support:** **not complete and not claimed**.
+- **Template-free generation:** two exact 12.13.10.3 fixture hashes are native-qualified for two isolated cycles each; arbitrary generated libraries and independent reimplementation remain unqualified.
 - **Primary native target:** official standalone Windows x64 iTunes `12.13.10.3`.
 - **Secondary observed profile:** standalone Windows iTunes `12.13.9.1`; semantic code admits this profile for bounded scalar work, but the packaged native qualification is centered on `12.13.10.3`.
 
@@ -88,7 +89,7 @@ Tests: the `test_codec_*` files linked in [`EVIDENCE.md`](EVIDENCE.md).
 
 Native qualification requires an exact candidate hash, the intended library selection, stable file/master/track/playlist persistent identities, exact requested values, complete modeled playlist membership/order checks, normal native exit, and reopen/save validation. The strongest historical writer evidence uses two actual save/reload cycles per candidate. Empty-library fallback is failure.
 
-Evidence: [`docs/dynamic.md`](docs/dynamic.md), [`evidence/native/research/`](evidence/native/research/), and [`evidence/native/phase3/`](evidence/native/phase3/).
+Evidence: [`docs/dynamic.md`](docs/dynamic.md), [`evidence/native/research/`](evidence/native/research/), [`evidence/native/phase3/`](evidence/native/phase3/), and the exact template-free qualification in [`evidence/native/reference-generated-20260922-passed/`](evidence/native/reference-generated-20260922-passed/).
 
 Native qualification attaches to the exact candidate and stated operation, not to the whole format.
 

@@ -68,26 +68,60 @@ def test_reference_packages_do_not_import_itlkit() -> None:
     assert len(checked) >= 19
 
 
-@pytest.mark.parametrize("compressed", [False, True])
-def test_generated_library_has_selected_semantics_and_valid_references(compressed: bool) -> None:
-    raw, provenance = generate_bytes(compressed=compressed)
+@pytest.mark.parametrize(
+    ("compressed", "track_name", "playlist_name", "expected_sha", "expected_encryption"),
+    [
+        (False, "Reference Track", "Reference Playlist", "c6c68171d57350ceb3cf379eee13a764ea199536ef18238fe4faf80583492d74", 0),
+        (True, "Reference Track Zlib", "Reference Playlist Zlib", "25f8aba00330caaa0ef4b529f67a203cd6da2b3d652923f7e44c7396f7bd13ad", 2),
+    ],
+)
+def test_generated_library_has_selected_semantics_and_valid_references(
+    compressed: bool, track_name: str, playlist_name: str, expected_sha: str, expected_encryption: int
+) -> None:
+    raw, provenance = generate_bytes(
+        compressed=compressed, track_name=track_name, playlist_name=playlist_name
+    )
     detection = detect_bytes(raw)
     library = ReferenceLibrary.from_bytes(raw)
     summary = library.semantic_summary()
     validation = validate_bytes(raw)
+    playlists = {entry["persistent_id"]: entry for entry in summary["playlists"]}
+    master = playlists["5245464552454E43"]
+    ordinary = playlists["A17E000000000002"]
 
     assert detection["status"] == "recognized"
     assert detection["version"] == "12.13.10.3"
-    assert summary["tracks"][0]["name"] == "Reference Track"
+    assert summary["tracks"][0]["name"] == track_name
     assert summary["tracks"][0]["persistent_id"] == "A17E000000000001"
-    assert summary["playlists"][0]["name"] == "Reference Playlist"
-    assert summary["playlists"][0]["members"][0]["track_persistent_id"] == "A17E000000000001"
+    assert ordinary["name"] == playlist_name
+    assert ordinary["members"][0]["track_persistent_id"] == "A17E000000000001"
+    assert master["playlist_id"] == 5
+    assert master["members"][0]["track_persistent_id"] == "A17E000000000001"
+    assert master["members"][0]["item_persistent_id"] == "A17E000000000006"
+    assert [entry["type"] for entry in summary["sections"]] == [16, 12, 9, 11, 1, 13, 23, 2, 14, 4]
+    assert summary["envelope"]["declared_counts"] == {
+        "sections": 10, "tracks": 1, "playlists": 2, "albums": 1, "artists": 1
+    }
     assert summary["envelope"]["compression_flag"] == int(compressed)
+    assert summary["envelope"]["encryption_flag"] == expected_encryption
+    assert hashlib.sha256(raw).hexdigest() == expected_sha
     assert validation["valid"] is True
     assert provenance["template_reused"] is False
     assert provenance["template_sha256"] is None
+    assert provenance["native_acceptance"]["status"] == "verified"
+    assert provenance["native_acceptance"]["tested"] is True
+    assert provenance["native_acceptance"]["scope"] == "exact_output_sha256"
+
+
+def test_custom_generator_output_remains_explicitly_unverified() -> None:
+    _, provenance = generate_bytes(track_name="Different Track")
     assert provenance["native_acceptance"]["status"] == "unverified"
     assert provenance["native_acceptance"]["tested"] is False
+
+
+def test_generator_refuses_unmodeled_from_scratch_versions() -> None:
+    with pytest.raises(ValueError, match="defined only for 12.13.10.3"):
+        generate_bytes(version="12.13.9.1")
 
 
 def test_version_detector_distinguishes_recognized_unsupported_and_malformed() -> None:
@@ -105,8 +139,8 @@ def test_record_dump_is_bounded_and_hashes_records() -> None:
     dump = ReferenceLibrary.from_bytes(raw).record_dump(include_header_hex=True)
     assert dump["schema"] == "reference-itl.record-dump.v1"
     assert dump["source_sha256"] == hashlib.sha256(raw).hexdigest()
-    assert [section["type"] for section in dump["sections"]] == [16, 9, 11, 1, 2]
-    track_root = dump["sections"][3]["root"]
+    assert [section["type"] for section in dump["sections"]] == [16, 12, 9, 11, 1, 13, 23, 2, 14, 4]
+    track_root = dump["sections"][4]["root"]
     track = track_root["children"][0]
     assert track["tag"] == "mith"
     assert track["header_length"] == 756
@@ -177,7 +211,8 @@ def test_template_use_and_native_acceptance_are_machine_readable() -> None:
     assert provenance["native_acceptance"] == {
         "status": "unverified",
         "tested": False,
-        "reason": "No iTunes launch/save/reload evidence is associated with this generated output.",
+        "scope": "exact_output_sha256",
+        "reason": "No retained iTunes launch/save/reload evidence matches this exact output hash.",
     }
 
 
@@ -193,8 +228,9 @@ def test_manifest_hashes_generated_files(tmp_path: Path) -> None:
         assert entry["sha256"] == hashlib.sha256(raw).hexdigest()
         if path.suffix == ".itl":
             provenance = json.loads(provenance_path(path).read_text(encoding="utf-8"))
-            assert provenance["native_acceptance"]["status"] == "unverified"
-            assert entry["native_acceptance"] == "unverified"
+            assert provenance["native_acceptance"]["status"] == "verified"
+            assert provenance["native_acceptance"]["tested"] is True
+            assert entry["native_acceptance"] == "verified"
             assert entry["template_reused"] is False
 
 

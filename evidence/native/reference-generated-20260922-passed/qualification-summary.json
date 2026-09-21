@@ -1,0 +1,123 @@
+{
+  "cases": [
+    {
+      "candidate_bytes": 10566,
+      "candidate_relative_path": "TEST_CORPUS/generated/reference-one-track-raw.itl",
+      "candidate_sha256": "c6c68171d57350ceb3cf379eee13a764ea199536ef18238fe4faf80583492d74",
+      "cycles": [
+        {
+          "cycle": 1,
+          "expected_prelaunch_sha256": "c6c68171d57350ceb3cf379eee13a764ea199536ef18238fe4faf80583492d74",
+          "forbidden_after": [],
+          "forbidden_before": [],
+          "itunes_exit_code": 0,
+          "native_saved_bytes": 4121,
+          "native_saved_sha256": "ee6023fd4eca0a8beaa249863e090c7fccee9644f6d512c43ccbde377aaad108",
+          "post_readiness_settle_seconds": 3.0,
+          "prelaunch_sha256": "c6c68171d57350ceb3cf379eee13a764ea199536ef18238fe4faf80583492d74",
+          "reference_summary_errors": [],
+          "sample_errors": [
+            [],
+            []
+          ],
+          "status": "passed",
+          "worker_accepted": true,
+          "worker_errors": []
+        },
+        {
+          "cycle": 2,
+          "expected_prelaunch_sha256": "ee6023fd4eca0a8beaa249863e090c7fccee9644f6d512c43ccbde377aaad108",
+          "forbidden_after": [],
+          "forbidden_before": [],
+          "itunes_exit_code": 0,
+          "native_saved_bytes": 4156,
+          "native_saved_sha256": "9c0e792fd09c23e1561a2b47275154901f1e4926edc7c535eecc5c01b2e7f00e",
+          "post_readiness_settle_seconds": 3.0,
+          "prelaunch_sha256": "ee6023fd4eca0a8beaa249863e090c7fccee9644f6d512c43ccbde377aaad108",
+          "reference_summary_errors": [],
+          "sample_errors": [
+            [],
+            []
+          ],
+          "status": "passed",
+          "worker_accepted": true,
+          "worker_errors": []
+        }
+      ],
+      "final_forbidden_artifacts": [],
+      "name": "reference-one-track-raw",
+      "status": "passed"
+    },
+    {
+      "candidate_bytes": 775,
+      "candidate_relative_path": "TEST_CORPUS/generated/reference-one-track-zlib.itl",
+      "candidate_sha256": "25f8aba00330caaa0ef4b529f67a203cd6da2b3d652923f7e44c7396f7bd13ad",
+      "cycles": [
+        {
+          "cycle": 1,
+          "expected_prelaunch_sha256": "25f8aba00330caaa0ef4b529f67a203cd6da2b3d652923f7e44c7396f7bd13ad",
+          "forbidden_after": [],
+          "forbidden_before": [],
+          "itunes_exit_code": 0,
+          "native_saved_bytes": 4112,
+          "native_saved_sha256": "e764e9c84c26771afcd5139c2bea368421dcad3e0915b5a63168eaebdd220f3f",
+          "post_readiness_settle_seconds": 3.0,
+          "prelaunch_sha256": "25f8aba00330caaa0ef4b529f67a203cd6da2b3d652923f7e44c7396f7bd13ad",
+          "reference_summary_errors": [],
+          "sample_errors": [
+            [],
+            []
+          ],
+          "status": "passed",
+          "worker_accepted": true,
+          "worker_errors": []
+        },
+        {
+          "cycle": 2,
+          "expected_prelaunch_sha256": "e764e9c84c26771afcd5139c2bea368421dcad3e0915b5a63168eaebdd220f3f",
+          "forbidden_after": [],
+          "forbidden_before": [],
+          "itunes_exit_code": 0,
+          "native_saved_bytes": 4147,
+          "native_saved_sha256": "9cdfeeab09ae3437a351977daff2bac1803fe502720a831960bb8021dacf3476",
+          "post_readiness_settle_seconds": 3.0,
+          "prelaunch_sha256": "e764e9c84c26771afcd5139c2bea368421dcad3e0915b5a63168eaebdd220f3f",
+          "reference_summary_errors": [],
+          "sample_errors": [
+            [],
+            []
+          ],
+          "status": "passed",
+          "worker_accepted": true,
+          "worker_errors": []
+        }
+      ],
+      "final_forbidden_artifacts": [],
+      "name": "reference-one-track-zlib",
+      "status": "passed"
+    }
+  ],
+  "claim_boundary": "Exact-hash native qualification only; does not establish arbitrary generation, complete field semantics, version breadth, or independent reimplementation.",
+  "cycles_required": 2,
+  "isolation_policy": {
+    "damaged_library_modal_allowed": false,
+    "fallback_identity_allowed": false,
+    "initial_live_inventory": "candidate ITL only",
+    "normal_quit_required": true,
+    "previous_itunes_libraries_allowed": false,
+    "xml_allowed": false
+  },
+  "profile": {
+    "culture": [
+      "English_United States",
+      "1252"
+    ],
+    "itunes_executable_sha256": "30d91209b5d81c47bbad2da9d89764fcab08bf5cd9af1a9571668001376c5d7d",
+    "itunes_version": "12.13.10.3",
+    "platform": "Windows-2025Server-10.0.26100-SP0",
+    "timezone": "UTC"
+  },
+  "schema_version": 1,
+  "source_summary_sha256": "2bff548fc39edc7ce23ab98a92dd2a0c88243a1aa7722c29a52395b4661f0f96",
+  "status": "passed"
+}

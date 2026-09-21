@@ -2,22 +2,46 @@
   "generation_mode": "from-scratch",
   "generator": {
     "name": "independent-reference-test-generator",
-    "version": 1
+    "version": 2
   },
   "inputs": {
     "compressed": false,
     "encryption_flag": 0,
+    "max_crypt_size": 0,
     "playlist_name": "Reference Playlist",
     "track_name": "Reference Track"
   },
   "native_acceptance": {
-    "reason": "No iTunes launch/save/reload evidence is associated with this generated output.",
-    "status": "unverified",
-    "tested": false
+    "case": "reference-one-track-raw",
+    "cycles": 2,
+    "evidence": "evidence/native/reference-generated-20260922-passed/cases/reference-one-track-raw/result.json",
+    "opened_without_backup_restore": true,
+    "opened_without_repair": true,
+    "opened_without_xml_rebuild": true,
+    "scope": "exact_output_sha256",
+    "status": "verified",
+    "tested": true
   },
-  "output_sha256": "f340b1ee9b11864d8e8f9bb00a72bbcc313c0074c48f9bc8df1c31224109ef2c",
-  "output_size": 5630,
-  "schema": "reference-itl.generation-provenance.v1",
+  "output_sha256": "c6c68171d57350ceb3cf379eee13a764ea199536ef18238fe4faf80583492d74",
+  "output_size": 10566,
+  "profile": {
+    "master_playlist_included": true,
+    "media_folder_url": "file://localhost/C:/Users/runneradmin/Music/iTunes/iTunes%20Media/",
+    "section_order": [
+      16,
+      12,
+      9,
+      11,
+      1,
+      13,
+      23,
+      2,
+      14,
+      4
+    ],
+    "timestamp_fixture": 3865040640
+  },
+  "schema": "reference-itl.generation-provenance.v2",
   "structural_validation": {
     "opaque_bytes_semantically_validated": false,
     "status": "passed",

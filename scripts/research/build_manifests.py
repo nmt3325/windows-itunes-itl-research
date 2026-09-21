@@ -29,10 +29,21 @@ def file_row(path: Path) -> dict:
 def classify_itl(path: Path) -> tuple[str, dict]:
     rel = path.relative_to(ROOT).as_posix()
     if rel.startswith("TEST_CORPUS/generated/"):
-        return "independent_from_scratch_generated", {
+        sidecar = Path(str(path) + ".provenance.json")
+        acceptance = "unverified"
+        evidence = None
+        if sidecar.is_file():
+            provenance = json.loads(sidecar.read_text(encoding="utf-8"))
+            native = provenance.get("native_acceptance", {})
+            acceptance = native.get("status", "unverified")
+            evidence = native.get("evidence")
+        extra = {
             "template_reused": False,
-            "native_acceptance": "unverified",
+            "native_acceptance": acceptance,
         }
+        if evidence is not None:
+            extra["native_acceptance_evidence"] = evidence
+        return "independent_from_scratch_generated", extra
     if rel.startswith("evidence/native/fresh-20260921/snapshots/"):
         return "native_itunes_fresh_library", {
             "producer": "iTunes 12.13.10.3",
@@ -69,6 +80,7 @@ def build_corpus() -> dict:
         "evidence/path-time/manifest.json",
         "evidence/smart-playlist/corpus-census.json",
         "evidence/smart-playlist/prior-art-manifest.json",
+        "evidence/native/reference-generated-20260922-passed/qualification-summary.json",
     ):
         path = ROOT / name
         if path.is_file():
@@ -80,7 +92,8 @@ def build_corpus() -> dict:
         "target": "Windows Apple desktop x64 iTunes 12.13.10.3; secondary observed 12.13.9.1",
         "qualification": {
             "complete_analysis_claim": False,
-            "reference_writer_from_scratch_native_acceptance": "unverified",
+            "reference_writer_from_scratch_native_acceptance": "verified_for_two_exact_hashes",
+            "reference_writer_acceptance_boundary": "No arbitrary values, counts, media kinds, versions, or unknown fields are implied.",
             "fresh_native_library_note": "created by iTunes itself; not evidence that the reference writer is accepted",
             "path_time_note": "native iTunes saves for a bounded matrix; not arbitrary writer acceptance",
         },
@@ -111,7 +124,11 @@ def build_delivery() -> list[dict]:
 
 
 def write_json(path: Path, value: object) -> None:
-    path.write_text(json.dumps(value, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    path.write_text(
+        json.dumps(value, ensure_ascii=False, indent=2) + "\n",
+        encoding="utf-8",
+        newline="\n",
+    )
 
 
 def main() -> int:

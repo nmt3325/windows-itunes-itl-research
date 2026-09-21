@@ -1,0 +1,48 @@
+[
+  {
+    "name": "reference-one-track-raw",
+    "candidate": "TEST_CORPUS/generated/reference-one-track-raw.itl",
+    "sha256": "f340b1ee9b11864d8e8f9bb00a72bbcc313c0074c48f9bc8df1c31224109ef2c",
+    "expected": {
+      "version": "12.13.10.3",
+      "library_persistent_id": "5245464552454E43",
+      "track_count": 1,
+      "tracks": [
+        {
+          "persistent_id": "A17E000000000001",
+          "name": "Reference Track"
+        }
+      ],
+      "playlists": [
+        {
+          "persistent_id": "A17E000000000002",
+          "name": "Reference Playlist",
+          "members": ["A17E000000000001"]
+        }
+      ]
+    }
+  },
+  {
+    "name": "reference-one-track-zlib",
+    "candidate": "TEST_CORPUS/generated/reference-one-track-zlib.itl",
+    "sha256": "3e597e9778936d2fbf70d13620b5e4ebc9649d2d8b11086a5560daf7e620b6ce",
+    "expected": {
+      "version": "12.13.10.3",
+      "library_persistent_id": "5245464552454E43",
+      "track_count": 1,
+      "tracks": [
+        {
+          "persistent_id": "A17E000000000001",
+          "name": "Reference Track Zlib"
+        }
+      ],
+      "playlists": [
+        {
+          "persistent_id": "A17E000000000002",
+          "name": "Reference Playlist Zlib",
+          "members": ["A17E000000000001"]
+        }
+      ]
+    }
+  }
+]

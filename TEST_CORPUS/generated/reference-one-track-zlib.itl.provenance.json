@@ -2,22 +2,46 @@
   "generation_mode": "from-scratch",
   "generator": {
     "name": "independent-reference-test-generator",
-    "version": 1
+    "version": 2
   },
   "inputs": {
     "compressed": true,
-    "encryption_flag": 0,
+    "encryption_flag": 2,
+    "max_crypt_size": 102400,
     "playlist_name": "Reference Playlist Zlib",
     "track_name": "Reference Track Zlib"
   },
   "native_acceptance": {
-    "reason": "No iTunes launch/save/reload evidence is associated with this generated output.",
-    "status": "unverified",
-    "tested": false
+    "case": "reference-one-track-zlib",
+    "cycles": 2,
+    "evidence": "evidence/native/reference-generated-20260922-passed/cases/reference-one-track-zlib/result.json",
+    "opened_without_backup_restore": true,
+    "opened_without_repair": true,
+    "opened_without_xml_rebuild": true,
+    "scope": "exact_output_sha256",
+    "status": "verified",
+    "tested": true
   },
-  "output_sha256": "3e597e9778936d2fbf70d13620b5e4ebc9649d2d8b11086a5560daf7e620b6ce",
-  "output_size": 420,
-  "schema": "reference-itl.generation-provenance.v1",
+  "output_sha256": "25f8aba00330caaa0ef4b529f67a203cd6da2b3d652923f7e44c7396f7bd13ad",
+  "output_size": 775,
+  "profile": {
+    "master_playlist_included": true,
+    "media_folder_url": "file://localhost/C:/Users/runneradmin/Music/iTunes/iTunes%20Media/",
+    "section_order": [
+      16,
+      12,
+      9,
+      11,
+      1,
+      13,
+      23,
+      2,
+      14,
+      4
+    ],
+    "timestamp_fixture": 3865040640
+  },
+  "schema": "reference-itl.generation-provenance.v2",
   "structural_validation": {
     "opaque_bytes_semantically_validated": false,
     "status": "passed",

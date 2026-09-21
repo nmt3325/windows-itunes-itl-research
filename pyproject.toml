@@ -7,7 +7,7 @@ name = "windows-itl-research"
 version = "0.1.0"
 description = "Evidence-driven Windows iTunes ITL reader and writer"
 requires-python = ">=3.12"
-dependencies = ["pycryptodome>=3.20,<4"]
+dependencies = ["pycryptodome>=3.20,<4", "tzdata>=2025.2"]
 
 [project.optional-dependencies]
 test = ["pytest>=8"]
