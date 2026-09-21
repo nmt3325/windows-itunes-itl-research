@@ -1,0 +1,75 @@
+{
+  "name": "003-traced-name-save",
+  "ui": [
+    {
+      "action": "dismiss_audio_warning",
+      "pid": 1428,
+      "window": {
+        "hwnd": 459428,
+        "pid": 1428,
+        "class": "iTunesCustomModalDialog",
+        "title": "iTunes",
+        "children": [
+          {
+            "hwnd": 721586,
+            "class": "Static",
+            "text": "iTunes has detected a problem with your audio configuration.\rAudio/Video playback may not operate properly.",
+            "id": 101,
+            "enabled": true,
+            "visible": true
+          },
+          {
+            "hwnd": 524916,
+            "class": "Static",
+            "text": "",
+            "id": 103,
+            "enabled": true,
+            "visible": false
+          },
+          {
+            "hwnd": 1245590,
+            "class": "Button",
+            "text": "",
+            "id": 104,
+            "enabled": true,
+            "visible": false
+          },
+          {
+            "hwnd": 459298,
+            "class": "Button",
+            "text": "OK",
+            "id": 1,
+            "enabled": true,
+            "visible": true
+          },
+          {
+            "hwnd": 918040,
+            "class": "Button",
+            "text": "More Info",
+            "id": 105,
+            "enabled": true,
+            "visible": false
+          },
+          {
+            "hwnd": 590352,
+            "class": "Static",
+            "text": "",
+            "id": 102,
+            "enabled": true,
+            "visible": true
+          }
+        ]
+      }
+    }
+  ],
+  "status": "passed",
+  "prelaunch_sha256": "de9a338c81fcc160a6f62b99e29a08787bd6b52b744772e5065251702feba3dc",
+  "itunes_pid": 1428,
+  "itunes_exit_code": 0,
+  "collector_exit_code": 0,
+  "fixture_path": "D:\\a\\_temp\\gha-mcp\\win-f564d1rb\\work\\native-fresh\\snapshots\\003-traced-name-save.itl",
+  "fixture_sha256": "c17debc0791bc637d9955d576220f33252bb564ea62ed21134e53db72572e87e",
+  "fixture_bytes": 5010,
+  "trace_dir": "D:\\a\\_temp\\gha-mcp\\win-f564d1rb\\work\\native-fresh\\report\\traced-runs\\003-traced-name-save\\trace",
+  "native_poll_final": 0
+}

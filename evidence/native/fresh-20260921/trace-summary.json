@@ -1,0 +1,147 @@
+{
+  "schema": "windows-itl-fresh-native-trace.v1",
+  "event_count": 9,
+  "kind_counts": {
+    "file_open": 3,
+    "module": 1,
+    "ready": 1,
+    "zlib": 4
+  },
+  "events": [
+    {
+      "seq": 1,
+      "kind": "module",
+      "function": null,
+      "side": null,
+      "path": "C:\\Program Files\\iTunes\\zlib1.dll",
+      "consumed": null,
+      "produced": null,
+      "total_in": null,
+      "total_out": null,
+      "bytes": null,
+      "sha256": null,
+      "blob": null
+    },
+    {
+      "seq": 2,
+      "kind": "ready",
+      "function": null,
+      "side": null,
+      "path": null,
+      "consumed": null,
+      "produced": null,
+      "total_in": null,
+      "total_out": null,
+      "bytes": null,
+      "sha256": null,
+      "blob": null
+    },
+    {
+      "seq": 3,
+      "kind": "zlib",
+      "function": "deflate",
+      "side": "input",
+      "path": null,
+      "consumed": 103088,
+      "produced": 2,
+      "total_in": 103088,
+      "total_out": 2,
+      "bytes": 103088,
+      "sha256": "489a8b4e27b6fc83d341bac8ae0dd1a67a37fad6cb01d955ad40410a4a64343f",
+      "blob": "000003.bin"
+    },
+    {
+      "seq": 4,
+      "kind": "zlib",
+      "function": "deflate",
+      "side": "output",
+      "path": null,
+      "consumed": 103088,
+      "produced": 2,
+      "total_in": 103088,
+      "total_out": 2,
+      "bytes": 2,
+      "sha256": "f5e2794887fba944442f1d3619e6773e55259ef5f3c73112857f0e293be739a0",
+      "blob": "000004.bin"
+    },
+    {
+      "seq": 5,
+      "kind": "zlib",
+      "function": "deflate",
+      "side": "input",
+      "path": null,
+      "consumed": 0,
+      "produced": 4864,
+      "total_in": 103088,
+      "total_out": 4866,
+      "bytes": null,
+      "sha256": null,
+      "blob": null
+    },
+    {
+      "seq": 6,
+      "kind": "zlib",
+      "function": "deflate",
+      "side": "output",
+      "path": null,
+      "consumed": 0,
+      "produced": 4864,
+      "total_in": 103088,
+      "total_out": 4866,
+      "bytes": 4864,
+      "sha256": "6168c9a6780a743653f137a2f59f21def9805c45b66a9d9caa9bd6221366818a",
+      "blob": "000006.bin"
+    },
+    {
+      "seq": 7,
+      "kind": "file_open",
+      "function": null,
+      "side": null,
+      "path": "D:\\a\\_temp\\gha-mcp\\win-f564d1rb\\work\\native-fresh\\live\\iTunes Library.itl",
+      "consumed": null,
+      "produced": null,
+      "total_in": null,
+      "total_out": null,
+      "bytes": null,
+      "sha256": null,
+      "blob": null
+    },
+    {
+      "seq": 8,
+      "kind": "file_open",
+      "function": null,
+      "side": null,
+      "path": "D:\\a\\_temp\\gha-mcp\\win-f564d1rb\\work\\native-fresh\\live\\iTunes Library.itl",
+      "consumed": null,
+      "produced": null,
+      "total_in": null,
+      "total_out": null,
+      "bytes": null,
+      "sha256": null,
+      "blob": null
+    },
+    {
+      "seq": 9,
+      "kind": "file_open",
+      "function": null,
+      "side": null,
+      "path": "D:\\a\\_temp\\gha-mcp\\win-f564d1rb\\work\\native-fresh\\live\\iTunes Library.itl",
+      "consumed": null,
+      "produced": null,
+      "total_in": null,
+      "total_out": null,
+      "bytes": null,
+      "sha256": null,
+      "blob": null
+    }
+  ],
+  "claims": {
+    "native_zlib_observed": true,
+    "final_itl_open_observed": true,
+    "writefile_event_observed": false,
+    "atomic_rename_sequence_proven": false
+  },
+  "limitations": [
+    "The bounded hook did not observe a WriteFile event or rename sequence; no claim about atomic replacement is made from this trace alone."
+  ]
+}

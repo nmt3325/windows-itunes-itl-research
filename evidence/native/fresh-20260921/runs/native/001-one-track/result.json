@@ -1,0 +1,213 @@
+{
+  "name": "001-one-track",
+  "case": {
+    "name": "001-one-track",
+    "expected_before": 0,
+    "expected_after": 1,
+    "action": {
+      "kind": "add_files",
+      "paths": [
+        "D:\\a\\_temp\\gha-mcp\\win-f564d1rb\\work\\native-fresh\\media\\alpha.wav"
+      ]
+    }
+  },
+  "started": 1790004570.5231383,
+  "ui": [
+    {
+      "action": "dismiss_audio_warning",
+      "pid": 4180,
+      "window": {
+        "hwnd": 197156,
+        "pid": 4180,
+        "class": "iTunesCustomModalDialog",
+        "title": "iTunes",
+        "children": [
+          {
+            "hwnd": 197158,
+            "class": "Static",
+            "text": "iTunes has detected a problem with your audio configuration.\rAudio/Video playback may not operate properly.",
+            "id": 101,
+            "enabled": true,
+            "visible": true
+          },
+          {
+            "hwnd": 262820,
+            "class": "Static",
+            "text": "",
+            "id": 103,
+            "enabled": true,
+            "visible": false
+          },
+          {
+            "hwnd": 328218,
+            "class": "Button",
+            "text": "",
+            "id": 104,
+            "enabled": true,
+            "visible": false
+          },
+          {
+            "hwnd": 1048982,
+            "class": "Button",
+            "text": "OK",
+            "id": 1,
+            "enabled": true,
+            "visible": true
+          },
+          {
+            "hwnd": 1769976,
+            "class": "Button",
+            "text": "More Info",
+            "id": 105,
+            "enabled": true,
+            "visible": false
+          },
+          {
+            "hwnd": 262696,
+            "class": "Static",
+            "text": "",
+            "id": 102,
+            "enabled": true,
+            "visible": true
+          }
+        ]
+      }
+    }
+  ],
+  "prelaunch_sha256": "3ea22262490aaa293a5c62736f9911a34081f314619c0abce681512e43263979",
+  "itunes_pid": 4180,
+  "worker_command": [
+    "C:\\hostedtoolcache\\windows\\Python\\3.12.10\\x64\\python.exe",
+    "-u",
+    "D:\\a\\_temp\\gha-mcp\\win-f564d1rb\\work\\windows-itunes-itl-research\\scripts\\windows\\native_worker.py",
+    "--root",
+    "D:\\a\\_temp\\gha-mcp\\win-f564d1rb\\work\\native-fresh",
+    "--output",
+    "D:\\a\\_temp\\gha-mcp\\win-f564d1rb\\work\\native-fresh\\report\\native-runs\\001-one-track\\com.json",
+    "--action",
+    "D:\\a\\_temp\\gha-mcp\\win-f564d1rb\\work\\native-fresh\\report\\native-runs\\001-one-track\\action.json",
+    "--quit",
+    "--expect-count",
+    "0"
+  ],
+  "worker_exit_code": 0,
+  "itunes_exit_code": 0,
+  "fixture_path": "D:\\a\\_temp\\gha-mcp\\win-f564d1rb\\work\\native-fresh\\snapshots\\001-one-track.itl",
+  "fixture_sha256": "434e3e65e06b9f3c1dd57effb755b943f436192338d1c612243f4da306a64f7d",
+  "fixture_bytes": 4543,
+  "observed": {
+    "version": "12.13.10.3",
+    "library_persistent_id": "3A446B3414E26B36",
+    "tracks": [
+      {
+        "persistent_id": "9692DAA2A400A941",
+        "Name": "alpha",
+        "Artist": "",
+        "Album": "",
+        "AlbumArtist": "",
+        "Composer": "",
+        "Genre": "",
+        "Comment": "",
+        "Grouping": "",
+        "Lyrics": "",
+        "SortName": "",
+        "SortArtist": "",
+        "SortAlbum": "",
+        "SortAlbumArtist": "",
+        "Rating": 0,
+        "AlbumRating": 0,
+        "PlayedCount": 0,
+        "PlayedDate": "1899-12-30T00:00:00+00:00",
+        "SkippedCount": 0,
+        "SkippedDate": "1899-12-30T00:00:00+00:00",
+        "DateAdded": "2026-09-21T15:29:34+00:00",
+        "ModificationDate": "2026-09-21T15:29:30+00:00",
+        "TrackNumber": 0,
+        "TrackCount": 0,
+        "DiscNumber": 0,
+        "DiscCount": 0,
+        "Year": 0,
+        "BPM": 0,
+        "Compilation": false,
+        "Enabled": true,
+        "VolumeAdjustment": 0,
+        "Location": "D:\\a\\_temp\\gha-mcp\\win-f564d1rb\\work\\native-fresh\\media\\alpha.wav",
+        "Duration": 1,
+        "SampleRate": 44100,
+        "BitRate": 705,
+        "Size": 88244,
+        "TrackDatabaseID": 139,
+        "TrackID": 143,
+        "PlayOrderIndex": 1,
+        "Unplayed": true,
+        "RatingKind": 1,
+        "AlbumRatingKind": 1
+      }
+    ],
+    "playlists": [
+      {
+        "name": "Library",
+        "persistent_id": "3A446B3414E26B36",
+        "kind": 1,
+        "members": [
+          {
+            "persistent_id": "9692DAA2A400A941",
+            "name": "alpha",
+            "play_order_index": 1
+          }
+        ],
+        "special_kind": null
+      },
+      {
+        "name": "Music",
+        "persistent_id": "647271BAC25957DB",
+        "kind": 2,
+        "members": [
+          {
+            "persistent_id": "9692DAA2A400A941",
+            "name": "alpha",
+            "play_order_index": 1
+          }
+        ],
+        "special_kind": 6
+      },
+      {
+        "name": "Movies",
+        "persistent_id": "12535DDCB77CFFFE",
+        "kind": 2,
+        "members": [],
+        "special_kind": 7
+      },
+      {
+        "name": "TV Shows",
+        "persistent_id": "07B567ABD3B07E83",
+        "kind": 2,
+        "members": [],
+        "special_kind": 8
+      },
+      {
+        "name": "Podcasts",
+        "persistent_id": "B56A4CAF01530512",
+        "kind": 2,
+        "members": [],
+        "special_kind": 3
+      },
+      {
+        "name": "Audiobooks",
+        "persistent_id": "7E791F40E79FA45B",
+        "kind": 2,
+        "members": [],
+        "special_kind": 9
+      },
+      {
+        "name": "Genius",
+        "persistent_id": "C03BE96F7B783377",
+        "kind": 2,
+        "members": [],
+        "special_kind": 11
+      }
+    ],
+    "track_count": 1
+  },
+  "status": "passed"
+}
