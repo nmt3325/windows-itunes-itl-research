@@ -269,6 +269,12 @@ class Playlist:
         return any(c.type_code in (101, 102) for c in self.node.children or () if c.tag == b'mhoh')
 
     @property
+    def smart_definition(self):
+        """Lossless type-101/102 AST, or ``None`` for a non-smart playlist."""
+        from .smart import parse_playlist_smart
+        return parse_playlist_smart(self.node)
+
+    @property
     def is_plain(self) -> bool:
         return (len(self.node.header) == 3500 and not self.is_master and not self.is_smart
                 and uint(self.node.header, 0x238) == 0

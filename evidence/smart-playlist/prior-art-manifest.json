@@ -1,0 +1,110 @@
+{
+  "schema": "windows-itunes-itl-smart-playlist-prior-art.v1",
+  "evidence_class": "cross-format-prior-art",
+  "warning": "These repositories describe historical iPod iTunesDB smart playlists. They are not proof of Windows ITL semantics.",
+  "repositories": [
+    {
+      "name": "libgpod",
+      "url": "https://github.com/fadingred/libgpod.git",
+      "commit": "4a8a33ef4bc58eee1baca6793618365f75a5c3fa",
+      "role": "Primary historical parser, writer, enums, and evaluator prior art",
+      "files": [
+        {
+          "path": "src/itdb.h",
+          "sha256": "5116e2bd018af3fbbb211503766df393695c8475e188967e691101403b3cf0bd",
+          "claims": [
+            "raw conjunction 0/1 mapped to AND/OR",
+            "limit-unit and selection-order enums",
+            "action and field IDs",
+            "date identifier 0x2dae2dae2dae2dae",
+            "relative-date units",
+            "playlist-membership field 0x28 with an explicit uncertainty warning",
+            "media/video-kind field 0x3c"
+          ],
+          "permalink": "https://github.com/fadingred/libgpod/blob/4a8a33ef4bc58eee1baca6793618365f75a5c3fa/src/itdb.h#L331-L810"
+        },
+        {
+          "path": "src/itdb_itunesdb.c",
+          "sha256": "7f0d209a3f48624c1f64d5578e42c338e04bf47635b66da4ff036a800e0d2dd2",
+          "claims": [
+            "historical type 50 preference byte layout",
+            "historical type 51 SLst magic",
+            "136-byte big-endian root header",
+            "56-byte rule prefix",
+            "UTF-16BE strings",
+            "68-byte non-string operands and five trailing u32 words"
+          ],
+          "permalink": "https://github.com/fadingred/libgpod/blob/4a8a33ef4bc58eee1baca6793618365f75a5c3fa/src/itdb_itunesdb.c#L1711-L1810"
+        },
+        {
+          "path": "src/itdb_playlist.c",
+          "sha256": "7ce6b0f4c58b4f8b27703a3fa65b2a510d6af3d2b4c0c67e38203a5b62dd8151",
+          "claims": [
+            "historical operator dispatch and smart-rule evaluation",
+            "playlist membership and media-kind evaluator cases"
+          ],
+          "permalink": "https://github.com/fadingred/libgpod/blob/4a8a33ef4bc58eee1baca6793618365f75a5c3fa/src/itdb_playlist.c"
+        },
+        {
+          "path": "src/db-itunes-parser.h",
+          "sha256": "113383fe1bec35e4966b232da09271612460840c1d27b95993b1af7596db1372",
+          "claims": [
+            "packed historical smart-playlist parser structures"
+          ],
+          "permalink": "https://github.com/fadingred/libgpod/blob/4a8a33ef4bc58eee1baca6793618365f75a5c3fa/src/db-itunes-parser.h"
+        }
+      ]
+    },
+    {
+      "name": "iOpenPod",
+      "url": "https://github.com/TheRealSavi/iOpenPod.git",
+      "commit": "a20242428b93b672d14b37230772dbad75139c69",
+      "role": "Secondary writer/evaluator prior art, including a proposed recursive group wrapper",
+      "files": [
+        {
+          "path": "src/iopenpod/itunesdb_writer/mhod_spl_writer.py",
+          "sha256": "8581d3b1af0297e2cf49310ed7877da55d96d9cc3e23d03741639fcc0d8fb57a",
+          "claims": [
+            "explicit 136/56/68 byte writer",
+            "UTF-16BE string output",
+            "six 64-bit values plus five u32 words",
+            "group marker 0x01000000 and nested complete SLst"
+          ],
+          "permalink": "https://github.com/TheRealSavi/iOpenPod/blob/a20242428b93b672d14b37230772dbad75139c69/src/iopenpod/itunesdb_writer/mhod_spl_writer.py#L200-L322"
+        },
+        {
+          "path": "src/iopenpod/sync/spl_evaluator.py",
+          "sha256": "806e25b274fa3c080b3a5e9be9c87d11784c5d406fd0a49fa81f26e9d8353381",
+          "claims": [
+            "relative-date, range, membership, and nested evaluator behavior"
+          ],
+          "permalink": "https://github.com/TheRealSavi/iOpenPod/blob/a20242428b93b672d14b37230772dbad75139c69/src/iopenpod/sync/spl_evaluator.py"
+        },
+        {
+          "path": "tests/test_smart_playlist_groups.py",
+          "sha256": "32c63e77a414b44f96d254d7b3d10a1020486025348da51176bdfdcd55d00fd3",
+          "claims": [
+            "synthetic nested wrapper field 0, action 1, marker 0x01000000"
+          ],
+          "permalink": "https://github.com/TheRealSavi/iOpenPod/blob/a20242428b93b672d14b37230772dbad75139c69/tests/test_smart_playlist_groups.py#L130-L190"
+        }
+      ]
+    },
+    {
+      "name": "podkit",
+      "url": "https://github.com/jvgomg/podkit.git",
+      "commit": "580b092c2bab9e4253690696174dfa6ca4a82171",
+      "role": "Secondary API corroboration built around libgpod; not independent Windows evidence",
+      "files": [
+        {
+          "path": "packages/libgpod-node/native/database_wrapper.h",
+          "sha256": "c631e2e34aae18def32984db1a44798fb897457a5cc39c210e0d61528bb4fbde"
+        },
+        {
+          "path": "packages/libgpod-node/native/gpod_converters.h",
+          "sha256": "27e3f0b9dbee6f2a02a13854d4b7b35793fca2e19bcb039b626fba6746cca88a"
+        }
+      ]
+    }
+  ]
+}
