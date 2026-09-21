@@ -7,6 +7,7 @@ from pathlib import Path
 import sys
 from .container import Container
 from .library import Library
+from .binary import uint
 from .errors import ITLError
 from .io import write_new
 
@@ -38,6 +39,10 @@ def build_parser() -> argparse.ArgumentParser:
     dec.add_argument('input', type=Path); dec.add_argument('output', type=Path)
     enc = commands.add_parser('encode', help='pack raw decompressed bytes using an existing outer header; structural validation only')
     enc.add_argument('template', type=Path); enc.add_argument('payload', type=Path); enc.add_argument('output', type=Path)
+    smart_dump = commands.add_parser('smart-dump', help='dump lossless smart-playlist ASTs with evidence labels')
+    smart_dump.add_argument('input', type=Path); smart_dump.add_argument('--output', type=Path)
+    smart_check = commands.add_parser('smart-check', help='validate all type-101/102 smart-playlist payloads')
+    smart_check.add_argument('input', type=Path)
     return parser
 
 
@@ -68,6 +73,40 @@ def main(argv: list[str] | None = None) -> int:
                     write_new(args.output, data)
                 else:
                     sys.stdout.write(data.decode('utf-8'))
+            elif args.command in ('smart-dump', 'smart-check'):
+                playlists = []
+                for playlist in library.playlists:
+                    definition = playlist.smart_definition
+                    if definition is None:
+                        continue
+                    entry = {
+                        'name': playlist.name,
+                        'persistent_id': f'{playlist.persistent_id:016X}',
+                        'special_kind_raw': uint(playlist.node.header, 0x238) if len(playlist.node.header) >= 0x23c else None,
+                        **definition.to_dict(),
+                    }
+                    playlists.append(entry)
+                document = {
+                    'schema': 'itlkit.smart-playlist-dump.v1',
+                    'version': library.container.version,
+                    'playlists': playlists,
+                }
+                if args.command == 'smart-dump':
+                    data = _json(document)
+                    if args.output:
+                        write_new(args.output, data)
+                    else:
+                        sys.stdout.write(data.decode('utf-8'))
+                else:
+                    severities = {'error': 0, 'warning': 0, 'info': 0}
+                    for playlist in playlists:
+                        for issue in playlist['issues']:
+                            severities[issue['severity']] += 1
+                    print(json.dumps({'ok': severities['error'] == 0,
+                                      'smart_playlists': len(playlists),
+                                      'issues': severities}))
+                    if severities['error']:
+                        return 2
             elif args.command == 'roundtrip':
                 library.write(args.output, rebuild=args.rebuild, compression_level=args.compression_level)
             elif args.command == 'export-json':

@@ -1,0 +1,21 @@
+{
+  "schema": "windows-itunes-itl-smart-playlist-static-evidence.v1",
+  "evidence_class": "static-analysis-corroborated",
+  "source": {
+    "path": "evidence/static/pe_inventory.json",
+    "sha256": "402cea91cb90bc6f19805674cb3f8be3def852e1c94a21cf3cccb82f544055db",
+    "size": 289076,
+    "json_path": ["strings", 42],
+    "rva": 28088784
+  },
+  "matched_text": "meta=dmap.itemid,dmap.itemname,dmap.persistentid,dmap.parentcontainerid,com.apple.itunes.is-podcast-playlist,com.apple.itunes.special-playlist,com.apple.itunes.smart-playlist,dmap.haschildcontainers,com.apple.itunes.saved-genius,dmap.objectextradata",
+  "supported_claim": "The analyzed Windows iTunes binary exposes a smart-playlist metadata concept.",
+  "unsupported_claims": [
+    "SLst framing or offsets",
+    "field-ID meanings",
+    "action/operator meanings",
+    "type-102 preference meanings",
+    "smart-playlist evaluator behavior"
+  ],
+  "search_note": "Narrow searches of tracked static evidence found no defensible structural SLst parser/evaluator. Generic numeric instruction matches for 0x400 or 0x800 were rejected as unrelated evidence."
+}
