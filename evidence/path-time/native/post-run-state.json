@@ -1,0 +1,59 @@
+{
+  "schema_version": 1,
+  "timezone": {
+    "argv": [
+      "tzutil",
+      "/g"
+    ],
+    "returncode": 0,
+    "stdout": "UTC",
+    "stderr": ""
+  },
+  "profile_path": "C:\\Users\\runneradmin\\Music\\iTunes",
+  "profile_exists": false,
+  "itunes_processes": {
+    "argv": [
+      "pwsh",
+      "-NoLogo",
+      "-NoProfile",
+      "-Command",
+      "@(Get-Process iTunes -ErrorAction SilentlyContinue | Select-Object Id,StartTime)|ConvertTo-Json -Compress"
+    ],
+    "returncode": 0,
+    "stdout": "",
+    "stderr": ""
+  },
+  "mapped_drive_n": {
+    "argv": [
+      "cmd.exe",
+      "/d",
+      "/c",
+      "net use N:"
+    ],
+    "returncode": 2,
+    "stdout": "",
+    "stderr": "The network connection could not be found.\n\nMore help is available by typing NET HELPMSG 2250.\n\n"
+  },
+  "subst_drive_p": {
+    "argv": [
+      "cmd.exe",
+      "/d",
+      "/c",
+      "subst P:"
+    ],
+    "returncode": 1,
+    "stdout": "Invalid parameter - P:\n",
+    "stderr": ""
+  },
+  "share_ptm": {
+    "argv": [
+      "cmd.exe",
+      "/d",
+      "/c",
+      "net share PTM_ae9da2dc$"
+    ],
+    "returncode": 2,
+    "stdout": "",
+    "stderr": "This shared resource does not exist.\n\nMore help is available by typing NET HELPMSG 2310.\n\n"
+  }
+}

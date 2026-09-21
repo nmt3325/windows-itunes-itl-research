@@ -1,0 +1,54 @@
+{
+  "schema_version": 1,
+  "evidence_class": "native setup observation",
+  "environment": "isolated GitHub Actions Windows runner",
+  "first_launch": {
+    "unexpected_modal_guard_triggered": true,
+    "guard_error": "RuntimeError('Unexpected modal; never auto-dismiss damaged-library or cloud prompts')",
+    "eula_title": "iTunes Software License Agreement",
+    "eula_actions": [
+      {
+        "text": "&Agree",
+        "id": 1,
+        "enabled": true,
+        "visible": true
+      },
+      {
+        "text": "&Decline",
+        "id": 2,
+        "enabled": true,
+        "visible": true
+      },
+      {
+        "text": "&Save...",
+        "id": 103,
+        "enabled": true,
+        "visible": true
+      }
+    ],
+    "accepted_button": "&Agree",
+    "known_audio_warning": [
+      "iTunes has detected a problem with your audio configuration.\rAudio/Video playback may not operate properly."
+    ],
+    "dismissed_audio_button": "OK",
+    "first_launch_forced_stop_after_com_quit_noop": true
+  },
+  "subsequent_guarded_smoke_runs": [
+    {
+      "name": "001-one-track",
+      "status": "passed",
+      "fixture_sha256": "ed542a31156a915df493bd130589f8b0e22e32e439e65adb90fb747a8fccc602",
+      "track_count": 1
+    },
+    {
+      "name": "002-three-tracks",
+      "status": "passed",
+      "fixture_sha256": "d3aaeb4f5fdbece86c9333bc98ad53ff8a1f0df5827f88fae304dabbcb65a67a",
+      "track_count": 3
+    }
+  ],
+  "limits": [
+    "This setup evidence proves the pinned executable could launch and COM could add/save synthetic tracks.",
+    "It is not path/time-matrix evidence and is not used to upgrade untested claims."
+  ]
+}

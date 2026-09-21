@@ -1,0 +1,333 @@
+{
+  "case": {
+    "name": "009-unicode-nfd",
+    "category": "unicode",
+    "source_path": "D:\\a\\_temp\\gha-mcp\\win-s8c9ycp8\\work\\path-time-native-final\\media\\café-NFD.wav",
+    "source_sha256": "90d6144d4fd386136a228c565d73b20a71e6c37e2e1f2f6df900df926aef816b",
+    "input": "D:\\a\\_temp\\gha-mcp\\win-s8c9ycp8\\work\\path-time-native-final\\media\\café-NFD.wav",
+    "expect_input_exists": true,
+    "evidence_note": "native iTunes/COM plus serialized ITL"
+  },
+  "timezone": "UTC",
+  "ui": [
+    {
+      "action": "dismiss_known_audio_warning",
+      "window": {
+        "hwnd": 917980,
+        "pid": 8896,
+        "class": "iTunesCustomModalDialog",
+        "title": "iTunes",
+        "children": [
+          {
+            "hwnd": 1049064,
+            "class": "Static",
+            "text": "iTunes has detected a problem with your audio configuration.\rAudio/Video playback may not operate properly.",
+            "id": 101,
+            "enabled": true,
+            "visible": true
+          },
+          {
+            "hwnd": 1901064,
+            "class": "Static",
+            "text": "",
+            "id": 103,
+            "enabled": true,
+            "visible": false
+          },
+          {
+            "hwnd": 917648,
+            "class": "Button",
+            "text": "",
+            "id": 104,
+            "enabled": true,
+            "visible": false
+          },
+          {
+            "hwnd": 1245532,
+            "class": "Button",
+            "text": "OK",
+            "id": 1,
+            "enabled": true,
+            "visible": true
+          },
+          {
+            "hwnd": 1900898,
+            "class": "Button",
+            "text": "More Info",
+            "id": 105,
+            "enabled": true,
+            "visible": false
+          },
+          {
+            "hwnd": 3276822,
+            "class": "Static",
+            "text": "",
+            "id": 102,
+            "enabled": true,
+            "visible": true
+          }
+        ]
+      }
+    }
+  ],
+  "worker_ok": true,
+  "action_result": {
+    "kind": "add",
+    "input_sha256": "90d6144d4fd386136a228c565d73b20a71e6c37e2e1f2f6df900df926aef816b",
+    "samefile": true,
+    "returned_tracks": [
+      {
+        "persistent_id": "CD3E67889434C2EA",
+        "Name": "café-NFD",
+        "Location": "D:\\a\\_temp\\gha-mcp\\win-s8c9ycp8\\work\\path-time-native-final\\media\\café-NFD.wav",
+        "DateAdded": "2026-09-21T15:53:50+00:00",
+        "ModificationDate": "2026-09-21T15:51:59+00:00",
+        "PlayedDate": "1899-12-30T00:00:00+00:00",
+        "SkippedDate": "1899-12-30T00:00:00+00:00",
+        "PlayedCount": 0,
+        "SkippedCount": 0,
+        "Size": 16044,
+        "Kind": 1
+      }
+    ],
+    "returned_track_count": 1,
+    "outcome": "returned"
+  },
+  "added_persistent_ids": [
+    "CD3E67889434C2EA"
+  ],
+  "snapshot": "native\\snapshots\\009-009-unicode-nfd.itl",
+  "decoded_after": {
+    "sha256": "ffe578be111141de7a46517d2b84bcbbdd359ccfec84b7e4a853870eec1bbb99",
+    "bytes": 5774,
+    "version": "12.13.10.3",
+    "track_count": 6,
+    "tracks": [
+      {
+        "persistent_id": "D3E82664520BAB73",
+        "track_id": 81,
+        "name": "drive-absolute",
+        "url": "file://localhost/D:/a/_temp/gha-mcp/win-s8c9ycp8/work/path-time-native-final/media/drive-absolute.wav",
+        "path": "D:\\a\\_temp\\gha-mcp\\win-s8c9ycp8\\work\\path-time-native-final\\media\\drive-absolute.wav",
+        "date_added": 3872850725,
+        "date_modified": 3872850719,
+        "play_date": 0,
+        "skip_date": 0,
+        "opaque_location_objects": []
+      },
+      {
+        "persistent_id": "A2F0B84C4FB8E7E3",
+        "track_id": 83,
+        "name": "drive-letter-case",
+        "url": "file://localhost/d:/a/_temp/gha-mcp/win-s8c9ycp8/work/path-time-native-final/media/drive-letter-case.wav",
+        "path": "d:\\a\\_temp\\gha-mcp\\win-s8c9ycp8\\work\\path-time-native-final\\media\\drive-letter-case.wav",
+        "date_added": 3872850734,
+        "date_modified": 3872850719,
+        "play_date": 0,
+        "skip_date": 0,
+        "opaque_location_objects": []
+      },
+      {
+        "persistent_id": "92A44B55971F6352",
+        "track_id": 85,
+        "name": "relative",
+        "url": "media/relative.wav",
+        "path": "media\\relative.wav",
+        "date_added": 3872850748,
+        "date_modified": 3872850719,
+        "play_date": 0,
+        "skip_date": 0,
+        "opaque_location_objects": []
+      },
+      {
+        "persistent_id": "0E12464C6CB511B7",
+        "track_id": 87,
+        "name": "forward-slash",
+        "url": "D:%2Fa%2F_temp%2Fgha-mcp%2Fwin-s8c9ycp8%2Fwork%2Fpath-time-native-final%2Fmedia%2Fforward-slash.wav",
+        "path": "D:/a/_temp/gha-mcp/win-s8c9ycp8/work/path-time-native-final/media/forward-slash.wav",
+        "date_added": 3872850761,
+        "date_modified": 3872850719,
+        "play_date": 0,
+        "skip_date": 0,
+        "opaque_location_objects": []
+      },
+      {
+        "persistent_id": "B8C9C36F3CA11679",
+        "track_id": 89,
+        "name": "café-NFC",
+        "url": "file://localhost/D:/a/_temp/gha-mcp/win-s8c9ycp8/work/path-time-native-final/media/caf%C3%A9-NFC.wav",
+        "path": "D:\\a\\_temp\\gha-mcp\\win-s8c9ycp8\\work\\path-time-native-final\\media\\café-NFC.wav",
+        "date_added": 3872850816,
+        "date_modified": 3872850719,
+        "play_date": 0,
+        "skip_date": 0,
+        "opaque_location_objects": []
+      },
+      {
+        "persistent_id": "CD3E67889434C2EA",
+        "track_id": 176,
+        "name": "café-NFD",
+        "url": "file://localhost/D:/a/_temp/gha-mcp/win-s8c9ycp8/work/path-time-native-final/media/cafe%CC%81-NFD.wav",
+        "path": "D:\\a\\_temp\\gha-mcp\\win-s8c9ycp8\\work\\path-time-native-final\\media\\café-NFD.wav",
+        "date_added": 3872850830,
+        "date_modified": 3872850719,
+        "play_date": 0,
+        "skip_date": 0,
+        "opaque_location_objects": []
+      }
+    ]
+  },
+  "byte_diff": {
+    "before_sha256": "744b115f4765d82115208c3a2fa5ea8abf48b649f5e9201904263a705d267e74",
+    "after_sha256": "ffe578be111141de7a46517d2b84bcbbdd359ccfec84b7e4a853870eec1bbb99",
+    "before_bytes": 5488,
+    "after_bytes": 5774,
+    "overlap_changed_bytes": 5330,
+    "length_delta": 286,
+    "changed_spans_first_32": [
+      [
+        10,
+        12
+      ],
+      [
+        71,
+        72
+      ],
+      [
+        79,
+        80
+      ],
+      [
+        87,
+        88
+      ],
+      [
+        115,
+        116
+      ],
+      [
+        144,
+        599
+      ],
+      [
+        600,
+        1096
+      ],
+      [
+        1097,
+        1163
+      ],
+      [
+        1164,
+        1435
+      ],
+      [
+        1436,
+        1450
+      ],
+      [
+        1451,
+        1820
+      ],
+      [
+        1821,
+        2215
+      ],
+      [
+        2216,
+        2311
+      ],
+      [
+        2312,
+        2671
+      ],
+      [
+        2672,
+        3085
+      ],
+      [
+        3086,
+        3132
+      ],
+      [
+        3133,
+        3369
+      ],
+      [
+        3370,
+        3416
+      ],
+      [
+        3417,
+        4123
+      ],
+      [
+        4124,
+        4583
+      ],
+      [
+        4584,
+        4628
+      ],
+      [
+        4629,
+        4986
+      ],
+      [
+        4987,
+        5295
+      ],
+      [
+        5296,
+        5311
+      ],
+      [
+        5312,
+        5438
+      ],
+      [
+        5439,
+        5488
+      ]
+    ],
+    "span_count": 26
+  },
+  "semantic_diff": {
+    "added": [
+      "CD3E67889434C2EA"
+    ],
+    "removed": [],
+    "changed": {
+      "92A44B55971F6352": {
+        "track_id": {
+          "before": 83,
+          "after": 85
+        }
+      },
+      "0E12464C6CB511B7": {
+        "track_id": {
+          "before": 85,
+          "after": 87
+        }
+      },
+      "A2F0B84C4FB8E7E3": {
+        "track_id": {
+          "before": 81,
+          "after": 83
+        }
+      },
+      "D3E82664520BAB73": {
+        "track_id": {
+          "before": 79,
+          "after": 81
+        }
+      },
+      "B8C9C36F3CA11679": {
+        "track_id": {
+          "before": 169,
+          "after": 89
+        }
+      }
+    }
+  }
+}

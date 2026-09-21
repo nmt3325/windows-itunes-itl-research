@@ -1,0 +1,447 @@
+{
+  "case": {
+    "name": "015-hardlink-alias",
+    "category": "alias",
+    "source_path": "D:\\a\\_temp\\gha-mcp\\win-s8c9ycp8\\work\\path-time-native-final\\media\\alias-source.wav",
+    "source_sha256": "98f7cbafb85c6c814f2f7cf9a654b3d4cc1d1782a01e50599d286914960240cd",
+    "input": "D:\\a\\_temp\\gha-mcp\\win-s8c9ycp8\\work\\path-time-native-final\\media\\alias-hardlink.wav",
+    "expect_input_exists": true,
+    "evidence_note": "native iTunes/COM plus serialized ITL"
+  },
+  "timezone": "UTC",
+  "ui": [
+    {
+      "action": "dismiss_known_audio_warning",
+      "window": {
+        "hwnd": 2425212,
+        "pid": 6744,
+        "class": "iTunesCustomModalDialog",
+        "title": "iTunes",
+        "children": [
+          {
+            "hwnd": 1311204,
+            "class": "Static",
+            "text": "iTunes has detected a problem with your audio configuration.\rAudio/Video playback may not operate properly.",
+            "id": 101,
+            "enabled": true,
+            "visible": true
+          },
+          {
+            "hwnd": 2228560,
+            "class": "Static",
+            "text": "",
+            "id": 103,
+            "enabled": true,
+            "visible": false
+          },
+          {
+            "hwnd": 2556258,
+            "class": "Button",
+            "text": "",
+            "id": 104,
+            "enabled": true,
+            "visible": false
+          },
+          {
+            "hwnd": 5374100,
+            "class": "Button",
+            "text": "OK",
+            "id": 1,
+            "enabled": true,
+            "visible": true
+          },
+          {
+            "hwnd": 1311098,
+            "class": "Button",
+            "text": "More Info",
+            "id": 105,
+            "enabled": true,
+            "visible": false
+          },
+          {
+            "hwnd": 1704428,
+            "class": "Static",
+            "text": "",
+            "id": 102,
+            "enabled": true,
+            "visible": true
+          }
+        ]
+      }
+    }
+  ],
+  "worker_ok": true,
+  "action_result": {
+    "kind": "add",
+    "input_sha256": "98f7cbafb85c6c814f2f7cf9a654b3d4cc1d1782a01e50599d286914960240cd",
+    "samefile": true,
+    "returned_tracks": [
+      {
+        "persistent_id": "2CD0803B9A0B0C56",
+        "Name": "alias-hardlink",
+        "Location": "D:\\a\\_temp\\gha-mcp\\win-s8c9ycp8\\work\\path-time-native-final\\media\\alias-hardlink.wav",
+        "DateAdded": "2026-09-21T15:55:13+00:00",
+        "ModificationDate": "2026-09-21T15:51:59+00:00",
+        "PlayedDate": "1899-12-30T00:00:00+00:00",
+        "SkippedDate": "1899-12-30T00:00:00+00:00",
+        "PlayedCount": 0,
+        "SkippedCount": 0,
+        "Size": 16044,
+        "Kind": 1
+      }
+    ],
+    "returned_track_count": 1,
+    "outcome": "returned"
+  },
+  "added_persistent_ids": [
+    "2CD0803B9A0B0C56"
+  ],
+  "snapshot": "native\\snapshots\\015-015-hardlink-alias.itl",
+  "decoded_after": {
+    "sha256": "e0565dcdafdff2877c338f411ff2359b3a3f6b639eb8d839ad08056027cb3c47",
+    "bytes": 6930,
+    "version": "12.13.10.3",
+    "track_count": 11,
+    "tracks": [
+      {
+        "persistent_id": "D3E82664520BAB73",
+        "track_id": 91,
+        "name": "drive-absolute",
+        "url": "file://localhost/D:/a/_temp/gha-mcp/win-s8c9ycp8/work/path-time-native-final/media/drive-absolute.wav",
+        "path": "D:\\a\\_temp\\gha-mcp\\win-s8c9ycp8\\work\\path-time-native-final\\media\\drive-absolute.wav",
+        "date_added": 3872850725,
+        "date_modified": 3872850719,
+        "play_date": 0,
+        "skip_date": 0,
+        "opaque_location_objects": []
+      },
+      {
+        "persistent_id": "A2F0B84C4FB8E7E3",
+        "track_id": 93,
+        "name": "drive-letter-case",
+        "url": "file://localhost/d:/a/_temp/gha-mcp/win-s8c9ycp8/work/path-time-native-final/media/drive-letter-case.wav",
+        "path": "d:\\a\\_temp\\gha-mcp\\win-s8c9ycp8\\work\\path-time-native-final\\media\\drive-letter-case.wav",
+        "date_added": 3872850734,
+        "date_modified": 3872850719,
+        "play_date": 0,
+        "skip_date": 0,
+        "opaque_location_objects": []
+      },
+      {
+        "persistent_id": "92A44B55971F6352",
+        "track_id": 95,
+        "name": "relative",
+        "url": "media/relative.wav",
+        "path": "media\\relative.wav",
+        "date_added": 3872850748,
+        "date_modified": 3872850719,
+        "play_date": 0,
+        "skip_date": 0,
+        "opaque_location_objects": []
+      },
+      {
+        "persistent_id": "0E12464C6CB511B7",
+        "track_id": 97,
+        "name": "forward-slash",
+        "url": "D:%2Fa%2F_temp%2Fgha-mcp%2Fwin-s8c9ycp8%2Fwork%2Fpath-time-native-final%2Fmedia%2Fforward-slash.wav",
+        "path": "D:/a/_temp/gha-mcp/win-s8c9ycp8/work/path-time-native-final/media/forward-slash.wav",
+        "date_added": 3872850761,
+        "date_modified": 3872850719,
+        "play_date": 0,
+        "skip_date": 0,
+        "opaque_location_objects": []
+      },
+      {
+        "persistent_id": "B8C9C36F3CA11679",
+        "track_id": 99,
+        "name": "café-NFC",
+        "url": "file://localhost/D:/a/_temp/gha-mcp/win-s8c9ycp8/work/path-time-native-final/media/caf%C3%A9-NFC.wav",
+        "path": "D:\\a\\_temp\\gha-mcp\\win-s8c9ycp8\\work\\path-time-native-final\\media\\café-NFC.wav",
+        "date_added": 3872850816,
+        "date_modified": 3872850719,
+        "play_date": 0,
+        "skip_date": 0,
+        "opaque_location_objects": []
+      },
+      {
+        "persistent_id": "CD3E67889434C2EA",
+        "track_id": 101,
+        "name": "café-NFD",
+        "url": "file://localhost/D:/a/_temp/gha-mcp/win-s8c9ycp8/work/path-time-native-final/media/cafe%CC%81-NFD.wav",
+        "path": "D:\\a\\_temp\\gha-mcp\\win-s8c9ycp8\\work\\path-time-native-final\\media\\café-NFD.wav",
+        "date_added": 3872850830,
+        "date_modified": 3872850719,
+        "play_date": 0,
+        "skip_date": 0,
+        "opaque_location_objects": []
+      },
+      {
+        "persistent_id": "2DC2E6531DABEC56",
+        "track_id": 103,
+        "name": "emoji-🚒-🎶",
+        "url": "file://localhost/D:/a/_temp/gha-mcp/win-s8c9ycp8/work/path-time-native-final/media/emoji-%F0%9F%9A%92-%F0%9F%8E%B6.wav",
+        "path": "D:\\a\\_temp\\gha-mcp\\win-s8c9ycp8\\work\\path-time-native-final\\media\\emoji-🚒-🎶.wav",
+        "date_added": 3872850843,
+        "date_modified": 3872850719,
+        "play_date": 0,
+        "skip_date": 0,
+        "opaque_location_objects": []
+      },
+      {
+        "persistent_id": "20A1C5333E7BDEDE",
+        "track_id": 105,
+        "name": "readonly",
+        "url": "file://localhost/D:/a/_temp/gha-mcp/win-s8c9ycp8/work/path-time-native-final/media/readonly.wav",
+        "path": "D:\\a\\_temp\\gha-mcp\\win-s8c9ycp8\\work\\path-time-native-final\\media\\readonly.wav",
+        "date_added": 3872850857,
+        "date_modified": 3872850719,
+        "play_date": 0,
+        "skip_date": 0,
+        "opaque_location_objects": []
+      },
+      {
+        "persistent_id": "04481F56CF2A0667",
+        "track_id": 107,
+        "name": "CaseSensitiveName",
+        "url": "file://localhost/D:/a/_temp/gha-mcp/win-s8c9ycp8/work/path-time-native-final/media/CaseSensitiveName.WAV",
+        "path": "D:\\a\\_temp\\gha-mcp\\win-s8c9ycp8\\work\\path-time-native-final\\media\\CaseSensitiveName.WAV",
+        "date_added": 3872850871,
+        "date_modified": 3872850719,
+        "play_date": 0,
+        "skip_date": 0,
+        "opaque_location_objects": []
+      },
+      {
+        "persistent_id": "619A10ADECB139F9",
+        "track_id": 109,
+        "name": "alias-source",
+        "url": "file://localhost/D:/a/_temp/gha-mcp/win-s8c9ycp8/work/path-time-native-final/media/alias-source.wav",
+        "path": "D:\\a\\_temp\\gha-mcp\\win-s8c9ycp8\\work\\path-time-native-final\\media\\alias-source.wav",
+        "date_added": 3872850899,
+        "date_modified": 3872850719,
+        "play_date": 0,
+        "skip_date": 0,
+        "opaque_location_objects": []
+      },
+      {
+        "persistent_id": "2CD0803B9A0B0C56",
+        "track_id": 211,
+        "name": "alias-hardlink",
+        "url": "file://localhost/D:/a/_temp/gha-mcp/win-s8c9ycp8/work/path-time-native-final/media/alias-hardlink.wav",
+        "path": "D:\\a\\_temp\\gha-mcp\\win-s8c9ycp8\\work\\path-time-native-final\\media\\alias-hardlink.wav",
+        "date_added": 3872850913,
+        "date_modified": 3872850719,
+        "play_date": 0,
+        "skip_date": 0,
+        "opaque_location_objects": []
+      }
+    ]
+  },
+  "byte_diff": {
+    "before_sha256": "13bf76a6e6df762de3da0f898074081b34e3a80f71d6f620f466578ba1de205d",
+    "after_sha256": "e0565dcdafdff2877c338f411ff2359b3a3f6b639eb8d839ad08056027cb3c47",
+    "before_bytes": 6732,
+    "after_bytes": 6930,
+    "overlap_changed_bytes": 6566,
+    "length_delta": 198,
+    "changed_spans_first_32": [
+      [
+        10,
+        12
+      ],
+      [
+        71,
+        72
+      ],
+      [
+        79,
+        80
+      ],
+      [
+        87,
+        88
+      ],
+      [
+        115,
+        116
+      ],
+      [
+        144,
+        961
+      ],
+      [
+        962,
+        968
+      ],
+      [
+        969,
+        1037
+      ],
+      [
+        1038,
+        1090
+      ],
+      [
+        1091,
+        1127
+      ],
+      [
+        1128,
+        1364
+      ],
+      [
+        1365,
+        1594
+      ],
+      [
+        1596,
+        1616
+      ],
+      [
+        1617,
+        1735
+      ],
+      [
+        1736,
+        2446
+      ],
+      [
+        2447,
+        2715
+      ],
+      [
+        2716,
+        2973
+      ],
+      [
+        2974,
+        3102
+      ],
+      [
+        3103,
+        3174
+      ],
+      [
+        3175,
+        3742
+      ],
+      [
+        3743,
+        4291
+      ],
+      [
+        4292,
+        4334
+      ],
+      [
+        4335,
+        4400
+      ],
+      [
+        4401,
+        4538
+      ],
+      [
+        4539,
+        4552
+      ],
+      [
+        4553,
+        5132
+      ],
+      [
+        5133,
+        5160
+      ],
+      [
+        5161,
+        5193
+      ],
+      [
+        5194,
+        5408
+      ],
+      [
+        5409,
+        5939
+      ],
+      [
+        5940,
+        5943
+      ],
+      [
+        5944,
+        6275
+      ]
+    ],
+    "span_count": 33
+  },
+  "semantic_diff": {
+    "added": [
+      "2CD0803B9A0B0C56"
+    ],
+    "removed": [],
+    "changed": {
+      "CD3E67889434C2EA": {
+        "track_id": {
+          "before": 99,
+          "after": 101
+        }
+      },
+      "92A44B55971F6352": {
+        "track_id": {
+          "before": 93,
+          "after": 95
+        }
+      },
+      "20A1C5333E7BDEDE": {
+        "track_id": {
+          "before": 103,
+          "after": 105
+        }
+      },
+      "04481F56CF2A0667": {
+        "track_id": {
+          "before": 105,
+          "after": 107
+        }
+      },
+      "0E12464C6CB511B7": {
+        "track_id": {
+          "before": 95,
+          "after": 97
+        }
+      },
+      "619A10ADECB139F9": {
+        "track_id": {
+          "before": 204,
+          "after": 109
+        }
+      },
+      "A2F0B84C4FB8E7E3": {
+        "track_id": {
+          "before": 91,
+          "after": 93
+        }
+      },
+      "D3E82664520BAB73": {
+        "track_id": {
+          "before": 89,
+          "after": 91
+        }
+      },
+      "2DC2E6531DABEC56": {
+        "track_id": {
+          "before": 101,
+          "after": 103
+        }
+      },
+      "B8C9C36F3CA11679": {
+        "track_id": {
+          "before": 97,
+          "after": 99
+        }
+      }
+    }
+  }
+}

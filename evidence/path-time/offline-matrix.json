@@ -1,0 +1,341 @@
+{
+  "schema_version": 1,
+  "mode": "offline",
+  "generated_utc": "2026-09-21T15:46:50.634663+00:00",
+  "script_sha256": "cac67cb53a531b659988f25b65090f6561056056b5c96cc96dfcadf348c01621",
+  "evidence_classes": {
+    "repository_codec": "executed itlkit source behavior; not native-iTunes proof",
+    "python_zoneinfo": "Python/tzdata classification; not native-iTunes proof",
+    "stdlib_lexical": "pure Windows-spelling calculation; no filesystem claim"
+  },
+  "path_matrix": [
+    {
+      "name": "drive_absolute",
+      "input": "C:\\PTM\\media\\track.wav",
+      "decoded_path": "C:\\PTM\\media\\track.wav",
+      "kind": "drive_absolute",
+      "drive": "C:",
+      "contains_forward_slash": false,
+      "lexical_normalized": "C:\\PTM\\media\\track.wav",
+      "lexical_identity": "c:\\ptm\\media\\track.wav",
+      "unicode_form": "NFC",
+      "evidence_class": "stdlib_lexical",
+      "file_url": "file:///C:/PTM/media/track.wav",
+      "file_url_roundtrip": "C:\\PTM\\media\\track.wav"
+    },
+    {
+      "name": "drive_lowercase",
+      "input": "c:\\PTM\\media\\track.wav",
+      "decoded_path": "c:\\PTM\\media\\track.wav",
+      "kind": "drive_absolute",
+      "drive": "c:",
+      "contains_forward_slash": false,
+      "lexical_normalized": "c:\\PTM\\media\\track.wav",
+      "lexical_identity": "c:\\ptm\\media\\track.wav",
+      "unicode_form": "NFC",
+      "evidence_class": "stdlib_lexical",
+      "file_url": "file:///c:/PTM/media/track.wav",
+      "file_url_roundtrip": "c:\\PTM\\media\\track.wav"
+    },
+    {
+      "name": "relative",
+      "input": "media\\track.wav",
+      "decoded_path": "media\\track.wav",
+      "kind": "relative",
+      "drive": "",
+      "contains_forward_slash": false,
+      "lexical_normalized": "media\\track.wav",
+      "lexical_identity": "c:\\ptm\\media\\track.wav",
+      "unicode_form": "NFC",
+      "evidence_class": "stdlib_lexical"
+    },
+    {
+      "name": "forward_slashes",
+      "input": "C:/PTM/media/track.wav",
+      "decoded_path": "C:/PTM/media/track.wav",
+      "kind": "drive_absolute",
+      "drive": "C:",
+      "contains_forward_slash": true,
+      "lexical_normalized": "C:\\PTM\\media\\track.wav",
+      "lexical_identity": "c:\\ptm\\media\\track.wav",
+      "unicode_form": "NFC",
+      "evidence_class": "stdlib_lexical",
+      "file_url": "file:///C:/PTM/media/track.wav",
+      "file_url_roundtrip": "C:\\PTM\\media\\track.wav"
+    },
+    {
+      "name": "local_file_url",
+      "input": "file:///C:/PTM/media/track.wav",
+      "decoded_path": "C:\\PTM\\media\\track.wav",
+      "kind": "drive_absolute",
+      "drive": "C:",
+      "contains_forward_slash": false,
+      "lexical_normalized": "C:\\PTM\\media\\track.wav",
+      "lexical_identity": "c:\\ptm\\media\\track.wav",
+      "unicode_form": "NFC",
+      "evidence_class": "stdlib_lexical"
+    },
+    {
+      "name": "localhost_file_url",
+      "input": "file://localhost/C:/PTM/media/track.wav",
+      "decoded_path": "C:\\PTM\\media\\track.wav",
+      "kind": "drive_absolute",
+      "drive": "C:",
+      "contains_forward_slash": false,
+      "lexical_normalized": "C:\\PTM\\media\\track.wav",
+      "lexical_identity": "c:\\ptm\\media\\track.wav",
+      "unicode_form": "NFC",
+      "evidence_class": "stdlib_lexical"
+    },
+    {
+      "name": "unc",
+      "input": "\\\\server\\share\\track.wav",
+      "decoded_path": "\\\\server\\share\\track.wav",
+      "kind": "unc",
+      "drive": "\\\\server\\share",
+      "contains_forward_slash": false,
+      "lexical_normalized": "\\\\server\\share\\track.wav",
+      "lexical_identity": "\\\\server\\share\\track.wav",
+      "unicode_form": "NFC",
+      "evidence_class": "stdlib_lexical",
+      "file_url": "file://server/share/track.wav",
+      "file_url_roundtrip": "\\\\server\\share\\track.wav"
+    },
+    {
+      "name": "unc_file_url",
+      "input": "file://server/share/track.wav",
+      "decoded_path": "\\\\server\\share\\track.wav",
+      "kind": "unc",
+      "drive": "\\\\server\\share",
+      "contains_forward_slash": false,
+      "lexical_normalized": "\\\\server\\share\\track.wav",
+      "lexical_identity": "\\\\server\\share\\track.wav",
+      "unicode_form": "NFC",
+      "evidence_class": "stdlib_lexical"
+    },
+    {
+      "name": "unicode_nfc",
+      "input": "C:\\PTM\\日本語\\café-🎵.wav",
+      "decoded_path": "C:\\PTM\\日本語\\café-🎵.wav",
+      "kind": "drive_absolute",
+      "drive": "C:",
+      "contains_forward_slash": false,
+      "lexical_normalized": "C:\\PTM\\日本語\\café-🎵.wav",
+      "lexical_identity": "c:\\ptm\\日本語\\café-🎵.wav",
+      "unicode_form": "NFC",
+      "evidence_class": "stdlib_lexical",
+      "file_url": "file:///C:/PTM/%E6%97%A5%E6%9C%AC%E8%AA%9E/caf%C3%A9-%F0%9F%8E%B5.wav",
+      "file_url_roundtrip": "C:\\PTM\\日本語\\café-🎵.wav"
+    },
+    {
+      "name": "unicode_nfd",
+      "input": "C:\\PTM\\日本語\\café-🎵.wav",
+      "decoded_path": "C:\\PTM\\日本語\\café-🎵.wav",
+      "kind": "drive_absolute",
+      "drive": "C:",
+      "contains_forward_slash": false,
+      "lexical_normalized": "C:\\PTM\\日本語\\café-🎵.wav",
+      "lexical_identity": "c:\\ptm\\日本語\\café-🎵.wav",
+      "unicode_form": "NFD",
+      "evidence_class": "stdlib_lexical",
+      "file_url": "file:///C:/PTM/%E6%97%A5%E6%9C%AC%E8%AA%9E/cafe%CC%81-%F0%9F%8E%B5.wav",
+      "file_url_roundtrip": "C:\\PTM\\日本語\\café-🎵.wav"
+    },
+    {
+      "name": "long",
+      "input": "C:\\PTM\\segment00xxxxxxxxxxxxxxxxxxxxxxxxxxxx\\segment01xxxxxxxxxxxxxxxxxxxxxxxxxxxx\\segment02xxxxxxxxxxxxxxxxxxxxxxxxxxxx\\segment03xxxxxxxxxxxxxxxxxxxxxxxxxxxx\\segment04xxxxxxxxxxxxxxxxxxxxxxxxxxxx\\segment05xxxxxxxxxxxxxxxxxxxxxxxxxxxx\\segment06xxxxxxxxxxxxxxxxxxxxxxxxxxxx\\segment07xxxxxxxxxxxxxxxxxxxxxxxxxxxx\\track.wav",
+      "decoded_path": "C:\\PTM\\segment00xxxxxxxxxxxxxxxxxxxxxxxxxxxx\\segment01xxxxxxxxxxxxxxxxxxxxxxxxxxxx\\segment02xxxxxxxxxxxxxxxxxxxxxxxxxxxx\\segment03xxxxxxxxxxxxxxxxxxxxxxxxxxxx\\segment04xxxxxxxxxxxxxxxxxxxxxxxxxxxx\\segment05xxxxxxxxxxxxxxxxxxxxxxxxxxxx\\segment06xxxxxxxxxxxxxxxxxxxxxxxxxxxx\\segment07xxxxxxxxxxxxxxxxxxxxxxxxxxxx\\track.wav",
+      "kind": "drive_absolute",
+      "drive": "C:",
+      "contains_forward_slash": false,
+      "lexical_normalized": "C:\\PTM\\segment00xxxxxxxxxxxxxxxxxxxxxxxxxxxx\\segment01xxxxxxxxxxxxxxxxxxxxxxxxxxxx\\segment02xxxxxxxxxxxxxxxxxxxxxxxxxxxx\\segment03xxxxxxxxxxxxxxxxxxxxxxxxxxxx\\segment04xxxxxxxxxxxxxxxxxxxxxxxxxxxx\\segment05xxxxxxxxxxxxxxxxxxxxxxxxxxxx\\segment06xxxxxxxxxxxxxxxxxxxxxxxxxxxx\\segment07xxxxxxxxxxxxxxxxxxxxxxxxxxxx\\track.wav",
+      "lexical_identity": "c:\\ptm\\segment00xxxxxxxxxxxxxxxxxxxxxxxxxxxx\\segment01xxxxxxxxxxxxxxxxxxxxxxxxxxxx\\segment02xxxxxxxxxxxxxxxxxxxxxxxxxxxx\\segment03xxxxxxxxxxxxxxxxxxxxxxxxxxxx\\segment04xxxxxxxxxxxxxxxxxxxxxxxxxxxx\\segment05xxxxxxxxxxxxxxxxxxxxxxxxxxxx\\segment06xxxxxxxxxxxxxxxxxxxxxxxxxxxx\\segment07xxxxxxxxxxxxxxxxxxxxxxxxxxxx\\track.wav",
+      "unicode_form": "NFC",
+      "evidence_class": "stdlib_lexical",
+      "file_url": "file:///C:/PTM/segment00xxxxxxxxxxxxxxxxxxxxxxxxxxxx/segment01xxxxxxxxxxxxxxxxxxxxxxxxxxxx/segment02xxxxxxxxxxxxxxxxxxxxxxxxxxxx/segment03xxxxxxxxxxxxxxxxxxxxxxxxxxxx/segment04xxxxxxxxxxxxxxxxxxxxxxxxxxxx/segment05xxxxxxxxxxxxxxxxxxxxxxxxxxxx/segment06xxxxxxxxxxxxxxxxxxxxxxxxxxxx/segment07xxxxxxxxxxxxxxxxxxxxxxxxxxxx/track.wav",
+      "file_url_roundtrip": "C:\\PTM\\segment00xxxxxxxxxxxxxxxxxxxxxxxxxxxx\\segment01xxxxxxxxxxxxxxxxxxxxxxxxxxxx\\segment02xxxxxxxxxxxxxxxxxxxxxxxxxxxx\\segment03xxxxxxxxxxxxxxxxxxxxxxxxxxxx\\segment04xxxxxxxxxxxxxxxxxxxxxxxxxxxx\\segment05xxxxxxxxxxxxxxxxxxxxxxxxxxxx\\segment06xxxxxxxxxxxxxxxxxxxxxxxxxxxx\\segment07xxxxxxxxxxxxxxxxxxxxxxxxxxxx\\track.wav"
+    },
+    {
+      "name": "missing_lexical_only",
+      "input": "C:\\PTM\\missing.wav",
+      "decoded_path": "C:\\PTM\\missing.wav",
+      "kind": "drive_absolute",
+      "drive": "C:",
+      "contains_forward_slash": false,
+      "lexical_normalized": "C:\\PTM\\missing.wav",
+      "lexical_identity": "c:\\ptm\\missing.wav",
+      "unicode_form": "NFC",
+      "evidence_class": "stdlib_lexical",
+      "file_url": "file:///C:/PTM/missing.wav",
+      "file_url_roundtrip": "C:\\PTM\\missing.wav"
+    },
+    {
+      "name": "readonly_lexical_only",
+      "input": "C:\\PTM\\readonly.wav",
+      "decoded_path": "C:\\PTM\\readonly.wav",
+      "kind": "drive_absolute",
+      "drive": "C:",
+      "contains_forward_slash": false,
+      "lexical_normalized": "C:\\PTM\\readonly.wav",
+      "lexical_identity": "c:\\ptm\\readonly.wav",
+      "unicode_form": "NFC",
+      "evidence_class": "stdlib_lexical",
+      "file_url": "file:///C:/PTM/readonly.wav",
+      "file_url_roundtrip": "C:\\PTM\\readonly.wav"
+    },
+    {
+      "name": "extended_length",
+      "input": "\\\\?\\C:\\PTM\\media\\track.wav",
+      "decoded_path": "\\\\?\\C:\\PTM\\media\\track.wav",
+      "kind": "unc",
+      "drive": "\\\\?\\C:",
+      "contains_forward_slash": false,
+      "lexical_normalized": "\\\\?\\C:\\PTM\\media\\track.wav",
+      "lexical_identity": "\\\\?\\c:\\ptm\\media\\track.wav",
+      "unicode_form": "NFC",
+      "evidence_class": "stdlib_lexical",
+      "file_url": "file://?/C%3A/PTM/media/track.wav",
+      "file_url_error": "expected a plain file URL"
+    }
+  ],
+  "time_matrix": [
+    {
+      "name": "epoch_collision",
+      "input": "1904-01-01T00:00:00+00:00",
+      "accepted": true,
+      "raw": 0,
+      "evidence_class": "repository_codec"
+    },
+    {
+      "name": "epoch_plus_one",
+      "input": "1904-01-01T00:00:01+00:00",
+      "accepted": true,
+      "raw": 1,
+      "evidence_class": "repository_codec"
+    },
+    {
+      "name": "unix_epoch_utc",
+      "input": "1970-01-01T00:00:00+00:00",
+      "accepted": true,
+      "raw": 2082844800,
+      "evidence_class": "repository_codec"
+    },
+    {
+      "name": "same_wall_different_offset",
+      "input": "1970-01-01T00:00:00-05:00",
+      "accepted": true,
+      "raw": 2082844800,
+      "evidence_class": "repository_codec"
+    },
+    {
+      "name": "naive_rejected",
+      "input": "2026-01-15T12:34:56",
+      "accepted": false,
+      "error": "ValueError: an aware datetime is required; timezone is never guessed",
+      "evidence_class": "repository_codec"
+    },
+    {
+      "name": "pre_epoch_fraction_rejected",
+      "input": "1903-12-31T23:59:59.500000+00:00",
+      "accepted": false,
+      "error": "ValueError: datetime is outside the HFS uint32 range",
+      "evidence_class": "repository_codec"
+    },
+    {
+      "name": "same_instant_different_wall",
+      "inputs": [
+        "2026-03-08T06:30:00+00:00",
+        "2026-03-08T01:30:00-05:00"
+      ],
+      "raw_values": [
+        3855796200,
+        3855778200
+      ],
+      "same_instant": true,
+      "evidence_class": "repository_codec"
+    },
+    {
+      "name": "raw_sentinel_and_bounds",
+      "decode_zero": null,
+      "decode_one": "1904-01-01T00:00:01+00:00",
+      "decode_uint32_max": "2040-02-06T06:28:15+00:00",
+      "zero_meaning": "unset sentinel; exact epoch encodes to the same raw value",
+      "evidence_class": "repository_codec"
+    },
+    {
+      "name": "dst_fold",
+      "wall": "2026-11-01T01:30:00",
+      "zone": "America/New_York",
+      "classification": "ambiguous_fold",
+      "candidates": [
+        {
+          "fold": 0,
+          "offset_seconds": -14400,
+          "utc": "2026-11-01T05:30:00+00:00"
+        },
+        {
+          "fold": 1,
+          "offset_seconds": -18000,
+          "utc": "2026-11-01T06:30:00+00:00"
+        }
+      ],
+      "evidence_class": "python_zoneinfo",
+      "codec_fold0": {
+        "accepted": true,
+        "raw": 3876341400
+      },
+      "codec_fold1": {
+        "accepted": true,
+        "raw": 3876341400
+      }
+    },
+    {
+      "name": "dst_gap",
+      "wall": "2026-03-08T02:30:00",
+      "zone": "America/New_York",
+      "classification": "nonexistent_gap",
+      "candidates": [],
+      "evidence_class": "python_zoneinfo",
+      "codec_fold0": {
+        "accepted": true,
+        "raw": 3855781800
+      },
+      "codec_fold1": {
+        "accepted": true,
+        "raw": 3855781800
+      }
+    },
+    {
+      "name": "dst_unique",
+      "wall": "2026-03-08T03:30:00",
+      "zone": "America/New_York",
+      "classification": "unique",
+      "candidates": [
+        {
+          "fold": 0,
+          "offset_seconds": -14400,
+          "utc": "2026-03-08T07:30:00+00:00"
+        },
+        {
+          "fold": 1,
+          "offset_seconds": -14400,
+          "utc": "2026-03-08T07:30:00+00:00"
+        }
+      ],
+      "evidence_class": "python_zoneinfo",
+      "codec_fold0": {
+        "accepted": true,
+        "raw": 3855785400
+      },
+      "codec_fold1": {
+        "accepted": true,
+        "raw": 3855785400
+      }
+    }
+  ],
+  "limitations": [
+    "Offline rows do not establish that iTunes accepts an input spelling.",
+    "lexical_identity is not a Windows same-file or filesystem-normalization claim.",
+    "ZoneInfo fold/gap classification does not prove COM or iTunes behavior."
+  ]
+}

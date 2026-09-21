@@ -1,0 +1,902 @@
+{
+  "schema_version": 1,
+  "started_utc": "2026-09-21T15:59:03.334311+00:00",
+  "spec": {
+    "schema_version": 1,
+    "root": "D:\\a\\_temp\\gha-mcp\\win-s8c9ycp8\\work\\path-time-native-final",
+    "case": "031-set-date-naive-utc",
+    "expected_before_count": 23,
+    "allowed_hashes": [
+      "089dd2a8bde53d77a90e162ede547f05e1766397ecf9f9b6e63fcf8a356a7383",
+      "08a599dd73b83e5d43cca6dc43e2e099ea3b8c4984fda24e471023ec4c43e42a",
+      "12f402a4a8dc1d7d96f1037d2337e091303937c39ada56bdb5917036318a696c",
+      "153e2d5330da91a746011e3d0149cb4c4aa3f74550e8f68f7dd8d2d04b13175e",
+      "1a90cf724b2d4ab9aec7348bb7671f78531c2b1f5045235a88a0cbb39fb1b599",
+      "27d63eac64340fa952581e0433c979b13b11126d18cafd03849e6f31145d1bd7",
+      "36f5e0ecde5ce29357d21fc4b882139d8df58fb07334d081a15db34aa3cf795c",
+      "3b515c36b34db5a44443c6a7c2037610d4781f4a973e244be1e74a6c875cf030",
+      "4d4385d3b6b7b2ae4b0cb22ecbcabd3f97ebd10f7d7127765d43e0fd3a02e95e",
+      "6da3e9d36fac7fced2cbe02c73c087f5003d3349e481de1daa26205c88ad300b",
+      "8619c156c5464efda3571078fed18ec9c13c056515776226d892ad03f90a0e57",
+      "8d9ad9688a567c5382b620d5fa56a478e3c9c9679705be21bbeabc9a799a416a",
+      "90ae3896d1d2fb2d53d082356d7dd217b92dbd32379c87c52b1f87134de12618",
+      "90d6144d4fd386136a228c565d73b20a71e6c37e2e1f2f6df900df926aef816b",
+      "98f7cbafb85c6c814f2f7cf9a654b3d4cc1d1782a01e50599d286914960240cd",
+      "9da1b41f977e5b119c18ac20fa4223c30d30f6a0587ab3f2abc4f013e5a94afc",
+      "9ff1ca361ea86d3962c1194b28e9aab3a7b73bb159ec5863961ddb31fb545233",
+      "a7703bbae6691855ef6ecafee2914054b6535e7f0c9cfa034fce6ad5f728b9aa",
+      "b491a5353110d6c1071574a46d9b0ba1f9aeb75a93d4c32e5840c851f9173283",
+      "b6c1831ed02f71beb5afcbbd41765ae36277cc6a7756a538766fbd8181850f6e",
+      "b8b75da97d161d60e5781fd963669692849199877d4a5de4342831ce1fc93b47",
+      "cf20ec0cfee4b1b530638b70119f7bbe86cead1c9c15a5328782c7dacd5a57e6",
+      "d5ec5050d00cc19368195350d3018349de022cdbc65976816c806886e3641424",
+      "f11a62ad8ed167f5a9fee066b88510c5c60b9d434ed4e871b2a17556b1a0aaa0",
+      "f63455967cfa979005e4c22223848481a992d664d565cf324cdbbd55aa6bf4c9"
+    ],
+    "action": {
+      "kind": "set_played_date",
+      "track_persistent_id": "31F8F58965C9628E",
+      "value": "2026-01-15T12:34:56"
+    }
+  },
+  "before": {
+    "version": "12.13.10.3",
+    "library_persistent_id": "9751B29CECF5340B",
+    "track_count": 23,
+    "tracks": [
+      {
+        "persistent_id": "D3E82664520BAB73",
+        "Name": "drive-absolute",
+        "Location": "D:\\a\\_temp\\gha-mcp\\win-s8c9ycp8\\work\\path-time-native-final\\media\\drive-absolute.wav",
+        "DateAdded": "2026-09-21T15:52:05+00:00",
+        "ModificationDate": "2026-09-21T15:51:59+00:00",
+        "PlayedDate": "1899-12-30T00:00:00+00:00",
+        "SkippedDate": "1899-12-30T00:00:00+00:00",
+        "PlayedCount": 0,
+        "SkippedCount": 0,
+        "Size": 16044,
+        "Kind": 1
+      },
+      {
+        "persistent_id": "A2F0B84C4FB8E7E3",
+        "Name": "drive-letter-case",
+        "Location": "d:\\a\\_temp\\gha-mcp\\win-s8c9ycp8\\work\\path-time-native-final\\media\\drive-letter-case.wav",
+        "DateAdded": "2026-09-21T15:52:14+00:00",
+        "ModificationDate": "2026-09-21T15:51:59+00:00",
+        "PlayedDate": "1899-12-30T00:00:00+00:00",
+        "SkippedDate": "1899-12-30T00:00:00+00:00",
+        "PlayedCount": 0,
+        "SkippedCount": 0,
+        "Size": 16044,
+        "Kind": 1
+      },
+      {
+        "persistent_id": "92A44B55971F6352",
+        "Name": "relative",
+        "Location": "media\\relative.wav",
+        "DateAdded": "2026-09-21T15:52:28+00:00",
+        "ModificationDate": "2026-09-21T15:51:59+00:00",
+        "PlayedDate": "1899-12-30T00:00:00+00:00",
+        "SkippedDate": "1899-12-30T00:00:00+00:00",
+        "PlayedCount": 0,
+        "SkippedCount": 0,
+        "Size": 16044,
+        "Kind": 1
+      },
+      {
+        "persistent_id": "0E12464C6CB511B7",
+        "Name": "forward-slash",
+        "Location": "D:/a/_temp/gha-mcp/win-s8c9ycp8/work/path-time-native-final/media/forward-slash.wav",
+        "DateAdded": "2026-09-21T15:52:41+00:00",
+        "ModificationDate": "2026-09-21T15:51:59+00:00",
+        "PlayedDate": "1899-12-30T00:00:00+00:00",
+        "SkippedDate": "1899-12-30T00:00:00+00:00",
+        "PlayedCount": 0,
+        "SkippedCount": 0,
+        "Size": 16044,
+        "Kind": 1
+      },
+      {
+        "persistent_id": "B8C9C36F3CA11679",
+        "Name": "café-NFC",
+        "Location": "D:\\a\\_temp\\gha-mcp\\win-s8c9ycp8\\work\\path-time-native-final\\media\\café-NFC.wav",
+        "DateAdded": "2026-09-21T15:53:36+00:00",
+        "ModificationDate": "2026-09-21T15:51:59+00:00",
+        "PlayedDate": "1899-12-30T00:00:00+00:00",
+        "SkippedDate": "1899-12-30T00:00:00+00:00",
+        "PlayedCount": 0,
+        "SkippedCount": 0,
+        "Size": 16044,
+        "Kind": 1
+      },
+      {
+        "persistent_id": "CD3E67889434C2EA",
+        "Name": "café-NFD",
+        "Location": "D:\\a\\_temp\\gha-mcp\\win-s8c9ycp8\\work\\path-time-native-final\\media\\café-NFD.wav",
+        "DateAdded": "2026-09-21T15:53:50+00:00",
+        "ModificationDate": "2026-09-21T15:51:59+00:00",
+        "PlayedDate": "1899-12-30T00:00:00+00:00",
+        "SkippedDate": "1899-12-30T00:00:00+00:00",
+        "PlayedCount": 0,
+        "SkippedCount": 0,
+        "Size": 16044,
+        "Kind": 1
+      },
+      {
+        "persistent_id": "2DC2E6531DABEC56",
+        "Name": "emoji-🚒-🎶",
+        "Location": "D:\\a\\_temp\\gha-mcp\\win-s8c9ycp8\\work\\path-time-native-final\\media\\emoji-🚒-🎶.wav",
+        "DateAdded": "2026-09-21T15:54:03+00:00",
+        "ModificationDate": "2026-09-21T15:51:59+00:00",
+        "PlayedDate": "1899-12-30T00:00:00+00:00",
+        "SkippedDate": "1899-12-30T00:00:00+00:00",
+        "PlayedCount": 0,
+        "SkippedCount": 0,
+        "Size": 16044,
+        "Kind": 1
+      },
+      {
+        "persistent_id": "20A1C5333E7BDEDE",
+        "Name": "readonly",
+        "Location": "D:\\a\\_temp\\gha-mcp\\win-s8c9ycp8\\work\\path-time-native-final\\media\\readonly.wav",
+        "DateAdded": "2026-09-21T15:54:17+00:00",
+        "ModificationDate": "2026-09-21T15:51:59+00:00",
+        "PlayedDate": "1899-12-30T00:00:00+00:00",
+        "SkippedDate": "1899-12-30T00:00:00+00:00",
+        "PlayedCount": 0,
+        "SkippedCount": 0,
+        "Size": 16044,
+        "Kind": 1
+      },
+      {
+        "persistent_id": "04481F56CF2A0667",
+        "Name": "CaseSensitiveName",
+        "Location": "D:\\a\\_temp\\gha-mcp\\win-s8c9ycp8\\work\\path-time-native-final\\media\\CaseSensitiveName.WAV",
+        "DateAdded": "2026-09-21T15:54:31+00:00",
+        "ModificationDate": "2026-09-21T15:51:59+00:00",
+        "PlayedDate": "1899-12-30T00:00:00+00:00",
+        "SkippedDate": "1899-12-30T00:00:00+00:00",
+        "PlayedCount": 0,
+        "SkippedCount": 0,
+        "Size": 16044,
+        "Kind": 1
+      },
+      {
+        "persistent_id": "619A10ADECB139F9",
+        "Name": "alias-source",
+        "Location": "D:\\a\\_temp\\gha-mcp\\win-s8c9ycp8\\work\\path-time-native-final\\media\\alias-source.wav",
+        "DateAdded": "2026-09-21T15:54:59+00:00",
+        "ModificationDate": "2026-09-21T15:51:59+00:00",
+        "PlayedDate": "1899-12-30T00:00:00+00:00",
+        "SkippedDate": "1899-12-30T00:00:00+00:00",
+        "PlayedCount": 0,
+        "SkippedCount": 0,
+        "Size": 16044,
+        "Kind": 1
+      },
+      {
+        "persistent_id": "2CD0803B9A0B0C56",
+        "Name": "alias-hardlink",
+        "Location": "D:\\a\\_temp\\gha-mcp\\win-s8c9ycp8\\work\\path-time-native-final\\media\\alias-hardlink.wav",
+        "DateAdded": "2026-09-21T15:55:13+00:00",
+        "ModificationDate": "2026-09-21T15:51:59+00:00",
+        "PlayedDate": "1899-12-30T00:00:00+00:00",
+        "SkippedDate": "1899-12-30T00:00:00+00:00",
+        "PlayedCount": 0,
+        "SkippedCount": 0,
+        "Size": 16044,
+        "Kind": 1
+      },
+      {
+        "persistent_id": "D0F4E5155883163A",
+        "Name": "alias-symlink",
+        "Location": "D:\\a\\_temp\\gha-mcp\\win-s8c9ycp8\\work\\path-time-native-final\\media\\alias-symlink.wav",
+        "DateAdded": "2026-09-21T15:55:27+00:00",
+        "ModificationDate": "2026-09-21T15:51:59+00:00",
+        "PlayedDate": "1899-12-30T00:00:00+00:00",
+        "SkippedDate": "1899-12-30T00:00:00+00:00",
+        "PlayedCount": 0,
+        "SkippedCount": 0,
+        "Size": 0,
+        "Kind": 1
+      },
+      {
+        "persistent_id": "5AFAB96E8C15EE48",
+        "Name": "unc",
+        "Location": "\\\\localhost\\PTM_ae9da2dc$\\unc.wav",
+        "DateAdded": "2026-09-21T15:56:23+00:00",
+        "ModificationDate": "2026-09-21T15:51:59+00:00",
+        "PlayedDate": "1899-12-30T00:00:00+00:00",
+        "SkippedDate": "1899-12-30T00:00:00+00:00",
+        "PlayedCount": 0,
+        "SkippedCount": 0,
+        "Size": 16044,
+        "Kind": 1
+      },
+      {
+        "persistent_id": "18FD1766C614959D",
+        "Name": "mapped-network",
+        "Location": "N:\\mapped-network.wav",
+        "DateAdded": "2026-09-21T15:56:37+00:00",
+        "ModificationDate": "2026-09-21T15:51:59+00:00",
+        "PlayedDate": "1899-12-30T00:00:00+00:00",
+        "SkippedDate": "1899-12-30T00:00:00+00:00",
+        "PlayedCount": 0,
+        "SkippedCount": 0,
+        "Size": 16044,
+        "Kind": 1
+      },
+      {
+        "persistent_id": "459C04D9F8FB7413",
+        "Name": "external",
+        "Location": "P:\\external.wav",
+        "DateAdded": "2026-09-21T15:56:52+00:00",
+        "ModificationDate": "2026-09-21T15:51:59+00:00",
+        "PlayedDate": "1899-12-30T00:00:00+00:00",
+        "SkippedDate": "1899-12-30T00:00:00+00:00",
+        "PlayedCount": 0,
+        "SkippedCount": 0,
+        "Size": 16044,
+        "Kind": 1
+      },
+      {
+        "persistent_id": "31F8F58965C9628E",
+        "Name": "date-naive-utc",
+        "Location": "D:\\a\\_temp\\gha-mcp\\win-s8c9ycp8\\work\\path-time-native-final\\time-media\\date-naive-utc.wav",
+        "DateAdded": "2026-09-21T15:57:06+00:00",
+        "ModificationDate": "2026-09-21T15:57:01+00:00",
+        "PlayedDate": "1899-12-30T00:00:00+00:00",
+        "SkippedDate": "1899-12-30T00:00:00+00:00",
+        "PlayedCount": 0,
+        "SkippedCount": 0,
+        "Size": 16044,
+        "Kind": 1
+      },
+      {
+        "persistent_id": "AA936DA5AD8E56FB",
+        "Name": "date-aware-utc",
+        "Location": "D:\\a\\_temp\\gha-mcp\\win-s8c9ycp8\\work\\path-time-native-final\\time-media\\date-aware-utc.wav",
+        "DateAdded": "2026-09-21T15:57:21+00:00",
+        "ModificationDate": "2026-09-21T15:57:16+00:00",
+        "PlayedDate": "1899-12-30T00:00:00+00:00",
+        "SkippedDate": "1899-12-30T00:00:00+00:00",
+        "PlayedCount": 0,
+        "SkippedCount": 0,
+        "Size": 16044,
+        "Kind": 1
+      },
+      {
+        "persistent_id": "AD92C3A986BAE84C",
+        "Name": "date-naive-eastern",
+        "Location": "D:\\a\\_temp\\gha-mcp\\win-s8c9ycp8\\work\\path-time-native-final\\time-media\\date-naive-eastern.wav",
+        "DateAdded": "2026-09-21T15:57:35+00:00",
+        "ModificationDate": "2026-09-21T15:57:30+00:00",
+        "PlayedDate": "1899-12-30T00:00:00+00:00",
+        "SkippedDate": "1899-12-30T00:00:00+00:00",
+        "PlayedCount": 0,
+        "SkippedCount": 0,
+        "Size": 16044,
+        "Kind": 1
+      },
+      {
+        "persistent_id": "F0E2B200BBAB0B90",
+        "Name": "date-aware-instant",
+        "Location": "D:\\a\\_temp\\gha-mcp\\win-s8c9ycp8\\work\\path-time-native-final\\time-media\\date-aware-instant.wav",
+        "DateAdded": "2026-09-21T15:57:50+00:00",
+        "ModificationDate": "2026-09-21T15:57:45+00:00",
+        "PlayedDate": "1899-12-30T00:00:00+00:00",
+        "SkippedDate": "1899-12-30T00:00:00+00:00",
+        "PlayedCount": 0,
+        "SkippedCount": 0,
+        "Size": 16044,
+        "Kind": 1
+      },
+      {
+        "persistent_id": "C5C4D27CFB72A6EA",
+        "Name": "date-fold",
+        "Location": "D:\\a\\_temp\\gha-mcp\\win-s8c9ycp8\\work\\path-time-native-final\\time-media\\date-fold.wav",
+        "DateAdded": "2026-09-21T15:58:04+00:00",
+        "ModificationDate": "2026-09-21T15:57:59+00:00",
+        "PlayedDate": "1899-12-30T00:00:00+00:00",
+        "SkippedDate": "1899-12-30T00:00:00+00:00",
+        "PlayedCount": 0,
+        "SkippedCount": 0,
+        "Size": 16044,
+        "Kind": 1
+      },
+      {
+        "persistent_id": "52C1AD6A2A274130",
+        "Name": "date-gap",
+        "Location": "D:\\a\\_temp\\gha-mcp\\win-s8c9ycp8\\work\\path-time-native-final\\time-media\\date-gap.wav",
+        "DateAdded": "2026-09-21T15:58:19+00:00",
+        "ModificationDate": "2026-09-21T15:58:14+00:00",
+        "PlayedDate": "1899-12-30T00:00:00+00:00",
+        "SkippedDate": "1899-12-30T00:00:00+00:00",
+        "PlayedCount": 0,
+        "SkippedCount": 0,
+        "Size": 16044,
+        "Kind": 1
+      },
+      {
+        "persistent_id": "4DD1A712B47451B0",
+        "Name": "date-epoch",
+        "Location": "D:\\a\\_temp\\gha-mcp\\win-s8c9ycp8\\work\\path-time-native-final\\time-media\\date-epoch.wav",
+        "DateAdded": "2026-09-21T15:58:34+00:00",
+        "ModificationDate": "2026-09-21T15:58:28+00:00",
+        "PlayedDate": "1899-12-30T00:00:00+00:00",
+        "SkippedDate": "1899-12-30T00:00:00+00:00",
+        "PlayedCount": 0,
+        "SkippedCount": 0,
+        "Size": 16044,
+        "Kind": 1
+      },
+      {
+        "persistent_id": "A427D47F9B943FB9",
+        "Name": "date-epoch-plus-one",
+        "Location": "D:\\a\\_temp\\gha-mcp\\win-s8c9ycp8\\work\\path-time-native-final\\time-media\\date-epoch-plus-one.wav",
+        "DateAdded": "2026-09-21T15:58:49+00:00",
+        "ModificationDate": "2026-09-21T15:58:44+00:00",
+        "PlayedDate": "1899-12-30T00:00:00+00:00",
+        "SkippedDate": "1899-12-30T00:00:00+00:00",
+        "PlayedCount": 0,
+        "SkippedCount": 0,
+        "Size": 16044,
+        "Kind": 1
+      }
+    ]
+  },
+  "before_location_guard": [
+    {
+      "persistent_id": "D3E82664520BAB73",
+      "location": "D:\\a\\_temp\\gha-mcp\\win-s8c9ycp8\\work\\path-time-native-final\\media\\drive-absolute.wav",
+      "sha256": "cf20ec0cfee4b1b530638b70119f7bbe86cead1c9c15a5328782c7dacd5a57e6"
+    },
+    {
+      "persistent_id": "A2F0B84C4FB8E7E3",
+      "location": "d:\\a\\_temp\\gha-mcp\\win-s8c9ycp8\\work\\path-time-native-final\\media\\drive-letter-case.wav",
+      "sha256": "b8b75da97d161d60e5781fd963669692849199877d4a5de4342831ce1fc93b47"
+    },
+    {
+      "persistent_id": "92A44B55971F6352",
+      "location": "media\\relative.wav",
+      "sha256": "b6c1831ed02f71beb5afcbbd41765ae36277cc6a7756a538766fbd8181850f6e"
+    },
+    {
+      "persistent_id": "0E12464C6CB511B7",
+      "location": "D:/a/_temp/gha-mcp/win-s8c9ycp8/work/path-time-native-final/media/forward-slash.wav",
+      "sha256": "8619c156c5464efda3571078fed18ec9c13c056515776226d892ad03f90a0e57"
+    },
+    {
+      "persistent_id": "B8C9C36F3CA11679",
+      "location": "D:\\a\\_temp\\gha-mcp\\win-s8c9ycp8\\work\\path-time-native-final\\media\\café-NFC.wav",
+      "sha256": "8d9ad9688a567c5382b620d5fa56a478e3c9c9679705be21bbeabc9a799a416a"
+    },
+    {
+      "persistent_id": "CD3E67889434C2EA",
+      "location": "D:\\a\\_temp\\gha-mcp\\win-s8c9ycp8\\work\\path-time-native-final\\media\\café-NFD.wav",
+      "sha256": "90d6144d4fd386136a228c565d73b20a71e6c37e2e1f2f6df900df926aef816b"
+    },
+    {
+      "persistent_id": "2DC2E6531DABEC56",
+      "location": "D:\\a\\_temp\\gha-mcp\\win-s8c9ycp8\\work\\path-time-native-final\\media\\emoji-🚒-🎶.wav",
+      "sha256": "b491a5353110d6c1071574a46d9b0ba1f9aeb75a93d4c32e5840c851f9173283"
+    },
+    {
+      "persistent_id": "20A1C5333E7BDEDE",
+      "location": "D:\\a\\_temp\\gha-mcp\\win-s8c9ycp8\\work\\path-time-native-final\\media\\readonly.wav",
+      "sha256": "f11a62ad8ed167f5a9fee066b88510c5c60b9d434ed4e871b2a17556b1a0aaa0"
+    },
+    {
+      "persistent_id": "04481F56CF2A0667",
+      "location": "D:\\a\\_temp\\gha-mcp\\win-s8c9ycp8\\work\\path-time-native-final\\media\\CaseSensitiveName.WAV",
+      "sha256": "f63455967cfa979005e4c22223848481a992d664d565cf324cdbbd55aa6bf4c9"
+    },
+    {
+      "persistent_id": "619A10ADECB139F9",
+      "location": "D:\\a\\_temp\\gha-mcp\\win-s8c9ycp8\\work\\path-time-native-final\\media\\alias-source.wav",
+      "sha256": "98f7cbafb85c6c814f2f7cf9a654b3d4cc1d1782a01e50599d286914960240cd"
+    },
+    {
+      "persistent_id": "2CD0803B9A0B0C56",
+      "location": "D:\\a\\_temp\\gha-mcp\\win-s8c9ycp8\\work\\path-time-native-final\\media\\alias-hardlink.wav",
+      "sha256": "98f7cbafb85c6c814f2f7cf9a654b3d4cc1d1782a01e50599d286914960240cd"
+    },
+    {
+      "persistent_id": "D0F4E5155883163A",
+      "location": "D:\\a\\_temp\\gha-mcp\\win-s8c9ycp8\\work\\path-time-native-final\\media\\alias-symlink.wav",
+      "sha256": "98f7cbafb85c6c814f2f7cf9a654b3d4cc1d1782a01e50599d286914960240cd"
+    },
+    {
+      "persistent_id": "5AFAB96E8C15EE48",
+      "location": "\\\\localhost\\PTM_ae9da2dc$\\unc.wav",
+      "sha256": "4d4385d3b6b7b2ae4b0cb22ecbcabd3f97ebd10f7d7127765d43e0fd3a02e95e"
+    },
+    {
+      "persistent_id": "18FD1766C614959D",
+      "location": "N:\\mapped-network.wav",
+      "sha256": "12f402a4a8dc1d7d96f1037d2337e091303937c39ada56bdb5917036318a696c"
+    },
+    {
+      "persistent_id": "459C04D9F8FB7413",
+      "location": "P:\\external.wav",
+      "sha256": "90ae3896d1d2fb2d53d082356d7dd217b92dbd32379c87c52b1f87134de12618"
+    },
+    {
+      "persistent_id": "31F8F58965C9628E",
+      "location": "D:\\a\\_temp\\gha-mcp\\win-s8c9ycp8\\work\\path-time-native-final\\time-media\\date-naive-utc.wav",
+      "sha256": "1a90cf724b2d4ab9aec7348bb7671f78531c2b1f5045235a88a0cbb39fb1b599"
+    },
+    {
+      "persistent_id": "AA936DA5AD8E56FB",
+      "location": "D:\\a\\_temp\\gha-mcp\\win-s8c9ycp8\\work\\path-time-native-final\\time-media\\date-aware-utc.wav",
+      "sha256": "9ff1ca361ea86d3962c1194b28e9aab3a7b73bb159ec5863961ddb31fb545233"
+    },
+    {
+      "persistent_id": "AD92C3A986BAE84C",
+      "location": "D:\\a\\_temp\\gha-mcp\\win-s8c9ycp8\\work\\path-time-native-final\\time-media\\date-naive-eastern.wav",
+      "sha256": "6da3e9d36fac7fced2cbe02c73c087f5003d3349e481de1daa26205c88ad300b"
+    },
+    {
+      "persistent_id": "F0E2B200BBAB0B90",
+      "location": "D:\\a\\_temp\\gha-mcp\\win-s8c9ycp8\\work\\path-time-native-final\\time-media\\date-aware-instant.wav",
+      "sha256": "08a599dd73b83e5d43cca6dc43e2e099ea3b8c4984fda24e471023ec4c43e42a"
+    },
+    {
+      "persistent_id": "C5C4D27CFB72A6EA",
+      "location": "D:\\a\\_temp\\gha-mcp\\win-s8c9ycp8\\work\\path-time-native-final\\time-media\\date-fold.wav",
+      "sha256": "a7703bbae6691855ef6ecafee2914054b6535e7f0c9cfa034fce6ad5f728b9aa"
+    },
+    {
+      "persistent_id": "52C1AD6A2A274130",
+      "location": "D:\\a\\_temp\\gha-mcp\\win-s8c9ycp8\\work\\path-time-native-final\\time-media\\date-gap.wav",
+      "sha256": "9da1b41f977e5b119c18ac20fa4223c30d30f6a0587ab3f2abc4f013e5a94afc"
+    },
+    {
+      "persistent_id": "4DD1A712B47451B0",
+      "location": "D:\\a\\_temp\\gha-mcp\\win-s8c9ycp8\\work\\path-time-native-final\\time-media\\date-epoch.wav",
+      "sha256": "27d63eac64340fa952581e0433c979b13b11126d18cafd03849e6f31145d1bd7"
+    },
+    {
+      "persistent_id": "A427D47F9B943FB9",
+      "location": "D:\\a\\_temp\\gha-mcp\\win-s8c9ycp8\\work\\path-time-native-final\\time-media\\date-epoch-plus-one.wav",
+      "sha256": "d5ec5050d00cc19368195350d3018349de022cdbc65976816c806886e3641424"
+    }
+  ],
+  "action_result": {
+    "kind": "set_played_date",
+    "python_input": {
+      "iso": "2026-01-15T12:34:56",
+      "aware": false,
+      "fold": 0
+    },
+    "outcome": "accepted",
+    "com_readback": "2026-01-15T12:34:56+00:00"
+  },
+  "after": {
+    "version": "12.13.10.3",
+    "library_persistent_id": "9751B29CECF5340B",
+    "track_count": 23,
+    "tracks": [
+      {
+        "persistent_id": "D3E82664520BAB73",
+        "Name": "drive-absolute",
+        "Location": "D:\\a\\_temp\\gha-mcp\\win-s8c9ycp8\\work\\path-time-native-final\\media\\drive-absolute.wav",
+        "DateAdded": "2026-09-21T15:52:05+00:00",
+        "ModificationDate": "2026-09-21T15:51:59+00:00",
+        "PlayedDate": "1899-12-30T00:00:00+00:00",
+        "SkippedDate": "1899-12-30T00:00:00+00:00",
+        "PlayedCount": 0,
+        "SkippedCount": 0,
+        "Size": 16044,
+        "Kind": 1
+      },
+      {
+        "persistent_id": "A2F0B84C4FB8E7E3",
+        "Name": "drive-letter-case",
+        "Location": "d:\\a\\_temp\\gha-mcp\\win-s8c9ycp8\\work\\path-time-native-final\\media\\drive-letter-case.wav",
+        "DateAdded": "2026-09-21T15:52:14+00:00",
+        "ModificationDate": "2026-09-21T15:51:59+00:00",
+        "PlayedDate": "1899-12-30T00:00:00+00:00",
+        "SkippedDate": "1899-12-30T00:00:00+00:00",
+        "PlayedCount": 0,
+        "SkippedCount": 0,
+        "Size": 16044,
+        "Kind": 1
+      },
+      {
+        "persistent_id": "92A44B55971F6352",
+        "Name": "relative",
+        "Location": "media\\relative.wav",
+        "DateAdded": "2026-09-21T15:52:28+00:00",
+        "ModificationDate": "2026-09-21T15:51:59+00:00",
+        "PlayedDate": "1899-12-30T00:00:00+00:00",
+        "SkippedDate": "1899-12-30T00:00:00+00:00",
+        "PlayedCount": 0,
+        "SkippedCount": 0,
+        "Size": 16044,
+        "Kind": 1
+      },
+      {
+        "persistent_id": "0E12464C6CB511B7",
+        "Name": "forward-slash",
+        "Location": "D:/a/_temp/gha-mcp/win-s8c9ycp8/work/path-time-native-final/media/forward-slash.wav",
+        "DateAdded": "2026-09-21T15:52:41+00:00",
+        "ModificationDate": "2026-09-21T15:51:59+00:00",
+        "PlayedDate": "1899-12-30T00:00:00+00:00",
+        "SkippedDate": "1899-12-30T00:00:00+00:00",
+        "PlayedCount": 0,
+        "SkippedCount": 0,
+        "Size": 16044,
+        "Kind": 1
+      },
+      {
+        "persistent_id": "B8C9C36F3CA11679",
+        "Name": "café-NFC",
+        "Location": "D:\\a\\_temp\\gha-mcp\\win-s8c9ycp8\\work\\path-time-native-final\\media\\café-NFC.wav",
+        "DateAdded": "2026-09-21T15:53:36+00:00",
+        "ModificationDate": "2026-09-21T15:51:59+00:00",
+        "PlayedDate": "1899-12-30T00:00:00+00:00",
+        "SkippedDate": "1899-12-30T00:00:00+00:00",
+        "PlayedCount": 0,
+        "SkippedCount": 0,
+        "Size": 16044,
+        "Kind": 1
+      },
+      {
+        "persistent_id": "CD3E67889434C2EA",
+        "Name": "café-NFD",
+        "Location": "D:\\a\\_temp\\gha-mcp\\win-s8c9ycp8\\work\\path-time-native-final\\media\\café-NFD.wav",
+        "DateAdded": "2026-09-21T15:53:50+00:00",
+        "ModificationDate": "2026-09-21T15:51:59+00:00",
+        "PlayedDate": "1899-12-30T00:00:00+00:00",
+        "SkippedDate": "1899-12-30T00:00:00+00:00",
+        "PlayedCount": 0,
+        "SkippedCount": 0,
+        "Size": 16044,
+        "Kind": 1
+      },
+      {
+        "persistent_id": "2DC2E6531DABEC56",
+        "Name": "emoji-🚒-🎶",
+        "Location": "D:\\a\\_temp\\gha-mcp\\win-s8c9ycp8\\work\\path-time-native-final\\media\\emoji-🚒-🎶.wav",
+        "DateAdded": "2026-09-21T15:54:03+00:00",
+        "ModificationDate": "2026-09-21T15:51:59+00:00",
+        "PlayedDate": "1899-12-30T00:00:00+00:00",
+        "SkippedDate": "1899-12-30T00:00:00+00:00",
+        "PlayedCount": 0,
+        "SkippedCount": 0,
+        "Size": 16044,
+        "Kind": 1
+      },
+      {
+        "persistent_id": "20A1C5333E7BDEDE",
+        "Name": "readonly",
+        "Location": "D:\\a\\_temp\\gha-mcp\\win-s8c9ycp8\\work\\path-time-native-final\\media\\readonly.wav",
+        "DateAdded": "2026-09-21T15:54:17+00:00",
+        "ModificationDate": "2026-09-21T15:51:59+00:00",
+        "PlayedDate": "1899-12-30T00:00:00+00:00",
+        "SkippedDate": "1899-12-30T00:00:00+00:00",
+        "PlayedCount": 0,
+        "SkippedCount": 0,
+        "Size": 16044,
+        "Kind": 1
+      },
+      {
+        "persistent_id": "04481F56CF2A0667",
+        "Name": "CaseSensitiveName",
+        "Location": "D:\\a\\_temp\\gha-mcp\\win-s8c9ycp8\\work\\path-time-native-final\\media\\CaseSensitiveName.WAV",
+        "DateAdded": "2026-09-21T15:54:31+00:00",
+        "ModificationDate": "2026-09-21T15:51:59+00:00",
+        "PlayedDate": "1899-12-30T00:00:00+00:00",
+        "SkippedDate": "1899-12-30T00:00:00+00:00",
+        "PlayedCount": 0,
+        "SkippedCount": 0,
+        "Size": 16044,
+        "Kind": 1
+      },
+      {
+        "persistent_id": "619A10ADECB139F9",
+        "Name": "alias-source",
+        "Location": "D:\\a\\_temp\\gha-mcp\\win-s8c9ycp8\\work\\path-time-native-final\\media\\alias-source.wav",
+        "DateAdded": "2026-09-21T15:54:59+00:00",
+        "ModificationDate": "2026-09-21T15:51:59+00:00",
+        "PlayedDate": "1899-12-30T00:00:00+00:00",
+        "SkippedDate": "1899-12-30T00:00:00+00:00",
+        "PlayedCount": 0,
+        "SkippedCount": 0,
+        "Size": 16044,
+        "Kind": 1
+      },
+      {
+        "persistent_id": "2CD0803B9A0B0C56",
+        "Name": "alias-hardlink",
+        "Location": "D:\\a\\_temp\\gha-mcp\\win-s8c9ycp8\\work\\path-time-native-final\\media\\alias-hardlink.wav",
+        "DateAdded": "2026-09-21T15:55:13+00:00",
+        "ModificationDate": "2026-09-21T15:51:59+00:00",
+        "PlayedDate": "1899-12-30T00:00:00+00:00",
+        "SkippedDate": "1899-12-30T00:00:00+00:00",
+        "PlayedCount": 0,
+        "SkippedCount": 0,
+        "Size": 16044,
+        "Kind": 1
+      },
+      {
+        "persistent_id": "D0F4E5155883163A",
+        "Name": "alias-symlink",
+        "Location": "D:\\a\\_temp\\gha-mcp\\win-s8c9ycp8\\work\\path-time-native-final\\media\\alias-symlink.wav",
+        "DateAdded": "2026-09-21T15:55:27+00:00",
+        "ModificationDate": "2026-09-21T15:51:59+00:00",
+        "PlayedDate": "1899-12-30T00:00:00+00:00",
+        "SkippedDate": "1899-12-30T00:00:00+00:00",
+        "PlayedCount": 0,
+        "SkippedCount": 0,
+        "Size": 0,
+        "Kind": 1
+      },
+      {
+        "persistent_id": "5AFAB96E8C15EE48",
+        "Name": "unc",
+        "Location": "\\\\localhost\\PTM_ae9da2dc$\\unc.wav",
+        "DateAdded": "2026-09-21T15:56:23+00:00",
+        "ModificationDate": "2026-09-21T15:51:59+00:00",
+        "PlayedDate": "1899-12-30T00:00:00+00:00",
+        "SkippedDate": "1899-12-30T00:00:00+00:00",
+        "PlayedCount": 0,
+        "SkippedCount": 0,
+        "Size": 16044,
+        "Kind": 1
+      },
+      {
+        "persistent_id": "18FD1766C614959D",
+        "Name": "mapped-network",
+        "Location": "N:\\mapped-network.wav",
+        "DateAdded": "2026-09-21T15:56:37+00:00",
+        "ModificationDate": "2026-09-21T15:51:59+00:00",
+        "PlayedDate": "1899-12-30T00:00:00+00:00",
+        "SkippedDate": "1899-12-30T00:00:00+00:00",
+        "PlayedCount": 0,
+        "SkippedCount": 0,
+        "Size": 16044,
+        "Kind": 1
+      },
+      {
+        "persistent_id": "459C04D9F8FB7413",
+        "Name": "external",
+        "Location": "P:\\external.wav",
+        "DateAdded": "2026-09-21T15:56:52+00:00",
+        "ModificationDate": "2026-09-21T15:51:59+00:00",
+        "PlayedDate": "1899-12-30T00:00:00+00:00",
+        "SkippedDate": "1899-12-30T00:00:00+00:00",
+        "PlayedCount": 0,
+        "SkippedCount": 0,
+        "Size": 16044,
+        "Kind": 1
+      },
+      {
+        "persistent_id": "31F8F58965C9628E",
+        "Name": "date-naive-utc",
+        "Location": "D:\\a\\_temp\\gha-mcp\\win-s8c9ycp8\\work\\path-time-native-final\\time-media\\date-naive-utc.wav",
+        "DateAdded": "2026-09-21T15:57:06+00:00",
+        "ModificationDate": "2026-09-21T15:57:01+00:00",
+        "PlayedDate": "2026-01-15T12:34:56+00:00",
+        "SkippedDate": "1899-12-30T00:00:00+00:00",
+        "PlayedCount": 0,
+        "SkippedCount": 0,
+        "Size": 16044,
+        "Kind": 1
+      },
+      {
+        "persistent_id": "AA936DA5AD8E56FB",
+        "Name": "date-aware-utc",
+        "Location": "D:\\a\\_temp\\gha-mcp\\win-s8c9ycp8\\work\\path-time-native-final\\time-media\\date-aware-utc.wav",
+        "DateAdded": "2026-09-21T15:57:21+00:00",
+        "ModificationDate": "2026-09-21T15:57:16+00:00",
+        "PlayedDate": "1899-12-30T00:00:00+00:00",
+        "SkippedDate": "1899-12-30T00:00:00+00:00",
+        "PlayedCount": 0,
+        "SkippedCount": 0,
+        "Size": 16044,
+        "Kind": 1
+      },
+      {
+        "persistent_id": "AD92C3A986BAE84C",
+        "Name": "date-naive-eastern",
+        "Location": "D:\\a\\_temp\\gha-mcp\\win-s8c9ycp8\\work\\path-time-native-final\\time-media\\date-naive-eastern.wav",
+        "DateAdded": "2026-09-21T15:57:35+00:00",
+        "ModificationDate": "2026-09-21T15:57:30+00:00",
+        "PlayedDate": "1899-12-30T00:00:00+00:00",
+        "SkippedDate": "1899-12-30T00:00:00+00:00",
+        "PlayedCount": 0,
+        "SkippedCount": 0,
+        "Size": 16044,
+        "Kind": 1
+      },
+      {
+        "persistent_id": "F0E2B200BBAB0B90",
+        "Name": "date-aware-instant",
+        "Location": "D:\\a\\_temp\\gha-mcp\\win-s8c9ycp8\\work\\path-time-native-final\\time-media\\date-aware-instant.wav",
+        "DateAdded": "2026-09-21T15:57:50+00:00",
+        "ModificationDate": "2026-09-21T15:57:45+00:00",
+        "PlayedDate": "1899-12-30T00:00:00+00:00",
+        "SkippedDate": "1899-12-30T00:00:00+00:00",
+        "PlayedCount": 0,
+        "SkippedCount": 0,
+        "Size": 16044,
+        "Kind": 1
+      },
+      {
+        "persistent_id": "C5C4D27CFB72A6EA",
+        "Name": "date-fold",
+        "Location": "D:\\a\\_temp\\gha-mcp\\win-s8c9ycp8\\work\\path-time-native-final\\time-media\\date-fold.wav",
+        "DateAdded": "2026-09-21T15:58:04+00:00",
+        "ModificationDate": "2026-09-21T15:57:59+00:00",
+        "PlayedDate": "1899-12-30T00:00:00+00:00",
+        "SkippedDate": "1899-12-30T00:00:00+00:00",
+        "PlayedCount": 0,
+        "SkippedCount": 0,
+        "Size": 16044,
+        "Kind": 1
+      },
+      {
+        "persistent_id": "52C1AD6A2A274130",
+        "Name": "date-gap",
+        "Location": "D:\\a\\_temp\\gha-mcp\\win-s8c9ycp8\\work\\path-time-native-final\\time-media\\date-gap.wav",
+        "DateAdded": "2026-09-21T15:58:19+00:00",
+        "ModificationDate": "2026-09-21T15:58:14+00:00",
+        "PlayedDate": "1899-12-30T00:00:00+00:00",
+        "SkippedDate": "1899-12-30T00:00:00+00:00",
+        "PlayedCount": 0,
+        "SkippedCount": 0,
+        "Size": 16044,
+        "Kind": 1
+      },
+      {
+        "persistent_id": "4DD1A712B47451B0",
+        "Name": "date-epoch",
+        "Location": "D:\\a\\_temp\\gha-mcp\\win-s8c9ycp8\\work\\path-time-native-final\\time-media\\date-epoch.wav",
+        "DateAdded": "2026-09-21T15:58:34+00:00",
+        "ModificationDate": "2026-09-21T15:58:28+00:00",
+        "PlayedDate": "1899-12-30T00:00:00+00:00",
+        "SkippedDate": "1899-12-30T00:00:00+00:00",
+        "PlayedCount": 0,
+        "SkippedCount": 0,
+        "Size": 16044,
+        "Kind": 1
+      },
+      {
+        "persistent_id": "A427D47F9B943FB9",
+        "Name": "date-epoch-plus-one",
+        "Location": "D:\\a\\_temp\\gha-mcp\\win-s8c9ycp8\\work\\path-time-native-final\\time-media\\date-epoch-plus-one.wav",
+        "DateAdded": "2026-09-21T15:58:49+00:00",
+        "ModificationDate": "2026-09-21T15:58:44+00:00",
+        "PlayedDate": "1899-12-30T00:00:00+00:00",
+        "SkippedDate": "1899-12-30T00:00:00+00:00",
+        "PlayedCount": 0,
+        "SkippedCount": 0,
+        "Size": 16044,
+        "Kind": 1
+      }
+    ]
+  },
+  "after_location_guard": [
+    {
+      "persistent_id": "D3E82664520BAB73",
+      "location": "D:\\a\\_temp\\gha-mcp\\win-s8c9ycp8\\work\\path-time-native-final\\media\\drive-absolute.wav",
+      "sha256": "cf20ec0cfee4b1b530638b70119f7bbe86cead1c9c15a5328782c7dacd5a57e6"
+    },
+    {
+      "persistent_id": "A2F0B84C4FB8E7E3",
+      "location": "d:\\a\\_temp\\gha-mcp\\win-s8c9ycp8\\work\\path-time-native-final\\media\\drive-letter-case.wav",
+      "sha256": "b8b75da97d161d60e5781fd963669692849199877d4a5de4342831ce1fc93b47"
+    },
+    {
+      "persistent_id": "92A44B55971F6352",
+      "location": "media\\relative.wav",
+      "sha256": "b6c1831ed02f71beb5afcbbd41765ae36277cc6a7756a538766fbd8181850f6e"
+    },
+    {
+      "persistent_id": "0E12464C6CB511B7",
+      "location": "D:/a/_temp/gha-mcp/win-s8c9ycp8/work/path-time-native-final/media/forward-slash.wav",
+      "sha256": "8619c156c5464efda3571078fed18ec9c13c056515776226d892ad03f90a0e57"
+    },
+    {
+      "persistent_id": "B8C9C36F3CA11679",
+      "location": "D:\\a\\_temp\\gha-mcp\\win-s8c9ycp8\\work\\path-time-native-final\\media\\café-NFC.wav",
+      "sha256": "8d9ad9688a567c5382b620d5fa56a478e3c9c9679705be21bbeabc9a799a416a"
+    },
+    {
+      "persistent_id": "CD3E67889434C2EA",
+      "location": "D:\\a\\_temp\\gha-mcp\\win-s8c9ycp8\\work\\path-time-native-final\\media\\café-NFD.wav",
+      "sha256": "90d6144d4fd386136a228c565d73b20a71e6c37e2e1f2f6df900df926aef816b"
+    },
+    {
+      "persistent_id": "2DC2E6531DABEC56",
+      "location": "D:\\a\\_temp\\gha-mcp\\win-s8c9ycp8\\work\\path-time-native-final\\media\\emoji-🚒-🎶.wav",
+      "sha256": "b491a5353110d6c1071574a46d9b0ba1f9aeb75a93d4c32e5840c851f9173283"
+    },
+    {
+      "persistent_id": "20A1C5333E7BDEDE",
+      "location": "D:\\a\\_temp\\gha-mcp\\win-s8c9ycp8\\work\\path-time-native-final\\media\\readonly.wav",
+      "sha256": "f11a62ad8ed167f5a9fee066b88510c5c60b9d434ed4e871b2a17556b1a0aaa0"
+    },
+    {
+      "persistent_id": "04481F56CF2A0667",
+      "location": "D:\\a\\_temp\\gha-mcp\\win-s8c9ycp8\\work\\path-time-native-final\\media\\CaseSensitiveName.WAV",
+      "sha256": "f63455967cfa979005e4c22223848481a992d664d565cf324cdbbd55aa6bf4c9"
+    },
+    {
+      "persistent_id": "619A10ADECB139F9",
+      "location": "D:\\a\\_temp\\gha-mcp\\win-s8c9ycp8\\work\\path-time-native-final\\media\\alias-source.wav",
+      "sha256": "98f7cbafb85c6c814f2f7cf9a654b3d4cc1d1782a01e50599d286914960240cd"
+    },
+    {
+      "persistent_id": "2CD0803B9A0B0C56",
+      "location": "D:\\a\\_temp\\gha-mcp\\win-s8c9ycp8\\work\\path-time-native-final\\media\\alias-hardlink.wav",
+      "sha256": "98f7cbafb85c6c814f2f7cf9a654b3d4cc1d1782a01e50599d286914960240cd"
+    },
+    {
+      "persistent_id": "D0F4E5155883163A",
+      "location": "D:\\a\\_temp\\gha-mcp\\win-s8c9ycp8\\work\\path-time-native-final\\media\\alias-symlink.wav",
+      "sha256": "98f7cbafb85c6c814f2f7cf9a654b3d4cc1d1782a01e50599d286914960240cd"
+    },
+    {
+      "persistent_id": "5AFAB96E8C15EE48",
+      "location": "\\\\localhost\\PTM_ae9da2dc$\\unc.wav",
+      "sha256": "4d4385d3b6b7b2ae4b0cb22ecbcabd3f97ebd10f7d7127765d43e0fd3a02e95e"
+    },
+    {
+      "persistent_id": "18FD1766C614959D",
+      "location": "N:\\mapped-network.wav",
+      "sha256": "12f402a4a8dc1d7d96f1037d2337e091303937c39ada56bdb5917036318a696c"
+    },
+    {
+      "persistent_id": "459C04D9F8FB7413",
+      "location": "P:\\external.wav",
+      "sha256": "90ae3896d1d2fb2d53d082356d7dd217b92dbd32379c87c52b1f87134de12618"
+    },
+    {
+      "persistent_id": "31F8F58965C9628E",
+      "location": "D:\\a\\_temp\\gha-mcp\\win-s8c9ycp8\\work\\path-time-native-final\\time-media\\date-naive-utc.wav",
+      "sha256": "1a90cf724b2d4ab9aec7348bb7671f78531c2b1f5045235a88a0cbb39fb1b599"
+    },
+    {
+      "persistent_id": "AA936DA5AD8E56FB",
+      "location": "D:\\a\\_temp\\gha-mcp\\win-s8c9ycp8\\work\\path-time-native-final\\time-media\\date-aware-utc.wav",
+      "sha256": "9ff1ca361ea86d3962c1194b28e9aab3a7b73bb159ec5863961ddb31fb545233"
+    },
+    {
+      "persistent_id": "AD92C3A986BAE84C",
+      "location": "D:\\a\\_temp\\gha-mcp\\win-s8c9ycp8\\work\\path-time-native-final\\time-media\\date-naive-eastern.wav",
+      "sha256": "6da3e9d36fac7fced2cbe02c73c087f5003d3349e481de1daa26205c88ad300b"
+    },
+    {
+      "persistent_id": "F0E2B200BBAB0B90",
+      "location": "D:\\a\\_temp\\gha-mcp\\win-s8c9ycp8\\work\\path-time-native-final\\time-media\\date-aware-instant.wav",
+      "sha256": "08a599dd73b83e5d43cca6dc43e2e099ea3b8c4984fda24e471023ec4c43e42a"
+    },
+    {
+      "persistent_id": "C5C4D27CFB72A6EA",
+      "location": "D:\\a\\_temp\\gha-mcp\\win-s8c9ycp8\\work\\path-time-native-final\\time-media\\date-fold.wav",
+      "sha256": "a7703bbae6691855ef6ecafee2914054b6535e7f0c9cfa034fce6ad5f728b9aa"
+    },
+    {
+      "persistent_id": "52C1AD6A2A274130",
+      "location": "D:\\a\\_temp\\gha-mcp\\win-s8c9ycp8\\work\\path-time-native-final\\time-media\\date-gap.wav",
+      "sha256": "9da1b41f977e5b119c18ac20fa4223c30d30f6a0587ab3f2abc4f013e5a94afc"
+    },
+    {
+      "persistent_id": "4DD1A712B47451B0",
+      "location": "D:\\a\\_temp\\gha-mcp\\win-s8c9ycp8\\work\\path-time-native-final\\time-media\\date-epoch.wav",
+      "sha256": "27d63eac64340fa952581e0433c979b13b11126d18cafd03849e6f31145d1bd7"
+    },
+    {
+      "persistent_id": "A427D47F9B943FB9",
+      "location": "D:\\a\\_temp\\gha-mcp\\win-s8c9ycp8\\work\\path-time-native-final\\time-media\\date-epoch-plus-one.wav",
+      "sha256": "d5ec5050d00cc19368195350d3018349de022cdbc65976816c806886e3641424"
+    }
+  ],
+  "added_persistent_ids": [],
+  "ok": true,
+  "quit_requested": true,
+  "finished_utc": "2026-09-21T15:59:04.954157+00:00"
+}

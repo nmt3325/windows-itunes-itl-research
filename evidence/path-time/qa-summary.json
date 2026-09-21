@@ -1,0 +1,101 @@
+{
+  "schema_version": 1,
+  "native_status": "completed_with_recorded_case_outcomes",
+  "path_cases": 30,
+  "path_returned": 24,
+  "path_rejected_or_failed": 6,
+  "final_track_count": 23,
+  "date_cases": 8,
+  "date_accepted": 6,
+  "date_rejected_or_failed": 2,
+  "json_files_checked": 126,
+  "json_errors": [],
+  "itl_snapshots_checked": 39,
+  "itl_errors": [],
+  "first_snapshot": {
+    "path": "native/snapshots/000-seed.itl",
+    "bytes": 4009,
+    "sha256": "503736e6cf40bf5cea572595c63387db94fbaec3732016df6443b7549a8c7cf4",
+    "version": "12.13.10.3",
+    "tracks": 0,
+    "playlists": 14
+  },
+  "final_snapshot": {
+    "path": "native/snapshots/038-038-set-date-epoch-plus-one.itl",
+    "bytes": 9605,
+    "sha256": "6a589ceea0531e5ee45d75ea23abddaef5f5c36c2b6c32c5b2d98e361b47ae0c",
+    "version": "12.13.10.3",
+    "tracks": 23,
+    "playlists": 14
+  },
+  "modal_texts": [
+    "More Info",
+    "OK",
+    "iTunes has detected a problem with your audio configuration.\rAudio/Video playback may not operate properly."
+  ],
+  "repair_restore_or_xml_modal_texts": [],
+  "timezone_restore": {
+    "before": "Eastern Standard Time",
+    "requested": "UTC",
+    "after": "UTC",
+    "command": {
+      "argv": [
+        "tzutil",
+        "/s",
+        "UTC"
+      ],
+      "returncode": 0,
+      "output": ""
+    }
+  },
+  "profile_cleanup": {
+    "removed": true,
+    "command": {
+      "argv": [
+        "cmd.exe",
+        "/d",
+        "/c",
+        "rmdir",
+        "C:\\Users\\runneradmin\\Music\\iTunes"
+      ],
+      "returncode": 0,
+      "output": ""
+    }
+  },
+  "alias_cleanup": [
+    {
+      "argv": [
+        "net",
+        "use",
+        "N:",
+        "/delete",
+        "/y"
+      ],
+      "returncode": 0,
+      "output": "N: was deleted successfully.\n\n"
+    },
+    {
+      "argv": [
+        "subst",
+        "P:",
+        "/d"
+      ],
+      "returncode": 0,
+      "output": ""
+    },
+    {
+      "argv": [
+        "net",
+        "share",
+        "PTM_ae9da2dc$",
+        "/delete",
+        "/y"
+      ],
+      "returncode": 0,
+      "output": "PTM_ae9da2dc$ was deleted successfully.\n\n"
+    }
+  ],
+  "evidence_generation_script_sha256": "0c75bddf12d181229f4feebb0ba1a4d77304157229e7ce61f02a2653ef2d0bb7",
+  "current_harness_sha256": "5b640cd956a5ea6ee3db575049e82aec2a7c31d475aed4b7d467d97c61362a2b",
+  "native_summary_sha256": "dce9b5382f454620a848f1f3b9c31be6c9eeaf78fcaa320140c1a349ccd8c996"
+}

@@ -1,0 +1,309 @@
+{
+  "case": {
+    "name": "004-forward-slashes",
+    "category": "slash",
+    "source_path": "D:\\a\\_temp\\gha-mcp\\win-s8c9ycp8\\work\\path-time-native-final\\media\\forward-slash.wav",
+    "source_sha256": "8619c156c5464efda3571078fed18ec9c13c056515776226d892ad03f90a0e57",
+    "input": "D:/a/_temp/gha-mcp/win-s8c9ycp8/work/path-time-native-final/media/forward-slash.wav",
+    "expect_input_exists": true,
+    "evidence_note": "native iTunes/COM plus serialized ITL"
+  },
+  "timezone": "UTC",
+  "ui": [
+    {
+      "action": "dismiss_known_audio_warning",
+      "window": {
+        "hwnd": 524806,
+        "pid": 2688,
+        "class": "iTunesCustomModalDialog",
+        "title": "iTunes",
+        "children": [
+          {
+            "hwnd": 1442312,
+            "class": "Static",
+            "text": "iTunes has detected a problem with your audio configuration.\rAudio/Video playback may not operate properly.",
+            "id": 101,
+            "enabled": true,
+            "visible": true
+          },
+          {
+            "hwnd": 2818070,
+            "class": "Static",
+            "text": "",
+            "id": 103,
+            "enabled": true,
+            "visible": false
+          },
+          {
+            "hwnd": 1310846,
+            "class": "Button",
+            "text": "",
+            "id": 104,
+            "enabled": true,
+            "visible": false
+          },
+          {
+            "hwnd": 1048956,
+            "class": "Button",
+            "text": "OK",
+            "id": 1,
+            "enabled": true,
+            "visible": true
+          },
+          {
+            "hwnd": 786954,
+            "class": "Button",
+            "text": "More Info",
+            "id": 105,
+            "enabled": true,
+            "visible": false
+          },
+          {
+            "hwnd": 918034,
+            "class": "Static",
+            "text": "",
+            "id": 102,
+            "enabled": true,
+            "visible": true
+          }
+        ]
+      }
+    }
+  ],
+  "worker_ok": true,
+  "action_result": {
+    "kind": "add",
+    "input_sha256": "8619c156c5464efda3571078fed18ec9c13c056515776226d892ad03f90a0e57",
+    "samefile": true,
+    "returned_tracks": [
+      {
+        "persistent_id": "0E12464C6CB511B7",
+        "Name": "forward-slash",
+        "Location": "D:/a/_temp/gha-mcp/win-s8c9ycp8/work/path-time-native-final/media/forward-slash.wav",
+        "DateAdded": "2026-09-21T15:52:41+00:00",
+        "ModificationDate": "2026-09-21T15:51:59+00:00",
+        "PlayedDate": "1899-12-30T00:00:00+00:00",
+        "SkippedDate": "1899-12-30T00:00:00+00:00",
+        "PlayedCount": 0,
+        "SkippedCount": 0,
+        "Size": 16044,
+        "Kind": 1
+      }
+    ],
+    "returned_track_count": 1,
+    "outcome": "returned"
+  },
+  "added_persistent_ids": [
+    "0E12464C6CB511B7"
+  ],
+  "snapshot": "native\\snapshots\\004-004-forward-slashes.itl",
+  "decoded_after": {
+    "sha256": "ad8c64f1fdaa024bbd378c36bab1aadb19774c8786659d9f2890ded3c5216844",
+    "bytes": 5222,
+    "version": "12.13.10.3",
+    "track_count": 4,
+    "tracks": [
+      {
+        "persistent_id": "D3E82664520BAB73",
+        "track_id": 77,
+        "name": "drive-absolute",
+        "url": "file://localhost/D:/a/_temp/gha-mcp/win-s8c9ycp8/work/path-time-native-final/media/drive-absolute.wav",
+        "path": "D:\\a\\_temp\\gha-mcp\\win-s8c9ycp8\\work\\path-time-native-final\\media\\drive-absolute.wav",
+        "date_added": 3872850725,
+        "date_modified": 3872850719,
+        "play_date": 0,
+        "skip_date": 0,
+        "opaque_location_objects": []
+      },
+      {
+        "persistent_id": "A2F0B84C4FB8E7E3",
+        "track_id": 79,
+        "name": "drive-letter-case",
+        "url": "file://localhost/d:/a/_temp/gha-mcp/win-s8c9ycp8/work/path-time-native-final/media/drive-letter-case.wav",
+        "path": "d:\\a\\_temp\\gha-mcp\\win-s8c9ycp8\\work\\path-time-native-final\\media\\drive-letter-case.wav",
+        "date_added": 3872850734,
+        "date_modified": 3872850719,
+        "play_date": 0,
+        "skip_date": 0,
+        "opaque_location_objects": []
+      },
+      {
+        "persistent_id": "92A44B55971F6352",
+        "track_id": 81,
+        "name": "relative",
+        "url": "media/relative.wav",
+        "path": "media\\relative.wav",
+        "date_added": 3872850748,
+        "date_modified": 3872850719,
+        "play_date": 0,
+        "skip_date": 0,
+        "opaque_location_objects": []
+      },
+      {
+        "persistent_id": "0E12464C6CB511B7",
+        "track_id": 162,
+        "name": "forward-slash",
+        "url": "D:%2Fa%2F_temp%2Fgha-mcp%2Fwin-s8c9ycp8%2Fwork%2Fpath-time-native-final%2Fmedia%2Fforward-slash.wav",
+        "path": "D:/a/_temp/gha-mcp/win-s8c9ycp8/work/path-time-native-final/media/forward-slash.wav",
+        "date_added": 3872850761,
+        "date_modified": 3872850719,
+        "play_date": 0,
+        "skip_date": 0,
+        "opaque_location_objects": []
+      }
+    ]
+  },
+  "byte_diff": {
+    "before_sha256": "2c3b263aa56536a0593be029c886a4ff220e671527de9b30e9fd0f1670eb92c9",
+    "after_sha256": "ad8c64f1fdaa024bbd378c36bab1aadb19774c8786659d9f2890ded3c5216844",
+    "before_bytes": 4987,
+    "after_bytes": 5222,
+    "overlap_changed_bytes": 4826,
+    "length_delta": 235,
+    "changed_spans_first_32": [
+      [
+        10,
+        12
+      ],
+      [
+        71,
+        72
+      ],
+      [
+        79,
+        80
+      ],
+      [
+        87,
+        88
+      ],
+      [
+        115,
+        116
+      ],
+      [
+        144,
+        328
+      ],
+      [
+        329,
+        368
+      ],
+      [
+        369,
+        740
+      ],
+      [
+        741,
+        1029
+      ],
+      [
+        1030,
+        1797
+      ],
+      [
+        1798,
+        1937
+      ],
+      [
+        1938,
+        2009
+      ],
+      [
+        2010,
+        2054
+      ],
+      [
+        2055,
+        2149
+      ],
+      [
+        2150,
+        2267
+      ],
+      [
+        2268,
+        2357
+      ],
+      [
+        2358,
+        2395
+      ],
+      [
+        2396,
+        2642
+      ],
+      [
+        2643,
+        2700
+      ],
+      [
+        2701,
+        3028
+      ],
+      [
+        3029,
+        3258
+      ],
+      [
+        3259,
+        3322
+      ],
+      [
+        3323,
+        3332
+      ],
+      [
+        3333,
+        3953
+      ],
+      [
+        3954,
+        4178
+      ],
+      [
+        4179,
+        4341
+      ],
+      [
+        4342,
+        4407
+      ],
+      [
+        4408,
+        4473
+      ],
+      [
+        4474,
+        4987
+      ]
+    ],
+    "span_count": 29
+  },
+  "semantic_diff": {
+    "added": [
+      "0E12464C6CB511B7"
+    ],
+    "removed": [],
+    "changed": {
+      "92A44B55971F6352": {
+        "track_id": {
+          "before": 155,
+          "after": 81
+        }
+      },
+      "A2F0B84C4FB8E7E3": {
+        "track_id": {
+          "before": 77,
+          "after": 79
+        }
+      },
+      "D3E82664520BAB73": {
+        "track_id": {
+          "before": 75,
+          "after": 77
+        }
+      }
+    }
+  }
+}

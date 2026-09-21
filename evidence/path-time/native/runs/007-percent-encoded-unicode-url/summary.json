@@ -1,0 +1,271 @@
+{
+  "case": {
+    "name": "007-percent-encoded-unicode-url",
+    "category": "file_url_unicode",
+    "source_path": "D:\\a\\_temp\\gha-mcp\\win-s8c9ycp8\\work\\path-time-native-final\\media\\URL-日本語-🎵.wav",
+    "source_sha256": "36f5e0ecde5ce29357d21fc4b882139d8df58fb07334d081a15db34aa3cf795c",
+    "input": "file:///D:/a/_temp/gha-mcp/win-s8c9ycp8/work/path-time-native-final/media/URL-%E6%97%A5%E6%9C%AC%E8%AA%9E-%F0%9F%8E%B5.wav",
+    "expect_input_exists": true,
+    "evidence_note": "native iTunes/COM plus serialized ITL"
+  },
+  "timezone": "UTC",
+  "ui": [
+    {
+      "action": "dismiss_known_audio_warning",
+      "window": {
+        "hwnd": 1048926,
+        "pid": 3092,
+        "class": "iTunesCustomModalDialog",
+        "title": "iTunes",
+        "children": [
+          {
+            "hwnd": 1049068,
+            "class": "Static",
+            "text": "iTunes has detected a problem with your audio configuration.\rAudio/Video playback may not operate properly.",
+            "id": 101,
+            "enabled": true,
+            "visible": true
+          },
+          {
+            "hwnd": 918020,
+            "class": "Static",
+            "text": "",
+            "id": 103,
+            "enabled": true,
+            "visible": false
+          },
+          {
+            "hwnd": 786804,
+            "class": "Button",
+            "text": "",
+            "id": 104,
+            "enabled": true,
+            "visible": false
+          },
+          {
+            "hwnd": 1769558,
+            "class": "Button",
+            "text": "OK",
+            "id": 1,
+            "enabled": true,
+            "visible": true
+          },
+          {
+            "hwnd": 1638780,
+            "class": "Button",
+            "text": "More Info",
+            "id": 105,
+            "enabled": true,
+            "visible": false
+          },
+          {
+            "hwnd": 786896,
+            "class": "Static",
+            "text": "",
+            "id": 102,
+            "enabled": true,
+            "visible": true
+          }
+        ]
+      }
+    }
+  ],
+  "worker_ok": true,
+  "action_result": {
+    "kind": "add",
+    "input_sha256": "36f5e0ecde5ce29357d21fc4b882139d8df58fb07334d081a15db34aa3cf795c",
+    "samefile": true,
+    "outcome": "rejected_or_failed",
+    "error": "AttributeError: 'NoneType' object has no attribute 'InProgress'"
+  },
+  "added_persistent_ids": [],
+  "snapshot": "native\\snapshots\\007-007-percent-encoded-unicode-url.itl",
+  "decoded_after": {
+    "sha256": "075bd38a21c516085118ee8aea289b92abdda8b560ec500cf18987165750b516",
+    "bytes": 5253,
+    "version": "12.13.10.3",
+    "track_count": 4,
+    "tracks": [
+      {
+        "persistent_id": "D3E82664520BAB73",
+        "track_id": 79,
+        "name": "drive-absolute",
+        "url": "file://localhost/D:/a/_temp/gha-mcp/win-s8c9ycp8/work/path-time-native-final/media/drive-absolute.wav",
+        "path": "D:\\a\\_temp\\gha-mcp\\win-s8c9ycp8\\work\\path-time-native-final\\media\\drive-absolute.wav",
+        "date_added": 3872850725,
+        "date_modified": 3872850719,
+        "play_date": 0,
+        "skip_date": 0,
+        "opaque_location_objects": []
+      },
+      {
+        "persistent_id": "A2F0B84C4FB8E7E3",
+        "track_id": 81,
+        "name": "drive-letter-case",
+        "url": "file://localhost/d:/a/_temp/gha-mcp/win-s8c9ycp8/work/path-time-native-final/media/drive-letter-case.wav",
+        "path": "d:\\a\\_temp\\gha-mcp\\win-s8c9ycp8\\work\\path-time-native-final\\media\\drive-letter-case.wav",
+        "date_added": 3872850734,
+        "date_modified": 3872850719,
+        "play_date": 0,
+        "skip_date": 0,
+        "opaque_location_objects": []
+      },
+      {
+        "persistent_id": "92A44B55971F6352",
+        "track_id": 83,
+        "name": "relative",
+        "url": "media/relative.wav",
+        "path": "media\\relative.wav",
+        "date_added": 3872850748,
+        "date_modified": 3872850719,
+        "play_date": 0,
+        "skip_date": 0,
+        "opaque_location_objects": []
+      },
+      {
+        "persistent_id": "0E12464C6CB511B7",
+        "track_id": 85,
+        "name": "forward-slash",
+        "url": "D:%2Fa%2F_temp%2Fgha-mcp%2Fwin-s8c9ycp8%2Fwork%2Fpath-time-native-final%2Fmedia%2Fforward-slash.wav",
+        "path": "D:/a/_temp/gha-mcp/win-s8c9ycp8/work/path-time-native-final/media/forward-slash.wav",
+        "date_added": 3872850761,
+        "date_modified": 3872850719,
+        "play_date": 0,
+        "skip_date": 0,
+        "opaque_location_objects": []
+      }
+    ]
+  },
+  "byte_diff": {
+    "before_sha256": "9671cc7e6a1c3e1e6695bbd2fab1ef5b1ceab6ebacb74192038ba9f3ac49662f",
+    "after_sha256": "075bd38a21c516085118ee8aea289b92abdda8b560ec500cf18987165750b516",
+    "before_bytes": 5253,
+    "after_bytes": 5253,
+    "overlap_changed_bytes": 4894,
+    "length_delta": 0,
+    "changed_spans_first_32": [
+      [
+        115,
+        116
+      ],
+      [
+        176,
+        198
+      ],
+      [
+        199,
+        208
+      ],
+      [
+        272,
+        304
+      ],
+      [
+        352,
+        384
+      ],
+      [
+        432,
+        586
+      ],
+      [
+        587,
+        590
+      ],
+      [
+        591,
+        662
+      ],
+      [
+        663,
+        724
+      ],
+      [
+        725,
+        1345
+      ],
+      [
+        1346,
+        1592
+      ],
+      [
+        1593,
+        1896
+      ],
+      [
+        1897,
+        1904
+      ],
+      [
+        1905,
+        1970
+      ],
+      [
+        1971,
+        2416
+      ],
+      [
+        2417,
+        2832
+      ],
+      [
+        2833,
+        3168
+      ],
+      [
+        3169,
+        3239
+      ],
+      [
+        3240,
+        3265
+      ],
+      [
+        3266,
+        3659
+      ],
+      [
+        3660,
+        3812
+      ],
+      [
+        3813,
+        3958
+      ],
+      [
+        3959,
+        4666
+      ],
+      [
+        4667,
+        4974
+      ],
+      [
+        4975,
+        5074
+      ],
+      [
+        5075,
+        5190
+      ],
+      [
+        5191,
+        5248
+      ],
+      [
+        5249,
+        5251
+      ],
+      [
+        5252,
+        5253
+      ]
+    ],
+    "span_count": 29
+  },
+  "semantic_diff": {
+    "added": [],
+    "removed": [],
+    "changed": {}
+  }
+}

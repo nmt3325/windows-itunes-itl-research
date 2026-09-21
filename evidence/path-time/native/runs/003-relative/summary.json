@@ -1,0 +1,255 @@
+{
+  "case": {
+    "name": "003-relative",
+    "category": "relative",
+    "source_path": "D:\\a\\_temp\\gha-mcp\\win-s8c9ycp8\\work\\path-time-native-final\\media\\relative.wav",
+    "source_sha256": "b6c1831ed02f71beb5afcbbd41765ae36277cc6a7756a538766fbd8181850f6e",
+    "input": "media\\relative.wav",
+    "expect_input_exists": true,
+    "evidence_note": "native iTunes/COM plus serialized ITL"
+  },
+  "timezone": "UTC",
+  "ui": [
+    {
+      "action": "dismiss_known_audio_warning",
+      "window": {
+        "hwnd": 459126,
+        "pid": 572,
+        "class": "iTunesCustomModalDialog",
+        "title": "iTunes",
+        "children": [
+          {
+            "hwnd": 524812,
+            "class": "Static",
+            "text": "iTunes has detected a problem with your audio configuration.\rAudio/Video playback may not operate properly.",
+            "id": 101,
+            "enabled": true,
+            "visible": true
+          },
+          {
+            "hwnd": 1441878,
+            "class": "Static",
+            "text": "",
+            "id": 103,
+            "enabled": true,
+            "visible": false
+          },
+          {
+            "hwnd": 786962,
+            "class": "Button",
+            "text": "",
+            "id": 104,
+            "enabled": true,
+            "visible": false
+          },
+          {
+            "hwnd": 1048620,
+            "class": "Button",
+            "text": "OK",
+            "id": 1,
+            "enabled": true,
+            "visible": true
+          },
+          {
+            "hwnd": 1179754,
+            "class": "Button",
+            "text": "More Info",
+            "id": 105,
+            "enabled": true,
+            "visible": false
+          },
+          {
+            "hwnd": 590200,
+            "class": "Static",
+            "text": "",
+            "id": 102,
+            "enabled": true,
+            "visible": true
+          }
+        ]
+      }
+    }
+  ],
+  "worker_ok": true,
+  "action_result": {
+    "kind": "add",
+    "input_sha256": "b6c1831ed02f71beb5afcbbd41765ae36277cc6a7756a538766fbd8181850f6e",
+    "samefile": true,
+    "returned_tracks": [
+      {
+        "persistent_id": "92A44B55971F6352",
+        "Name": "relative",
+        "Location": "media\\relative.wav",
+        "DateAdded": "2026-09-21T15:52:28+00:00",
+        "ModificationDate": "2026-09-21T15:51:59+00:00",
+        "PlayedDate": "1899-12-30T00:00:00+00:00",
+        "SkippedDate": "1899-12-30T00:00:00+00:00",
+        "PlayedCount": 0,
+        "SkippedCount": 0,
+        "Size": 16044,
+        "Kind": 1
+      }
+    ],
+    "returned_track_count": 1,
+    "outcome": "returned"
+  },
+  "added_persistent_ids": [
+    "92A44B55971F6352"
+  ],
+  "snapshot": "native\\snapshots\\003-003-relative.itl",
+  "decoded_after": {
+    "sha256": "2c3b263aa56536a0593be029c886a4ff220e671527de9b30e9fd0f1670eb92c9",
+    "bytes": 4987,
+    "version": "12.13.10.3",
+    "track_count": 3,
+    "tracks": [
+      {
+        "persistent_id": "D3E82664520BAB73",
+        "track_id": 75,
+        "name": "drive-absolute",
+        "url": "file://localhost/D:/a/_temp/gha-mcp/win-s8c9ycp8/work/path-time-native-final/media/drive-absolute.wav",
+        "path": "D:\\a\\_temp\\gha-mcp\\win-s8c9ycp8\\work\\path-time-native-final\\media\\drive-absolute.wav",
+        "date_added": 3872850725,
+        "date_modified": 3872850719,
+        "play_date": 0,
+        "skip_date": 0,
+        "opaque_location_objects": []
+      },
+      {
+        "persistent_id": "A2F0B84C4FB8E7E3",
+        "track_id": 77,
+        "name": "drive-letter-case",
+        "url": "file://localhost/d:/a/_temp/gha-mcp/win-s8c9ycp8/work/path-time-native-final/media/drive-letter-case.wav",
+        "path": "d:\\a\\_temp\\gha-mcp\\win-s8c9ycp8\\work\\path-time-native-final\\media\\drive-letter-case.wav",
+        "date_added": 3872850734,
+        "date_modified": 3872850719,
+        "play_date": 0,
+        "skip_date": 0,
+        "opaque_location_objects": []
+      },
+      {
+        "persistent_id": "92A44B55971F6352",
+        "track_id": 155,
+        "name": "relative",
+        "url": "media/relative.wav",
+        "path": "media\\relative.wav",
+        "date_added": 3872850748,
+        "date_modified": 3872850719,
+        "play_date": 0,
+        "skip_date": 0,
+        "opaque_location_objects": []
+      }
+    ]
+  },
+  "byte_diff": {
+    "before_sha256": "1b783375e4c70774b686c29174dc0d741db4fe7b0ba5c05556aa7f3f3bcb51ea",
+    "after_sha256": "2c3b263aa56536a0593be029c886a4ff220e671527de9b30e9fd0f1670eb92c9",
+    "before_bytes": 4767,
+    "after_bytes": 4987,
+    "overlap_changed_bytes": 4615,
+    "length_delta": 220,
+    "changed_spans_first_32": [
+      [
+        10,
+        12
+      ],
+      [
+        71,
+        72
+      ],
+      [
+        79,
+        80
+      ],
+      [
+        87,
+        88
+      ],
+      [
+        115,
+        116
+      ],
+      [
+        144,
+        450
+      ],
+      [
+        451,
+        637
+      ],
+      [
+        638,
+        646
+      ],
+      [
+        647,
+        868
+      ],
+      [
+        869,
+        1441
+      ],
+      [
+        1442,
+        2112
+      ],
+      [
+        2113,
+        2351
+      ],
+      [
+        2352,
+        2619
+      ],
+      [
+        2620,
+        2996
+      ],
+      [
+        2997,
+        3048
+      ],
+      [
+        3049,
+        3849
+      ],
+      [
+        3850,
+        4039
+      ],
+      [
+        4040,
+        4158
+      ],
+      [
+        4159,
+        4338
+      ],
+      [
+        4339,
+        4767
+      ]
+    ],
+    "span_count": 20
+  },
+  "semantic_diff": {
+    "added": [
+      "92A44B55971F6352"
+    ],
+    "removed": [],
+    "changed": {
+      "A2F0B84C4FB8E7E3": {
+        "track_id": {
+          "before": 148,
+          "after": 77
+        }
+      },
+      "D3E82664520BAB73": {
+        "track_id": {
+          "before": 73,
+          "after": 75
+        }
+      }
+    }
+  }
+}
