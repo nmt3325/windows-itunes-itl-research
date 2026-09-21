@@ -15,9 +15,21 @@ windows = ["pywin32>=306", "pywinauto>=0.6.9", "frida>=17"]
 
 [project.scripts]
 itlkit = "itlkit.__main__:main"
+itl-reference-parser = "REFERENCE_PARSER.cli:main"
+itl-reference-writer = "REFERENCE_WRITER.cli:main"
+itl-reference-validate = "VALIDATOR.cli:main"
+itl-semantic-diff = "SEMANTIC_DIFF.cli:main"
+itl-test-corpus = "TEST_CORPUS.generate:main"
 
 [tool.setuptools.packages.find]
-include = ["itlkit*"]
+include = [
+  "itlkit*",
+  "REFERENCE_PARSER*",
+  "REFERENCE_WRITER*",
+  "VALIDATOR*",
+  "SEMANTIC_DIFF*",
+  "TEST_CORPUS*",
+]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
