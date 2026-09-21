@@ -1,0 +1,1091 @@
+{
+  "schema": "windows-itunes-itl.aggregate-corpus-manifest.v1",
+  "hash_algorithm": "sha256",
+  "manifest_self_included": false,
+  "target": "Windows Apple desktop x64 iTunes 12.13.10.3; secondary observed 12.13.9.1",
+  "qualification": {
+    "complete_analysis_claim": false,
+    "reference_writer_from_scratch_native_acceptance": "unverified",
+    "fresh_native_library_note": "created by iTunes itself; not evidence that the reference writer is accepted",
+    "path_time_note": "native iTunes saves for a bounded matrix; not arbitrary writer acceptance"
+  },
+  "summary": {
+    "itl_file_count": 142,
+    "by_class": {
+      "independent_from_scratch_generated": 2,
+      "archived_native_or_exact_candidate": 95,
+      "native_itunes_fresh_library": 6,
+      "native_itunes_path_time_sequence": 39
+    }
+  },
+  "referenced_manifests_and_analyses": [
+    {
+      "path": "TEST_CORPUS/corpus-manifest.json",
+      "bytes": 1060,
+      "sha256": "7d2e04addc1b06ff01fc2923f543f54a921e3c91108159773d4282552f65f052"
+    },
+    {
+      "path": "evidence/native/fresh-20260921/manifest.json",
+      "bytes": 7324,
+      "sha256": "95243873f9f7a035b5190a3abe0c9d159ea0d9874a18a367d92db5c7c3712120"
+    },
+    {
+      "path": "evidence/path-time/manifest.json",
+      "bytes": 37151,
+      "sha256": "b75ca23246db1cf3a26db864ba22aa768545f04b65dbe596bebb8cf60613564c"
+    },
+    {
+      "path": "evidence/smart-playlist/corpus-census.json",
+      "bytes": 539820,
+      "sha256": "b59a2b439c25cd0a557575e6300b4a1ec881571119bd9ed42dbd76cd32601510"
+    },
+    {
+      "path": "evidence/smart-playlist/prior-art-manifest.json",
+      "bytes": 4976,
+      "sha256": "31fa248b5436e59ab37c183871dcfb96f249826a9d7c316050a96ab23935502b"
+    }
+  ],
+  "itl_files": [
+    {
+      "path": "TEST_CORPUS/generated/reference-one-track-raw.itl",
+      "bytes": 5630,
+      "sha256": "f340b1ee9b11864d8e8f9bb00a72bbcc313c0074c48f9bc8df1c31224109ef2c",
+      "corpus_class": "independent_from_scratch_generated",
+      "template_reused": false,
+      "native_acceptance": "unverified"
+    },
+    {
+      "path": "TEST_CORPUS/generated/reference-one-track-zlib.itl",
+      "bytes": 420,
+      "sha256": "3e597e9778936d2fbf70d13620b5e4ebc9649d2d8b11086a5560daf7e620b6ce",
+      "corpus_class": "independent_from_scratch_generated",
+      "template_reused": false,
+      "native_acceptance": "unverified"
+    },
+    {
+      "path": "evidence/native/candidates/050-codec-forced.itl",
+      "bytes": 4020,
+      "sha256": "ebc9f56c353addc7341681a3840d9f9bca391f716e050aebce39bb2a4e1dec41",
+      "corpus_class": "archived_native_or_exact_candidate",
+      "qualification": "see per-case evidence; presence is not acceptance"
+    },
+    {
+      "path": "evidence/native/candidates/051-codec-modified.itl",
+      "bytes": 4042,
+      "sha256": "bdf1ac5648bc958d29b530e524a961950f56e31dc5fa1acdc9fa211d8f664419",
+      "corpus_class": "archived_native_or_exact_candidate",
+      "qualification": "see per-case evidence; presence is not acceptance"
+    },
+    {
+      "path": "evidence/native/candidates/070-codec-playlist-rename.itl",
+      "bytes": 4217,
+      "sha256": "5367f41b7e682e4028c76d4519c7000d820c651060fdd6791375a26e70fe491b",
+      "corpus_class": "archived_native_or_exact_candidate",
+      "qualification": "see per-case evidence; presence is not acceptance"
+    },
+    {
+      "path": "evidence/native/candidates/071-codec-playlist-members.itl",
+      "bytes": 4223,
+      "sha256": "5da35436e948a5175b76335fe91a18bf57e48bb8fea78671fba792b74281b0a3",
+      "corpus_class": "archived_native_or_exact_candidate",
+      "qualification": "see per-case evidence; presence is not acceptance"
+    },
+    {
+      "path": "evidence/native/candidates/072-codec-playlist-create.itl",
+      "bytes": 4335,
+      "sha256": "832cb809633d24606eb9a47e017d5f91fe52d0e79fe1185a742069f545f8db85",
+      "corpus_class": "archived_native_or_exact_candidate",
+      "qualification": "see per-case evidence; presence is not acceptance"
+    },
+    {
+      "path": "evidence/native/candidates/073-codec-playlist-delete.itl",
+      "bytes": 4023,
+      "sha256": "e4ea3fa212b0e056e86470f998ea30b24904b886bf37a3d2c8e9dff74ae30902",
+      "corpus_class": "archived_native_or_exact_candidate",
+      "qualification": "see per-case evidence; presence is not acceptance"
+    },
+    {
+      "path": "evidence/native/candidates/074-codec-playlist-create-from-master.itl",
+      "bytes": 4170,
+      "sha256": "11273895ea35de2667c8a7bb53fdabcc19dfa6d324fbded89b0ead3c47876bb5",
+      "corpus_class": "archived_native_or_exact_candidate",
+      "qualification": "see per-case evidence; presence is not acceptance"
+    },
+    {
+      "path": "evidence/native/candidates/110-codec-track-restore.itl",
+      "bytes": 3619,
+      "sha256": "5fd1edeb1facff5aaa1a22ff432a450900ef7a1087e4189b4cf6afd7bb453ccd",
+      "corpus_class": "archived_native_or_exact_candidate",
+      "qualification": "see per-case evidence; presence is not acceptance"
+    },
+    {
+      "path": "evidence/native/candidates/111-codec-track-delete.itl",
+      "bytes": 3989,
+      "sha256": "97c1fc67d8aca300241d47b4c2b5ce00a0ddce6504c523ebc5c13074de54a864",
+      "corpus_class": "archived_native_or_exact_candidate",
+      "qualification": "see per-case evidence; presence is not acceptance"
+    },
+    {
+      "path": "evidence/native/candidates/112-codec-track-indexed.itl",
+      "bytes": 4194,
+      "sha256": "1a84651212b08f6b7aaf37b40764c195d827d95868d0b51950e1f035c2527721",
+      "corpus_class": "archived_native_or_exact_candidate",
+      "qualification": "see per-case evidence; presence is not acceptance"
+    },
+    {
+      "path": "evidence/native/candidates/113-codec-fresh-modified.itl",
+      "bytes": 3847,
+      "sha256": "34e4b4348ee4db611d59c1da23791700558c3c91bc44504e4d89a8e5c228ec0f",
+      "corpus_class": "archived_native_or_exact_candidate",
+      "qualification": "see per-case evidence; presence is not acceptance"
+    },
+    {
+      "path": "evidence/native/donor32/donor000-empty.itl",
+      "bytes": 4064,
+      "sha256": "98a75b6d7ed8dab20796444c6c659c5b88245cb246ef20328813ffbfa1219bd4",
+      "corpus_class": "archived_native_or_exact_candidate",
+      "qualification": "see per-case evidence; presence is not acceptance"
+    },
+    {
+      "path": "evidence/native/donor32/donor032-imported.itl",
+      "bytes": 19001,
+      "sha256": "60c5bfa47a5264f461524981317062ae500cd447f29ec0a70ab5616d6a7368dd",
+      "corpus_class": "archived_native_or_exact_candidate",
+      "qualification": "see per-case evidence; presence is not acceptance"
+    },
+    {
+      "path": "evidence/native/donor32/donor032-reloaded.itl",
+      "bytes": 19158,
+      "sha256": "7edd4ea85ca937103165bb40a5656ba84cd9c08b73580beb2482d963f5728083",
+      "corpus_class": "archived_native_or_exact_candidate",
+      "qualification": "see per-case evidence; presence is not acceptance"
+    },
+    {
+      "path": "evidence/native/fresh-20260921/snapshots/000-fresh-empty.itl",
+      "bytes": 4047,
+      "sha256": "3ea22262490aaa293a5c62736f9911a34081f314619c0abce681512e43263979",
+      "corpus_class": "native_itunes_fresh_library",
+      "producer": "iTunes 12.13.10.3",
+      "reference_writer_acceptance": "not_applicable"
+    },
+    {
+      "path": "evidence/native/fresh-20260921/snapshots/001-one-track.itl",
+      "bytes": 4543,
+      "sha256": "434e3e65e06b9f3c1dd57effb755b943f436192338d1c612243f4da306a64f7d",
+      "corpus_class": "native_itunes_fresh_library",
+      "producer": "iTunes 12.13.10.3",
+      "reference_writer_acceptance": "not_applicable"
+    },
+    {
+      "path": "evidence/native/fresh-20260921/snapshots/002-three-tracks.itl",
+      "bytes": 4970,
+      "sha256": "de9a338c81fcc160a6f62b99e29a08787bd6b52b744772e5065251702feba3dc",
+      "corpus_class": "native_itunes_fresh_library",
+      "producer": "iTunes 12.13.10.3",
+      "reference_writer_acceptance": "not_applicable"
+    },
+    {
+      "path": "evidence/native/fresh-20260921/snapshots/003-traced-name-save.itl",
+      "bytes": 5010,
+      "sha256": "c17debc0791bc637d9955d576220f33252bb564ea62ed21134e53db72572e87e",
+      "corpus_class": "native_itunes_fresh_library",
+      "producer": "iTunes 12.13.10.3",
+      "reference_writer_acceptance": "not_applicable"
+    },
+    {
+      "path": "evidence/native/fresh-20260921/snapshots/004-repeat-save-1.itl",
+      "bytes": 5001,
+      "sha256": "57611a238b2a8fc9af8ffe4c29554e13904545b9011a68827ba653ef7f20b251",
+      "corpus_class": "native_itunes_fresh_library",
+      "producer": "iTunes 12.13.10.3",
+      "reference_writer_acceptance": "not_applicable"
+    },
+    {
+      "path": "evidence/native/fresh-20260921/snapshots/005-repeat-save-2.itl",
+      "bytes": 5001,
+      "sha256": "9d1bbdc3fda55c421635d2b12ee4857c8fdaaa13be5c2e45ef2d07dba40c761e",
+      "corpus_class": "native_itunes_fresh_library",
+      "producer": "iTunes 12.13.10.3",
+      "reference_writer_acceptance": "not_applicable"
+    },
+    {
+      "path": "evidence/native/phase2/large-comment/large-direct-comment-reload1.itl",
+      "bytes": 246277,
+      "sha256": "79e556623574767489b61dc65a700f411e7c38008193e219cf21f648461b2cb7",
+      "corpus_class": "archived_native_or_exact_candidate",
+      "qualification": "see per-case evidence; presence is not acceptance"
+    },
+    {
+      "path": "evidence/native/phase2/large-comment/large-direct-comment-reload2.itl",
+      "bytes": 246276,
+      "sha256": "372995c8d7c44c48531776cafa74a50a62a367bea92226279d3984ffa2ff337e",
+      "corpus_class": "archived_native_or_exact_candidate",
+      "qualification": "see per-case evidence; presence is not acceptance"
+    },
+    {
+      "path": "evidence/native/phase2/large-comment/large-direct-comment.itl",
+      "bytes": 235599,
+      "sha256": "625edbc39ff3173e454add0cdec0d490860ee8d8e421ede12f3e0c4a98370a16",
+      "corpus_class": "archived_native_or_exact_candidate",
+      "qualification": "see per-case evidence; presence is not acceptance"
+    },
+    {
+      "path": "evidence/native/phase3/candidates/crud3-cross-one-003.itl",
+      "bytes": 5687,
+      "sha256": "60c5f1541981ddedd457f3e78ca07c63a8d71e3b8e42f3211b175aad2a8facaa",
+      "corpus_class": "archived_native_or_exact_candidate",
+      "qualification": "see per-case evidence; presence is not acceptance"
+    },
+    {
+      "path": "evidence/native/phase3/candidates/crud3-cross-shared-COW-037.itl",
+      "bytes": 6783,
+      "sha256": "f6f2a221eacadffba1ae9180b877872a595736a47f92644b9a38e6173981bda3",
+      "corpus_class": "archived_native_or_exact_candidate",
+      "qualification": "see per-case evidence; presence is not acceptance"
+    },
+    {
+      "path": "evidence/native/phase3/candidates/crud3-cross-shared-two-037.itl",
+      "bytes": 6653,
+      "sha256": "2bf00425a238492c427e07108638fb7e6317ccdbbc62cadb6c4499b656c08ee1",
+      "corpus_class": "archived_native_or_exact_candidate",
+      "qualification": "see per-case evidence; presence is not acceptance"
+    },
+    {
+      "path": "evidence/native/phase3/candidates/fresh-constructed-wav-003-v2.itl",
+      "bytes": 4025,
+      "sha256": "41a6a073db030a9ceb9e1a690420a0fa28b73cb0c675af005653f732df6c4a84",
+      "corpus_class": "archived_native_or_exact_candidate",
+      "qualification": "see per-case evidence; presence is not acceptance"
+    },
+    {
+      "path": "evidence/native/phase3/candidates/fresh-constructed-wav-037-v2.itl",
+      "bytes": 4446,
+      "sha256": "a813f8ad7d493214aaefc9f20d536fc86883e511dfeaf30dd8735baf5895dc39",
+      "corpus_class": "archived_native_or_exact_candidate",
+      "qualification": "see per-case evidence; presence is not acceptance"
+    },
+    {
+      "path": "evidence/native/phase3/candidates/p4-fresh-api.itl",
+      "bytes": 3847,
+      "sha256": "bcb6d06f8c83a9f2f6cd7e03a5a427dfdc81e40e1a6bc48fa4350afd9cb3cc4b",
+      "corpus_class": "archived_native_or_exact_candidate",
+      "qualification": "see per-case evidence; presence is not acceptance"
+    },
+    {
+      "path": "evidence/native/phase3/controls/snapshots/native-allocation-after-constructor037-v2.itl",
+      "bytes": 6051,
+      "sha256": "c583c45277d38ee795f80d6a4d810f095bee862ce6a6769ce5e5b311c7135db7",
+      "corpus_class": "archived_native_or_exact_candidate",
+      "qualification": "see per-case evidence; presence is not acceptance"
+    },
+    {
+      "path": "evidence/native/phase3/controls/snapshots/native-allocation-control-reload1.itl",
+      "bytes": 6061,
+      "sha256": "b5e0b0f0524c93001443024c565380dc2242905e56d7b8230e98742006ecb597",
+      "corpus_class": "archived_native_or_exact_candidate",
+      "qualification": "see per-case evidence; presence is not acceptance"
+    },
+    {
+      "path": "evidence/native/phase3/controls/snapshots/native-allocation-control-reload2.itl",
+      "bytes": 6062,
+      "sha256": "cb725b68e22aa2c110ad2ccc953cc204ea32301229facc03c0f10cf9694b8830",
+      "corpus_class": "archived_native_or_exact_candidate",
+      "qualification": "see per-case evidence; presence is not acceptance"
+    },
+    {
+      "path": "evidence/native/phase3/controls/snapshots/restored-selection-native-save.itl",
+      "bytes": 5032,
+      "sha256": "37aee14bff862382e0aa6b61c19233f869a060a118a3d09a1c1220fe4e45ce51",
+      "corpus_class": "archived_native_or_exact_candidate",
+      "qualification": "see per-case evidence; presence is not acceptance"
+    },
+    {
+      "path": "evidence/native/phase3/controls/snapshots/silent-playback-after-constructor037-v2.itl",
+      "bytes": 5832,
+      "sha256": "388d740539fda1f6e6378585e6f17818c40ac835c9339248550808253c6a5f04",
+      "corpus_class": "archived_native_or_exact_candidate",
+      "qualification": "see per-case evidence; presence is not acceptance"
+    },
+    {
+      "path": "evidence/native/phase3/snapshots/crud3-cross-one-003-reload1.itl",
+      "bytes": 5725,
+      "sha256": "526bb2410054f1de217589725c33d7b59effc992817b2115bf39b9bce701d8fb",
+      "corpus_class": "archived_native_or_exact_candidate",
+      "qualification": "see per-case evidence; presence is not acceptance"
+    },
+    {
+      "path": "evidence/native/phase3/snapshots/crud3-cross-one-003-reload2.itl",
+      "bytes": 5731,
+      "sha256": "d11966e748ce2eb72c967b6ec169a84c6711a007af1305fa7069c4beb88dfa33",
+      "corpus_class": "archived_native_or_exact_candidate",
+      "qualification": "see per-case evidence; presence is not acceptance"
+    },
+    {
+      "path": "evidence/native/phase3/snapshots/crud3-cross-shared-COW-037-reload1.itl",
+      "bytes": 6822,
+      "sha256": "a2374f30707194de1e6ab67a1f9457c6995bf22f2f2aeea5c5199d34ee7ebaa5",
+      "corpus_class": "archived_native_or_exact_candidate",
+      "qualification": "see per-case evidence; presence is not acceptance"
+    },
+    {
+      "path": "evidence/native/phase3/snapshots/crud3-cross-shared-COW-037-reload2.itl",
+      "bytes": 6827,
+      "sha256": "3d7463b2446ff11ad6cfc5233b99f51696b55ba096b100157163376c78b2ab9c",
+      "corpus_class": "archived_native_or_exact_candidate",
+      "qualification": "see per-case evidence; presence is not acceptance"
+    },
+    {
+      "path": "evidence/native/phase3/snapshots/crud3-cross-shared-two-037-reload1.itl",
+      "bytes": 6668,
+      "sha256": "7400c9f2730daed353a60c3c2eb277119b0506d640ab37cffe17f8e12db6641d",
+      "corpus_class": "archived_native_or_exact_candidate",
+      "qualification": "see per-case evidence; presence is not acceptance"
+    },
+    {
+      "path": "evidence/native/phase3/snapshots/crud3-cross-shared-two-037-reload2.itl",
+      "bytes": 6674,
+      "sha256": "2a33d419d5d33edac0f646bbbb8a8175d663fbe889040f1793fc3526e9bada18",
+      "corpus_class": "archived_native_or_exact_candidate",
+      "qualification": "see per-case evidence; presence is not acceptance"
+    },
+    {
+      "path": "evidence/native/phase3/snapshots/fresh-constructed-wav-003-v2-reload1.itl",
+      "bytes": 5262,
+      "sha256": "d81d0828faa58cbc3b0e673817499a83cdccea821a22f92b5882cf1001c0df00",
+      "corpus_class": "archived_native_or_exact_candidate",
+      "qualification": "see per-case evidence; presence is not acceptance"
+    },
+    {
+      "path": "evidence/native/phase3/snapshots/fresh-constructed-wav-003-v2-reload2.itl",
+      "bytes": 5267,
+      "sha256": "7353d3fe7d417ec01098e89828e88810281d88f6af25313ca21a382e66b5a43e",
+      "corpus_class": "archived_native_or_exact_candidate",
+      "qualification": "see per-case evidence; presence is not acceptance"
+    },
+    {
+      "path": "evidence/native/phase3/snapshots/fresh-constructed-wav-037-v2-reload1.itl",
+      "bytes": 5816,
+      "sha256": "5e0898e3f0f432c87850aa0665e66a042ba4355da4b89a61dc7bf571bc7b019b",
+      "corpus_class": "archived_native_or_exact_candidate",
+      "qualification": "see per-case evidence; presence is not acceptance"
+    },
+    {
+      "path": "evidence/native/phase3/snapshots/fresh-constructed-wav-037-v2-reload2.itl",
+      "bytes": 5820,
+      "sha256": "d3dac042f777ba734a213c4394f5116ce1365a65abceb73fae304260440240dd",
+      "corpus_class": "archived_native_or_exact_candidate",
+      "qualification": "see per-case evidence; presence is not acceptance"
+    },
+    {
+      "path": "evidence/native/phase3/snapshots/p4-fresh-api-reload1.itl",
+      "bytes": 5035,
+      "sha256": "2562f9465fb4788d7fb7a920427e7a1bf4b24993d1159eb9ff4924c935e7a23a",
+      "corpus_class": "archived_native_or_exact_candidate",
+      "qualification": "see per-case evidence; presence is not acceptance"
+    },
+    {
+      "path": "evidence/native/phase3/snapshots/p4-fresh-api-reload2.itl",
+      "bytes": 5038,
+      "sha256": "73b52bd5a292be783a4007d6af5e773e3e2b40501d64f116e454642e8283da19",
+      "corpus_class": "archived_native_or_exact_candidate",
+      "qualification": "see per-case evidence; presence is not acceptance"
+    },
+    {
+      "path": "evidence/native/snapshots/000-empty.itl",
+      "bytes": 4009,
+      "sha256": "503736e6cf40bf5cea572595c63387db94fbaec3732016df6443b7549a8c7cf4",
+      "corpus_class": "archived_native_or_exact_candidate",
+      "qualification": "see per-case evidence; presence is not acceptance"
+    },
+    {
+      "path": "evidence/native/snapshots/001-one-track-reloaded.itl",
+      "bytes": 4550,
+      "sha256": "c4835402822f6bfa5a0fd271acede0e81536566e6f0f476a598ab3b01532e142",
+      "corpus_class": "archived_native_or_exact_candidate",
+      "qualification": "see per-case evidence; presence is not acceptance"
+    },
+    {
+      "path": "evidence/native/snapshots/001-one-track.itl",
+      "bytes": 4536,
+      "sha256": "c1aad11c66d497788be5cc417a5b2931c59d5eb2589c8cc83d31594097e9d9f1",
+      "corpus_class": "archived_native_or_exact_candidate",
+      "qualification": "see per-case evidence; presence is not acceptance"
+    },
+    {
+      "path": "evidence/native/snapshots/002-three-tracks.itl",
+      "bytes": 4976,
+      "sha256": "48b6b9aa3c8ce635f5ba809a9ff6ea6af5784ddb7df0fc05fe9b727a9df28eb3",
+      "corpus_class": "archived_native_or_exact_candidate",
+      "qualification": "see per-case evidence; presence is not acceptance"
+    },
+    {
+      "path": "evidence/native/snapshots/003-three-tracks-reloaded.itl",
+      "bytes": 4955,
+      "sha256": "a93cbc94da00eb60d1f5a45ac70af55948d4ecbae2ea735744af04b7b46128e4",
+      "corpus_class": "archived_native_or_exact_candidate",
+      "qualification": "see per-case evidence; presence is not acceptance"
+    },
+    {
+      "path": "evidence/native/snapshots/010-name-unicode.itl",
+      "bytes": 5035,
+      "sha256": "8016112599308dce5f3b4c1e3e5f8391cd303b5b4b916fcac01bd378ee8db1c7",
+      "corpus_class": "archived_native_or_exact_candidate",
+      "qualification": "see per-case evidence; presence is not acceptance"
+    },
+    {
+      "path": "evidence/native/snapshots/011-name-long.itl",
+      "bytes": 5003,
+      "sha256": "e3fc87a370f8ad7a5970786e6306a210b37b10b8797d9b1a5f44819bccfd470d",
+      "corpus_class": "archived_native_or_exact_candidate",
+      "qualification": "see per-case evidence; presence is not acceptance"
+    },
+    {
+      "path": "evidence/native/snapshots/012-name-short.itl",
+      "bytes": 4980,
+      "sha256": "5b064456adbec20ef04b64c8904abe4100b95c737dbc77fe6316c6ae7bfcdde2",
+      "corpus_class": "archived_native_or_exact_candidate",
+      "qualification": "see per-case evidence; presence is not acceptance"
+    },
+    {
+      "path": "evidence/native/snapshots/013-artist-unicode.itl",
+      "bytes": 5069,
+      "sha256": "42c780983524635f48d3eced83c8da41ea1347c68a93c33f9a1213ee1932991f",
+      "corpus_class": "archived_native_or_exact_candidate",
+      "qualification": "see per-case evidence; presence is not acceptance"
+    },
+    {
+      "path": "evidence/native/snapshots/014-album.itl",
+      "bytes": 5108,
+      "sha256": "a3d73e40928d20bfaca7fc036c8ee23c97a0ed04960fd5b7f6cd295e9954cb14",
+      "corpus_class": "archived_native_or_exact_candidate",
+      "qualification": "see per-case evidence; presence is not acceptance"
+    },
+    {
+      "path": "evidence/native/snapshots/015-album-artist.itl",
+      "bytes": 5148,
+      "sha256": "d351e2251a2b5f8ea623e5b4b0eed921f109bc4150af4b7819fde5d9b496f5e9",
+      "corpus_class": "archived_native_or_exact_candidate",
+      "qualification": "see per-case evidence; presence is not acceptance"
+    },
+    {
+      "path": "evidence/native/snapshots/016-comment.itl",
+      "bytes": 5198,
+      "sha256": "0159a68373871e9046ae4cb01b1f6979d4c636f0e11da29379a85bf8100e66bd",
+      "corpus_class": "archived_native_or_exact_candidate",
+      "qualification": "see per-case evidence; presence is not acceptance"
+    },
+    {
+      "path": "evidence/native/snapshots/017-rating.itl",
+      "bytes": 5201,
+      "sha256": "646771bb62e4fc0fe9196f55792e484b461b15dca3996cadd1d7e584ef3e5e76",
+      "corpus_class": "archived_native_or_exact_candidate",
+      "qualification": "see per-case evidence; presence is not acceptance"
+    },
+    {
+      "path": "evidence/native/snapshots/018-play-count.itl",
+      "bytes": 5214,
+      "sha256": "a0fc0fe53e677c743963c80a507b7f884258b098882033e639f144fa7738a49e",
+      "corpus_class": "archived_native_or_exact_candidate",
+      "qualification": "see per-case evidence; presence is not acceptance"
+    },
+    {
+      "path": "evidence/native/snapshots/019-skip-count.itl",
+      "bytes": 5216,
+      "sha256": "3d6ef66d46360b18e74b3eb20a57952672356327a728a7884f3c51d70efe7614",
+      "corpus_class": "archived_native_or_exact_candidate",
+      "qualification": "see per-case evidence; presence is not acceptance"
+    },
+    {
+      "path": "evidence/native/snapshots/020-play-date.itl",
+      "bytes": 5225,
+      "sha256": "f1c55bef741eb3880a59281e20f6efe5df3d88952e40a78055a05bd486960cb2",
+      "corpus_class": "archived_native_or_exact_candidate",
+      "qualification": "see per-case evidence; presence is not acceptance"
+    },
+    {
+      "path": "evidence/native/snapshots/021-skip-date.itl",
+      "bytes": 5236,
+      "sha256": "a1fc23ed8e9a79bba3f60044009bc52d97af9d3df78f72090c9ef2eeb456d6d7",
+      "corpus_class": "archived_native_or_exact_candidate",
+      "qualification": "see per-case evidence; presence is not acceptance"
+    },
+    {
+      "path": "evidence/native/snapshots/022-year.itl",
+      "bytes": 5245,
+      "sha256": "d4f899866473dc734bfac2d885f312c71ac67c1487cf048a2bc6b8373910c9ed",
+      "corpus_class": "archived_native_or_exact_candidate",
+      "qualification": "see per-case evidence; presence is not acceptance"
+    },
+    {
+      "path": "evidence/native/snapshots/023-track-number.itl",
+      "bytes": 5250,
+      "sha256": "3b034ec3949b508bafb79e2ad76de60ca53883f78074743de974d75b8df2749a",
+      "corpus_class": "archived_native_or_exact_candidate",
+      "qualification": "see per-case evidence; presence is not acceptance"
+    },
+    {
+      "path": "evidence/native/snapshots/024-compilation.itl",
+      "bytes": 5252,
+      "sha256": "09dee39e0d24d4570f330fc6001c111265e3ecbd10e0541f3c2bae599a7a42ba",
+      "corpus_class": "archived_native_or_exact_candidate",
+      "qualification": "see per-case evidence; presence is not acceptance"
+    },
+    {
+      "path": "evidence/native/snapshots/030-playlist-create.itl",
+      "bytes": 5428,
+      "sha256": "f88c7c9fe25e700e2c543b41101a314d1986e7d9d72b6aa34a9c6b3a8213dfc8",
+      "corpus_class": "archived_native_or_exact_candidate",
+      "qualification": "see per-case evidence; presence is not acceptance"
+    },
+    {
+      "path": "evidence/native/snapshots/031-playlist-add.itl",
+      "bytes": 5509,
+      "sha256": "c117e5369aa4a6ff7d59d55dc233176ab634b0698ac0323157861cfa6065aece",
+      "corpus_class": "archived_native_or_exact_candidate",
+      "qualification": "see per-case evidence; presence is not acceptance"
+    },
+    {
+      "path": "evidence/native/snapshots/032-playlist-rename.itl",
+      "bytes": 5528,
+      "sha256": "00970014d39f4cb050882865b7ccf57e8c8fd5e5d7b566adf5f84e007b40d997",
+      "corpus_class": "archived_native_or_exact_candidate",
+      "qualification": "see per-case evidence; presence is not acceptance"
+    },
+    {
+      "path": "evidence/native/snapshots/033-playlist-order.itl",
+      "bytes": 5526,
+      "sha256": "f6ab3c0c14200a58a79cf025c871d12a890a3fc8959781c486aa01c352b32ad0",
+      "corpus_class": "archived_native_or_exact_candidate",
+      "qualification": "see per-case evidence; presence is not acceptance"
+    },
+    {
+      "path": "evidence/native/snapshots/034-playlist-remove.itl",
+      "bytes": 5504,
+      "sha256": "dc5b5debe41975d7642f66a67b8ab624bd0bdb1e62383f682884c8006a09c0c6",
+      "corpus_class": "archived_native_or_exact_candidate",
+      "qualification": "see per-case evidence; presence is not acceptance"
+    },
+    {
+      "path": "evidence/native/snapshots/035-playlist-create-delete.itl",
+      "bytes": 5654,
+      "sha256": "c49c1a12967de6bf1f83fe1052ba6ad9546e7845fc783eedec8d6baa277e59c0",
+      "corpus_class": "archived_native_or_exact_candidate",
+      "qualification": "see per-case evidence; presence is not acceptance"
+    },
+    {
+      "path": "evidence/native/snapshots/036-playlist-delete.itl",
+      "bytes": 5505,
+      "sha256": "d906fd4345f93d1211d72dcccf8879fa32f533168df90d54ee0143018cbe330b",
+      "corpus_class": "archived_native_or_exact_candidate",
+      "qualification": "see per-case evidence; presence is not acceptance"
+    },
+    {
+      "path": "evidence/native/snapshots/037-final-three-reloaded.itl",
+      "bytes": 5503,
+      "sha256": "155e427ebaf820e177123c9787d878e1f6b655a5978db409ba742c8697675f81",
+      "corpus_class": "archived_native_or_exact_candidate",
+      "qualification": "see per-case evidence; presence is not acceptance"
+    },
+    {
+      "path": "evidence/native/snapshots/050-codec-forced-reload1.itl",
+      "bytes": 5251,
+      "sha256": "d78a01c12ac4193b0a3b3507f24f30a10f6c12a38304077b7abd0c4276ae86cb",
+      "corpus_class": "archived_native_or_exact_candidate",
+      "qualification": "see per-case evidence; presence is not acceptance"
+    },
+    {
+      "path": "evidence/native/snapshots/050-codec-forced-reload2.itl",
+      "bytes": 5252,
+      "sha256": "0f0164e2107bb92c1ada926ccd912476cc2aa20416ef7fa4ab09234f5252675f",
+      "corpus_class": "archived_native_or_exact_candidate",
+      "qualification": "see per-case evidence; presence is not acceptance"
+    },
+    {
+      "path": "evidence/native/snapshots/051-codec-modified-reload1.itl",
+      "bytes": 5252,
+      "sha256": "9efb1671d1df5735caf50b5850bd24dc228300045784217ebbf92d4ae3633d9c",
+      "corpus_class": "archived_native_or_exact_candidate",
+      "qualification": "see per-case evidence; presence is not acceptance"
+    },
+    {
+      "path": "evidence/native/snapshots/051-codec-modified-reload2.itl",
+      "bytes": 5251,
+      "sha256": "cf8b3860fe5f31d9b2c9ec37eab8ab08efb7edfc5e6fce4e07862fbdef5cb7e9",
+      "corpus_class": "archived_native_or_exact_candidate",
+      "qualification": "see per-case evidence; presence is not acceptance"
+    },
+    {
+      "path": "evidence/native/snapshots/060-attached-native-save.itl",
+      "bytes": 5245,
+      "sha256": "b0b984b0a1493ae40f9f78903547ae6cd5c91f4238d01aac23dc3d6806fc0ca1",
+      "corpus_class": "archived_native_or_exact_candidate",
+      "qualification": "see per-case evidence; presence is not acceptance"
+    },
+    {
+      "path": "evidence/native/snapshots/061-traced-save-reloaded.itl",
+      "bytes": 5243,
+      "sha256": "8e58646e85543984ccd5d00694ceaf15f5059b3af44d7a822e3ebfcfb4e4dec0",
+      "corpus_class": "archived_native_or_exact_candidate",
+      "qualification": "see per-case evidence; presence is not acceptance"
+    },
+    {
+      "path": "evidence/native/snapshots/070-codec-playlist-rename-reload1.itl",
+      "bytes": 5512,
+      "sha256": "fb0ce6bab7c123f5dd56fac12facb553f1d208b7ca7136c6d2d7ba30e48ceb4e",
+      "corpus_class": "archived_native_or_exact_candidate",
+      "qualification": "see per-case evidence; presence is not acceptance"
+    },
+    {
+      "path": "evidence/native/snapshots/070-codec-playlist-rename-reload2.itl",
+      "bytes": 5512,
+      "sha256": "a18809c93479390cb17c2ce7df1615ba69fcab52a6d5756ecf06f6061c8a6560",
+      "corpus_class": "archived_native_or_exact_candidate",
+      "qualification": "see per-case evidence; presence is not acceptance"
+    },
+    {
+      "path": "evidence/native/snapshots/071-codec-playlist-members-reload1.itl",
+      "bytes": 5528,
+      "sha256": "f8683b42fd8c28260e1bac12206d2b76691a60afd2f0c4866a5de593f9a7f0f5",
+      "corpus_class": "archived_native_or_exact_candidate",
+      "qualification": "see per-case evidence; presence is not acceptance"
+    },
+    {
+      "path": "evidence/native/snapshots/071-codec-playlist-members-reload2.itl",
+      "bytes": 5528,
+      "sha256": "9d8a9856fe2f1214d4e3146b361422b35b1a9d026ef4431c001091566f675a4c",
+      "corpus_class": "archived_native_or_exact_candidate",
+      "qualification": "see per-case evidence; presence is not acceptance"
+    },
+    {
+      "path": "evidence/native/snapshots/072-codec-playlist-create-reload1.itl",
+      "bytes": 5676,
+      "sha256": "a14f2a22d856c0a75108f7910fc18f54252e4d0d0d0470c10dbd49808cfacef9",
+      "corpus_class": "archived_native_or_exact_candidate",
+      "qualification": "see per-case evidence; presence is not acceptance"
+    },
+    {
+      "path": "evidence/native/snapshots/072-codec-playlist-create-reload2.itl",
+      "bytes": 5677,
+      "sha256": "b9279c3ecc3fe6f2867001f2c9fe11d007162705e0cb083814ba615ed882e1e4",
+      "corpus_class": "archived_native_or_exact_candidate",
+      "qualification": "see per-case evidence; presence is not acceptance"
+    },
+    {
+      "path": "evidence/native/snapshots/073-codec-playlist-delete-reload1.itl",
+      "bytes": 5253,
+      "sha256": "542cb03c1a0f8de967a4ce6b674b9710d363bdf9b24951b99f3a8b274e7900f3",
+      "corpus_class": "archived_native_or_exact_candidate",
+      "qualification": "see per-case evidence; presence is not acceptance"
+    },
+    {
+      "path": "evidence/native/snapshots/073-codec-playlist-delete-reload2.itl",
+      "bytes": 5253,
+      "sha256": "b642fc6965f4895b29bc674a668f716e915bc07d25d5e3cd4eb6926144733560",
+      "corpus_class": "archived_native_or_exact_candidate",
+      "qualification": "see per-case evidence; presence is not acceptance"
+    },
+    {
+      "path": "evidence/native/snapshots/074-codec-playlist-create-from-master-reload1.itl",
+      "bytes": 5466,
+      "sha256": "e6b6bea44dd9bf5825234a281e354e4e3e1bedd981cf2b7dbb1fa7c3cfcd87ee",
+      "corpus_class": "archived_native_or_exact_candidate",
+      "qualification": "see per-case evidence; presence is not acceptance"
+    },
+    {
+      "path": "evidence/native/snapshots/074-codec-playlist-create-from-master-reload2.itl",
+      "bytes": 5466,
+      "sha256": "0c35c4b0d7a2a1fd31b81d05c3bfe6eb3e65fe97a6d580564aa14c2d4866bab6",
+      "corpus_class": "archived_native_or_exact_candidate",
+      "qualification": "see per-case evidence; presence is not acceptance"
+    },
+    {
+      "path": "evidence/native/snapshots/091-comment-truncation-saved.itl",
+      "bytes": 5680,
+      "sha256": "a7c73b99d227d19e86034bbcefa80e63de5dc216fe5eadd9e476694c291877d8",
+      "corpus_class": "archived_native_or_exact_candidate",
+      "qualification": "see per-case evidence; presence is not acceptance"
+    },
+    {
+      "path": "evidence/native/snapshots/092-comment-truncation-reloaded.itl",
+      "bytes": 5680,
+      "sha256": "664f2049f821aa76cc781dc1b0bbf427704923f67902c97a7d042f5cbb46d24b",
+      "corpus_class": "archived_native_or_exact_candidate",
+      "qualification": "see per-case evidence; presence is not acceptance"
+    },
+    {
+      "path": "evidence/native/snapshots/110-codec-track-restore-reload1.itl",
+      "bytes": 4774,
+      "sha256": "c5b65efbe53e2c3df8aaba20126e106270cc5043bcee1c7918f539e39626b85b",
+      "corpus_class": "archived_native_or_exact_candidate",
+      "qualification": "see per-case evidence; presence is not acceptance"
+    },
+    {
+      "path": "evidence/native/snapshots/110-codec-track-restore-reload2.itl",
+      "bytes": 4774,
+      "sha256": "65fbd646230f69deff8b097553961a26319ff7b5adefc9034232f8bf28722de2",
+      "corpus_class": "archived_native_or_exact_candidate",
+      "qualification": "see per-case evidence; presence is not acceptance"
+    },
+    {
+      "path": "evidence/native/snapshots/111-codec-track-delete-reload1.itl",
+      "bytes": 5239,
+      "sha256": "00ce877fcefe5fab71a8b34bb96a00b831de3f6c3dbe4177ac5e979108ad17b7",
+      "corpus_class": "archived_native_or_exact_candidate",
+      "qualification": "see per-case evidence; presence is not acceptance"
+    },
+    {
+      "path": "evidence/native/snapshots/111-codec-track-delete-reload2.itl",
+      "bytes": 5240,
+      "sha256": "c43d44d2a08d733132a6f8fa2277a549cf381dccf997d25b0c6a30d5e16cea8b",
+      "corpus_class": "archived_native_or_exact_candidate",
+      "qualification": "see per-case evidence; presence is not acceptance"
+    },
+    {
+      "path": "evidence/native/snapshots/112-codec-track-indexed-reload1.itl",
+      "bytes": 5492,
+      "sha256": "53880d0fdc61d66376f95b270da1da565f503c157fce6991b2f639c42f481422",
+      "corpus_class": "archived_native_or_exact_candidate",
+      "qualification": "see per-case evidence; presence is not acceptance"
+    },
+    {
+      "path": "evidence/native/snapshots/112-codec-track-indexed-reload2.itl",
+      "bytes": 5492,
+      "sha256": "87e3b77ffcf32650a5a59386c9329d77974e24e5da70c69ff93aa87089d96746",
+      "corpus_class": "archived_native_or_exact_candidate",
+      "qualification": "see per-case evidence; presence is not acceptance"
+    },
+    {
+      "path": "evidence/native/snapshots/114-fresh-observed-save.itl",
+      "bytes": 4989,
+      "sha256": "83c6292835aa7bb106910c95975a84c5533ba1a690f1185c4d91d9449c878947",
+      "corpus_class": "archived_native_or_exact_candidate",
+      "qualification": "see per-case evidence; presence is not acceptance"
+    },
+    {
+      "path": "evidence/native/snapshots/115-fresh-diagnostic-reload.itl",
+      "bytes": 4978,
+      "sha256": "58415a3035aca5a699598adf57a37052a7fe9e562fc6f3dd02bfb060449d816a",
+      "corpus_class": "archived_native_or_exact_candidate",
+      "qualification": "see per-case evidence; presence is not acceptance"
+    },
+    {
+      "path": "evidence/native/snapshots/116-native-unplayed-control.itl",
+      "bytes": 4983,
+      "sha256": "961d8573fc39f504472fac5a08dd1f1be5a54444834b2d0577ae0cc0002e130a",
+      "corpus_class": "archived_native_or_exact_candidate",
+      "qualification": "see per-case evidence; presence is not acceptance"
+    },
+    {
+      "path": "evidence/path-time/native/snapshots/000-seed.itl",
+      "bytes": 4009,
+      "sha256": "503736e6cf40bf5cea572595c63387db94fbaec3732016df6443b7549a8c7cf4",
+      "corpus_class": "native_itunes_path_time_sequence",
+      "producer": "iTunes 12.13.10.3",
+      "reference_writer_acceptance": "not_applicable"
+    },
+    {
+      "path": "evidence/path-time/native/snapshots/001-001-drive-absolute.itl",
+      "bytes": 4504,
+      "sha256": "de091428d7343b794fee424ffef8df14e6249f8d77a88b111a692135c5b969e6",
+      "corpus_class": "native_itunes_path_time_sequence",
+      "producer": "iTunes 12.13.10.3",
+      "reference_writer_acceptance": "not_applicable"
+    },
+    {
+      "path": "evidence/path-time/native/snapshots/002-002-drive-letter-lowercase.itl",
+      "bytes": 4767,
+      "sha256": "1b783375e4c70774b686c29174dc0d741db4fe7b0ba5c05556aa7f3f3bcb51ea",
+      "corpus_class": "native_itunes_path_time_sequence",
+      "producer": "iTunes 12.13.10.3",
+      "reference_writer_acceptance": "not_applicable"
+    },
+    {
+      "path": "evidence/path-time/native/snapshots/003-003-relative.itl",
+      "bytes": 4987,
+      "sha256": "2c3b263aa56536a0593be029c886a4ff220e671527de9b30e9fd0f1670eb92c9",
+      "corpus_class": "native_itunes_path_time_sequence",
+      "producer": "iTunes 12.13.10.3",
+      "reference_writer_acceptance": "not_applicable"
+    },
+    {
+      "path": "evidence/path-time/native/snapshots/004-004-forward-slashes.itl",
+      "bytes": 5222,
+      "sha256": "ad8c64f1fdaa024bbd378c36bab1aadb19774c8786659d9f2890ded3c5216844",
+      "corpus_class": "native_itunes_path_time_sequence",
+      "producer": "iTunes 12.13.10.3",
+      "reference_writer_acceptance": "not_applicable"
+    },
+    {
+      "path": "evidence/path-time/native/snapshots/005-005-file-url.itl",
+      "bytes": 5254,
+      "sha256": "46f998ba35adb9b0c1098fb93f7131ccbb100b843b8ba916201ce4e897dcfc8c",
+      "corpus_class": "native_itunes_path_time_sequence",
+      "producer": "iTunes 12.13.10.3",
+      "reference_writer_acceptance": "not_applicable"
+    },
+    {
+      "path": "evidence/path-time/native/snapshots/006-006-localhost-file-url.itl",
+      "bytes": 5253,
+      "sha256": "9671cc7e6a1c3e1e6695bbd2fab1ef5b1ceab6ebacb74192038ba9f3ac49662f",
+      "corpus_class": "native_itunes_path_time_sequence",
+      "producer": "iTunes 12.13.10.3",
+      "reference_writer_acceptance": "not_applicable"
+    },
+    {
+      "path": "evidence/path-time/native/snapshots/007-007-percent-encoded-unicode-url.itl",
+      "bytes": 5253,
+      "sha256": "075bd38a21c516085118ee8aea289b92abdda8b560ec500cf18987165750b516",
+      "corpus_class": "native_itunes_path_time_sequence",
+      "producer": "iTunes 12.13.10.3",
+      "reference_writer_acceptance": "not_applicable"
+    },
+    {
+      "path": "evidence/path-time/native/snapshots/008-008-unicode-nfc.itl",
+      "bytes": 5488,
+      "sha256": "744b115f4765d82115208c3a2fa5ea8abf48b649f5e9201904263a705d267e74",
+      "corpus_class": "native_itunes_path_time_sequence",
+      "producer": "iTunes 12.13.10.3",
+      "reference_writer_acceptance": "not_applicable"
+    },
+    {
+      "path": "evidence/path-time/native/snapshots/009-009-unicode-nfd.itl",
+      "bytes": 5774,
+      "sha256": "ffe578be111141de7a46517d2b84bcbbdd359ccfec84b7e4a853870eec1bbb99",
+      "corpus_class": "native_itunes_path_time_sequence",
+      "producer": "iTunes 12.13.10.3",
+      "reference_writer_acceptance": "not_applicable"
+    },
+    {
+      "path": "evidence/path-time/native/snapshots/010-010-emoji.itl",
+      "bytes": 6032,
+      "sha256": "d2be136baf3061d8018d8f7195720744a73e6a4a4d11d31a708cca43670bcd0a",
+      "corpus_class": "native_itunes_path_time_sequence",
+      "producer": "iTunes 12.13.10.3",
+      "reference_writer_acceptance": "not_applicable"
+    },
+    {
+      "path": "evidence/path-time/native/snapshots/011-011-readonly.itl",
+      "bytes": 6262,
+      "sha256": "932f064874bb636a798785ba69c39577e0a401a1b11b5a8eedee432ceaaed353",
+      "corpus_class": "native_itunes_path_time_sequence",
+      "producer": "iTunes 12.13.10.3",
+      "reference_writer_acceptance": "not_applicable"
+    },
+    {
+      "path": "evidence/path-time/native/snapshots/012-012-case-original.itl",
+      "bytes": 6472,
+      "sha256": "8469a7643dfeca3f2ec60ad9521628b24c09afd1afe839391d7403a707e9ae74",
+      "corpus_class": "native_itunes_path_time_sequence",
+      "producer": "iTunes 12.13.10.3",
+      "reference_writer_acceptance": "not_applicable"
+    },
+    {
+      "path": "evidence/path-time/native/snapshots/013-013-case-variant-same-file.itl",
+      "bytes": 6499,
+      "sha256": "76100b69e4469effa822c76586c7b1b1670d1f46f631cead2f12f5d6d2a75dc8",
+      "corpus_class": "native_itunes_path_time_sequence",
+      "producer": "iTunes 12.13.10.3",
+      "reference_writer_acceptance": "not_applicable"
+    },
+    {
+      "path": "evidence/path-time/native/snapshots/014-014-alias-source.itl",
+      "bytes": 6732,
+      "sha256": "13bf76a6e6df762de3da0f898074081b34e3a80f71d6f620f466578ba1de205d",
+      "corpus_class": "native_itunes_path_time_sequence",
+      "producer": "iTunes 12.13.10.3",
+      "reference_writer_acceptance": "not_applicable"
+    },
+    {
+      "path": "evidence/path-time/native/snapshots/015-015-hardlink-alias.itl",
+      "bytes": 6930,
+      "sha256": "e0565dcdafdff2877c338f411ff2359b3a3f6b639eb8d839ad08056027cb3c47",
+      "corpus_class": "native_itunes_path_time_sequence",
+      "producer": "iTunes 12.13.10.3",
+      "reference_writer_acceptance": "not_applicable"
+    },
+    {
+      "path": "evidence/path-time/native/snapshots/016-016-symlink-alias.itl",
+      "bytes": 7183,
+      "sha256": "d2c9b7e893ab3e9772fc62ad3361800a32211ba4dce35df30e88c7396ed583c0",
+      "corpus_class": "native_itunes_path_time_sequence",
+      "producer": "iTunes 12.13.10.3",
+      "reference_writer_acceptance": "not_applicable"
+    },
+    {
+      "path": "evidence/path-time/native/snapshots/017-017-long-path.itl",
+      "bytes": 7170,
+      "sha256": "15d7ead27e8f0193b68036b18731cdbf1ab21eb2968ec5c7939ee1c7cdc425d2",
+      "corpus_class": "native_itunes_path_time_sequence",
+      "producer": "iTunes 12.13.10.3",
+      "reference_writer_acceptance": "not_applicable"
+    },
+    {
+      "path": "evidence/path-time/native/snapshots/018-018-extended-long-path.itl",
+      "bytes": 7170,
+      "sha256": "84237c70a5417a86b2f12bd825de1005cc1cca3798ca778783bca159505ed9f1",
+      "corpus_class": "native_itunes_path_time_sequence",
+      "producer": "iTunes 12.13.10.3",
+      "reference_writer_acceptance": "not_applicable"
+    },
+    {
+      "path": "evidence/path-time/native/snapshots/019-019-missing.itl",
+      "bytes": 7170,
+      "sha256": "9b453f0a6b3586478cfd07ca2f27d58c73075917b93351692096d33167fe71f0",
+      "corpus_class": "native_itunes_path_time_sequence",
+      "producer": "iTunes 12.13.10.3",
+      "reference_writer_acceptance": "not_applicable"
+    },
+    {
+      "path": "evidence/path-time/native/snapshots/020-020-unc-local-share.itl",
+      "bytes": 7415,
+      "sha256": "cd82c24e83f2f3f6d5de6f0623142645b7b816872b625cbca2e921b0a3e88ba0",
+      "corpus_class": "native_itunes_path_time_sequence",
+      "producer": "iTunes 12.13.10.3",
+      "reference_writer_acceptance": "not_applicable"
+    },
+    {
+      "path": "evidence/path-time/native/snapshots/021-021-mapped-network-drive.itl",
+      "bytes": 7650,
+      "sha256": "7ace0e59a384858a53b0bcf7af9f19fc6e35823d4c25085730567446cef36383",
+      "corpus_class": "native_itunes_path_time_sequence",
+      "producer": "iTunes 12.13.10.3",
+      "reference_writer_acceptance": "not_applicable"
+    },
+    {
+      "path": "evidence/path-time/native/snapshots/022-022-subst-fixed-drive.itl",
+      "bytes": 7892,
+      "sha256": "4bbb9e10a6f0bb6afa4af5f4708b27468fc42f367842164585084e8a9ad279a2",
+      "corpus_class": "native_itunes_path_time_sequence",
+      "producer": "iTunes 12.13.10.3",
+      "reference_writer_acceptance": "not_applicable"
+    },
+    {
+      "path": "evidence/path-time/native/snapshots/023-023-add-date-naive-utc.itl",
+      "bytes": 8114,
+      "sha256": "0bf23f4d1d6f7c8ca04194af9d8027af53fffbd2bcd663547c8c6de95e696185",
+      "corpus_class": "native_itunes_path_time_sequence",
+      "producer": "iTunes 12.13.10.3",
+      "reference_writer_acceptance": "not_applicable"
+    },
+    {
+      "path": "evidence/path-time/native/snapshots/024-024-add-date-aware-utc.itl",
+      "bytes": 8268,
+      "sha256": "85a30d926a8bdba7410cb3e336f0d266f510adb5f0eab645a308d28e3b2ddeea",
+      "corpus_class": "native_itunes_path_time_sequence",
+      "producer": "iTunes 12.13.10.3",
+      "reference_writer_acceptance": "not_applicable"
+    },
+    {
+      "path": "evidence/path-time/native/snapshots/025-025-add-date-naive-eastern.itl",
+      "bytes": 8539,
+      "sha256": "46ab6ce3566f675164663394728fd4c5657929aa5b4e988ca76a2837fa337bd6",
+      "corpus_class": "native_itunes_path_time_sequence",
+      "producer": "iTunes 12.13.10.3",
+      "reference_writer_acceptance": "not_applicable"
+    },
+    {
+      "path": "evidence/path-time/native/snapshots/026-026-add-date-aware-instant.itl",
+      "bytes": 8747,
+      "sha256": "a698d273a233bd37ee3e612726db00a98db577524ca3f4f0fdecdda201085d45",
+      "corpus_class": "native_itunes_path_time_sequence",
+      "producer": "iTunes 12.13.10.3",
+      "reference_writer_acceptance": "not_applicable"
+    },
+    {
+      "path": "evidence/path-time/native/snapshots/027-027-add-date-fold.itl",
+      "bytes": 8904,
+      "sha256": "8eabd6c1fb511c4be3349f8d7c9a22ff577aac6d9c5bd4d4c93349a6668fc615",
+      "corpus_class": "native_itunes_path_time_sequence",
+      "producer": "iTunes 12.13.10.3",
+      "reference_writer_acceptance": "not_applicable"
+    },
+    {
+      "path": "evidence/path-time/native/snapshots/028-028-add-date-gap.itl",
+      "bytes": 9120,
+      "sha256": "5ed45b83dccfa320ce058a7ea7ad037d8a51aae3f6202c2d08610624174eb20c",
+      "corpus_class": "native_itunes_path_time_sequence",
+      "producer": "iTunes 12.13.10.3",
+      "reference_writer_acceptance": "not_applicable"
+    },
+    {
+      "path": "evidence/path-time/native/snapshots/029-029-add-date-epoch.itl",
+      "bytes": 9312,
+      "sha256": "d7504f242561643a805622ed8801b699b34634930cb9c9b63d5fda823e6528d0",
+      "corpus_class": "native_itunes_path_time_sequence",
+      "producer": "iTunes 12.13.10.3",
+      "reference_writer_acceptance": "not_applicable"
+    },
+    {
+      "path": "evidence/path-time/native/snapshots/030-030-add-date-epoch-plus-one.itl",
+      "bytes": 9589,
+      "sha256": "b99a283731c836b91f6c1883dd6b358804c1b2f486d607205d8fa6b0e828ed10",
+      "corpus_class": "native_itunes_path_time_sequence",
+      "producer": "iTunes 12.13.10.3",
+      "reference_writer_acceptance": "not_applicable"
+    },
+    {
+      "path": "evidence/path-time/native/snapshots/031-031-set-date-naive-utc.itl",
+      "bytes": 9547,
+      "sha256": "758e53049736bbeb8e1dbc1cf382bcfec0c198f4f4448fd17699230a484adf5f",
+      "corpus_class": "native_itunes_path_time_sequence",
+      "producer": "iTunes 12.13.10.3",
+      "reference_writer_acceptance": "not_applicable"
+    },
+    {
+      "path": "evidence/path-time/native/snapshots/032-032-set-date-aware-utc.itl",
+      "bytes": 9546,
+      "sha256": "9d8c7a5deda928d419039f4faf1e42291579c8a927ee28de5e4e6550cc0441c0",
+      "corpus_class": "native_itunes_path_time_sequence",
+      "producer": "iTunes 12.13.10.3",
+      "reference_writer_acceptance": "not_applicable"
+    },
+    {
+      "path": "evidence/path-time/native/snapshots/033-033-set-date-naive-eastern.itl",
+      "bytes": 9567,
+      "sha256": "656b181be257eb3ce6363c68db1e440ecc070ac635c8b61f894869560496230b",
+      "corpus_class": "native_itunes_path_time_sequence",
+      "producer": "iTunes 12.13.10.3",
+      "reference_writer_acceptance": "not_applicable"
+    },
+    {
+      "path": "evidence/path-time/native/snapshots/034-034-set-date-aware-instant.itl",
+      "bytes": 9581,
+      "sha256": "27e704693e22381455e027be7bddfe1557354df4187b7270f27451daa445b539",
+      "corpus_class": "native_itunes_path_time_sequence",
+      "producer": "iTunes 12.13.10.3",
+      "reference_writer_acceptance": "not_applicable"
+    },
+    {
+      "path": "evidence/path-time/native/snapshots/035-035-set-date-fold.itl",
+      "bytes": 9594,
+      "sha256": "f3312c36b43645e63b41fdd6c2e6d8925c87db39f55aefa8364dc41f6aeb4b4d",
+      "corpus_class": "native_itunes_path_time_sequence",
+      "producer": "iTunes 12.13.10.3",
+      "reference_writer_acceptance": "not_applicable"
+    },
+    {
+      "path": "evidence/path-time/native/snapshots/036-036-set-date-gap.itl",
+      "bytes": 9605,
+      "sha256": "f4f0520035fe8ab04c029efcb474c2148c9037b5f94519136fcfa6491b71a152",
+      "corpus_class": "native_itunes_path_time_sequence",
+      "producer": "iTunes 12.13.10.3",
+      "reference_writer_acceptance": "not_applicable"
+    },
+    {
+      "path": "evidence/path-time/native/snapshots/037-037-set-date-epoch.itl",
+      "bytes": 9605,
+      "sha256": "a49725f7022829d0f65fbe006117440217dd75781850dc96f0734b3ccf3c2d37",
+      "corpus_class": "native_itunes_path_time_sequence",
+      "producer": "iTunes 12.13.10.3",
+      "reference_writer_acceptance": "not_applicable"
+    },
+    {
+      "path": "evidence/path-time/native/snapshots/038-038-set-date-epoch-plus-one.itl",
+      "bytes": 9605,
+      "sha256": "6a589ceea0531e5ee45d75ea23abddaef5f5c36c2b6c32c5b2d98e361b47ae0c",
+      "corpus_class": "native_itunes_path_time_sequence",
+      "producer": "iTunes 12.13.10.3",
+      "reference_writer_acceptance": "not_applicable"
+    }
+  ]
+}

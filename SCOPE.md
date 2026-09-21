@@ -1,6 +1,6 @@
 # Project scope and completion boundary
 
-This document defines what this repository can claim at audit base commit `82c10a7ada3e4ee829f222e22d0c2848d9179d79` and what “complete” means for the specification deliverables.
+This document defines what this repository can claim at integrated evidence base commit `5adfbef29e0d3b5876f2c2bd222323ba0b08ca3b` and what “complete” means for the specification deliverables.
 
 ## Status summary
 
@@ -44,6 +44,10 @@ A stronger state never automatically generalizes to another version, library lin
    - transactional JSON operations;
    - new-file-only output publication.
 6. Archived native evidence, static analysis, offline regression tests, bounded fuzzing, and delivery-integrity checks linked from [`EVIDENCE.md`](EVIDENCE.md).
+
+7. The evidence-graded smart-playlist `SLst` AST, lossless serializer, structural validator, and retained-corpus census in [`SMART_PLAYLIST_SPEC.md`](SMART_PLAYLIST_SPEC.md). Semantic rule editing/evaluation is excluded.
+8. The bounded Windows path/time native matrix in [`PATH_AND_TIME_SPEC.md`](PATH_AND_TIME_SPEC.md), with offline, Windows-only, native COM/UI, and serialized-ITL evidence kept distinct.
+9. The aggregate hash inventory in [`corpus-manifest.json`](corpus-manifest.json), including explicit provenance and native-acceptance boundaries.
 
 ## Out of scope or explicitly unsupported
 
@@ -100,7 +104,7 @@ Specification consistency: [`scripts/research/verify_spec_deliverables.py`](scri
 
 The specification-deliverables task is complete only when all of the following are true:
 
-1. [`SCOPE.md`](SCOPE.md), [`ITL_FORMAT_SPEC.md`](ITL_FORMAT_SPEC.md), [`ITL_DATA_MODEL.md`](ITL_DATA_MODEL.md), [`ITL_RECORD_TYPES.md`](ITL_RECORD_TYPES.md), [`VERSION_MATRIX.md`](VERSION_MATRIX.md), [`EVIDENCE.md`](EVIDENCE.md), [`UNRESOLVED.md`](UNRESOLVED.md), and [`completion-status.yaml`](completion-status.yaml) exist at repository root.
+1. All 15 requested artifacts exist: [`SCOPE.md`](SCOPE.md), [`ITL_FORMAT_SPEC.md`](ITL_FORMAT_SPEC.md), [`ITL_DATA_MODEL.md`](ITL_DATA_MODEL.md), [`ITL_RECORD_TYPES.md`](ITL_RECORD_TYPES.md), [`SMART_PLAYLIST_SPEC.md`](SMART_PLAYLIST_SPEC.md), [`PATH_AND_TIME_SPEC.md`](PATH_AND_TIME_SPEC.md), [`VERSION_MATRIX.md`](VERSION_MATRIX.md), `REFERENCE_PARSER/`, `REFERENCE_WRITER/`, `VALIDATOR/`, `SEMANTIC_DIFF/`, `TEST_CORPUS/`, [`corpus-manifest.json`](corpus-manifest.json), [`EVIDENCE.md`](EVIDENCE.md), and [`UNRESOLVED.md`](UNRESOLVED.md).
 2. [`ITL_FORMAT_SPEC.md`](ITL_FORMAT_SPEC.md) is the canonical format document; [`docs/format.md`](docs/format.md) is only a compatibility pointer.
 3. Claims link to concrete implementation, tests, or evidence paths and carry a bounded status.
 4. Current offline tests pass with the frozen native fixture roots; explicit missing-COM cases remain skips rather than fabricated successes.
@@ -116,9 +120,11 @@ Passing these seven gates means **the audit deliverables are complete**. It does
 2. [`ITL_FORMAT_SPEC.md`](ITL_FORMAT_SPEC.md) — canonical binary-format and supported-codec specification.
 3. [`ITL_RECORD_TYPES.md`](ITL_RECORD_TYPES.md) — compact record/section/type-code catalog.
 4. [`ITL_DATA_MODEL.md`](ITL_DATA_MODEL.md) — implementation object model, identities, invariants, and transactions.
-5. [`VERSION_MATRIX.md`](VERSION_MATRIX.md) — version/profile qualification.
-6. [`EVIDENCE.md`](EVIDENCE.md) — claim-to-code/test/evidence traceability.
-7. [`UNRESOLVED.md`](UNRESOLVED.md) — open gaps and closure criteria.
-8. [`completion-status.yaml`](completion-status.yaml) — machine-readable status snapshot.
+5. [`SMART_PLAYLIST_SPEC.md`](SMART_PLAYLIST_SPEC.md) — evidence-graded smart-rule framing and AST.
+6. [`PATH_AND_TIME_SPEC.md`](PATH_AND_TIME_SPEC.md) — bounded Windows path/time behavior.
+7. [`VERSION_MATRIX.md`](VERSION_MATRIX.md) — version/profile qualification.
+8. [`EVIDENCE.md`](EVIDENCE.md) — claim-to-code/test/evidence traceability.
+9. [`UNRESOLVED.md`](UNRESOLVED.md) — open gaps and closure criteria.
+10. [`completion-status.yaml`](completion-status.yaml) — machine-readable status snapshot.
 
 If prose conflicts with executable behavior, treat the implementation and passing tests as the behavior of the current build, then treat native evidence as the upper bound on the claim. Record the mismatch as unresolved rather than silently broadening support.

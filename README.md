@@ -4,11 +4,11 @@ Windows版の**Apple公式スタンドアロンEXE版 iTunes 12.13.10.3**を対�
 
 **全面的な読み書き対応は未完成です。** 無変更のバイト保存、対応済みフィールド・操作、限定条件の曲追加実験を区別しています。実際のライブラリには必ずバックアップを取り、iTunesを終了してから別コピーで扱ってください。未対応形状は推測で書き換えず拒否します。
 
-仕様監査の入口は [`SCOPE.md`](SCOPE.md) です。正規フォーマット仕様は [`ITL_FORMAT_SPEC.md`](ITL_FORMAT_SPEC.md)、データモデルは [`ITL_DATA_MODEL.md`](ITL_DATA_MODEL.md)、レコード一覧は [`ITL_RECORD_TYPES.md`](ITL_RECORD_TYPES.md)、対応版は [`VERSION_MATRIX.md`](VERSION_MATRIX.md)、証拠対応表は [`EVIDENCE.md`](EVIDENCE.md)、未解決事項は [`UNRESOLVED.md`](UNRESOLVED.md)、機械可読な判定は [`completion-status.yaml`](completion-status.yaml) にあります。旧 [`docs/format.md`](docs/format.md) は互換リンクです。
+仕様監査の入口は [`SCOPE.md`](SCOPE.md) です。正規フォーマット仕様は [`ITL_FORMAT_SPEC.md`](ITL_FORMAT_SPEC.md)、データモデルは [`ITL_DATA_MODEL.md`](ITL_DATA_MODEL.md)、レコード一覧は [`ITL_RECORD_TYPES.md`](ITL_RECORD_TYPES.md)、スマートプレイリストは [`SMART_PLAYLIST_SPEC.md`](SMART_PLAYLIST_SPEC.md)、Windowsパス／日時は [`PATH_AND_TIME_SPEC.md`](PATH_AND_TIME_SPEC.md)、対応版は [`VERSION_MATRIX.md`](VERSION_MATRIX.md)、全ITLコーパスは [`corpus-manifest.json`](corpus-manifest.json)、証拠対応表は [`EVIDENCE.md`](EVIDENCE.md)、未解決事項は [`UNRESOLVED.md`](UNRESOLVED.md)、機械可読な判定は [`completion-status.yaml`](completion-status.yaml) にあります。旧 [`docs/format.md`](docs/format.md) は互換リンクです。
 
 ## 今回確認したこと
 
-- 回帰テスト：**995 passed / 5 skipped**（独立リファレンスツール19件を含む）。合成テストに加え、固定55個のネイティブITL構造と50個の対応COM記録を検査しました。5件はCOM記録がない明示的スキップで、ネイティブ操作の回数ではありません。
+- 回帰テスト：**1024 passed / 5 skipped**（独立リファレンスツール19件を含む）。合成テストに加え、固定55個のネイティブITL構造と50個の対応COM記録を検査しました。5件はCOM記録がない明示的スキップで、ネイティブ操作の回数ではありません。
 - 日時の負の端数が1904年エポックの0へ化ける問題を修正。保持される入れ子・未知のプレイリスト項目、復元元と不一致のシステム定義は変更前に拒否します。
 - 下記6候補を**実iTunesで選択して開き、各2回保存・終了・再起動**。最初45秒、次30秒の観察後にも期待値を確認しました。
 
@@ -51,6 +51,13 @@ python -B -m SEMANTIC_DIFF before.itl after.itl --fail-on-change
 python -B -m TEST_CORPUS generate output.itl
 python -B -m TEST_CORPUS manifest --check
 ```
+## Smart/path final evidence
+
+- [`SMART_PLAYLIST_SPEC.md`](SMART_PLAYLIST_SPEC.md) and [`itlkit/smart.py`](itlkit/smart.py) provide a lossless `SLst` AST/parser/serializer and type-102 structural view. The census parsed 95/95 retained ITLs, covering 1,235 smart/system playlist instances. User-created rule semantics, evaluation, and arbitrary editing remain unresolved.
+- [`PATH_AND_TIME_SPEC.md`](PATH_AND_TIME_SPEC.md) records 30 path cases and 8 `PlayedDate` mutations on isolated Windows iTunes 12.13.10.3. It retains 39 native-saved snapshots, all parseable; physical external media, remote SMB, drive reassignment, and a direct Japanese filesystem path remain unresolved.
+- [`evidence/native/fresh-20260921/`](evidence/native/fresh-20260921/) records a genuinely fresh iTunes-created library through empty/one/three-track, traced edit, and repeated saves. Because iTunes created it, this is not proof that the independent from-scratch writer is accepted.
+- [`corpus-manifest.json`](corpus-manifest.json) hashes all 142 retained ITLs and links the nested reference, fresh-native, path/time, and smart-playlist manifests/analyses. The two template-free reference fixtures still have `native_acceptance: unverified`.
+
 ## 基本的な実行
 
 Python 3.12以降を使用します。確認した環境は Python 3.12.10 / PyCryptodome 3.23.0 / pytest 9.1.1 です。
@@ -98,7 +105,7 @@ AppleのEXE/MSI/DLL、他社実行ファイル、提供された個人のITL・�
 
 ## 残る制約
 
-未知の文字列プール・参照専用表現、一般的な共有オブジェクトCOW、入れ子・任意のsmart/systemプレイリスト、空Nameのnative挙動、完全なソート再構築、タイムゾーン/DSTの一般化、他バージョン・クラウド/Store形式は未解決です。実験用のrawレコード操作を、汎用で安全な編集APIと見なさないでください。
+未知の文字列プール・参照専用表現、一般的な共有オブジェクトCOW、smart/systemプレイリストのlossless ASTを超える任意編集・評価、空Nameのnative挙動、完全なソート再構築、タイムゾーン/DSTの一般化、他バージョン・クラウド/Store形式は未解決です。実験用のrawレコード操作を、汎用で安全な編集APIと見なさないでください。
 
 ## 曲追加の限定再現ツール
 

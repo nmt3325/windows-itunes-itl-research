@@ -142,7 +142,7 @@ python -u scripts/windows/path_time_matrix.py native `
 ## 7. Evidence and tests
 
 - Aggregate: `evidence/path-time/native/native-summary.json`
-- Per-case input/COM/result: `evidence/path-time/native/runs/<case>/`
+- Per-case input/COM/result: `evidence/path-time/native/runs/001-drive-absolute/`
 - Native sequence: `evidence/path-time/native/snapshots/`
 - Media inventory: `evidence/path-time/native/input-manifest-final.json`
 - QA: `evidence/path-time/qa-summary.json`

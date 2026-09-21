@@ -40,7 +40,7 @@ Support is profile-specific. “Readable” does not mean editable, and “nativ
 | Ordinary playlist CRUD/order | Guarded; candidates 070–074 native-qualified | Refused | Unsupported |
 | Same-lineage track restore/delete | Guarded native local-WAV profile; candidates 110–111 | Refused | Unsupported |
 | Cross-library import/new-media construction | Research transformations and exact accepted candidates only; not public `Library` API | Unsupported | Unsupported |
-| Smart/system playlist editing | Refused | Refused | Refused |
+| Smart/system playlist AST inspect/lossless serialize | Implemented for observed type 101/102/103 framing; semantic edit/evaluation refused | Observed/parser only | Unsupported |
 
 ## Native evidence generations
 
@@ -59,3 +59,9 @@ The repository contains several bounded cohorts. They are related but not interc
 - A successful offline rebuild is not native acceptance.
 - A native pass for one hash does not qualify a new hash, a new field combination, another media kind, or another version.
 - Historical “done” labels in evidence mean the named phase completed, not that universal ITL support is complete.
+
+## Added bounded evidence cohorts
+
+6. **Fresh-library sequence:** six native snapshots under [`evidence/native/fresh-20260921/`](evidence/native/fresh-20260921/) cover iTunes-created empty/one/three-track states and repeated saves. They do not qualify the reference writer.
+7. **Smart-playlist census:** [`evidence/smart-playlist/corpus-census.json`](evidence/smart-playlist/corpus-census.json) covers 95 parseable retained ITLs and 1,235 built-in/system instances. It qualifies framing and lossless retention, not arbitrary rule semantics.
+8. **Windows path/time sequence:** [`evidence/path-time/native/native-summary.json`](evidence/path-time/native/native-summary.json) covers one isolated 12.13.10.3 environment, 30 path cases, 8 date mutations, and 39 parseable native-saved states. It does not qualify other iTunes versions, physical external media, or remote SMB.

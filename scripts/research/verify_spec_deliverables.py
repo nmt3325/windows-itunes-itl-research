@@ -18,11 +18,15 @@ REQUIRED = (
     "ITL_FORMAT_SPEC.md",
     "ITL_DATA_MODEL.md",
     "ITL_RECORD_TYPES.md",
+    "SMART_PLAYLIST_SPEC.md",
+    "PATH_AND_TIME_SPEC.md",
     "VERSION_MATRIX.md",
+    "corpus-manifest.json",
     "EVIDENCE.md",
     "UNRESOLVED.md",
     "completion-status.yaml",
 )
+REQUIRED_DIRS = ("REFERENCE_PARSER", "REFERENCE_WRITER", "VALIDATOR", "SEMANTIC_DIFF", "TEST_CORPUS")
 MARKDOWN = tuple(Path(name) for name in REQUIRED if name.endswith(".md")) + (
     Path("README.md"),
     Path("docs/format.md"),
@@ -49,6 +53,10 @@ def validate_required_files() -> None:
         path = ROOT / name
         if not path.is_file() or path.stat().st_size == 0:
             fail(f"missing or empty required deliverable: {name}")
+    for name in REQUIRED_DIRS:
+        path = ROOT / name
+        if not path.is_dir() or not any(path.iterdir()):
+            fail(f"missing or empty required deliverable directory: {name}")
 
 
 def validate_links_and_selectors() -> None:
@@ -93,7 +101,9 @@ def validate_status_subset() -> None:
         "universal_itl_support: false",
         "percentage_complete: null",
         "disposition: research_checkpoint_not_universal_format_support",
-        "branch: agent/spec-deliverables",
+        "branch: main",
+        "full_analysis_specification_gate: false",
+        "independent_reimplementation_passed: false",
     )
     for fragment in required_fragments:
         if fragment not in text:

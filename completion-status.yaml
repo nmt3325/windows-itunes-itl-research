@@ -1,169 +1,110 @@
-schema_version: 1
+schema_version: 2
 project: windows-itunes-itl-research
-audit_base_commit: 82c10a7ada3e4ee829f222e22d0c2848d9179d79
-branch: agent/spec-deliverables
+audit_base_commit: 5adfbef29e0d3b5876f2c2bd222323ba0b08ca3b
+branch: main
 
 status:
   deliverable_set: complete
   implementation: partial_guarded_research
   universal_itl_support: false
+  full_analysis_specification_gate: false
   disposition: research_checkpoint_not_universal_format_support
   percentage_complete: null
 
 scope:
   primary_native_profile: standalone_windows_itunes_12.13.10.3_x64
   secondary_observed_profile: standalone_windows_itunes_12.13.9.1
-  semantic_payload_byte_order: little_endian_only
+  windows_build: 10.0.26100
+  display_and_system_locale: en-US
   store_edition_supported: false
-  apple_music_database_supported: false
+  old_version_upgrade_matrix_complete: false
 
 required_deliverables:
-  - path: SCOPE.md
-    status: complete
-    role: claim_and_completion_boundary
-  - path: ITL_FORMAT_SPEC.md
-    status: complete
-    role: canonical_format_specification
-    canonical: true
-  - path: ITL_DATA_MODEL.md
-    status: complete
-    role: identities_invariants_and_transactions
-  - path: ITL_RECORD_TYPES.md
-    status: complete
-    role: section_record_and_type_code_catalog
-  - path: VERSION_MATRIX.md
-    status: complete
-    role: version_and_profile_qualification
-  - path: EVIDENCE.md
-    status: complete
-    role: claim_to_code_test_evidence_traceability
-  - path: UNRESOLVED.md
-    status: complete
-    role: open_gaps_and_closure_criteria
-  - path: completion-status.yaml
-    status: complete
-    role: machine_readable_status
-  - path: docs/format.md
-    status: compatibility_pointer
-    canonical: false
+  - SCOPE.md
+  - ITL_FORMAT_SPEC.md
+  - ITL_DATA_MODEL.md
+  - ITL_RECORD_TYPES.md
+  - SMART_PLAYLIST_SPEC.md
+  - PATH_AND_TIME_SPEC.md
+  - VERSION_MATRIX.md
+  - REFERENCE_PARSER/
+  - REFERENCE_WRITER/
+  - VALIDATOR/
+  - SEMANTIC_DIFF/
+  - TEST_CORPUS/
+  - corpus-manifest.json
+  - EVIDENCE.md
+  - UNRESOLVED.md
 
-claims:
-  byte_exact_noop:
-    status: offline_verified
-    implementation:
-      - itlkit/container.py
-      - itlkit/library.py
-    evidence:
-      - tests/test_core_container.py
-      - tests/test_codec_native_profiles.py
-  envelope_reconstruction:
-    status: native_qualified_for_exact_candidates
-    implementation:
-      - itlkit/container.py
-    evidence:
-      - evidence/native/research/acceptance/050-codec-forced/result.json
-      - evidence/native/research/024-empty-trace-correlation-matched-only.json
-      - evidence/native/research/041-native-deflate-correlation-matched-only.json
-  little_endian_library_model:
-    status: offline_verified_guarded
-    implementation:
-      - itlkit/model.py
-      - itlkit/library.py
-    evidence:
-      - tests/test_model_structure.py
-      - tests/test_core_compatibility.py
-  selected_track_edits:
-    status: native_qualified_for_named_fields_and_candidates
-    implementation:
-      - itlkit/library.py
-      - itlkit/atoms.py
-    evidence:
-      - evidence/native/research/045-native-matrix-final-gates.json
-      - evidence/native/research/acceptance/051-codec-modified/result.json
-  ordinary_playlist_operations:
-    status: native_qualified_for_exact_candidates
-    implementation:
-      - itlkit/operations.py
-    evidence:
-      - evidence/native/research/acceptance/070-codec-playlist-rename/result.json
-      - evidence/native/research/acceptance/071-codec-playlist-members/result.json
-      - evidence/native/research/acceptance/072-codec-playlist-create/result.json
-      - evidence/native/research/acceptance/073-codec-playlist-delete/result.json
-      - evidence/native/research/acceptance/074-codec-playlist-create-from-master/result.json
-  same_lineage_track_restore_delete:
-    status: native_qualified_for_exact_local_wav_candidates
-    implementation:
-      - itlkit/trackops.py
-    evidence:
-      - evidence/native/research/acceptance/110-codec-track-restore/result.json
-      - evidence/native/research/acceptance/111-codec-track-delete/result.json
-  selected_indexed_metadata:
-    status: native_qualified_for_exact_local_wav_candidate
-    implementation:
-      - itlkit/trackops.py
-      - itlkit/atoms.py
-    evidence:
-      - evidence/native/research/acceptance/112-codec-track-indexed/result.json
-  cross_library_and_constructor_research:
-    status: research_only_not_public_api
-    evidence:
-      - evidence/native/phase3/parent-independent-audit.json
-  audible_playback:
-    status: not_established
-    evidence:
-      - evidence/native/phase3/controls/post-acceptance-silent-playback/result.json
-  big_endian_semantics:
-    status: unsupported_container_opaque_only
-  smart_system_recursive_playlist_editing:
-    status: unsupported_fail_closed
-  arbitrary_versions_media_and_cloud:
-    status: unsupported_or_unresolved
+qualification:
+  guarded_reader: implemented_and_offline_verified_for_observed_profiles
+  compatible_editor: partial_exact_candidate_native_qualification
+  independent_parser_validator_diff: implemented_without_itlkit_imports
+  independent_from_scratch_generation: implemented_for_two_reference_fixtures
+  independent_from_scratch_native_acceptance: unverified
+  smart_playlist: lossless_ast_and_structural_view_only
+  path_time: bounded_native_matrix_only
+  audible_playback: not_established
+  atomic_native_save_protocol: not_established
 
 validation:
-  current_core_test_run:
+  integrated_tests:
     status: passed
-    command: "python -B -m pytest tests -q -rs -p no:cacheprovider"
-    passed: 976
+    passed: 1024
     skipped: 5
     failed: 0
-    errors: 0
-    elapsed_seconds: 2.31
+    command: python -B -m pytest tests -q -rs -p no:cacheprovider
   strict_delivery_verifier_tests:
     status: passed
-    command: "python -B -m pytest proposals/test_verify_delivery_strict.py -q"
     passed: 9
     failed: 0
-  delivery_manifest:
+  spec_consistency: passed
+  delivery_manifest: verified
+  root_corpus_manifest:
     status: verified
-    verifier: scripts/research/verify_delivery.py
-  spec_consistency:
-    status: passed
-    verifier: scripts/research/verify_spec_deliverables.py
-  markdown_links_and_test_selectors:
-    status: passed
-    verifier: scripts/research/verify_spec_deliverables.py
-  yaml_parse:
-    status: passed
-    parser: ruby_3.3.12_psych
+    itl_files: 142
+  path_time_snapshots:
+    parsed: 39
+    errors: 0
+  fresh_native_snapshots:
+    parsed: 6
+    errors: 0
+  smart_playlist_census:
+    files_parsed: 95
+    files_failed: 0
+    instances: 1235
 
-critical_gaps:
-  - U-01_version_breadth
-  - U-02_big_endian_semantics
-  - U-03_general_identity_and_string_pool_allocation
-  - U-04_arbitrary_cross_library_import_and_new_track_construction
-  - U-05_general_shared_object_cow
-  - U-06_recursive_smart_system_playlist_semantics
-  - U-07_store_cloud_drm_queue_history
-  - U-08_media_relocation
-  - U-09_non_wav_structural_edits
-  - U-10_complete_sort_rank_cache_regeneration
-  - U-11_timezone_dst_semantics
-  - U-15_audible_playback
+completion:
+  gate_passed: false
+  scope_frozen: true
+  target_itunes_versions_documented: true
+  target_itl_versions_documented: true
+  companion_file_dependencies_documented: true
+  declared_record_type_coverage: null
+  declared_field_coverage: null
+  smart_playlist_rule_coverage: null
+  reference_integrity_coverage: null
+  must_understand_unknown_records: null
+  must_understand_unknown_fields: null
+  unexplained_integrity_bytes: null
+  unexplained_user_visible_differences: null
+  valid_itl_parse_pass_rate: null
+  no_op_roundtrip_pass_rate: null
+  edit_roundtrip_pass_rate: null
+  new_itl_generation_pass_rate: 0
+  repeated_open_save_pass_rate: null
+  opened_without_repair: null
+  opened_without_backup_restore: null
+  opened_without_xml_rebuild: null
+  critical_unresolved_items: 7
+  major_unresolved_items: 11
+  evidence_linked_to_every_spec_item: false
+  independent_reimplementation_passed: false
 
 prohibited_conclusions:
   - complete_or_universal_itl_read_write_support
-  - native_acceptance_for_untested_hashes
+  - full_analysis_or_specification_confirmed
+  - native_acceptance_for_reference_generated_itl
   - support_for_all_itunes_versions_or_editions
   - arbitrary_cross_library_or_media_import_support
-  - audible_playback_success
   - one_hundred_percent_completion

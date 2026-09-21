@@ -123,9 +123,10 @@ def test_location_guard_requires_immutable_inventory(tmp_path: Path):
         _guard_com_locations(row, {"0" * 64})
 
 
-def test_native_mode_requires_explicit_disposable_confirmation(tmp_path: Path):
+def test_native_mode_requires_explicit_disposable_confirmation(tmp_path: Path, monkeypatch):
     args = SimpleNamespace(confirm_disposable=False, root=tmp_path / "root",
                            evidence=tmp_path / "evidence", seed=tmp_path / "seed.itl")
+    monkeypatch.setattr("scripts.windows.path_time_matrix.os.name", "nt")
     with pytest.raises(RuntimeError, match="confirm-disposable"):
         run_native(args)
 

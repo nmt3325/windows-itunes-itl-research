@@ -88,3 +88,16 @@ python -B scripts/research/verify_delivery.py
 ```
 
 Use a fresh temporary path outside the repository. These commands are offline; they do not launch iTunes.
+
+## 2026-09-21 integration supplement
+
+| Claim | Grade | Implementation/tests | Evidence and boundary |
+| --- | --- | --- | --- |
+| A fresh isolated 12.13.10.3 library progressed through empty, one track, three tracks, one traced Name edit, and two repeated saves with equal logical state | N1/O | existing parser plus manifest QA | [`evidence/native/fresh-20260921/`](evidence/native/fresh-20260921/); iTunes created the library, so this is not reference-writer acceptance |
+| `SLst` framing, counts, rule boundaries, opaque bytes, and unknown operators can be parsed and serialized losslessly | NC/O/T | [`itlkit/smart.py`](itlkit/smart.py); [`tests/test_smart_playlists.py`](tests/test_smart_playlists.py) | [`SMART_PLAYLIST_SPEC.md`](SMART_PLAYLIST_SPEC.md); [`evidence/smart-playlist/corpus-census.json`](evidence/smart-playlist/corpus-census.json); semantic names beyond native correlations remain PA/H |
+| 95/95 retained ITLs yielded 1,235 type-101/102/103 playlist instances without parser errors | NC/O | census and tests | [`evidence/smart-playlist/`](evidence/smart-playlist/); built-in/system corpus only, no custom editable rules |
+| 24/30 path calls returned tracks; 23 new tracks survived sequential native saves/reopens; 39/39 snapshots parse | N1/O | [`scripts/windows/path_time_matrix.py`](scripts/windows/path_time_matrix.py); [`tests/test_path_time_matrix.py`](tests/test_path_time_matrix.py) | [`PATH_AND_TIME_SPEC.md`](PATH_AND_TIME_SPEC.md); [`evidence/path-time/qa-summary.json`](evidence/path-time/qa-summary.json); six failures are COM-boundary observations, not universal format rejection |
+| Six of eight `PlayedDate` setter cases persisted; fold identity was lost and a DST gap normalized | N1/O | path/time harness and codec tests | [`evidence/path-time/native/native-summary.json`](evidence/path-time/native/native-summary.json); only the tested field/zone/build is qualified |
+| All retained ITLs and subordinate corpus analyses are hash-addressed by one root inventory | O | [`scripts/research/build_manifests.py`](scripts/research/build_manifests.py) | [`corpus-manifest.json`](corpus-manifest.json); presence does not imply native acceptance |
+
+The integrated offline regression is 1024 passed / 5 skipped when run with the frozen native fixture roots documented below. This count is not a native-interoperability percentage.

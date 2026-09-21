@@ -46,11 +46,11 @@ Selected local-WAV album/artist maintenance works when the old object is not sha
 
 ### U-06 — recursive, smart, system, and master playlist semantics
 
-**State:** preserved/compared/refused.
+**State:** structural AST implemented; semantics/editing unresolved.
 
-Flat ordinary playlist CRUD is supported. Grouped/nested items, arbitrary smart rules, system definitions, automatic sort/display behavior, and external playlist-item references remain unresolved.
+[`SMART_PLAYLIST_SPEC.md`](SMART_PLAYLIST_SPEC.md) now defines bounded type-101 `SLst` framing, a lossless AST, type-102 offset view, type-103 preservation, and unknown-operator behavior. The 95-file census contains built-in/system playlists only. AND/OR/operator names beyond direct native correlations, string/date/range/membership semantics, nested groups, evaluation, and arbitrary UI-compatible editing are still not native-differentially confirmed.
 
-**Closure evidence required:** record grammar for nested items and rule objects, evaluation/ownership semantics, matching negative fixtures, and native persistence tests without losing opaque rules.
+**Closure evidence required:** controlled user-created smart playlists spanning every rule family and nested condition, UI edits with isolated byte differentials, semantic evaluation oracles, and two-cycle native persistence for independently generated rules.
 
 ### U-07 — store, cloud, DRM, queue, and history profiles
 
@@ -62,11 +62,13 @@ Sections 20/22/23, store indexes, cloud/store track types, DRM state, and queue/
 
 ## Major semantic gaps
 
-### U-08 — media relocation and URL/path objects
+### U-08 — media relocation and Windows path behavior
 
-Changing text URL/path alone can contradict an opaque file-location object. The supported code refuses this case and does not move media.
+**State:** bounded native matrix; general relocation unresolved.
 
-Closure requires decoding and updating all location representations, path normalization/encoding rules, filesystem behavior, and native reopen tests on relocated synthetic media.
+[`PATH_AND_TIME_SPEC.md`](PATH_AND_TIME_SPEC.md) confirms exact samples for absolute/relative paths, drive-letter case, slash spelling, NFC/NFD, emoji, read-only media, case-only duplicate recognition, hard/symbolic links, localhost-backed UNC/mapping, and a `subst` drive. Six `AddFile` forms failed or returned no track. Those are COM-call observations, not proof that a directly authored ITL value is rejected.
+
+Remote SMB, physical removable media, drive-letter reassignment after import, direct Japanese filesystem paths, portable relocation, and complete opaque location-object updates remain unresolved. Closure requires hardware/remote matrices and independently written ITLs reopened without repair/backup/XML fallback.
 
 ### U-09 — non-WAV structural edits and media-format breadth
 
@@ -82,9 +84,11 @@ Closure requires consumer mapping and native factorials for empty/missing/nonemp
 
 ### U-11 — date/time semantics
 
-HFS values are treated as displayed local wall seconds from 1904 with an explicit caller-provided offset. Raw zero remains unset. Historical timezone, DST, fold/gap, locale, and cross-version policies are not inferred.
+**State:** one-field native DST matrix; general model unresolved.
 
-Closure requires native tests across zones and DST transitions, explicit policy decisions, and backward-compatible serialization tests.
+The path/time matrix persisted six `PlayedDate` cases. The tested scalar behaves as whole wall-clock seconds from 1904 without retained offset/fold metadata; an Eastern DST gap normalized from 02:30 to 03:30 and fold identity was not retained. Epoch/epoch+1 setters failed at the Python/COM boundary, which does not prove raw ITL rejection. Existing `date_modified` values shifted by -14,400 seconds after a zone change, but the cause is not isolated.
+
+Closure still requires every date field, raw-writer epoch boundaries, multiple Windows zones/locales, historical DST rules, file timestamps versus ITL values, and cross-version/native round trips.
 
 ### U-12 — long strings and UI/COM truncation
 
