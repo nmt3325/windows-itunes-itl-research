@@ -1,0 +1,51 @@
+{
+  "schema_version": 1,
+  "evidence_class": "Windows/Python pywin32 marshalling only; no iTunes call",
+  "generated_utc": "2026-09-21T16:04:36.187291+00:00",
+  "python": "3.12.10",
+  "pywin32_time_cases": [
+    {
+      "name": "epoch_naive",
+      "input": "1904-01-01T00:00:00",
+      "accepted": true,
+      "result": "1904-01-01T00:00:00",
+      "repr": "datetime.datetime(1904, 1, 1, 0, 0)"
+    },
+    {
+      "name": "epoch_plus_one_naive",
+      "input": "1904-01-01T00:00:01",
+      "accepted": true,
+      "result": "1904-01-01T00:00:01",
+      "repr": "datetime.datetime(1904, 1, 1, 0, 0, 1)"
+    },
+    {
+      "name": "epoch_aware_utc",
+      "input": "1904-01-01T00:00:00+00:00",
+      "accepted": true,
+      "result": "1904-01-01T00:00:00+00:00",
+      "repr": "datetime.datetime(1904, 1, 1, 0, 0, tzinfo=datetime.timezone.utc)"
+    },
+    {
+      "name": "epoch_plus_one_aware_utc",
+      "input": "1904-01-01T00:00:01+00:00",
+      "accepted": true,
+      "result": "1904-01-01T00:00:01+00:00",
+      "repr": "datetime.datetime(1904, 1, 1, 0, 0, 1, tzinfo=datetime.timezone.utc)"
+    },
+    {
+      "name": "unix_naive",
+      "input": "1970-01-01T00:00:00",
+      "accepted": true,
+      "result": "1970-01-01T00:00:00",
+      "repr": "datetime.datetime(1970, 1, 1, 0, 0)"
+    },
+    {
+      "name": "modern_naive",
+      "input": "2026-01-15T12:34:56",
+      "accepted": true,
+      "result": "2026-01-15T12:34:56",
+      "repr": "datetime.datetime(2026, 1, 15, 12, 34, 56)"
+    }
+  ],
+  "conclusion": "The 1904 native attempts in the main matrix were blocked by pywintypes.Time construction before the PlayedDate setter could be called."
+}

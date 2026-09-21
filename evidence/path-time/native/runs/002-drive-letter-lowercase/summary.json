@@ -1,0 +1,237 @@
+{
+  "case": {
+    "name": "002-drive-letter-lowercase",
+    "category": "drive_letter_case",
+    "source_path": "D:\\a\\_temp\\gha-mcp\\win-s8c9ycp8\\work\\path-time-native-final\\media\\drive-letter-case.wav",
+    "source_sha256": "b8b75da97d161d60e5781fd963669692849199877d4a5de4342831ce1fc93b47",
+    "input": "d:\\a\\_temp\\gha-mcp\\win-s8c9ycp8\\work\\path-time-native-final\\media\\drive-letter-case.wav",
+    "expect_input_exists": true,
+    "evidence_note": "native iTunes/COM plus serialized ITL"
+  },
+  "timezone": "UTC",
+  "ui": [
+    {
+      "action": "dismiss_known_audio_warning",
+      "window": {
+        "hwnd": 1179734,
+        "pid": 6348,
+        "class": "iTunesCustomModalDialog",
+        "title": "iTunes",
+        "children": [
+          {
+            "hwnd": 459218,
+            "class": "Static",
+            "text": "iTunes has detected a problem with your audio configuration.\rAudio/Video playback may not operate properly.",
+            "id": 101,
+            "enabled": true,
+            "visible": true
+          },
+          {
+            "hwnd": 524636,
+            "class": "Static",
+            "text": "",
+            "id": 103,
+            "enabled": true,
+            "visible": false
+          },
+          {
+            "hwnd": 2424854,
+            "class": "Button",
+            "text": "",
+            "id": 104,
+            "enabled": true,
+            "visible": false
+          },
+          {
+            "hwnd": 3670164,
+            "class": "Button",
+            "text": "OK",
+            "id": 1,
+            "enabled": true,
+            "visible": true
+          },
+          {
+            "hwnd": 852348,
+            "class": "Button",
+            "text": "More Info",
+            "id": 105,
+            "enabled": true,
+            "visible": false
+          },
+          {
+            "hwnd": 459220,
+            "class": "Static",
+            "text": "",
+            "id": 102,
+            "enabled": true,
+            "visible": true
+          }
+        ]
+      }
+    }
+  ],
+  "worker_ok": true,
+  "action_result": {
+    "kind": "add",
+    "input_sha256": "b8b75da97d161d60e5781fd963669692849199877d4a5de4342831ce1fc93b47",
+    "samefile": true,
+    "returned_tracks": [
+      {
+        "persistent_id": "A2F0B84C4FB8E7E3",
+        "Name": "drive-letter-case",
+        "Location": "d:\\a\\_temp\\gha-mcp\\win-s8c9ycp8\\work\\path-time-native-final\\media\\drive-letter-case.wav",
+        "DateAdded": "2026-09-21T15:52:14+00:00",
+        "ModificationDate": "2026-09-21T15:51:59+00:00",
+        "PlayedDate": "1899-12-30T00:00:00+00:00",
+        "SkippedDate": "1899-12-30T00:00:00+00:00",
+        "PlayedCount": 0,
+        "SkippedCount": 0,
+        "Size": 16044,
+        "Kind": 1
+      }
+    ],
+    "returned_track_count": 1,
+    "outcome": "returned"
+  },
+  "added_persistent_ids": [
+    "A2F0B84C4FB8E7E3"
+  ],
+  "snapshot": "native\\snapshots\\002-002-drive-letter-lowercase.itl",
+  "decoded_after": {
+    "sha256": "1b783375e4c70774b686c29174dc0d741db4fe7b0ba5c05556aa7f3f3bcb51ea",
+    "bytes": 4767,
+    "version": "12.13.10.3",
+    "track_count": 2,
+    "tracks": [
+      {
+        "persistent_id": "D3E82664520BAB73",
+        "track_id": 73,
+        "name": "drive-absolute",
+        "url": "file://localhost/D:/a/_temp/gha-mcp/win-s8c9ycp8/work/path-time-native-final/media/drive-absolute.wav",
+        "path": "D:\\a\\_temp\\gha-mcp\\win-s8c9ycp8\\work\\path-time-native-final\\media\\drive-absolute.wav",
+        "date_added": 3872850725,
+        "date_modified": 3872850719,
+        "play_date": 0,
+        "skip_date": 0,
+        "opaque_location_objects": []
+      },
+      {
+        "persistent_id": "A2F0B84C4FB8E7E3",
+        "track_id": 148,
+        "name": "drive-letter-case",
+        "url": "file://localhost/d:/a/_temp/gha-mcp/win-s8c9ycp8/work/path-time-native-final/media/drive-letter-case.wav",
+        "path": "d:\\a\\_temp\\gha-mcp\\win-s8c9ycp8\\work\\path-time-native-final\\media\\drive-letter-case.wav",
+        "date_added": 3872850734,
+        "date_modified": 3872850719,
+        "play_date": 0,
+        "skip_date": 0,
+        "opaque_location_objects": []
+      }
+    ]
+  },
+  "byte_diff": {
+    "before_sha256": "de091428d7343b794fee424ffef8df14e6249f8d77a88b111a692135c5b969e6",
+    "after_sha256": "1b783375e4c70774b686c29174dc0d741db4fe7b0ba5c05556aa7f3f3bcb51ea",
+    "before_bytes": 4504,
+    "after_bytes": 4767,
+    "overlap_changed_bytes": 4352,
+    "length_delta": 263,
+    "changed_spans_first_32": [
+      [
+        10,
+        12
+      ],
+      [
+        71,
+        72
+      ],
+      [
+        79,
+        80
+      ],
+      [
+        87,
+        88
+      ],
+      [
+        115,
+        116
+      ],
+      [
+        144,
+        788
+      ],
+      [
+        789,
+        1103
+      ],
+      [
+        1104,
+        1106
+      ],
+      [
+        1107,
+        1225
+      ],
+      [
+        1226,
+        1251
+      ],
+      [
+        1252,
+        1714
+      ],
+      [
+        1715,
+        1883
+      ],
+      [
+        1884,
+        1920
+      ],
+      [
+        1921,
+        2892
+      ],
+      [
+        2893,
+        2933
+      ],
+      [
+        2934,
+        3449
+      ],
+      [
+        3450,
+        3622
+      ],
+      [
+        3623,
+        3727
+      ],
+      [
+        3728,
+        4291
+      ],
+      [
+        4292,
+        4504
+      ]
+    ],
+    "span_count": 20
+  },
+  "semantic_diff": {
+    "added": [
+      "A2F0B84C4FB8E7E3"
+    ],
+    "removed": [],
+    "changed": {
+      "D3E82664520BAB73": {
+        "track_id": {
+          "before": 141,
+          "after": 73
+        }
+      }
+    }
+  }
+}

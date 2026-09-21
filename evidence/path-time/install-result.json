@@ -1,0 +1,43 @@
+{
+  "schema_version": 1,
+  "started_utc": "2026-09-21T15:24:52.1775735Z",
+  "completed_utc": "2026-09-21T15:28:23.3724627Z",
+  "command": "\"D:\\a\\_temp\\iTunes64Setup-12.13.10.3.exe\" /quiet /norestart",
+  "installer_sha256": "cea2a74cae3f061eadc11358eeaae9b40cfdea9ec1ee037b47da54a64219e182",
+  "exit_code": 0,
+  "accepted_exit_codes": [
+    0,
+    3010
+  ],
+  "exit_code_accepted": true,
+  "msiexec_still_running": true,
+  "installed_executable": {
+    "path": "C:\\Program Files\\iTunes\\iTunes.exe",
+    "bytes": 38952912,
+    "file_version": "12.13.10.3",
+    "product_version": "12.13.10.3",
+    "sha256": "30d91209b5d81c47bbad2da9d89764fcab08bf5cd9af1a9571668001376c5d7d",
+    "authenticode_status": "Valid",
+    "signer_subject": "CN=Apple Inc., O=Apple Inc., L=Cupertino, S=California, C=US"
+  },
+  "uninstall_entries": [
+    {
+      "DisplayName": "iTunes",
+      "DisplayVersion": "12.13.10.3",
+      "Publisher": "Apple Inc.",
+      "InstallDate": "20260921",
+      "UninstallString": "MsiExec.exe /I{F0D2C441-5D79-468A-AAA3-C9A3B629560D}"
+    }
+  ],
+  "recent_temp_logs": [],
+  "post_install_recheck": {
+    "checked_utc": "2026-09-21T15:51:38.8105722Z",
+    "msiexec_processes": [],
+    "windows_installer_service": {
+      "Name": "msiserver",
+      "Status": 1,
+      "StartType": 3
+    },
+    "interpretation": "The original msiexec_still_running boolean counted any msiexec.exe process and did not prove an active install. Bundle exit 0 plus the pinned installed binary/version/signature and uninstall entry are the completion evidence."
+  }
+}
