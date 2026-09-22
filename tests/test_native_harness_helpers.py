@@ -176,3 +176,20 @@ def test_media_followup_rejects_wrong_serialized_master_membership() -> None:
     summary["playlists"][0]["members"] = [{"track_persistent_id": "4444444444444444"}]
     errors = media_followup.independent_identity_errors(summary, validation, expected_state)
     assert [error["property"] for error in errors] == ["serialized_master_members"]
+
+
+@pytest.mark.parametrize(
+    "states",
+    [
+        [],
+        [{"value": 1}],
+        [{"value": 1}, {"value": 2}, {"value": 1}],
+    ],
+)
+def test_media_followup_convergence_refuses_without_adjacent_equal_states(states: list[dict]) -> None:
+    assert media_followup.consecutive_snapshot_convergence(states) is None
+
+
+def test_media_followup_convergence_returns_first_equal_pair_end_read() -> None:
+    states = [{"value": 1}, {"value": 2}, {"value": 2}, {"value": 3}, {"value": 3}]
+    assert media_followup.consecutive_snapshot_convergence(states) == 3

@@ -44,7 +44,7 @@ qualification:
   independent_from_scratch_native_acceptance: verified_for_four_exact_hashes
   smart_playlist: native_nested_framing_observed_but_operand_and_membership_failed
   native_field_matrix: 27_passed_2_failed_exact_cases_only
-  native_media_field_followup: 0_of_2_exact_mutations_passed_after_2_of_2_initialization_and_baseline_chains
+  native_media_field_followup: one_exact_short_ascii_lyrics_mp3_pass_and_three_exact_wav_mutation_failures
   external_independent_interop: exact_compressed_structural_roundtrip_only_semantic_gate_failed
   path_time: bounded_native_matrix_only
   audible_playback: not_established
@@ -56,12 +56,17 @@ validation:
     passed: 27
     failed: 2
   native_media_field_followup:
-    status: failed_with_preserved_evidence
-    initialization_sessions_passed: 2
-    baseline_restart_sessions_passed: 2
-    mutation_sessions_passed: 0
-    mutation_sessions_failed: 2
-    verification_sessions_attempted: 0
+    status: mixed_exact_evidence
+    wav_initialization_sessions_passed: 3
+    wav_baseline_restart_sessions_passed: 3
+    wav_mutation_sessions_passed: 0
+    wav_mutation_sessions_failed: 3
+    mp3_ascii_initialization_sessions_passed: 1
+    mp3_ascii_baseline_restart_sessions_passed: 1
+    mp3_ascii_mutation_sessions_passed: 1
+    mp3_ascii_verification_sessions_passed: 1
+    mp3_media_rewrite_observed: true
+    lyrics_long_string_boundary_established: false
   external_itl_rs:
     structural_roundtrip_native_cycles: 2
     semantic_reimplementation_passed: false
@@ -72,19 +77,19 @@ validation:
     nonempty_string_operand_observed: false
   integrated_tests:
     status: passed
-    passed: 1048
+    passed: 1052
     skipped: 5
     failed: 0
     command: python -B -m pytest tests -q -rs -p no:cacheprovider
   strict_delivery_verifier_tests:
     status: passed
-    passed: 9
+    passed: 23
     failed: 0
   spec_consistency: passed
   delivery_manifest: verified
   root_corpus_manifest:
     status: verified
-    itl_files: 252
+    itl_files: 259
   path_time_snapshots:
     parsed: 39
     errors: 0

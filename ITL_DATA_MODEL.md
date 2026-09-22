@@ -76,7 +76,9 @@ Identity values are not interchangeable merely because they have the same width.
 | Item creation/order token | `mtph+0x20` | u32 LE | Not assumed to mirror current local ID. |
 | Playlist-item persistent ID | `mtph+0x44` | u64 LE | Nonzero/unique within its playlist. |
 
-The corrected media-backed follow-up observed two fresh native libraries whose nonzero outer file PID differed from the COM/master PID while the serialized master selected by the COM PID contained the exact track PID across restart. Validators must gate these domains independently rather than treating inequality as fallback.
+The corrected media-backed follow-up observed fresh native libraries whose nonzero outer file PID differed from the COM/master PID while the serialized master selected by the COM PID contained the exact track PID across restart. Validators must gate these domains independently rather than treating inequality as fallback.
+
+The same short plain-ASCII `Lyrics` value was rejected through COM on deterministic WAV backing but accepted and restart-persisted on one deterministic MP3 backing. The accepted operation rewrote the MP3 from 8,777 to 19,066 bytes, and the rewritten media remained exact through verification. This establishes a media-file dependency for that exact operation but does not identify whether authoritative or cached state lives in the media, the ITL, or both. A generic ITL-only Lyrics mapping must therefore remain unresolved and fail closed.
 
 Native reopen may renumber session/local values while persistent identities remain the acceptance anchor.
 

@@ -181,7 +181,9 @@ lib.track(persistent_id='0123456789ABCDEF').set(name='New title', rating=80)
 lib.write('new-output.itl')          # exclusive output creation
 ```
 
-`Library.persistent_id` and summary `file_persistent_id` refer to the hdfm header identity. COM LibraryPlaylist identity is **different**: summary `library_persistent_id` is the master playlist persistent ID. Native validation must compare the right identity, not mistake that difference for fallback. Two fresh `AddFile` libraries in the corrected media-backed follow-up retained unequal, stable outer/master PIDs while the serialized master selected by COM PID held the exact track PID; equality remains only an exact-fixture construction rule.
+`Library.persistent_id` and summary `file_persistent_id` refer to the hdfm header identity. COM LibraryPlaylist identity is **different**: summary `library_persistent_id` is the master playlist persistent ID. Native validation must compare the right identity, not mistake that difference for fallback. Fresh `AddFile` libraries in the corrected media-backed follow-ups retained unequal, stable outer/master PIDs while the serialized master selected by COM PID held the exact track PID; equality remains only an exact-fixture construction rule.
+
+Native `Lyrics` behavior is not currently an ITL-only write rule. One exact short plain-ASCII setter was rejected on WAV but passed and survived restart on MP3 while iTunes rewrote the media file. The byte location, authority split, Unicode behavior, length boundary, other media kinds, and version behavior remain unknown. The writer exposes no generic Lyrics mutation and must not infer one from this single native pass.
 
 `python -m itlkit --help` documents `inspect`, `check`, `roundtrip`, `export-json`, `import-json`, `patch`, `import-track`, `decode`, and `encode`. The `itlkit.__main__.main(argv=None)` function returns 0 or 2. argparse usage/help retains standard SystemExit behavior. No command modifies an existing output: creation is exclusive, protecting original files and aliases/hard links. Parent directories must exist.
 

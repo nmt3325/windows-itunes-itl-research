@@ -1,0 +1,60 @@
+# Short ASCII `Lyrics` on deterministic MP3 backing
+
+**Disposition: bounded native positive evidence for one exact property/value/media case. All four sessions passed and restart persistence was exact.**
+
+On one fresh native `AddFile`-created deterministic MP3 track, standalone iTunes 12.13.10.3 accepted `Lyrics = "Plain ASCII lyrics line one"`, rewrote the media file, saved normally, and returned the exact value after a separate restart. This is not generic Lyrics support: the same property/value was rejected on the paired deterministic WAV case, and no Unicode, long-string, UI, other-media, or cross-version boundary is established.
+
+## Pinned run
+
+- Run window: `2026-09-22T03:53:00.492690+00:00` through `2026-09-22T03:54:10.450951+00:00`
+- Disposable root: `D:\a\_temp\itl-media-field-followup-20260922-mp3-ascii-v3`
+- Platform: Windows Server 2025 / NT 10.0.26100, Python 3.12.10
+- iTunes: standalone Apple desktop x64 `12.13.10.3`
+- iTunes executable SHA-256: `30d91209b5d81c47bbad2da9d89764fcab08bf5cd9af1a9571668001376c5d7d`
+- Capture harness: [`capture-harness.py`](capture-harness.py), 38,624 bytes, SHA-256 `964e4a6ef7df104867b0211e38b8f0607b014c87f82709dd2d82bbe37b846416`
+- Native driver: [`capture-native-driver.py`](capture-native-driver.py), 5,959 bytes, SHA-256 `3b33a0ddb405567d0176e71ca774bcb0077358eefea39d62016e56479b3233eb`
+- Case matrix: 165 bytes, SHA-256 `ed689a75e0b6cc6a7fcbb170c1380009525d83de30a00c6c2cafdaa3b1f45b79`
+- Aggregate result: `passed=1`, `failed=0`, `status=passed`
+
+Each of the initialize → baseline restart → mutate → verification sessions required stable complete COM snapshots, exact identities and membership, normal `Quit()`, exit code 0, no fallback artifacts, and an independently parseable/valid saved ITL. Media changes were forbidden outside the mutation session. After the setter, the worker sampled at most 10 times at one-second intervals and required the first adjacent equal complete-state pair, including equal media hashes.
+
+## Deterministic MP3 provenance
+
+The source was generated from a 784 Hz, 44.1 kHz mono waveform with 22,050 PCM frames, amplitude 5,000, 128 kbps, and quality 2.
+
+- Encoder distribution: `lameenc==1.8.1`
+- Pinned wheel SHA-256: `715e0e72ed5429f00042379e48a7903e54ee5dc01069db34338536f3595059c3`
+- Loaded `lameenc.cp312-win_amd64.pyd`: 297,984 bytes
+- Loaded module SHA-256: `ff9f47ecfc0b167e2e3e4edacaeb23aa0b10422ef4cc180d52ae3b86ff7636dc`
+- Original MP3: 8,777 bytes, SHA-256 `5033b6d0540cfc68b0e169c6f7da3dd028f4fc88769b5b2d2b81a43119ddee12`
+- Native-rewritten MP3: 19,066 bytes, SHA-256 `d49051b7f7629b6cb6bc68fd08dabf7f9a001331a026a799ee3b3329f8b9535c`
+
+Initialization and baseline left the original media exact. Mutation was the only session allowed to change it. Verification started and ended with the rewritten 19,066-byte file exact, proving that no additional media change occurred during restart verification.
+
+## Stable identity and native chain
+
+All four sessions retained:
+
+- COM library / serialized master PID: `724FEABECC246624`
+- Track PID: `C8E12019BBFC2A05`
+- Outer file PID: `F571132DD64E8A21`
+- Serialized master membership: exactly `C8E12019BBFC2A05`
+
+| Phase | UTC start → finish | Result | ITL bytes | ITL SHA-256 |
+| --- | --- | --- | ---: | --- |
+| initialize | `03:53:00.643582` → `03:53:17.944243` | exact original media; native save; validator `valid=true`; normal exit 0 | 4,509 | `5c85ba3936e7888a215b70f2a33aa8cd7fe630286930c56f783a7e3a7ce1d098` |
+| baseline restart | `03:53:17.948283` → `03:53:35.924414` | stable complete reload; identities/membership retained; original media exact; normal exit 0 | 4,537 | `464fc6c9140a8536ac76924c9d4d56eedae36522a45e14e480e463b659a1db9a` |
+| mutate | `03:53:35.927224` → `03:53:53.163188` | exact setter projection; adjacent reads 2–3 converged; rewritten media stable; validator `valid=true`; normal exit 0 | 4,546 | `2b5a208ab6a6aa9c228bd5e468ad1c1a705b2ff805554e3f17d6221049c4205a` |
+| verification restart | `03:53:53.165209` → `03:54:10.426221` | exact Lyrics persisted; full state/identity/media gates passed; validator `valid=true`; normal exit 0 | 4,541 | `312740b3aeddf94624b34f7ee6d90ca5c21046ef528a03a303ff1dab9193e176` |
+
+The immediate setter projection and both stable post-mutation reads returned the exact requested string. Post-mutation convergence occurred on read 3 using adjacent reads `[2, 3]`; both carried media hash `d49051b7…b9535c`. The track `ModificationDate` changed asynchronously from `2026-09-22T03:53:00+00:00` to `2026-09-22T03:53:44+00:00`, which is why a fixed two-read gate would have been unsound. The verification restart returned the same Lyrics value and ModificationDate.
+
+Every session removed its profile junction. No forbidden XML, backup, previous-library, repair, or migration artifact was accepted, and no iTunes process remained after the run.
+
+## Qualified conclusion and limits
+
+This evidence establishes only that one short plain-ASCII Lyrics value was writable and restart-persistent for one exact deterministic MP3-backed track through the COM interface on the pinned native environment. The observed MP3 rewrite means the operation has a media-file dependency; it does not prove whether all authoritative or cached state lives in the MP3, the ITL, or both.
+
+The paired WAV run in [`../media-lyrics-ascii-20260922/`](../media-lyrics-ascii-20260922/) rejected the same property/value before save. The older WAV Unicode case also rejected. Therefore neither generic Lyrics support nor generic Lyrics rejection is justified. Unicode behavior, long-string/truncation limits, UI behavior, other media kinds/subtypes, direct ITL-byte editing, and cross-version interoperability remain unknown and must fail closed.
+
+U-01 through U-18 remain open. U-12 remains open because no long-string or truncation boundary was established. `status.full_analysis_specification_gate`, `completion.gate_passed`, and `completion.independent_reimplementation_passed` remain false.

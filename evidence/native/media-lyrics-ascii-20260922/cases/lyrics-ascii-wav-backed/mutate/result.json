@@ -1,0 +1,718 @@
+{
+  "phase": "mutate",
+  "started_utc": "2026-09-22T03:50:59.409034+00:00",
+  "prelaunch": {
+    "path": "D:\\a\\_temp\\itl-media-lyrics-ascii-20260922\\lyrics-ascii-wav-backed\\live\\iTunes Library.itl",
+    "bytes": 4512,
+    "mtime_ns": 1790049054195047000,
+    "sha256": "214114d26e58fac18395d1e8bc5f224ad0ee12abd8684711c8936a8c4bf9de83"
+  },
+  "inventory_before": [
+    {
+      "path": "Album Artwork",
+      "kind": "directory"
+    },
+    {
+      "path": "Album Artwork/Cache",
+      "kind": "directory"
+    },
+    {
+      "path": "Album Artwork/Custom",
+      "kind": "directory"
+    },
+    {
+      "path": "Album Artwork/Download",
+      "kind": "directory"
+    },
+    {
+      "path": "Album Artwork/Generated",
+      "kind": "directory"
+    },
+    {
+      "path": "Album Artwork/Store",
+      "kind": "directory"
+    },
+    {
+      "path": "iTunes Library Extras.itdb",
+      "kind": "file",
+      "bytes": 16384,
+      "sha256": "86f51fea2be5ea3d51a396f709a555cbf4e1c13dc2793290f92f7ec543cfe186"
+    },
+    {
+      "path": "iTunes Library Genius.itdb",
+      "kind": "file",
+      "bytes": 32768,
+      "sha256": "8cc1f2607015ac61bcde38f5ff5cad11a6f8e77ceea429bb1a02cc272a6ed10d"
+    },
+    {
+      "path": "iTunes Library.itl",
+      "kind": "file",
+      "bytes": 4512,
+      "sha256": "214114d26e58fac18395d1e8bc5f224ad0ee12abd8684711c8936a8c4bf9de83"
+    },
+    {
+      "path": "iTunes Media",
+      "kind": "directory"
+    },
+    {
+      "path": "iTunes Media/.iTunes Preferences.plist",
+      "kind": "file",
+      "bytes": 305,
+      "sha256": "8d65b8a57d37aba44736f5474c16b58105a72733ced2c469956532341aec73f8"
+    },
+    {
+      "path": "iTunes Media/Automatically Add to iTunes",
+      "kind": "directory"
+    },
+    {
+      "path": "sentinel",
+      "kind": "file",
+      "bytes": 8,
+      "sha256": "e91da44916f2245aa04c60e43dc5bda456fdd4abf9484538455b4f58d23876c1"
+    }
+  ],
+  "source_before": {
+    "path": "D:\\a\\_temp\\itl-media-lyrics-ascii-20260922\\lyrics-ascii-wav-backed\\media\\field-followup.wav",
+    "bytes": 44144,
+    "mtime_ns": 1790049024422504300,
+    "sha256": "63b0a3a40198a07555dc2dc68f254243bc6e69bab32edfcfbe9ea5d1098925fb"
+  },
+  "ui": [
+    {
+      "action": "dismiss_audio_warning",
+      "pid": 6960,
+      "window": {
+        "hwnd": 459156,
+        "pid": 6960,
+        "class": "iTunesCustomModalDialog",
+        "title": "iTunes",
+        "children": [
+          {
+            "hwnd": 459274,
+            "class": "Static",
+            "text": "iTunes has detected a problem with your audio configuration.\rAudio/Video playback may not operate properly.",
+            "id": 101,
+            "enabled": true,
+            "visible": true
+          },
+          {
+            "hwnd": 983058,
+            "class": "Static",
+            "text": "",
+            "id": 103,
+            "enabled": true,
+            "visible": false
+          },
+          {
+            "hwnd": 589898,
+            "class": "Button",
+            "text": "",
+            "id": 104,
+            "enabled": true,
+            "visible": false
+          },
+          {
+            "hwnd": 917608,
+            "class": "Button",
+            "text": "OK",
+            "id": 1,
+            "enabled": true,
+            "visible": true
+          },
+          {
+            "hwnd": 720950,
+            "class": "Button",
+            "text": "More Info",
+            "id": 105,
+            "enabled": true,
+            "visible": false
+          },
+          {
+            "hwnd": 1310796,
+            "class": "Static",
+            "text": "",
+            "id": 102,
+            "enabled": true,
+            "visible": true
+          }
+        ]
+      }
+    }
+  ],
+  "forbidden_before": [],
+  "profile_junction_create": {
+    "argv": [
+      "cmd.exe",
+      "/d",
+      "/c",
+      "mklink",
+      "/J",
+      "C:\\Users\\runneradmin\\Music\\iTunes",
+      "D:\\a\\_temp\\itl-media-lyrics-ascii-20260922\\lyrics-ascii-wav-backed\\live"
+    ],
+    "returncode": 0,
+    "output": "Junction created for C:\\Users\\runneradmin\\Music\\iTunes <<===>> D:\\a\\_temp\\itl-media-lyrics-ascii-20260922\\lyrics-ascii-wav-backed\\live\n"
+  },
+  "itunes_pid": 6960,
+  "startup_timeout_seconds": 90,
+  "post_readiness_settle_seconds": 2.0,
+  "worker_command": [
+    "C:\\hostedtoolcache\\windows\\Python\\3.12.10\\x64\\python.exe",
+    "-X",
+    "utf8",
+    "-B",
+    "-u",
+    "D:\\a\\_temp\\gha-mcp\\win-w51bxgtm\\work\\windows-itunes-itl-research\\scripts\\windows\\native_media_field_followup.py",
+    "_worker",
+    "--spec",
+    "D:\\a\\_temp\\gha-mcp\\win-w51bxgtm\\work\\windows-itunes-itl-research\\evidence\\native\\media-lyrics-ascii-20260922\\cases\\lyrics-ascii-wav-backed\\mutate\\worker-spec.json",
+    "--output",
+    "D:\\a\\_temp\\gha-mcp\\win-w51bxgtm\\work\\windows-itunes-itl-research\\evidence\\native\\media-lyrics-ascii-20260922\\cases\\lyrics-ascii-wav-backed\\mutate\\com.json"
+  ],
+  "worker_exit_code": 2,
+  "worker": {
+    "schema_version": 1,
+    "started_utc": "2026-09-22T03:51:06.897798+00:00",
+    "spec": {
+      "schema_version": 1,
+      "case": "lyrics-ascii-wav-backed",
+      "mode": "mutate",
+      "field": "Lyrics",
+      "root": "D:\\a\\_temp\\itl-media-lyrics-ascii-20260922\\lyrics-ascii-wav-backed",
+      "source": "D:\\a\\_temp\\itl-media-lyrics-ascii-20260922\\lyrics-ascii-wav-backed\\media\\field-followup.wav",
+      "source_sha256": "63b0a3a40198a07555dc2dc68f254243bc6e69bab32edfcfbe9ea5d1098925fb",
+      "allow_media_rewrite": true,
+      "expected_state": "D:\\a\\_temp\\gha-mcp\\win-w51bxgtm\\work\\windows-itunes-itl-research\\evidence\\native\\media-lyrics-ascii-20260922\\cases\\lyrics-ascii-wav-backed\\baseline-state.json",
+      "value": "Plain ASCII lyrics line one"
+    },
+    "samples": [
+      {
+        "label": "before-1",
+        "state": {
+          "version": "12.13.10.3",
+          "library_persistent_id": "C849C53960EE3113",
+          "tracks": [
+            {
+              "persistent_id": "C0099FB26781CDAC",
+              "Name": "field-followup",
+              "Artist": "",
+              "Album": "",
+              "AlbumArtist": "",
+              "Composer": "",
+              "Genre": "",
+              "Comment": "",
+              "Grouping": "",
+              "Lyrics": "",
+              "SortName": "",
+              "SortArtist": "",
+              "SortAlbum": "",
+              "SortAlbumArtist": "",
+              "Rating": 0,
+              "AlbumRating": 0,
+              "PlayedCount": 0,
+              "PlayedDate": "1899-12-30T00:00:00+00:00",
+              "SkippedCount": 0,
+              "SkippedDate": "1899-12-30T00:00:00+00:00",
+              "DateAdded": "2026-09-22T03:50:33+00:00",
+              "ModificationDate": "2026-09-22T03:50:24+00:00",
+              "TrackNumber": 0,
+              "TrackCount": 0,
+              "DiscNumber": 0,
+              "DiscCount": 0,
+              "Year": 0,
+              "BPM": 0,
+              "Compilation": false,
+              "Enabled": true,
+              "VolumeAdjustment": 0,
+              "Location": "D:\\a\\_temp\\itl-media-lyrics-ascii-20260922\\lyrics-ascii-wav-backed\\media\\field-followup.wav",
+              "Duration": 0,
+              "SampleRate": 44100,
+              "BitRate": 705,
+              "Size": 44144,
+              "TrackDatabaseID": 71,
+              "TrackID": 76,
+              "PlayOrderIndex": 1,
+              "Unplayed": true,
+              "RatingKind": 1,
+              "AlbumRatingKind": 1
+            }
+          ],
+          "playlists": [
+            {
+              "name": "Library",
+              "persistent_id": "C849C53960EE3113",
+              "kind": 1,
+              "members": [
+                {
+                  "persistent_id": "C0099FB26781CDAC",
+                  "name": "field-followup",
+                  "play_order_index": 1
+                }
+              ],
+              "special_kind": null
+            },
+            {
+              "name": "Music",
+              "persistent_id": "293DFABFB3F83DF4",
+              "kind": 2,
+              "members": [
+                {
+                  "persistent_id": "C0099FB26781CDAC",
+                  "name": "field-followup",
+                  "play_order_index": 1
+                }
+              ],
+              "special_kind": 6
+            },
+            {
+              "name": "Movies",
+              "persistent_id": "8BA3EDC97F45B205",
+              "kind": 2,
+              "members": [],
+              "special_kind": 7
+            },
+            {
+              "name": "TV Shows",
+              "persistent_id": "09088D9651F940D5",
+              "kind": 2,
+              "members": [],
+              "special_kind": 8
+            },
+            {
+              "name": "Podcasts",
+              "persistent_id": "B5E1D9632186230F",
+              "kind": 2,
+              "members": [],
+              "special_kind": 3
+            },
+            {
+              "name": "Audiobooks",
+              "persistent_id": "EDF1DE41FB1BBDE9",
+              "kind": 2,
+              "members": [],
+              "special_kind": 9
+            },
+            {
+              "name": "Genius",
+              "persistent_id": "BD2510B9B09690BD",
+              "kind": 2,
+              "members": [],
+              "special_kind": 11
+            }
+          ],
+          "track_count": 1
+        },
+        "state_sha256": "03b48db229eed36f7169de084f3b600a13ded25be9285b2f9efc6376fc0c7f43",
+        "media": [
+          {
+            "persistent_id": "C0099FB26781CDAC",
+            "path": "D:\\a\\_temp\\itl-media-lyrics-ascii-20260922\\lyrics-ascii-wav-backed\\media\\field-followup.wav",
+            "bytes": 44144,
+            "mtime_ns": 1790049024422504300,
+            "sha256": "63b0a3a40198a07555dc2dc68f254243bc6e69bab32edfcfbe9ea5d1098925fb"
+          }
+        ]
+      },
+      {
+        "label": "before-2",
+        "state": {
+          "version": "12.13.10.3",
+          "library_persistent_id": "C849C53960EE3113",
+          "tracks": [
+            {
+              "persistent_id": "C0099FB26781CDAC",
+              "Name": "field-followup",
+              "Artist": "",
+              "Album": "",
+              "AlbumArtist": "",
+              "Composer": "",
+              "Genre": "",
+              "Comment": "",
+              "Grouping": "",
+              "Lyrics": "",
+              "SortName": "",
+              "SortArtist": "",
+              "SortAlbum": "",
+              "SortAlbumArtist": "",
+              "Rating": 0,
+              "AlbumRating": 0,
+              "PlayedCount": 0,
+              "PlayedDate": "1899-12-30T00:00:00+00:00",
+              "SkippedCount": 0,
+              "SkippedDate": "1899-12-30T00:00:00+00:00",
+              "DateAdded": "2026-09-22T03:50:33+00:00",
+              "ModificationDate": "2026-09-22T03:50:24+00:00",
+              "TrackNumber": 0,
+              "TrackCount": 0,
+              "DiscNumber": 0,
+              "DiscCount": 0,
+              "Year": 0,
+              "BPM": 0,
+              "Compilation": false,
+              "Enabled": true,
+              "VolumeAdjustment": 0,
+              "Location": "D:\\a\\_temp\\itl-media-lyrics-ascii-20260922\\lyrics-ascii-wav-backed\\media\\field-followup.wav",
+              "Duration": 0,
+              "SampleRate": 44100,
+              "BitRate": 705,
+              "Size": 44144,
+              "TrackDatabaseID": 71,
+              "TrackID": 76,
+              "PlayOrderIndex": 1,
+              "Unplayed": true,
+              "RatingKind": 1,
+              "AlbumRatingKind": 1
+            }
+          ],
+          "playlists": [
+            {
+              "name": "Library",
+              "persistent_id": "C849C53960EE3113",
+              "kind": 1,
+              "members": [
+                {
+                  "persistent_id": "C0099FB26781CDAC",
+                  "name": "field-followup",
+                  "play_order_index": 1
+                }
+              ],
+              "special_kind": null
+            },
+            {
+              "name": "Music",
+              "persistent_id": "293DFABFB3F83DF4",
+              "kind": 2,
+              "members": [
+                {
+                  "persistent_id": "C0099FB26781CDAC",
+                  "name": "field-followup",
+                  "play_order_index": 1
+                }
+              ],
+              "special_kind": 6
+            },
+            {
+              "name": "Movies",
+              "persistent_id": "8BA3EDC97F45B205",
+              "kind": 2,
+              "members": [],
+              "special_kind": 7
+            },
+            {
+              "name": "TV Shows",
+              "persistent_id": "09088D9651F940D5",
+              "kind": 2,
+              "members": [],
+              "special_kind": 8
+            },
+            {
+              "name": "Podcasts",
+              "persistent_id": "B5E1D9632186230F",
+              "kind": 2,
+              "members": [],
+              "special_kind": 3
+            },
+            {
+              "name": "Audiobooks",
+              "persistent_id": "EDF1DE41FB1BBDE9",
+              "kind": 2,
+              "members": [],
+              "special_kind": 9
+            },
+            {
+              "name": "Genius",
+              "persistent_id": "BD2510B9B09690BD",
+              "kind": 2,
+              "members": [],
+              "special_kind": 11
+            }
+          ],
+          "track_count": 1
+        },
+        "state_sha256": "03b48db229eed36f7169de084f3b600a13ded25be9285b2f9efc6376fc0c7f43",
+        "media": [
+          {
+            "persistent_id": "C0099FB26781CDAC",
+            "path": "D:\\a\\_temp\\itl-media-lyrics-ascii-20260922\\lyrics-ascii-wav-backed\\media\\field-followup.wav",
+            "bytes": 44144,
+            "mtime_ns": 1790049024422504300,
+            "sha256": "63b0a3a40198a07555dc2dc68f254243bc6e69bab32edfcfbe9ea5d1098925fb"
+          }
+        ]
+      }
+    ],
+    "accepted": false,
+    "quit_requested": false,
+    "before_stability_errors": [],
+    "reload_errors": [],
+    "error": "com_error: (-2147352567, 'Exception occurred.', (0, None, None, None, 0, -2147418113), None)",
+    "traceback": "Traceback (most recent call last):\n  File \"D:\\a\\_temp\\gha-mcp\\win-w51bxgtm\\work\\windows-itunes-itl-research\\scripts\\windows\\native_media_field_followup.py\", line 332, in worker\n    setattr(matches[0], field, assigned)\n  File \"C:\\hostedtoolcache\\windows\\Python\\3.12.10\\x64\\Lib\\site-packages\\win32com\\client\\dynamic.py\", line 677, in __setattr__\n    self._oleobj_.Invoke(entry.dispid, 0, invoke_type, 0, value)\npywintypes.com_error: (-2147352567, 'Exception occurred.', (0, None, None, None, 0, -2147418113), None)\n",
+    "finished_utc": "2026-09-22T03:51:08.351560+00:00"
+  },
+  "status": "failed",
+  "error": "RuntimeError: native media-backed field gate failed",
+  "traceback": "Traceback (most recent call last):\n  File \"D:\\a\\_temp\\gha-mcp\\win-w51bxgtm\\work\\windows-itunes-itl-research\\scripts\\windows\\native_media_field_followup.py\", line 554, in run_session\n    raise RuntimeError(\"native media-backed field gate failed\")\nRuntimeError: native media-backed field gate failed\n",
+  "itunes_poll_at_failure": null,
+  "windows_at_failure": [
+    {
+      "hwnd": 655506,
+      "pid": 6960,
+      "class": "iTunes",
+      "title": "iTunes",
+      "children": [
+        {
+          "hwnd": 917852,
+          "class": "Button",
+          "text": "",
+          "id": 497691360,
+          "enabled": true,
+          "visible": true
+        },
+        {
+          "hwnd": 459102,
+          "class": "Static",
+          "text": "",
+          "id": 499287696,
+          "enabled": true,
+          "visible": false
+        },
+        {
+          "hwnd": 524774,
+          "class": "Button",
+          "text": "",
+          "id": 499283456,
+          "enabled": true,
+          "visible": false
+        },
+        {
+          "hwnd": 590304,
+          "class": "Button",
+          "text": "Search",
+          "id": 498827088,
+          "enabled": true,
+          "visible": true
+        },
+        {
+          "hwnd": 393728,
+          "class": "Edit",
+          "text": "",
+          "id": 101,
+          "enabled": true,
+          "visible": false
+        },
+        {
+          "hwnd": 917612,
+          "class": "Static",
+          "text": "LCD section",
+          "id": 498719408,
+          "enabled": true,
+          "visible": true
+        },
+        {
+          "hwnd": 1966420,
+          "class": "Button",
+          "text": "switch to miniplayer",
+          "id": 498814672,
+          "enabled": true,
+          "visible": false
+        },
+        {
+          "hwnd": 983570,
+          "class": "Button",
+          "text": "show next view",
+          "id": 498766848,
+          "enabled": true,
+          "visible": false
+        },
+        {
+          "hwnd": 393730,
+          "class": "Button",
+          "text": "show previous view",
+          "id": 498746208,
+          "enabled": true,
+          "visible": false
+        },
+        {
+          "hwnd": 918032,
+          "class": "Button",
+          "text": "",
+          "id": 498723408,
+          "enabled": true,
+          "visible": false
+        },
+        {
+          "hwnd": 720916,
+          "class": "Button",
+          "text": "airplay",
+          "id": 498698032,
+          "enabled": false,
+          "visible": false
+        },
+        {
+          "hwnd": 852428,
+          "class": "Button",
+          "text": "genius shuffle",
+          "id": 498574816,
+          "enabled": false,
+          "visible": false
+        },
+        {
+          "hwnd": 1048594,
+          "class": "Static",
+          "text": "Application",
+          "id": 498259472,
+          "enabled": true,
+          "visible": true
+        },
+        {
+          "hwnd": 852322,
+          "class": "Static",
+          "text": "Song",
+          "id": 499528096,
+          "enabled": true,
+          "visible": true
+        },
+        {
+          "hwnd": 1179672,
+          "class": "Static",
+          "text": "Help",
+          "id": 498299872,
+          "enabled": true,
+          "visible": true
+        },
+        {
+          "hwnd": 918044,
+          "class": "Static",
+          "text": "Account",
+          "id": 498296016,
+          "enabled": true,
+          "visible": true
+        },
+        {
+          "hwnd": 852522,
+          "class": "Static",
+          "text": "Controls",
+          "id": 498292160,
+          "enabled": true,
+          "visible": true
+        },
+        {
+          "hwnd": 1442150,
+          "class": "Static",
+          "text": "View",
+          "id": 498288304,
+          "enabled": true,
+          "visible": true
+        },
+        {
+          "hwnd": 1572908,
+          "class": "Static",
+          "text": "Edit",
+          "id": 498284448,
+          "enabled": true,
+          "visible": true
+        },
+        {
+          "hwnd": 524810,
+          "class": "Static",
+          "text": "File",
+          "id": 498264192,
+          "enabled": true,
+          "visible": true
+        }
+      ]
+    }
+  ],
+  "itunes_exit_after_kill": 1,
+  "live_at_failure": {
+    "path": "D:\\a\\_temp\\gha-mcp\\win-w51bxgtm\\work\\windows-itunes-itl-research\\evidence\\native\\media-lyrics-ascii-20260922\\cases\\lyrics-ascii-wav-backed\\mutate\\live-at-failure.itl",
+    "bytes": 4512,
+    "mtime_ns": 1790049054195047000,
+    "sha256": "214114d26e58fac18395d1e8bc5f224ad0ee12abd8684711c8936a8c4bf9de83"
+  },
+  "media_at_failure": {
+    "path": "D:\\a\\_temp\\gha-mcp\\win-w51bxgtm\\work\\windows-itunes-itl-research\\evidence\\native\\media-lyrics-ascii-20260922\\cases\\lyrics-ascii-wav-backed\\mutate\\media-at-failure.wav",
+    "bytes": 44144,
+    "mtime_ns": 1790049024422504300,
+    "sha256": "63b0a3a40198a07555dc2dc68f254243bc6e69bab32edfcfbe9ea5d1098925fb"
+  },
+  "inventory_at_failure": [
+    {
+      "path": "Album Artwork",
+      "kind": "directory"
+    },
+    {
+      "path": "Album Artwork/Cache",
+      "kind": "directory"
+    },
+    {
+      "path": "Album Artwork/Custom",
+      "kind": "directory"
+    },
+    {
+      "path": "Album Artwork/Download",
+      "kind": "directory"
+    },
+    {
+      "path": "Album Artwork/Generated",
+      "kind": "directory"
+    },
+    {
+      "path": "Album Artwork/Store",
+      "kind": "directory"
+    },
+    {
+      "path": "iTunes Library Extras.itdb",
+      "kind": "file",
+      "bytes": 16384,
+      "sha256": "3f48a3edf56c23d46c19c2d089042c19445e293ea528237816646405c9aac0c4"
+    },
+    {
+      "path": "iTunes Library Genius.itdb",
+      "kind": "file",
+      "bytes": 32768,
+      "sha256": "8cc1f2607015ac61bcde38f5ff5cad11a6f8e77ceea429bb1a02cc272a6ed10d"
+    },
+    {
+      "path": "iTunes Library.itl",
+      "kind": "file",
+      "bytes": 4512,
+      "sha256": "214114d26e58fac18395d1e8bc5f224ad0ee12abd8684711c8936a8c4bf9de83"
+    },
+    {
+      "path": "iTunes Media",
+      "kind": "directory"
+    },
+    {
+      "path": "iTunes Media/.iTunes Preferences.plist",
+      "kind": "file",
+      "bytes": 305,
+      "sha256": "8d65b8a57d37aba44736f5474c16b58105a72733ced2c469956532341aec73f8"
+    },
+    {
+      "path": "iTunes Media/Automatically Add to iTunes",
+      "kind": "directory"
+    },
+    {
+      "path": "sentinel",
+      "kind": "file",
+      "bytes": 8,
+      "sha256": "af5570f5a1810b7af78caf4bc70a660f0df51e42baf91d4de5b2328de0e83dfc"
+    }
+  ],
+  "profile_junction_remove": {
+    "removed": true,
+    "command": {
+      "argv": [
+        "cmd.exe",
+        "/d",
+        "/c",
+        "rmdir",
+        "C:\\Users\\runneradmin\\Music\\iTunes"
+      ],
+      "returncode": 0,
+      "output": ""
+    }
+  },
+  "finished_utc": "2026-09-22T03:51:08.446399+00:00"
+}
