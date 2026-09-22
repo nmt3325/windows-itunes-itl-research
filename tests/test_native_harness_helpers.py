@@ -218,3 +218,131 @@ def test_media_followup_rejects_duplicate_case_name() -> None:
     ]
     with pytest.raises(RuntimeError, match="duplicate case name"):
         media_followup.validate_cases(cases)
+
+
+
+def test_media_followup_generated_ascii_contract_and_compaction() -> None:
+    value = media_followup.generated_ascii_value(5000)
+    assert len(value) == 5000
+    assert value.startswith("L000005000:")
+    projected = media_followup.canonical(value)
+    assert projected == media_followup.text_fingerprint(value)
+    assert projected["characters"] == 5000
+    assert projected["utf8_bytes"] == 5000
+    assert not projected["contains_nul"]
+
+
+def test_media_followup_generated_value_spec_is_compact_and_reproducible() -> None:
+    case = {
+        "name": "lyrics-generated",
+        "field": "Lyrics",
+        "generated_ascii_length": 1_000_000,
+        "frequency": 901,
+        "media_kind": "mp3",
+    }
+    spec = media_followup.case_value_spec(case)
+    assert len(json.dumps(spec)) < 1000
+    value = media_followup.materialize_value_spec(spec)
+    assert len(value) == 1_000_000
+    assert media_followup.text_fingerprint(value) == spec["fingerprint"]
+
+
+def test_media_followup_generated_cases_require_exactly_one_value_source() -> None:
+    base = {"name": "lyrics-generated", "field": "Lyrics", "frequency": 901, "media_kind": "mp3"}
+    with pytest.raises(RuntimeError, match="exactly one"):
+        media_followup.validate_cases([base])
+    with pytest.raises(RuntimeError, match="exactly one"):
+        media_followup.validate_cases([{**base, "value": "x", "generated_ascii_length": 100}])
+
+
+def test_media_followup_generated_case_validation_and_duplicate_signature() -> None:
+    first = {
+        "name": "lyrics-generated-one",
+        "field": "Lyrics",
+        "generated_ascii_length": 100_000,
+        "frequency": 901,
+        "media_kind": "mp3",
+        "retain_session_media": False,
+        "retain_failure_media": False,
+        "retain_final_media": True,
+    }
+    media_followup.validate_cases([first])
+    with pytest.raises(RuntimeError, match="duplicate exact"):
+        media_followup.validate_cases([first, {**first, "name": "lyrics-generated-two"}])
+
+
+
+def test_media_followup_classifies_exact_restart_persistence() -> None:
+    sessions = []
+    for phase in ("initialize", "baseline", "mutate", "verify"):
+        worker = {"accepted": True, "quit_requested": True}
+        if phase == "mutate":
+            worker.update(write={"exact": True, "expected_immediate": {"sha256": "a"}, "actual_immediate": {"sha256": "a"}}, requested_value_gate={"passed": True})
+        if phase == "verify":
+            worker["requested_value_gate"] = {"passed": True}
+        sessions.append({"phase": phase, "status": "passed", "worker_exit_code": 0, "itunes_exit_code": 0, "worker": worker, "forbidden_before": [], "forbidden_after": []})
+    result = {"passed": True, "sessions": sessions, "identity_chain_stable": True, "file_persistent_id_stable": True, "source_rewrite_observed": True}
+    outcome = media_followup.classify_case_outcome(result)
+    assert outcome["label"] == "exact_restart_persisted"
+    assert outcome["evidence_complete"]
+
+
+def test_media_followup_classifies_native_nonexact_readback_separately() -> None:
+    mutation_worker = {
+        "accepted": False,
+        "quit_requested": True,
+        "operation_stage": "mutate:immediate-readback",
+        "write": {"exact": False, "expected_immediate": {"characters": 10}, "actual_immediate": ""},
+        "error": "RuntimeError: setter projection mismatch",
+    }
+    result = {
+        "passed": False,
+        "source_rewrite_observed": True,
+        "sessions": [
+            {"phase": "initialize", "status": "passed"},
+            {"phase": "baseline", "status": "passed"},
+            {
+                "phase": "mutate",
+                "status": "failed",
+                "worker_exit_code": 2,
+                "worker": mutation_worker,
+                "itunes_exit_after_failure": 0,
+                "itunes_killed_after_failure": False,
+                "forbidden_before": [],
+                "forbidden_at_failure": [],
+            },
+        ],
+    }
+    outcome = media_followup.classify_case_outcome(result)
+    assert outcome["label"] == "native_nonexact_immediate_readback"
+    assert outcome["evidence_complete"]
+    assert outcome["normal_exit_after_observation"]
+
+
+def test_media_followup_refuses_to_call_cleanup_failure_native_nonexact() -> None:
+    result = {
+        "passed": False,
+        "source_rewrite_observed": True,
+        "sessions": [
+            {"phase": "initialize", "status": "passed"},
+            {"phase": "baseline", "status": "passed"},
+            {
+                "phase": "mutate",
+                "status": "failed",
+                "worker_exit_code": 2,
+                "worker": {
+                    "quit_requested": True,
+                    "operation_stage": "mutate:immediate-readback",
+                    "write": {"exact": False, "expected_immediate": {"characters": 10}, "actual_immediate": ""},
+                },
+                "itunes_exit_after_failure": 0,
+                "itunes_killed_after_failure": False,
+                "forbidden_before": [],
+                "forbidden_at_failure": [],
+                "profile_cleanup_error": "junction remained",
+            },
+        ],
+    }
+    outcome = media_followup.classify_case_outcome(result)
+    assert outcome["label"] == "harness_failure"
+    assert not outcome["evidence_complete"]

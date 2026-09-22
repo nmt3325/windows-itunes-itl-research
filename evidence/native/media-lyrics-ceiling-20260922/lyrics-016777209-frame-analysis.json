@@ -1,0 +1,102 @@
+{
+  "schema": "windows-itunes-itl.mp3-generated-lyrics-boundary-analysis.v1",
+  "scope": "one retained deterministic ASCII MP3/ID3v2.2/ULT/COM case on the pinned build; not a universal Lyrics, UI, Unicode, media-format, tag-version, or iTunes-version limit",
+  "original": {
+    "path": "evidence/native/media-lyrics-ceiling-20260922/cases/lyrics-ascii-016777209-ceiling-mp3/source-original.mp3",
+    "bytes": 8777,
+    "sha256": "01274f7e2137703d9cefae6fece05ed5f01ce045f3f019c1dbe5d6c57161589b"
+  },
+  "rewritten": {
+    "path": "evidence/native/media-lyrics-ceiling-20260922/cases/lyrics-ascii-016777209-ceiling-mp3/source-final.mp3",
+    "bytes": 16796248,
+    "sha256": "4887e299082b666e5a345787509f2ab3176144620637ff5e0ff70b4d58695804"
+  },
+  "requested_generated_ascii": {
+    "kind": "utf8-string-sha256-v1",
+    "characters": 16777209,
+    "utf8_bytes": 16777209,
+    "sha256": "e014850d61cb17e7b2c644971184c3ebabdfc49bbfc69246d24984d5eee5f090",
+    "prefix": "L016777209:ABCDEFGHIJKLMNOPQRSTU",
+    "suffix": "OPQRSTUVWXYZ0123456789ABCDEFGHIJ",
+    "contains_nul": false
+  },
+  "id3v22": {
+    "identifier": "ID3",
+    "major_version": 2,
+    "revision": 0,
+    "flags": 0,
+    "synchsafe_size_bytes_hex": "08005005",
+    "payload_bytes": 16787461,
+    "header_bytes": 10,
+    "audio_offset": 16787471,
+    "padding_bytes": 10240,
+    "trailing_zero_bytes": 10241,
+    "prefix_sha256": "e6472fa54469c14817bd51f1f528ba6475594d39e5d43a9e672fb01223378132",
+    "specification_conformant": true
+  },
+  "ult": {
+    "frame_id": "ULT",
+    "frame_header_offset": 10,
+    "payload_offset": 16,
+    "stored_payload_bytes": 16777215,
+    "actual_payload_bytes": 16777215,
+    "encoding": 0,
+    "encoding_name": "ISO-8859-1",
+    "language": "eng",
+    "description": "",
+    "description_storage_bytes": 1,
+    "text": {
+      "kind": "utf8-string-sha256-v1",
+      "characters": 16777209,
+      "utf8_bytes": 16777209,
+      "sha256": "e014850d61cb17e7b2c644971184c3ebabdfc49bbfc69246d24984d5eee5f090",
+      "prefix": "L016777209:ABCDEFGHIJKLMNOPQRSTU",
+      "suffix": "OPQRSTUVWXYZ0123456789ABCDEFGHIJ",
+      "contains_nul": false
+    },
+    "text_terminator_bytes": 1,
+    "payload_sha256": "836cbdf2f4805305b21660dccb5a63e297e98e3c1baaecaff97d3af8baba2e40"
+  },
+  "frame_size_boundary": {
+    "field_bits": 24,
+    "field_maximum": 16777215,
+    "field_modulus": 16777216,
+    "actual_payload_bytes": 16777215,
+    "stored_payload_bytes": 16777215,
+    "stored_payload_hex": "ffffff",
+    "modulo_remainder": 16777215,
+    "wrap_count": 0,
+    "relation": "exact_unsigned_24bit_value",
+    "boundary": "maximum_representable_unsigned_24bit_payload",
+    "specification_conformant": true,
+    "classification": "conforming_id3v22_frame_size"
+  },
+  "ordinary_strict_parser_probe": {
+    "performed": false,
+    "expected_result": "accept",
+    "reason": "specialized analyzer avoids materializing multi-megabyte lyrics in the generic report"
+  },
+  "audio_tail": {
+    "offset": 16787471,
+    "bytes": 8777,
+    "sha256": "01274f7e2137703d9cefae6fece05ed5f01ce045f3f019c1dbe5d6c57161589b",
+    "original_bytes": 8777,
+    "original_sha256": "01274f7e2137703d9cefae6fece05ed5f01ce045f3f019c1dbe5d6c57161589b",
+    "byte_identical_to_complete_original": true
+  },
+  "assertions": {
+    "original_has_no_leading_id3": true,
+    "rewritten_has_id3v22_0": true,
+    "ult_is_first_and_only_nonpadding_frame": true,
+    "ult_encoding_zero_language_eng_empty_description": true,
+    "requested_text_byte_exact": true,
+    "requested_text_fingerprint_exact": true,
+    "text_terminator_bytes": 1,
+    "fixed_zero_padding_bytes": 10240,
+    "size_delta_bytes": 16787471,
+    "size_delta_equals_id3_prefix": true,
+    "mpeg_audio_tail_byte_identical": true,
+    "tag_specification_conformant": true
+  },
+  "analysis_passed": true
+}
