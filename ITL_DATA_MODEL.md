@@ -60,8 +60,8 @@ Identity values are not interchangeable merely because they have the same width.
 
 | Domain | Record/offset | Width/order | Invariant |
 | --- | --- | --- | --- |
-| File/header persistent ID | `hdfm+0x34` | u64 BE | File lineage identity domain. The accepted from-scratch profile intentionally gives it the same value as the master playlist PID. |
-| Master playlist persistent ID | `miph+0x1b8` | u64 LE | Reported by COM for the library playlist. It is a distinct field/domain, but the accepted generated profile requires value equality with the file PID. |
+| File/header persistent ID | `hdfm+0x34` | u64 BE | File lineage identity domain. The four exact accepted from-scratch fixtures intentionally give it the same value as the master playlist PID; fresh native libraries need not. |
+| Master playlist persistent ID | `miph+0x1b8` | u64 LE | Reported by COM for the library playlist. It is a distinct field/domain. Equality with the file PID is an exact generated-fixture construction choice, not a universal native invariant. |
 | Track local ID | `mith+0x10` | u32 LE | Nonzero and unique among main tracks. |
 | Track persistent ID | `mith+0x80` | u64 LE | Nonzero and unique among main tracks. |
 | Secondary track local ID | `mith+0x1f4` | u32 LE | Nonzero/unique for the observed 756-byte profile. |
@@ -75,6 +75,8 @@ Identity values are not interchangeable merely because they have the same width.
 | Referenced track local ID | `mtph+0x18` | u32 LE | Must resolve to a main track. |
 | Item creation/order token | `mtph+0x20` | u32 LE | Not assumed to mirror current local ID. |
 | Playlist-item persistent ID | `mtph+0x44` | u64 LE | Nonzero/unique within its playlist. |
+
+The corrected media-backed follow-up observed two fresh native libraries whose nonzero outer file PID differed from the COM/master PID while the serialized master selected by the COM PID contained the exact track PID across restart. Validators must gate these domains independently rather than treating inequality as fallback.
 
 Native reopen may renumber session/local values while persistent identities remain the acceptance anchor.
 

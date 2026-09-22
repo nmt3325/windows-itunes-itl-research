@@ -10,15 +10,16 @@
     "fresh_native_library_note": "created by iTunes itself; not evidence that the reference writer is accepted",
     "path_time_note": "native iTunes saves for a bounded matrix; not arbitrary writer acceptance",
     "field_matrix_note": "27 exact passes and two retained failures; not complete field support",
+    "media_field_followup_note": "first run failed a harness identity gate before mutation; corrected run passed initialization/baseline and retained two exact mutation failures",
     "external_interop_note": "one exact structural no-op passed native cycles; semantic reimplementation remains false",
     "smart_playlist_note": "native nested framing observed; operand and membership gates failed"
   },
   "summary": {
-    "itl_file_count": 242,
+    "itl_file_count": 252,
     "by_class": {
       "independent_from_scratch_generated": 4,
       "external_independent_interop_candidate": 5,
-      "archived_native_or_exact_candidate": 188,
+      "archived_native_or_exact_candidate": 198,
       "native_itunes_fresh_library": 6,
       "native_itunes_path_time_sequence": 39
     }
@@ -68,6 +69,16 @@
       "path": "evidence/native/field-matrix-20260922/summary.json",
       "bytes": 2377581,
       "sha256": "40b81b4829cf18132fb7f3d4682aa1aa186e9ee8c22217a417d77987ac5f59ed"
+    },
+    {
+      "path": "evidence/native/media-field-followup-20260922/summary.json",
+      "bytes": 95309,
+      "sha256": "5384e250d470f332f956bfae7e80be04bd34f40df98357c59da9a5adb2e601b0"
+    },
+    {
+      "path": "evidence/native/media-field-followup-20260922-v2/summary.json",
+      "bytes": 223486,
+      "sha256": "3351402748bb202b86b7fd9627e3afa8d3ff4f9e7c94c45c4bacab4dad6207de"
     },
     {
       "path": "evidence/independent/itl-rs-20260922/conformance-summary.json",
@@ -689,6 +700,76 @@
       "corpus_class": "native_itunes_fresh_library",
       "producer": "iTunes 12.13.10.3",
       "reference_writer_acceptance": "not_applicable"
+    },
+    {
+      "path": "evidence/native/media-field-followup-20260922-v2/cases/enabled-false-media-backed/baseline/native-saved.itl",
+      "bytes": 4494,
+      "sha256": "e7c0b55cf2f424ba5c170c67dbfb776391aadc630d167b8ba88c58ca27b3ec74",
+      "corpus_class": "archived_native_or_exact_candidate",
+      "qualification": "see per-case evidence; presence is not acceptance"
+    },
+    {
+      "path": "evidence/native/media-field-followup-20260922-v2/cases/enabled-false-media-backed/initialize/native-saved.itl",
+      "bytes": 4471,
+      "sha256": "ce9ea8b907a393fdce0220e5555560835a47765f0942cfc728846913b7bd93e7",
+      "corpus_class": "archived_native_or_exact_candidate",
+      "qualification": "see per-case evidence; presence is not acceptance"
+    },
+    {
+      "path": "evidence/native/media-field-followup-20260922-v2/cases/enabled-false-media-backed/mutate/live-at-failure.itl",
+      "bytes": 4494,
+      "sha256": "e7c0b55cf2f424ba5c170c67dbfb776391aadc630d167b8ba88c58ca27b3ec74",
+      "corpus_class": "archived_native_or_exact_candidate",
+      "qualification": "see per-case evidence; presence is not acceptance"
+    },
+    {
+      "path": "evidence/native/media-field-followup-20260922-v2/cases/lyrics-unicode-media-backed/baseline/native-saved.itl",
+      "bytes": 4520,
+      "sha256": "6ab176567e26f6e6f6a916fbc94e883b7cd2696b77395af3f85fd45dc83f31ba",
+      "corpus_class": "archived_native_or_exact_candidate",
+      "qualification": "see per-case evidence; presence is not acceptance"
+    },
+    {
+      "path": "evidence/native/media-field-followup-20260922-v2/cases/lyrics-unicode-media-backed/initialize/native-saved.itl",
+      "bytes": 4491,
+      "sha256": "148bcc740199f6a74c6f67289263c7b274fd1c768c60fde900d0b3d47e549a41",
+      "corpus_class": "archived_native_or_exact_candidate",
+      "qualification": "see per-case evidence; presence is not acceptance"
+    },
+    {
+      "path": "evidence/native/media-field-followup-20260922-v2/cases/lyrics-unicode-media-backed/mutate/live-at-failure.itl",
+      "bytes": 4520,
+      "sha256": "6ab176567e26f6e6f6a916fbc94e883b7cd2696b77395af3f85fd45dc83f31ba",
+      "corpus_class": "archived_native_or_exact_candidate",
+      "qualification": "see per-case evidence; presence is not acceptance"
+    },
+    {
+      "path": "evidence/native/media-field-followup-20260922/cases/enabled-false-media-backed/initialize/live-at-failure.itl",
+      "bytes": 4473,
+      "sha256": "9e129243e6daa5393eebe6f51bb8c0c2dbda137bdcd7d9a8a75ff5812db17efb",
+      "corpus_class": "archived_native_or_exact_candidate",
+      "qualification": "see per-case evidence; presence is not acceptance"
+    },
+    {
+      "path": "evidence/native/media-field-followup-20260922/cases/enabled-false-media-backed/initialize/native-saved.itl",
+      "bytes": 4473,
+      "sha256": "9e129243e6daa5393eebe6f51bb8c0c2dbda137bdcd7d9a8a75ff5812db17efb",
+      "corpus_class": "archived_native_or_exact_candidate",
+      "qualification": "see per-case evidence; presence is not acceptance"
+    },
+    {
+      "path": "evidence/native/media-field-followup-20260922/cases/lyrics-unicode-media-backed/initialize/live-at-failure.itl",
+      "bytes": 4480,
+      "sha256": "e367145faeffe3c06d17788648c58117fbf97ff9facbe04124604fce7b5794a9",
+      "corpus_class": "archived_native_or_exact_candidate",
+      "qualification": "see per-case evidence; presence is not acceptance"
+    },
+    {
+      "path": "evidence/native/media-field-followup-20260922/cases/lyrics-unicode-media-backed/initialize/native-saved.itl",
+      "bytes": 4480,
+      "sha256": "e367145faeffe3c06d17788648c58117fbf97ff9facbe04124604fce7b5794a9",
+      "corpus_class": "archived_native_or_exact_candidate",
+      "qualification": "see per-case evidence; presence is not acceptance"
     },
     {
       "path": "evidence/native/phase2/large-comment/large-direct-comment-reload1.itl",

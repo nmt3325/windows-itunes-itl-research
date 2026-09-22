@@ -88,6 +88,8 @@ def build_corpus() -> dict:
         "evidence/native/reference-multi-track-20260922-v2/qualification-summary.json",
         "evidence/native/reference-multi-track-20260922/summary.json",
         "evidence/native/field-matrix-20260922/summary.json",
+        "evidence/native/media-field-followup-20260922/summary.json",
+        "evidence/native/media-field-followup-20260922-v2/summary.json",
         "evidence/independent/itl-rs-20260922/conformance-summary.json",
         "evidence/native/smart-playlist-default-20260922/probe-series-summary.json",
     ):
@@ -106,6 +108,7 @@ def build_corpus() -> dict:
             "fresh_native_library_note": "created by iTunes itself; not evidence that the reference writer is accepted",
             "path_time_note": "native iTunes saves for a bounded matrix; not arbitrary writer acceptance",
             "field_matrix_note": "27 exact passes and two retained failures; not complete field support",
+            "media_field_followup_note": "first run failed a harness identity gate before mutation; corrected run passed initialization/baseline and retained two exact mutation failures",
             "external_interop_note": "one exact structural no-op passed native cycles; semantic reimplementation remains false",
             "smart_playlist_note": "native nested framing observed; operand and membership gates failed",
         },

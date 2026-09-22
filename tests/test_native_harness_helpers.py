@@ -13,6 +13,7 @@ import pytest
 pytest.importorskip("win32gui")
 
 from scripts.windows import native_field_matrix as field_matrix
+from scripts.windows import native_media_field_followup as media_followup
 from scripts.windows import reference_generated_native as reference_native
 from scripts.windows import smart_playlist_native as smart_native
 
@@ -114,3 +115,64 @@ def test_reference_summary_uses_utf8_for_unicode_candidates() -> None:
         "Reference Gamma e\u0301",
     ]
     assert reference_native.reference_summary_errors(case["expected"], summary) == []
+
+
+
+def media_identity_fixture() -> tuple[dict, dict, dict]:
+    master_pid = "1111111111111111"
+    track_pid = "2222222222222222"
+    expected_state = {
+        "version": media_followup.EXPECTED_ITUNES_VERSION,
+        "library_persistent_id": master_pid,
+        "track_count": 1,
+        "tracks": [{"persistent_id": track_pid, "Location": r"D:\media\track.wav"}],
+        "playlists": [
+            {
+                "persistent_id": master_pid,
+                "members": [{"persistent_id": track_pid}],
+            }
+        ],
+    }
+    summary = {
+        "version": media_followup.EXPECTED_ITUNES_VERSION,
+        "file_persistent_id": "3333333333333333",
+        "tracks": [{"persistent_id": track_pid}],
+        "playlists": [
+            {
+                "persistent_id": master_pid,
+                "members": [{"track_persistent_id": track_pid}],
+            }
+        ],
+    }
+    return expected_state, summary, {"valid": True}
+
+
+def test_media_followup_keeps_file_and_master_identity_domains_distinct() -> None:
+    expected_state, summary, validation = media_identity_fixture()
+    assert summary["file_persistent_id"] != expected_state["library_persistent_id"]
+    assert media_followup.independent_identity_errors(summary, validation, expected_state) == []
+
+
+@pytest.mark.parametrize("file_pid", ["0000000000000000", "not-a-pid"])
+def test_media_followup_rejects_invalid_outer_file_identity(file_pid: str) -> None:
+    expected_state, summary, validation = media_identity_fixture()
+    summary["file_persistent_id"] = file_pid
+    errors = media_followup.independent_identity_errors(summary, validation, expected_state)
+    assert any(error["property"] == "file_persistent_id" for error in errors)
+
+
+def test_media_followup_rejects_duplicate_serialized_master_identity() -> None:
+    expected_state, summary, validation = media_identity_fixture()
+    summary["playlists"].append(dict(summary["playlists"][0]))
+    errors = media_followup.independent_identity_errors(summary, validation, expected_state)
+    assert {error["property"] for error in errors} >= {
+        "serialized_master_instances",
+        "serialized_master_members",
+    }
+
+
+def test_media_followup_rejects_wrong_serialized_master_membership() -> None:
+    expected_state, summary, validation = media_identity_fixture()
+    summary["playlists"][0]["members"] = [{"track_persistent_id": "4444444444444444"}]
+    errors = media_followup.independent_identity_errors(summary, validation, expected_state)
+    assert [error["property"] for error in errors] == ["serialized_master_members"]

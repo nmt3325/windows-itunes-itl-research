@@ -181,7 +181,7 @@ lib.track(persistent_id='0123456789ABCDEF').set(name='New title', rating=80)
 lib.write('new-output.itl')          # exclusive output creation
 ```
 
-`Library.persistent_id` and summary `file_persistent_id` refer to the hdfm header identity. COM LibraryPlaylist identity is **different**: summary `library_persistent_id` is the master playlist persistent ID. Native validation must compare the right identity, not mistake that difference for fallback.
+`Library.persistent_id` and summary `file_persistent_id` refer to the hdfm header identity. COM LibraryPlaylist identity is **different**: summary `library_persistent_id` is the master playlist persistent ID. Native validation must compare the right identity, not mistake that difference for fallback. Two fresh `AddFile` libraries in the corrected media-backed follow-up retained unequal, stable outer/master PIDs while the serialized master selected by COM PID held the exact track PID; equality remains only an exact-fixture construction rule.
 
 `python -m itlkit --help` documents `inspect`, `check`, `roundtrip`, `export-json`, `import-json`, `patch`, `import-track`, `decode`, and `encode`. The `itlkit.__main__.main(argv=None)` function returns 0 or 2. argparse usage/help retains standard SystemExit behavior. No command modifies an existing output: creation is exclusive, protecting original files and aliases/hard links. Parent directories must exist.
 

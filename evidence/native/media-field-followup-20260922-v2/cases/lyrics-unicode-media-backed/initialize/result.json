@@ -1,0 +1,1066 @@
+{
+  "phase": "initialize",
+  "started_utc": "2026-09-22T02:01:37.383260+00:00",
+  "prelaunch": null,
+  "inventory_before": [],
+  "source_before": {
+    "path": "D:\\a\\_temp\\media-field-followup-root-20260922-v2\\lyrics-unicode-media-backed\\media\\field-followup.wav",
+    "bytes": 44144,
+    "mtime_ns": 1790042497372422400,
+    "sha256": "622b224306c5bd22e2a1cd575f6a84dc680748c3a2d8a82d3963372dbc2db93a"
+  },
+  "ui": [
+    {
+      "action": "dismiss_audio_warning",
+      "pid": 5984,
+      "window": {
+        "hwnd": 10485924,
+        "pid": 5984,
+        "class": "iTunesCustomModalDialog",
+        "title": "iTunes",
+        "children": [
+          {
+            "hwnd": 8978990,
+            "class": "Static",
+            "text": "iTunes has detected a problem with your audio configuration.\rAudio/Video playback may not operate properly.",
+            "id": 101,
+            "enabled": true,
+            "visible": true
+          },
+          {
+            "hwnd": 10486106,
+            "class": "Static",
+            "text": "",
+            "id": 103,
+            "enabled": true,
+            "visible": false
+          },
+          {
+            "hwnd": 4325764,
+            "class": "Button",
+            "text": "",
+            "id": 104,
+            "enabled": true,
+            "visible": false
+          },
+          {
+            "hwnd": 8520228,
+            "class": "Button",
+            "text": "OK",
+            "id": 1,
+            "enabled": true,
+            "visible": true
+          },
+          {
+            "hwnd": 3670322,
+            "class": "Button",
+            "text": "More Info",
+            "id": 105,
+            "enabled": true,
+            "visible": false
+          },
+          {
+            "hwnd": 8978974,
+            "class": "Static",
+            "text": "",
+            "id": 102,
+            "enabled": true,
+            "visible": true
+          }
+        ]
+      }
+    }
+  ],
+  "forbidden_before": [],
+  "profile_junction_create": {
+    "argv": [
+      "cmd.exe",
+      "/d",
+      "/c",
+      "mklink",
+      "/J",
+      "C:\\Users\\runneradmin\\Music\\iTunes",
+      "D:\\a\\_temp\\media-field-followup-root-20260922-v2\\lyrics-unicode-media-backed\\live"
+    ],
+    "returncode": 0,
+    "output": "Junction created for C:\\Users\\runneradmin\\Music\\iTunes <<===>> D:\\a\\_temp\\media-field-followup-root-20260922-v2\\lyrics-unicode-media-backed\\live\n"
+  },
+  "itunes_pid": 5984,
+  "post_readiness_settle_seconds": 2.0,
+  "worker_command": [
+    "C:\\hostedtoolcache\\windows\\Python\\3.12.10\\x64\\python.exe",
+    "-X",
+    "utf8",
+    "-B",
+    "-u",
+    "D:\\a\\_temp\\gha-mcp\\win-acvcphw9\\work\\windows-itunes-itl-research\\scripts\\windows\\native_media_field_followup.py",
+    "_worker",
+    "--spec",
+    "D:\\a\\_temp\\gha-mcp\\win-acvcphw9\\work\\windows-itunes-itl-research\\evidence\\native\\media-field-followup-20260922-v2\\cases\\lyrics-unicode-media-backed\\initialize\\worker-spec.json",
+    "--output",
+    "D:\\a\\_temp\\gha-mcp\\win-acvcphw9\\work\\windows-itunes-itl-research\\evidence\\native\\media-field-followup-20260922-v2\\cases\\lyrics-unicode-media-backed\\initialize\\com.json"
+  ],
+  "worker_exit_code": 0,
+  "worker": {
+    "schema_version": 1,
+    "started_utc": "2026-09-22T02:01:44.827861+00:00",
+    "spec": {
+      "schema_version": 1,
+      "case": "lyrics-unicode-media-backed",
+      "mode": "initialize",
+      "field": "Lyrics",
+      "root": "D:\\a\\_temp\\media-field-followup-root-20260922-v2\\lyrics-unicode-media-backed",
+      "source": "D:\\a\\_temp\\media-field-followup-root-20260922-v2\\lyrics-unicode-media-backed\\media\\field-followup.wav",
+      "source_sha256": "622b224306c5bd22e2a1cd575f6a84dc680748c3a2d8a82d3963372dbc2db93a"
+    },
+    "samples": [
+      {
+        "label": "before-1",
+        "state": {
+          "version": "12.13.10.3",
+          "library_persistent_id": "EBFFA4764B541115",
+          "tracks": [],
+          "playlists": [
+            {
+              "name": "Library",
+              "persistent_id": "EBFFA4764B541115",
+              "kind": 1,
+              "members": [],
+              "special_kind": null
+            },
+            {
+              "name": "Music",
+              "persistent_id": "77F9BC2C53F8F7BD",
+              "kind": 2,
+              "members": [],
+              "special_kind": 6
+            },
+            {
+              "name": "Movies",
+              "persistent_id": "3F92D5FFD99B5A2F",
+              "kind": 2,
+              "members": [],
+              "special_kind": 7
+            },
+            {
+              "name": "TV Shows",
+              "persistent_id": "E3BEC36AC9AE44B7",
+              "kind": 2,
+              "members": [],
+              "special_kind": 8
+            },
+            {
+              "name": "Podcasts",
+              "persistent_id": "ABD0ABEBBB9111F5",
+              "kind": 2,
+              "members": [],
+              "special_kind": 3
+            },
+            {
+              "name": "Audiobooks",
+              "persistent_id": "333379B90F64F93E",
+              "kind": 2,
+              "members": [],
+              "special_kind": 9
+            },
+            {
+              "name": "Genius",
+              "persistent_id": "5A51F10B7C4F3AE5",
+              "kind": 2,
+              "members": [],
+              "special_kind": 11
+            }
+          ],
+          "track_count": 0
+        },
+        "state_sha256": "a742c4edd47266fe0e96bf7e0c4602c20aae426c53678ab3bdbed734aa93ad43",
+        "media": []
+      },
+      {
+        "label": "before-2",
+        "state": {
+          "version": "12.13.10.3",
+          "library_persistent_id": "EBFFA4764B541115",
+          "tracks": [],
+          "playlists": [
+            {
+              "name": "Library",
+              "persistent_id": "EBFFA4764B541115",
+              "kind": 1,
+              "members": [],
+              "special_kind": null
+            },
+            {
+              "name": "Music",
+              "persistent_id": "77F9BC2C53F8F7BD",
+              "kind": 2,
+              "members": [],
+              "special_kind": 6
+            },
+            {
+              "name": "Movies",
+              "persistent_id": "3F92D5FFD99B5A2F",
+              "kind": 2,
+              "members": [],
+              "special_kind": 7
+            },
+            {
+              "name": "TV Shows",
+              "persistent_id": "E3BEC36AC9AE44B7",
+              "kind": 2,
+              "members": [],
+              "special_kind": 8
+            },
+            {
+              "name": "Podcasts",
+              "persistent_id": "ABD0ABEBBB9111F5",
+              "kind": 2,
+              "members": [],
+              "special_kind": 3
+            },
+            {
+              "name": "Audiobooks",
+              "persistent_id": "333379B90F64F93E",
+              "kind": 2,
+              "members": [],
+              "special_kind": 9
+            },
+            {
+              "name": "Genius",
+              "persistent_id": "5A51F10B7C4F3AE5",
+              "kind": 2,
+              "members": [],
+              "special_kind": 11
+            }
+          ],
+          "track_count": 0
+        },
+        "state_sha256": "a742c4edd47266fe0e96bf7e0c4602c20aae426c53678ab3bdbed734aa93ad43",
+        "media": []
+      },
+      {
+        "label": "after-1",
+        "state": {
+          "version": "12.13.10.3",
+          "library_persistent_id": "EBFFA4764B541115",
+          "tracks": [
+            {
+              "persistent_id": "B68C724502F6CB6F",
+              "Name": "field-followup",
+              "Artist": "",
+              "Album": "",
+              "AlbumArtist": "",
+              "Composer": "",
+              "Genre": "",
+              "Comment": "",
+              "Grouping": "",
+              "Lyrics": "",
+              "SortName": "",
+              "SortArtist": "",
+              "SortAlbum": "",
+              "SortAlbumArtist": "",
+              "Rating": 0,
+              "AlbumRating": 0,
+              "PlayedCount": 0,
+              "PlayedDate": "1899-12-30T00:00:00+00:00",
+              "SkippedCount": 0,
+              "SkippedDate": "1899-12-30T00:00:00+00:00",
+              "DateAdded": "2026-09-22T02:01:46+00:00",
+              "ModificationDate": "2026-09-22T02:01:37+00:00",
+              "TrackNumber": 0,
+              "TrackCount": 0,
+              "DiscNumber": 0,
+              "DiscCount": 0,
+              "Year": 0,
+              "BPM": 0,
+              "Compilation": false,
+              "Enabled": true,
+              "VolumeAdjustment": 0,
+              "Location": "D:\\a\\_temp\\media-field-followup-root-20260922-v2\\lyrics-unicode-media-backed\\media\\field-followup.wav",
+              "Duration": 0,
+              "SampleRate": 44100,
+              "BitRate": 705,
+              "Size": 44144,
+              "TrackDatabaseID": 139,
+              "TrackID": 143,
+              "PlayOrderIndex": 1,
+              "Unplayed": true,
+              "RatingKind": 1,
+              "AlbumRatingKind": 1
+            }
+          ],
+          "playlists": [
+            {
+              "name": "Library",
+              "persistent_id": "EBFFA4764B541115",
+              "kind": 1,
+              "members": [
+                {
+                  "persistent_id": "B68C724502F6CB6F",
+                  "name": "field-followup",
+                  "play_order_index": 1
+                }
+              ],
+              "special_kind": null
+            },
+            {
+              "name": "Music",
+              "persistent_id": "77F9BC2C53F8F7BD",
+              "kind": 2,
+              "members": [
+                {
+                  "persistent_id": "B68C724502F6CB6F",
+                  "name": "field-followup",
+                  "play_order_index": 1
+                }
+              ],
+              "special_kind": 6
+            },
+            {
+              "name": "Movies",
+              "persistent_id": "3F92D5FFD99B5A2F",
+              "kind": 2,
+              "members": [],
+              "special_kind": 7
+            },
+            {
+              "name": "TV Shows",
+              "persistent_id": "E3BEC36AC9AE44B7",
+              "kind": 2,
+              "members": [],
+              "special_kind": 8
+            },
+            {
+              "name": "Podcasts",
+              "persistent_id": "ABD0ABEBBB9111F5",
+              "kind": 2,
+              "members": [],
+              "special_kind": 3
+            },
+            {
+              "name": "Audiobooks",
+              "persistent_id": "333379B90F64F93E",
+              "kind": 2,
+              "members": [],
+              "special_kind": 9
+            },
+            {
+              "name": "Genius",
+              "persistent_id": "5A51F10B7C4F3AE5",
+              "kind": 2,
+              "members": [],
+              "special_kind": 11
+            }
+          ],
+          "track_count": 1
+        },
+        "state_sha256": "51f3cc70b67bab77bc0af619cf2e83bd7561065159269241e2c42996208e5fe3",
+        "media": [
+          {
+            "persistent_id": "B68C724502F6CB6F",
+            "path": "D:\\a\\_temp\\media-field-followup-root-20260922-v2\\lyrics-unicode-media-backed\\media\\field-followup.wav",
+            "bytes": 44144,
+            "mtime_ns": 1790042497372422400,
+            "sha256": "622b224306c5bd22e2a1cd575f6a84dc680748c3a2d8a82d3963372dbc2db93a"
+          }
+        ]
+      },
+      {
+        "label": "after-2",
+        "state": {
+          "version": "12.13.10.3",
+          "library_persistent_id": "EBFFA4764B541115",
+          "tracks": [
+            {
+              "persistent_id": "B68C724502F6CB6F",
+              "Name": "field-followup",
+              "Artist": "",
+              "Album": "",
+              "AlbumArtist": "",
+              "Composer": "",
+              "Genre": "",
+              "Comment": "",
+              "Grouping": "",
+              "Lyrics": "",
+              "SortName": "",
+              "SortArtist": "",
+              "SortAlbum": "",
+              "SortAlbumArtist": "",
+              "Rating": 0,
+              "AlbumRating": 0,
+              "PlayedCount": 0,
+              "PlayedDate": "1899-12-30T00:00:00+00:00",
+              "SkippedCount": 0,
+              "SkippedDate": "1899-12-30T00:00:00+00:00",
+              "DateAdded": "2026-09-22T02:01:46+00:00",
+              "ModificationDate": "2026-09-22T02:01:37+00:00",
+              "TrackNumber": 0,
+              "TrackCount": 0,
+              "DiscNumber": 0,
+              "DiscCount": 0,
+              "Year": 0,
+              "BPM": 0,
+              "Compilation": false,
+              "Enabled": true,
+              "VolumeAdjustment": 0,
+              "Location": "D:\\a\\_temp\\media-field-followup-root-20260922-v2\\lyrics-unicode-media-backed\\media\\field-followup.wav",
+              "Duration": 0,
+              "SampleRate": 44100,
+              "BitRate": 705,
+              "Size": 44144,
+              "TrackDatabaseID": 139,
+              "TrackID": 143,
+              "PlayOrderIndex": 1,
+              "Unplayed": true,
+              "RatingKind": 1,
+              "AlbumRatingKind": 1
+            }
+          ],
+          "playlists": [
+            {
+              "name": "Library",
+              "persistent_id": "EBFFA4764B541115",
+              "kind": 1,
+              "members": [
+                {
+                  "persistent_id": "B68C724502F6CB6F",
+                  "name": "field-followup",
+                  "play_order_index": 1
+                }
+              ],
+              "special_kind": null
+            },
+            {
+              "name": "Music",
+              "persistent_id": "77F9BC2C53F8F7BD",
+              "kind": 2,
+              "members": [
+                {
+                  "persistent_id": "B68C724502F6CB6F",
+                  "name": "field-followup",
+                  "play_order_index": 1
+                }
+              ],
+              "special_kind": 6
+            },
+            {
+              "name": "Movies",
+              "persistent_id": "3F92D5FFD99B5A2F",
+              "kind": 2,
+              "members": [],
+              "special_kind": 7
+            },
+            {
+              "name": "TV Shows",
+              "persistent_id": "E3BEC36AC9AE44B7",
+              "kind": 2,
+              "members": [],
+              "special_kind": 8
+            },
+            {
+              "name": "Podcasts",
+              "persistent_id": "ABD0ABEBBB9111F5",
+              "kind": 2,
+              "members": [],
+              "special_kind": 3
+            },
+            {
+              "name": "Audiobooks",
+              "persistent_id": "333379B90F64F93E",
+              "kind": 2,
+              "members": [],
+              "special_kind": 9
+            },
+            {
+              "name": "Genius",
+              "persistent_id": "5A51F10B7C4F3AE5",
+              "kind": 2,
+              "members": [],
+              "special_kind": 11
+            }
+          ],
+          "track_count": 1
+        },
+        "state_sha256": "51f3cc70b67bab77bc0af619cf2e83bd7561065159269241e2c42996208e5fe3",
+        "media": [
+          {
+            "persistent_id": "B68C724502F6CB6F",
+            "path": "D:\\a\\_temp\\media-field-followup-root-20260922-v2\\lyrics-unicode-media-backed\\media\\field-followup.wav",
+            "bytes": 44144,
+            "mtime_ns": 1790042497372422400,
+            "sha256": "622b224306c5bd22e2a1cd575f6a84dc680748c3a2d8a82d3963372dbc2db93a"
+          }
+        ]
+      }
+    ],
+    "accepted": true,
+    "quit_requested": true,
+    "before_stability_errors": [],
+    "add_file": {
+      "returned_track_persistent_id": "B68C724502F6CB6F"
+    },
+    "after_stability_errors": [],
+    "expected_reload_state": {
+      "version": "12.13.10.3",
+      "library_persistent_id": "EBFFA4764B541115",
+      "tracks": [
+        {
+          "persistent_id": "B68C724502F6CB6F",
+          "Name": "field-followup",
+          "Artist": "",
+          "Album": "",
+          "AlbumArtist": "",
+          "Composer": "",
+          "Genre": "",
+          "Comment": "",
+          "Grouping": "",
+          "Lyrics": "",
+          "SortName": "",
+          "SortArtist": "",
+          "SortAlbum": "",
+          "SortAlbumArtist": "",
+          "Rating": 0,
+          "AlbumRating": 0,
+          "PlayedCount": 0,
+          "PlayedDate": "1899-12-30T00:00:00+00:00",
+          "SkippedCount": 0,
+          "SkippedDate": "1899-12-30T00:00:00+00:00",
+          "DateAdded": "2026-09-22T02:01:46+00:00",
+          "ModificationDate": "2026-09-22T02:01:37+00:00",
+          "TrackNumber": 0,
+          "TrackCount": 0,
+          "DiscNumber": 0,
+          "DiscCount": 0,
+          "Year": 0,
+          "BPM": 0,
+          "Compilation": false,
+          "Enabled": true,
+          "VolumeAdjustment": 0,
+          "Location": "D:\\a\\_temp\\media-field-followup-root-20260922-v2\\lyrics-unicode-media-backed\\media\\field-followup.wav",
+          "Duration": 0,
+          "SampleRate": 44100,
+          "BitRate": 705,
+          "Size": 44144,
+          "TrackDatabaseID": 139,
+          "TrackID": 143,
+          "PlayOrderIndex": 1,
+          "Unplayed": true,
+          "RatingKind": 1,
+          "AlbumRatingKind": 1
+        }
+      ],
+      "playlists": [
+        {
+          "name": "Library",
+          "persistent_id": "EBFFA4764B541115",
+          "kind": 1,
+          "members": [
+            {
+              "persistent_id": "B68C724502F6CB6F",
+              "name": "field-followup",
+              "play_order_index": 1
+            }
+          ],
+          "special_kind": null
+        },
+        {
+          "name": "Music",
+          "persistent_id": "77F9BC2C53F8F7BD",
+          "kind": 2,
+          "members": [
+            {
+              "persistent_id": "B68C724502F6CB6F",
+              "name": "field-followup",
+              "play_order_index": 1
+            }
+          ],
+          "special_kind": 6
+        },
+        {
+          "name": "Movies",
+          "persistent_id": "3F92D5FFD99B5A2F",
+          "kind": 2,
+          "members": [],
+          "special_kind": 7
+        },
+        {
+          "name": "TV Shows",
+          "persistent_id": "E3BEC36AC9AE44B7",
+          "kind": 2,
+          "members": [],
+          "special_kind": 8
+        },
+        {
+          "name": "Podcasts",
+          "persistent_id": "ABD0ABEBBB9111F5",
+          "kind": 2,
+          "members": [],
+          "special_kind": 3
+        },
+        {
+          "name": "Audiobooks",
+          "persistent_id": "333379B90F64F93E",
+          "kind": 2,
+          "members": [],
+          "special_kind": 9
+        },
+        {
+          "name": "Genius",
+          "persistent_id": "5A51F10B7C4F3AE5",
+          "kind": 2,
+          "members": [],
+          "special_kind": 11
+        }
+      ],
+      "track_count": 1
+    },
+    "finished_utc": "2026-09-22T02:01:47.429371+00:00"
+  },
+  "itunes_exit_code": 0,
+  "inventory_after": [
+    {
+      "path": "Album Artwork",
+      "kind": "directory"
+    },
+    {
+      "path": "Album Artwork/Cache",
+      "kind": "directory"
+    },
+    {
+      "path": "Album Artwork/Custom",
+      "kind": "directory"
+    },
+    {
+      "path": "Album Artwork/Download",
+      "kind": "directory"
+    },
+    {
+      "path": "Album Artwork/Generated",
+      "kind": "directory"
+    },
+    {
+      "path": "Album Artwork/Store",
+      "kind": "directory"
+    },
+    {
+      "path": "iTunes Library Extras.itdb",
+      "kind": "file",
+      "bytes": 16384,
+      "sha256": "e1937a7a396264a1d85599295ce5d66fe16e5771e91be496987a16b26d406553"
+    },
+    {
+      "path": "iTunes Library Genius.itdb",
+      "kind": "file",
+      "bytes": 32768,
+      "sha256": "36f2898d3bf7a8b304bcd245dd6e1f14192de27f6a11031e947aee1858f5bd1c"
+    },
+    {
+      "path": "iTunes Library.itl",
+      "kind": "file",
+      "bytes": 4491,
+      "sha256": "148bcc740199f6a74c6f67289263c7b274fd1c768c60fde900d0b3d47e549a41"
+    },
+    {
+      "path": "iTunes Media",
+      "kind": "directory"
+    },
+    {
+      "path": "iTunes Media/.iTunes Preferences.plist",
+      "kind": "file",
+      "bytes": 305,
+      "sha256": "e51730df15d5bc0581cf56fd1d71509bbb2aa9af30f3c3834ddd4d510ca59068"
+    },
+    {
+      "path": "iTunes Media/Automatically Add to iTunes",
+      "kind": "directory"
+    },
+    {
+      "path": "sentinel",
+      "kind": "file",
+      "bytes": 8,
+      "sha256": "24d774e8a96c39a7631401dfb209e2988e74c26557f6a455ce96aaeb68b0fc36"
+    }
+  ],
+  "forbidden_after": [],
+  "saved": {
+    "path": "D:\\a\\_temp\\gha-mcp\\win-acvcphw9\\work\\windows-itunes-itl-research\\evidence\\native\\media-field-followup-20260922-v2\\cases\\lyrics-unicode-media-backed\\initialize\\native-saved.itl",
+    "bytes": 4491,
+    "mtime_ns": 1790042510516011000,
+    "sha256": "148bcc740199f6a74c6f67289263c7b274fd1c768c60fde900d0b3d47e549a41"
+  },
+  "independent_validation": {
+    "summary": {
+      "schema": "reference-itl.semantic.v1",
+      "sha256": "148bcc740199f6a74c6f67289263c7b274fd1c768c60fde900d0b3d47e549a41",
+      "version": "12.13.10.3",
+      "file_persistent_id": "C1F2FE9E32D3570C",
+      "envelope": {
+        "header_length": 144,
+        "encryption_flag": 2,
+        "compression_flag": 1,
+        "payload_byteorder": "little",
+        "trailer_length": 0,
+        "declared_counts": {
+          "sections": 11,
+          "tracks": 1,
+          "playlists": 14,
+          "albums": 1,
+          "artists": 1
+        }
+      },
+      "sections": [
+        {
+          "type": 16,
+          "offset": 0,
+          "size": 240,
+          "opaque": false
+        },
+        {
+          "type": 12,
+          "offset": 240,
+          "size": 542,
+          "opaque": false
+        },
+        {
+          "type": 9,
+          "offset": 782,
+          "size": 276,
+          "opaque": false
+        },
+        {
+          "type": 11,
+          "offset": 1058,
+          "size": 296,
+          "opaque": false
+        },
+        {
+          "type": 1,
+          "offset": 1354,
+          "size": 1351,
+          "opaque": false
+        },
+        {
+          "type": 13,
+          "offset": 2705,
+          "size": 188,
+          "opaque": false
+        },
+        {
+          "type": 23,
+          "offset": 2893,
+          "size": 192,
+          "opaque": true
+        },
+        {
+          "type": 2,
+          "offset": 3085,
+          "size": 95436,
+          "opaque": false
+        },
+        {
+          "type": 14,
+          "offset": 98521,
+          "size": 188,
+          "opaque": false
+        },
+        {
+          "type": 21,
+          "offset": 98709,
+          "size": 1107,
+          "opaque": false
+        },
+        {
+          "type": 4,
+          "offset": 99816,
+          "size": 162,
+          "opaque": true
+        }
+      ],
+      "tracks": [
+        {
+          "persistent_id": "B68C724502F6CB6F",
+          "track_id": 139,
+          "record_kind_raw": 1,
+          "date_modified": 3872887297,
+          "file_size": 44144,
+          "total_time": 500,
+          "track_number": 0,
+          "track_count": 0,
+          "year": 0,
+          "bit_rate": 705,
+          "play_count": 0,
+          "play_date": 0,
+          "disc_number": 0,
+          "disc_count": 0,
+          "rating": 0,
+          "name_refresh_flag_raw": 1,
+          "date_added": 3872887306,
+          "skip_count": 0,
+          "album_id": 141,
+          "unplayed_raw": 0,
+          "sample_rate": 22050,
+          "skip_date": 0,
+          "artist_id": 142,
+          "header_length": 756,
+          "name": "field-followup",
+          "album": null,
+          "artist": null,
+          "genre": null,
+          "kind": "WAV audio file",
+          "comment": null,
+          "url": "file://localhost/D:/a/_temp/media-field-followup-root-20260922-v2/lyrics-unicode-media-backed/media/field-followup.wav",
+          "composer": null,
+          "path": "D:\\a\\_temp\\media-field-followup-root-20260922-v2\\lyrics-unicode-media-backed\\media\\field-followup.wav",
+          "album_artist": null,
+          "sort_name": null,
+          "sort_album": null,
+          "sort_artist": null,
+          "sort_album_artist": null,
+          "purchaser_name": null,
+          "unplayed": true
+        }
+      ],
+      "playlists": [
+        {
+          "persistent_id": "EBFFA4764B541115",
+          "playlist_id": 69,
+          "name": "####!####",
+          "header_length": 3500,
+          "members": [
+            {
+              "track_id": 139,
+              "track_persistent_id": "B68C724502F6CB6F",
+              "item_id": 143,
+              "order_token": 143,
+              "item_persistent_id": "BC2DAA44D71AEC8F"
+            }
+          ],
+          "smart_rule_objects": 0,
+          "special_object": false
+        },
+        {
+          "persistent_id": "98640619A85952AC",
+          "playlist_id": 106,
+          "name": "Downloaded",
+          "header_length": 3500,
+          "members": [
+            {
+              "track_id": 139,
+              "track_persistent_id": "B68C724502F6CB6F",
+              "item_id": 145,
+              "order_token": 145,
+              "item_persistent_id": "04102B33EA4D325C"
+            }
+          ],
+          "smart_rule_objects": 2,
+          "special_object": false
+        },
+        {
+          "persistent_id": "77F9BC2C53F8F7BD",
+          "playlist_id": 79,
+          "name": "Music",
+          "header_length": 3500,
+          "members": [
+            {
+              "track_id": 139,
+              "track_persistent_id": "B68C724502F6CB6F",
+              "item_id": 144,
+              "order_token": 144,
+              "item_persistent_id": "540ED888176316EA"
+            }
+          ],
+          "smart_rule_objects": 2,
+          "special_object": false
+        },
+        {
+          "persistent_id": "7C53DAB1CDDA0984",
+          "playlist_id": 97,
+          "name": "Music Videos",
+          "header_length": 3500,
+          "members": [],
+          "smart_rule_objects": 2,
+          "special_object": false
+        },
+        {
+          "persistent_id": "852E4A773D3D0BFB",
+          "playlist_id": 103,
+          "name": "TV & Movies",
+          "header_length": 3500,
+          "members": [],
+          "smart_rule_objects": 2,
+          "special_object": false
+        },
+        {
+          "persistent_id": "91B443FFA2E760BB",
+          "playlist_id": 91,
+          "name": "Rentals",
+          "header_length": 3500,
+          "members": [],
+          "smart_rule_objects": 2,
+          "special_object": false
+        },
+        {
+          "persistent_id": "4F5A993F3F09C152",
+          "playlist_id": 109,
+          "name": "Downloaded",
+          "header_length": 3500,
+          "members": [],
+          "smart_rule_objects": 2,
+          "special_object": false
+        },
+        {
+          "persistent_id": "3F92D5FFD99B5A2F",
+          "playlist_id": 82,
+          "name": "Movies",
+          "header_length": 3500,
+          "members": [],
+          "smart_rule_objects": 2,
+          "special_object": false
+        },
+        {
+          "persistent_id": "FA6A0BEB8207343B",
+          "playlist_id": 100,
+          "name": "Home Videos",
+          "header_length": 3500,
+          "members": [],
+          "smart_rule_objects": 2,
+          "special_object": false
+        },
+        {
+          "persistent_id": "AFAD4DA99A590AA5",
+          "playlist_id": 112,
+          "name": "Downloaded",
+          "header_length": 3500,
+          "members": [],
+          "smart_rule_objects": 2,
+          "special_object": false
+        },
+        {
+          "persistent_id": "E3BEC36AC9AE44B7",
+          "playlist_id": 85,
+          "name": "TV Shows",
+          "header_length": 3500,
+          "members": [],
+          "smart_rule_objects": 2,
+          "special_object": false
+        },
+        {
+          "persistent_id": "ABD0ABEBBB9111F5",
+          "playlist_id": 76,
+          "name": "Podcasts",
+          "header_length": 3500,
+          "members": [],
+          "smart_rule_objects": 0,
+          "special_object": true
+        },
+        {
+          "persistent_id": "333379B90F64F93E",
+          "playlist_id": 88,
+          "name": "Audiobooks",
+          "header_length": 3500,
+          "members": [],
+          "smart_rule_objects": 2,
+          "special_object": false
+        },
+        {
+          "persistent_id": "5A51F10B7C4F3AE5",
+          "playlist_id": 94,
+          "name": "Genius",
+          "header_length": 3500,
+          "members": [],
+          "smart_rule_objects": 2,
+          "special_object": false
+        }
+      ]
+    },
+    "validation": {
+      "schema": "reference-itl.validation.v1",
+      "sha256": "148bcc740199f6a74c6f67289263c7b274fd1c768c60fde900d0b3d47e549a41",
+      "valid": true,
+      "version": "12.13.10.3",
+      "counts": {
+        "declared": {
+          "sections": 11,
+          "tracks": 1,
+          "playlists": 14,
+          "albums": 1,
+          "artists": 1
+        },
+        "parsed": {
+          "sections": 11,
+          "tracks": 1,
+          "playlists": 14,
+          "albums": 1,
+          "artists": 1
+        }
+      },
+      "issues": [
+        {
+          "severity": "warning",
+          "code": "scope.opaque_section",
+          "path": "section[6]/type[23]",
+          "message": "section body is retained but not semantically decoded",
+          "details": {
+            "section_type": 23,
+            "bytes": 96
+          }
+        },
+        {
+          "severity": "warning",
+          "code": "scope.opaque_section",
+          "path": "section[10]/type[4]",
+          "message": "section body is retained but not semantically decoded",
+          "details": {
+            "section_type": 4,
+            "bytes": 66
+          }
+        }
+      ],
+      "coverage": {
+        "envelope_and_record_boundaries": true,
+        "known_reference_namespaces": [
+          "track local/Persistent IDs",
+          "playlist local/Persistent IDs",
+          "playlist item IDs and track references",
+          "track album and artist local references"
+        ],
+        "opaque_bytes_semantically_validated": false,
+        "opaque_reference_scan": false
+      },
+      "native_acceptance": "unverified"
+    },
+    "errors": [],
+    "passed": true
+  },
+  "source_after": {
+    "path": "D:\\a\\_temp\\media-field-followup-root-20260922-v2\\lyrics-unicode-media-backed\\media\\field-followup.wav",
+    "bytes": 44144,
+    "mtime_ns": 1790042497372422400,
+    "sha256": "622b224306c5bd22e2a1cd575f6a84dc680748c3a2d8a82d3963372dbc2db93a"
+  },
+  "media_after": [
+    {
+      "persistent_id": "B68C724502F6CB6F",
+      "path": "D:\\a\\_temp\\media-field-followup-root-20260922-v2\\lyrics-unicode-media-backed\\media\\field-followup.wav",
+      "bytes": 44144,
+      "mtime_ns": 1790042497372422400,
+      "sha256": "622b224306c5bd22e2a1cd575f6a84dc680748c3a2d8a82d3963372dbc2db93a"
+    }
+  ],
+  "status": "passed",
+  "profile_junction_remove": {
+    "removed": true,
+    "command": {
+      "argv": [
+        "cmd.exe",
+        "/d",
+        "/c",
+        "rmdir",
+        "C:\\Users\\runneradmin\\Music\\iTunes"
+      ],
+      "returncode": 0,
+      "output": ""
+    }
+  },
+  "finished_utc": "2026-09-22T02:01:54.589600+00:00"
+}
