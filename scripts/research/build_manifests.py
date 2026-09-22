@@ -44,6 +44,10 @@ def classify_itl(path: Path) -> tuple[str, dict]:
         if evidence is not None:
             extra["native_acceptance_evidence"] = evidence
         return "independent_from_scratch_generated", extra
+    if rel.startswith("evidence/independent/itl-rs-20260922/"):
+        return "external_independent_interop_candidate", {
+            "qualification": "see conformance summary; structural preservation is not semantic interoperability",
+        }
     if rel.startswith("evidence/native/fresh-20260921/snapshots/"):
         return "native_itunes_fresh_library", {
             "producer": "iTunes 12.13.10.3",
@@ -81,6 +85,9 @@ def build_corpus() -> dict:
         "evidence/smart-playlist/corpus-census.json",
         "evidence/smart-playlist/prior-art-manifest.json",
         "evidence/native/reference-generated-20260922-passed/qualification-summary.json",
+        "evidence/native/field-matrix-20260922/summary.json",
+        "evidence/independent/itl-rs-20260922/conformance-summary.json",
+        "evidence/native/smart-playlist-default-20260922/probe-series-summary.json",
     ):
         path = ROOT / name
         if path.is_file():
@@ -96,6 +103,9 @@ def build_corpus() -> dict:
             "reference_writer_acceptance_boundary": "No arbitrary values, counts, media kinds, versions, or unknown fields are implied.",
             "fresh_native_library_note": "created by iTunes itself; not evidence that the reference writer is accepted",
             "path_time_note": "native iTunes saves for a bounded matrix; not arbitrary writer acceptance",
+            "field_matrix_note": "27 exact passes and two retained failures; not complete field support",
+            "external_interop_note": "one exact structural no-op passed native cycles; semantic reimplementation remains false",
+            "smart_playlist_note": "native nested framing observed; operand and membership gates failed",
         },
         "summary": {"itl_file_count": len(rows), "by_class": counts},
         "referenced_manifests_and_analyses": references,

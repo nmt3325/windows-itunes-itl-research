@@ -8,13 +8,17 @@
     "reference_writer_from_scratch_native_acceptance": "verified_for_two_exact_hashes",
     "reference_writer_acceptance_boundary": "No arbitrary values, counts, media kinds, versions, or unknown fields are implied.",
     "fresh_native_library_note": "created by iTunes itself; not evidence that the reference writer is accepted",
-    "path_time_note": "native iTunes saves for a bounded matrix; not arbitrary writer acceptance"
+    "path_time_note": "native iTunes saves for a bounded matrix; not arbitrary writer acceptance",
+    "field_matrix_note": "27 exact passes and two retained failures; not complete field support",
+    "external_interop_note": "one exact structural no-op passed native cycles; semantic reimplementation remains false",
+    "smart_playlist_note": "native nested framing observed; operand and membership gates failed"
   },
   "summary": {
-    "itl_file_count": 150,
+    "itl_file_count": 236,
     "by_class": {
       "independent_from_scratch_generated": 2,
-      "archived_native_or_exact_candidate": 103,
+      "external_independent_interop_candidate": 5,
+      "archived_native_or_exact_candidate": 184,
       "native_itunes_fresh_library": 6,
       "native_itunes_path_time_sequence": 39
     }
@@ -49,6 +53,21 @@
       "path": "evidence/native/reference-generated-20260922-passed/qualification-summary.json",
       "bytes": 4625,
       "sha256": "030ad01381b01077bae1d00e1a667b21da029902f64fe31709ab7a914d3baece"
+    },
+    {
+      "path": "evidence/native/field-matrix-20260922/summary.json",
+      "bytes": 2377581,
+      "sha256": "40b81b4829cf18132fb7f3d4682aa1aa186e9ee8c22217a417d77987ac5f59ed"
+    },
+    {
+      "path": "evidence/independent/itl-rs-20260922/conformance-summary.json",
+      "bytes": 4103,
+      "sha256": "5900e8119ecca105462d06c48de0eeeb7e160748c41f6141a1f210e7f08b939f"
+    },
+    {
+      "path": "evidence/native/smart-playlist-default-20260922/probe-series-summary.json",
+      "bytes": 8320,
+      "sha256": "147c401db8613b511085b324c79bb440fa97fab52d4c69b809cdd1f815d293c0"
     }
   ],
   "itl_files": [
@@ -69,6 +88,41 @@
       "template_reused": false,
       "native_acceptance": "verified",
       "native_acceptance_evidence": "evidence/native/reference-generated-20260922-passed/cases/reference-one-track-zlib/result.json"
+    },
+    {
+      "path": "evidence/independent/itl-rs-20260922/candidate-zlib-equal-length-title.itl",
+      "bytes": 765,
+      "sha256": "4c29ff4a9f37cd6fdeb52c9dc7460d910c17dc328fd2b2d933c2647a8a66b25c",
+      "corpus_class": "external_independent_interop_candidate",
+      "qualification": "see conformance summary; structural preservation is not semantic interoperability"
+    },
+    {
+      "path": "evidence/independent/itl-rs-20260922/candidate-zlib-mutated.itl",
+      "bytes": 812,
+      "sha256": "c24959fcb160b3da36aabf83d771ea5faa0f16f83a67ae155c3e23f914dc348b",
+      "corpus_class": "external_independent_interop_candidate",
+      "qualification": "see conformance summary; structural preservation is not semantic interoperability"
+    },
+    {
+      "path": "evidence/independent/itl-rs-20260922/candidate-zlib-roundtrip.itl",
+      "bytes": 755,
+      "sha256": "2873104e2e8cfc97ac6434480328aed81996feb5c3bb2237cd598d9f8adcc642",
+      "corpus_class": "external_independent_interop_candidate",
+      "qualification": "see conformance summary; structural preservation is not semantic interoperability"
+    },
+    {
+      "path": "evidence/independent/itl-rs-20260922/native-accepted/cases/itl-rs-zlib-roundtrip/cycle-1/native-saved.itl",
+      "bytes": 4118,
+      "sha256": "4568c243ab57dceeb5614e786d993a8e69c680d863d5ae31662f94c5a04737a9",
+      "corpus_class": "external_independent_interop_candidate",
+      "qualification": "see conformance summary; structural preservation is not semantic interoperability"
+    },
+    {
+      "path": "evidence/independent/itl-rs-20260922/native-accepted/cases/itl-rs-zlib-roundtrip/cycle-2/native-saved.itl",
+      "bytes": 4149,
+      "sha256": "003172d53fad74a8ac03f5c36cf7622078edb26a427c1c45a8159ab0b53f2ef5",
+      "corpus_class": "external_independent_interop_candidate",
+      "qualification": "see conformance summary; structural preservation is not semantic interoperability"
     },
     {
       "path": "evidence/native/candidates/050-codec-forced.itl",
@@ -165,6 +219,398 @@
       "path": "evidence/native/donor32/donor032-reloaded.itl",
       "bytes": 19158,
       "sha256": "7edd4ea85ca937103165bb40a5656ba84cd9c08b73580beb2482d963f5728083",
+      "corpus_class": "archived_native_or_exact_candidate",
+      "qualification": "see per-case evidence; presence is not acceptance"
+    },
+    {
+      "path": "evidence/native/field-matrix-20260922/cases/album-artist-unicode/mutation/native-saved.itl",
+      "bytes": 4199,
+      "sha256": "7eb502e207d3a7ff4bae84814fe28a6eddd84c672da7a42b7477b7b52f1c1119",
+      "corpus_class": "archived_native_or_exact_candidate",
+      "qualification": "see per-case evidence; presence is not acceptance"
+    },
+    {
+      "path": "evidence/native/field-matrix-20260922/cases/album-artist-unicode/verification/native-saved.itl",
+      "bytes": 4238,
+      "sha256": "641fac5c28d2f4ca2c8d6f224a5dc33e218a1e545cec8a1fb21a380d9223217c",
+      "corpus_class": "archived_native_or_exact_candidate",
+      "qualification": "see per-case evidence; presence is not acceptance"
+    },
+    {
+      "path": "evidence/native/field-matrix-20260922/cases/album-rating-explicit/mutation/native-saved.itl",
+      "bytes": 4109,
+      "sha256": "89ad0ec809882bdfb9b1810e0bd1f8b8f896ef93dd77509d01bb5b406d1a63eb",
+      "corpus_class": "archived_native_or_exact_candidate",
+      "qualification": "see per-case evidence; presence is not acceptance"
+    },
+    {
+      "path": "evidence/native/field-matrix-20260922/cases/album-rating-explicit/verification/native-saved.itl",
+      "bytes": 4147,
+      "sha256": "d88d5c3800c748d2685600f1282b6713fc45112074136f300d99b09d4bf44d38",
+      "corpus_class": "archived_native_or_exact_candidate",
+      "qualification": "see per-case evidence; presence is not acceptance"
+    },
+    {
+      "path": "evidence/native/field-matrix-20260922/cases/album-unicode/mutation/native-saved.itl",
+      "bytes": 4178,
+      "sha256": "e705c50010af8f3fd61f4461dcf97cf5eb6e7838a56345f693769fa76be69520",
+      "corpus_class": "archived_native_or_exact_candidate",
+      "qualification": "see per-case evidence; presence is not acceptance"
+    },
+    {
+      "path": "evidence/native/field-matrix-20260922/cases/album-unicode/verification/native-saved.itl",
+      "bytes": 4208,
+      "sha256": "4b3fd32c0dcf7f866f5c2ff45ff26d57a0437aa49a92822ee26425d24b402f95",
+      "corpus_class": "archived_native_or_exact_candidate",
+      "qualification": "see per-case evidence; presence is not acceptance"
+    },
+    {
+      "path": "evidence/native/field-matrix-20260922/cases/artist-unicode/mutation/native-saved.itl",
+      "bytes": 4186,
+      "sha256": "aab4f62b7e4c6b861279e4a453724a00f2647f5bac09949c4ef1b99ca4a274cb",
+      "corpus_class": "archived_native_or_exact_candidate",
+      "qualification": "see per-case evidence; presence is not acceptance"
+    },
+    {
+      "path": "evidence/native/field-matrix-20260922/cases/artist-unicode/verification/native-saved.itl",
+      "bytes": 4216,
+      "sha256": "96b98b294d0b838cea568b971a4e0d66efe2490cc8e086cb3c9180dbc4085980",
+      "corpus_class": "archived_native_or_exact_candidate",
+      "qualification": "see per-case evidence; presence is not acceptance"
+    },
+    {
+      "path": "evidence/native/field-matrix-20260922/cases/bpm/mutation/native-saved.itl",
+      "bytes": 4114,
+      "sha256": "464fe2c53042a625f1d611f9d34831b9ab3be0d14d9a768987c42a5ceb4c69b4",
+      "corpus_class": "archived_native_or_exact_candidate",
+      "qualification": "see per-case evidence; presence is not acceptance"
+    },
+    {
+      "path": "evidence/native/field-matrix-20260922/cases/bpm/verification/native-saved.itl",
+      "bytes": 4149,
+      "sha256": "5a189e450baa1835fb44c32f8cc9d6e96c46f9a8b9edf40ad132373bc4c53603",
+      "corpus_class": "archived_native_or_exact_candidate",
+      "qualification": "see per-case evidence; presence is not acceptance"
+    },
+    {
+      "path": "evidence/native/field-matrix-20260922/cases/comment-unicode/mutation/native-saved.itl",
+      "bytes": 4149,
+      "sha256": "7823ca732b919f963c2189684335deba41a1bec6f0fabfbdbf19cd8caed1a4cb",
+      "corpus_class": "archived_native_or_exact_candidate",
+      "qualification": "see per-case evidence; presence is not acceptance"
+    },
+    {
+      "path": "evidence/native/field-matrix-20260922/cases/comment-unicode/verification/native-saved.itl",
+      "bytes": 4182,
+      "sha256": "1b7e052fd8c9e6b227c49e1a2cc311fc3374921581fe7e93c9ed630470da53bf",
+      "corpus_class": "archived_native_or_exact_candidate",
+      "qualification": "see per-case evidence; presence is not acceptance"
+    },
+    {
+      "path": "evidence/native/field-matrix-20260922/cases/compilation/mutation/native-saved.itl",
+      "bytes": 4129,
+      "sha256": "ff9e431d2dbf99a01b8b535c93ec9b847c90589789fecffa6888a8a02fb0d619",
+      "corpus_class": "archived_native_or_exact_candidate",
+      "qualification": "see per-case evidence; presence is not acceptance"
+    },
+    {
+      "path": "evidence/native/field-matrix-20260922/cases/compilation/verification/native-saved.itl",
+      "bytes": 4167,
+      "sha256": "ef69aa1f7894ad4f7deb9269969a2da8b76a5c46ec89e8b93136a2ea4ed61e3d",
+      "corpus_class": "archived_native_or_exact_candidate",
+      "qualification": "see per-case evidence; presence is not acceptance"
+    },
+    {
+      "path": "evidence/native/field-matrix-20260922/cases/composer-unicode/mutation/native-saved.itl",
+      "bytes": 4153,
+      "sha256": "f848c05fa4532ce558fde8147a4fffa2f519bf1f3ddef956ddba754001b91bfc",
+      "corpus_class": "archived_native_or_exact_candidate",
+      "qualification": "see per-case evidence; presence is not acceptance"
+    },
+    {
+      "path": "evidence/native/field-matrix-20260922/cases/composer-unicode/verification/native-saved.itl",
+      "bytes": 4176,
+      "sha256": "47f5a945b83317400ccf0831cb86c7a715e8dcd3d610f33e008db271d0142f9f",
+      "corpus_class": "archived_native_or_exact_candidate",
+      "qualification": "see per-case evidence; presence is not acceptance"
+    },
+    {
+      "path": "evidence/native/field-matrix-20260922/cases/disc-count/mutation/native-saved.itl",
+      "bytes": 4115,
+      "sha256": "cf891229fa311106dbc2a4f42ab37f3118df3a1611002dda259f163665d0bba9",
+      "corpus_class": "archived_native_or_exact_candidate",
+      "qualification": "see per-case evidence; presence is not acceptance"
+    },
+    {
+      "path": "evidence/native/field-matrix-20260922/cases/disc-count/verification/native-saved.itl",
+      "bytes": 4152,
+      "sha256": "fc476123c867c55d5d4e421b7a0f51ca1db4ef4da89e6b4ed81f4587fef7116f",
+      "corpus_class": "archived_native_or_exact_candidate",
+      "qualification": "see per-case evidence; presence is not acceptance"
+    },
+    {
+      "path": "evidence/native/field-matrix-20260922/cases/disc-number/mutation/native-saved.itl",
+      "bytes": 4111,
+      "sha256": "47c8e1b1a39e66ec3549108f1b3610f2df8d2c637ffea1420b4fa18989f4a367",
+      "corpus_class": "archived_native_or_exact_candidate",
+      "qualification": "see per-case evidence; presence is not acceptance"
+    },
+    {
+      "path": "evidence/native/field-matrix-20260922/cases/disc-number/verification/native-saved.itl",
+      "bytes": 4147,
+      "sha256": "e512fd66236f76df4bab71d4ec0d4715c48c7c623a5e70767b5ceb5d69cffecb",
+      "corpus_class": "archived_native_or_exact_candidate",
+      "qualification": "see per-case evidence; presence is not acceptance"
+    },
+    {
+      "path": "evidence/native/field-matrix-20260922/cases/enabled-false/mutation/live-at-failure.itl",
+      "bytes": 10566,
+      "sha256": "c6c68171d57350ceb3cf379eee13a764ea199536ef18238fe4faf80583492d74",
+      "corpus_class": "archived_native_or_exact_candidate",
+      "qualification": "see per-case evidence; presence is not acceptance"
+    },
+    {
+      "path": "evidence/native/field-matrix-20260922/cases/genre-unicode/mutation/native-saved.itl",
+      "bytes": 4142,
+      "sha256": "074c84ae4c7a170c26b4b5a77274febcdd3cec7f8579fad7dc7d1a76fe1c5958",
+      "corpus_class": "archived_native_or_exact_candidate",
+      "qualification": "see per-case evidence; presence is not acceptance"
+    },
+    {
+      "path": "evidence/native/field-matrix-20260922/cases/genre-unicode/verification/native-saved.itl",
+      "bytes": 4166,
+      "sha256": "92a0fe690a4215e1b64d6e4eff6f41a5e5f20779a265ed32b3298f47e2d8ef7c",
+      "corpus_class": "archived_native_or_exact_candidate",
+      "qualification": "see per-case evidence; presence is not acceptance"
+    },
+    {
+      "path": "evidence/native/field-matrix-20260922/cases/grouping-unicode/mutation/native-saved.itl",
+      "bytes": 4151,
+      "sha256": "ba48d4400a635f99f8818ba0c05b4e2a67cd3ac2e3925ddc805576af3898c50a",
+      "corpus_class": "archived_native_or_exact_candidate",
+      "qualification": "see per-case evidence; presence is not acceptance"
+    },
+    {
+      "path": "evidence/native/field-matrix-20260922/cases/grouping-unicode/verification/native-saved.itl",
+      "bytes": 4183,
+      "sha256": "93cf86a9c9d741815c1b67600b2da39201c284a6c5ba250d15687c2449b5cfd8",
+      "corpus_class": "archived_native_or_exact_candidate",
+      "qualification": "see per-case evidence; presence is not acceptance"
+    },
+    {
+      "path": "evidence/native/field-matrix-20260922/cases/lyrics-unicode/mutation/live-at-failure.itl",
+      "bytes": 10566,
+      "sha256": "c6c68171d57350ceb3cf379eee13a764ea199536ef18238fe4faf80583492d74",
+      "corpus_class": "archived_native_or_exact_candidate",
+      "qualification": "see per-case evidence; presence is not acceptance"
+    },
+    {
+      "path": "evidence/native/field-matrix-20260922/cases/name-unicode/mutation/native-saved.itl",
+      "bytes": 4126,
+      "sha256": "60a99eb12f5a93820271b0e612119ac898367816a623f5b9c15a02ff35c96d41",
+      "corpus_class": "archived_native_or_exact_candidate",
+      "qualification": "see per-case evidence; presence is not acceptance"
+    },
+    {
+      "path": "evidence/native/field-matrix-20260922/cases/name-unicode/verification/native-saved.itl",
+      "bytes": 4157,
+      "sha256": "f76542dcfb677decb957b2debe5a6590b6ad4c09c5015285c1c3525c9e101817",
+      "corpus_class": "archived_native_or_exact_candidate",
+      "qualification": "see per-case evidence; presence is not acceptance"
+    },
+    {
+      "path": "evidence/native/field-matrix-20260922/cases/played-count/mutation/native-saved.itl",
+      "bytes": 4114,
+      "sha256": "d8b9136d09e8bf462e3f31f03e15dabc7d8b9d0986e45e28602b5d66758ebdea",
+      "corpus_class": "archived_native_or_exact_candidate",
+      "qualification": "see per-case evidence; presence is not acceptance"
+    },
+    {
+      "path": "evidence/native/field-matrix-20260922/cases/played-count/verification/native-saved.itl",
+      "bytes": 4153,
+      "sha256": "bbddffc4c2c8992aaf2a7ce33e6467e29fef41c5f071f16f7e69ba1f9b2d0b77",
+      "corpus_class": "archived_native_or_exact_candidate",
+      "qualification": "see per-case evidence; presence is not acceptance"
+    },
+    {
+      "path": "evidence/native/field-matrix-20260922/cases/played-date/mutation/native-saved.itl",
+      "bytes": 4126,
+      "sha256": "e6626db2492b5bbaba657a466ca79a97f34023faced1f24f02bb352bae6ca909",
+      "corpus_class": "archived_native_or_exact_candidate",
+      "qualification": "see per-case evidence; presence is not acceptance"
+    },
+    {
+      "path": "evidence/native/field-matrix-20260922/cases/played-date/verification/native-saved.itl",
+      "bytes": 4160,
+      "sha256": "dd1890350950cfa610d443156e1469bf16292fba6c17ab185b20b4ed2811970b",
+      "corpus_class": "archived_native_or_exact_candidate",
+      "qualification": "see per-case evidence; presence is not acceptance"
+    },
+    {
+      "path": "evidence/native/field-matrix-20260922/cases/rating-explicit/mutation/native-saved.itl",
+      "bytes": 4125,
+      "sha256": "e41f226221e79b7f1ab743d4685a994c9b212c1b7462eb612b9cac6f51d9e244",
+      "corpus_class": "archived_native_or_exact_candidate",
+      "qualification": "see per-case evidence; presence is not acceptance"
+    },
+    {
+      "path": "evidence/native/field-matrix-20260922/cases/rating-explicit/verification/native-saved.itl",
+      "bytes": 4159,
+      "sha256": "09f42b8b450562c723ef4d0b04d3a8c9fc149e8d550dc6e137f748d35aa8e586",
+      "corpus_class": "archived_native_or_exact_candidate",
+      "qualification": "see per-case evidence; presence is not acceptance"
+    },
+    {
+      "path": "evidence/native/field-matrix-20260922/cases/skipped-count/mutation/native-saved.itl",
+      "bytes": 4116,
+      "sha256": "0bc1e2279f3691e02b9d35f3ba682def8ad7b35c070dfa96dfbbb52bed0905c8",
+      "corpus_class": "archived_native_or_exact_candidate",
+      "qualification": "see per-case evidence; presence is not acceptance"
+    },
+    {
+      "path": "evidence/native/field-matrix-20260922/cases/skipped-count/verification/native-saved.itl",
+      "bytes": 4151,
+      "sha256": "477190715c1b3703af00c89dbef485fecd2b924f3fabc3f4f2d827175b654ace",
+      "corpus_class": "archived_native_or_exact_candidate",
+      "qualification": "see per-case evidence; presence is not acceptance"
+    },
+    {
+      "path": "evidence/native/field-matrix-20260922/cases/skipped-date/mutation/native-saved.itl",
+      "bytes": 4110,
+      "sha256": "867f28d4b07e59cc311fc637dbc563d063d1f3d7b192206c38137958b0930370",
+      "corpus_class": "archived_native_or_exact_candidate",
+      "qualification": "see per-case evidence; presence is not acceptance"
+    },
+    {
+      "path": "evidence/native/field-matrix-20260922/cases/skipped-date/verification/native-saved.itl",
+      "bytes": 4148,
+      "sha256": "83651a6afbae3de63eb6bdd2f7a8d125bab251f1e6b42a9b68026b145d72d3d8",
+      "corpus_class": "archived_native_or_exact_candidate",
+      "qualification": "see per-case evidence; presence is not acceptance"
+    },
+    {
+      "path": "evidence/native/field-matrix-20260922/cases/sort-album-artist/mutation/native-saved.itl",
+      "bytes": 4128,
+      "sha256": "9a1fe07e5d78405456605bcbbd71827661df262385a10bea71f2bec6d4459217",
+      "corpus_class": "archived_native_or_exact_candidate",
+      "qualification": "see per-case evidence; presence is not acceptance"
+    },
+    {
+      "path": "evidence/native/field-matrix-20260922/cases/sort-album-artist/verification/native-saved.itl",
+      "bytes": 4163,
+      "sha256": "4828f10a1ba74ebee1f7df1f87ddcd8922bbab61caed77008e3d86f54b0df2f2",
+      "corpus_class": "archived_native_or_exact_candidate",
+      "qualification": "see per-case evidence; presence is not acceptance"
+    },
+    {
+      "path": "evidence/native/field-matrix-20260922/cases/sort-album/mutation/native-saved.itl",
+      "bytes": 4138,
+      "sha256": "dc63032047057e6a9f95f03f077bc602365e4f806ca934c656ec41f4ff3ab6a9",
+      "corpus_class": "archived_native_or_exact_candidate",
+      "qualification": "see per-case evidence; presence is not acceptance"
+    },
+    {
+      "path": "evidence/native/field-matrix-20260922/cases/sort-album/verification/native-saved.itl",
+      "bytes": 4169,
+      "sha256": "0b7c057143a2a73b1275686ad13611a7e4acb4358848d77605fe37b57ed95456",
+      "corpus_class": "archived_native_or_exact_candidate",
+      "qualification": "see per-case evidence; presence is not acceptance"
+    },
+    {
+      "path": "evidence/native/field-matrix-20260922/cases/sort-artist/mutation/native-saved.itl",
+      "bytes": 4170,
+      "sha256": "a6d7f064faef91df9b2bbdd0f75fde6dbe7ddaab4112ce9a83c63642535df79f",
+      "corpus_class": "archived_native_or_exact_candidate",
+      "qualification": "see per-case evidence; presence is not acceptance"
+    },
+    {
+      "path": "evidence/native/field-matrix-20260922/cases/sort-artist/verification/native-saved.itl",
+      "bytes": 4200,
+      "sha256": "ac44785f3499d6da8af4729d717caa201323e7befc9b62bf3a5a3af2526862e7",
+      "corpus_class": "archived_native_or_exact_candidate",
+      "qualification": "see per-case evidence; presence is not acceptance"
+    },
+    {
+      "path": "evidence/native/field-matrix-20260922/cases/sort-name/mutation/native-saved.itl",
+      "bytes": 4143,
+      "sha256": "7e02e91fe81341b74a9528c646cb353404e86923cd84cb936cd2a60e46b9e869",
+      "corpus_class": "archived_native_or_exact_candidate",
+      "qualification": "see per-case evidence; presence is not acceptance"
+    },
+    {
+      "path": "evidence/native/field-matrix-20260922/cases/sort-name/verification/native-saved.itl",
+      "bytes": 4172,
+      "sha256": "31f2ed93fb733ab3eb5c1dadbeebe7fd48fc24b9564cd373ecd675d3c6b9b125",
+      "corpus_class": "archived_native_or_exact_candidate",
+      "qualification": "see per-case evidence; presence is not acceptance"
+    },
+    {
+      "path": "evidence/native/field-matrix-20260922/cases/track-count/mutation/native-saved.itl",
+      "bytes": 4120,
+      "sha256": "d97c2db554bd8058220b08b18c0bf1c13b08d449b07506b607bc9e14f734e920",
+      "corpus_class": "archived_native_or_exact_candidate",
+      "qualification": "see per-case evidence; presence is not acceptance"
+    },
+    {
+      "path": "evidence/native/field-matrix-20260922/cases/track-count/verification/native-saved.itl",
+      "bytes": 4156,
+      "sha256": "478f4eadcd228ca8a874b95c7810d02402e221ae1400ab7f08b25ecefc0a0592",
+      "corpus_class": "archived_native_or_exact_candidate",
+      "qualification": "see per-case evidence; presence is not acceptance"
+    },
+    {
+      "path": "evidence/native/field-matrix-20260922/cases/track-number/mutation/native-saved.itl",
+      "bytes": 4119,
+      "sha256": "8feb76009341a27d0db93ababaab1312f1479c89282c4f41211db1d7e6a87132",
+      "corpus_class": "archived_native_or_exact_candidate",
+      "qualification": "see per-case evidence; presence is not acceptance"
+    },
+    {
+      "path": "evidence/native/field-matrix-20260922/cases/track-number/verification/native-saved.itl",
+      "bytes": 4159,
+      "sha256": "5b42eadd6673498b02a5dee3f60ee07bd7bcbba8e194862cf58ac703b26e2a21",
+      "corpus_class": "archived_native_or_exact_candidate",
+      "qualification": "see per-case evidence; presence is not acceptance"
+    },
+    {
+      "path": "evidence/native/field-matrix-20260922/cases/unplayed-false/mutation/native-saved.itl",
+      "bytes": 4124,
+      "sha256": "266a62adaf57ae4f6599b248a5f2b939526c7fd26e3c3875f334a94e3fd9a8c1",
+      "corpus_class": "archived_native_or_exact_candidate",
+      "qualification": "see per-case evidence; presence is not acceptance"
+    },
+    {
+      "path": "evidence/native/field-matrix-20260922/cases/unplayed-false/verification/native-saved.itl",
+      "bytes": 4161,
+      "sha256": "4f9c46fe5330b5d075e32bccb0d1ed0c5344dac3969737da65704f217627f903",
+      "corpus_class": "archived_native_or_exact_candidate",
+      "qualification": "see per-case evidence; presence is not acceptance"
+    },
+    {
+      "path": "evidence/native/field-matrix-20260922/cases/volume-adjustment-negative/mutation/native-saved.itl",
+      "bytes": 4125,
+      "sha256": "0d82e911481accf63bd0a148572f2f534615c38d69946e9571660788ada4bb77",
+      "corpus_class": "archived_native_or_exact_candidate",
+      "qualification": "see per-case evidence; presence is not acceptance"
+    },
+    {
+      "path": "evidence/native/field-matrix-20260922/cases/volume-adjustment-negative/verification/native-saved.itl",
+      "bytes": 4167,
+      "sha256": "58aa5ae4b38b153e9ce7cfd68bbff6dce2c1652ba2edcba72efc3acc583ff649",
+      "corpus_class": "archived_native_or_exact_candidate",
+      "qualification": "see per-case evidence; presence is not acceptance"
+    },
+    {
+      "path": "evidence/native/field-matrix-20260922/cases/year/mutation/native-saved.itl",
+      "bytes": 4124,
+      "sha256": "d0d17473a0664e03dce209bf6980122ed413baf7d49bb7c8fbd62239fc3aea80",
+      "corpus_class": "archived_native_or_exact_candidate",
+      "qualification": "see per-case evidence; presence is not acceptance"
+    },
+    {
+      "path": "evidence/native/field-matrix-20260922/cases/year/verification/native-saved.itl",
+      "bytes": 4156,
+      "sha256": "35cbc35f250568fa5be7c0d4a672398f38e1324491388c08cd229fb91a63b147",
       "corpus_class": "archived_native_or_exact_candidate",
       "qualification": "see per-case evidence; presence is not acceptance"
     },
@@ -451,6 +897,181 @@
       "path": "evidence/native/reference-generated-20260922/cases/reference-one-track-zlib/cycle-1/live-at-failure.itl",
       "bytes": 1130,
       "sha256": "4e6dee586feb0ddf61abc53e49671d4fe72cd64b788f3a6f9e98940320a51b3c",
+      "corpus_class": "archived_native_or_exact_candidate",
+      "qualification": "see per-case evidence; presence is not acceptance"
+    },
+    {
+      "path": "evidence/native/smart-playlist-default-20260922-v10/final-live.itl",
+      "bytes": 4155,
+      "sha256": "cdfb6d6b2964cfaa5960a693ce779577453faa87f8746b793bd086a7801cc4a5",
+      "corpus_class": "archived_native_or_exact_candidate",
+      "qualification": "see per-case evidence; presence is not acceptance"
+    },
+    {
+      "path": "evidence/native/smart-playlist-default-20260922-v11/final-live.itl",
+      "bytes": 10566,
+      "sha256": "c6c68171d57350ceb3cf379eee13a764ea199536ef18238fe4faf80583492d74",
+      "corpus_class": "archived_native_or_exact_candidate",
+      "qualification": "see per-case evidence; presence is not acceptance"
+    },
+    {
+      "path": "evidence/native/smart-playlist-default-20260922-v12/final-live.itl",
+      "bytes": 10566,
+      "sha256": "c6c68171d57350ceb3cf379eee13a764ea199536ef18238fe4faf80583492d74",
+      "corpus_class": "archived_native_or_exact_candidate",
+      "qualification": "see per-case evidence; presence is not acceptance"
+    },
+    {
+      "path": "evidence/native/smart-playlist-default-20260922-v13/final-live.itl",
+      "bytes": 4159,
+      "sha256": "8ea73531db757575a15193b283403737d81d9ed5feac945e14579b5e7950a490",
+      "corpus_class": "archived_native_or_exact_candidate",
+      "qualification": "see per-case evidence; presence is not acceptance"
+    },
+    {
+      "path": "evidence/native/smart-playlist-default-20260922-v14/final-live.itl",
+      "bytes": 4383,
+      "sha256": "d6bfd174f339456711dba38057b75aeece12a4857a2bffc74e5a809bd06503d8",
+      "corpus_class": "archived_native_or_exact_candidate",
+      "qualification": "see per-case evidence; presence is not acceptance"
+    },
+    {
+      "path": "evidence/native/smart-playlist-default-20260922-v15/final-live.itl",
+      "bytes": 4160,
+      "sha256": "e66e67c239f0ca1fad63d692f56b514f482972fd93ad5ab2f31566f41a8aee1f",
+      "corpus_class": "archived_native_or_exact_candidate",
+      "qualification": "see per-case evidence; presence is not acceptance"
+    },
+    {
+      "path": "evidence/native/smart-playlist-default-20260922-v16/final-live.itl",
+      "bytes": 4161,
+      "sha256": "571bd222033c87542b2e666c496caaf5f97322d20f32c1af57e6b9e79d87d6dd",
+      "corpus_class": "archived_native_or_exact_candidate",
+      "qualification": "see per-case evidence; presence is not acceptance"
+    },
+    {
+      "path": "evidence/native/smart-playlist-default-20260922-v17/final-live.itl",
+      "bytes": 4162,
+      "sha256": "ed55a255bc2e5ceb132ac92a3e15053843751fa2bb54b47e2d177e15720726c0",
+      "corpus_class": "archived_native_or_exact_candidate",
+      "qualification": "see per-case evidence; presence is not acceptance"
+    },
+    {
+      "path": "evidence/native/smart-playlist-default-20260922-v18/final-live.itl",
+      "bytes": 10566,
+      "sha256": "c6c68171d57350ceb3cf379eee13a764ea199536ef18238fe4faf80583492d74",
+      "corpus_class": "archived_native_or_exact_candidate",
+      "qualification": "see per-case evidence; presence is not acceptance"
+    },
+    {
+      "path": "evidence/native/smart-playlist-default-20260922-v19/final-live.itl",
+      "bytes": 4379,
+      "sha256": "9ce8ee4198e87f8266202ff147bfb84ac186af57a3c83ca77353e7be27995240",
+      "corpus_class": "archived_native_or_exact_candidate",
+      "qualification": "see per-case evidence; presence is not acceptance"
+    },
+    {
+      "path": "evidence/native/smart-playlist-default-20260922-v2/final-live.itl",
+      "bytes": 4094,
+      "sha256": "76f3852bd79c3ab4bf64f858f2ae976218a3c4122b77f94e941a01a24d42f1ae",
+      "corpus_class": "archived_native_or_exact_candidate",
+      "qualification": "see per-case evidence; presence is not acceptance"
+    },
+    {
+      "path": "evidence/native/smart-playlist-default-20260922-v20/final-live.itl",
+      "bytes": 10566,
+      "sha256": "c6c68171d57350ceb3cf379eee13a764ea199536ef18238fe4faf80583492d74",
+      "corpus_class": "archived_native_or_exact_candidate",
+      "qualification": "see per-case evidence; presence is not acceptance"
+    },
+    {
+      "path": "evidence/native/smart-playlist-default-20260922-v21/final-live.itl",
+      "bytes": 10566,
+      "sha256": "c6c68171d57350ceb3cf379eee13a764ea199536ef18238fe4faf80583492d74",
+      "corpus_class": "archived_native_or_exact_candidate",
+      "qualification": "see per-case evidence; presence is not acceptance"
+    },
+    {
+      "path": "evidence/native/smart-playlist-default-20260922-v22/final-live.itl",
+      "bytes": 4161,
+      "sha256": "8fde6fc76e16f06b1ae7ce65b3c652fd7a0791c33bbd29388db87336dccc9fc5",
+      "corpus_class": "archived_native_or_exact_candidate",
+      "qualification": "see per-case evidence; presence is not acceptance"
+    },
+    {
+      "path": "evidence/native/smart-playlist-default-20260922-v23/final-live.itl",
+      "bytes": 4159,
+      "sha256": "eb110bb7f2b443ec978e2dd03ad9f51de821454b61d88757b511082c12ca33aa",
+      "corpus_class": "archived_native_or_exact_candidate",
+      "qualification": "see per-case evidence; presence is not acceptance"
+    },
+    {
+      "path": "evidence/native/smart-playlist-default-20260922-v24/final-live.itl",
+      "bytes": 4402,
+      "sha256": "58ad4d6fedc65f43e627b35075218c6c19b16d767570c41d6f8c2f2fe7376696",
+      "corpus_class": "archived_native_or_exact_candidate",
+      "qualification": "see per-case evidence; presence is not acceptance"
+    },
+    {
+      "path": "evidence/native/smart-playlist-default-20260922-v24/native-created.itl",
+      "bytes": 4402,
+      "sha256": "58ad4d6fedc65f43e627b35075218c6c19b16d767570c41d6f8c2f2fe7376696",
+      "corpus_class": "archived_native_or_exact_candidate",
+      "qualification": "see per-case evidence; presence is not acceptance"
+    },
+    {
+      "path": "evidence/native/smart-playlist-default-20260922-v3/final-live.itl",
+      "bytes": 10566,
+      "sha256": "c6c68171d57350ceb3cf379eee13a764ea199536ef18238fe4faf80583492d74",
+      "corpus_class": "archived_native_or_exact_candidate",
+      "qualification": "see per-case evidence; presence is not acceptance"
+    },
+    {
+      "path": "evidence/native/smart-playlist-default-20260922-v4/final-live.itl",
+      "bytes": 10566,
+      "sha256": "c6c68171d57350ceb3cf379eee13a764ea199536ef18238fe4faf80583492d74",
+      "corpus_class": "archived_native_or_exact_candidate",
+      "qualification": "see per-case evidence; presence is not acceptance"
+    },
+    {
+      "path": "evidence/native/smart-playlist-default-20260922-v5/final-live.itl",
+      "bytes": 4098,
+      "sha256": "8f499310241d3792c11735bca82b8ef4b7ea6e5adf527728fb8907a35499b85e",
+      "corpus_class": "archived_native_or_exact_candidate",
+      "qualification": "see per-case evidence; presence is not acceptance"
+    },
+    {
+      "path": "evidence/native/smart-playlist-default-20260922-v6/final-live.itl",
+      "bytes": 10566,
+      "sha256": "c6c68171d57350ceb3cf379eee13a764ea199536ef18238fe4faf80583492d74",
+      "corpus_class": "archived_native_or_exact_candidate",
+      "qualification": "see per-case evidence; presence is not acceptance"
+    },
+    {
+      "path": "evidence/native/smart-playlist-default-20260922-v7/final-live.itl",
+      "bytes": 4092,
+      "sha256": "95b59ff7113da69b515d19d0bf361b948af277f4923a18450797c5c652c73da1",
+      "corpus_class": "archived_native_or_exact_candidate",
+      "qualification": "see per-case evidence; presence is not acceptance"
+    },
+    {
+      "path": "evidence/native/smart-playlist-default-20260922-v8/final-live.itl",
+      "bytes": 10566,
+      "sha256": "c6c68171d57350ceb3cf379eee13a764ea199536ef18238fe4faf80583492d74",
+      "corpus_class": "archived_native_or_exact_candidate",
+      "qualification": "see per-case evidence; presence is not acceptance"
+    },
+    {
+      "path": "evidence/native/smart-playlist-default-20260922-v9/final-live.itl",
+      "bytes": 10566,
+      "sha256": "c6c68171d57350ceb3cf379eee13a764ea199536ef18238fe4faf80583492d74",
+      "corpus_class": "archived_native_or_exact_candidate",
+      "qualification": "see per-case evidence; presence is not acceptance"
+    },
+    {
+      "path": "evidence/native/smart-playlist-default-20260922/final-live.itl",
+      "bytes": 10566,
+      "sha256": "c6c68171d57350ceb3cf379eee13a764ea199536ef18238fe4faf80583492d74",
       "corpus_class": "archived_native_or_exact_candidate",
       "qualification": "see per-case evidence; presence is not acceptance"
     },

@@ -1,6 +1,6 @@
 schema_version: 2
 project: windows-itunes-itl-research
-audit_base_commit: 5adfbef29e0d3b5876f2c2bd222323ba0b08ca3b
+audit_base_commit: 9a5f30f6b9c1d1d8efea4b8c141f9d30a350bc39
 branch: main
 
 status:
@@ -42,15 +42,29 @@ qualification:
   independent_parser_validator_diff: implemented_without_itlkit_imports
   independent_from_scratch_generation: implemented_and_native_qualified_for_two_exact_reference_fixtures
   independent_from_scratch_native_acceptance: verified_for_two_exact_hashes
-  smart_playlist: lossless_ast_and_structural_view_only
+  smart_playlist: native_nested_framing_observed_but_operand_and_membership_failed
+  native_field_matrix: 27_passed_2_failed_exact_cases_only
+  external_independent_interop: exact_compressed_structural_roundtrip_only_semantic_gate_failed
   path_time: bounded_native_matrix_only
   audible_playback: not_established
   atomic_native_save_protocol: not_established
 
 validation:
+  native_field_matrix:
+    status: failed_with_preserved_evidence
+    passed: 27
+    failed: 2
+  external_itl_rs:
+    structural_roundtrip_native_cycles: 2
+    semantic_reimplementation_passed: false
+  smart_playlist_native_probe:
+    attempts: 24
+    positive_semantic_passes: 0
+    native_nested_wrapper_observed: true
+    nonempty_string_operand_observed: false
   integrated_tests:
     status: passed
-    passed: 1026
+    passed: 1036
     skipped: 5
     failed: 0
     command: python -B -m pytest tests -q -rs -p no:cacheprovider
@@ -62,7 +76,7 @@ validation:
   delivery_manifest: verified
   root_corpus_manifest:
     status: verified
-    itl_files: 150
+    itl_files: 236
   path_time_snapshots:
     parsed: 39
     errors: 0
@@ -104,6 +118,8 @@ completion:
   critical_unresolved_items: 7
   major_unresolved_items: 11
   evidence_linked_to_every_spec_item: false
+  external_structural_roundtrip_exact_hashes: 1
+  external_structural_roundtrip_native_cycles: 2
   independent_reimplementation_passed: false
 
 prohibited_conclusions:

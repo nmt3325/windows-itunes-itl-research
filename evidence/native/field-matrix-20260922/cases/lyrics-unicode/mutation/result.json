@@ -1,0 +1,622 @@
+{
+  "phase": "mutation",
+  "started_utc": "2026-09-21T23:30:12.963449+00:00",
+  "prelaunch": {
+    "path": "D:\\a\\_temp\\field-matrix-complete-root\\lyrics-unicode\\live\\iTunes Library.itl",
+    "bytes": 10566,
+    "mtime_ns": 1790030364709894200,
+    "sha256": "c6c68171d57350ceb3cf379eee13a764ea199536ef18238fe4faf80583492d74"
+  },
+  "inventory_before": [
+    {
+      "path": "iTunes Library.itl",
+      "kind": "file",
+      "bytes": 10566,
+      "sha256": "c6c68171d57350ceb3cf379eee13a764ea199536ef18238fe4faf80583492d74"
+    }
+  ],
+  "ui": [
+    {
+      "action": "dismiss_audio_warning",
+      "pid": 3060,
+      "window": {
+        "hwnd": 3670580,
+        "pid": 3060,
+        "class": "iTunesCustomModalDialog",
+        "title": "iTunes",
+        "children": [
+          {
+            "hwnd": 6619304,
+            "class": "Static",
+            "text": "iTunes has detected a problem with your audio configuration.\rAudio/Video playback may not operate properly.",
+            "id": 101,
+            "enabled": true,
+            "visible": true
+          },
+          {
+            "hwnd": 2621962,
+            "class": "Static",
+            "text": "",
+            "id": 103,
+            "enabled": true,
+            "visible": false
+          },
+          {
+            "hwnd": 6095376,
+            "class": "Button",
+            "text": "",
+            "id": 104,
+            "enabled": true,
+            "visible": false
+          },
+          {
+            "hwnd": 3015240,
+            "class": "Button",
+            "text": "OK",
+            "id": 1,
+            "enabled": true,
+            "visible": true
+          },
+          {
+            "hwnd": 3932448,
+            "class": "Button",
+            "text": "More Info",
+            "id": 105,
+            "enabled": true,
+            "visible": false
+          },
+          {
+            "hwnd": 2949682,
+            "class": "Static",
+            "text": "",
+            "id": 102,
+            "enabled": true,
+            "visible": true
+          }
+        ]
+      }
+    }
+  ],
+  "forbidden_before": [],
+  "itunes_pid": 3060,
+  "post_readiness_settle_seconds": 3.0,
+  "worker_command": [
+    "C:\\hostedtoolcache\\windows\\Python\\3.12.10\\x64\\python.exe",
+    "-B",
+    "-u",
+    "D:\\a\\_temp\\gha-mcp\\win-acvcphw9\\work\\windows-itunes-itl-research\\scripts\\windows\\native_field_matrix.py",
+    "_worker",
+    "--spec",
+    "D:\\a\\_temp\\gha-mcp\\win-acvcphw9\\work\\windows-itunes-itl-research\\evidence\\native\\field-matrix-20260922\\cases\\lyrics-unicode\\mutation\\worker-spec.json",
+    "--output",
+    "D:\\a\\_temp\\gha-mcp\\win-acvcphw9\\work\\windows-itunes-itl-research\\evidence\\native\\field-matrix-20260922\\cases\\lyrics-unicode\\mutation\\com.json"
+  ],
+  "worker_exit_code": 2,
+  "worker": {
+    "schema_version": 1,
+    "started_utc": "2026-09-21T23:30:20.402712+00:00",
+    "spec": {
+      "schema_version": 1,
+      "case": "lyrics-unicode",
+      "field": "Lyrics",
+      "mode": "mutate",
+      "value": "Line one — 第二行 🎤"
+    },
+    "samples": [
+      {
+        "label": "before-1",
+        "state": {
+          "version": "12.13.10.3",
+          "library_persistent_id": "5245464552454E43",
+          "tracks": [
+            {
+              "persistent_id": "A17E000000000001",
+              "Name": "Reference Track",
+              "Artist": "",
+              "Album": "",
+              "AlbumArtist": "",
+              "Composer": "",
+              "Genre": "",
+              "Comment": "",
+              "Grouping": "",
+              "Lyrics": "",
+              "SortName": "",
+              "SortArtist": "",
+              "SortAlbum": "",
+              "SortAlbumArtist": "",
+              "Rating": 0,
+              "AlbumRating": 0,
+              "PlayedCount": 0,
+              "PlayedDate": "1899-12-30T00:00:00+00:00",
+              "SkippedCount": 0,
+              "SkippedDate": "1899-12-30T00:00:00+00:00",
+              "DateAdded": "2026-06-23T06:24:00+00:00",
+              "ModificationDate": "1899-12-30T00:00:00+00:00",
+              "TrackNumber": 0,
+              "TrackCount": 0,
+              "DiscNumber": 0,
+              "DiscCount": 0,
+              "Year": 0,
+              "BPM": 0,
+              "Compilation": false,
+              "Enabled": true,
+              "VolumeAdjustment": 0,
+              "Location": "",
+              "Duration": 0,
+              "SampleRate": 0,
+              "BitRate": 0,
+              "Size": 0,
+              "TrackDatabaseID": 71,
+              "TrackID": 76,
+              "PlayOrderIndex": 1,
+              "Unplayed": true,
+              "RatingKind": 1,
+              "AlbumRatingKind": 1
+            }
+          ],
+          "playlists": [
+            {
+              "name": "Library",
+              "persistent_id": "5245464552454E43",
+              "kind": 1,
+              "members": [
+                {
+                  "persistent_id": "A17E000000000001",
+                  "name": "Reference Track",
+                  "play_order_index": 1
+                }
+              ],
+              "special_kind": null
+            },
+            {
+              "name": "Music",
+              "persistent_id": "5AEE79EF3DD0D7CE",
+              "kind": 2,
+              "members": [
+                {
+                  "persistent_id": "A17E000000000001",
+                  "name": "Reference Track",
+                  "play_order_index": 1
+                }
+              ],
+              "special_kind": 6
+            },
+            {
+              "name": "Movies",
+              "persistent_id": "6B166BEB0829C61A",
+              "kind": 2,
+              "members": [],
+              "special_kind": 7
+            },
+            {
+              "name": "TV Shows",
+              "persistent_id": "4391E5800D898CAA",
+              "kind": 2,
+              "members": [],
+              "special_kind": 8
+            },
+            {
+              "name": "Podcasts",
+              "persistent_id": "53C7318273D1ADEB",
+              "kind": 2,
+              "members": [],
+              "special_kind": 3
+            },
+            {
+              "name": "Audiobooks",
+              "persistent_id": "0B867E780F7864F0",
+              "kind": 2,
+              "members": [],
+              "special_kind": 9
+            },
+            {
+              "name": "Genius",
+              "persistent_id": "5E5D94AB0D7715DD",
+              "kind": 2,
+              "members": [],
+              "special_kind": 11
+            },
+            {
+              "name": "Reference Playlist",
+              "persistent_id": "A17E000000000002",
+              "kind": 2,
+              "members": [
+                {
+                  "persistent_id": "A17E000000000001",
+                  "name": "Reference Track",
+                  "play_order_index": 1
+                }
+              ],
+              "special_kind": 0
+            }
+          ],
+          "track_count": 1
+        },
+        "identity_errors": []
+      },
+      {
+        "label": "before-2",
+        "state": {
+          "version": "12.13.10.3",
+          "library_persistent_id": "5245464552454E43",
+          "tracks": [
+            {
+              "persistent_id": "A17E000000000001",
+              "Name": "Reference Track",
+              "Artist": "",
+              "Album": "",
+              "AlbumArtist": "",
+              "Composer": "",
+              "Genre": "",
+              "Comment": "",
+              "Grouping": "",
+              "Lyrics": "",
+              "SortName": "",
+              "SortArtist": "",
+              "SortAlbum": "",
+              "SortAlbumArtist": "",
+              "Rating": 0,
+              "AlbumRating": 0,
+              "PlayedCount": 0,
+              "PlayedDate": "1899-12-30T00:00:00+00:00",
+              "SkippedCount": 0,
+              "SkippedDate": "1899-12-30T00:00:00+00:00",
+              "DateAdded": "2026-06-23T06:24:00+00:00",
+              "ModificationDate": "1899-12-30T00:00:00+00:00",
+              "TrackNumber": 0,
+              "TrackCount": 0,
+              "DiscNumber": 0,
+              "DiscCount": 0,
+              "Year": 0,
+              "BPM": 0,
+              "Compilation": false,
+              "Enabled": true,
+              "VolumeAdjustment": 0,
+              "Location": "",
+              "Duration": 0,
+              "SampleRate": 0,
+              "BitRate": 0,
+              "Size": 0,
+              "TrackDatabaseID": 71,
+              "TrackID": 76,
+              "PlayOrderIndex": 1,
+              "Unplayed": true,
+              "RatingKind": 1,
+              "AlbumRatingKind": 1
+            }
+          ],
+          "playlists": [
+            {
+              "name": "Library",
+              "persistent_id": "5245464552454E43",
+              "kind": 1,
+              "members": [
+                {
+                  "persistent_id": "A17E000000000001",
+                  "name": "Reference Track",
+                  "play_order_index": 1
+                }
+              ],
+              "special_kind": null
+            },
+            {
+              "name": "Music",
+              "persistent_id": "5AEE79EF3DD0D7CE",
+              "kind": 2,
+              "members": [
+                {
+                  "persistent_id": "A17E000000000001",
+                  "name": "Reference Track",
+                  "play_order_index": 1
+                }
+              ],
+              "special_kind": 6
+            },
+            {
+              "name": "Movies",
+              "persistent_id": "6B166BEB0829C61A",
+              "kind": 2,
+              "members": [],
+              "special_kind": 7
+            },
+            {
+              "name": "TV Shows",
+              "persistent_id": "4391E5800D898CAA",
+              "kind": 2,
+              "members": [],
+              "special_kind": 8
+            },
+            {
+              "name": "Podcasts",
+              "persistent_id": "53C7318273D1ADEB",
+              "kind": 2,
+              "members": [],
+              "special_kind": 3
+            },
+            {
+              "name": "Audiobooks",
+              "persistent_id": "0B867E780F7864F0",
+              "kind": 2,
+              "members": [],
+              "special_kind": 9
+            },
+            {
+              "name": "Genius",
+              "persistent_id": "5E5D94AB0D7715DD",
+              "kind": 2,
+              "members": [],
+              "special_kind": 11
+            },
+            {
+              "name": "Reference Playlist",
+              "persistent_id": "A17E000000000002",
+              "kind": 2,
+              "members": [
+                {
+                  "persistent_id": "A17E000000000001",
+                  "name": "Reference Track",
+                  "play_order_index": 1
+                }
+              ],
+              "special_kind": 0
+            }
+          ],
+          "track_count": 1
+        },
+        "identity_errors": []
+      }
+    ],
+    "accepted": false,
+    "quit_requested": false,
+    "before_stability_errors": [],
+    "error": "com_error: (-2147352567, 'Exception occurred.', (0, None, None, None, 0, -2147418113), None)",
+    "traceback": "Traceback (most recent call last):\n  File \"D:\\a\\_temp\\gha-mcp\\win-acvcphw9\\work\\windows-itunes-itl-research\\scripts\\windows\\native_field_matrix.py\", line 187, in worker\n    setattr(track, field, assigned)\n  File \"C:\\hostedtoolcache\\windows\\Python\\3.12.10\\x64\\Lib\\site-packages\\win32com\\client\\dynamic.py\", line 677, in __setattr__\n    self._oleobj_.Invoke(entry.dispid, 0, invoke_type, 0, value)\npywintypes.com_error: (-2147352567, 'Exception occurred.', (0, None, None, None, 0, -2147418113), None)\n",
+    "finished_utc": "2026-09-21T23:30:22.801340+00:00"
+  },
+  "status": "failed",
+  "error": "RuntimeError: native COM field gate failed",
+  "traceback": "Traceback (most recent call last):\n  File \"D:\\a\\_temp\\gha-mcp\\win-acvcphw9\\work\\windows-itunes-itl-research\\scripts\\windows\\native_field_matrix.py\", line 368, in run_session\n    raise RuntimeError(\"native COM field gate failed\")\nRuntimeError: native COM field gate failed\n",
+  "itunes_poll_at_failure": null,
+  "windows_at_failure": [
+    {
+      "hwnd": 3998236,
+      "pid": 3060,
+      "class": "iTunes",
+      "title": "iTunes",
+      "children": [
+        {
+          "hwnd": 3277382,
+          "class": "Button",
+          "text": "",
+          "id": 1903667648,
+          "enabled": true,
+          "visible": true
+        },
+        {
+          "hwnd": 3080740,
+          "class": "Static",
+          "text": "",
+          "id": 1905476576,
+          "enabled": true,
+          "visible": false
+        },
+        {
+          "hwnd": 3801436,
+          "class": "Button",
+          "text": "",
+          "id": 1905442384,
+          "enabled": true,
+          "visible": false
+        },
+        {
+          "hwnd": 2556304,
+          "class": "Button",
+          "text": "Search",
+          "id": 1904971648,
+          "enabled": true,
+          "visible": true
+        },
+        {
+          "hwnd": 3342902,
+          "class": "Edit",
+          "text": "",
+          "id": 101,
+          "enabled": true,
+          "visible": false
+        },
+        {
+          "hwnd": 3211816,
+          "class": "Static",
+          "text": "LCD section",
+          "id": 1904876592,
+          "enabled": true,
+          "visible": true
+        },
+        {
+          "hwnd": 3473940,
+          "class": "Button",
+          "text": "switch to miniplayer",
+          "id": 1904937296,
+          "enabled": true,
+          "visible": false
+        },
+        {
+          "hwnd": 3604840,
+          "class": "Button",
+          "text": "show next view",
+          "id": 1904884832,
+          "enabled": true,
+          "visible": false
+        },
+        {
+          "hwnd": 3342882,
+          "class": "Button",
+          "text": "show previous view",
+          "id": 1904912512,
+          "enabled": true,
+          "visible": false
+        },
+        {
+          "hwnd": 3473984,
+          "class": "Button",
+          "text": "",
+          "id": 1904880592,
+          "enabled": true,
+          "visible": false
+        },
+        {
+          "hwnd": 3211822,
+          "class": "Button",
+          "text": "airplay",
+          "id": 1904860976,
+          "enabled": false,
+          "visible": false
+        },
+        {
+          "hwnd": 3146278,
+          "class": "Button",
+          "text": "genius shuffle",
+          "id": 1904738800,
+          "enabled": false,
+          "visible": false
+        },
+        {
+          "hwnd": 2687498,
+          "class": "Static",
+          "text": "Application",
+          "id": 1904444576,
+          "enabled": true,
+          "visible": true
+        },
+        {
+          "hwnd": 6685206,
+          "class": "Static",
+          "text": "Song",
+          "id": 1905699648,
+          "enabled": true,
+          "visible": true
+        },
+        {
+          "hwnd": 3801260,
+          "class": "Static",
+          "text": "Help",
+          "id": 1904468576,
+          "enabled": true,
+          "visible": true
+        },
+        {
+          "hwnd": 3670554,
+          "class": "Static",
+          "text": "Account",
+          "id": 1904464720,
+          "enabled": true,
+          "visible": true
+        },
+        {
+          "hwnd": 3276964,
+          "class": "Static",
+          "text": "Controls",
+          "id": 1904460864,
+          "enabled": true,
+          "visible": true
+        },
+        {
+          "hwnd": 3670614,
+          "class": "Static",
+          "text": "View",
+          "id": 1904457008,
+          "enabled": true,
+          "visible": true
+        },
+        {
+          "hwnd": 3997806,
+          "class": "Static",
+          "text": "Edit",
+          "id": 1904453152,
+          "enabled": true,
+          "visible": true
+        },
+        {
+          "hwnd": 6684840,
+          "class": "Static",
+          "text": "File",
+          "id": 1904449296,
+          "enabled": true,
+          "visible": true
+        }
+      ]
+    }
+  ],
+  "itunes_exit_after_kill": 1,
+  "live_at_failure": {
+    "path": "D:\\a\\_temp\\gha-mcp\\win-acvcphw9\\work\\windows-itunes-itl-research\\evidence\\native\\field-matrix-20260922\\cases\\lyrics-unicode\\mutation\\live-at-failure.itl",
+    "bytes": 10566,
+    "mtime_ns": 1790030364709894200,
+    "sha256": "c6c68171d57350ceb3cf379eee13a764ea199536ef18238fe4faf80583492d74"
+  },
+  "inventory_at_failure": [
+    {
+      "path": "Album Artwork",
+      "kind": "directory"
+    },
+    {
+      "path": "Album Artwork/Cache",
+      "kind": "directory"
+    },
+    {
+      "path": "Album Artwork/Custom",
+      "kind": "directory"
+    },
+    {
+      "path": "Album Artwork/Download",
+      "kind": "directory"
+    },
+    {
+      "path": "Album Artwork/Generated",
+      "kind": "directory"
+    },
+    {
+      "path": "Album Artwork/Store",
+      "kind": "directory"
+    },
+    {
+      "path": "iTunes Library Extras.itdb",
+      "kind": "file",
+      "bytes": 16384,
+      "sha256": "e1937a7a396264a1d85599295ce5d66fe16e5771e91be496987a16b26d406553"
+    },
+    {
+      "path": "iTunes Library Genius.itdb",
+      "kind": "file",
+      "bytes": 32768,
+      "sha256": "914826bac1c3b030426b95961bddc49b9c8b93b036eafcf2ad4e03ed0d83b4e0"
+    },
+    {
+      "path": "iTunes Library.itl",
+      "kind": "file",
+      "bytes": 10566,
+      "sha256": "c6c68171d57350ceb3cf379eee13a764ea199536ef18238fe4faf80583492d74"
+    },
+    {
+      "path": "iTunes Media",
+      "kind": "directory"
+    },
+    {
+      "path": "iTunes Media/.iTunes Preferences.plist",
+      "kind": "file",
+      "bytes": 305,
+      "sha256": "c4118e6d9a3635019d00ec871f8d7b4c5bd8e06dcfb41559f1eabec56ffb10f7"
+    },
+    {
+      "path": "iTunes Media/Automatically Add to iTunes",
+      "kind": "directory"
+    },
+    {
+      "path": "sentinel",
+      "kind": "file",
+      "bytes": 8,
+      "sha256": "af5570f5a1810b7af78caf4bc70a660f0df51e42baf91d4de5b2328de0e83dfc"
+    }
+  ],
+  "finished_utc": "2026-09-21T23:30:22.868753+00:00"
+}

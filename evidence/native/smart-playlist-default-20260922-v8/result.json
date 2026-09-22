@@ -1,0 +1,2419 @@
+{
+  "schema_version": 1,
+  "started_utc": "2026-09-22T00:00:43.512357+00:00",
+  "status": "failed_with_preserved_evidence",
+  "candidate": {
+    "path": "D:\\a\\_temp\\gha-mcp\\win-acvcphw9\\work\\windows-itunes-itl-research\\TEST_CORPUS\\generated\\reference-one-track-raw.itl",
+    "bytes": 10566,
+    "mtime_ns": 1790030364709894200,
+    "sha256": "c6c68171d57350ceb3cf379eee13a764ea199536ef18238fe4faf80583492d74"
+  },
+  "itunes": {
+    "path": "C:\\Program Files\\iTunes\\iTunes.exe",
+    "bytes": 38952912,
+    "mtime_ns": 1771863954000000000,
+    "sha256": "30d91209b5d81c47bbad2da9d89764fcab08bf5cd9af1a9571668001376c5d7d"
+  },
+  "profile": "C:\\Users\\runneradmin\\Music\\iTunes",
+  "root": "D:\\a\\_temp\\smart-playlist-default-root-v8",
+  "evidence": "D:\\a\\_temp\\gha-mcp\\win-acvcphw9\\work\\windows-itunes-itl-research\\evidence\\native\\smart-playlist-default-20260922-v8",
+  "sessions": [
+    {
+      "name": "create-default",
+      "started_utc": "2026-09-22T00:00:43.574906+00:00",
+      "ui": [
+        {
+          "action": "dismiss_audio_warning",
+          "pid": 9108,
+          "window": {
+            "hwnd": 9699496,
+            "pid": 9108,
+            "class": "iTunesCustomModalDialog",
+            "title": "iTunes",
+            "children": [
+              {
+                "hwnd": 8388780,
+                "class": "Static",
+                "text": "iTunes has detected a problem with your audio configuration.\rAudio/Video playback may not operate properly.",
+                "id": 101,
+                "enabled": true,
+                "visible": true
+              },
+              {
+                "hwnd": 7995738,
+                "class": "Static",
+                "text": "",
+                "id": 103,
+                "enabled": true,
+                "visible": false
+              },
+              {
+                "hwnd": 6750568,
+                "class": "Button",
+                "text": "",
+                "id": 104,
+                "enabled": true,
+                "visible": false
+              },
+              {
+                "hwnd": 6947216,
+                "class": "Button",
+                "text": "OK",
+                "id": 1,
+                "enabled": true,
+                "visible": true
+              },
+              {
+                "hwnd": 3015054,
+                "class": "Button",
+                "text": "More Info",
+                "id": 105,
+                "enabled": true,
+                "visible": false
+              },
+              {
+                "hwnd": 8782226,
+                "class": "Static",
+                "text": "",
+                "id": 102,
+                "enabled": true,
+                "visible": true
+              }
+            ]
+          }
+        }
+      ],
+      "itunes_pid": 9108,
+      "before": {
+        "label": "before-shortcut",
+        "first": {
+          "version": "12.13.10.3",
+          "library_persistent_id": "5245464552454E43",
+          "tracks": [
+            {
+              "persistent_id": "A17E000000000001",
+              "Name": "Reference Track",
+              "Artist": "",
+              "Album": "",
+              "AlbumArtist": "",
+              "Composer": "",
+              "Genre": "",
+              "Comment": "",
+              "Grouping": "",
+              "Lyrics": "",
+              "SortName": "",
+              "SortArtist": "",
+              "SortAlbum": "",
+              "SortAlbumArtist": "",
+              "Rating": 0,
+              "AlbumRating": 0,
+              "PlayedCount": 0,
+              "PlayedDate": "1899-12-30T00:00:00+00:00",
+              "SkippedCount": 0,
+              "SkippedDate": "1899-12-30T00:00:00+00:00",
+              "DateAdded": "2026-06-23T06:24:00+00:00",
+              "ModificationDate": "1899-12-30T00:00:00+00:00",
+              "TrackNumber": 0,
+              "TrackCount": 0,
+              "DiscNumber": 0,
+              "DiscCount": 0,
+              "Year": 0,
+              "BPM": 0,
+              "Compilation": false,
+              "Enabled": true,
+              "VolumeAdjustment": 0,
+              "Location": "",
+              "Duration": 0,
+              "SampleRate": 0,
+              "BitRate": 0,
+              "Size": 0,
+              "TrackDatabaseID": 71,
+              "TrackID": 76,
+              "PlayOrderIndex": 1,
+              "Unplayed": true,
+              "RatingKind": 1,
+              "AlbumRatingKind": 1
+            }
+          ],
+          "playlists": [
+            {
+              "name": "Library",
+              "persistent_id": "5245464552454E43",
+              "kind": 1,
+              "members": [
+                {
+                  "persistent_id": "A17E000000000001",
+                  "name": "Reference Track",
+                  "play_order_index": 1
+                }
+              ],
+              "special_kind": null
+            },
+            {
+              "name": "Music",
+              "persistent_id": "318A8916BBE6ADCC",
+              "kind": 2,
+              "members": [
+                {
+                  "persistent_id": "A17E000000000001",
+                  "name": "Reference Track",
+                  "play_order_index": 1
+                }
+              ],
+              "special_kind": 6
+            },
+            {
+              "name": "Movies",
+              "persistent_id": "5B59C60C0816EF29",
+              "kind": 2,
+              "members": [],
+              "special_kind": 7
+            },
+            {
+              "name": "TV Shows",
+              "persistent_id": "0AD118E596238538",
+              "kind": 2,
+              "members": [],
+              "special_kind": 8
+            },
+            {
+              "name": "Podcasts",
+              "persistent_id": "301CADA31EAF07A9",
+              "kind": 2,
+              "members": [],
+              "special_kind": 3
+            },
+            {
+              "name": "Audiobooks",
+              "persistent_id": "8D1A9061EC450423",
+              "kind": 2,
+              "members": [],
+              "special_kind": 9
+            },
+            {
+              "name": "Genius",
+              "persistent_id": "94BAEC026E4EAFC0",
+              "kind": 2,
+              "members": [],
+              "special_kind": 11
+            },
+            {
+              "name": "Reference Playlist",
+              "persistent_id": "A17E000000000002",
+              "kind": 2,
+              "members": [
+                {
+                  "persistent_id": "A17E000000000001",
+                  "name": "Reference Track",
+                  "play_order_index": 1
+                }
+              ],
+              "special_kind": 0
+            }
+          ],
+          "track_count": 1
+        },
+        "second": {
+          "version": "12.13.10.3",
+          "library_persistent_id": "5245464552454E43",
+          "tracks": [
+            {
+              "persistent_id": "A17E000000000001",
+              "Name": "Reference Track",
+              "Artist": "",
+              "Album": "",
+              "AlbumArtist": "",
+              "Composer": "",
+              "Genre": "",
+              "Comment": "",
+              "Grouping": "",
+              "Lyrics": "",
+              "SortName": "",
+              "SortArtist": "",
+              "SortAlbum": "",
+              "SortAlbumArtist": "",
+              "Rating": 0,
+              "AlbumRating": 0,
+              "PlayedCount": 0,
+              "PlayedDate": "1899-12-30T00:00:00+00:00",
+              "SkippedCount": 0,
+              "SkippedDate": "1899-12-30T00:00:00+00:00",
+              "DateAdded": "2026-06-23T06:24:00+00:00",
+              "ModificationDate": "1899-12-30T00:00:00+00:00",
+              "TrackNumber": 0,
+              "TrackCount": 0,
+              "DiscNumber": 0,
+              "DiscCount": 0,
+              "Year": 0,
+              "BPM": 0,
+              "Compilation": false,
+              "Enabled": true,
+              "VolumeAdjustment": 0,
+              "Location": "",
+              "Duration": 0,
+              "SampleRate": 0,
+              "BitRate": 0,
+              "Size": 0,
+              "TrackDatabaseID": 71,
+              "TrackID": 76,
+              "PlayOrderIndex": 1,
+              "Unplayed": true,
+              "RatingKind": 1,
+              "AlbumRatingKind": 1
+            }
+          ],
+          "playlists": [
+            {
+              "name": "Library",
+              "persistent_id": "5245464552454E43",
+              "kind": 1,
+              "members": [
+                {
+                  "persistent_id": "A17E000000000001",
+                  "name": "Reference Track",
+                  "play_order_index": 1
+                }
+              ],
+              "special_kind": null
+            },
+            {
+              "name": "Music",
+              "persistent_id": "318A8916BBE6ADCC",
+              "kind": 2,
+              "members": [
+                {
+                  "persistent_id": "A17E000000000001",
+                  "name": "Reference Track",
+                  "play_order_index": 1
+                }
+              ],
+              "special_kind": 6
+            },
+            {
+              "name": "Movies",
+              "persistent_id": "5B59C60C0816EF29",
+              "kind": 2,
+              "members": [],
+              "special_kind": 7
+            },
+            {
+              "name": "TV Shows",
+              "persistent_id": "0AD118E596238538",
+              "kind": 2,
+              "members": [],
+              "special_kind": 8
+            },
+            {
+              "name": "Podcasts",
+              "persistent_id": "301CADA31EAF07A9",
+              "kind": 2,
+              "members": [],
+              "special_kind": 3
+            },
+            {
+              "name": "Audiobooks",
+              "persistent_id": "8D1A9061EC450423",
+              "kind": 2,
+              "members": [],
+              "special_kind": 9
+            },
+            {
+              "name": "Genius",
+              "persistent_id": "94BAEC026E4EAFC0",
+              "kind": 2,
+              "members": [],
+              "special_kind": 11
+            },
+            {
+              "name": "Reference Playlist",
+              "persistent_id": "A17E000000000002",
+              "kind": 2,
+              "members": [
+                {
+                  "persistent_id": "A17E000000000001",
+                  "name": "Reference Track",
+                  "play_order_index": 1
+                }
+              ],
+              "special_kind": 0
+            }
+          ],
+          "track_count": 1
+        }
+      },
+      "desktop_before": [
+        {
+          "hwnd": 7209492,
+          "pid": 9108,
+          "class": "iTunes",
+          "title": "iTunes",
+          "children": [
+            {
+              "hwnd": 3998266,
+              "class": "Button",
+              "text": "",
+              "id": -275223632,
+              "enabled": true,
+              "visible": true
+            },
+            {
+              "hwnd": 7275058,
+              "class": "Static",
+              "text": "",
+              "id": -276420608,
+              "enabled": true,
+              "visible": false
+            },
+            {
+              "hwnd": 2753072,
+              "class": "Button",
+              "text": "",
+              "id": -276424848,
+              "enabled": true,
+              "visible": false
+            },
+            {
+              "hwnd": 590380,
+              "class": "Button",
+              "text": "Search",
+              "id": -276797056,
+              "enabled": true,
+              "visible": true
+            },
+            {
+              "hwnd": 6947368,
+              "class": "Edit",
+              "text": "",
+              "id": 101,
+              "enabled": true,
+              "visible": false
+            },
+            {
+              "hwnd": 8061466,
+              "class": "Static",
+              "text": "LCD section",
+              "id": -276861088,
+              "enabled": true,
+              "visible": true
+            },
+            {
+              "hwnd": 6750758,
+              "class": "Button",
+              "text": "switch to miniplayer",
+              "id": -276809264,
+              "enabled": true,
+              "visible": false
+            },
+            {
+              "hwnd": 6881828,
+              "class": "Button",
+              "text": "show next view",
+              "id": -276970480,
+              "enabled": true,
+              "visible": false
+            },
+            {
+              "hwnd": 7471646,
+              "class": "Button",
+              "text": "show previous view",
+              "id": -276974720,
+              "enabled": true,
+              "visible": false
+            },
+            {
+              "hwnd": 8192540,
+              "class": "Button",
+              "text": "",
+              "id": -276857088,
+              "enabled": true,
+              "visible": false
+            },
+            {
+              "hwnd": 590378,
+              "class": "Button",
+              "text": "airplay",
+              "id": -276890832,
+              "enabled": false,
+              "visible": false
+            },
+            {
+              "hwnd": 7078432,
+              "class": "Button",
+              "text": "genius shuffle",
+              "id": -276978960,
+              "enabled": false,
+              "visible": false
+            },
+            {
+              "hwnd": 8061274,
+              "class": "Static",
+              "text": "Application",
+              "id": -277368880,
+              "enabled": true,
+              "visible": true
+            },
+            {
+              "hwnd": 7209526,
+              "class": "Static",
+              "text": "Song",
+              "id": -276090096,
+              "enabled": true,
+              "visible": true
+            },
+            {
+              "hwnd": 10748432,
+              "class": "Static",
+              "text": "Help",
+              "id": -277224368,
+              "enabled": true,
+              "visible": true
+            },
+            {
+              "hwnd": 7733412,
+              "class": "Static",
+              "text": "Account",
+              "id": -277228224,
+              "enabled": true,
+              "visible": true
+            },
+            {
+              "hwnd": 1704324,
+              "class": "Static",
+              "text": "Controls",
+              "id": -277232080,
+              "enabled": true,
+              "visible": true
+            },
+            {
+              "hwnd": 8519968,
+              "class": "Static",
+              "text": "View",
+              "id": -277356448,
+              "enabled": true,
+              "visible": true
+            },
+            {
+              "hwnd": 1245576,
+              "class": "Static",
+              "text": "Edit",
+              "id": -277360304,
+              "enabled": true,
+              "visible": true
+            },
+            {
+              "hwnd": 8454316,
+              "class": "Static",
+              "text": "File",
+              "id": -277364160,
+              "enabled": true,
+              "visible": true
+            }
+          ]
+        }
+      ],
+      "main_window": {
+        "hwnd": 7209492,
+        "pid": 9108,
+        "class": "iTunes",
+        "title": "iTunes",
+        "children": [
+          {
+            "hwnd": 3998266,
+            "class": "Button",
+            "text": "",
+            "id": -275223632,
+            "enabled": true,
+            "visible": true
+          },
+          {
+            "hwnd": 7275058,
+            "class": "Static",
+            "text": "",
+            "id": -276420608,
+            "enabled": true,
+            "visible": false
+          },
+          {
+            "hwnd": 2753072,
+            "class": "Button",
+            "text": "",
+            "id": -276424848,
+            "enabled": true,
+            "visible": false
+          },
+          {
+            "hwnd": 590380,
+            "class": "Button",
+            "text": "Search",
+            "id": -276797056,
+            "enabled": true,
+            "visible": true
+          },
+          {
+            "hwnd": 6947368,
+            "class": "Edit",
+            "text": "",
+            "id": 101,
+            "enabled": true,
+            "visible": false
+          },
+          {
+            "hwnd": 8061466,
+            "class": "Static",
+            "text": "LCD section",
+            "id": -276861088,
+            "enabled": true,
+            "visible": true
+          },
+          {
+            "hwnd": 6750758,
+            "class": "Button",
+            "text": "switch to miniplayer",
+            "id": -276809264,
+            "enabled": true,
+            "visible": false
+          },
+          {
+            "hwnd": 6881828,
+            "class": "Button",
+            "text": "show next view",
+            "id": -276970480,
+            "enabled": true,
+            "visible": false
+          },
+          {
+            "hwnd": 7471646,
+            "class": "Button",
+            "text": "show previous view",
+            "id": -276974720,
+            "enabled": true,
+            "visible": false
+          },
+          {
+            "hwnd": 8192540,
+            "class": "Button",
+            "text": "",
+            "id": -276857088,
+            "enabled": true,
+            "visible": false
+          },
+          {
+            "hwnd": 590378,
+            "class": "Button",
+            "text": "airplay",
+            "id": -276890832,
+            "enabled": false,
+            "visible": false
+          },
+          {
+            "hwnd": 7078432,
+            "class": "Button",
+            "text": "genius shuffle",
+            "id": -276978960,
+            "enabled": false,
+            "visible": false
+          },
+          {
+            "hwnd": 8061274,
+            "class": "Static",
+            "text": "Application",
+            "id": -277368880,
+            "enabled": true,
+            "visible": true
+          },
+          {
+            "hwnd": 7209526,
+            "class": "Static",
+            "text": "Song",
+            "id": -276090096,
+            "enabled": true,
+            "visible": true
+          },
+          {
+            "hwnd": 10748432,
+            "class": "Static",
+            "text": "Help",
+            "id": -277224368,
+            "enabled": true,
+            "visible": true
+          },
+          {
+            "hwnd": 7733412,
+            "class": "Static",
+            "text": "Account",
+            "id": -277228224,
+            "enabled": true,
+            "visible": true
+          },
+          {
+            "hwnd": 1704324,
+            "class": "Static",
+            "text": "Controls",
+            "id": -277232080,
+            "enabled": true,
+            "visible": true
+          },
+          {
+            "hwnd": 8519968,
+            "class": "Static",
+            "text": "View",
+            "id": -277356448,
+            "enabled": true,
+            "visible": true
+          },
+          {
+            "hwnd": 1245576,
+            "class": "Static",
+            "text": "Edit",
+            "id": -277360304,
+            "enabled": true,
+            "visible": true
+          },
+          {
+            "hwnd": 8454316,
+            "class": "Static",
+            "text": "File",
+            "id": -277364160,
+            "enabled": true,
+            "visible": true
+          }
+        ]
+      },
+      "shortcut": {
+        "foreground": 7209492,
+        "events": [
+          {
+            "key": "CTRL",
+            "event": "down"
+          },
+          {
+            "key": "ALT",
+            "event": "down"
+          },
+          {
+            "key": "N",
+            "event": "down"
+          },
+          {
+            "key": "N",
+            "event": "up"
+          },
+          {
+            "key": "ALT",
+            "event": "up"
+          },
+          {
+            "key": "CTRL",
+            "event": "up"
+          }
+        ]
+      },
+      "smart_dialog": {
+        "dialog": {
+          "hwnd": 9830568,
+          "pid": 9108,
+          "class": "iTunesCustomModalDialog",
+          "title": "Smart Playlist",
+          "children": [
+            {
+              "hwnd": 7340608,
+              "class": "Button",
+              "text": "&Match",
+              "id": 138,
+              "enabled": true,
+              "visible": true
+            },
+            {
+              "hwnd": 3867198,
+              "class": "ComboBox",
+              "text": "",
+              "id": 139,
+              "enabled": true,
+              "visible": true
+            },
+            {
+              "hwnd": 787018,
+              "class": "Static",
+              "text": "for the following rules:",
+              "id": 140,
+              "enabled": true,
+              "visible": true
+            },
+            {
+              "hwnd": 459446,
+              "class": "ComboBox",
+              "text": "",
+              "id": 218,
+              "enabled": true,
+              "visible": true
+            },
+            {
+              "hwnd": 459450,
+              "class": "ComboBox",
+              "text": "",
+              "id": 219,
+              "enabled": true,
+              "visible": true
+            },
+            {
+              "hwnd": 197316,
+              "class": "Edit",
+              "text": "",
+              "id": 223,
+              "enabled": true,
+              "visible": true
+            },
+            {
+              "hwnd": 524990,
+              "class": "Button",
+              "text": "-",
+              "id": 220,
+              "enabled": false,
+              "visible": true
+            },
+            {
+              "hwnd": 459456,
+              "class": "Button",
+              "text": "+",
+              "id": 221,
+              "enabled": true,
+              "visible": true
+            },
+            {
+              "hwnd": 393922,
+              "class": "Button",
+              "text": "...",
+              "id": 222,
+              "enabled": true,
+              "visible": true
+            },
+            {
+              "hwnd": 9241184,
+              "class": "Button",
+              "text": "&Limit to",
+              "id": 122,
+              "enabled": true,
+              "visible": true
+            },
+            {
+              "hwnd": 7340642,
+              "class": "Edit",
+              "text": "",
+              "id": 123,
+              "enabled": true,
+              "visible": true
+            },
+            {
+              "hwnd": 2097764,
+              "class": "ComboBox",
+              "text": "",
+              "id": 124,
+              "enabled": true,
+              "visible": true
+            },
+            {
+              "hwnd": 2556520,
+              "class": "Static",
+              "text": "&selected by",
+              "id": 125,
+              "enabled": true,
+              "visible": true
+            },
+            {
+              "hwnd": 2228842,
+              "class": "ComboBox",
+              "text": "",
+              "id": 126,
+              "enabled": true,
+              "visible": true
+            },
+            {
+              "hwnd": 721518,
+              "class": "Button",
+              "text": "Match only &checked items",
+              "id": 130,
+              "enabled": false,
+              "visible": true
+            },
+            {
+              "hwnd": 524912,
+              "class": "Button",
+              "text": "Live &updating",
+              "id": 127,
+              "enabled": true,
+              "visible": true
+            },
+            {
+              "hwnd": 459440,
+              "class": "Button",
+              "text": "?",
+              "id": 103,
+              "enabled": true,
+              "visible": true
+            },
+            {
+              "hwnd": 459442,
+              "class": "Button",
+              "text": "OK",
+              "id": 101,
+              "enabled": true,
+              "visible": true
+            },
+            {
+              "hwnd": 459444,
+              "class": "Button",
+              "text": "Cancel",
+              "id": 102,
+              "enabled": true,
+              "visible": true
+            },
+            {
+              "hwnd": 7078288,
+              "class": "Button",
+              "text": "&Match",
+              "id": 114,
+              "enabled": true,
+              "visible": false
+            },
+            {
+              "hwnd": 8913298,
+              "class": "ComboBox",
+              "text": "",
+              "id": 115,
+              "enabled": true,
+              "visible": false
+            },
+            {
+              "hwnd": 7275076,
+              "class": "Static",
+              "text": "of the following rules:",
+              "id": 116,
+              "enabled": true,
+              "visible": false
+            },
+            {
+              "hwnd": 6554178,
+              "class": "Button",
+              "text": "&Match the following rule:",
+              "id": 121,
+              "enabled": true,
+              "visible": false
+            },
+            {
+              "hwnd": 6554188,
+              "class": "Button",
+              "text": "&Match",
+              "id": 141,
+              "enabled": true,
+              "visible": false
+            },
+            {
+              "hwnd": 1180238,
+              "class": "ComboBox",
+              "text": "",
+              "id": 142,
+              "enabled": true,
+              "visible": false
+            },
+            {
+              "hwnd": 721490,
+              "class": "Static",
+              "text": "for",
+              "id": 143,
+              "enabled": true,
+              "visible": false
+            },
+            {
+              "hwnd": 721492,
+              "class": "ComboBox",
+              "text": "",
+              "id": 144,
+              "enabled": true,
+              "visible": false
+            },
+            {
+              "hwnd": 524888,
+              "class": "Static",
+              "text": "of the following rules:",
+              "id": 145,
+              "enabled": true,
+              "visible": false
+            },
+            {
+              "hwnd": 6685274,
+              "class": "Button",
+              "text": "",
+              "id": 105,
+              "enabled": true,
+              "visible": true
+            },
+            {
+              "hwnd": 524892,
+              "class": "ScrollBar",
+              "text": "",
+              "id": 135,
+              "enabled": false,
+              "visible": false
+            },
+            {
+              "hwnd": 524914,
+              "class": "ComboBox",
+              "text": "",
+              "id": 110,
+              "enabled": true,
+              "visible": false
+            },
+            {
+              "hwnd": 524918,
+              "class": "ComboBox",
+              "text": "",
+              "id": 111,
+              "enabled": true,
+              "visible": false
+            },
+            {
+              "hwnd": 459386,
+              "class": "Edit",
+              "text": "",
+              "id": 109,
+              "enabled": true,
+              "visible": false
+            },
+            {
+              "hwnd": 459388,
+              "class": "Edit",
+              "text": "",
+              "id": 207,
+              "enabled": true,
+              "visible": false
+            },
+            {
+              "hwnd": 459390,
+              "class": "Static",
+              "text": "",
+              "id": 206,
+              "enabled": true,
+              "visible": false
+            },
+            {
+              "hwnd": 459392,
+              "class": "ComboBox",
+              "text": "",
+              "id": 134,
+              "enabled": true,
+              "visible": false
+            },
+            {
+              "hwnd": 459396,
+              "class": "ComboBox",
+              "text": "",
+              "id": 133,
+              "enabled": true,
+              "visible": false
+            },
+            {
+              "hwnd": 459400,
+              "class": "ComboBox",
+              "text": "",
+              "id": 136,
+              "enabled": true,
+              "visible": false
+            },
+            {
+              "hwnd": 459404,
+              "class": "ComboBox",
+              "text": "",
+              "id": 137,
+              "enabled": true,
+              "visible": false
+            },
+            {
+              "hwnd": 459408,
+              "class": "ComboBox",
+              "text": "",
+              "id": 146,
+              "enabled": true,
+              "visible": false
+            },
+            {
+              "hwnd": 459412,
+              "class": "Button",
+              "text": "-",
+              "id": 204,
+              "enabled": true,
+              "visible": false
+            },
+            {
+              "hwnd": 459414,
+              "class": "Button",
+              "text": "+",
+              "id": 205,
+              "enabled": true,
+              "visible": false
+            },
+            {
+              "hwnd": 459416,
+              "class": "Button",
+              "text": "...",
+              "id": 213,
+              "enabled": true,
+              "visible": false
+            },
+            {
+              "hwnd": 459418,
+              "class": "Static",
+              "text": "MB",
+              "id": 117,
+              "enabled": true,
+              "visible": false
+            },
+            {
+              "hwnd": 459420,
+              "class": "Static",
+              "text": "kbps",
+              "id": 118,
+              "enabled": true,
+              "visible": false
+            },
+            {
+              "hwnd": 459422,
+              "class": "Static",
+              "text": "Hz",
+              "id": 119,
+              "enabled": true,
+              "visible": false
+            },
+            {
+              "hwnd": 459424,
+              "class": "Static",
+              "text": "to",
+              "id": 120,
+              "enabled": true,
+              "visible": false
+            },
+            {
+              "hwnd": 459426,
+              "class": "Static",
+              "text": "Match",
+              "id": 209,
+              "enabled": true,
+              "visible": false
+            },
+            {
+              "hwnd": 459428,
+              "class": "ComboBox",
+              "text": "",
+              "id": 210,
+              "enabled": true,
+              "visible": false
+            },
+            {
+              "hwnd": 459432,
+              "class": "Static",
+              "text": "of the following rules:",
+              "id": 211,
+              "enabled": true,
+              "visible": false
+            },
+            {
+              "hwnd": 459434,
+              "class": "Static",
+              "text": "Match the following rule:",
+              "id": 212,
+              "enabled": true,
+              "visible": false
+            },
+            {
+              "hwnd": 459436,
+              "class": "ComboBox",
+              "text": "",
+              "id": 129,
+              "enabled": true,
+              "visible": false
+            }
+          ]
+        },
+        "observation_count": 1,
+        "control_state_before": [
+          {
+            "hwnd": 7340608,
+            "class": "Button",
+            "text": "&Match",
+            "id": 138,
+            "enabled": true,
+            "visible": true,
+            "check_state": 1
+          },
+          {
+            "hwnd": 3867198,
+            "class": "ComboBox",
+            "text": "",
+            "id": 139,
+            "enabled": true,
+            "visible": true,
+            "items": [
+              "music",
+              "movies",
+              "TV shows",
+              "podcasts",
+              "audiobooks",
+              "all media"
+            ],
+            "selected_index": 0,
+            "selected_text": "music"
+          },
+          {
+            "hwnd": 787018,
+            "class": "Static",
+            "text": "for the following rules:",
+            "id": 140,
+            "enabled": true,
+            "visible": true
+          },
+          {
+            "hwnd": 459446,
+            "class": "ComboBox",
+            "text": "",
+            "id": 218,
+            "enabled": true,
+            "visible": true,
+            "items": [
+              "Album",
+              "Album Artist",
+              "Album Love",
+              "Album Rating",
+              "Artist",
+              "Bit Rate",
+              "BPM",
+              "Category",
+              "Checked",
+              "Comments",
+              "Compilation",
+              "Composer",
+              "Content Rating",
+              "Date Added",
+              "Date Modified",
+              "Description",
+              "Disc Number",
+              "Genre",
+              "Grouping",
+              "Has Artwork",
+              "iCloud Status",
+              "Kind",
+              "Last Played",
+              "Last Skipped",
+              "Location",
+              "Love",
+              "Media Kind",
+              "Movement Name",
+              "Movement Number",
+              "Name",
+              "Playlist",
+              "Plays",
+              "Purchased",
+              "Rating",
+              "Sample Rate",
+              "Season",
+              "Show",
+              "Size",
+              "Skips",
+              "Sort Album",
+              "Sort Album Artist",
+              "Sort Artist",
+              "Sort Composer",
+              "Sort Name",
+              "Sort Show",
+              "Time",
+              "Track Number",
+              "Work",
+              "Year"
+            ],
+            "selected_index": 4,
+            "selected_text": "Artist"
+          },
+          {
+            "hwnd": 459450,
+            "class": "ComboBox",
+            "text": "",
+            "id": 219,
+            "enabled": true,
+            "visible": true,
+            "items": [
+              "contains",
+              "does not contain",
+              "is",
+              "is not",
+              "starts with",
+              "ends with"
+            ],
+            "selected_index": 0,
+            "selected_text": "contains"
+          },
+          {
+            "hwnd": 197316,
+            "class": "Edit",
+            "text": "",
+            "id": 223,
+            "enabled": true,
+            "visible": true
+          },
+          {
+            "hwnd": 524990,
+            "class": "Button",
+            "text": "-",
+            "id": 220,
+            "enabled": false,
+            "visible": true,
+            "check_state": 0
+          },
+          {
+            "hwnd": 459456,
+            "class": "Button",
+            "text": "+",
+            "id": 221,
+            "enabled": true,
+            "visible": true,
+            "check_state": 0
+          },
+          {
+            "hwnd": 393922,
+            "class": "Button",
+            "text": "...",
+            "id": 222,
+            "enabled": true,
+            "visible": true,
+            "check_state": 0
+          },
+          {
+            "hwnd": 9241184,
+            "class": "Button",
+            "text": "&Limit to",
+            "id": 122,
+            "enabled": true,
+            "visible": true,
+            "check_state": 0
+          },
+          {
+            "hwnd": 7340642,
+            "class": "Edit",
+            "text": "",
+            "id": 123,
+            "enabled": true,
+            "visible": true
+          },
+          {
+            "hwnd": 2097764,
+            "class": "ComboBox",
+            "text": "",
+            "id": 124,
+            "enabled": true,
+            "visible": true,
+            "items": [
+              "minutes",
+              "hours",
+              "MB",
+              "GB",
+              "items"
+            ],
+            "selected_index": 4,
+            "selected_text": "items"
+          },
+          {
+            "hwnd": 2556520,
+            "class": "Static",
+            "text": "&selected by",
+            "id": 125,
+            "enabled": true,
+            "visible": true
+          },
+          {
+            "hwnd": 2228842,
+            "class": "ComboBox",
+            "text": "",
+            "id": 126,
+            "enabled": true,
+            "visible": true,
+            "items": [
+              "random",
+              "album",
+              "artist",
+              "genre",
+              "name",
+              "highest rating",
+              "lowest rating",
+              "most recently played",
+              "least recently played",
+              "most often played",
+              "least often played",
+              "most recently added",
+              "least recently added"
+            ],
+            "selected_index": 0,
+            "selected_text": "random"
+          },
+          {
+            "hwnd": 721518,
+            "class": "Button",
+            "text": "Match only &checked items",
+            "id": 130,
+            "enabled": false,
+            "visible": true,
+            "check_state": 0
+          },
+          {
+            "hwnd": 524912,
+            "class": "Button",
+            "text": "Live &updating",
+            "id": 127,
+            "enabled": true,
+            "visible": true,
+            "check_state": 1
+          },
+          {
+            "hwnd": 459440,
+            "class": "Button",
+            "text": "?",
+            "id": 103,
+            "enabled": true,
+            "visible": true,
+            "check_state": 0
+          },
+          {
+            "hwnd": 459442,
+            "class": "Button",
+            "text": "OK",
+            "id": 101,
+            "enabled": true,
+            "visible": true,
+            "check_state": 0
+          },
+          {
+            "hwnd": 459444,
+            "class": "Button",
+            "text": "Cancel",
+            "id": 102,
+            "enabled": true,
+            "visible": true,
+            "check_state": 0
+          },
+          {
+            "hwnd": 7078288,
+            "class": "Button",
+            "text": "&Match",
+            "id": 114,
+            "enabled": true,
+            "visible": false,
+            "check_state": 1
+          },
+          {
+            "hwnd": 8913298,
+            "class": "ComboBox",
+            "text": "",
+            "id": 115,
+            "enabled": true,
+            "visible": false,
+            "items": [],
+            "selected_index": -1,
+            "selected_text": null
+          },
+          {
+            "hwnd": 7275076,
+            "class": "Static",
+            "text": "of the following rules:",
+            "id": 116,
+            "enabled": true,
+            "visible": false
+          },
+          {
+            "hwnd": 6554178,
+            "class": "Button",
+            "text": "&Match the following rule:",
+            "id": 121,
+            "enabled": true,
+            "visible": false,
+            "check_state": 1
+          },
+          {
+            "hwnd": 6554188,
+            "class": "Button",
+            "text": "&Match",
+            "id": 141,
+            "enabled": true,
+            "visible": false,
+            "check_state": 1
+          },
+          {
+            "hwnd": 1180238,
+            "class": "ComboBox",
+            "text": "",
+            "id": 142,
+            "enabled": true,
+            "visible": false,
+            "items": [
+              "music",
+              "movies",
+              "TV shows",
+              "podcasts",
+              "audiobooks",
+              "all media"
+            ],
+            "selected_index": 0,
+            "selected_text": "music"
+          },
+          {
+            "hwnd": 721490,
+            "class": "Static",
+            "text": "for",
+            "id": 143,
+            "enabled": true,
+            "visible": false
+          },
+          {
+            "hwnd": 721492,
+            "class": "ComboBox",
+            "text": "",
+            "id": 144,
+            "enabled": true,
+            "visible": false,
+            "items": [
+              "all",
+              "any"
+            ],
+            "selected_index": 0,
+            "selected_text": "all"
+          },
+          {
+            "hwnd": 524888,
+            "class": "Static",
+            "text": "of the following rules:",
+            "id": 145,
+            "enabled": true,
+            "visible": false
+          },
+          {
+            "hwnd": 6685274,
+            "class": "Button",
+            "text": "",
+            "id": 105,
+            "enabled": true,
+            "visible": true,
+            "check_state": 0
+          },
+          {
+            "hwnd": 524892,
+            "class": "ScrollBar",
+            "text": "",
+            "id": 135,
+            "enabled": false,
+            "visible": false
+          },
+          {
+            "hwnd": 524914,
+            "class": "ComboBox",
+            "text": "",
+            "id": 110,
+            "enabled": true,
+            "visible": false,
+            "items": [],
+            "selected_index": -1,
+            "selected_text": null
+          },
+          {
+            "hwnd": 524918,
+            "class": "ComboBox",
+            "text": "",
+            "id": 111,
+            "enabled": true,
+            "visible": false,
+            "items": [],
+            "selected_index": -1,
+            "selected_text": null
+          },
+          {
+            "hwnd": 459386,
+            "class": "Edit",
+            "text": "",
+            "id": 109,
+            "enabled": true,
+            "visible": false
+          },
+          {
+            "hwnd": 459388,
+            "class": "Edit",
+            "text": "",
+            "id": 207,
+            "enabled": true,
+            "visible": false
+          },
+          {
+            "hwnd": 459390,
+            "class": "Static",
+            "text": "",
+            "id": 206,
+            "enabled": true,
+            "visible": false
+          },
+          {
+            "hwnd": 459392,
+            "class": "ComboBox",
+            "text": "",
+            "id": 134,
+            "enabled": true,
+            "visible": false,
+            "items": [],
+            "selected_index": -1,
+            "selected_text": null
+          },
+          {
+            "hwnd": 459396,
+            "class": "ComboBox",
+            "text": "",
+            "id": 133,
+            "enabled": true,
+            "visible": false,
+            "items": [],
+            "selected_index": -1,
+            "selected_text": null
+          },
+          {
+            "hwnd": 459400,
+            "class": "ComboBox",
+            "text": "",
+            "id": 136,
+            "enabled": true,
+            "visible": false,
+            "items": [],
+            "selected_index": -1,
+            "selected_text": null
+          },
+          {
+            "hwnd": 459404,
+            "class": "ComboBox",
+            "text": "",
+            "id": 137,
+            "enabled": true,
+            "visible": false,
+            "items": [],
+            "selected_index": -1,
+            "selected_text": null
+          },
+          {
+            "hwnd": 459408,
+            "class": "ComboBox",
+            "text": "",
+            "id": 146,
+            "enabled": true,
+            "visible": false,
+            "items": [],
+            "selected_index": -1,
+            "selected_text": null
+          },
+          {
+            "hwnd": 459412,
+            "class": "Button",
+            "text": "-",
+            "id": 204,
+            "enabled": true,
+            "visible": false,
+            "check_state": 0
+          },
+          {
+            "hwnd": 459414,
+            "class": "Button",
+            "text": "+",
+            "id": 205,
+            "enabled": true,
+            "visible": false,
+            "check_state": 0
+          },
+          {
+            "hwnd": 459416,
+            "class": "Button",
+            "text": "...",
+            "id": 213,
+            "enabled": true,
+            "visible": false,
+            "check_state": 0
+          },
+          {
+            "hwnd": 459418,
+            "class": "Static",
+            "text": "MB",
+            "id": 117,
+            "enabled": true,
+            "visible": false
+          },
+          {
+            "hwnd": 459420,
+            "class": "Static",
+            "text": "kbps",
+            "id": 118,
+            "enabled": true,
+            "visible": false
+          },
+          {
+            "hwnd": 459422,
+            "class": "Static",
+            "text": "Hz",
+            "id": 119,
+            "enabled": true,
+            "visible": false
+          },
+          {
+            "hwnd": 459424,
+            "class": "Static",
+            "text": "to",
+            "id": 120,
+            "enabled": true,
+            "visible": false
+          },
+          {
+            "hwnd": 459426,
+            "class": "Static",
+            "text": "Match",
+            "id": 209,
+            "enabled": true,
+            "visible": false
+          },
+          {
+            "hwnd": 459428,
+            "class": "ComboBox",
+            "text": "",
+            "id": 210,
+            "enabled": true,
+            "visible": false,
+            "items": [],
+            "selected_index": -1,
+            "selected_text": null
+          },
+          {
+            "hwnd": 459432,
+            "class": "Static",
+            "text": "of the following rules:",
+            "id": 211,
+            "enabled": true,
+            "visible": false
+          },
+          {
+            "hwnd": 459434,
+            "class": "Static",
+            "text": "Match the following rule:",
+            "id": 212,
+            "enabled": true,
+            "visible": false
+          },
+          {
+            "hwnd": 459436,
+            "class": "ComboBox",
+            "text": "",
+            "id": 129,
+            "enabled": true,
+            "visible": false,
+            "items": [],
+            "selected_index": -1,
+            "selected_text": null
+          }
+        ]
+      },
+      "windows_at_failure": [
+        {
+          "hwnd": 9830568,
+          "pid": 9108,
+          "class": "iTunesCustomModalDialog",
+          "title": "Smart Playlist",
+          "children": [
+            {
+              "hwnd": 7340608,
+              "class": "Button",
+              "text": "&Match",
+              "id": 138,
+              "enabled": true,
+              "visible": true
+            },
+            {
+              "hwnd": 3867198,
+              "class": "ComboBox",
+              "text": "",
+              "id": 139,
+              "enabled": true,
+              "visible": true
+            },
+            {
+              "hwnd": 787018,
+              "class": "Static",
+              "text": "for the following rules:",
+              "id": 140,
+              "enabled": true,
+              "visible": true
+            },
+            {
+              "hwnd": 459446,
+              "class": "ComboBox",
+              "text": "",
+              "id": 218,
+              "enabled": true,
+              "visible": true
+            },
+            {
+              "hwnd": 459450,
+              "class": "ComboBox",
+              "text": "",
+              "id": 219,
+              "enabled": true,
+              "visible": true
+            },
+            {
+              "hwnd": 197316,
+              "class": "Edit",
+              "text": "",
+              "id": 223,
+              "enabled": true,
+              "visible": true
+            },
+            {
+              "hwnd": 524990,
+              "class": "Button",
+              "text": "-",
+              "id": 220,
+              "enabled": false,
+              "visible": true
+            },
+            {
+              "hwnd": 459456,
+              "class": "Button",
+              "text": "+",
+              "id": 221,
+              "enabled": true,
+              "visible": true
+            },
+            {
+              "hwnd": 393922,
+              "class": "Button",
+              "text": "...",
+              "id": 222,
+              "enabled": true,
+              "visible": true
+            },
+            {
+              "hwnd": 9241184,
+              "class": "Button",
+              "text": "&Limit to",
+              "id": 122,
+              "enabled": true,
+              "visible": true
+            },
+            {
+              "hwnd": 7340642,
+              "class": "Edit",
+              "text": "",
+              "id": 123,
+              "enabled": true,
+              "visible": true
+            },
+            {
+              "hwnd": 2097764,
+              "class": "ComboBox",
+              "text": "",
+              "id": 124,
+              "enabled": true,
+              "visible": true
+            },
+            {
+              "hwnd": 2556520,
+              "class": "Static",
+              "text": "&selected by",
+              "id": 125,
+              "enabled": true,
+              "visible": true
+            },
+            {
+              "hwnd": 2228842,
+              "class": "ComboBox",
+              "text": "",
+              "id": 126,
+              "enabled": true,
+              "visible": true
+            },
+            {
+              "hwnd": 721518,
+              "class": "Button",
+              "text": "Match only &checked items",
+              "id": 130,
+              "enabled": false,
+              "visible": true
+            },
+            {
+              "hwnd": 524912,
+              "class": "Button",
+              "text": "Live &updating",
+              "id": 127,
+              "enabled": true,
+              "visible": true
+            },
+            {
+              "hwnd": 459440,
+              "class": "Button",
+              "text": "?",
+              "id": 103,
+              "enabled": true,
+              "visible": true
+            },
+            {
+              "hwnd": 459442,
+              "class": "Button",
+              "text": "OK",
+              "id": 101,
+              "enabled": true,
+              "visible": true
+            },
+            {
+              "hwnd": 459444,
+              "class": "Button",
+              "text": "Cancel",
+              "id": 102,
+              "enabled": true,
+              "visible": true
+            },
+            {
+              "hwnd": 7078288,
+              "class": "Button",
+              "text": "&Match",
+              "id": 114,
+              "enabled": true,
+              "visible": false
+            },
+            {
+              "hwnd": 8913298,
+              "class": "ComboBox",
+              "text": "",
+              "id": 115,
+              "enabled": true,
+              "visible": false
+            },
+            {
+              "hwnd": 7275076,
+              "class": "Static",
+              "text": "of the following rules:",
+              "id": 116,
+              "enabled": true,
+              "visible": false
+            },
+            {
+              "hwnd": 6554178,
+              "class": "Button",
+              "text": "&Match the following rule:",
+              "id": 121,
+              "enabled": true,
+              "visible": false
+            },
+            {
+              "hwnd": 6554188,
+              "class": "Button",
+              "text": "&Match",
+              "id": 141,
+              "enabled": true,
+              "visible": false
+            },
+            {
+              "hwnd": 1180238,
+              "class": "ComboBox",
+              "text": "",
+              "id": 142,
+              "enabled": true,
+              "visible": false
+            },
+            {
+              "hwnd": 721490,
+              "class": "Static",
+              "text": "for",
+              "id": 143,
+              "enabled": true,
+              "visible": false
+            },
+            {
+              "hwnd": 721492,
+              "class": "ComboBox",
+              "text": "",
+              "id": 144,
+              "enabled": true,
+              "visible": false
+            },
+            {
+              "hwnd": 524888,
+              "class": "Static",
+              "text": "of the following rules:",
+              "id": 145,
+              "enabled": true,
+              "visible": false
+            },
+            {
+              "hwnd": 6685274,
+              "class": "Button",
+              "text": "",
+              "id": 105,
+              "enabled": true,
+              "visible": true
+            },
+            {
+              "hwnd": 524892,
+              "class": "ScrollBar",
+              "text": "",
+              "id": 135,
+              "enabled": false,
+              "visible": false
+            },
+            {
+              "hwnd": 524914,
+              "class": "ComboBox",
+              "text": "",
+              "id": 110,
+              "enabled": true,
+              "visible": false
+            },
+            {
+              "hwnd": 524918,
+              "class": "ComboBox",
+              "text": "",
+              "id": 111,
+              "enabled": true,
+              "visible": false
+            },
+            {
+              "hwnd": 459386,
+              "class": "Edit",
+              "text": "",
+              "id": 109,
+              "enabled": true,
+              "visible": false
+            },
+            {
+              "hwnd": 459388,
+              "class": "Edit",
+              "text": "",
+              "id": 207,
+              "enabled": true,
+              "visible": false
+            },
+            {
+              "hwnd": 459390,
+              "class": "Static",
+              "text": "",
+              "id": 206,
+              "enabled": true,
+              "visible": false
+            },
+            {
+              "hwnd": 459392,
+              "class": "ComboBox",
+              "text": "",
+              "id": 134,
+              "enabled": true,
+              "visible": false
+            },
+            {
+              "hwnd": 459396,
+              "class": "ComboBox",
+              "text": "",
+              "id": 133,
+              "enabled": true,
+              "visible": false
+            },
+            {
+              "hwnd": 459400,
+              "class": "ComboBox",
+              "text": "",
+              "id": 136,
+              "enabled": true,
+              "visible": false
+            },
+            {
+              "hwnd": 459404,
+              "class": "ComboBox",
+              "text": "",
+              "id": 137,
+              "enabled": true,
+              "visible": false
+            },
+            {
+              "hwnd": 459408,
+              "class": "ComboBox",
+              "text": "",
+              "id": 146,
+              "enabled": true,
+              "visible": false
+            },
+            {
+              "hwnd": 459412,
+              "class": "Button",
+              "text": "-",
+              "id": 204,
+              "enabled": true,
+              "visible": false
+            },
+            {
+              "hwnd": 459414,
+              "class": "Button",
+              "text": "+",
+              "id": 205,
+              "enabled": true,
+              "visible": false
+            },
+            {
+              "hwnd": 459416,
+              "class": "Button",
+              "text": "...",
+              "id": 213,
+              "enabled": true,
+              "visible": false
+            },
+            {
+              "hwnd": 459418,
+              "class": "Static",
+              "text": "MB",
+              "id": 117,
+              "enabled": true,
+              "visible": false
+            },
+            {
+              "hwnd": 459420,
+              "class": "Static",
+              "text": "kbps",
+              "id": 118,
+              "enabled": true,
+              "visible": false
+            },
+            {
+              "hwnd": 459422,
+              "class": "Static",
+              "text": "Hz",
+              "id": 119,
+              "enabled": true,
+              "visible": false
+            },
+            {
+              "hwnd": 459424,
+              "class": "Static",
+              "text": "to",
+              "id": 120,
+              "enabled": true,
+              "visible": false
+            },
+            {
+              "hwnd": 459426,
+              "class": "Static",
+              "text": "Match",
+              "id": 209,
+              "enabled": true,
+              "visible": false
+            },
+            {
+              "hwnd": 459428,
+              "class": "ComboBox",
+              "text": "",
+              "id": 210,
+              "enabled": true,
+              "visible": false
+            },
+            {
+              "hwnd": 459432,
+              "class": "Static",
+              "text": "of the following rules:",
+              "id": 211,
+              "enabled": true,
+              "visible": false
+            },
+            {
+              "hwnd": 459434,
+              "class": "Static",
+              "text": "Match the following rule:",
+              "id": 212,
+              "enabled": true,
+              "visible": false
+            },
+            {
+              "hwnd": 459436,
+              "class": "ComboBox",
+              "text": "",
+              "id": 129,
+              "enabled": true,
+              "visible": false
+            }
+          ]
+        },
+        {
+          "hwnd": 7209492,
+          "pid": 9108,
+          "class": "iTunes",
+          "title": "iTunes",
+          "children": [
+            {
+              "hwnd": 3998266,
+              "class": "Button",
+              "text": "",
+              "id": -275223632,
+              "enabled": true,
+              "visible": true
+            },
+            {
+              "hwnd": 7275058,
+              "class": "Static",
+              "text": "",
+              "id": -276420608,
+              "enabled": true,
+              "visible": false
+            },
+            {
+              "hwnd": 2753072,
+              "class": "Button",
+              "text": "",
+              "id": -276424848,
+              "enabled": true,
+              "visible": false
+            },
+            {
+              "hwnd": 590380,
+              "class": "Button",
+              "text": "Search",
+              "id": -276797056,
+              "enabled": true,
+              "visible": true
+            },
+            {
+              "hwnd": 6947368,
+              "class": "Edit",
+              "text": "",
+              "id": 101,
+              "enabled": true,
+              "visible": false
+            },
+            {
+              "hwnd": 8061466,
+              "class": "Static",
+              "text": "LCD section",
+              "id": -276861088,
+              "enabled": true,
+              "visible": true
+            },
+            {
+              "hwnd": 6750758,
+              "class": "Button",
+              "text": "switch to miniplayer",
+              "id": -276809264,
+              "enabled": true,
+              "visible": false
+            },
+            {
+              "hwnd": 6881828,
+              "class": "Button",
+              "text": "show next view",
+              "id": -276970480,
+              "enabled": true,
+              "visible": false
+            },
+            {
+              "hwnd": 7471646,
+              "class": "Button",
+              "text": "show previous view",
+              "id": -276974720,
+              "enabled": true,
+              "visible": false
+            },
+            {
+              "hwnd": 8192540,
+              "class": "Button",
+              "text": "",
+              "id": -276857088,
+              "enabled": true,
+              "visible": false
+            },
+            {
+              "hwnd": 590378,
+              "class": "Button",
+              "text": "airplay",
+              "id": -276890832,
+              "enabled": false,
+              "visible": false
+            },
+            {
+              "hwnd": 7078432,
+              "class": "Button",
+              "text": "genius shuffle",
+              "id": -276978960,
+              "enabled": false,
+              "visible": false
+            },
+            {
+              "hwnd": 8061274,
+              "class": "Static",
+              "text": "Application",
+              "id": -277368880,
+              "enabled": true,
+              "visible": true
+            },
+            {
+              "hwnd": 7209526,
+              "class": "Static",
+              "text": "Song",
+              "id": -276090096,
+              "enabled": true,
+              "visible": true
+            },
+            {
+              "hwnd": 10748432,
+              "class": "Static",
+              "text": "Help",
+              "id": -277224368,
+              "enabled": true,
+              "visible": true
+            },
+            {
+              "hwnd": 7733412,
+              "class": "Static",
+              "text": "Account",
+              "id": -277228224,
+              "enabled": true,
+              "visible": true
+            },
+            {
+              "hwnd": 1704324,
+              "class": "Static",
+              "text": "Controls",
+              "id": -277232080,
+              "enabled": true,
+              "visible": true
+            },
+            {
+              "hwnd": 8519968,
+              "class": "Static",
+              "text": "View",
+              "id": -277356448,
+              "enabled": true,
+              "visible": true
+            },
+            {
+              "hwnd": 1245576,
+              "class": "Static",
+              "text": "Edit",
+              "id": -277360304,
+              "enabled": true,
+              "visible": true
+            },
+            {
+              "hwnd": 8454316,
+              "class": "Static",
+              "text": "File",
+              "id": -277364160,
+              "enabled": true,
+              "visible": true
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "profile_junction_create": {
+    "argv": [
+      "cmd.exe",
+      "/d",
+      "/c",
+      "mklink",
+      "/J",
+      "C:\\Users\\runneradmin\\Music\\iTunes",
+      "D:\\a\\_temp\\smart-playlist-default-root-v8\\live"
+    ],
+    "returncode": 0,
+    "output": "Junction created for C:\\Users\\runneradmin\\Music\\iTunes <<===>> D:\\a\\_temp\\smart-playlist-default-root-v8\\live\n"
+  },
+  "passed": false,
+  "error": "RuntimeError: Smart Playlist rule controls did not retain requested values",
+  "traceback": "Traceback (most recent call last):\n  File \"D:\\a\\_temp\\gha-mcp\\win-acvcphw9\\work\\windows-itunes-itl-research\\scripts\\windows\\smart_playlist_native.py\", line 377, in run\n    observed[\"configured_rule\"] = configure_artist_contains_rule(observed[\"dialog\"])\n                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"D:\\a\\_temp\\gha-mcp\\win-acvcphw9\\work\\windows-itunes-itl-research\\scripts\\windows\\smart_playlist_native.py\", line 229, in configure_artist_contains_rule\n    raise RuntimeError(\"Smart Playlist rule controls did not retain requested values\")\nRuntimeError: Smart Playlist rule controls did not retain requested values\n",
+  "cleanup_quit_requested": true,
+  "cleanup_killed_process": 9108,
+  "final_live": {
+    "path": "D:\\a\\_temp\\gha-mcp\\win-acvcphw9\\work\\windows-itunes-itl-research\\evidence\\native\\smart-playlist-default-20260922-v8\\final-live.itl",
+    "bytes": 10566,
+    "mtime_ns": 1790030364709894200,
+    "sha256": "c6c68171d57350ceb3cf379eee13a764ea199536ef18238fe4faf80583492d74"
+  },
+  "final_inventory": [
+    {
+      "path": "Album Artwork",
+      "kind": "directory"
+    },
+    {
+      "path": "Album Artwork/Cache",
+      "kind": "directory"
+    },
+    {
+      "path": "Album Artwork/Custom",
+      "kind": "directory"
+    },
+    {
+      "path": "Album Artwork/Download",
+      "kind": "directory"
+    },
+    {
+      "path": "Album Artwork/Generated",
+      "kind": "directory"
+    },
+    {
+      "path": "Album Artwork/Store",
+      "kind": "directory"
+    },
+    {
+      "path": "iTunes Library Extras.itdb",
+      "kind": "file",
+      "bytes": 16384,
+      "sha256": "e1937a7a396264a1d85599295ce5d66fe16e5771e91be496987a16b26d406553"
+    },
+    {
+      "path": "iTunes Library Genius.itdb",
+      "kind": "file",
+      "bytes": 32768,
+      "sha256": "faa6d8b013adf70b6860672a43b20ee19e164f72494e7ea270cd2b30d677ae82"
+    },
+    {
+      "path": "iTunes Library.itl",
+      "kind": "file",
+      "bytes": 10566,
+      "sha256": "c6c68171d57350ceb3cf379eee13a764ea199536ef18238fe4faf80583492d74"
+    },
+    {
+      "path": "iTunes Media",
+      "kind": "directory"
+    },
+    {
+      "path": "iTunes Media/.iTunes Preferences.plist",
+      "kind": "file",
+      "bytes": 305,
+      "sha256": "976531f53628014b41fbb0f0a321b2f3ab76b8995a174edcbdee0ec1fe24ba13"
+    },
+    {
+      "path": "iTunes Media/Automatically Add to iTunes",
+      "kind": "directory"
+    },
+    {
+      "path": "sentinel",
+      "kind": "file",
+      "bytes": 8,
+      "sha256": "af5570f5a1810b7af78caf4bc70a660f0df51e42baf91d4de5b2328de0e83dfc"
+    }
+  ],
+  "final_forbidden_artifacts": [],
+  "profile_junction_remove": {
+    "removed": true,
+    "command": {
+      "argv": [
+        "cmd.exe",
+        "/d",
+        "/c",
+        "rmdir",
+        "C:\\Users\\runneradmin\\Music\\iTunes"
+      ],
+      "returncode": 0,
+      "output": ""
+    }
+  },
+  "profile_absent_after_cleanup": true,
+  "finished_utc": "2026-09-22T00:01:04.475289+00:00"
+}

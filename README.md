@@ -8,7 +8,7 @@ Windows版の**Apple公式スタンドアロンEXE版 iTunes 12.13.10.3**を対�
 
 ## 今回確認したこと
 
-- 回帰テスト：**1026 passed / 5 skipped**（独立リファレンスツール21件を含む）。合成テストに加え、固定55個のネイティブITL構造と50個の対応COM記録を検査しました。5件はCOM記録がない明示的スキップで、ネイティブ操作の回数ではありません。
+- 回帰テスト：**1036 passed / 5 skipped**（独立リファレンスツール21件を含む）。合成テストに加え、固定55個のネイティブITL構造と50個の対応COM記録を検査しました。5件はCOM記録がない明示的スキップで、ネイティブ操作の回数ではありません。
 - 日時の負の端数が1904年エポックの0へ化ける問題を修正。保持される入れ子・未知のプレイリスト項目、復元元と不一致のシステム定義は変更前に拒否します。
 - テンプレートを使わず構築したraw/zlibの2つの参照ITLは、隔離したiTunesで各2回のopen/save/restartに合格しました。合格は2つの正確なSHA-256だけに限定され、任意入力や完全仕様を意味しません。
 - 下記6候補を**実iTunesで選択して開き、各2回保存・終了・再起動**。最初45秒、次30秒の観察後にも期待値を確認しました。
@@ -58,7 +58,14 @@ python -B -m TEST_CORPUS manifest --check
 - [`PATH_AND_TIME_SPEC.md`](PATH_AND_TIME_SPEC.md) records 30 path cases and 8 `PlayedDate` mutations on isolated Windows iTunes 12.13.10.3. It retains 39 native-saved snapshots, all parseable; physical external media, remote SMB, drive reassignment, and a direct Japanese filesystem path remain unresolved.
 - [`evidence/native/fresh-20260921/`](evidence/native/fresh-20260921/) records a genuinely fresh iTunes-created library through empty/one/three-track, traced edit, and repeated saves. Because iTunes created it, this cohort alone is not reference-writer evidence.
 - [`evidence/native/reference-generated-20260922-passed/`](evidence/native/reference-generated-20260922-passed/) records strict two-cycle acceptance of the two exact template-free fixture hashes, with no XML, no `Previous iTunes Libraries`, no repair/rebuild/migration dialog, exact persistent identities, normal quit, and independent validation after each save.
-- [`corpus-manifest.json`](corpus-manifest.json) hashes all 150 retained ITLs and links the nested reference, fresh-native, path/time, smart-playlist, and reference-generation analyses. The two checked-in reference fixtures are `verified` only for their pinned hashes.
+- [`corpus-manifest.json`](corpus-manifest.json) hashes all 236 retained ITLs and links the nested reference, fresh-native, path/time, smart-playlist, and reference-generation analyses. The two checked-in reference fixtures are `verified` only for their pinned hashes.
+
+## 2026-09-22 retained closure probes
+
+- The isolated native field matrix passed 27 of 29 one-property mutation/restart cases. Lyrics raised a COM error and `Enabled=false` projected back as `true`; both failures are retained and no full-field claim is made. See [`evidence/native/field-matrix-20260922/README.md`](evidence/native/field-matrix-20260922/README.md).
+- External `quinnjr/itl-rs` at pinned commit `49f3ad3…` preserved the exact expanded payload of the zlib/AES reference and its 755-byte output passed two strict native cycles. The same implementation rejected raw input, reported the track PID as zero, and emitted mutation candidates that failed mandatory conformance checks. This is exact-hash structural interoperability, not a correct independent semantic implementation. See [`evidence/independent/itl-rs-20260922/README.md`](evidence/independent/itl-rs-20260922/README.md).
+- Twenty-four native Smart Playlist attempts are retained. v24 created native nested wrapper framing and an Artist/contains string-family leaf, but the operand serialized empty and membership remained empty. The series is negative evidence, not semantic editing support. See [`evidence/native/smart-playlist-default-20260922/README.md`](evidence/native/smart-playlist-default-20260922/README.md).
+- The strict complete-analysis/specification gate remains **false**. U-01 through U-18 remain blockers; successful parsing, refusal, structural preservation, or one exact native-accepted hash is not counted as complete interoperability.
 
 ## 基本的な実行
 

@@ -33,7 +33,7 @@ Support is profile-specific. “Readable” does not mean editable, and “nativ
 | --- | --- | --- | --- |
 | No-op byte-exact round trip | Offline verified on admitted fixtures | Offline/observed | Container-only case-by-case; no semantic claim |
 | Forced envelope reconstruction | Offline verified; selected native candidates accepted | Offline/observed | No qualification |
-| Track scalar/text edit | Guarded; field-specific evidence | Generic observed guard only; no 10.3-specific states | Refused by semantic profile |
+| Track scalar/text edit | Guarded; field-specific evidence plus 27/29 exact native COM cases | Generic observed guard only; no 10.3-specific states | Refused by semantic profile |
 | Name-refresh correction | Implemented only for changed nonempty Name on 10.3/756-byte record | Not applied | Unsupported |
 | Explicit Unplayed edit | Implemented only for 10.3/756-byte record | Refused | Unsupported |
 | Album/artist/album-artist maintenance | Closed local-WAV profile; native candidate 112 | Structural helper requires 10.3 | Unsupported |
@@ -67,3 +67,8 @@ The repository contains several bounded cohorts. They are related but not interc
 8. **Windows path/time sequence:** [`evidence/path-time/native/native-summary.json`](evidence/path-time/native/native-summary.json) covers one isolated 12.13.10.3 environment, 30 path cases, 8 date mutations, and 39 parseable native-saved states. It does not qualify other iTunes versions, physical external media, or remote SMB.
 
 9. **Template-free reference fixtures:** [`evidence/native/reference-generated-20260922-passed/qualification-summary.json`](evidence/native/reference-generated-20260922-passed/qualification-summary.json) pins two exact generator hashes. Each passed two cycles with exact persistent identities, no fallback artifacts, normal exit, and independent parsing. This qualifies those hashes only and does not extend generation support to 12.13.9.1 or any other version/profile.
+
+
+10. **Isolated 29-property field matrix:** [`evidence/native/field-matrix-20260922/summary.json`](evidence/native/field-matrix-20260922/summary.json) records 27 exact passes and two retained failures on the template-free raw fixture. This qualifies exact cases, not every declared field or value.
+11. **External `itl-rs` interoperability:** [`evidence/independent/itl-rs-20260922/conformance-summary.json`](evidence/independent/itl-rs-20260922/conformance-summary.json) records one byte-identical expanded-payload roundtrip whose exact output passed two native cycles. Raw input and semantic/mutation gates remain failures; this does not add a supported version or independent semantic implementation.
+12. **Custom Smart Playlist negative:** [`evidence/native/smart-playlist-default-20260922/probe-series-summary.json`](evidence/native/smart-playlist-default-20260922/probe-series-summary.json) records 24 failed attempts. v24 adds native nested framing and an empty string-family leaf, not editing/evaluator support.

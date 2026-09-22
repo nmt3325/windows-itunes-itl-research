@@ -1,0 +1,958 @@
+{
+  "schema_version": 1,
+  "started_utc": "2026-09-21T23:51:34.876397+00:00",
+  "status": "failed_with_preserved_evidence",
+  "candidate": {
+    "path": "D:\\a\\_temp\\gha-mcp\\win-acvcphw9\\work\\windows-itunes-itl-research\\TEST_CORPUS\\generated\\reference-one-track-raw.itl",
+    "bytes": 10566,
+    "mtime_ns": 1790030364709894200,
+    "sha256": "c6c68171d57350ceb3cf379eee13a764ea199536ef18238fe4faf80583492d74"
+  },
+  "itunes": {
+    "path": "C:\\Program Files\\iTunes\\iTunes.exe",
+    "bytes": 38952912,
+    "mtime_ns": 1771863954000000000,
+    "sha256": "30d91209b5d81c47bbad2da9d89764fcab08bf5cd9af1a9571668001376c5d7d"
+  },
+  "profile": "C:\\Users\\runneradmin\\Music\\iTunes",
+  "root": "D:\\a\\_temp\\smart-playlist-default-root-v2",
+  "evidence": "D:\\a\\_temp\\gha-mcp\\win-acvcphw9\\work\\windows-itunes-itl-research\\evidence\\native\\smart-playlist-default-20260922-v2",
+  "sessions": [
+    {
+      "name": "create-default",
+      "started_utc": "2026-09-21T23:51:34.936065+00:00",
+      "ui": [
+        {
+          "action": "dismiss_audio_warning",
+          "pid": 8048,
+          "window": {
+            "hwnd": 7799072,
+            "pid": 8048,
+            "class": "iTunesCustomModalDialog",
+            "title": "iTunes",
+            "children": [
+              {
+                "hwnd": 524594,
+                "class": "Static",
+                "text": "iTunes has detected a problem with your audio configuration.\rAudio/Video playback may not operate properly.",
+                "id": 101,
+                "enabled": true,
+                "visible": true
+              },
+              {
+                "hwnd": 7536988,
+                "class": "Static",
+                "text": "",
+                "id": 103,
+                "enabled": true,
+                "visible": false
+              },
+              {
+                "hwnd": 6095208,
+                "class": "Button",
+                "text": "",
+                "id": 104,
+                "enabled": true,
+                "visible": false
+              },
+              {
+                "hwnd": 590208,
+                "class": "Button",
+                "text": "OK",
+                "id": 1,
+                "enabled": true,
+                "visible": true
+              },
+              {
+                "hwnd": 6160784,
+                "class": "Button",
+                "text": "More Info",
+                "id": 105,
+                "enabled": true,
+                "visible": false
+              },
+              {
+                "hwnd": 8257938,
+                "class": "Static",
+                "text": "",
+                "id": 102,
+                "enabled": true,
+                "visible": true
+              }
+            ]
+          }
+        }
+      ],
+      "itunes_pid": 8048,
+      "before": {
+        "label": "before-shortcut",
+        "first": {
+          "version": "12.13.10.3",
+          "library_persistent_id": "5245464552454E43",
+          "tracks": [
+            {
+              "persistent_id": "A17E000000000001",
+              "Name": "Reference Track",
+              "Artist": "",
+              "Album": "",
+              "AlbumArtist": "",
+              "Composer": "",
+              "Genre": "",
+              "Comment": "",
+              "Grouping": "",
+              "Lyrics": "",
+              "SortName": "",
+              "SortArtist": "",
+              "SortAlbum": "",
+              "SortAlbumArtist": "",
+              "Rating": 0,
+              "AlbumRating": 0,
+              "PlayedCount": 0,
+              "PlayedDate": "1899-12-30T00:00:00+00:00",
+              "SkippedCount": 0,
+              "SkippedDate": "1899-12-30T00:00:00+00:00",
+              "DateAdded": "2026-06-23T06:24:00+00:00",
+              "ModificationDate": "1899-12-30T00:00:00+00:00",
+              "TrackNumber": 0,
+              "TrackCount": 0,
+              "DiscNumber": 0,
+              "DiscCount": 0,
+              "Year": 0,
+              "BPM": 0,
+              "Compilation": false,
+              "Enabled": true,
+              "VolumeAdjustment": 0,
+              "Location": "",
+              "Duration": 0,
+              "SampleRate": 0,
+              "BitRate": 0,
+              "Size": 0,
+              "TrackDatabaseID": 71,
+              "TrackID": 76,
+              "PlayOrderIndex": 1,
+              "Unplayed": true,
+              "RatingKind": 1,
+              "AlbumRatingKind": 1
+            }
+          ],
+          "playlists": [
+            {
+              "name": "Library",
+              "persistent_id": "5245464552454E43",
+              "kind": 1,
+              "members": [
+                {
+                  "persistent_id": "A17E000000000001",
+                  "name": "Reference Track",
+                  "play_order_index": 1
+                }
+              ],
+              "special_kind": null
+            },
+            {
+              "name": "Music",
+              "persistent_id": "603F01A77588A69A",
+              "kind": 2,
+              "members": [
+                {
+                  "persistent_id": "A17E000000000001",
+                  "name": "Reference Track",
+                  "play_order_index": 1
+                }
+              ],
+              "special_kind": 6
+            },
+            {
+              "name": "Movies",
+              "persistent_id": "339CBB69F971CA40",
+              "kind": 2,
+              "members": [],
+              "special_kind": 7
+            },
+            {
+              "name": "TV Shows",
+              "persistent_id": "858CCE824DCF672E",
+              "kind": 2,
+              "members": [],
+              "special_kind": 8
+            },
+            {
+              "name": "Podcasts",
+              "persistent_id": "8E3168AA938DE5FF",
+              "kind": 2,
+              "members": [],
+              "special_kind": 3
+            },
+            {
+              "name": "Audiobooks",
+              "persistent_id": "D7980B0FD4A20297",
+              "kind": 2,
+              "members": [],
+              "special_kind": 9
+            },
+            {
+              "name": "Genius",
+              "persistent_id": "A334058D5F5D9D83",
+              "kind": 2,
+              "members": [],
+              "special_kind": 11
+            },
+            {
+              "name": "Reference Playlist",
+              "persistent_id": "A17E000000000002",
+              "kind": 2,
+              "members": [
+                {
+                  "persistent_id": "A17E000000000001",
+                  "name": "Reference Track",
+                  "play_order_index": 1
+                }
+              ],
+              "special_kind": 0
+            }
+          ],
+          "track_count": 1
+        },
+        "second": {
+          "version": "12.13.10.3",
+          "library_persistent_id": "5245464552454E43",
+          "tracks": [
+            {
+              "persistent_id": "A17E000000000001",
+              "Name": "Reference Track",
+              "Artist": "",
+              "Album": "",
+              "AlbumArtist": "",
+              "Composer": "",
+              "Genre": "",
+              "Comment": "",
+              "Grouping": "",
+              "Lyrics": "",
+              "SortName": "",
+              "SortArtist": "",
+              "SortAlbum": "",
+              "SortAlbumArtist": "",
+              "Rating": 0,
+              "AlbumRating": 0,
+              "PlayedCount": 0,
+              "PlayedDate": "1899-12-30T00:00:00+00:00",
+              "SkippedCount": 0,
+              "SkippedDate": "1899-12-30T00:00:00+00:00",
+              "DateAdded": "2026-06-23T06:24:00+00:00",
+              "ModificationDate": "1899-12-30T00:00:00+00:00",
+              "TrackNumber": 0,
+              "TrackCount": 0,
+              "DiscNumber": 0,
+              "DiscCount": 0,
+              "Year": 0,
+              "BPM": 0,
+              "Compilation": false,
+              "Enabled": true,
+              "VolumeAdjustment": 0,
+              "Location": "",
+              "Duration": 0,
+              "SampleRate": 0,
+              "BitRate": 0,
+              "Size": 0,
+              "TrackDatabaseID": 71,
+              "TrackID": 76,
+              "PlayOrderIndex": 1,
+              "Unplayed": true,
+              "RatingKind": 1,
+              "AlbumRatingKind": 1
+            }
+          ],
+          "playlists": [
+            {
+              "name": "Library",
+              "persistent_id": "5245464552454E43",
+              "kind": 1,
+              "members": [
+                {
+                  "persistent_id": "A17E000000000001",
+                  "name": "Reference Track",
+                  "play_order_index": 1
+                }
+              ],
+              "special_kind": null
+            },
+            {
+              "name": "Music",
+              "persistent_id": "603F01A77588A69A",
+              "kind": 2,
+              "members": [
+                {
+                  "persistent_id": "A17E000000000001",
+                  "name": "Reference Track",
+                  "play_order_index": 1
+                }
+              ],
+              "special_kind": 6
+            },
+            {
+              "name": "Movies",
+              "persistent_id": "339CBB69F971CA40",
+              "kind": 2,
+              "members": [],
+              "special_kind": 7
+            },
+            {
+              "name": "TV Shows",
+              "persistent_id": "858CCE824DCF672E",
+              "kind": 2,
+              "members": [],
+              "special_kind": 8
+            },
+            {
+              "name": "Podcasts",
+              "persistent_id": "8E3168AA938DE5FF",
+              "kind": 2,
+              "members": [],
+              "special_kind": 3
+            },
+            {
+              "name": "Audiobooks",
+              "persistent_id": "D7980B0FD4A20297",
+              "kind": 2,
+              "members": [],
+              "special_kind": 9
+            },
+            {
+              "name": "Genius",
+              "persistent_id": "A334058D5F5D9D83",
+              "kind": 2,
+              "members": [],
+              "special_kind": 11
+            },
+            {
+              "name": "Reference Playlist",
+              "persistent_id": "A17E000000000002",
+              "kind": 2,
+              "members": [
+                {
+                  "persistent_id": "A17E000000000001",
+                  "name": "Reference Track",
+                  "play_order_index": 1
+                }
+              ],
+              "special_kind": 0
+            }
+          ],
+          "track_count": 1
+        }
+      },
+      "desktop_before": [
+        {
+          "hwnd": 721218,
+          "pid": 8048,
+          "class": "iTunes",
+          "title": "iTunes",
+          "children": [
+            {
+              "hwnd": 6488622,
+              "class": "Button",
+              "text": "",
+              "id": 976625872,
+              "enabled": true,
+              "visible": true
+            },
+            {
+              "hwnd": 6357544,
+              "class": "Static",
+              "text": "",
+              "id": 978141072,
+              "enabled": true,
+              "visible": false
+            },
+            {
+              "hwnd": 6226470,
+              "class": "Button",
+              "text": "",
+              "id": 978090528,
+              "enabled": true,
+              "visible": false
+            },
+            {
+              "hwnd": 6685216,
+              "class": "Button",
+              "text": "Search",
+              "id": 977706272,
+              "enabled": true,
+              "visible": true
+            },
+            {
+              "hwnd": 10486294,
+              "class": "Edit",
+              "text": "",
+              "id": 101,
+              "enabled": true,
+              "visible": false
+            },
+            {
+              "hwnd": 852442,
+              "class": "Static",
+              "text": "LCD section",
+              "id": 977585152,
+              "enabled": true,
+              "visible": true
+            },
+            {
+              "hwnd": 6816276,
+              "class": "Button",
+              "text": "switch to miniplayer",
+              "id": 977673952,
+              "enabled": true,
+              "visible": false
+            },
+            {
+              "hwnd": 7274608,
+              "class": "Button",
+              "text": "show next view",
+              "id": 977666096,
+              "enabled": true,
+              "visible": false
+            },
+            {
+              "hwnd": 1180150,
+              "class": "Button",
+              "text": "show previous view",
+              "id": 977661856,
+              "enabled": true,
+              "visible": false
+            },
+            {
+              "hwnd": 6029834,
+              "class": "Button",
+              "text": "",
+              "id": 977556016,
+              "enabled": true,
+              "visible": false
+            },
+            {
+              "hwnd": 7078430,
+              "class": "Button",
+              "text": "airplay",
+              "id": 977580816,
+              "enabled": false,
+              "visible": false
+            },
+            {
+              "hwnd": 7668250,
+              "class": "Button",
+              "text": "genius shuffle",
+              "id": 977522976,
+              "enabled": false,
+              "visible": false
+            },
+            {
+              "hwnd": 7602524,
+              "class": "Static",
+              "text": "Application",
+              "id": 977034352,
+              "enabled": true,
+              "visible": true
+            },
+            {
+              "hwnd": 197164,
+              "class": "Static",
+              "text": "Song",
+              "id": 978439232,
+              "enabled": true,
+              "visible": true
+            },
+            {
+              "hwnd": 2490766,
+              "class": "Static",
+              "text": "Help",
+              "id": 977387168,
+              "enabled": true,
+              "visible": true
+            },
+            {
+              "hwnd": 1114500,
+              "class": "Static",
+              "text": "Account",
+              "id": 977379200,
+              "enabled": true,
+              "visible": true
+            },
+            {
+              "hwnd": 655884,
+              "class": "Static",
+              "text": "Controls",
+              "id": 977058848,
+              "enabled": true,
+              "visible": true
+            },
+            {
+              "hwnd": 852118,
+              "class": "Static",
+              "text": "View",
+              "id": 977054992,
+              "enabled": true,
+              "visible": true
+            },
+            {
+              "hwnd": 852360,
+              "class": "Static",
+              "text": "Edit",
+              "id": 977051136,
+              "enabled": true,
+              "visible": true
+            },
+            {
+              "hwnd": 590130,
+              "class": "Static",
+              "text": "File",
+              "id": 977039072,
+              "enabled": true,
+              "visible": true
+            }
+          ]
+        }
+      ],
+      "main_window": {
+        "hwnd": 721218,
+        "pid": 8048,
+        "class": "iTunes",
+        "title": "iTunes",
+        "children": [
+          {
+            "hwnd": 6488622,
+            "class": "Button",
+            "text": "",
+            "id": 976625872,
+            "enabled": true,
+            "visible": true
+          },
+          {
+            "hwnd": 6357544,
+            "class": "Static",
+            "text": "",
+            "id": 978141072,
+            "enabled": true,
+            "visible": false
+          },
+          {
+            "hwnd": 6226470,
+            "class": "Button",
+            "text": "",
+            "id": 978090528,
+            "enabled": true,
+            "visible": false
+          },
+          {
+            "hwnd": 6685216,
+            "class": "Button",
+            "text": "Search",
+            "id": 977706272,
+            "enabled": true,
+            "visible": true
+          },
+          {
+            "hwnd": 10486294,
+            "class": "Edit",
+            "text": "",
+            "id": 101,
+            "enabled": true,
+            "visible": false
+          },
+          {
+            "hwnd": 852442,
+            "class": "Static",
+            "text": "LCD section",
+            "id": 977585152,
+            "enabled": true,
+            "visible": true
+          },
+          {
+            "hwnd": 6816276,
+            "class": "Button",
+            "text": "switch to miniplayer",
+            "id": 977673952,
+            "enabled": true,
+            "visible": false
+          },
+          {
+            "hwnd": 7274608,
+            "class": "Button",
+            "text": "show next view",
+            "id": 977666096,
+            "enabled": true,
+            "visible": false
+          },
+          {
+            "hwnd": 1180150,
+            "class": "Button",
+            "text": "show previous view",
+            "id": 977661856,
+            "enabled": true,
+            "visible": false
+          },
+          {
+            "hwnd": 6029834,
+            "class": "Button",
+            "text": "",
+            "id": 977556016,
+            "enabled": true,
+            "visible": false
+          },
+          {
+            "hwnd": 7078430,
+            "class": "Button",
+            "text": "airplay",
+            "id": 977580816,
+            "enabled": false,
+            "visible": false
+          },
+          {
+            "hwnd": 7668250,
+            "class": "Button",
+            "text": "genius shuffle",
+            "id": 977522976,
+            "enabled": false,
+            "visible": false
+          },
+          {
+            "hwnd": 7602524,
+            "class": "Static",
+            "text": "Application",
+            "id": 977034352,
+            "enabled": true,
+            "visible": true
+          },
+          {
+            "hwnd": 197164,
+            "class": "Static",
+            "text": "Song",
+            "id": 978439232,
+            "enabled": true,
+            "visible": true
+          },
+          {
+            "hwnd": 2490766,
+            "class": "Static",
+            "text": "Help",
+            "id": 977387168,
+            "enabled": true,
+            "visible": true
+          },
+          {
+            "hwnd": 1114500,
+            "class": "Static",
+            "text": "Account",
+            "id": 977379200,
+            "enabled": true,
+            "visible": true
+          },
+          {
+            "hwnd": 655884,
+            "class": "Static",
+            "text": "Controls",
+            "id": 977058848,
+            "enabled": true,
+            "visible": true
+          },
+          {
+            "hwnd": 852118,
+            "class": "Static",
+            "text": "View",
+            "id": 977054992,
+            "enabled": true,
+            "visible": true
+          },
+          {
+            "hwnd": 852360,
+            "class": "Static",
+            "text": "Edit",
+            "id": 977051136,
+            "enabled": true,
+            "visible": true
+          },
+          {
+            "hwnd": 590130,
+            "class": "Static",
+            "text": "File",
+            "id": 977039072,
+            "enabled": true,
+            "visible": true
+          }
+        ]
+      },
+      "windows_at_failure": [
+        {
+          "hwnd": 721218,
+          "pid": 8048,
+          "class": "iTunes",
+          "title": "iTunes",
+          "children": [
+            {
+              "hwnd": 6488622,
+              "class": "Button",
+              "text": "",
+              "id": 976625872,
+              "enabled": true,
+              "visible": true
+            },
+            {
+              "hwnd": 6357544,
+              "class": "Static",
+              "text": "",
+              "id": 978141072,
+              "enabled": true,
+              "visible": false
+            },
+            {
+              "hwnd": 6226470,
+              "class": "Button",
+              "text": "",
+              "id": 978090528,
+              "enabled": true,
+              "visible": false
+            },
+            {
+              "hwnd": 6685216,
+              "class": "Button",
+              "text": "Search",
+              "id": 977706272,
+              "enabled": true,
+              "visible": true
+            },
+            {
+              "hwnd": 10486294,
+              "class": "Edit",
+              "text": "",
+              "id": 101,
+              "enabled": true,
+              "visible": false
+            },
+            {
+              "hwnd": 852442,
+              "class": "Static",
+              "text": "LCD section",
+              "id": 977585152,
+              "enabled": true,
+              "visible": true
+            },
+            {
+              "hwnd": 6816276,
+              "class": "Button",
+              "text": "switch to miniplayer",
+              "id": 977673952,
+              "enabled": true,
+              "visible": false
+            },
+            {
+              "hwnd": 7274608,
+              "class": "Button",
+              "text": "show next view",
+              "id": 977666096,
+              "enabled": true,
+              "visible": false
+            },
+            {
+              "hwnd": 1180150,
+              "class": "Button",
+              "text": "show previous view",
+              "id": 977661856,
+              "enabled": true,
+              "visible": false
+            },
+            {
+              "hwnd": 6029834,
+              "class": "Button",
+              "text": "",
+              "id": 977556016,
+              "enabled": true,
+              "visible": false
+            },
+            {
+              "hwnd": 7078430,
+              "class": "Button",
+              "text": "airplay",
+              "id": 977580816,
+              "enabled": false,
+              "visible": false
+            },
+            {
+              "hwnd": 7668250,
+              "class": "Button",
+              "text": "genius shuffle",
+              "id": 977522976,
+              "enabled": false,
+              "visible": false
+            },
+            {
+              "hwnd": 7602524,
+              "class": "Static",
+              "text": "Application",
+              "id": 977034352,
+              "enabled": true,
+              "visible": true
+            },
+            {
+              "hwnd": 197164,
+              "class": "Static",
+              "text": "Song",
+              "id": 978439232,
+              "enabled": true,
+              "visible": true
+            },
+            {
+              "hwnd": 2490766,
+              "class": "Static",
+              "text": "Help",
+              "id": 977387168,
+              "enabled": true,
+              "visible": true
+            },
+            {
+              "hwnd": 1114500,
+              "class": "Static",
+              "text": "Account",
+              "id": 977379200,
+              "enabled": true,
+              "visible": true
+            },
+            {
+              "hwnd": 655884,
+              "class": "Static",
+              "text": "Controls",
+              "id": 977058848,
+              "enabled": true,
+              "visible": true
+            },
+            {
+              "hwnd": 852118,
+              "class": "Static",
+              "text": "View",
+              "id": 977054992,
+              "enabled": true,
+              "visible": true
+            },
+            {
+              "hwnd": 852360,
+              "class": "Static",
+              "text": "Edit",
+              "id": 977051136,
+              "enabled": true,
+              "visible": true
+            },
+            {
+              "hwnd": 590130,
+              "class": "Static",
+              "text": "File",
+              "id": 977039072,
+              "enabled": true,
+              "visible": true
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "profile_junction_create": {
+    "argv": [
+      "cmd.exe",
+      "/d",
+      "/c",
+      "mklink",
+      "/J",
+      "C:\\Users\\runneradmin\\Music\\iTunes",
+      "D:\\a\\_temp\\smart-playlist-default-root-v2\\live"
+    ],
+    "returncode": 0,
+    "output": "Junction created for C:\\Users\\runneradmin\\Music\\iTunes <<===>> D:\\a\\_temp\\smart-playlist-default-root-v2\\live\n"
+  },
+  "passed": false,
+  "error": "error: (0, 'SetForegroundWindow', 'No error message is available')",
+  "traceback": "Traceback (most recent call last):\n  File \"D:\\a\\_temp\\gha-mcp\\win-acvcphw9\\work\\windows-itunes-itl-research\\scripts\\windows\\smart_playlist_native.py\", line 275, in run\n    create_session[\"shortcut\"] = send_ctrl_alt_n(main[\"hwnd\"])\n                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"D:\\a\\_temp\\gha-mcp\\win-acvcphw9\\work\\windows-itunes-itl-research\\scripts\\windows\\smart_playlist_native.py\", line 74, in send_ctrl_alt_n\n    win32gui.SetForegroundWindow(hwnd)\npywintypes.error: (0, 'SetForegroundWindow', 'No error message is available')\n",
+  "cleanup_quit_requested": true,
+  "final_live": {
+    "path": "D:\\a\\_temp\\gha-mcp\\win-acvcphw9\\work\\windows-itunes-itl-research\\evidence\\native\\smart-playlist-default-20260922-v2\\final-live.itl",
+    "bytes": 4094,
+    "mtime_ns": 1790034707741711800,
+    "sha256": "76f3852bd79c3ab4bf64f858f2ae976218a3c4122b77f94e941a01a24d42f1ae"
+  },
+  "final_inventory": [
+    {
+      "path": "Album Artwork",
+      "kind": "directory"
+    },
+    {
+      "path": "Album Artwork/Cache",
+      "kind": "directory"
+    },
+    {
+      "path": "Album Artwork/Custom",
+      "kind": "directory"
+    },
+    {
+      "path": "Album Artwork/Download",
+      "kind": "directory"
+    },
+    {
+      "path": "Album Artwork/Generated",
+      "kind": "directory"
+    },
+    {
+      "path": "Album Artwork/Store",
+      "kind": "directory"
+    },
+    {
+      "path": "iTunes Library Extras.itdb",
+      "kind": "file",
+      "bytes": 16384,
+      "sha256": "e1937a7a396264a1d85599295ce5d66fe16e5771e91be496987a16b26d406553"
+    },
+    {
+      "path": "iTunes Library Genius.itdb",
+      "kind": "file",
+      "bytes": 32768,
+      "sha256": "615edf76a68a956a8ff8c2decf7ddfc681fb2aa6511571ad9ab3b80981ae5079"
+    },
+    {
+      "path": "iTunes Library.itl",
+      "kind": "file",
+      "bytes": 4094,
+      "sha256": "76f3852bd79c3ab4bf64f858f2ae976218a3c4122b77f94e941a01a24d42f1ae"
+    },
+    {
+      "path": "iTunes Media",
+      "kind": "directory"
+    },
+    {
+      "path": "iTunes Media/.iTunes Preferences.plist",
+      "kind": "file",
+      "bytes": 305,
+      "sha256": "695891efdc7835e517c30dd7704baaf9153985c0a4457d1fe32dd8b7a6184e77"
+    },
+    {
+      "path": "iTunes Media/Automatically Add to iTunes",
+      "kind": "directory"
+    },
+    {
+      "path": "sentinel",
+      "kind": "file",
+      "bytes": 8,
+      "sha256": "7fd2326e6e7f2c00c03b8a57e3b3f0f5267bf22d6ddfa098f153fce7f8c18a53"
+    }
+  ],
+  "final_forbidden_artifacts": [],
+  "profile_junction_remove": {
+    "removed": true,
+    "command": {
+      "argv": [
+        "cmd.exe",
+        "/d",
+        "/c",
+        "rmdir",
+        "C:\\Users\\runneradmin\\Music\\iTunes"
+      ],
+      "returncode": 0,
+      "output": ""
+    }
+  },
+  "profile_absent_after_cleanup": true,
+  "finished_utc": "2026-09-21T23:51:51.635649+00:00"
+}

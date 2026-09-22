@@ -1,6 +1,6 @@
 # Project scope and completion boundary
 
-This document defines what this repository can claim at integrated evidence base commit `5adfbef29e0d3b5876f2c2bd222323ba0b08ca3b` and what “complete” means for the specification deliverables.
+This document defines what this repository can claim at integrated evidence base commit `9a5f30f6b9c1d1d8efea4b8c141f9d30a350bc39` and what “complete” means for the specification deliverables.
 
 ## Status summary
 
@@ -8,6 +8,9 @@ This document defines what this repository can claim at integrated evidence base
 - **Implementation:** a guarded research implementation with substantial verified behavior.
 - **Universal ITL support:** **not complete and not claimed**.
 - **Template-free generation:** two exact 12.13.10.3 fixture hashes are native-qualified for two isolated cycles each; arbitrary generated libraries and independent reimplementation remain unqualified.
+- **Field matrix:** 27 exact one-property cases passed; Lyrics and Enabled are retained failures.
+- **External implementation:** one compressed structural no-op output passed two native cycles, but PID semantics and mutation/preflight gates failed; independent reimplementation remains false.
+- **Smart Playlist:** native nested-wrapper framing is now observed, but the string operand and membership gates failed; semantic editing/evaluation remains unsupported.
 - **Primary native target:** official standalone Windows x64 iTunes `12.13.10.3`.
 - **Secondary observed profile:** standalone Windows iTunes `12.13.9.1`; semantic code admits this profile for bounded scalar work, but the packaged native qualification is centered on `12.13.10.3`.
 
@@ -114,6 +117,8 @@ The specification-deliverables task is complete only when all of the following a
 7. The branch is committed and pushed without modifying unrelated branches.
 
 Passing these seven gates means **the audit deliverables are complete**. It does not mean the private ITL format has been fully reverse engineered.
+
+The separate strict complete-analysis/specification gate remains false until every U-01–U-18 closure criterion is met, arbitrary declared-scope generation is native-qualified, and a genuinely independent semantic implementation interoperates. Parser acceptance, fail-closed refusal, byte preservation, or one exact native pass cannot substitute for that gate.
 
 ## Document map and precedence
 

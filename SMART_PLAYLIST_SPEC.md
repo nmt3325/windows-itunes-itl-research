@@ -11,11 +11,13 @@ tracked Windows ITL corpus, and records lower-confidence interpretations from
 historical iPod iTunesDB implementations. It deliberately does **not** present
 cross-format names as established Windows semantics.
 
-The tracked corpus contains 95 parseable ITL files and 1,235 playlist instances
-with at least one `mhoh` type 101, 102, or 103 record. It contains built-in or
-system playlists only; no user-created custom smart playlist was identified.
-Consequently, the corpus is strong evidence for framing and byte preservation,
-but weak evidence for editable rule semantics.
+The original frozen census contains 95 parseable ITL files and 1,235 playlist
+instances with at least one `mhoh` type 101, 102, or 103 record. That census
+contains built-in or system playlists only. A later isolated native UI probe
+created one custom Smart Playlist and supplies native nested-wrapper framing and
+a string-family leaf, but its requested operand serialized empty and membership
+was empty. Consequently, the combined evidence is stronger for framing while
+remaining negative for editable rule semantics.
 
 The implementation is an inspector, dumper, and structural validator. It does
 not evaluate smart rules and does not offer semantic rule editing.
@@ -30,6 +32,7 @@ not evaluate smart rules and does not offer semantic rule editing.
 | **PA** | Cross-format prior art | Historical iPod iTunesDB code uses this layout or meaning. It is not proof of Windows ITL semantics. |
 | **H** | Hypothesis/unresolved | Plausible interpretation without enough evidence. |
 | **T** | Synthetic test only | Parser behavior is tested, but the fixture is not native evidence. |
+| **NF** | Native negative/fail-closed | Native UI/save evidence exists, but a required semantic or persistence gate failed. |
 
 No custom smart-rule semantic in this document currently reaches **ND**. The
 only **SA** result is a metadata string proving that Windows iTunes exposes a
@@ -41,9 +44,9 @@ parser or evaluator.
 | Feature | Structural statement | Semantic statement | Grade | Windows-native status |
 |---|---|---|---|---|
 | AND | Root `+0x0C` contains raw value `0` in every nonempty native group. | `0` means all rules must match. | NC + PA | Meaning not differentially verified. |
-| OR | Root `+0x0C` contains raw value `1` in the zero-rule Genius group. | `1` means any rule may match. | NC + PA | No nonempty native OR example. |
+| OR | Root `+0x0C` is `1` in Genius and in a v24 native-created nested two-leaf group. | `1` means any rule may match. | NC + PA + NF | Nonempty framing is native; evaluation was not confirmed. |
 | Negation | Native rules contain action `0x02000400`. | Action high-byte bit `0x02` negates the test. | NC + PA | Negation behavior not verified in Windows UI. |
-| Strings | Length-delimited rule data can be retained exactly. | String-family data is UTF-16BE and `0x010000xx`/`0x030000xx` select string operators. | PA + T | No native corpus string rule. |
+| Strings | v24 contains native field `0x04`, action `0x01000002`, and an explicit zero-length operand. | Nonempty string data is UTF-16BE and the action means Artist/contains. | NC + PA + NF | Family occurrence is native; the displayed value did not serialize, so encoding/evaluation remain unconfirmed. |
 | Numbers | Native non-string data is 68 bytes and has a repeatable six-value/five-u32 shape. | Values encode numeric comparisons with `from`/`to` bounds. | NC + PA | Shape is native; comparison meaning is prior art. |
 | Date/time | 68-byte data can carry signed 64-bit slots losslessly. | `0x2dae2dae2dae2dae`, signed count, and seconds/unit encode relative dates. | PA + T | No native corpus date rule. |
 | Ranges | Two 64-bit value slots are present. | Action `0x00000100` compares an inclusive range. | PA + T | No native corpus range rule. |
@@ -52,7 +55,7 @@ parser or evaluator.
 | Limit | Type 102 has stable raw offsets and two native payloads. | Bytes 2/3 and values at `+0x08` encode limit enable/unit/value. | NC + PA/H | Candidate only; Windows layout differs from historical type 50. |
 | Selection order | Type 102 `u32be(+0x04)` is `2` in both payloads. | `2` means random selection order. | NC + PA/H | Candidate only. |
 | Live update | Type 102 byte 0 is `1` for common built-ins and `0` for Genius. | Byte 0 enables live update. | NC + PA/H | Candidate only. |
-| Nesting | Parser can retain a rule whose data is another complete `SLst`. | `(field=0, action=1, marker=0x01000000)` denotes a nested group. | PA + T | No native corpus nested group. |
+| Nesting | v24 natively saved wrappers matching `(field=0, action=1, marker=0x01000000)` around complete `SLst` groups. | Nested AND/OR groups evaluate recursively. | NC + PA + NF | Framing is native; semantics and independent generation remain unresolved. |
 | Unknown operators | Field/action/data/opaque/trailing bytes round-trip exactly and are reported. | Unknown numeric IDs have no assigned meaning. | NC-design + T | Intentionally not guessed. |
 
 ## 4. Placement inside a playlist
@@ -141,9 +144,12 @@ no terminator counted beyond the rule's explicit data length. `itlkit` exposes
 a decoded view only for prior-art string action families and only if strict
 UTF-16BE decoding succeeds. Raw bytes are always retained.
 
-The Windows corpus has no `0x010000xx` or `0x030000xx` action and no
-variable-length string operand. Therefore UTF-16BE string semantics are **PA +
-T**, not native-confirmed.
+The original 95-file census has no `0x010000xx` or `0x030000xx` action and no
+variable-length string operand. The later v24 native-created playlist has action
+`0x01000002` on field `0x04`, but its explicit data length is zero despite the
+visible UI text. This natively confirms occurrence/framing of the string-family
+leaf only; nonempty UTF-16BE encoding and evaluator semantics remain **PA + T +
+NF**.
 
 ### 5.5 Nested group candidate
 
@@ -155,8 +161,10 @@ A nested group is recognized only if every prior-art discriminator matches:
 4. rule data starts with `SLst` and parses as a complete bounded ruleset.
 
 The following 40 opaque wrapper bytes are preserved. A malformed group-shaped
-payload remains raw and produces a validation error. Nesting is **PA + T**;
-there is no native Windows example.
+payload remains raw and produces a validation error. The v24 native-created
+playlist matches this wrapper discriminator for nested OR and AND groups, so the
+framing is **NC + PA**. Recursive evaluator semantics remain unresolved because
+the string operand and membership gates failed (**NF**).
 
 ## 6. Observed type-101 built-in groups
 
@@ -319,15 +327,16 @@ reload:
 - exact media-kind bitmask evaluator behavior;
 - type-102 live update, check-rules, limit enable, unit, value, selection order,
   checked-only, and reverse-order semantics;
-- recursive groups/nesting;
+- recursive-group evaluation and independently generated nested payload acceptance;
+- nonempty native string-operand encoding and persistence;
 - iTunes acceptance of synthetic or rewritten smart payloads;
 - fields `0x85` and `0xA4`;
 - semantic role of type 103.
 
-A shared iTunes process appeared in the available Windows environment during
-research. To avoid corrupting another workstream's live library, no destructive
-or UI-driven custom smart-playlist experiment was performed. These gaps must be
-closed in a separately isolated native environment.
+A later separately isolated environment did run UI-driven custom Smart Playlist
+probes. All 24 attempts are retained; none passed the positive semantic gate.
+Attempt v24 is useful native structural evidence, but its empty operand and empty
+membership keep editing/evaluation unresolved.
 
 ## 13. Reproducibility
 
@@ -351,3 +360,19 @@ source ITL files:
 - `evidence/smart-playlist/corpus-census.json`
 - `evidence/smart-playlist/corpus-census.md`
 - `evidence/smart-playlist/README.md`
+
+
+## 14. Isolated native UI probe (2026-09-22)
+
+The full series is archived under [`evidence/native/smart-playlist-default-20260922/`](evidence/native/smart-playlist-default-20260922/). Attempt v24 is the canonical fail-closed result:
+
+- the track Artist was stably seeded as `Independent Artist`;
+- the visible rule was Artist / contains / `Independent Artist`;
+- iTunes still emitted its exact empty/conflict warning;
+- after explicit confirmation, COM exposed a new playlist named `Playlist`, PID `9081AD2B1ABE848F`, with no members;
+- the 4,402-byte native save has SHA-256 `58ad4d6fedc65f43e627b35075218c6c19b16d767570c41d6f8c2f2fe7376696`;
+- the root rules contain two native-created nested wrappers: an OR media-kind group with values 1 and 32, and an AND group containing the Artist/contains leaf;
+- the Artist leaf is field `0x04`, action `0x01000002`, `data_length == 0`, and an empty candidate string;
+- iTunes exited normally, no fallback artifact was found, and isolated-profile cleanup completed.
+
+This changes the structural evidence rows above, but not the semantic claim. The UI value was not committed to the serialized operand and the playlist did not evaluate to the seeded track. No synthetic rewrite or independent smart-rule output was submitted as a positive candidate, and no second restart-positive cycle was attempted after the gate failure.

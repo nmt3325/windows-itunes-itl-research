@@ -100,7 +100,7 @@ Use a fresh temporary path outside the repository. These commands are offline; t
 | Six of eight `PlayedDate` setter cases persisted; fold identity was lost and a DST gap normalized | N1/O | path/time harness and codec tests | [`evidence/path-time/native/native-summary.json`](evidence/path-time/native/native-summary.json); only the tested field/zone/build is qualified |
 | All retained ITLs and subordinate corpus analyses are hash-addressed by one root inventory | O | [`scripts/research/build_manifests.py`](scripts/research/build_manifests.py) | [`corpus-manifest.json`](corpus-manifest.json); presence does not imply native acceptance |
 
-The integrated offline regression is 1026 passed / 5 skipped when run with the frozen native fixture roots documented below. This count is not a native-interoperability percentage.
+The integrated offline regression is 1036 passed / 5 skipped when run with the frozen native fixture roots documented below. This count is not a native-interoperability percentage.
 
 ## 2026-09-22 template-free generation qualification
 
@@ -111,3 +111,15 @@ The integrated offline regression is 1026 passed / 5 skipped when run with the f
 | Sparse generator v1 outputs were not acceptable as the intended library | F | retained strict negative harness | [Negative-control summary](evidence/native/reference-generated-20260922-negative-controls.md), [`reference-generated-20260922/`](evidence/native/reference-generated-20260922/), and [`reference-generated-20260922-clean/`](evidence/native/reference-generated-20260922-clean/); migration/backup behavior or wrong library/master identity and empty master track set |
 
 The accepted generator explicitly constructs current-profile global, album, artist, track, master-playlist, ordinary-playlist, section-23, and media-folder records. It does not read template bytes. The checked-in claim remains pinned to the raw-unencrypted and zlib/encryption-2 fixture hashes. Native acceptance does not certify arbitrary names, paths, counts, records, flags, versions, unknown fields, audible playback, or independent reimplementation.
+
+
+## 2026-09-22 closure-probe supplement
+
+| Claim | Grade | Implementation/tests | Evidence and boundary |
+| --- | --- | --- | --- |
+| 27 exact COM properties survived an isolated write, full-state gate, native save, restart, two stable reads, independent parse/validation, and normal exit | N2 for exact cases | [`scripts/windows/native_field_matrix.py`](scripts/windows/native_field_matrix.py); [`tests/test_native_harness_helpers.py`](tests/test_native_harness_helpers.py) | [`evidence/native/field-matrix-20260922/README.md`](evidence/native/field-matrix-20260922/README.md); Lyrics and Enabled are retained failures, so this is 27/29 rather than full field coverage |
+| `itl-rs` preserved the exact expanded zlib fixture payload and its exact output passed two native cycles | O/N2 for one exact output | external crate plus retained Rust harness | [`evidence/independent/itl-rs-20260922/README.md`](evidence/independent/itl-rs-20260922/README.md); the accessor reports PID zero, raw input fails, and semantic production preflight rejects the output, so independent semantic reimplementation remains false |
+| Longer and equal-length external mutations are not qualified | F | conformance/production preflight | [`evidence/independent/itl-rs-20260922/conformance-summary.json`](evidence/independent/itl-rs-20260922/conformance-summary.json); neither candidate was submitted to iTunes |
+| Native iTunes created nested Smart Playlist wrappers and an Artist/contains string-family leaf | N1/F | [`scripts/windows/smart_playlist_native.py`](scripts/windows/smart_playlist_native.py); helper tests | [`evidence/native/smart-playlist-default-20260922/README.md`](evidence/native/smart-playlist-default-20260922/README.md); operand length was zero and COM membership empty, so semantic/editing gates failed |
+
+The 24 Smart Playlist attempts and both field-matrix failures remain in the aggregate corpus and delivery inventory. A parsed or native-saved failure is still a failure. No row above closes U-01–U-18 or changes `independent_reimplementation_passed: false`.

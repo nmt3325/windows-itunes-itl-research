@@ -48,7 +48,7 @@ Selected local-WAV album/artist maintenance works when the old object is not sha
 
 **State:** structural AST implemented; semantics/editing unresolved.
 
-[`SMART_PLAYLIST_SPEC.md`](SMART_PLAYLIST_SPEC.md) now defines bounded type-101 `SLst` framing, a lossless AST, type-102 offset view, type-103 preservation, and unknown-operator behavior. The 95-file census contains built-in/system playlists only. AND/OR/operator names beyond direct native correlations, string/date/range/membership semantics, nested groups, evaluation, and arbitrary UI-compatible editing are still not native-differentially confirmed.
+[`SMART_PLAYLIST_SPEC.md`](SMART_PLAYLIST_SPEC.md) defines bounded type-101 `SLst` framing, a lossless AST, type-102 offset view, type-103 preservation, and unknown-operator behavior. The original 95-file census contains built-in/system playlists only. A later isolated v24 UI save natively demonstrates nested OR/AND wrapper framing and an Artist/contains string-family leaf, but the displayed operand serialized with length zero and COM membership remained empty. Thus framing has advanced while string persistence, evaluator semantics, independent generation, restart-positive editing, and arbitrary system/master behavior remain unresolved.
 
 **Closure evidence required:** controlled user-created smart playlists spanning every rule family and nested condition, UI edits with isolated byte differentials, semantic evaluation oracles, and two-cycle native persistence for independently generated rules.
 
@@ -92,7 +92,7 @@ Closure still requires every date field, raw-writer epoch boundaries, multiple W
 
 ### U-12 — long strings and UI/COM truncation
 
-A long Comment can exist on disk while the tested COM setter/read path truncates around 255 characters. Field-specific UI/COM limits and disk limits are not universally known.
+A long Comment can exist on disk while the tested COM setter/read path truncates around 255 characters. In the isolated field matrix, the tested Unicode Lyrics setter raised a COM exception. Field-specific UI/COM limits and disk limits are not universally known.
 
 Closure requires direct-file and native setter matrices by field, encoding, size boundary, save/reload, and disk-vs-COM comparisons.
 
@@ -118,7 +118,7 @@ Closure requires a deterministic target-playing state plus position advance or t
 
 ### U-16 — native evidence generalization
 
-Two exact template-free reference hashes now pass the strict two-cycle native gate. Native acceptance is still exact-candidate evidence: the repository does not contain a proof that all values, combinations, counts, library sizes, or unknown bytes within a nominal profile are safe.
+Two exact template-free reference hashes now pass the strict two-cycle native gate. A pinned external `itl-rs` no-op output also passed two cycles while preserving the exact expanded payload, but that implementation rejects raw input, reports the track PID as zero, and emitted mutation candidates that failed mandatory preflight. Native acceptance is still exact-candidate evidence and structural preservation is not independent semantic interoperability: the repository does not contain a proof that all values, combinations, counts, library sizes, or unknown bytes within a nominal profile are safe.
 
 Closure requires a deliberately sampled compatibility matrix, retained failures, independent reproduction, and confidence intervals or an explicit finite supported domain.
 
@@ -143,4 +143,4 @@ Closure requires a clean disposable bootstrap, pinned tool versions, synthetic/p
 
 ### Resolved bounded checkpoint — exact template-free fixtures
 
-The raw hash `c6c68171…92d74` and zlib/AES hash `25f8aba0…13ad` are no longer pending: each passed two isolated iTunes 12.13.10.3 open/save/restart cycles with the required identity and no-fallback gates. This resolves only the exact reference-fixture qualification. U-01 through U-18, full declared-field editing, arbitrary smart semantics, version breadth, unknown/integrity bytes, and independent reimplementation remain open; the complete-analysis/specification gate remains false.
+The raw hash `c6c68171…92d74` and zlib/AES hash `25f8aba0…13ad` are no longer pending: each passed two isolated iTunes 12.13.10.3 open/save/restart cycles with the required identity and no-fallback gates. The later 27/29 field matrix, one external structural no-op, and native Smart Playlist wrapper observation add bounded positive and negative evidence without closing a declared blocker. U-01 through U-18, full declared-field editing, arbitrary smart semantics, version breadth, unknown/integrity bytes, and independent semantic reimplementation remain open; the complete-analysis/specification gate remains false.

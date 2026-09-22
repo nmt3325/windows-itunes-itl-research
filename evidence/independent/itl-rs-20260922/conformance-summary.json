@@ -1,0 +1,99 @@
+{
+  "schema_version": 1,
+  "subject": "quinnjr/itl-rs interoperability against template-free reference fixtures",
+  "recorded_utc": "2026-09-22T00:00:00Z",
+  "conclusion": "partial_structural_interoperability_only",
+  "independent_reimplementation_passed": false,
+  "source": {
+    "repository": "https://github.com/quinnjr/itl-rs",
+    "commit": "49f3ad3beaf2cdd4af2b16ee2297ec22e939dbab",
+    "license": "MIT",
+    "license_sha256": "d5ff8acbab36c2f0b9fd5f27f599ee72c9f1788fc146e539908e646d74f4ceaa",
+    "cargo_lock_sha256": "7751d90aba89453bddc3804381e35f22875ee04b462c40edc7abf56e9ce0e7a9"
+  },
+  "toolchain": {
+    "rustc": "rustc 1.98.1 (48a229cea 2026-09-01)",
+    "cargo": "cargo 1.98.1 (797e8a9bc 2026-08-05)"
+  },
+  "cases": [
+    {
+      "name": "raw_input",
+      "input_sha256": "c6c68171d57350ceb3cf379eee13a764ea199536ef18238fe4faf80583492d74",
+      "external_exit_code": 101,
+      "external_result": "rejected_Decompression_corrupt_deflate_stream",
+      "output_created": false,
+      "native_submitted": false
+    },
+    {
+      "name": "zlib_structural_roundtrip",
+      "input_sha256": "25f8aba00330caaa0ef4b529f67a203cd6da2b3d652923f7e44c7396f7bd13ad",
+      "output_path": "evidence/independent/itl-rs-20260922/candidate-zlib-roundtrip.itl",
+      "output_bytes": 755,
+      "output_sha256": "2873104e2e8cfc97ac6434480328aed81996feb5c3bb2237cd598d9f8adcc642",
+      "external_exit_code": 0,
+      "expanded_payload_equal_to_input": true,
+      "expanded_payload_sha256": "666c74d34556f413a76a31691be9b20f1eec8f2a9459f15b7b98f2ea0dcfa797",
+      "outer_header_difference_offsets": [
+        10,
+        11
+      ],
+      "reference_validator": {
+        "valid": true,
+        "errors": 0
+      },
+      "production_preflight": {
+        "accepted": false,
+        "error": "FormatError: zero or duplicate secondary track ID"
+      },
+      "external_accessor_track_persistent_id": "0000000000000000",
+      "serialized_track_persistent_id_preserved": "A17E000000000001",
+      "native_acceptance": {
+        "submitted": true,
+        "status": "passed",
+        "cycles": 2,
+        "evidence": "evidence/independent/itl-rs-20260922/native-accepted/summary.json"
+      },
+      "claim": "byte-preserving compressed structural roundtrip for this exact hash"
+    },
+    {
+      "name": "longer_title_and_new_artist_mutation",
+      "output_path": "evidence/independent/itl-rs-20260922/candidate-zlib-mutated.itl",
+      "output_bytes": 812,
+      "output_sha256": "c24959fcb160b3da36aabf83d771ea5faa0f16f83a67ae155c3e23f914dc348b",
+      "reference_validator": {
+        "valid": false,
+        "error_code": "size.logical_mismatch",
+        "message": "mfdh logical size 10586, expected 10665"
+      },
+      "production_preflight": {
+        "accepted": false,
+        "error": "FormatError: mfdh logical size differs from payload + outer header at 0x60"
+      },
+      "native_submitted": false,
+      "reason_not_submitted": "failed mandatory structural preflight"
+    },
+    {
+      "name": "equal_length_title_mutation",
+      "output_path": "evidence/independent/itl-rs-20260922/candidate-zlib-equal-length-title.itl",
+      "output_bytes": 765,
+      "output_sha256": "4c29ff4a9f37cd6fdeb52c9dc7460d910c17dc328fd2b2d933c2647a8a66b25c",
+      "reference_validator": {
+        "valid": true,
+        "errors": 0
+      },
+      "production_preflight": {
+        "accepted": false,
+        "error": "FormatError: zero or duplicate secondary track ID"
+      },
+      "native_submitted": false,
+      "reason_not_submitted": "reference-validator/production-preflight discrepancy; fail closed"
+    }
+  ],
+  "limitations": [
+    "Native acceptance of an unchanged expanded payload is not semantic mutation interoperability.",
+    "The external accessor reports the track persistent ID as zero.",
+    "The external implementation rejects raw uncompressed input.",
+    "Both mutation outputs failed at least one mandatory local preflight and were not submitted to iTunes.",
+    "No independent implementation has passed the repository's complete semantic and mutation gate."
+  ]
+}

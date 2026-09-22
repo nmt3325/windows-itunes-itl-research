@@ -286,3 +286,18 @@ An assistant continuity mistake attempted a duplicate bootstrap guard after exis
 - `silent_playback.py --selftest`: four playback-outcome predicate checks; the actual worker requires `--spec` and `--out` under an external timeout.
 
 There was no new Frida collection in phase3. The real phase1 inflate/deflate correlations and the phase2 large-Comment/cap proof remain distinct retained evidence. Remaining 736 bulk imports, additional media formats and separate date cases were deferred in favor of the new-track priority and shutdown reserve. No original/private library/music, Apple ID/cloud/device operation, shared toolchain/config change, production codec edit, environment lifecycle action, peer worktree edit or publication was performed. Cross-library/COW/constructor research candidates being accepted does not by itself broaden the production API's advertised support. Complete/universal ITL read/write, arbitrary media/paths/flags/versions and successful playback remain unproven.
+
+
+## 2026-09-22 isolated field, external, and Smart Playlist probes
+
+### Complete-snapshot one-property field matrix
+
+[`../evidence/native/field-matrix-20260922/README.md`](../evidence/native/field-matrix-20260922/README.md) records 29 fresh-profile cases against the exact raw reference fixture. Twenty-seven passed immediate projection, full expected state, native save/exit, complete restart, two stable reads, stable intended identities, no-fallback gates, and independent parse/validation. Lyrics failed with a COM exception; Enabled accepted the setter call but projected `true` after requesting `false`. Neither failure received a verification restart.
+
+### External implementation
+
+[`../evidence/independent/itl-rs-20260922/README.md`](../evidence/independent/itl-rs-20260922/README.md) pins external `itl-rs` source/toolchain provenance. Its compressed no-op output has a byte-identical expanded payload and passed two strict native cycles. Raw input failed, the external accessor returned a zero track PID, and mutation outputs failed logical-size or semantic identity preflight. The native pass therefore establishes structural preservation for one exact output only.
+
+### Smart Playlist UI/native negative
+
+[`../evidence/native/smart-playlist-default-20260922/README.md`](../evidence/native/smart-playlist-default-20260922/README.md) retains v1–v24. The canonical v24 run created a native playlist and exposed nested OR/AND wrapper framing plus an Artist/contains leaf. Despite the visible requested value, iTunes emitted the empty/conflict warning, serialized an empty operand, and returned no members. The process exited normally and cleanup completed, but positive semantic gates failed; no restart-positive editing claim is made.
