@@ -10,16 +10,17 @@
     "fresh_native_library_note": "created by iTunes itself; not evidence that the reference writer is accepted",
     "path_time_note": "native iTunes saves for a bounded matrix; not arbitrary writer acceptance",
     "field_matrix_note": "27 exact passes and two retained failures; not complete field support",
-    "media_field_followup_note": "first run failed a harness identity gate before mutation; corrected WAV cases retain three exact mutation failures; one exact short-ASCII MP3 case passed mutation/restart with a bounded media rewrite; neither result generalizes",
+    "media_field_followup_note": "first run failed a harness identity gate before mutation; corrected WAV cases retain three exact mutation failures; 12 exact MP3 Lyrics cases passed mutation/restart, including one Unicode value and ASCII through 65,536 characters; 65,536 is a lower accepted point, not an upper boundary",
+    "lyrics_authority_note": "three exact reset-ITL probes followed the supplied MP3 ID3v2.2 ULT input; one track/build only, with hidden caches and general authority unresolved",
     "external_interop_note": "one exact structural no-op passed native cycles; semantic reimplementation remains false",
     "smart_playlist_note": "native nested framing observed; operand and membership gates failed"
   },
   "summary": {
-    "itl_file_count": 259,
+    "itl_file_count": 309,
     "by_class": {
       "independent_from_scratch_generated": 4,
       "external_independent_interop_candidate": 5,
-      "archived_native_or_exact_candidate": 205,
+      "archived_native_or_exact_candidate": 255,
       "native_itunes_fresh_library": 6,
       "native_itunes_path_time_sequence": 39
     }
@@ -89,6 +90,36 @@
       "path": "evidence/native/media-field-followup-20260922-mp3-ascii-v3/summary.json",
       "bytes": 186877,
       "sha256": "eaef7c88187d075b7fcf6cb47be5113537ab72e6c2fe581aad493a2894ba6a46"
+    },
+    {
+      "path": "evidence/native/media-field-followup-20260922-mp3-ascii-v3/id3-rewrite-analysis.json",
+      "bytes": 2572,
+      "sha256": "8893bcda778b916b56c361a7b4f10543150c6ce6b77bda859869efb4abc3f437"
+    },
+    {
+      "path": "evidence/native/lyrics-authority-20260922/summary.json",
+      "bytes": 226336,
+      "sha256": "7d627e647690231399809e0b4a420c028519b5c0aa5bf8b78da305e3b6d9bb03"
+    },
+    {
+      "path": "evidence/native/media-lyrics-boundary-20260922/summary.json",
+      "bytes": 1791723,
+      "sha256": "0c3d829bf5304839629338b9540bd55198bda0c6ebbff8d4c82b40ffd8ac8526"
+    },
+    {
+      "path": "evidence/native/media-lyrics-boundary-20260922/unicode-id3-rewrite-analysis.json",
+      "bytes": 2644,
+      "sha256": "31f5523f0b20bbd88eefc82776fef01dd26d27a19b85c88ec4e062ff096ea19c"
+    },
+    {
+      "path": "evidence/native/media-lyrics-extended-boundary-20260922/summary.json",
+      "bytes": 4077706,
+      "sha256": "18500297b2f50bd0abd6c65acfce16742edcbaec100e15a9ef8b4c47d590d05d"
+    },
+    {
+      "path": "evidence/native/media-lyrics-extended-boundary-20260922/ascii-065536-id3-rewrite-analysis.json",
+      "bytes": 264617,
+      "sha256": "43ca039f2dd4c3efc59b57168f12c3c3a4f10b60f76f5f30b249d0c186ad9671"
     },
     {
       "path": "evidence/independent/itl-rs-20260922/conformance-summary.json",
@@ -712,6 +743,48 @@
       "reference_writer_acceptance": "not_applicable"
     },
     {
+      "path": "evidence/native/lyrics-authority-20260922/probes/tag-conflict/input-library.itl",
+      "bytes": 4541,
+      "sha256": "312740b3aeddf94624b34f7ee6d90ca5c21046ef528a03a303ff1dab9193e176",
+      "corpus_class": "archived_native_or_exact_candidate",
+      "qualification": "see per-case evidence; presence is not acceptance"
+    },
+    {
+      "path": "evidence/native/lyrics-authority-20260922/probes/tag-conflict/native-saved.itl",
+      "bytes": 4546,
+      "sha256": "158c2ed0c2e818bd9f1a25081a34c6da0b24722efbe4a73af9fe9750eb8aceca",
+      "corpus_class": "archived_native_or_exact_candidate",
+      "qualification": "see per-case evidence; presence is not acceptance"
+    },
+    {
+      "path": "evidence/native/lyrics-authority-20260922/probes/tag-stripped/input-library.itl",
+      "bytes": 4541,
+      "sha256": "312740b3aeddf94624b34f7ee6d90ca5c21046ef528a03a303ff1dab9193e176",
+      "corpus_class": "archived_native_or_exact_candidate",
+      "qualification": "see per-case evidence; presence is not acceptance"
+    },
+    {
+      "path": "evidence/native/lyrics-authority-20260922/probes/tag-stripped/native-saved.itl",
+      "bytes": 4541,
+      "sha256": "5b5e6bb3761cd07a0b853db2d5ca82df828b757e09d6a20c54d5e2340f4bdd59",
+      "corpus_class": "archived_native_or_exact_candidate",
+      "qualification": "see per-case evidence; presence is not acceptance"
+    },
+    {
+      "path": "evidence/native/lyrics-authority-20260922/probes/tagged-control/input-library.itl",
+      "bytes": 4541,
+      "sha256": "312740b3aeddf94624b34f7ee6d90ca5c21046ef528a03a303ff1dab9193e176",
+      "corpus_class": "archived_native_or_exact_candidate",
+      "qualification": "see per-case evidence; presence is not acceptance"
+    },
+    {
+      "path": "evidence/native/lyrics-authority-20260922/probes/tagged-control/native-saved.itl",
+      "bytes": 4548,
+      "sha256": "015d8b5b0dd0c20675b7c97a52551bf2b5e65bfe9c4d5845a4cb3a8397129e9e",
+      "corpus_class": "archived_native_or_exact_candidate",
+      "qualification": "see per-case evidence; presence is not acceptance"
+    },
+    {
       "path": "evidence/native/media-field-followup-20260922-mp3-ascii-v3/cases/lyrics-ascii-mp3-backed/baseline/native-saved.itl",
       "bytes": 4537,
       "sha256": "464fc6c9140a8536ac76924c9d4d56eedae36522a45e14e480e463b659a1db9a",
@@ -827,6 +900,314 @@
       "path": "evidence/native/media-lyrics-ascii-20260922/cases/lyrics-ascii-wav-backed/mutate/live-at-failure.itl",
       "bytes": 4512,
       "sha256": "214114d26e58fac18395d1e8bc5f224ad0ee12abd8684711c8936a8c4bf9de83",
+      "corpus_class": "archived_native_or_exact_candidate",
+      "qualification": "see per-case evidence; presence is not acceptance"
+    },
+    {
+      "path": "evidence/native/media-lyrics-boundary-20260922/cases/lyrics-ascii-00255-mp3/baseline/native-saved.itl",
+      "bytes": 4535,
+      "sha256": "0d23d782884a09705a188e2e0345187213f83b82362cdc27a355563d1192189f",
+      "corpus_class": "archived_native_or_exact_candidate",
+      "qualification": "see per-case evidence; presence is not acceptance"
+    },
+    {
+      "path": "evidence/native/media-lyrics-boundary-20260922/cases/lyrics-ascii-00255-mp3/initialize/native-saved.itl",
+      "bytes": 4489,
+      "sha256": "6d1805d299988d96975f94a2dc2f60a8acabc73fdbbb7707e5ae01922034c42c",
+      "corpus_class": "archived_native_or_exact_candidate",
+      "qualification": "see per-case evidence; presence is not acceptance"
+    },
+    {
+      "path": "evidence/native/media-lyrics-boundary-20260922/cases/lyrics-ascii-00255-mp3/mutate/native-saved.itl",
+      "bytes": 4540,
+      "sha256": "1c52083f24e855abc9fff7cdcbfdaa38f935d618671b4e040523c0dd735dc5e6",
+      "corpus_class": "archived_native_or_exact_candidate",
+      "qualification": "see per-case evidence; presence is not acceptance"
+    },
+    {
+      "path": "evidence/native/media-lyrics-boundary-20260922/cases/lyrics-ascii-00255-mp3/verify/native-saved.itl",
+      "bytes": 4531,
+      "sha256": "4b48e20b45795ab258025a78484e49dc46af9958db321f74fb3010196db2f28a",
+      "corpus_class": "archived_native_or_exact_candidate",
+      "qualification": "see per-case evidence; presence is not acceptance"
+    },
+    {
+      "path": "evidence/native/media-lyrics-boundary-20260922/cases/lyrics-ascii-00256-mp3/baseline/native-saved.itl",
+      "bytes": 4540,
+      "sha256": "c82113ce99a7cc60f6b936bf349e76eb6ad8a15e1c603b5a7f22c075f36ad22d",
+      "corpus_class": "archived_native_or_exact_candidate",
+      "qualification": "see per-case evidence; presence is not acceptance"
+    },
+    {
+      "path": "evidence/native/media-lyrics-boundary-20260922/cases/lyrics-ascii-00256-mp3/initialize/native-saved.itl",
+      "bytes": 4501,
+      "sha256": "f34be92b25e9736c23cc4bac83707ba261ae13072854c8d6894818a791777591",
+      "corpus_class": "archived_native_or_exact_candidate",
+      "qualification": "see per-case evidence; presence is not acceptance"
+    },
+    {
+      "path": "evidence/native/media-lyrics-boundary-20260922/cases/lyrics-ascii-00256-mp3/mutate/native-saved.itl",
+      "bytes": 4549,
+      "sha256": "378ca23b7e84a50030c1cac96221e3184128437c7e3a5ba236866668b72aa403",
+      "corpus_class": "archived_native_or_exact_candidate",
+      "qualification": "see per-case evidence; presence is not acceptance"
+    },
+    {
+      "path": "evidence/native/media-lyrics-boundary-20260922/cases/lyrics-ascii-00256-mp3/verify/native-saved.itl",
+      "bytes": 4541,
+      "sha256": "930bad5e6da1cbb0c977d3a90ce0f9dcedd5f23c47b12485383f84908710792a",
+      "corpus_class": "archived_native_or_exact_candidate",
+      "qualification": "see per-case evidence; presence is not acceptance"
+    },
+    {
+      "path": "evidence/native/media-lyrics-boundary-20260922/cases/lyrics-ascii-01024-mp3/baseline/native-saved.itl",
+      "bytes": 4537,
+      "sha256": "7527ec4f6ef9bc7e4645e85a0e52f85f691495af0f9cfa35709aa20e7be9eef8",
+      "corpus_class": "archived_native_or_exact_candidate",
+      "qualification": "see per-case evidence; presence is not acceptance"
+    },
+    {
+      "path": "evidence/native/media-lyrics-boundary-20260922/cases/lyrics-ascii-01024-mp3/initialize/native-saved.itl",
+      "bytes": 4507,
+      "sha256": "8fa9243d65965b7f2f625bfebefb25f37e0d071922be72e99952ed8cbfebee58",
+      "corpus_class": "archived_native_or_exact_candidate",
+      "qualification": "see per-case evidence; presence is not acceptance"
+    },
+    {
+      "path": "evidence/native/media-lyrics-boundary-20260922/cases/lyrics-ascii-01024-mp3/mutate/native-saved.itl",
+      "bytes": 4543,
+      "sha256": "a56beb715ccc2e90d2963c8fc5b1d3a8edf1f7db524eaffcec06810977eea16c",
+      "corpus_class": "archived_native_or_exact_candidate",
+      "qualification": "see per-case evidence; presence is not acceptance"
+    },
+    {
+      "path": "evidence/native/media-lyrics-boundary-20260922/cases/lyrics-ascii-01024-mp3/verify/native-saved.itl",
+      "bytes": 4537,
+      "sha256": "651172703b1fe1b219e288e244c9e06107e7ab06e94c8b7c1f30b6568bba1b69",
+      "corpus_class": "archived_native_or_exact_candidate",
+      "qualification": "see per-case evidence; presence is not acceptance"
+    },
+    {
+      "path": "evidence/native/media-lyrics-boundary-20260922/cases/lyrics-ascii-04096-mp3/baseline/native-saved.itl",
+      "bytes": 4542,
+      "sha256": "6a1fd779bbaa6200d5c8d2642a5b3122830b62047c15e389745d077ce0a7ca87",
+      "corpus_class": "archived_native_or_exact_candidate",
+      "qualification": "see per-case evidence; presence is not acceptance"
+    },
+    {
+      "path": "evidence/native/media-lyrics-boundary-20260922/cases/lyrics-ascii-04096-mp3/initialize/native-saved.itl",
+      "bytes": 4499,
+      "sha256": "1ac138d9844a51a9a11cf8b54fcc73a97f86dbbedde7fe8e9755a6594e956501",
+      "corpus_class": "archived_native_or_exact_candidate",
+      "qualification": "see per-case evidence; presence is not acceptance"
+    },
+    {
+      "path": "evidence/native/media-lyrics-boundary-20260922/cases/lyrics-ascii-04096-mp3/mutate/native-saved.itl",
+      "bytes": 4552,
+      "sha256": "859379441ca77d22426325544f6dddc2f8ab5235fb0f4b44286944de39f231b9",
+      "corpus_class": "archived_native_or_exact_candidate",
+      "qualification": "see per-case evidence; presence is not acceptance"
+    },
+    {
+      "path": "evidence/native/media-lyrics-boundary-20260922/cases/lyrics-ascii-04096-mp3/verify/native-saved.itl",
+      "bytes": 4543,
+      "sha256": "b7f60b0e6d48d88a27cd6bad89c205a5bbdbb094d5d407d676f445b565e877e7",
+      "corpus_class": "archived_native_or_exact_candidate",
+      "qualification": "see per-case evidence; presence is not acceptance"
+    },
+    {
+      "path": "evidence/native/media-lyrics-boundary-20260922/cases/lyrics-ascii-08192-mp3/baseline/native-saved.itl",
+      "bytes": 4537,
+      "sha256": "b5030e438e2ccda438c6612e874ef113f58a6b2559192dd4858ecddaa7b5edea",
+      "corpus_class": "archived_native_or_exact_candidate",
+      "qualification": "see per-case evidence; presence is not acceptance"
+    },
+    {
+      "path": "evidence/native/media-lyrics-boundary-20260922/cases/lyrics-ascii-08192-mp3/initialize/native-saved.itl",
+      "bytes": 4498,
+      "sha256": "daa1dd42cb7fec5660348353570fc53b5edfe24abbc58918f61da48dcd10b543",
+      "corpus_class": "archived_native_or_exact_candidate",
+      "qualification": "see per-case evidence; presence is not acceptance"
+    },
+    {
+      "path": "evidence/native/media-lyrics-boundary-20260922/cases/lyrics-ascii-08192-mp3/mutate/native-saved.itl",
+      "bytes": 4544,
+      "sha256": "4cc0fec9d0589ad6308485b17649ef6b5ef425ac1b568a1f6335be886affd929",
+      "corpus_class": "archived_native_or_exact_candidate",
+      "qualification": "see per-case evidence; presence is not acceptance"
+    },
+    {
+      "path": "evidence/native/media-lyrics-boundary-20260922/cases/lyrics-ascii-08192-mp3/verify/native-saved.itl",
+      "bytes": 4540,
+      "sha256": "28d1c3e009d23242337718b735b31abb25cd0adedaeb37da2f372a72143a743b",
+      "corpus_class": "archived_native_or_exact_candidate",
+      "qualification": "see per-case evidence; presence is not acceptance"
+    },
+    {
+      "path": "evidence/native/media-lyrics-boundary-20260922/cases/lyrics-ascii-16384-mp3/baseline/native-saved.itl",
+      "bytes": 4548,
+      "sha256": "1a8864538f47a29504b8a7d61d0f087981bda5ea89028f4491c22ca1bcd9f6a5",
+      "corpus_class": "archived_native_or_exact_candidate",
+      "qualification": "see per-case evidence; presence is not acceptance"
+    },
+    {
+      "path": "evidence/native/media-lyrics-boundary-20260922/cases/lyrics-ascii-16384-mp3/initialize/native-saved.itl",
+      "bytes": 4509,
+      "sha256": "66aba7dbb5aef834668e81cfb3962e3dc4ec3b37e219eff97d51ed6df317da8d",
+      "corpus_class": "archived_native_or_exact_candidate",
+      "qualification": "see per-case evidence; presence is not acceptance"
+    },
+    {
+      "path": "evidence/native/media-lyrics-boundary-20260922/cases/lyrics-ascii-16384-mp3/mutate/native-saved.itl",
+      "bytes": 4557,
+      "sha256": "70c3a21b2bd39c5821f507a5cb17bbc916802307953e4c35ea2fbad5a50f0563",
+      "corpus_class": "archived_native_or_exact_candidate",
+      "qualification": "see per-case evidence; presence is not acceptance"
+    },
+    {
+      "path": "evidence/native/media-lyrics-boundary-20260922/cases/lyrics-ascii-16384-mp3/verify/native-saved.itl",
+      "bytes": 4548,
+      "sha256": "1a5d5a50199798ebaf55fd0d65a5f4f9d5da185febc6578af75a141b0f576090",
+      "corpus_class": "archived_native_or_exact_candidate",
+      "qualification": "see per-case evidence; presence is not acceptance"
+    },
+    {
+      "path": "evidence/native/media-lyrics-boundary-20260922/cases/lyrics-unicode-mp3/baseline/native-saved.itl",
+      "bytes": 4510,
+      "sha256": "afa342305fecc31cb25b559970af27ec37c3603417f3a32fba56f4ecf5e2ccc1",
+      "corpus_class": "archived_native_or_exact_candidate",
+      "qualification": "see per-case evidence; presence is not acceptance"
+    },
+    {
+      "path": "evidence/native/media-lyrics-boundary-20260922/cases/lyrics-unicode-mp3/initialize/native-saved.itl",
+      "bytes": 4488,
+      "sha256": "599713e873b7950027df7e417be76f45b06c36e2ecacad660aae11a95a384659",
+      "corpus_class": "archived_native_or_exact_candidate",
+      "qualification": "see per-case evidence; presence is not acceptance"
+    },
+    {
+      "path": "evidence/native/media-lyrics-boundary-20260922/cases/lyrics-unicode-mp3/mutate/native-saved.itl",
+      "bytes": 4519,
+      "sha256": "ad7c3343a1897112e5753d37b78136484a1d61cc975c71569370e8cb8c42f393",
+      "corpus_class": "archived_native_or_exact_candidate",
+      "qualification": "see per-case evidence; presence is not acceptance"
+    },
+    {
+      "path": "evidence/native/media-lyrics-boundary-20260922/cases/lyrics-unicode-mp3/verify/native-saved.itl",
+      "bytes": 4512,
+      "sha256": "fe29d3cb3f4681363ba9f340b468b25ef29bc688bbc9384494975c41fae157cf",
+      "corpus_class": "archived_native_or_exact_candidate",
+      "qualification": "see per-case evidence; presence is not acceptance"
+    },
+    {
+      "path": "evidence/native/media-lyrics-extended-boundary-20260922/cases/lyrics-ascii-032767-mp3/baseline/native-saved.itl",
+      "bytes": 4537,
+      "sha256": "44ac379d59e295bad5e58c140be9c8c0f0f5f4ee93bc4d7a7d211c0fc6d0c640",
+      "corpus_class": "archived_native_or_exact_candidate",
+      "qualification": "see per-case evidence; presence is not acceptance"
+    },
+    {
+      "path": "evidence/native/media-lyrics-extended-boundary-20260922/cases/lyrics-ascii-032767-mp3/initialize/native-saved.itl",
+      "bytes": 4509,
+      "sha256": "93d825a877831eb43cab941b8eb0ef816c0299da5af9d9b83a02c187353fc3dc",
+      "corpus_class": "archived_native_or_exact_candidate",
+      "qualification": "see per-case evidence; presence is not acceptance"
+    },
+    {
+      "path": "evidence/native/media-lyrics-extended-boundary-20260922/cases/lyrics-ascii-032767-mp3/mutate/native-saved.itl",
+      "bytes": 4543,
+      "sha256": "8f91b92b29ca57dccd8eff9d29696241edffefb4652acc485c924754336ee83a",
+      "corpus_class": "archived_native_or_exact_candidate",
+      "qualification": "see per-case evidence; presence is not acceptance"
+    },
+    {
+      "path": "evidence/native/media-lyrics-extended-boundary-20260922/cases/lyrics-ascii-032767-mp3/verify/native-saved.itl",
+      "bytes": 4539,
+      "sha256": "1d2515999b33f18a25926bf77755ed5feff3ed1848d265a46806ab9f4797834b",
+      "corpus_class": "archived_native_or_exact_candidate",
+      "qualification": "see per-case evidence; presence is not acceptance"
+    },
+    {
+      "path": "evidence/native/media-lyrics-extended-boundary-20260922/cases/lyrics-ascii-032768-mp3/baseline/native-saved.itl",
+      "bytes": 4549,
+      "sha256": "be43ac40034a5268e397586f74c401fce0377712ddf013192c0ff7cf4261a632",
+      "corpus_class": "archived_native_or_exact_candidate",
+      "qualification": "see per-case evidence; presence is not acceptance"
+    },
+    {
+      "path": "evidence/native/media-lyrics-extended-boundary-20260922/cases/lyrics-ascii-032768-mp3/initialize/native-saved.itl",
+      "bytes": 4522,
+      "sha256": "99944c06eefae874890a8a1a13065dcf7abfe631e5c7d0ea0e8975afa042443b",
+      "corpus_class": "archived_native_or_exact_candidate",
+      "qualification": "see per-case evidence; presence is not acceptance"
+    },
+    {
+      "path": "evidence/native/media-lyrics-extended-boundary-20260922/cases/lyrics-ascii-032768-mp3/mutate/native-saved.itl",
+      "bytes": 4555,
+      "sha256": "a21b1a5508cc4cbf11c743275ebcf084c8397f282b3d2aef923ad003ff222ad8",
+      "corpus_class": "archived_native_or_exact_candidate",
+      "qualification": "see per-case evidence; presence is not acceptance"
+    },
+    {
+      "path": "evidence/native/media-lyrics-extended-boundary-20260922/cases/lyrics-ascii-032768-mp3/verify/native-saved.itl",
+      "bytes": 4548,
+      "sha256": "7860d1f9c6a564c047184f38cbca97953f7a996d3b3f152f67aed8678c5bd2cb",
+      "corpus_class": "archived_native_or_exact_candidate",
+      "qualification": "see per-case evidence; presence is not acceptance"
+    },
+    {
+      "path": "evidence/native/media-lyrics-extended-boundary-20260922/cases/lyrics-ascii-065535-mp3/baseline/native-saved.itl",
+      "bytes": 4557,
+      "sha256": "ab147ee0d815b58ff213de9bd6b1664744bf2f87ae6a50602b635b6463b2b00c",
+      "corpus_class": "archived_native_or_exact_candidate",
+      "qualification": "see per-case evidence; presence is not acceptance"
+    },
+    {
+      "path": "evidence/native/media-lyrics-extended-boundary-20260922/cases/lyrics-ascii-065535-mp3/initialize/native-saved.itl",
+      "bytes": 4522,
+      "sha256": "ff37b229c48781d611575084cee11bea76598803e1c4c4fd156e5dc9075cb7c1",
+      "corpus_class": "archived_native_or_exact_candidate",
+      "qualification": "see per-case evidence; presence is not acceptance"
+    },
+    {
+      "path": "evidence/native/media-lyrics-extended-boundary-20260922/cases/lyrics-ascii-065535-mp3/mutate/native-saved.itl",
+      "bytes": 4569,
+      "sha256": "25186426ef3388021e463b905b84861819d6aaeed3fb3e944bb31b11c8bb60d9",
+      "corpus_class": "archived_native_or_exact_candidate",
+      "qualification": "see per-case evidence; presence is not acceptance"
+    },
+    {
+      "path": "evidence/native/media-lyrics-extended-boundary-20260922/cases/lyrics-ascii-065535-mp3/verify/native-saved.itl",
+      "bytes": 4560,
+      "sha256": "7f1c9f12bc5919963bd9787e72fd62b8c96eb496729e7db1ea5520f51dad3efa",
+      "corpus_class": "archived_native_or_exact_candidate",
+      "qualification": "see per-case evidence; presence is not acceptance"
+    },
+    {
+      "path": "evidence/native/media-lyrics-extended-boundary-20260922/cases/lyrics-ascii-065536-mp3/baseline/native-saved.itl",
+      "bytes": 4535,
+      "sha256": "7268e776970168c804b88dd3926b9d450d22dd3a8e410521dcf6968b57bce368",
+      "corpus_class": "archived_native_or_exact_candidate",
+      "qualification": "see per-case evidence; presence is not acceptance"
+    },
+    {
+      "path": "evidence/native/media-lyrics-extended-boundary-20260922/cases/lyrics-ascii-065536-mp3/initialize/native-saved.itl",
+      "bytes": 4508,
+      "sha256": "2df0bc9e5080284dd174ae7407ceacce5bfce9d33668f920301fe78c80dc475b",
+      "corpus_class": "archived_native_or_exact_candidate",
+      "qualification": "see per-case evidence; presence is not acceptance"
+    },
+    {
+      "path": "evidence/native/media-lyrics-extended-boundary-20260922/cases/lyrics-ascii-065536-mp3/mutate/native-saved.itl",
+      "bytes": 4542,
+      "sha256": "57368e6d9df63fcff381e05548512e407eed4dc0a2d38e95c6cabebf634412e4",
+      "corpus_class": "archived_native_or_exact_candidate",
+      "qualification": "see per-case evidence; presence is not acceptance"
+    },
+    {
+      "path": "evidence/native/media-lyrics-extended-boundary-20260922/cases/lyrics-ascii-065536-mp3/verify/native-saved.itl",
+      "bytes": 4538,
+      "sha256": "4f1bfbf9cc2f17b87048c517b02ceb0db4a01d7c84a2709eb265e55019bf24b7",
       "corpus_class": "archived_native_or_exact_candidate",
       "qualification": "see per-case evidence; presence is not acceptance"
     },

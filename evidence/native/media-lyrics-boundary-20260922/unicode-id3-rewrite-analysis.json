@@ -1,0 +1,72 @@
+{
+  "schema": "windows-itunes-itl.mp3-id3v22-rewrite-analysis.v1",
+  "scope": "one exact retained native MP3 pair; no generic tag-writing or iTunes-version claim",
+  "original": {
+    "path": "evidence/native/media-lyrics-boundary-20260922/cases/lyrics-unicode-mp3/source-original.mp3",
+    "bytes": 8777,
+    "sha256": "65b52508d41ce3afa44a2edb92861d6d66dd0d428d22e99d61dfd51b3a298e44"
+  },
+  "rewritten": {
+    "path": "evidence/native/media-lyrics-boundary-20260922/cases/lyrics-unicode-mp3/source-final.mp3",
+    "bytes": 19079,
+    "sha256": "2fa3178772a312a426289c5264436eb0997b287f659e514f31d19fa0d03c5803"
+  },
+  "id3v22": {
+    "identifier": "ID3",
+    "major_version": 2,
+    "revision": 0,
+    "flags": 0,
+    "synchsafe_size_bytes_hex": "00005034",
+    "payload_bytes": 10292,
+    "header_bytes": 10,
+    "audio_offset": 10302,
+    "frames": [
+      {
+        "id": "ULT",
+        "header_offset": 10,
+        "payload_offset": 16,
+        "payload_bytes": 46,
+        "payload_sha256": "bf33552ee2620d8d231570693e793354ba3816f70053f3aed968f25c317f786f",
+        "unsynchronized_lyrics": {
+          "encoding_name": "UTF-16 with BOM",
+          "description": "",
+          "description_bytes": 0,
+          "description_storage_bytes": 4,
+          "description_terminator_bytes": 2,
+          "description_bom_hex": "fffe",
+          "text": "Line one — 第二行 🎤",
+          "text_bytes": 34,
+          "text_storage_bytes": 38,
+          "text_terminator_bytes": 2,
+          "text_bom_hex": "fffe",
+          "encoding": 1,
+          "language": "eng",
+          "text_characters": 16,
+          "text_utf8_bytes": 27,
+          "text_sha256": "aafc769292af6a484412c674a2d2dc913e34336ee75a5a4db9d20f7297a998fb",
+          "payload_hex": "01656e67fffe0000fffe4c0069006e00650020006f006e0065002000142020002c7b8c4e4c8820003cd8a4df0000"
+        }
+      }
+    ],
+    "padding_bytes": 10240,
+    "prefix_sha256": "883ed6a107502e6e8000ca11c8a84c0e917ce7987f1358e32855217838cd471d"
+  },
+  "audio_tail": {
+    "offset": 10302,
+    "bytes": 8777,
+    "sha256": "65b52508d41ce3afa44a2edb92861d6d66dd0d428d22e99d61dfd51b3a298e44",
+    "original_bytes": 8777,
+    "original_sha256": "65b52508d41ce3afa44a2edb92861d6d66dd0d428d22e99d61dfd51b3a298e44",
+    "byte_identical_to_original": true
+  },
+  "assertions": {
+    "original_has_no_leading_id3": true,
+    "rewritten_has_strict_id3v22": true,
+    "size_delta_bytes": 10302,
+    "size_delta_equals_id3_prefix": true,
+    "mpeg_audio_tail_byte_identical": true,
+    "expected_lyrics": "Line one — 第二行 🎤",
+    "expected_lyrics_exact": true
+  },
+  "analysis_passed": true
+}

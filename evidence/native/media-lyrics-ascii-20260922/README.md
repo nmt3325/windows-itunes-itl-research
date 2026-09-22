@@ -66,4 +66,4 @@ A short plain-ASCII value did not remove the WAV-backed setter rejection. This e
 
 The paired deterministic MP3 case in [`../media-field-followup-20260922-mp3-ascii-v3/`](../media-field-followup-20260922-mp3-ascii-v3/) accepted the same property/value and persisted it across restart while rewriting the MP3. Together, the two runs establish media/interface-dependent behavior only; they do not identify generic ITL storage or a universal Lyrics rule.
 
-U-01 through U-18 remain open. U-12 remains open because no long-string or truncation boundary was established. `status.full_analysis_specification_gate`, `completion.gate_passed`, and `completion.independent_reimplementation_passed` remain false.
+U-01 through U-18 remain open. U-12 remains open because later MP3 follow-ups establish only an exact accepted lower point through 65,536 characters, not an upper acceptance/rejection or truncation boundary. `status.full_analysis_specification_gate`, `completion.gate_passed`, and `completion.independent_reimplementation_passed` remain false.

@@ -193,3 +193,28 @@ def test_media_followup_convergence_refuses_without_adjacent_equal_states(states
 def test_media_followup_convergence_returns_first_equal_pair_end_read() -> None:
     states = [{"value": 1}, {"value": 2}, {"value": 2}, {"value": 3}, {"value": 3}]
     assert media_followup.consecutive_snapshot_convergence(states) == 3
+
+
+def test_media_followup_allows_repeated_field_with_distinct_values() -> None:
+    media_followup.validate_cases([
+        {"name": "lyrics-one", "field": "Lyrics", "value": "one", "frequency": 701, "media_kind": "mp3"},
+        {"name": "lyrics-two", "field": "Lyrics", "value": "two", "frequency": 702, "media_kind": "mp3"},
+    ])
+
+
+def test_media_followup_rejects_duplicate_exact_case_signature() -> None:
+    cases = [
+        {"name": "lyrics-one", "field": "Lyrics", "value": "same", "frequency": 701, "media_kind": "mp3"},
+        {"name": "lyrics-two", "field": "Lyrics", "value": "same", "frequency": 701, "media_kind": "mp3"},
+    ]
+    with pytest.raises(RuntimeError, match="duplicate exact"):
+        media_followup.validate_cases(cases)
+
+
+def test_media_followup_rejects_duplicate_case_name() -> None:
+    cases = [
+        {"name": "lyrics-one", "field": "Lyrics", "value": "one", "frequency": 701, "media_kind": "mp3"},
+        {"name": "lyrics-one", "field": "Lyrics", "value": "two", "frequency": 702, "media_kind": "mp3"},
+    ]
+    with pytest.raises(RuntimeError, match="duplicate case name"):
+        media_followup.validate_cases(cases)

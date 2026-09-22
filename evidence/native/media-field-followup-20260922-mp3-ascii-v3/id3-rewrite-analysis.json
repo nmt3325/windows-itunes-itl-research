@@ -1,0 +1,70 @@
+{
+  "schema": "windows-itunes-itl.mp3-id3v22-rewrite-analysis.v1",
+  "scope": "one exact retained native MP3 pair; no generic tag-writing or iTunes-version claim",
+  "original": {
+    "path": "evidence/native/media-field-followup-20260922-mp3-ascii-v3/cases/lyrics-ascii-mp3-backed/source-original.mp3",
+    "bytes": 8777,
+    "sha256": "5033b6d0540cfc68b0e169c6f7da3dd028f4fc88769b5b2d2b81a43119ddee12"
+  },
+  "rewritten": {
+    "path": "evidence/native/media-field-followup-20260922-mp3-ascii-v3/cases/lyrics-ascii-mp3-backed/source-final.mp3",
+    "bytes": 19066,
+    "sha256": "d49051b7f7629b6cb6bc68fd08dabf7f9a001331a026a799ee3b3329f8b9535c"
+  },
+  "id3v22": {
+    "identifier": "ID3",
+    "major_version": 2,
+    "revision": 0,
+    "flags": 0,
+    "synchsafe_size_bytes_hex": "00005027",
+    "payload_bytes": 10279,
+    "header_bytes": 10,
+    "audio_offset": 10289,
+    "frames": [
+      {
+        "id": "ULT",
+        "header_offset": 10,
+        "payload_offset": 16,
+        "payload_bytes": 33,
+        "payload_sha256": "665c3cb4ec2340f22b3d5db0f176697f66b909b594e819362665aecf96b784e6",
+        "unsynchronized_lyrics": {
+          "encoding_name": "ISO-8859-1",
+          "description": "",
+          "description_bytes": 0,
+          "description_storage_bytes": 1,
+          "description_terminator_bytes": 1,
+          "text": "Plain ASCII lyrics line one",
+          "text_bytes": 27,
+          "text_storage_bytes": 28,
+          "text_terminator_bytes": 1,
+          "encoding": 0,
+          "language": "eng",
+          "text_characters": 27,
+          "text_utf8_bytes": 27,
+          "text_sha256": "889404d34e082e8dcede882a5cc7a09cd4c9d1f8fd52c9629c632a5c0f6fd52f",
+          "payload_hex": "00656e6700506c61696e204153434949206c7972696373206c696e65206f6e6500"
+        }
+      }
+    ],
+    "padding_bytes": 10240,
+    "prefix_sha256": "6b92ee8da444280b68742d645d78a26ba02e32b53b54ef6b2be927bedff2c263"
+  },
+  "audio_tail": {
+    "offset": 10289,
+    "bytes": 8777,
+    "sha256": "5033b6d0540cfc68b0e169c6f7da3dd028f4fc88769b5b2d2b81a43119ddee12",
+    "original_bytes": 8777,
+    "original_sha256": "5033b6d0540cfc68b0e169c6f7da3dd028f4fc88769b5b2d2b81a43119ddee12",
+    "byte_identical_to_original": true
+  },
+  "assertions": {
+    "original_has_no_leading_id3": true,
+    "rewritten_has_strict_id3v22": true,
+    "size_delta_bytes": 10289,
+    "size_delta_equals_id3_prefix": true,
+    "mpeg_audio_tail_byte_identical": true,
+    "expected_lyrics": "Plain ASCII lyrics line one",
+    "expected_lyrics_exact": true
+  },
+  "analysis_passed": true
+}
