@@ -24,7 +24,7 @@ The outer header describes payload byte order, but `Library` intentionally imple
 
 **State:** conservative guards, not a complete allocator.
 
-Known pools and identity namespaces are checked, but unknown consumers, reference-only encodings, callback ownership, compaction, and complete allocation/high-water rules are unresolved.
+Known pools and identity namespaces are checked. The independent generator now has deterministic finite allocations for exact one-track and three-track fixtures, and refuses outside a 1–16-track input bound; only the four pinned one-track/three-track hashes are native-qualified. Unknown consumers, reference-only encodings, callback ownership, compaction, collision behavior, and complete allocation/high-water rules remain unresolved.
 
 **Closure evidence required:** static consumer census plus native differential allocation/COW tests covering shared and unshared objects, collision cases, deletion, restart, and repeated allocation.
 
@@ -32,7 +32,7 @@ Known pools and identity namespaces are checked, but unknown consumers, referenc
 
 **State:** research-only exact candidates.
 
-The public `Library.add_track_from` remains same-lineage restoration. Separate research transformations produced accepted cross-library and constructed-WAV candidates, but those results do not establish a general API, arbitrary paths, arbitrary donors, or arbitrary media.
+The public `Library.add_track_from` remains same-lineage restoration. Separate research transformations produced accepted cross-library and constructed-WAV candidates. The template-free generator now has exact three-track fixtures, but they contain no arbitrary media/location construction. None of these results establishes a general API, arbitrary paths, arbitrary donors, or arbitrary media.
 
 **Closure evidence required:** a production algorithm with explicit donor/recipient constraints, complete dependency remapping, deterministic refusal policy, diverse fixtures, negative cases, and independent native cycles for newly generated outputs.
 
@@ -118,7 +118,7 @@ Closure requires a deterministic target-playing state plus position advance or t
 
 ### U-16 — native evidence generalization
 
-Two exact template-free reference hashes now pass the strict two-cycle native gate. A pinned external `itl-rs` no-op output also passed two cycles while preserving the exact expanded payload, but that implementation rejects raw input, reports the track PID as zero, and emitted mutation candidates that failed mandatory preflight. Native acceptance is still exact-candidate evidence and structural preservation is not independent semantic interoperability: the repository does not contain a proof that all values, combinations, counts, library sizes, or unknown bytes within a nominal profile are safe.
+Four exact template-free reference hashes now pass the strict two-cycle native gate: raw/zlib envelopes at one track and three tracks. The three-track pair preserves deterministic identities, Japanese/emoji/decomposed Unicode names, and ordered master/ordinary membership. A pinned external `itl-rs` no-op output also passed two cycles while preserving the exact expanded payload, but that implementation rejects raw input, reports the track PID as zero, and emitted mutation candidates that failed mandatory preflight. Native acceptance is still exact-candidate evidence and structural preservation is not independent semantic interoperability: the repository does not contain a proof that all values, combinations, counts, library sizes, or unknown bytes within a nominal profile are safe.
 
 Closure requires a deliberately sampled compatibility matrix, retained failures, independent reproduction, and confidence intervals or an explicit finite supported domain.
 
@@ -143,4 +143,4 @@ Closure requires a clean disposable bootstrap, pinned tool versions, synthetic/p
 
 ### Resolved bounded checkpoint — exact template-free fixtures
 
-The raw hash `c6c68171…92d74` and zlib/AES hash `25f8aba0…13ad` are no longer pending: each passed two isolated iTunes 12.13.10.3 open/save/restart cycles with the required identity and no-fallback gates. The later 27/29 field matrix, one external structural no-op, and native Smart Playlist wrapper observation add bounded positive and negative evidence without closing a declared blocker. U-01 through U-18, full declared-field editing, arbitrary smart semantics, version breadth, unknown/integrity bytes, and independent semantic reimplementation remain open; the complete-analysis/specification gate remains false.
+The one-track hashes `c6c68171…92d74` and `25f8aba0…13ad`, plus the three-track hashes `7d9b2747…406b` and `73dbb405…9e17`, are no longer pending: each passed two isolated iTunes 12.13.10.3 open/save/restart cycles with the required identities, values, membership, and no-fallback gates. The later 27/29 field matrix, one external structural no-op, and native Smart Playlist wrapper observation add bounded positive and negative evidence without closing a declared blocker. U-01 through U-18, full declared-field editing, arbitrary smart semantics, version breadth, unknown/integrity bytes, and independent semantic reimplementation remain open; the complete-analysis/specification gate remains false.

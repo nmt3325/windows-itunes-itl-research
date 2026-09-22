@@ -12,7 +12,7 @@ from REFERENCE_WRITER.writer import atomic_write_new, encode_envelope
 from VALIDATOR.validator import validate_bytes
 
 GENERATOR_NAME = "independent-reference-test-generator"
-GENERATOR_VERSION = 2
+GENERATOR_VERSION = 3
 DEFAULT_VERSION = "12.13.10.3"
 DEFAULT_FILE_PID = 0x5245464552454E43  # ASCII-ish deterministic "REFERENC"
 DEFAULT_TRACK_PID = 0xA17E000000000001
@@ -21,6 +21,12 @@ DEFAULT_ITEM_PID = 0xA17E000000000003
 DEFAULT_ALBUM_PID = 0xA17E000000000004
 DEFAULT_ARTIST_PID = 0xA17E000000000005
 DEFAULT_MASTER_ITEM_PID = 0xA17E000000000006
+MULTI_TRACK_PID_BASE = 0xA17E100000000001
+MULTI_PLAYLIST_PID = 0xA17E200000000001
+MULTI_ITEM_PID_BASE = 0xA17E300000000001
+MULTI_ALBUM_PID = 0xA17E400000000001
+MULTI_ARTIST_PID = 0xA17E500000000001
+MULTI_MASTER_ITEM_PID_BASE = 0xA17E600000000001
 DEFAULT_TIMESTAMP = 0xE65FD700
 DEFAULT_MEDIA_FOLDER_URL = "file://localhost/C:/Users/runneradmin/Music/iTunes/iTunes%20Media/"
 DEFAULT_SECTION_ORDER = (16, 12, 9, 11, 1, 13, 23, 2, 14, 4)
@@ -35,6 +41,14 @@ _NATIVE_QUALIFIED_OUTPUTS = {
     "25f8aba00330caaa0ef4b529f67a203cd6da2b3d652923f7e44c7396f7bd13ad": {
         "case": "reference-one-track-zlib",
         "evidence": "evidence/native/reference-generated-20260922-passed/cases/reference-one-track-zlib/result.json",
+    },
+    "7d9b274765471d2d77440049273b210138e36b998d39d4790fe750d60c32406b": {
+        "case": "reference-three-track-raw",
+        "evidence": "evidence/native/reference-multi-track-20260922-v2/cases/reference-three-track-raw/result.json",
+    },
+    "73dbb405fbd2b68b62d29913b697a72100f8606cdb2ee704c55908e4de389e17": {
+        "case": "reference-three-track-zlib",
+        "evidence": "evidence/native/reference-multi-track-20260922-v2/cases/reference-three-track-zlib/result.json",
     },
 }
 
@@ -67,29 +81,35 @@ def _mhoh(type_code: int, text: str) -> bytes:
     return bytes(header) + bytes(payload) + encoded
 
 
-def _playlist_item(item_pid: int) -> bytes:
+def _playlist_item(item_pid: int, track_id: int = 1, order_token: int = 1) -> bytes:
     item = _header(b"mtph", 84)
     _put(item, 8, len(item))
-    _put(item, 0x10, 1)  # item/local-track reference
-    _put(item, 0x18, 1)  # order token
-    _put(item, 0x20, 1, 8)  # observed 64-bit local-track reference
+    _put(item, 0x10, track_id)  # item/local-track reference
+    _put(item, 0x18, order_token)  # order token
+    _put(item, 0x20, track_id, 8)  # observed 64-bit local-track reference
     _put(item, 0x44, item_pid, 8)
     return bytes(item)
 
 
-def _track(name: str) -> bytes:
+def _track(
+    name: str,
+    local_id: int = 1,
+    persistent_id: int = DEFAULT_TRACK_PID,
+    album_id: int = 3,
+    artist_id: int = 4,
+) -> bytes:
     name_object = _mhoh(2, name)
     header = _header(b"mith", 756)
     _put(header, 8, len(header) + len(name_object))
     _put(header, 12, 1)
-    _put(header, 0x10, 1)
+    _put(header, 0x10, local_id)
     _put(header, 0x14, 1)
     _put(header, 0x50, 2)
     _put(header, 0x78, DEFAULT_TIMESTAMP)
-    _put(header, 0x80, DEFAULT_TRACK_PID, 8)
-    _put(header, 0xDC, 3)
+    _put(header, 0x80, persistent_id, 8)
+    _put(header, 0xDC, album_id)
     _put(header, 0x14C, 0x80)
-    _put(header, 0x1E0, 4)
+    _put(header, 0x1E0, artist_id)
     _put(header, 0x274, 1)
     for offset in range(0x290, 0x2AC, 4):
         _put(header, offset, 1000)
@@ -105,12 +125,12 @@ def _indexed_entity(tag: bytes, header_size: int, local_id: int, persistent_id: 
     return bytes(header)
 
 
-def _playlist(name: str, persistent_id: int, local_id: int, item_pid: int, *, master: bool) -> bytes:
-    children = [_mhoh(100, name), _playlist_item(item_pid)]
+def _playlist(name: str, persistent_id: int, local_id: int, items: list[bytes], *, master: bool) -> bytes:
+    children = [_mhoh(100, name), *items]
     header = _header(b"miph", 3500)
     _put(header, 8, len(header) + sum(map(len, children)))
     _put(header, 12, 1)  # one metadata object; mtph count is separate
-    _put(header, 0x10, 1)
+    _put(header, 0x10, len(items))
     header[0x18] = 7
     header[0x1A] = 1
     if master:
@@ -194,23 +214,81 @@ def build_payload(
     encryption_flag: int = 0,
     max_crypt_size: int = 0,
     media_folder_url: str = DEFAULT_MEDIA_FOLDER_URL,
+    track_names: list[str] | None = None,
 ) -> tuple[bytes, dict[str, int]]:
     """Build the bounded current-profile payload entirely from declared constants."""
     try:
         media_folder = media_folder_url.encode("ascii", errors="strict")
     except UnicodeEncodeError as exc:
         raise ValueError("media_folder_url must be an ASCII file URL") from exc
-    counts = {"sections": 10, "tracks": 1, "playlists": 2, "albums": 1, "artists": 1}
-    album = _indexed_entity(b"miah", 88, 3, DEFAULT_ALBUM_PID)
-    artist = _indexed_entity(b"miih", 100, 4, DEFAULT_ARTIST_PID)
-    master = _playlist("####!####", file_persistent_id, 5, DEFAULT_MASTER_ITEM_PID, master=True)
-    ordinary = _playlist(playlist_name, DEFAULT_PLAYLIST_PID, 6, DEFAULT_ITEM_PID, master=False)
+    names = [track_name] if track_names is None else list(track_names)
+    if not 1 <= len(names) <= 16:
+        raise ValueError("bounded multi-track profile requires 1 to 16 tracks")
+    if any(not isinstance(name, str) or not name or "\x00" in name for name in names):
+        raise ValueError("every track name must be a nonempty NUL-free string")
+    track_count = len(names)
+    if track_count == 1:
+        track_pids = [DEFAULT_TRACK_PID]
+        playlist_pid = DEFAULT_PLAYLIST_PID
+        album_pid = DEFAULT_ALBUM_PID
+        artist_pid = DEFAULT_ARTIST_PID
+        ordinary_item_pids = [DEFAULT_ITEM_PID]
+        master_item_pids = [DEFAULT_MASTER_ITEM_PID]
+    else:
+        track_pids = [MULTI_TRACK_PID_BASE + index for index in range(track_count)]
+        playlist_pid = MULTI_PLAYLIST_PID
+        album_pid = MULTI_ALBUM_PID
+        artist_pid = MULTI_ARTIST_PID
+        ordinary_item_pids = [MULTI_ITEM_PID_BASE + index for index in range(track_count)]
+        master_item_pids = [MULTI_MASTER_ITEM_PID_BASE + index for index in range(track_count)]
+    track_ids = list(range(1, track_count + 1))
+    album_id = track_count + 2
+    artist_id = track_count + 3
+    master_playlist_id = track_count + 4
+    ordinary_playlist_id = track_count + 5
+    tracks = [
+        _track(
+            name,
+            local_id=local_id,
+            persistent_id=persistent_id,
+            album_id=album_id,
+            artist_id=artist_id,
+        )
+        for name, local_id, persistent_id in zip(names, track_ids, track_pids, strict=True)
+    ]
+    ordinary_items = [
+        _playlist_item(item_pid, track_id=track_id, order_token=order)
+        for order, (item_pid, track_id) in enumerate(
+            zip(ordinary_item_pids, track_ids, strict=True), start=1
+        )
+    ]
+    master_items = [
+        _playlist_item(item_pid, track_id=track_id, order_token=order)
+        for order, (item_pid, track_id) in enumerate(
+            zip(master_item_pids, track_ids, strict=True), start=1
+        )
+    ]
+    counts = {
+        "sections": 10,
+        "tracks": track_count,
+        "playlists": 2,
+        "albums": 1,
+        "artists": 1,
+    }
+    album = _indexed_entity(b"miah", 88, album_id, album_pid)
+    artist = _indexed_entity(b"miih", 100, artist_id, artist_pid)
+    master = _playlist(
+        "####!####", file_persistent_id, master_playlist_id, master_items, master=True
+    )
+    ordinary = _playlist(
+        playlist_name, playlist_pid, ordinary_playlist_id, ordinary_items, master=False
+    )
     sections: list[bytes | None] = [
         None,
         _section(12, _mhgh()),
         _section(9, _list_root(b"mlah", 92, [album])),
         _section(11, _list_root(b"mlih", 100, [artist])),
-        _section(1, _list_root(b"mlth", 92, [_track(track_name)])),
+        _section(1, _list_root(b"mlth", 92, tracks)),
         _section(13, _list_root(b"mlth", 92, [])),
         _section(23, bytes(_header(b"stsh", 96))),
         _section(2, _list_root(b"mlph", 92, [master, ordinary])),
@@ -286,6 +364,7 @@ def generate_bytes(
     compressed: bool = False,
     template_bytes: bytes | None = None,
     media_folder_url: str = DEFAULT_MEDIA_FOLDER_URL,
+    track_names: list[str] | None = None,
 ) -> tuple[bytes, dict]:
     """Generate a bounded current-profile ITL and explicit native provenance."""
     if version != DEFAULT_VERSION:
@@ -314,6 +393,7 @@ def generate_bytes(
         encryption_flag=encryption_flag,
         max_crypt_size=max_crypt_size,
         media_folder_url=media_folder_url,
+        track_names=track_names,
     )
     raw = encode_envelope(
         payload,
@@ -350,6 +430,7 @@ def generate_bytes(
         },
         "inputs": {
             "track_name": track_name,
+            "track_names": [track_name] if track_names is None else list(track_names),
             "playlist_name": playlist_name,
             "compressed": bool(compression_flag),
             "encryption_flag": encryption_flag,
@@ -454,6 +535,18 @@ def generate_default_corpus(root: str | Path) -> dict:
         generated / "reference-one-track-zlib.itl",
         track_name="Reference Track Zlib",
         playlist_name="Reference Playlist Zlib",
+        compressed=True,
+    )
+    write_generated(
+        generated / "reference-three-track-raw.itl",
+        track_names=["Reference Alpha", "Reference Beta 日本語 🎵", "Reference Gamma e\u0301"],
+        playlist_name="Reference Trio",
+        compressed=False,
+    )
+    write_generated(
+        generated / "reference-three-track-zlib.itl",
+        track_names=["Compressed Alpha", "Compressed Beta 日本語", "Compressed Gamma 🚒"],
+        playlist_name="Compressed Trio",
         compressed=True,
     )
     return write_manifest(root)

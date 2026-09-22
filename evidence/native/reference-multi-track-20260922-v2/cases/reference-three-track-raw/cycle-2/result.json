@@ -1,0 +1,1205 @@
+{
+  "cycle": 2,
+  "started_utc": "2026-09-22T01:32:42.070332+00:00",
+  "expected_prelaunch_sha256": "091f606e730ae0e6befb5cb3403decad74beda9454e2eb82e3fccff78fd67c99",
+  "ui": [
+    {
+      "action": "dismiss_audio_warning",
+      "pid": 6564,
+      "window": {
+        "hwnd": 3211414,
+        "pid": 6564,
+        "class": "iTunesCustomModalDialog",
+        "title": "iTunes",
+        "children": [
+          {
+            "hwnd": 17695298,
+            "class": "Static",
+            "text": "iTunes has detected a problem with your audio configuration.\rAudio/Video playback may not operate properly.",
+            "id": 101,
+            "enabled": true,
+            "visible": true
+          },
+          {
+            "hwnd": 11731480,
+            "class": "Static",
+            "text": "",
+            "id": 103,
+            "enabled": true,
+            "visible": false
+          },
+          {
+            "hwnd": 9437724,
+            "class": "Button",
+            "text": "",
+            "id": 104,
+            "enabled": true,
+            "visible": false
+          },
+          {
+            "hwnd": 8978792,
+            "class": "Button",
+            "text": "OK",
+            "id": 1,
+            "enabled": true,
+            "visible": true
+          },
+          {
+            "hwnd": 8847922,
+            "class": "Button",
+            "text": "More Info",
+            "id": 105,
+            "enabled": true,
+            "visible": false
+          },
+          {
+            "hwnd": 1770026,
+            "class": "Static",
+            "text": "",
+            "id": 102,
+            "enabled": true,
+            "visible": true
+          }
+        ]
+      }
+    }
+  ],
+  "prelaunch": {
+    "path": "D:\\a\\_temp\\reference-multi-track-20260922-v2\\reference-three-track-raw\\live\\iTunes Library.itl",
+    "bytes": 4475,
+    "mtime_ns": 1790040758097251800,
+    "sha256": "091f606e730ae0e6befb5cb3403decad74beda9454e2eb82e3fccff78fd67c99"
+  },
+  "inventory_before": [
+    {
+      "path": "Album Artwork",
+      "kind": "directory"
+    },
+    {
+      "path": "Album Artwork/Cache",
+      "kind": "directory"
+    },
+    {
+      "path": "Album Artwork/Custom",
+      "kind": "directory"
+    },
+    {
+      "path": "Album Artwork/Download",
+      "kind": "directory"
+    },
+    {
+      "path": "Album Artwork/Generated",
+      "kind": "directory"
+    },
+    {
+      "path": "Album Artwork/Store",
+      "kind": "directory"
+    },
+    {
+      "path": "iTunes Library Extras.itdb",
+      "kind": "file",
+      "bytes": 16384,
+      "sha256": "e1937a7a396264a1d85599295ce5d66fe16e5771e91be496987a16b26d406553"
+    },
+    {
+      "path": "iTunes Library Genius.itdb",
+      "kind": "file",
+      "bytes": 32768,
+      "sha256": "77e99bd56d40e8a543a242de1e71856c1a07e17f7f81ff3c162148f1cb7786a0"
+    },
+    {
+      "path": "iTunes Library.itl",
+      "kind": "file",
+      "bytes": 4475,
+      "sha256": "091f606e730ae0e6befb5cb3403decad74beda9454e2eb82e3fccff78fd67c99"
+    },
+    {
+      "path": "iTunes Media",
+      "kind": "directory"
+    },
+    {
+      "path": "iTunes Media/.iTunes Preferences.plist",
+      "kind": "file",
+      "bytes": 305,
+      "sha256": "01bfb7463af72f9c389275fe028ca992fd7c0bcc215f59c6b0e17bc5872941aa"
+    },
+    {
+      "path": "iTunes Media/Automatically Add to iTunes",
+      "kind": "directory"
+    },
+    {
+      "path": "sentinel",
+      "kind": "file",
+      "bytes": 8,
+      "sha256": "7fd2326e6e7f2c00c03b8a57e3b3f0f5267bf22d6ddfa098f153fce7f8c18a53"
+    }
+  ],
+  "forbidden_before": [],
+  "itunes_pid": 6564,
+  "post_readiness_settle_seconds": 3.0,
+  "worker_command": [
+    "C:\\hostedtoolcache\\windows\\Python\\3.12.10\\x64\\python.exe",
+    "-B",
+    "-u",
+    "D:\\a\\_temp\\gha-mcp\\win-acvcphw9\\work\\windows-itunes-itl-research\\scripts\\windows\\reference_generated_native.py",
+    "_worker",
+    "--spec",
+    "D:\\a\\_temp\\gha-mcp\\win-acvcphw9\\work\\windows-itunes-itl-research\\evidence\\native\\reference-multi-track-20260922-v2\\cases\\reference-three-track-raw\\cycle-2\\worker-spec.json",
+    "--output",
+    "D:\\a\\_temp\\gha-mcp\\win-acvcphw9\\work\\windows-itunes-itl-research\\evidence\\native\\reference-multi-track-20260922-v2\\cases\\reference-three-track-raw\\cycle-2\\com.json"
+  ],
+  "worker_exit_code": 0,
+  "worker": {
+    "schema_version": 1,
+    "started_utc": "2026-09-22T01:32:49.508077+00:00",
+    "spec": {
+      "schema_version": 1,
+      "case": "reference-three-track-raw",
+      "cycle": 2,
+      "expected": {
+        "version": "12.13.10.3",
+        "library_persistent_id": "5245464552454E43",
+        "track_count": 3,
+        "tracks": [
+          {
+            "persistent_id": "A17E100000000001",
+            "name": "Reference Alpha"
+          },
+          {
+            "persistent_id": "A17E100000000002",
+            "name": "Reference Beta 日本語 🎵"
+          },
+          {
+            "persistent_id": "A17E100000000003",
+            "name": "Reference Gamma é"
+          }
+        ],
+        "playlists": [
+          {
+            "persistent_id": "A17E200000000001",
+            "name": "Reference Trio",
+            "members": [
+              "A17E100000000001",
+              "A17E100000000002",
+              "A17E100000000003"
+            ]
+          }
+        ]
+      }
+    },
+    "samples": [
+      {
+        "index": 1,
+        "state": {
+          "version": "12.13.10.3",
+          "library_persistent_id": "5245464552454E43",
+          "tracks": [
+            {
+              "persistent_id": "A17E100000000001",
+              "Name": "Reference Alpha",
+              "Artist": "",
+              "Album": "",
+              "AlbumArtist": "",
+              "Composer": "",
+              "Genre": "",
+              "Comment": "",
+              "Grouping": "",
+              "Lyrics": "",
+              "SortName": "",
+              "SortArtist": "",
+              "SortAlbum": "",
+              "SortAlbumArtist": "",
+              "Rating": 0,
+              "AlbumRating": 0,
+              "PlayedCount": 0,
+              "PlayedDate": "1899-12-30T00:00:00+00:00",
+              "SkippedCount": 0,
+              "SkippedDate": "1899-12-30T00:00:00+00:00",
+              "DateAdded": "2026-06-23T06:24:00+00:00",
+              "ModificationDate": "1899-12-30T00:00:00+00:00",
+              "TrackNumber": 0,
+              "TrackCount": 0,
+              "DiscNumber": 0,
+              "DiscCount": 0,
+              "Year": 0,
+              "BPM": 0,
+              "Compilation": false,
+              "Enabled": true,
+              "VolumeAdjustment": 0,
+              "Location": "",
+              "Duration": 0,
+              "SampleRate": 0,
+              "BitRate": 0,
+              "Size": 0,
+              "TrackDatabaseID": 71,
+              "TrackID": 80,
+              "PlayOrderIndex": 1,
+              "Unplayed": true,
+              "RatingKind": 1,
+              "AlbumRatingKind": 1
+            },
+            {
+              "persistent_id": "A17E100000000002",
+              "Name": "Reference Beta 日本語 🎵",
+              "Artist": "",
+              "Album": "",
+              "AlbumArtist": "",
+              "Composer": "",
+              "Genre": "",
+              "Comment": "",
+              "Grouping": "",
+              "Lyrics": "",
+              "SortName": "",
+              "SortArtist": "",
+              "SortAlbum": "",
+              "SortAlbumArtist": "",
+              "Rating": 0,
+              "AlbumRating": 0,
+              "PlayedCount": 0,
+              "PlayedDate": "1899-12-30T00:00:00+00:00",
+              "SkippedCount": 0,
+              "SkippedDate": "1899-12-30T00:00:00+00:00",
+              "DateAdded": "2026-06-23T06:24:00+00:00",
+              "ModificationDate": "1899-12-30T00:00:00+00:00",
+              "TrackNumber": 0,
+              "TrackCount": 0,
+              "DiscNumber": 0,
+              "DiscCount": 0,
+              "Year": 0,
+              "BPM": 0,
+              "Compilation": false,
+              "Enabled": true,
+              "VolumeAdjustment": 0,
+              "Location": "",
+              "Duration": 0,
+              "SampleRate": 0,
+              "BitRate": 0,
+              "Size": 0,
+              "TrackDatabaseID": 73,
+              "TrackID": 81,
+              "PlayOrderIndex": 2,
+              "Unplayed": true,
+              "RatingKind": 1,
+              "AlbumRatingKind": 1
+            },
+            {
+              "persistent_id": "A17E100000000003",
+              "Name": "Reference Gamma é",
+              "Artist": "",
+              "Album": "",
+              "AlbumArtist": "",
+              "Composer": "",
+              "Genre": "",
+              "Comment": "",
+              "Grouping": "",
+              "Lyrics": "",
+              "SortName": "",
+              "SortArtist": "",
+              "SortAlbum": "",
+              "SortAlbumArtist": "",
+              "Rating": 0,
+              "AlbumRating": 0,
+              "PlayedCount": 0,
+              "PlayedDate": "1899-12-30T00:00:00+00:00",
+              "SkippedCount": 0,
+              "SkippedDate": "1899-12-30T00:00:00+00:00",
+              "DateAdded": "2026-06-23T06:24:00+00:00",
+              "ModificationDate": "1899-12-30T00:00:00+00:00",
+              "TrackNumber": 0,
+              "TrackCount": 0,
+              "DiscNumber": 0,
+              "DiscCount": 0,
+              "Year": 0,
+              "BPM": 0,
+              "Compilation": false,
+              "Enabled": true,
+              "VolumeAdjustment": 0,
+              "Location": "",
+              "Duration": 0,
+              "SampleRate": 0,
+              "BitRate": 0,
+              "Size": 0,
+              "TrackDatabaseID": 75,
+              "TrackID": 82,
+              "PlayOrderIndex": 3,
+              "Unplayed": true,
+              "RatingKind": 1,
+              "AlbumRatingKind": 1
+            }
+          ],
+          "playlists": [
+            {
+              "name": "Library",
+              "persistent_id": "5245464552454E43",
+              "kind": 1,
+              "members": [
+                {
+                  "persistent_id": "A17E100000000001",
+                  "name": "Reference Alpha",
+                  "play_order_index": 1
+                },
+                {
+                  "persistent_id": "A17E100000000002",
+                  "name": "Reference Beta 日本語 🎵",
+                  "play_order_index": 2
+                },
+                {
+                  "persistent_id": "A17E100000000003",
+                  "name": "Reference Gamma é",
+                  "play_order_index": 3
+                }
+              ],
+              "special_kind": null
+            },
+            {
+              "name": "Music",
+              "persistent_id": "51D11A3329625903",
+              "kind": 2,
+              "members": [
+                {
+                  "persistent_id": "A17E100000000001",
+                  "name": "Reference Alpha",
+                  "play_order_index": 1
+                },
+                {
+                  "persistent_id": "A17E100000000002",
+                  "name": "Reference Beta 日本語 🎵",
+                  "play_order_index": 2
+                },
+                {
+                  "persistent_id": "A17E100000000003",
+                  "name": "Reference Gamma é",
+                  "play_order_index": 3
+                }
+              ],
+              "special_kind": 6
+            },
+            {
+              "name": "Movies",
+              "persistent_id": "B5AA7BE9A72E7D42",
+              "kind": 2,
+              "members": [],
+              "special_kind": 7
+            },
+            {
+              "name": "TV Shows",
+              "persistent_id": "DF2C46B44E592A50",
+              "kind": 2,
+              "members": [],
+              "special_kind": 8
+            },
+            {
+              "name": "Podcasts",
+              "persistent_id": "C141AF708F4193D9",
+              "kind": 2,
+              "members": [],
+              "special_kind": 3
+            },
+            {
+              "name": "Audiobooks",
+              "persistent_id": "8F4C042D4123349F",
+              "kind": 2,
+              "members": [],
+              "special_kind": 9
+            },
+            {
+              "name": "Genius",
+              "persistent_id": "80E13E3F0D3D4ADE",
+              "kind": 2,
+              "members": [],
+              "special_kind": 11
+            },
+            {
+              "name": "Reference Trio",
+              "persistent_id": "A17E200000000001",
+              "kind": 2,
+              "members": [
+                {
+                  "persistent_id": "A17E100000000001",
+                  "name": "Reference Alpha",
+                  "play_order_index": 1
+                },
+                {
+                  "persistent_id": "A17E100000000002",
+                  "name": "Reference Beta 日本語 🎵",
+                  "play_order_index": 2
+                },
+                {
+                  "persistent_id": "A17E100000000003",
+                  "name": "Reference Gamma é",
+                  "play_order_index": 3
+                }
+              ],
+              "special_kind": 0
+            }
+          ],
+          "track_count": 3
+        },
+        "errors": []
+      },
+      {
+        "index": 2,
+        "state": {
+          "version": "12.13.10.3",
+          "library_persistent_id": "5245464552454E43",
+          "tracks": [
+            {
+              "persistent_id": "A17E100000000001",
+              "Name": "Reference Alpha",
+              "Artist": "",
+              "Album": "",
+              "AlbumArtist": "",
+              "Composer": "",
+              "Genre": "",
+              "Comment": "",
+              "Grouping": "",
+              "Lyrics": "",
+              "SortName": "",
+              "SortArtist": "",
+              "SortAlbum": "",
+              "SortAlbumArtist": "",
+              "Rating": 0,
+              "AlbumRating": 0,
+              "PlayedCount": 0,
+              "PlayedDate": "1899-12-30T00:00:00+00:00",
+              "SkippedCount": 0,
+              "SkippedDate": "1899-12-30T00:00:00+00:00",
+              "DateAdded": "2026-06-23T06:24:00+00:00",
+              "ModificationDate": "1899-12-30T00:00:00+00:00",
+              "TrackNumber": 0,
+              "TrackCount": 0,
+              "DiscNumber": 0,
+              "DiscCount": 0,
+              "Year": 0,
+              "BPM": 0,
+              "Compilation": false,
+              "Enabled": true,
+              "VolumeAdjustment": 0,
+              "Location": "",
+              "Duration": 0,
+              "SampleRate": 0,
+              "BitRate": 0,
+              "Size": 0,
+              "TrackDatabaseID": 71,
+              "TrackID": 80,
+              "PlayOrderIndex": 1,
+              "Unplayed": true,
+              "RatingKind": 1,
+              "AlbumRatingKind": 1
+            },
+            {
+              "persistent_id": "A17E100000000002",
+              "Name": "Reference Beta 日本語 🎵",
+              "Artist": "",
+              "Album": "",
+              "AlbumArtist": "",
+              "Composer": "",
+              "Genre": "",
+              "Comment": "",
+              "Grouping": "",
+              "Lyrics": "",
+              "SortName": "",
+              "SortArtist": "",
+              "SortAlbum": "",
+              "SortAlbumArtist": "",
+              "Rating": 0,
+              "AlbumRating": 0,
+              "PlayedCount": 0,
+              "PlayedDate": "1899-12-30T00:00:00+00:00",
+              "SkippedCount": 0,
+              "SkippedDate": "1899-12-30T00:00:00+00:00",
+              "DateAdded": "2026-06-23T06:24:00+00:00",
+              "ModificationDate": "1899-12-30T00:00:00+00:00",
+              "TrackNumber": 0,
+              "TrackCount": 0,
+              "DiscNumber": 0,
+              "DiscCount": 0,
+              "Year": 0,
+              "BPM": 0,
+              "Compilation": false,
+              "Enabled": true,
+              "VolumeAdjustment": 0,
+              "Location": "",
+              "Duration": 0,
+              "SampleRate": 0,
+              "BitRate": 0,
+              "Size": 0,
+              "TrackDatabaseID": 73,
+              "TrackID": 81,
+              "PlayOrderIndex": 2,
+              "Unplayed": true,
+              "RatingKind": 1,
+              "AlbumRatingKind": 1
+            },
+            {
+              "persistent_id": "A17E100000000003",
+              "Name": "Reference Gamma é",
+              "Artist": "",
+              "Album": "",
+              "AlbumArtist": "",
+              "Composer": "",
+              "Genre": "",
+              "Comment": "",
+              "Grouping": "",
+              "Lyrics": "",
+              "SortName": "",
+              "SortArtist": "",
+              "SortAlbum": "",
+              "SortAlbumArtist": "",
+              "Rating": 0,
+              "AlbumRating": 0,
+              "PlayedCount": 0,
+              "PlayedDate": "1899-12-30T00:00:00+00:00",
+              "SkippedCount": 0,
+              "SkippedDate": "1899-12-30T00:00:00+00:00",
+              "DateAdded": "2026-06-23T06:24:00+00:00",
+              "ModificationDate": "1899-12-30T00:00:00+00:00",
+              "TrackNumber": 0,
+              "TrackCount": 0,
+              "DiscNumber": 0,
+              "DiscCount": 0,
+              "Year": 0,
+              "BPM": 0,
+              "Compilation": false,
+              "Enabled": true,
+              "VolumeAdjustment": 0,
+              "Location": "",
+              "Duration": 0,
+              "SampleRate": 0,
+              "BitRate": 0,
+              "Size": 0,
+              "TrackDatabaseID": 75,
+              "TrackID": 82,
+              "PlayOrderIndex": 3,
+              "Unplayed": true,
+              "RatingKind": 1,
+              "AlbumRatingKind": 1
+            }
+          ],
+          "playlists": [
+            {
+              "name": "Library",
+              "persistent_id": "5245464552454E43",
+              "kind": 1,
+              "members": [
+                {
+                  "persistent_id": "A17E100000000001",
+                  "name": "Reference Alpha",
+                  "play_order_index": 1
+                },
+                {
+                  "persistent_id": "A17E100000000002",
+                  "name": "Reference Beta 日本語 🎵",
+                  "play_order_index": 2
+                },
+                {
+                  "persistent_id": "A17E100000000003",
+                  "name": "Reference Gamma é",
+                  "play_order_index": 3
+                }
+              ],
+              "special_kind": null
+            },
+            {
+              "name": "Music",
+              "persistent_id": "51D11A3329625903",
+              "kind": 2,
+              "members": [
+                {
+                  "persistent_id": "A17E100000000001",
+                  "name": "Reference Alpha",
+                  "play_order_index": 1
+                },
+                {
+                  "persistent_id": "A17E100000000002",
+                  "name": "Reference Beta 日本語 🎵",
+                  "play_order_index": 2
+                },
+                {
+                  "persistent_id": "A17E100000000003",
+                  "name": "Reference Gamma é",
+                  "play_order_index": 3
+                }
+              ],
+              "special_kind": 6
+            },
+            {
+              "name": "Movies",
+              "persistent_id": "B5AA7BE9A72E7D42",
+              "kind": 2,
+              "members": [],
+              "special_kind": 7
+            },
+            {
+              "name": "TV Shows",
+              "persistent_id": "DF2C46B44E592A50",
+              "kind": 2,
+              "members": [],
+              "special_kind": 8
+            },
+            {
+              "name": "Podcasts",
+              "persistent_id": "C141AF708F4193D9",
+              "kind": 2,
+              "members": [],
+              "special_kind": 3
+            },
+            {
+              "name": "Audiobooks",
+              "persistent_id": "8F4C042D4123349F",
+              "kind": 2,
+              "members": [],
+              "special_kind": 9
+            },
+            {
+              "name": "Genius",
+              "persistent_id": "80E13E3F0D3D4ADE",
+              "kind": 2,
+              "members": [],
+              "special_kind": 11
+            },
+            {
+              "name": "Reference Trio",
+              "persistent_id": "A17E200000000001",
+              "kind": 2,
+              "members": [
+                {
+                  "persistent_id": "A17E100000000001",
+                  "name": "Reference Alpha",
+                  "play_order_index": 1
+                },
+                {
+                  "persistent_id": "A17E100000000002",
+                  "name": "Reference Beta 日本語 🎵",
+                  "play_order_index": 2
+                },
+                {
+                  "persistent_id": "A17E100000000003",
+                  "name": "Reference Gamma é",
+                  "play_order_index": 3
+                }
+              ],
+              "special_kind": 0
+            }
+          ],
+          "track_count": 3
+        },
+        "errors": []
+      }
+    ],
+    "errors": [],
+    "accepted": true,
+    "quit_requested": true,
+    "finished_utc": "2026-09-22T01:32:52.184471+00:00"
+  },
+  "itunes_exit_code": 0,
+  "inventory_after": [
+    {
+      "path": "Album Artwork",
+      "kind": "directory"
+    },
+    {
+      "path": "Album Artwork/Cache",
+      "kind": "directory"
+    },
+    {
+      "path": "Album Artwork/Custom",
+      "kind": "directory"
+    },
+    {
+      "path": "Album Artwork/Download",
+      "kind": "directory"
+    },
+    {
+      "path": "Album Artwork/Generated",
+      "kind": "directory"
+    },
+    {
+      "path": "Album Artwork/Store",
+      "kind": "directory"
+    },
+    {
+      "path": "iTunes Library Extras.itdb",
+      "kind": "file",
+      "bytes": 16384,
+      "sha256": "86f51fea2be5ea3d51a396f709a555cbf4e1c13dc2793290f92f7ec543cfe186"
+    },
+    {
+      "path": "iTunes Library Genius.itdb",
+      "kind": "file",
+      "bytes": 32768,
+      "sha256": "77e99bd56d40e8a543a242de1e71856c1a07e17f7f81ff3c162148f1cb7786a0"
+    },
+    {
+      "path": "iTunes Library.itl",
+      "kind": "file",
+      "bytes": 4496,
+      "sha256": "6c2604775a87a8558a492f326c56af3b7b95b5220686f38611186061c73cfad5"
+    },
+    {
+      "path": "iTunes Media",
+      "kind": "directory"
+    },
+    {
+      "path": "iTunes Media/.iTunes Preferences.plist",
+      "kind": "file",
+      "bytes": 305,
+      "sha256": "01bfb7463af72f9c389275fe028ca992fd7c0bcc215f59c6b0e17bc5872941aa"
+    },
+    {
+      "path": "iTunes Media/Automatically Add to iTunes",
+      "kind": "directory"
+    },
+    {
+      "path": "sentinel",
+      "kind": "file",
+      "bytes": 8,
+      "sha256": "7fd2326e6e7f2c00c03b8a57e3b3f0f5267bf22d6ddfa098f153fce7f8c18a53"
+    }
+  ],
+  "forbidden_after": [],
+  "saved": {
+    "path": "D:\\a\\_temp\\gha-mcp\\win-acvcphw9\\work\\windows-itunes-itl-research\\evidence\\native\\reference-multi-track-20260922-v2\\cases\\reference-three-track-raw\\cycle-2\\native-saved.itl",
+    "bytes": 4496,
+    "mtime_ns": 1790040775257301000,
+    "sha256": "6c2604775a87a8558a492f326c56af3b7b95b5220686f38611186061c73cfad5"
+  },
+  "reference_summary": {
+    "envelope": {
+      "compression_flag": 1,
+      "declared_counts": {
+        "albums": 1,
+        "artists": 1,
+        "playlists": 15,
+        "sections": 10,
+        "tracks": 3
+      },
+      "encryption_flag": 2,
+      "header_length": 144,
+      "payload_byteorder": "little",
+      "trailer_length": 0
+    },
+    "file_persistent_id": "5245464552454E43",
+    "playlists": [
+      {
+        "header_length": 3500,
+        "members": [
+          {
+            "item_id": 80,
+            "item_persistent_id": "A17E600000000001",
+            "order_token": 1,
+            "track_id": 71,
+            "track_persistent_id": "A17E100000000001"
+          },
+          {
+            "item_id": 81,
+            "item_persistent_id": "A17E600000000002",
+            "order_token": 2,
+            "track_id": 73,
+            "track_persistent_id": "A17E100000000002"
+          },
+          {
+            "item_id": 82,
+            "item_persistent_id": "A17E600000000003",
+            "order_token": 3,
+            "track_id": 75,
+            "track_persistent_id": "A17E100000000003"
+          }
+        ],
+        "name": "####!####",
+        "persistent_id": "5245464552454E43",
+        "playlist_id": 77,
+        "smart_rule_objects": 0,
+        "special_object": false
+      },
+      {
+        "header_length": 3500,
+        "members": [
+          {
+            "item_id": 86,
+            "item_persistent_id": "BE6F65EE58404C11",
+            "order_token": 129,
+            "track_id": 71,
+            "track_persistent_id": "A17E100000000001"
+          },
+          {
+            "item_id": 87,
+            "item_persistent_id": "C0D8434DC7B83488",
+            "order_token": 130,
+            "track_id": 73,
+            "track_persistent_id": "A17E100000000002"
+          },
+          {
+            "item_id": 88,
+            "item_persistent_id": "0656B0F43C64BB30",
+            "order_token": 131,
+            "track_id": 75,
+            "track_persistent_id": "A17E100000000003"
+          }
+        ],
+        "name": "Downloaded",
+        "persistent_id": "3EC4B63499409E59",
+        "playlist_id": 83,
+        "smart_rule_objects": 2,
+        "special_object": false
+      },
+      {
+        "header_length": 3500,
+        "members": [
+          {
+            "item_id": 92,
+            "item_persistent_id": "F3E5F4C04BCE9331",
+            "order_token": 99,
+            "track_id": 71,
+            "track_persistent_id": "A17E100000000001"
+          },
+          {
+            "item_id": 93,
+            "item_persistent_id": "18EA779E29B19E17",
+            "order_token": 100,
+            "track_id": 73,
+            "track_persistent_id": "A17E100000000002"
+          },
+          {
+            "item_id": 94,
+            "item_persistent_id": "2140C5E6E0997D80",
+            "order_token": 101,
+            "track_id": 75,
+            "track_persistent_id": "A17E100000000003"
+          }
+        ],
+        "name": "Music",
+        "persistent_id": "51D11A3329625903",
+        "playlist_id": 89,
+        "smart_rule_objects": 2,
+        "special_object": false
+      },
+      {
+        "header_length": 3500,
+        "members": [],
+        "name": "Music Videos",
+        "persistent_id": "A6B610C0F9EC115B",
+        "playlist_id": 95,
+        "smart_rule_objects": 2,
+        "special_object": false
+      },
+      {
+        "header_length": 3500,
+        "members": [],
+        "name": "TV & Movies",
+        "persistent_id": "7E16F3FFC460A3EA",
+        "playlist_id": 98,
+        "smart_rule_objects": 2,
+        "special_object": false
+      },
+      {
+        "header_length": 3500,
+        "members": [],
+        "name": "Rentals",
+        "persistent_id": "E80918F5736985B4",
+        "playlist_id": 101,
+        "smart_rule_objects": 2,
+        "special_object": false
+      },
+      {
+        "header_length": 3500,
+        "members": [],
+        "name": "Downloaded",
+        "persistent_id": "112B951AE3764CE6",
+        "playlist_id": 104,
+        "smart_rule_objects": 2,
+        "special_object": false
+      },
+      {
+        "header_length": 3500,
+        "members": [],
+        "name": "Movies",
+        "persistent_id": "B5AA7BE9A72E7D42",
+        "playlist_id": 107,
+        "smart_rule_objects": 2,
+        "special_object": false
+      },
+      {
+        "header_length": 3500,
+        "members": [],
+        "name": "Home Videos",
+        "persistent_id": "6D88AFAB989E28BD",
+        "playlist_id": 110,
+        "smart_rule_objects": 2,
+        "special_object": false
+      },
+      {
+        "header_length": 3500,
+        "members": [],
+        "name": "Downloaded",
+        "persistent_id": "B74CECC5B78C6816",
+        "playlist_id": 113,
+        "smart_rule_objects": 2,
+        "special_object": false
+      },
+      {
+        "header_length": 3500,
+        "members": [],
+        "name": "TV Shows",
+        "persistent_id": "DF2C46B44E592A50",
+        "playlist_id": 116,
+        "smart_rule_objects": 2,
+        "special_object": false
+      },
+      {
+        "header_length": 3500,
+        "members": [],
+        "name": "Podcasts",
+        "persistent_id": "C141AF708F4193D9",
+        "playlist_id": 119,
+        "smart_rule_objects": 0,
+        "special_object": true
+      },
+      {
+        "header_length": 3500,
+        "members": [],
+        "name": "Audiobooks",
+        "persistent_id": "8F4C042D4123349F",
+        "playlist_id": 126,
+        "smart_rule_objects": 2,
+        "special_object": false
+      },
+      {
+        "header_length": 3500,
+        "members": [],
+        "name": "Genius",
+        "persistent_id": "80E13E3F0D3D4ADE",
+        "playlist_id": 129,
+        "smart_rule_objects": 2,
+        "special_object": false
+      },
+      {
+        "header_length": 3500,
+        "members": [
+          {
+            "item_id": 135,
+            "item_persistent_id": "A17E300000000001",
+            "order_token": 1,
+            "track_id": 71,
+            "track_persistent_id": "A17E100000000001"
+          },
+          {
+            "item_id": 136,
+            "item_persistent_id": "A17E300000000002",
+            "order_token": 2,
+            "track_id": 73,
+            "track_persistent_id": "A17E100000000002"
+          },
+          {
+            "item_id": 137,
+            "item_persistent_id": "A17E300000000003",
+            "order_token": 3,
+            "track_id": 75,
+            "track_persistent_id": "A17E100000000003"
+          }
+        ],
+        "name": "Reference Trio",
+        "persistent_id": "A17E200000000001",
+        "playlist_id": 132,
+        "smart_rule_objects": 0,
+        "special_object": false
+      }
+    ],
+    "schema": "reference-itl.semantic.v1",
+    "sections": [
+      {
+        "offset": 0,
+        "opaque": false,
+        "size": 240,
+        "type": 16
+      },
+      {
+        "offset": 240,
+        "opaque": false,
+        "size": 542,
+        "type": 12
+      },
+      {
+        "offset": 782,
+        "opaque": false,
+        "size": 276,
+        "type": 9
+      },
+      {
+        "offset": 1058,
+        "opaque": false,
+        "size": 296,
+        "type": 11
+      },
+      {
+        "offset": 1354,
+        "opaque": false,
+        "size": 2669,
+        "type": 1
+      },
+      {
+        "offset": 4023,
+        "opaque": false,
+        "size": 188,
+        "type": 13
+      },
+      {
+        "offset": 4211,
+        "opaque": true,
+        "size": 192,
+        "type": 23
+      },
+      {
+        "offset": 4403,
+        "opaque": false,
+        "size": 102569,
+        "type": 2
+      },
+      {
+        "offset": 106972,
+        "opaque": false,
+        "size": 188,
+        "type": 14
+      },
+      {
+        "offset": 107160,
+        "opaque": true,
+        "size": 162,
+        "type": 4
+      }
+    ],
+    "sha256": "6c2604775a87a8558a492f326c56af3b7b95b5220686f38611186061c73cfad5",
+    "tracks": [
+      {
+        "album": null,
+        "album_artist": null,
+        "album_id": 69,
+        "artist": null,
+        "artist_id": 70,
+        "bit_rate": 0,
+        "comment": null,
+        "composer": null,
+        "date_added": 3865040640,
+        "date_modified": 0,
+        "disc_count": 0,
+        "disc_number": 0,
+        "file_size": 0,
+        "genre": null,
+        "header_length": 756,
+        "kind": null,
+        "name": "Reference Alpha",
+        "name_refresh_flag_raw": 0,
+        "path": null,
+        "persistent_id": "A17E100000000001",
+        "play_count": 0,
+        "play_date": 0,
+        "purchaser_name": null,
+        "rating": 0,
+        "record_kind_raw": 1,
+        "sample_rate": 0,
+        "skip_count": 0,
+        "skip_date": 0,
+        "sort_album": null,
+        "sort_album_artist": null,
+        "sort_artist": null,
+        "sort_name": null,
+        "total_time": 0,
+        "track_count": 0,
+        "track_id": 71,
+        "track_number": 0,
+        "unplayed": true,
+        "unplayed_raw": 0,
+        "url": null,
+        "year": 0
+      },
+      {
+        "album": null,
+        "album_artist": null,
+        "album_id": 69,
+        "artist": null,
+        "artist_id": 70,
+        "bit_rate": 0,
+        "comment": null,
+        "composer": null,
+        "date_added": 3865040640,
+        "date_modified": 0,
+        "disc_count": 0,
+        "disc_number": 0,
+        "file_size": 0,
+        "genre": null,
+        "header_length": 756,
+        "kind": null,
+        "name": "Reference Beta 日本語 🎵",
+        "name_refresh_flag_raw": 0,
+        "path": null,
+        "persistent_id": "A17E100000000002",
+        "play_count": 0,
+        "play_date": 0,
+        "purchaser_name": null,
+        "rating": 0,
+        "record_kind_raw": 1,
+        "sample_rate": 0,
+        "skip_count": 0,
+        "skip_date": 0,
+        "sort_album": null,
+        "sort_album_artist": null,
+        "sort_artist": null,
+        "sort_name": null,
+        "total_time": 0,
+        "track_count": 0,
+        "track_id": 73,
+        "track_number": 0,
+        "unplayed": true,
+        "unplayed_raw": 0,
+        "url": null,
+        "year": 0
+      },
+      {
+        "album": null,
+        "album_artist": null,
+        "album_id": 69,
+        "artist": null,
+        "artist_id": 70,
+        "bit_rate": 0,
+        "comment": null,
+        "composer": null,
+        "date_added": 3865040640,
+        "date_modified": 0,
+        "disc_count": 0,
+        "disc_number": 0,
+        "file_size": 0,
+        "genre": null,
+        "header_length": 756,
+        "kind": null,
+        "name": "Reference Gamma é",
+        "name_refresh_flag_raw": 0,
+        "path": null,
+        "persistent_id": "A17E100000000003",
+        "play_count": 0,
+        "play_date": 0,
+        "purchaser_name": null,
+        "rating": 0,
+        "record_kind_raw": 1,
+        "sample_rate": 0,
+        "skip_count": 0,
+        "skip_date": 0,
+        "sort_album": null,
+        "sort_album_artist": null,
+        "sort_artist": null,
+        "sort_name": null,
+        "total_time": 0,
+        "track_count": 0,
+        "track_id": 75,
+        "track_number": 0,
+        "unplayed": true,
+        "unplayed_raw": 0,
+        "url": null,
+        "year": 0
+      }
+    ],
+    "version": "12.13.10.3"
+  },
+  "reference_summary_errors": [],
+  "status": "passed",
+  "finished_utc": "2026-09-22T01:32:59.341662+00:00"
+}

@@ -1,4 +1,4 @@
-"""Native qualification for the two template-free reference-writer ITLs.
+"""Native qualification for exact template-free reference-writer ITLs.
 
 The runner is deliberately fail-closed.  Each candidate gets a new isolated
 profile containing only its ITL, and must survive the requested number of
@@ -181,11 +181,13 @@ def expected_state_errors(expected: dict, actual: dict) -> list[dict]:
 
 
 def reference_summary(path: Path) -> dict:
-    command = [sys.executable, "-B", "-m", "REFERENCE_PARSER", "summary", str(path)]
+    command = [sys.executable, "-X", "utf8", "-B", "-m", "REFERENCE_PARSER", "summary", str(path)]
     process = subprocess.run(
         command,
         cwd=str(REPO_ROOT),
         text=True,
+        encoding="utf-8",
+        errors="strict",
         stdout=subprocess.PIPE,
         stderr=subprocess.STDOUT,
         timeout=60,

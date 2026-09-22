@@ -1,0 +1,72 @@
+{
+  "schema_version": 1,
+  "started_utc": "2026-09-22T01:25:26.320966+00:00",
+  "status": "failed_with_preserved_evidence",
+  "cycles_required": 2,
+  "root_parent": "D:\\a\\_temp\\reference-multi-track-20260922",
+  "profile_path": "C:\\Users\\runneradmin\\Music\\iTunes",
+  "manifest": {
+    "path": "D:\\a\\_temp\\gha-mcp\\win-acvcphw9\\work\\windows-itunes-itl-research\\scripts\\windows\\reference_generated_multi_track_cases.json",
+    "sha256": "61eb52d7133295b8da3db2d17f61ccd42e247a81ef5664366e4cd8dab174f569"
+  },
+  "environment": {
+    "platform": "Windows-2025Server-10.0.26100-SP0",
+    "python": "3.12.10 (tags/v3.12.10:0cc8128, Apr  8 2025, 12:21:36) [MSC v.1943 64 bit (AMD64)]",
+    "culture": [
+      "English_United States",
+      "1252"
+    ],
+    "timezone": {
+      "argv": [
+        "tzutil",
+        "/g"
+      ],
+      "returncode": 0,
+      "output": "UTC"
+    },
+    "itunes": {
+      "path": "C:\\Program Files\\iTunes\\iTunes.exe",
+      "sha256": "30d91209b5d81c47bbad2da9d89764fcab08bf5cd9af1a9571668001376c5d7d",
+      "expected_version": "12.13.10.3",
+      "authenticode": {
+        "argv": [
+          "pwsh",
+          "-NoLogo",
+          "-NoProfile",
+          "-Command",
+          "$s=Get-AuthenticodeSignature -LiteralPath 'C:\\Program Files\\iTunes\\iTunes.exe'; [pscustomobject]@{Status=[string]$s.Status;Subject=$s.SignerCertificate.Subject;Thumbprint=$s.SignerCertificate.Thumbprint}|ConvertTo-Json -Compress"
+        ],
+        "returncode": 0,
+        "output": "{\"Status\":\"Valid\",\"Subject\":\"CN=Apple Inc., O=Apple Inc., L=Cupertino, S=California, C=US\",\"Thumbprint\":\"5ABF5D5265D74C9EAD19246DFAB611AA5DCFE791\"}\n"
+      }
+    }
+  },
+  "isolation_policy": {
+    "initial_live_inventory": "candidate ITL only",
+    "xml_allowed": false,
+    "previous_itunes_libraries_allowed": false,
+    "damaged_library_modal_allowed": false,
+    "fallback_identity_allowed": false,
+    "normal_quit_required": true
+  },
+  "cases": [
+    {
+      "name": "reference-three-track-raw",
+      "status": "failed",
+      "passed": false,
+      "error": "TypeError: the JSON object must be str, bytes or bytearray, not NoneType",
+      "traceback": "Traceback (most recent call last):\n  File \"D:\\a\\_temp\\gha-mcp\\win-acvcphw9\\work\\windows-itunes-itl-research\\scripts\\windows\\reference_generated_native.py\", line 536, in run\n    outcome = run_case(case, root_parent, evidence, args.cycles, profile)\n              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"D:\\a\\_temp\\gha-mcp\\win-acvcphw9\\work\\windows-itunes-itl-research\\scripts\\windows\\reference_generated_native.py\", line 430, in run_case\n    result[\"candidate_reference_summary\"] = reference_summary(candidate)\n                                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"D:\\a\\_temp\\gha-mcp\\win-acvcphw9\\work\\windows-itunes-itl-research\\scripts\\windows\\reference_generated_native.py\", line 195, in reference_summary\n    return json.loads(process.stdout)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\hostedtoolcache\\windows\\Python\\3.12.10\\x64\\Lib\\json\\__init__.py\", line 339, in loads\n    raise TypeError(f'the JSON object must be str, bytes or bytearray, '\nTypeError: the JSON object must be str, bytes or bytearray, not NoneType\n"
+    },
+    {
+      "name": "reference-three-track-zlib",
+      "status": "failed",
+      "passed": false,
+      "error": "RuntimeError: pinned candidate disagrees with its native-test manifest",
+      "traceback": "Traceback (most recent call last):\n  File \"D:\\a\\_temp\\gha-mcp\\win-acvcphw9\\work\\windows-itunes-itl-research\\scripts\\windows\\reference_generated_native.py\", line 536, in run\n    outcome = run_case(case, root_parent, evidence, args.cycles, profile)\n              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"D:\\a\\_temp\\gha-mcp\\win-acvcphw9\\work\\windows-itunes-itl-research\\scripts\\windows\\reference_generated_native.py\", line 433, in run_case\n    raise RuntimeError(\"pinned candidate disagrees with its native-test manifest\")\nRuntimeError: pinned candidate disagrees with its native-test manifest\n"
+    }
+  ],
+  "passed_cases": 0,
+  "failed_cases": 2,
+  "all_passed": false,
+  "finished_utc": "2026-09-22T01:25:27.617745+00:00"
+}

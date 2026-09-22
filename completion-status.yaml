@@ -40,8 +40,8 @@ qualification:
   guarded_reader: implemented_and_offline_verified_for_observed_profiles
   compatible_editor: partial_exact_candidate_native_qualification
   independent_parser_validator_diff: implemented_without_itlkit_imports
-  independent_from_scratch_generation: implemented_and_native_qualified_for_two_exact_reference_fixtures
-  independent_from_scratch_native_acceptance: verified_for_two_exact_hashes
+  independent_from_scratch_generation: implemented_and_native_qualified_for_four_exact_one_and_three_track_reference_fixtures
+  independent_from_scratch_native_acceptance: verified_for_four_exact_hashes
   smart_playlist: native_nested_framing_observed_but_operand_and_membership_failed
   native_field_matrix: 27_passed_2_failed_exact_cases_only
   external_independent_interop: exact_compressed_structural_roundtrip_only_semantic_gate_failed
@@ -64,7 +64,7 @@ validation:
     nonempty_string_operand_observed: false
   integrated_tests:
     status: passed
-    passed: 1036
+    passed: 1043
     skipped: 5
     failed: 0
     command: python -B -m pytest tests -q -rs -p no:cacheprovider
@@ -76,7 +76,7 @@ validation:
   delivery_manifest: verified
   root_corpus_manifest:
     status: verified
-    itl_files: 236
+    itl_files: 242
   path_time_snapshots:
     parsed: 39
     errors: 0
@@ -106,15 +106,15 @@ completion:
   no_op_roundtrip_pass_rate: null
   edit_roundtrip_pass_rate: null
   new_itl_generation_pass_rate: 100
-  new_itl_generation_cases: 2
-  new_itl_generation_scope: exact_reference_fixture_hashes_only
+  new_itl_generation_cases: 4
+  new_itl_generation_scope: four_exact_one_track_and_three_track_fixture_hashes_only
   repeated_open_save_pass_rate: 100
-  repeated_open_save_cycles: 4
-  repeated_open_save_scope: exact_reference_fixture_hashes_only
+  repeated_open_save_cycles: 8
+  repeated_open_save_scope: four_exact_one_track_and_three_track_fixture_hashes_only
   opened_without_repair: true
   opened_without_backup_restore: true
   opened_without_xml_rebuild: true
-  native_open_scope: exact_reference_fixture_hashes_only
+  native_open_scope: four_exact_one_track_and_three_track_fixture_hashes_only
   critical_unresolved_items: 7
   major_unresolved_items: 11
   evidence_linked_to_every_spec_item: false
@@ -125,7 +125,7 @@ completion:
 prohibited_conclusions:
   - complete_or_universal_itl_read_write_support
   - full_analysis_or_specification_confirmed
-  - native_acceptance_generalized_beyond_two_reference_hashes
+  - native_acceptance_generalized_beyond_four_reference_hashes
   - support_for_all_itunes_versions_or_editions
   - arbitrary_cross_library_or_media_import_support
   - one_hundred_percent_completion

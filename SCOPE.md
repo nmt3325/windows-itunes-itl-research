@@ -7,7 +7,7 @@ This document defines what this repository can claim at integrated evidence base
 - **Specification deliverables:** complete when the files listed in [`completion-status.yaml`](completion-status.yaml) exist, are mutually linked, pass the documented checks, and remain evidence-bounded.
 - **Implementation:** a guarded research implementation with substantial verified behavior.
 - **Universal ITL support:** **not complete and not claimed**.
-- **Template-free generation:** two exact 12.13.10.3 fixture hashes are native-qualified for two isolated cycles each; arbitrary generated libraries and independent reimplementation remain unqualified.
+- **Template-free generation:** four exact 12.13.10.3 one-track/three-track raw/zlib fixture hashes are native-qualified for two isolated cycles each; arbitrary counts, values, generated libraries, and independent reimplementation remain unqualified.
 - **Field matrix:** 27 exact one-property cases passed; Lyrics and Enabled are retained failures.
 - **External implementation:** one compressed structural no-op output passed two native cycles, but PID semantics and mutation/preflight gates failed; independent reimplementation remains false.
 - **Smart Playlist:** native nested-wrapper framing is now observed, but the string operand and membership gates failed; semantic editing/evaluation remains unsupported.
@@ -92,7 +92,7 @@ Tests: the `test_codec_*` files linked in [`EVIDENCE.md`](EVIDENCE.md).
 
 Native qualification requires an exact candidate hash, the intended library selection, stable file/master/track/playlist persistent identities, exact requested values, complete modeled playlist membership/order checks, normal native exit, and reopen/save validation. The strongest historical writer evidence uses two actual save/reload cycles per candidate. Empty-library fallback is failure.
 
-Evidence: [`docs/dynamic.md`](docs/dynamic.md), [`evidence/native/research/`](evidence/native/research/), [`evidence/native/phase3/`](evidence/native/phase3/), and the exact template-free qualification in [`evidence/native/reference-generated-20260922-passed/`](evidence/native/reference-generated-20260922-passed/).
+Evidence: [`docs/dynamic.md`](docs/dynamic.md), [`evidence/native/research/`](evidence/native/research/), [`evidence/native/phase3/`](evidence/native/phase3/), and the exact template-free qualifications in [`evidence/native/reference-generated-20260922-passed/`](evidence/native/reference-generated-20260922-passed/) and [`evidence/native/reference-multi-track-20260922-v2/`](evidence/native/reference-multi-track-20260922-v2/).
 
 Native qualification attaches to the exact candidate and stated operation, not to the whole format.
 

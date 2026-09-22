@@ -6,12 +6,14 @@ exercise the fail-closed tree and identity gates used after native capture.
 from __future__ import annotations
 
 import datetime as dt
+import json
 
 import pytest
 
 pytest.importorskip("win32gui")
 
 from scripts.windows import native_field_matrix as field_matrix
+from scripts.windows import reference_generated_native as reference_native
 from scripts.windows import smart_playlist_native as smart_native
 
 
@@ -98,3 +100,17 @@ def test_target_track_requires_exactly_one_match() -> None:
         field_matrix.target_track({"tracks": []})
     with pytest.raises(RuntimeError, match="exactly one target track"):
         field_matrix.target_track({"tracks": [target, dict(target)]})
+
+
+def test_reference_summary_uses_utf8_for_unicode_candidates() -> None:
+    manifest_path = reference_native.WINDOWS_SCRIPTS / "reference_generated_multi_track_cases.json"
+    cases = json.loads(manifest_path.read_text(encoding="utf-8"))
+    case = cases[0]
+    summary = reference_native.reference_summary(reference_native.REPO_ROOT / case["candidate"])
+
+    assert [row["name"] for row in summary["tracks"]] == [
+        "Reference Alpha",
+        "Reference Beta 日本語 🎵",
+        "Reference Gamma e\u0301",
+    ]
+    assert reference_native.reference_summary_errors(case["expected"], summary) == []

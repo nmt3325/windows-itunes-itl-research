@@ -85,6 +85,8 @@ def build_corpus() -> dict:
         "evidence/smart-playlist/corpus-census.json",
         "evidence/smart-playlist/prior-art-manifest.json",
         "evidence/native/reference-generated-20260922-passed/qualification-summary.json",
+        "evidence/native/reference-multi-track-20260922-v2/qualification-summary.json",
+        "evidence/native/reference-multi-track-20260922/summary.json",
         "evidence/native/field-matrix-20260922/summary.json",
         "evidence/independent/itl-rs-20260922/conformance-summary.json",
         "evidence/native/smart-playlist-default-20260922/probe-series-summary.json",
@@ -99,7 +101,7 @@ def build_corpus() -> dict:
         "target": "Windows Apple desktop x64 iTunes 12.13.10.3; secondary observed 12.13.9.1",
         "qualification": {
             "complete_analysis_claim": False,
-            "reference_writer_from_scratch_native_acceptance": "verified_for_two_exact_hashes",
+            "reference_writer_from_scratch_native_acceptance": "verified_for_four_exact_hashes",
             "reference_writer_acceptance_boundary": "No arbitrary values, counts, media kinds, versions, or unknown fields are implied.",
             "fresh_native_library_note": "created by iTunes itself; not evidence that the reference writer is accepted",
             "path_time_note": "native iTunes saves for a bounded matrix; not arbitrary writer acceptance",

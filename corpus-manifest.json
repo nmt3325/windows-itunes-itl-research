@@ -5,7 +5,7 @@
   "target": "Windows Apple desktop x64 iTunes 12.13.10.3; secondary observed 12.13.9.1",
   "qualification": {
     "complete_analysis_claim": false,
-    "reference_writer_from_scratch_native_acceptance": "verified_for_two_exact_hashes",
+    "reference_writer_from_scratch_native_acceptance": "verified_for_four_exact_hashes",
     "reference_writer_acceptance_boundary": "No arbitrary values, counts, media kinds, versions, or unknown fields are implied.",
     "fresh_native_library_note": "created by iTunes itself; not evidence that the reference writer is accepted",
     "path_time_note": "native iTunes saves for a bounded matrix; not arbitrary writer acceptance",
@@ -14,11 +14,11 @@
     "smart_playlist_note": "native nested framing observed; operand and membership gates failed"
   },
   "summary": {
-    "itl_file_count": 236,
+    "itl_file_count": 242,
     "by_class": {
-      "independent_from_scratch_generated": 2,
+      "independent_from_scratch_generated": 4,
       "external_independent_interop_candidate": 5,
-      "archived_native_or_exact_candidate": 184,
+      "archived_native_or_exact_candidate": 188,
       "native_itunes_fresh_library": 6,
       "native_itunes_path_time_sequence": 39
     }
@@ -26,8 +26,8 @@
   "referenced_manifests_and_analyses": [
     {
       "path": "TEST_CORPUS/corpus-manifest.json",
-      "bytes": 1059,
-      "sha256": "b17b3aefae25d8943393c908839f6100f919c6684e401ae7dbc2b55106bf69b8"
+      "bytes": 1993,
+      "sha256": "b83336df3a66629e2efd99a2bab9bc132a7877e0db43c7e2258e4c5e826991e9"
     },
     {
       "path": "evidence/native/fresh-20260921/manifest.json",
@@ -53,6 +53,16 @@
       "path": "evidence/native/reference-generated-20260922-passed/qualification-summary.json",
       "bytes": 4625,
       "sha256": "030ad01381b01077bae1d00e1a667b21da029902f64fe31709ab7a914d3baece"
+    },
+    {
+      "path": "evidence/native/reference-multi-track-20260922-v2/qualification-summary.json",
+      "bytes": 6310,
+      "sha256": "3edb35dd7a851b695bfb324d884ae6a68dd01b1982890fe599743240568cb34c"
+    },
+    {
+      "path": "evidence/native/reference-multi-track-20260922/summary.json",
+      "bytes": 4394,
+      "sha256": "979ac67b338a68b7a2919f3dd33dcae4ac4be1e7f9486b09e889545c8bcb87b3"
     },
     {
       "path": "evidence/native/field-matrix-20260922/summary.json",
@@ -88,6 +98,24 @@
       "template_reused": false,
       "native_acceptance": "verified",
       "native_acceptance_evidence": "evidence/native/reference-generated-20260922-passed/cases/reference-one-track-zlib/result.json"
+    },
+    {
+      "path": "TEST_CORPUS/generated/reference-three-track-raw.itl",
+      "bytes": 12564,
+      "sha256": "7d9b274765471d2d77440049273b210138e36b998d39d4790fe750d60c32406b",
+      "corpus_class": "independent_from_scratch_generated",
+      "template_reused": false,
+      "native_acceptance": "verified",
+      "native_acceptance_evidence": "evidence/native/reference-multi-track-20260922-v2/cases/reference-three-track-raw/result.json"
+    },
+    {
+      "path": "TEST_CORPUS/generated/reference-three-track-zlib.itl",
+      "bytes": 879,
+      "sha256": "73dbb405fbd2b68b62d29913b697a72100f8606cdb2ee704c55908e4de389e17",
+      "corpus_class": "independent_from_scratch_generated",
+      "template_reused": false,
+      "native_acceptance": "verified",
+      "native_acceptance_evidence": "evidence/native/reference-multi-track-20260922-v2/cases/reference-three-track-zlib/result.json"
     },
     {
       "path": "evidence/independent/itl-rs-20260922/candidate-zlib-equal-length-title.itl",
@@ -897,6 +925,34 @@
       "path": "evidence/native/reference-generated-20260922/cases/reference-one-track-zlib/cycle-1/live-at-failure.itl",
       "bytes": 1130,
       "sha256": "4e6dee586feb0ddf61abc53e49671d4fe72cd64b788f3a6f9e98940320a51b3c",
+      "corpus_class": "archived_native_or_exact_candidate",
+      "qualification": "see per-case evidence; presence is not acceptance"
+    },
+    {
+      "path": "evidence/native/reference-multi-track-20260922-v2/cases/reference-three-track-raw/cycle-1/native-saved.itl",
+      "bytes": 4475,
+      "sha256": "091f606e730ae0e6befb5cb3403decad74beda9454e2eb82e3fccff78fd67c99",
+      "corpus_class": "archived_native_or_exact_candidate",
+      "qualification": "see per-case evidence; presence is not acceptance"
+    },
+    {
+      "path": "evidence/native/reference-multi-track-20260922-v2/cases/reference-three-track-raw/cycle-2/native-saved.itl",
+      "bytes": 4496,
+      "sha256": "6c2604775a87a8558a492f326c56af3b7b95b5220686f38611186061c73cfad5",
+      "corpus_class": "archived_native_or_exact_candidate",
+      "qualification": "see per-case evidence; presence is not acceptance"
+    },
+    {
+      "path": "evidence/native/reference-multi-track-20260922-v2/cases/reference-three-track-zlib/cycle-1/native-saved.itl",
+      "bytes": 4435,
+      "sha256": "09cd4f08145a4b2d914f20489d1213f71685344b87722d59d0f02041fb84f834",
+      "corpus_class": "archived_native_or_exact_candidate",
+      "qualification": "see per-case evidence; presence is not acceptance"
+    },
+    {
+      "path": "evidence/native/reference-multi-track-20260922-v2/cases/reference-three-track-zlib/cycle-2/native-saved.itl",
+      "bytes": 4454,
+      "sha256": "3c31307ff0e2ef5e7255068c679741c23d7f6d4a4c63ee41681cf4ca9ad99547",
       "corpus_class": "archived_native_or_exact_candidate",
       "qualification": "see per-case evidence; presence is not acceptance"
     },

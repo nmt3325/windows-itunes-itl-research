@@ -1,0 +1,1149 @@
+{
+  "cycle": 1,
+  "started_utc": "2026-09-22T01:32:59.483188+00:00",
+  "expected_prelaunch_sha256": "73dbb405fbd2b68b62d29913b697a72100f8606cdb2ee704c55908e4de389e17",
+  "ui": [
+    {
+      "action": "dismiss_audio_warning",
+      "pid": 964,
+      "window": {
+        "hwnd": 3342892,
+        "pid": 964,
+        "class": "iTunesCustomModalDialog",
+        "title": "iTunes",
+        "children": [
+          {
+            "hwnd": 10551408,
+            "class": "Static",
+            "text": "iTunes has detected a problem with your audio configuration.\rAudio/Video playback may not operate properly.",
+            "id": 101,
+            "enabled": true,
+            "visible": true
+          },
+          {
+            "hwnd": 3277106,
+            "class": "Static",
+            "text": "",
+            "id": 103,
+            "enabled": true,
+            "visible": false
+          },
+          {
+            "hwnd": 9568794,
+            "class": "Button",
+            "text": "",
+            "id": 104,
+            "enabled": true,
+            "visible": false
+          },
+          {
+            "hwnd": 9568796,
+            "class": "Button",
+            "text": "OK",
+            "id": 1,
+            "enabled": true,
+            "visible": true
+          },
+          {
+            "hwnd": 8192548,
+            "class": "Button",
+            "text": "More Info",
+            "id": 105,
+            "enabled": true,
+            "visible": false
+          },
+          {
+            "hwnd": 8847932,
+            "class": "Static",
+            "text": "",
+            "id": 102,
+            "enabled": true,
+            "visible": true
+          }
+        ]
+      }
+    }
+  ],
+  "prelaunch": {
+    "path": "D:\\a\\_temp\\reference-multi-track-20260922-v2\\reference-three-track-zlib\\live\\iTunes Library.itl",
+    "bytes": 879,
+    "mtime_ns": 1790040310873666200,
+    "sha256": "73dbb405fbd2b68b62d29913b697a72100f8606cdb2ee704c55908e4de389e17"
+  },
+  "inventory_before": [
+    {
+      "path": "iTunes Library.itl",
+      "kind": "file",
+      "bytes": 879,
+      "sha256": "73dbb405fbd2b68b62d29913b697a72100f8606cdb2ee704c55908e4de389e17"
+    }
+  ],
+  "forbidden_before": [],
+  "itunes_pid": 964,
+  "post_readiness_settle_seconds": 3.0,
+  "worker_command": [
+    "C:\\hostedtoolcache\\windows\\Python\\3.12.10\\x64\\python.exe",
+    "-B",
+    "-u",
+    "D:\\a\\_temp\\gha-mcp\\win-acvcphw9\\work\\windows-itunes-itl-research\\scripts\\windows\\reference_generated_native.py",
+    "_worker",
+    "--spec",
+    "D:\\a\\_temp\\gha-mcp\\win-acvcphw9\\work\\windows-itunes-itl-research\\evidence\\native\\reference-multi-track-20260922-v2\\cases\\reference-three-track-zlib\\cycle-1\\worker-spec.json",
+    "--output",
+    "D:\\a\\_temp\\gha-mcp\\win-acvcphw9\\work\\windows-itunes-itl-research\\evidence\\native\\reference-multi-track-20260922-v2\\cases\\reference-three-track-zlib\\cycle-1\\com.json"
+  ],
+  "worker_exit_code": 0,
+  "worker": {
+    "schema_version": 1,
+    "started_utc": "2026-09-22T01:33:06.913723+00:00",
+    "spec": {
+      "schema_version": 1,
+      "case": "reference-three-track-zlib",
+      "cycle": 1,
+      "expected": {
+        "version": "12.13.10.3",
+        "library_persistent_id": "5245464552454E43",
+        "track_count": 3,
+        "tracks": [
+          {
+            "persistent_id": "A17E100000000001",
+            "name": "Compressed Alpha"
+          },
+          {
+            "persistent_id": "A17E100000000002",
+            "name": "Compressed Beta 日本語"
+          },
+          {
+            "persistent_id": "A17E100000000003",
+            "name": "Compressed Gamma 🚒"
+          }
+        ],
+        "playlists": [
+          {
+            "persistent_id": "A17E200000000001",
+            "name": "Compressed Trio",
+            "members": [
+              "A17E100000000001",
+              "A17E100000000002",
+              "A17E100000000003"
+            ]
+          }
+        ]
+      }
+    },
+    "samples": [
+      {
+        "index": 1,
+        "state": {
+          "version": "12.13.10.3",
+          "library_persistent_id": "5245464552454E43",
+          "tracks": [
+            {
+              "persistent_id": "A17E100000000001",
+              "Name": "Compressed Alpha",
+              "Artist": "",
+              "Album": "",
+              "AlbumArtist": "",
+              "Composer": "",
+              "Genre": "",
+              "Comment": "",
+              "Grouping": "",
+              "Lyrics": "",
+              "SortName": "",
+              "SortArtist": "",
+              "SortAlbum": "",
+              "SortAlbumArtist": "",
+              "Rating": 0,
+              "AlbumRating": 0,
+              "PlayedCount": 0,
+              "PlayedDate": "1899-12-30T00:00:00+00:00",
+              "SkippedCount": 0,
+              "SkippedDate": "1899-12-30T00:00:00+00:00",
+              "DateAdded": "2026-06-23T06:24:00+00:00",
+              "ModificationDate": "1899-12-30T00:00:00+00:00",
+              "TrackNumber": 0,
+              "TrackCount": 0,
+              "DiscNumber": 0,
+              "DiscCount": 0,
+              "Year": 0,
+              "BPM": 0,
+              "Compilation": false,
+              "Enabled": true,
+              "VolumeAdjustment": 0,
+              "Location": "",
+              "Duration": 0,
+              "SampleRate": 0,
+              "BitRate": 0,
+              "Size": 0,
+              "TrackDatabaseID": 71,
+              "TrackID": 80,
+              "PlayOrderIndex": 1,
+              "Unplayed": true,
+              "RatingKind": 1,
+              "AlbumRatingKind": 1
+            },
+            {
+              "persistent_id": "A17E100000000002",
+              "Name": "Compressed Beta 日本語",
+              "Artist": "",
+              "Album": "",
+              "AlbumArtist": "",
+              "Composer": "",
+              "Genre": "",
+              "Comment": "",
+              "Grouping": "",
+              "Lyrics": "",
+              "SortName": "",
+              "SortArtist": "",
+              "SortAlbum": "",
+              "SortAlbumArtist": "",
+              "Rating": 0,
+              "AlbumRating": 0,
+              "PlayedCount": 0,
+              "PlayedDate": "1899-12-30T00:00:00+00:00",
+              "SkippedCount": 0,
+              "SkippedDate": "1899-12-30T00:00:00+00:00",
+              "DateAdded": "2026-06-23T06:24:00+00:00",
+              "ModificationDate": "1899-12-30T00:00:00+00:00",
+              "TrackNumber": 0,
+              "TrackCount": 0,
+              "DiscNumber": 0,
+              "DiscCount": 0,
+              "Year": 0,
+              "BPM": 0,
+              "Compilation": false,
+              "Enabled": true,
+              "VolumeAdjustment": 0,
+              "Location": "",
+              "Duration": 0,
+              "SampleRate": 0,
+              "BitRate": 0,
+              "Size": 0,
+              "TrackDatabaseID": 73,
+              "TrackID": 81,
+              "PlayOrderIndex": 2,
+              "Unplayed": true,
+              "RatingKind": 1,
+              "AlbumRatingKind": 1
+            },
+            {
+              "persistent_id": "A17E100000000003",
+              "Name": "Compressed Gamma 🚒",
+              "Artist": "",
+              "Album": "",
+              "AlbumArtist": "",
+              "Composer": "",
+              "Genre": "",
+              "Comment": "",
+              "Grouping": "",
+              "Lyrics": "",
+              "SortName": "",
+              "SortArtist": "",
+              "SortAlbum": "",
+              "SortAlbumArtist": "",
+              "Rating": 0,
+              "AlbumRating": 0,
+              "PlayedCount": 0,
+              "PlayedDate": "1899-12-30T00:00:00+00:00",
+              "SkippedCount": 0,
+              "SkippedDate": "1899-12-30T00:00:00+00:00",
+              "DateAdded": "2026-06-23T06:24:00+00:00",
+              "ModificationDate": "1899-12-30T00:00:00+00:00",
+              "TrackNumber": 0,
+              "TrackCount": 0,
+              "DiscNumber": 0,
+              "DiscCount": 0,
+              "Year": 0,
+              "BPM": 0,
+              "Compilation": false,
+              "Enabled": true,
+              "VolumeAdjustment": 0,
+              "Location": "",
+              "Duration": 0,
+              "SampleRate": 0,
+              "BitRate": 0,
+              "Size": 0,
+              "TrackDatabaseID": 75,
+              "TrackID": 82,
+              "PlayOrderIndex": 3,
+              "Unplayed": true,
+              "RatingKind": 1,
+              "AlbumRatingKind": 1
+            }
+          ],
+          "playlists": [
+            {
+              "name": "Library",
+              "persistent_id": "5245464552454E43",
+              "kind": 1,
+              "members": [
+                {
+                  "persistent_id": "A17E100000000001",
+                  "name": "Compressed Alpha",
+                  "play_order_index": 1
+                },
+                {
+                  "persistent_id": "A17E100000000002",
+                  "name": "Compressed Beta 日本語",
+                  "play_order_index": 2
+                },
+                {
+                  "persistent_id": "A17E100000000003",
+                  "name": "Compressed Gamma 🚒",
+                  "play_order_index": 3
+                }
+              ],
+              "special_kind": null
+            },
+            {
+              "name": "Music",
+              "persistent_id": "A422508BC93D49F8",
+              "kind": 2,
+              "members": [
+                {
+                  "persistent_id": "A17E100000000001",
+                  "name": "Compressed Alpha",
+                  "play_order_index": 1
+                },
+                {
+                  "persistent_id": "A17E100000000002",
+                  "name": "Compressed Beta 日本語",
+                  "play_order_index": 2
+                },
+                {
+                  "persistent_id": "A17E100000000003",
+                  "name": "Compressed Gamma 🚒",
+                  "play_order_index": 3
+                }
+              ],
+              "special_kind": 6
+            },
+            {
+              "name": "Movies",
+              "persistent_id": "190D7EAEC3F9C4AA",
+              "kind": 2,
+              "members": [],
+              "special_kind": 7
+            },
+            {
+              "name": "TV Shows",
+              "persistent_id": "04B6D02D26B632D8",
+              "kind": 2,
+              "members": [],
+              "special_kind": 8
+            },
+            {
+              "name": "Podcasts",
+              "persistent_id": "1240F574803E1145",
+              "kind": 2,
+              "members": [],
+              "special_kind": 3
+            },
+            {
+              "name": "Audiobooks",
+              "persistent_id": "1403DFBF5034D7C8",
+              "kind": 2,
+              "members": [],
+              "special_kind": 9
+            },
+            {
+              "name": "Genius",
+              "persistent_id": "F00F498F7F5CD644",
+              "kind": 2,
+              "members": [],
+              "special_kind": 11
+            },
+            {
+              "name": "Compressed Trio",
+              "persistent_id": "A17E200000000001",
+              "kind": 2,
+              "members": [
+                {
+                  "persistent_id": "A17E100000000001",
+                  "name": "Compressed Alpha",
+                  "play_order_index": 1
+                },
+                {
+                  "persistent_id": "A17E100000000002",
+                  "name": "Compressed Beta 日本語",
+                  "play_order_index": 2
+                },
+                {
+                  "persistent_id": "A17E100000000003",
+                  "name": "Compressed Gamma 🚒",
+                  "play_order_index": 3
+                }
+              ],
+              "special_kind": 0
+            }
+          ],
+          "track_count": 3
+        },
+        "errors": []
+      },
+      {
+        "index": 2,
+        "state": {
+          "version": "12.13.10.3",
+          "library_persistent_id": "5245464552454E43",
+          "tracks": [
+            {
+              "persistent_id": "A17E100000000001",
+              "Name": "Compressed Alpha",
+              "Artist": "",
+              "Album": "",
+              "AlbumArtist": "",
+              "Composer": "",
+              "Genre": "",
+              "Comment": "",
+              "Grouping": "",
+              "Lyrics": "",
+              "SortName": "",
+              "SortArtist": "",
+              "SortAlbum": "",
+              "SortAlbumArtist": "",
+              "Rating": 0,
+              "AlbumRating": 0,
+              "PlayedCount": 0,
+              "PlayedDate": "1899-12-30T00:00:00+00:00",
+              "SkippedCount": 0,
+              "SkippedDate": "1899-12-30T00:00:00+00:00",
+              "DateAdded": "2026-06-23T06:24:00+00:00",
+              "ModificationDate": "1899-12-30T00:00:00+00:00",
+              "TrackNumber": 0,
+              "TrackCount": 0,
+              "DiscNumber": 0,
+              "DiscCount": 0,
+              "Year": 0,
+              "BPM": 0,
+              "Compilation": false,
+              "Enabled": true,
+              "VolumeAdjustment": 0,
+              "Location": "",
+              "Duration": 0,
+              "SampleRate": 0,
+              "BitRate": 0,
+              "Size": 0,
+              "TrackDatabaseID": 71,
+              "TrackID": 80,
+              "PlayOrderIndex": 1,
+              "Unplayed": true,
+              "RatingKind": 1,
+              "AlbumRatingKind": 1
+            },
+            {
+              "persistent_id": "A17E100000000002",
+              "Name": "Compressed Beta 日本語",
+              "Artist": "",
+              "Album": "",
+              "AlbumArtist": "",
+              "Composer": "",
+              "Genre": "",
+              "Comment": "",
+              "Grouping": "",
+              "Lyrics": "",
+              "SortName": "",
+              "SortArtist": "",
+              "SortAlbum": "",
+              "SortAlbumArtist": "",
+              "Rating": 0,
+              "AlbumRating": 0,
+              "PlayedCount": 0,
+              "PlayedDate": "1899-12-30T00:00:00+00:00",
+              "SkippedCount": 0,
+              "SkippedDate": "1899-12-30T00:00:00+00:00",
+              "DateAdded": "2026-06-23T06:24:00+00:00",
+              "ModificationDate": "1899-12-30T00:00:00+00:00",
+              "TrackNumber": 0,
+              "TrackCount": 0,
+              "DiscNumber": 0,
+              "DiscCount": 0,
+              "Year": 0,
+              "BPM": 0,
+              "Compilation": false,
+              "Enabled": true,
+              "VolumeAdjustment": 0,
+              "Location": "",
+              "Duration": 0,
+              "SampleRate": 0,
+              "BitRate": 0,
+              "Size": 0,
+              "TrackDatabaseID": 73,
+              "TrackID": 81,
+              "PlayOrderIndex": 2,
+              "Unplayed": true,
+              "RatingKind": 1,
+              "AlbumRatingKind": 1
+            },
+            {
+              "persistent_id": "A17E100000000003",
+              "Name": "Compressed Gamma 🚒",
+              "Artist": "",
+              "Album": "",
+              "AlbumArtist": "",
+              "Composer": "",
+              "Genre": "",
+              "Comment": "",
+              "Grouping": "",
+              "Lyrics": "",
+              "SortName": "",
+              "SortArtist": "",
+              "SortAlbum": "",
+              "SortAlbumArtist": "",
+              "Rating": 0,
+              "AlbumRating": 0,
+              "PlayedCount": 0,
+              "PlayedDate": "1899-12-30T00:00:00+00:00",
+              "SkippedCount": 0,
+              "SkippedDate": "1899-12-30T00:00:00+00:00",
+              "DateAdded": "2026-06-23T06:24:00+00:00",
+              "ModificationDate": "1899-12-30T00:00:00+00:00",
+              "TrackNumber": 0,
+              "TrackCount": 0,
+              "DiscNumber": 0,
+              "DiscCount": 0,
+              "Year": 0,
+              "BPM": 0,
+              "Compilation": false,
+              "Enabled": true,
+              "VolumeAdjustment": 0,
+              "Location": "",
+              "Duration": 0,
+              "SampleRate": 0,
+              "BitRate": 0,
+              "Size": 0,
+              "TrackDatabaseID": 75,
+              "TrackID": 82,
+              "PlayOrderIndex": 3,
+              "Unplayed": true,
+              "RatingKind": 1,
+              "AlbumRatingKind": 1
+            }
+          ],
+          "playlists": [
+            {
+              "name": "Library",
+              "persistent_id": "5245464552454E43",
+              "kind": 1,
+              "members": [
+                {
+                  "persistent_id": "A17E100000000001",
+                  "name": "Compressed Alpha",
+                  "play_order_index": 1
+                },
+                {
+                  "persistent_id": "A17E100000000002",
+                  "name": "Compressed Beta 日本語",
+                  "play_order_index": 2
+                },
+                {
+                  "persistent_id": "A17E100000000003",
+                  "name": "Compressed Gamma 🚒",
+                  "play_order_index": 3
+                }
+              ],
+              "special_kind": null
+            },
+            {
+              "name": "Music",
+              "persistent_id": "A422508BC93D49F8",
+              "kind": 2,
+              "members": [
+                {
+                  "persistent_id": "A17E100000000001",
+                  "name": "Compressed Alpha",
+                  "play_order_index": 1
+                },
+                {
+                  "persistent_id": "A17E100000000002",
+                  "name": "Compressed Beta 日本語",
+                  "play_order_index": 2
+                },
+                {
+                  "persistent_id": "A17E100000000003",
+                  "name": "Compressed Gamma 🚒",
+                  "play_order_index": 3
+                }
+              ],
+              "special_kind": 6
+            },
+            {
+              "name": "Movies",
+              "persistent_id": "190D7EAEC3F9C4AA",
+              "kind": 2,
+              "members": [],
+              "special_kind": 7
+            },
+            {
+              "name": "TV Shows",
+              "persistent_id": "04B6D02D26B632D8",
+              "kind": 2,
+              "members": [],
+              "special_kind": 8
+            },
+            {
+              "name": "Podcasts",
+              "persistent_id": "1240F574803E1145",
+              "kind": 2,
+              "members": [],
+              "special_kind": 3
+            },
+            {
+              "name": "Audiobooks",
+              "persistent_id": "1403DFBF5034D7C8",
+              "kind": 2,
+              "members": [],
+              "special_kind": 9
+            },
+            {
+              "name": "Genius",
+              "persistent_id": "F00F498F7F5CD644",
+              "kind": 2,
+              "members": [],
+              "special_kind": 11
+            },
+            {
+              "name": "Compressed Trio",
+              "persistent_id": "A17E200000000001",
+              "kind": 2,
+              "members": [
+                {
+                  "persistent_id": "A17E100000000001",
+                  "name": "Compressed Alpha",
+                  "play_order_index": 1
+                },
+                {
+                  "persistent_id": "A17E100000000002",
+                  "name": "Compressed Beta 日本語",
+                  "play_order_index": 2
+                },
+                {
+                  "persistent_id": "A17E100000000003",
+                  "name": "Compressed Gamma 🚒",
+                  "play_order_index": 3
+                }
+              ],
+              "special_kind": 0
+            }
+          ],
+          "track_count": 3
+        },
+        "errors": []
+      }
+    ],
+    "errors": [],
+    "accepted": true,
+    "quit_requested": true,
+    "finished_utc": "2026-09-22T01:33:09.583549+00:00"
+  },
+  "itunes_exit_code": 0,
+  "inventory_after": [
+    {
+      "path": "Album Artwork",
+      "kind": "directory"
+    },
+    {
+      "path": "Album Artwork/Cache",
+      "kind": "directory"
+    },
+    {
+      "path": "Album Artwork/Custom",
+      "kind": "directory"
+    },
+    {
+      "path": "Album Artwork/Download",
+      "kind": "directory"
+    },
+    {
+      "path": "Album Artwork/Generated",
+      "kind": "directory"
+    },
+    {
+      "path": "Album Artwork/Store",
+      "kind": "directory"
+    },
+    {
+      "path": "iTunes Library Extras.itdb",
+      "kind": "file",
+      "bytes": 16384,
+      "sha256": "e1937a7a396264a1d85599295ce5d66fe16e5771e91be496987a16b26d406553"
+    },
+    {
+      "path": "iTunes Library Genius.itdb",
+      "kind": "file",
+      "bytes": 32768,
+      "sha256": "ee93248a5c7c0895dc883eb82434b1f9ea7e91f2a700d34d000b592c1730a0f7"
+    },
+    {
+      "path": "iTunes Library.itl",
+      "kind": "file",
+      "bytes": 4435,
+      "sha256": "09cd4f08145a4b2d914f20489d1213f71685344b87722d59d0f02041fb84f834"
+    },
+    {
+      "path": "iTunes Media",
+      "kind": "directory"
+    },
+    {
+      "path": "iTunes Media/.iTunes Preferences.plist",
+      "kind": "file",
+      "bytes": 305,
+      "sha256": "216413854224bbde95e0bf27ba0d3d591ad23ff5908d49cc0b62d4ed1e1171ff"
+    },
+    {
+      "path": "iTunes Media/Automatically Add to iTunes",
+      "kind": "directory"
+    },
+    {
+      "path": "sentinel",
+      "kind": "file",
+      "bytes": 8,
+      "sha256": "7fd2326e6e7f2c00c03b8a57e3b3f0f5267bf22d6ddfa098f153fce7f8c18a53"
+    }
+  ],
+  "forbidden_after": [],
+  "saved": {
+    "path": "D:\\a\\_temp\\gha-mcp\\win-acvcphw9\\work\\windows-itunes-itl-research\\evidence\\native\\reference-multi-track-20260922-v2\\cases\\reference-three-track-zlib\\cycle-1\\native-saved.itl",
+    "bytes": 4435,
+    "mtime_ns": 1790040792676626700,
+    "sha256": "09cd4f08145a4b2d914f20489d1213f71685344b87722d59d0f02041fb84f834"
+  },
+  "reference_summary": {
+    "envelope": {
+      "compression_flag": 1,
+      "declared_counts": {
+        "albums": 1,
+        "artists": 1,
+        "playlists": 15,
+        "sections": 10,
+        "tracks": 3
+      },
+      "encryption_flag": 2,
+      "header_length": 144,
+      "payload_byteorder": "little",
+      "trailer_length": 0
+    },
+    "file_persistent_id": "5245464552454E43",
+    "playlists": [
+      {
+        "header_length": 3500,
+        "members": [
+          {
+            "item_id": 80,
+            "item_persistent_id": "A17E600000000001",
+            "order_token": 1,
+            "track_id": 71,
+            "track_persistent_id": "A17E100000000001"
+          },
+          {
+            "item_id": 81,
+            "item_persistent_id": "A17E600000000002",
+            "order_token": 2,
+            "track_id": 73,
+            "track_persistent_id": "A17E100000000002"
+          },
+          {
+            "item_id": 82,
+            "item_persistent_id": "A17E600000000003",
+            "order_token": 3,
+            "track_id": 75,
+            "track_persistent_id": "A17E100000000003"
+          }
+        ],
+        "name": "####!####",
+        "persistent_id": "5245464552454E43",
+        "playlist_id": 77,
+        "smart_rule_objects": 0,
+        "special_object": false
+      },
+      {
+        "header_length": 3500,
+        "members": [
+          {
+            "item_id": 129,
+            "item_persistent_id": "9F234FB6A742C36B",
+            "order_token": 129,
+            "track_id": 71,
+            "track_persistent_id": "A17E100000000001"
+          },
+          {
+            "item_id": 130,
+            "item_persistent_id": "8F2FE792649576B8",
+            "order_token": 130,
+            "track_id": 73,
+            "track_persistent_id": "A17E100000000002"
+          },
+          {
+            "item_id": 131,
+            "item_persistent_id": "3BD95F8098FEE7A4",
+            "order_token": 131,
+            "track_id": 75,
+            "track_persistent_id": "A17E100000000003"
+          }
+        ],
+        "name": "Downloaded",
+        "persistent_id": "BF596DD3034DBC82",
+        "playlist_id": 126,
+        "smart_rule_objects": 2,
+        "special_object": false
+      },
+      {
+        "header_length": 3500,
+        "members": [
+          {
+            "item_id": 99,
+            "item_persistent_id": "6E5A97F8C2530459",
+            "order_token": 99,
+            "track_id": 71,
+            "track_persistent_id": "A17E100000000001"
+          },
+          {
+            "item_id": 100,
+            "item_persistent_id": "13FF15774D9299B9",
+            "order_token": 100,
+            "track_id": 73,
+            "track_persistent_id": "A17E100000000002"
+          },
+          {
+            "item_id": 101,
+            "item_persistent_id": "098CE5AB7F58B496",
+            "order_token": 101,
+            "track_id": 75,
+            "track_persistent_id": "A17E100000000003"
+          }
+        ],
+        "name": "Music",
+        "persistent_id": "A422508BC93D49F8",
+        "playlist_id": 96,
+        "smart_rule_objects": 2,
+        "special_object": false
+      },
+      {
+        "header_length": 3500,
+        "members": [],
+        "name": "Music Videos",
+        "persistent_id": "6278AB1DBD415D0D",
+        "playlist_id": 117,
+        "smart_rule_objects": 2,
+        "special_object": false
+      },
+      {
+        "header_length": 3500,
+        "members": [],
+        "name": "TV & Movies",
+        "persistent_id": "B1693FADA28896A0",
+        "playlist_id": 123,
+        "smart_rule_objects": 2,
+        "special_object": false
+      },
+      {
+        "header_length": 3500,
+        "members": [],
+        "name": "Rentals",
+        "persistent_id": "1040E990353DDCDB",
+        "playlist_id": 111,
+        "smart_rule_objects": 2,
+        "special_object": false
+      },
+      {
+        "header_length": 3500,
+        "members": [],
+        "name": "Downloaded",
+        "persistent_id": "2782879669C8EA69",
+        "playlist_id": 132,
+        "smart_rule_objects": 2,
+        "special_object": false
+      },
+      {
+        "header_length": 3500,
+        "members": [],
+        "name": "Movies",
+        "persistent_id": "190D7EAEC3F9C4AA",
+        "playlist_id": 102,
+        "smart_rule_objects": 2,
+        "special_object": false
+      },
+      {
+        "header_length": 3500,
+        "members": [],
+        "name": "Home Videos",
+        "persistent_id": "23A2FB05F9ACD751",
+        "playlist_id": 120,
+        "smart_rule_objects": 2,
+        "special_object": false
+      },
+      {
+        "header_length": 3500,
+        "members": [],
+        "name": "Downloaded",
+        "persistent_id": "80891B034D88C9E1",
+        "playlist_id": 135,
+        "smart_rule_objects": 2,
+        "special_object": false
+      },
+      {
+        "header_length": 3500,
+        "members": [],
+        "name": "TV Shows",
+        "persistent_id": "04B6D02D26B632D8",
+        "playlist_id": 105,
+        "smart_rule_objects": 2,
+        "special_object": false
+      },
+      {
+        "header_length": 3500,
+        "members": [],
+        "name": "Podcasts",
+        "persistent_id": "1240F574803E1145",
+        "playlist_id": 93,
+        "smart_rule_objects": 0,
+        "special_object": true
+      },
+      {
+        "header_length": 3500,
+        "members": [],
+        "name": "Audiobooks",
+        "persistent_id": "1403DFBF5034D7C8",
+        "playlist_id": 108,
+        "smart_rule_objects": 2,
+        "special_object": false
+      },
+      {
+        "header_length": 3500,
+        "members": [],
+        "name": "Genius",
+        "persistent_id": "F00F498F7F5CD644",
+        "playlist_id": 114,
+        "smart_rule_objects": 2,
+        "special_object": false
+      },
+      {
+        "header_length": 3500,
+        "members": [
+          {
+            "item_id": 86,
+            "item_persistent_id": "A17E300000000001",
+            "order_token": 1,
+            "track_id": 71,
+            "track_persistent_id": "A17E100000000001"
+          },
+          {
+            "item_id": 87,
+            "item_persistent_id": "A17E300000000002",
+            "order_token": 2,
+            "track_id": 73,
+            "track_persistent_id": "A17E100000000002"
+          },
+          {
+            "item_id": 88,
+            "item_persistent_id": "A17E300000000003",
+            "order_token": 3,
+            "track_id": 75,
+            "track_persistent_id": "A17E100000000003"
+          }
+        ],
+        "name": "Compressed Trio",
+        "persistent_id": "A17E200000000001",
+        "playlist_id": 83,
+        "smart_rule_objects": 0,
+        "special_object": false
+      }
+    ],
+    "schema": "reference-itl.semantic.v1",
+    "sections": [
+      {
+        "offset": 0,
+        "opaque": false,
+        "size": 240,
+        "type": 16
+      },
+      {
+        "offset": 240,
+        "opaque": false,
+        "size": 542,
+        "type": 12
+      },
+      {
+        "offset": 782,
+        "opaque": false,
+        "size": 276,
+        "type": 9
+      },
+      {
+        "offset": 1058,
+        "opaque": false,
+        "size": 296,
+        "type": 11
+      },
+      {
+        "offset": 1354,
+        "opaque": false,
+        "size": 2668,
+        "type": 1
+      },
+      {
+        "offset": 4022,
+        "opaque": false,
+        "size": 188,
+        "type": 13
+      },
+      {
+        "offset": 4210,
+        "opaque": true,
+        "size": 192,
+        "type": 23
+      },
+      {
+        "offset": 4402,
+        "opaque": false,
+        "size": 102455,
+        "type": 2
+      },
+      {
+        "offset": 106857,
+        "opaque": false,
+        "size": 188,
+        "type": 14
+      },
+      {
+        "offset": 107045,
+        "opaque": true,
+        "size": 162,
+        "type": 4
+      }
+    ],
+    "sha256": "09cd4f08145a4b2d914f20489d1213f71685344b87722d59d0f02041fb84f834",
+    "tracks": [
+      {
+        "album": null,
+        "album_artist": null,
+        "album_id": 69,
+        "artist": null,
+        "artist_id": 70,
+        "bit_rate": 0,
+        "comment": null,
+        "composer": null,
+        "date_added": 3865040640,
+        "date_modified": 0,
+        "disc_count": 0,
+        "disc_number": 0,
+        "file_size": 0,
+        "genre": null,
+        "header_length": 756,
+        "kind": null,
+        "name": "Compressed Alpha",
+        "name_refresh_flag_raw": 0,
+        "path": null,
+        "persistent_id": "A17E100000000001",
+        "play_count": 0,
+        "play_date": 0,
+        "purchaser_name": null,
+        "rating": 0,
+        "record_kind_raw": 1,
+        "sample_rate": 0,
+        "skip_count": 0,
+        "skip_date": 0,
+        "sort_album": null,
+        "sort_album_artist": null,
+        "sort_artist": null,
+        "sort_name": null,
+        "total_time": 0,
+        "track_count": 0,
+        "track_id": 71,
+        "track_number": 0,
+        "unplayed": true,
+        "unplayed_raw": 0,
+        "url": null,
+        "year": 0
+      },
+      {
+        "album": null,
+        "album_artist": null,
+        "album_id": 69,
+        "artist": null,
+        "artist_id": 70,
+        "bit_rate": 0,
+        "comment": null,
+        "composer": null,
+        "date_added": 3865040640,
+        "date_modified": 0,
+        "disc_count": 0,
+        "disc_number": 0,
+        "file_size": 0,
+        "genre": null,
+        "header_length": 756,
+        "kind": null,
+        "name": "Compressed Beta 日本語",
+        "name_refresh_flag_raw": 0,
+        "path": null,
+        "persistent_id": "A17E100000000002",
+        "play_count": 0,
+        "play_date": 0,
+        "purchaser_name": null,
+        "rating": 0,
+        "record_kind_raw": 1,
+        "sample_rate": 0,
+        "skip_count": 0,
+        "skip_date": 0,
+        "sort_album": null,
+        "sort_album_artist": null,
+        "sort_artist": null,
+        "sort_name": null,
+        "total_time": 0,
+        "track_count": 0,
+        "track_id": 73,
+        "track_number": 0,
+        "unplayed": true,
+        "unplayed_raw": 0,
+        "url": null,
+        "year": 0
+      },
+      {
+        "album": null,
+        "album_artist": null,
+        "album_id": 69,
+        "artist": null,
+        "artist_id": 70,
+        "bit_rate": 0,
+        "comment": null,
+        "composer": null,
+        "date_added": 3865040640,
+        "date_modified": 0,
+        "disc_count": 0,
+        "disc_number": 0,
+        "file_size": 0,
+        "genre": null,
+        "header_length": 756,
+        "kind": null,
+        "name": "Compressed Gamma 🚒",
+        "name_refresh_flag_raw": 0,
+        "path": null,
+        "persistent_id": "A17E100000000003",
+        "play_count": 0,
+        "play_date": 0,
+        "purchaser_name": null,
+        "rating": 0,
+        "record_kind_raw": 1,
+        "sample_rate": 0,
+        "skip_count": 0,
+        "skip_date": 0,
+        "sort_album": null,
+        "sort_album_artist": null,
+        "sort_artist": null,
+        "sort_name": null,
+        "total_time": 0,
+        "track_count": 0,
+        "track_id": 75,
+        "track_number": 0,
+        "unplayed": true,
+        "unplayed_raw": 0,
+        "url": null,
+        "year": 0
+      }
+    ],
+    "version": "12.13.10.3"
+  },
+  "reference_summary_errors": [],
+  "status": "passed",
+  "finished_utc": "2026-09-22T01:33:16.769647+00:00"
+}

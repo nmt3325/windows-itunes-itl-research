@@ -113,6 +113,81 @@ def test_generated_library_has_selected_semantics_and_valid_references(
     assert provenance["native_acceptance"]["scope"] == "exact_output_sha256"
 
 
+@pytest.mark.parametrize(
+    ("compressed", "track_names", "playlist_name", "expected_sha", "expected_encryption"),
+    [
+        (
+            False,
+            ["Reference Alpha", "Reference Beta 日本語 🎵", "Reference Gamma e\u0301"],
+            "Reference Trio",
+            "7d9b274765471d2d77440049273b210138e36b998d39d4790fe750d60c32406b",
+            0,
+        ),
+        (
+            True,
+            ["Compressed Alpha", "Compressed Beta 日本語", "Compressed Gamma 🚒"],
+            "Compressed Trio",
+            "73dbb405fbd2b68b62d29913b697a72100f8606cdb2ee704c55908e4de389e17",
+            2,
+        ),
+    ],
+)
+def test_generated_three_track_library_has_deterministic_identities_and_ordered_membership(
+    compressed: bool,
+    track_names: list[str],
+    playlist_name: str,
+    expected_sha: str,
+    expected_encryption: int,
+) -> None:
+    raw, provenance = generate_bytes(
+        compressed=compressed, track_names=track_names, playlist_name=playlist_name
+    )
+    summary = ReferenceLibrary.from_bytes(raw).semantic_summary()
+    validation = validate_bytes(raw)
+    playlists = {entry["persistent_id"]: entry for entry in summary["playlists"]}
+    expected_track_pids = [f"A17E10000000000{index}" for index in range(1, 4)]
+
+    assert hashlib.sha256(raw).hexdigest() == expected_sha
+    assert [row["name"] for row in summary["tracks"]] == track_names
+    assert [row["persistent_id"] for row in summary["tracks"]] == expected_track_pids
+    assert [row["track_id"] for row in summary["tracks"]] == [1, 2, 3]
+    assert [row["album_id"] for row in summary["tracks"]] == [5, 5, 5]
+    assert [row["artist_id"] for row in summary["tracks"]] == [6, 6, 6]
+    assert playlists["5245464552454E43"]["playlist_id"] == 7
+    assert playlists["A17E200000000001"]["playlist_id"] == 8
+    assert playlists["A17E200000000001"]["name"] == playlist_name
+    assert [row["track_persistent_id"] for row in playlists["5245464552454E43"]["members"]] == expected_track_pids
+    assert [row["track_persistent_id"] for row in playlists["A17E200000000001"]["members"]] == expected_track_pids
+    assert summary["envelope"]["declared_counts"] == {
+        "sections": 10, "tracks": 3, "playlists": 2, "albums": 1, "artists": 1
+    }
+    assert summary["envelope"]["encryption_flag"] == expected_encryption
+    assert validation["valid"] is True
+    assert provenance["inputs"]["track_names"] == track_names
+    assert provenance["native_acceptance"]["status"] == "verified"
+    assert provenance["native_acceptance"]["tested"] is True
+    assert provenance["native_acceptance"]["cycles"] == 2
+    assert provenance["native_acceptance"]["evidence"].startswith(
+        "evidence/native/reference-multi-track-20260922-v2/"
+    )
+
+
+@pytest.mark.parametrize(
+    ("track_names", "message"),
+    [
+        ([], "requires 1 to 16 tracks"),
+        ([f"Track {index}" for index in range(17)], "requires 1 to 16 tracks"),
+        ([""], "nonempty NUL-free string"),
+        (["contains\x00nul"], "nonempty NUL-free string"),
+    ],
+)
+def test_multi_track_generator_refuses_out_of_scope_names(
+    track_names: list[str], message: str
+) -> None:
+    with pytest.raises(ValueError, match=message):
+        generate_bytes(track_names=track_names)
+
+
 def test_custom_generator_output_remains_explicitly_unverified() -> None:
     _, provenance = generate_bytes(track_name="Different Track")
     assert provenance["native_acceptance"]["status"] == "unverified"

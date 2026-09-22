@@ -1,0 +1,183 @@
+{
+  "cases": [
+    {
+      "candidate_bytes": 12564,
+      "candidate_relative_path": "TEST_CORPUS/generated/reference-three-track-raw.itl",
+      "candidate_sha256": "7d9b274765471d2d77440049273b210138e36b998d39d4790fe750d60c32406b",
+      "cycles": [
+        {
+          "cycle": 1,
+          "expected_prelaunch_sha256": "7d9b274765471d2d77440049273b210138e36b998d39d4790fe750d60c32406b",
+          "forbidden_after": [],
+          "forbidden_before": [],
+          "itunes_exit_code": 0,
+          "native_saved_bytes": 4475,
+          "native_saved_sha256": "091f606e730ae0e6befb5cb3403decad74beda9454e2eb82e3fccff78fd67c99",
+          "post_readiness_settle_seconds": 3.0,
+          "prelaunch_sha256": "7d9b274765471d2d77440049273b210138e36b998d39d4790fe750d60c32406b",
+          "reference_summary_errors": [],
+          "sample_errors": [
+            [],
+            []
+          ],
+          "status": "passed",
+          "worker_accepted": true,
+          "worker_errors": []
+        },
+        {
+          "cycle": 2,
+          "expected_prelaunch_sha256": "091f606e730ae0e6befb5cb3403decad74beda9454e2eb82e3fccff78fd67c99",
+          "forbidden_after": [],
+          "forbidden_before": [],
+          "itunes_exit_code": 0,
+          "native_saved_bytes": 4496,
+          "native_saved_sha256": "6c2604775a87a8558a492f326c56af3b7b95b5220686f38611186061c73cfad5",
+          "post_readiness_settle_seconds": 3.0,
+          "prelaunch_sha256": "091f606e730ae0e6befb5cb3403decad74beda9454e2eb82e3fccff78fd67c99",
+          "reference_summary_errors": [],
+          "sample_errors": [
+            [],
+            []
+          ],
+          "status": "passed",
+          "worker_accepted": true,
+          "worker_errors": []
+        }
+      ],
+      "expected": {
+        "library_persistent_id": "5245464552454E43",
+        "playlists": [
+          {
+            "members": [
+              "A17E100000000001",
+              "A17E100000000002",
+              "A17E100000000003"
+            ],
+            "name": "Reference Trio",
+            "persistent_id": "A17E200000000001"
+          }
+        ],
+        "track_count": 3,
+        "tracks": [
+          {
+            "name": "Reference Alpha",
+            "persistent_id": "A17E100000000001"
+          },
+          {
+            "name": "Reference Beta 日本語 🎵",
+            "persistent_id": "A17E100000000002"
+          },
+          {
+            "name": "Reference Gamma é",
+            "persistent_id": "A17E100000000003"
+          }
+        ],
+        "version": "12.13.10.3"
+      },
+      "final_forbidden_artifacts": [],
+      "name": "reference-three-track-raw",
+      "status": "passed"
+    },
+    {
+      "candidate_bytes": 879,
+      "candidate_relative_path": "TEST_CORPUS/generated/reference-three-track-zlib.itl",
+      "candidate_sha256": "73dbb405fbd2b68b62d29913b697a72100f8606cdb2ee704c55908e4de389e17",
+      "cycles": [
+        {
+          "cycle": 1,
+          "expected_prelaunch_sha256": "73dbb405fbd2b68b62d29913b697a72100f8606cdb2ee704c55908e4de389e17",
+          "forbidden_after": [],
+          "forbidden_before": [],
+          "itunes_exit_code": 0,
+          "native_saved_bytes": 4435,
+          "native_saved_sha256": "09cd4f08145a4b2d914f20489d1213f71685344b87722d59d0f02041fb84f834",
+          "post_readiness_settle_seconds": 3.0,
+          "prelaunch_sha256": "73dbb405fbd2b68b62d29913b697a72100f8606cdb2ee704c55908e4de389e17",
+          "reference_summary_errors": [],
+          "sample_errors": [
+            [],
+            []
+          ],
+          "status": "passed",
+          "worker_accepted": true,
+          "worker_errors": []
+        },
+        {
+          "cycle": 2,
+          "expected_prelaunch_sha256": "09cd4f08145a4b2d914f20489d1213f71685344b87722d59d0f02041fb84f834",
+          "forbidden_after": [],
+          "forbidden_before": [],
+          "itunes_exit_code": 0,
+          "native_saved_bytes": 4454,
+          "native_saved_sha256": "3c31307ff0e2ef5e7255068c679741c23d7f6d4a4c63ee41681cf4ca9ad99547",
+          "post_readiness_settle_seconds": 3.0,
+          "prelaunch_sha256": "09cd4f08145a4b2d914f20489d1213f71685344b87722d59d0f02041fb84f834",
+          "reference_summary_errors": [],
+          "sample_errors": [
+            [],
+            []
+          ],
+          "status": "passed",
+          "worker_accepted": true,
+          "worker_errors": []
+        }
+      ],
+      "expected": {
+        "library_persistent_id": "5245464552454E43",
+        "playlists": [
+          {
+            "members": [
+              "A17E100000000001",
+              "A17E100000000002",
+              "A17E100000000003"
+            ],
+            "name": "Compressed Trio",
+            "persistent_id": "A17E200000000001"
+          }
+        ],
+        "track_count": 3,
+        "tracks": [
+          {
+            "name": "Compressed Alpha",
+            "persistent_id": "A17E100000000001"
+          },
+          {
+            "name": "Compressed Beta 日本語",
+            "persistent_id": "A17E100000000002"
+          },
+          {
+            "name": "Compressed Gamma 🚒",
+            "persistent_id": "A17E100000000003"
+          }
+        ],
+        "version": "12.13.10.3"
+      },
+      "final_forbidden_artifacts": [],
+      "name": "reference-three-track-zlib",
+      "status": "passed"
+    }
+  ],
+  "claim_boundary": "Exact one-track and three-track fixture hashes only; does not establish arbitrary counts, identities, names, media/location construction, complete field semantics, version breadth, or independent reimplementation.",
+  "cycles_required": 2,
+  "isolation_policy": {
+    "damaged_library_modal_allowed": false,
+    "fallback_identity_allowed": false,
+    "initial_live_inventory": "candidate ITL only",
+    "normal_quit_required": true,
+    "previous_itunes_libraries_allowed": false,
+    "xml_allowed": false
+  },
+  "profile": {
+    "culture": [
+      "English_United States",
+      "1252"
+    ],
+    "itunes_executable_sha256": "30d91209b5d81c47bbad2da9d89764fcab08bf5cd9af1a9571668001376c5d7d",
+    "itunes_version": "12.13.10.3",
+    "platform": "Windows-2025Server-10.0.26100-SP0",
+    "timezone": "UTC"
+  },
+  "schema_version": 1,
+  "source_summary_sha256": "b4c88722cd582970c2d52045dbdac3a9df95c65235e934f64b2aece924f3b411",
+  "status": "passed"
+}
