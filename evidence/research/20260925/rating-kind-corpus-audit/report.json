@@ -1,0 +1,204 @@
+{
+  "findings": {
+    "album_rating_value_alone_determines_kind": false,
+    "bounded_conclusion": "In this frozen corpus, non-zero values coexist with both raw kind codes. The exact album-rating-explicit witness has Rating=60/RatingKind=1 and AlbumRating=60/AlbumRatingKind=0; the rating-explicit witness has Rating=80/RatingKind=0 and AlbumRating=80/AlbumRatingKind=1. Therefore neither kind can be inferred from zero/non-zero value alone.",
+    "nonzero_computed_album_witness": {
+      "identity": {
+        "Name": "Reference Track",
+        "PersistentID": null,
+        "TrackID": 76
+      },
+      "json_pointer": "/tracks/0",
+      "source": "evidence/native/field-matrix-20260922/cases/rating-explicit/expected-reload-state.json",
+      "state": {
+        "AlbumRating": 80,
+        "AlbumRatingKind": 1,
+        "Rating": 80,
+        "RatingKind": 0
+      }
+    },
+    "nonzero_computed_track_witness": {
+      "identity": {
+        "Name": "Reference Track",
+        "PersistentID": null,
+        "TrackID": 76
+      },
+      "json_pointer": "/tracks/0",
+      "source": "evidence/native/field-matrix-20260922/cases/album-rating-explicit/expected-reload-state.json",
+      "state": {
+        "AlbumRating": 60,
+        "AlbumRatingKind": 0,
+        "Rating": 60,
+        "RatingKind": 1
+      }
+    },
+    "track_rating_value_alone_determines_kind": false
+  },
+  "limitations": [
+    "The JSON occurrence count includes summaries and worker artifacts that duplicate observations.",
+    "Only four joint states occur in the fixed retained roots; this is not an exhaustive state matrix.",
+    "No Loved or Disliked transition is present in this audit.",
+    "No RatingKind or AlbumRatingKind setter was attempted; both remain observe-only here.",
+    "The audit does not map these COM values to ITL byte offsets or prove other iTunes versions.",
+    "U-14 remains open."
+  ],
+  "public_prior_art": {
+    "bounded_use": "The document names raw enum codes 0/1 as user/computed and exposes RatingKind as read-only. The corpus audit above is derived independently from retained repository evidence.",
+    "classification": "historical COM documentation; not current-native evidence",
+    "url": "https://documentation.help/iTunesCOM/documentation.pdf"
+  },
+  "report_date": "2026-09-25",
+  "schema": "windows-itl.rating-kind-corpus-audit.v1",
+  "scope": {
+    "input_file_set_sha256": "c4a60795026f58d5ee7a4b71ac63bad7efb2af4ddceb068d543af138ad221404",
+    "input_roots": [
+      "evidence/native/field-matrix-20260922",
+      "evidence/native/oracles",
+      "evidence/native/phase3",
+      "evidence/independent/itl-rs-20260922/native-accepted",
+      "evidence/static/phase3"
+    ],
+    "json_files_by_root": {
+      "evidence/independent/itl-rs-20260922/native-accepted": 9,
+      "evidence/native/field-matrix-20260922": 226,
+      "evidence/native/oracles": 51,
+      "evidence/native/phase3": 48,
+      "evidence/static/phase3": 10
+    },
+    "json_files_total": 344,
+    "native_actions_performed": false,
+    "raw_occurrences_are_independent_runs": false,
+    "repository_writes_to_frozen_evidence": false
+  },
+  "states": [
+    {
+      "first_witness": {
+        "identity": {
+          "Name": "Reference Track Zlib",
+          "PersistentID": null,
+          "TrackID": 76
+        },
+        "json_pointer": "/samples/0/state/tracks/0",
+        "source": "evidence/independent/itl-rs-20260922/native-accepted/cases/itl-rs-zlib-roundtrip/cycle-1/com.json",
+        "state": {
+          "AlbumRating": 0,
+          "AlbumRatingKind": 1,
+          "Rating": 0,
+          "RatingKind": 1
+        }
+      },
+      "key": "Rating=0|RatingKind=1|AlbumRating=0|AlbumRatingKind=1",
+      "raw_occurrences": 1171,
+      "values": {
+        "AlbumRating": 0,
+        "AlbumRatingKind": 1,
+        "Rating": 0,
+        "RatingKind": 1
+      }
+    },
+    {
+      "first_witness": {
+        "identity": {
+          "Name": "Reference Track",
+          "PersistentID": null,
+          "TrackID": 76
+        },
+        "json_pointer": "/tracks/0",
+        "source": "evidence/native/field-matrix-20260922/cases/album-rating-explicit/expected-reload-state.json",
+        "state": {
+          "AlbumRating": 60,
+          "AlbumRatingKind": 0,
+          "Rating": 60,
+          "RatingKind": 1
+        }
+      },
+      "key": "Rating=60|RatingKind=1|AlbumRating=60|AlbumRatingKind=0",
+      "raw_occurrences": 21,
+      "values": {
+        "AlbumRating": 60,
+        "AlbumRatingKind": 0,
+        "Rating": 60,
+        "RatingKind": 1
+      }
+    },
+    {
+      "first_witness": {
+        "identity": {
+          "Name": "alpha",
+          "PersistentID": null,
+          "TrackID": 84
+        },
+        "json_pointer": "/after/tracks/0",
+        "source": "evidence/native/oracles/115-fresh-diagnostic-reload/com.json",
+        "state": {
+          "AlbumRating": 0,
+          "AlbumRatingKind": 1,
+          "Rating": 80,
+          "RatingKind": 0
+        }
+      },
+      "key": "Rating=80|RatingKind=0|AlbumRating=0|AlbumRatingKind=1",
+      "raw_occurrences": 36,
+      "values": {
+        "AlbumRating": 0,
+        "AlbumRatingKind": 1,
+        "Rating": 80,
+        "RatingKind": 0
+      }
+    },
+    {
+      "first_witness": {
+        "identity": {
+          "Name": "Reference Track",
+          "PersistentID": null,
+          "TrackID": 76
+        },
+        "json_pointer": "/tracks/0",
+        "source": "evidence/native/field-matrix-20260922/cases/rating-explicit/expected-reload-state.json",
+        "state": {
+          "AlbumRating": 80,
+          "AlbumRatingKind": 1,
+          "Rating": 80,
+          "RatingKind": 0
+        }
+      },
+      "key": "Rating=80|RatingKind=0|AlbumRating=80|AlbumRatingKind=1",
+      "raw_occurrences": 78,
+      "values": {
+        "AlbumRating": 80,
+        "AlbumRatingKind": 1,
+        "Rating": 80,
+        "RatingKind": 0
+      }
+    }
+  ],
+  "summary": {
+    "album_rating_kind_codes": [
+      0,
+      1
+    ],
+    "distinct_joint_states": 4,
+    "nonzero_album_rating_values_by_kind_code": {
+      "0": [
+        60
+      ],
+      "1": [
+        80
+      ]
+    },
+    "nonzero_track_rating_values_by_kind_code": {
+      "0": [
+        80
+      ],
+      "1": [
+        60
+      ]
+    },
+    "raw_observations": 1306,
+    "track_rating_kind_codes": [
+      0,
+      1
+    ],
+    "unique_source_identity_states": 332
+  }
+}
