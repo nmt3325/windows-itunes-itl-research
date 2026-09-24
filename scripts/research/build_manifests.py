@@ -8,6 +8,9 @@ import os
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
+GENERATED_METADATA_DIR = "windows_itl_research.egg-info"
+DELIVERY_EXCLUDED_ROOT_DIRS = {".git", GENERATED_METADATA_DIR}
+DELIVERY_EXCLUDED_ROOT_DIRS_FOLDED = {name.casefold() for name in DELIVERY_EXCLUDED_ROOT_DIRS}
 
 
 def digest(path: Path) -> str:
@@ -136,10 +139,14 @@ def build_delivery() -> list[dict]:
     for base, dirs, files in os.walk(ROOT, followlinks=False):
         base_path = Path(base)
         if base_path == ROOT:
-            dirs[:] = sorted(d for d in dirs if d != ".git")
+            dirs[:] = sorted(
+                d for d in dirs if d.casefold() not in DELIVERY_EXCLUDED_ROOT_DIRS_FOLDED
+            )
         else:
             dirs.sort()
         for name in sorted(files):
+            if base_path == ROOT and name.casefold() == ".git":
+                continue
             path = base_path / name
             rel = path.relative_to(ROOT).as_posix()
             if rel == "DELIVERY-MANIFEST.json":
