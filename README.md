@@ -87,6 +87,8 @@ python -B -m TEST_CORPUS manifest --check
 
 Python 3.12以降を使用します。確認した環境は Python 3.12.10 / PyCryptodome 3.23.0 / pytest 9.1.1 です。
 
+圧縮出力のバイト列は zlib バックエンドにも依存します。Windows 版 CPython 3.14 の zlib-ng 出力は、同じ入力に対して決定的かつ構造検証可能ですが、保持済みの classic-zlib ハッシュとは一致せず、実機 iTunes 受入れは `unverified` です。したがって、classic-zlib の実機受入れ証拠やバイト完全再現性を zlib-ng 出力へ移転しません。非圧縮出力、解析、無変更バイト保持はこの圧縮バックエンド境界とは別です。
+
 ```powershell
 python -m pip install pycryptodome==3.23.0 pytest==9.1.1 tzdata==2026.4
 python -m pip install -e .
