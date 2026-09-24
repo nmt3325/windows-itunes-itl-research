@@ -1,0 +1,2755 @@
+{
+  "schema_version": 1,
+  "source_report": {
+    "path": "report.json",
+    "sha256": "b6881790a3eed66a07245c3ddddf6b3d7dfa1dfef10d91b65f3043114ed79051",
+    "hash_basis": "UTF-8 JSON; ensure_ascii=false; sorted keys; indent=2; LF terminator"
+  },
+  "scope": "Windows iTunes 12.13.10.3 native Rating/RatingKind/Loved/Disliked bounded research",
+  "started_utc": "2026-09-24T16:43:50.136796+00:00",
+  "finished_utc": "2026-09-24T16:49:40.737500+00:00",
+  "passed": true,
+  "counts": {
+    "cases_total": 7,
+    "cases_passed": 7,
+    "native_sessions": 20,
+    "native_sessions_passed": 20,
+    "rating_values": [
+      0,
+      20,
+      40,
+      60,
+      80,
+      100
+    ],
+    "snapshot_analyses": 27,
+    "unique_snapshot_sha256": 21,
+    "unique_snapshot_hashes": [
+      "060545612bc94c290f32e3351851e4181181860443e5ab1c9fc1041a9dc3caa6",
+      "245e630ac9c7135a8fb671f2223766c5a57bd1d187b37330c214507d660d49d7",
+      "35b232a59bc882b23eb9a0fefb97b0bdc22612104cc0e40f394637345ab339f0",
+      "50fbb732d2fe91c904da8ccad005930829ec98cbc6946b2e5d604f51557e0e52",
+      "51842dfa26bf772fc62f93c05dffd8a44cb3d199da51d63b0729967e330e601d",
+      "54b6eebda11a6d1eb41538a5ddc98437825b13d4b0eb7c8bb9f3dfd3eccd6e32",
+      "6937ec8e828c255af870990f3934499c8e12cea3958c35b566f70fa3525da48c",
+      "71934aac518048fb6d6bb675d4ca99f11def8e9158a716efd7a37cd7214adfaa",
+      "78d4de3c2cb144184ef1d7aa49ede3d934bd6720a3c406057b8445078de5a46e",
+      "7eee360224e6ba229f8906dca01635b00567a3e451d2f769057ce559fdd55700",
+      "9482f80305e3d16835f142c53bdf63505434172090d2c629dd026b85dde7ff9d",
+      "a9177fb07ad74d98403970b317f7c69b049007704d73a96c32b7366fef0c521d",
+      "ac3bed7583373bd5b2e94ef18b88c84d0ee11d1863471c7d90ef852e8c1f1715",
+      "afceb55926aee1d529bc3c4c3cc5ca3f09f34817fdba998d282dd01f26c05c25",
+      "b733fb302263f09ff677feb65b7eb7902e458341cb90e6f6c6842352d7a0047b",
+      "c6c68171d57350ceb3cf379eee13a764ea199536ef18238fe4faf80583492d74",
+      "cc66e054bdade9e9e374de573f6ef18bd8c7a76ccfdd41181f5930ded59dd0b4",
+      "f58df844bb741048b6da785877deb64515a81fed4c396458eafd8839190d1fc9",
+      "f611af4ee5b22a5df19af6b740bf8a2b0b788e360200538dbe0eff92c53d38c2",
+      "fc25d37bf822d8db96e1f30420aacc4f78baaf392412308276f8983268f66f10",
+      "fcfc1402f380d07bef83a259504bea8319f61a713d3d67b3bd97ba2e4c6ea3d1"
+    ],
+    "primary_independent_validator_passed": 27,
+    "validator_valid": 27,
+    "high_level_library_outcomes": {
+      "blocked": 7,
+      "observed": 20
+    }
+  },
+  "environment": {
+    "os": "Windows-2025Server-10.0.26100-SP0",
+    "windows_version": "10.0.26100",
+    "python": "3.12.10 (tags/v3.12.10:0cc8128, Apr  8 2025, 12:21:36) [MSC v.1943 64 bit (AMD64)]",
+    "python_executable": "D:\\a\\_temp\\gha-mcp\\win-dj1cymvp\\work\\itl-analysis\\.venv-native-rating\\Scripts\\python.exe",
+    "pywin32": "312",
+    "locale": [
+      "English_United States",
+      "1252"
+    ],
+    "preferred_encoding": "cp1252",
+    "timezone": "Coordinated Universal Time"
+  },
+  "safety_boundary": {
+    "candidate": {
+      "path": "D:\\a\\_temp\\gha-mcp\\win-dj1cymvp\\work\\itl-analysis\\repo\\TEST_CORPUS\\generated\\reference-one-track-raw.itl",
+      "bytes": 10566,
+      "mtime_ns": 1790265642217330600,
+      "sha256": "c6c68171d57350ceb3cf379eee13a764ea199536ef18238fe4faf80583492d74"
+    },
+    "user_data_touched": false,
+    "ui_policy": "known audio warning only; all other modal states fail closed"
+  },
+  "provenance": {
+    "official_installer_url": {
+      "entry_url": "https://www.apple.com/itunes/download/win64",
+      "expected_resolved_url": "https://secure-appldnld.apple.com/itunes12/140-75773-20260908-6e5e0165-99cb-4b30-b541-1b615fccfc1a/iTunes64Setup.exe",
+      "observed_resolved_url": "https://secure-appldnld.apple.com/itunes12/140-75773-20260908-6e5e0165-99cb-4b30-b541-1b615fccfc1a/iTunes64Setup.exe",
+      "http_status": "200"
+    },
+    "installer": {
+      "bytes": 208064480,
+      "sha256": "cea2a74cae3f061eadc11358eeaae9b40cfdea9ec1ee037b47da54a64219e182",
+      "expected_sha256": "cea2a74cae3f061eadc11358eeaae9b40cfdea9ec1ee037b47da54a64219e182",
+      "version": {
+        "status": "observed",
+        "file_version": "12.13.10.3",
+        "product_version": "12.13.10.3",
+        "bytes": 208064480
+      },
+      "authenticode": {
+        "returncode": 0,
+        "status": "Valid",
+        "subject": "CN=Apple Inc., O=Apple Inc., L=Cupertino, S=California, C=US",
+        "thumbprint": "5ABF5D5265D74C9EAD19246DFAB611AA5DCFE791"
+      }
+    },
+    "itunes": {
+      "bytes": 38952912,
+      "sha256": "30d91209b5d81c47bbad2da9d89764fcab08bf5cd9af1a9571668001376c5d7d",
+      "expected_sha256": "30d91209b5d81c47bbad2da9d89764fcab08bf5cd9af1a9571668001376c5d7d",
+      "expected_version": "12.13.10.3",
+      "version": {
+        "status": "observed",
+        "file_version": "12.13.10.3",
+        "product_version": "12.13.10.3",
+        "bytes": 38952912
+      },
+      "authenticode": {
+        "returncode": 0,
+        "status": "Valid",
+        "subject": "CN=Apple Inc., O=Apple Inc., L=Cupertino, S=California, C=US",
+        "thumbprint": "5ABF5D5265D74C9EAD19246DFAB611AA5DCFE791"
+      }
+    }
+  },
+  "capabilities": {
+    "Rating": {
+      "classification": "writable",
+      "typelib_declared_get": true,
+      "typelib_declared_put": true,
+      "typelib_entries": [
+        {
+          "canonical_name": "Rating",
+          "declared_name": "Rating",
+          "memid": 1610809385,
+          "invkind": 2,
+          "invkind_name": "property_get",
+          "funcflags": 0
+        },
+        {
+          "canonical_name": "Rating",
+          "declared_name": "Rating",
+          "memid": 1610809385,
+          "invkind": 4,
+          "invkind_name": "property_put",
+          "funcflags": 0
+        }
+      ],
+      "runtime_get": {
+        "attempted": true,
+        "outcome": "observed",
+        "value": 0
+      },
+      "runtime_put": {
+        "attempted": true,
+        "outcome": "observed",
+        "requested": 0,
+        "readback": 0
+      }
+    },
+    "RatingKind": {
+      "classification": "read_only",
+      "typelib_declared_get": true,
+      "typelib_declared_put": false,
+      "typelib_entries": [
+        {
+          "canonical_name": "RatingKind",
+          "declared_name": "ratingKind",
+          "memid": 1610874936,
+          "invkind": 2,
+          "invkind_name": "property_get",
+          "funcflags": 0
+        }
+      ],
+      "runtime_get": {
+        "attempted": true,
+        "outcome": "observed",
+        "value": 1
+      },
+      "runtime_put": {
+        "attempted": true,
+        "outcome": "blocked",
+        "requested": 1,
+        "error": {
+          "type": "AttributeError",
+          "message": "Property '<unknown>.RatingKind' can not be set."
+        }
+      }
+    },
+    "AlbumRating": {
+      "classification": "writable",
+      "typelib_declared_get": true,
+      "typelib_declared_put": true,
+      "typelib_entries": [
+        {
+          "canonical_name": "AlbumRating",
+          "declared_name": "AlbumRating",
+          "memid": 1610874933,
+          "invkind": 2,
+          "invkind_name": "property_get",
+          "funcflags": 0
+        },
+        {
+          "canonical_name": "AlbumRating",
+          "declared_name": "AlbumRating",
+          "memid": 1610874933,
+          "invkind": 4,
+          "invkind_name": "property_put",
+          "funcflags": 0
+        }
+      ],
+      "runtime_get": {
+        "attempted": true,
+        "outcome": "observed",
+        "value": 0
+      },
+      "runtime_put": {
+        "attempted": true,
+        "outcome": "observed",
+        "requested": 0,
+        "readback": 0
+      }
+    },
+    "AlbumRatingKind": {
+      "classification": "read_only",
+      "typelib_declared_get": true,
+      "typelib_declared_put": false,
+      "typelib_entries": [
+        {
+          "canonical_name": "AlbumRatingKind",
+          "declared_name": "AlbumRatingKind",
+          "memid": 1610874935,
+          "invkind": 2,
+          "invkind_name": "property_get",
+          "funcflags": 0
+        }
+      ],
+      "runtime_get": {
+        "attempted": true,
+        "outcome": "observed",
+        "value": 1
+      },
+      "runtime_put": {
+        "attempted": true,
+        "outcome": "blocked",
+        "requested": 1,
+        "error": {
+          "type": "AttributeError",
+          "message": "Property '<unknown>.AlbumRatingKind' can not be set."
+        }
+      }
+    },
+    "Loved": {
+      "classification": "unsupported",
+      "typelib_declared_get": false,
+      "typelib_declared_put": false,
+      "typelib_entries": [],
+      "runtime_get": {
+        "attempted": true,
+        "outcome": "blocked",
+        "error": {
+          "type": "AttributeError",
+          "message": "<unknown>.Loved"
+        }
+      },
+      "runtime_put": {
+        "attempted": true,
+        "outcome": "blocked",
+        "requested": false,
+        "error": {
+          "type": "AttributeError",
+          "message": "Property '<unknown>.Loved' can not be set."
+        }
+      }
+    },
+    "Disliked": {
+      "classification": "unsupported",
+      "typelib_declared_get": false,
+      "typelib_declared_put": false,
+      "typelib_entries": [],
+      "runtime_get": {
+        "attempted": true,
+        "outcome": "blocked",
+        "error": {
+          "type": "AttributeError",
+          "message": "<unknown>.Disliked"
+        }
+      },
+      "runtime_put": {
+        "attempted": true,
+        "outcome": "blocked",
+        "requested": false,
+        "error": {
+          "type": "AttributeError",
+          "message": "Property '<unknown>.Disliked' can not be set."
+        }
+      }
+    }
+  },
+  "loved_disliked_interaction": {
+    "outcome": "blocked",
+    "reason": "Loved and Disliked did not both expose readable/writable runtime members"
+  },
+  "rating_ladder": [
+    {
+      "case": "rating-000",
+      "expected": 0,
+      "observed": {
+        "mutation": 0,
+        "same-value-repeat": 0,
+        "restart-verification": 0
+      },
+      "passed": true,
+      "snapshots": {
+        "baseline": {
+          "sha256": "c6c68171d57350ceb3cf379eee13a764ea199536ef18238fe4faf80583492d74",
+          "bytes": 10566,
+          "rating": 0,
+          "name_refresh_flag_raw": 0,
+          "legacy_loved_byte_raw": 0,
+          "legacy_loved_bit": false,
+          "track_header_length": 756,
+          "track_header_sha256": "ee97eed8c481b9f8606b23389fe32739a413757cc5c48248c8f61809102c911e",
+          "high_level_library": {
+            "outcome": "blocked",
+            "error": {
+              "type": "FormatError",
+              "message": "zero or duplicate secondary track ID",
+              "args_repr": "('zero or duplicate secondary track ID',)"
+            }
+          },
+          "primary_independent_validator_passed": true,
+          "validator_valid": true
+        },
+        "mutation": {
+          "sha256": "f611af4ee5b22a5df19af6b740bf8a2b0b788e360200538dbe0eff92c53d38c2",
+          "bytes": 4112,
+          "rating": 0,
+          "name_refresh_flag_raw": 0,
+          "legacy_loved_byte_raw": 0,
+          "legacy_loved_bit": false,
+          "track_header_length": 756,
+          "track_header_sha256": "5283948c9792e8eda7c9d4c1b483c8f2f1eba361804fe754899cba394f9b6838",
+          "high_level_library": {
+            "outcome": "observed",
+            "track_count": 1
+          },
+          "primary_independent_validator_passed": true,
+          "validator_valid": true
+        },
+        "same-value-repeat": {
+          "sha256": "fc25d37bf822d8db96e1f30420aacc4f78baaf392412308276f8983268f66f10",
+          "bytes": 4142,
+          "rating": 0,
+          "name_refresh_flag_raw": 0,
+          "legacy_loved_byte_raw": 0,
+          "legacy_loved_bit": false,
+          "track_header_length": 756,
+          "track_header_sha256": "5283948c9792e8eda7c9d4c1b483c8f2f1eba361804fe754899cba394f9b6838",
+          "high_level_library": {
+            "outcome": "observed",
+            "track_count": 1
+          },
+          "primary_independent_validator_passed": true,
+          "validator_valid": true
+        },
+        "restart-verification": {
+          "sha256": "35b232a59bc882b23eb9a0fefb97b0bdc22612104cc0e40f394637345ab339f0",
+          "bytes": 4143,
+          "rating": 0,
+          "name_refresh_flag_raw": 0,
+          "legacy_loved_byte_raw": 0,
+          "legacy_loved_bit": false,
+          "track_header_length": 756,
+          "track_header_sha256": "5283948c9792e8eda7c9d4c1b483c8f2f1eba361804fe754899cba394f9b6838",
+          "high_level_library": {
+            "outcome": "observed",
+            "track_count": 1
+          },
+          "primary_independent_validator_passed": true,
+          "validator_valid": true
+        }
+      },
+      "transitions": {
+        "baseline_to_mutation": {
+          "before_sha256": "c6c68171d57350ceb3cf379eee13a764ea199536ef18238fe4faf80583492d74",
+          "after_sha256": "f611af4ee5b22a5df19af6b740bf8a2b0b788e360200538dbe0eff92c53d38c2",
+          "raw_itl_diff": {
+            "before_bytes": 10566,
+            "after_bytes": 4112,
+            "changed_byte_positions": 10415,
+            "range_count": 24
+          },
+          "track_header_diff": {
+            "changed_byte_positions": 11,
+            "range_count": 7,
+            "ranges": [
+              {
+                "start": 8,
+                "end_exclusive": 9,
+                "length": 1,
+                "before_hex": "3a",
+                "after_hex": "2b"
+              },
+              {
+                "start": 16,
+                "end_exclusive": 17,
+                "length": 1,
+                "before_hex": "01",
+                "after_hex": "47"
+              },
+              {
+                "start": 220,
+                "end_exclusive": 221,
+                "length": 1,
+                "before_hex": "03",
+                "after_hex": "45"
+              },
+              {
+                "start": 297,
+                "end_exclusive": 298,
+                "length": 1,
+                "before_hex": "00",
+                "after_hex": "01"
+              },
+              {
+                "start": 333,
+                "end_exclusive": 338,
+                "length": 5,
+                "before_hex": "0000000000",
+                "after_hex": "8080808080"
+              },
+              {
+                "start": 480,
+                "end_exclusive": 481,
+                "length": 1,
+                "before_hex": "04",
+                "after_hex": "46"
+              },
+              {
+                "start": 500,
+                "end_exclusive": 501,
+                "length": 1,
+                "before_hex": "00",
+                "after_hex": "48"
+              }
+            ]
+          },
+          "target_fields": {
+            "rating": {
+              "before": 0,
+              "after": 0
+            },
+            "name_refresh_flag_raw": {
+              "before": 0,
+              "after": 0
+            },
+            "legacy_loved_byte_raw": {
+              "before": 0,
+              "after": 0
+            },
+            "legacy_loved_bit": {
+              "before": false,
+              "after": false
+            }
+          },
+          "primary_and_independent_parsers_passed": true
+        },
+        "mutation_to_same-value-repeat": {
+          "before_sha256": "f611af4ee5b22a5df19af6b740bf8a2b0b788e360200538dbe0eff92c53d38c2",
+          "after_sha256": "fc25d37bf822d8db96e1f30420aacc4f78baaf392412308276f8983268f66f10",
+          "raw_itl_diff": {
+            "before_bytes": 4112,
+            "after_bytes": 4142,
+            "changed_byte_positions": 3980,
+            "range_count": 24
+          },
+          "track_header_diff": {
+            "changed_byte_positions": 0,
+            "range_count": 0,
+            "ranges": []
+          },
+          "target_fields": {
+            "rating": {
+              "before": 0,
+              "after": 0
+            },
+            "name_refresh_flag_raw": {
+              "before": 0,
+              "after": 0
+            },
+            "legacy_loved_byte_raw": {
+              "before": 0,
+              "after": 0
+            },
+            "legacy_loved_bit": {
+              "before": false,
+              "after": false
+            }
+          },
+          "primary_and_independent_parsers_passed": true
+        },
+        "same-value-repeat_to_restart-verification": {
+          "before_sha256": "fc25d37bf822d8db96e1f30420aacc4f78baaf392412308276f8983268f66f10",
+          "after_sha256": "35b232a59bc882b23eb9a0fefb97b0bdc22612104cc0e40f394637345ab339f0",
+          "raw_itl_diff": {
+            "before_bytes": 4142,
+            "after_bytes": 4143,
+            "changed_byte_positions": 3525,
+            "range_count": 30
+          },
+          "track_header_diff": {
+            "changed_byte_positions": 0,
+            "range_count": 0,
+            "ranges": []
+          },
+          "target_fields": {
+            "rating": {
+              "before": 0,
+              "after": 0
+            },
+            "name_refresh_flag_raw": {
+              "before": 0,
+              "after": 0
+            },
+            "legacy_loved_byte_raw": {
+              "before": 0,
+              "after": 0
+            },
+            "legacy_loved_bit": {
+              "before": false,
+              "after": false
+            }
+          },
+          "primary_and_independent_parsers_passed": true
+        }
+      },
+      "sessions": [
+        {
+          "phase": "mutation",
+          "rating_write": {
+            "requested": 0,
+            "before": 0,
+            "immediate": 0,
+            "exact": true,
+            "same_value_request": true
+          },
+          "rating_gate": {
+            "expected": 0,
+            "actual": 0,
+            "passed": true
+          },
+          "projection_sequence": [
+            {
+              "label": "before-1",
+              "Rating": 0,
+              "RatingKind": 1,
+              "AlbumRating": 0,
+              "AlbumRatingKind": 1,
+              "identity_errors": []
+            },
+            {
+              "label": "before-2",
+              "Rating": 0,
+              "RatingKind": 1,
+              "AlbumRating": 0,
+              "AlbumRatingKind": 1,
+              "identity_errors": []
+            },
+            {
+              "label": "after-1",
+              "Rating": 0,
+              "RatingKind": 1,
+              "AlbumRating": 0,
+              "AlbumRatingKind": 1,
+              "identity_errors": []
+            },
+            {
+              "label": "after-2",
+              "Rating": 0,
+              "RatingKind": 1,
+              "AlbumRating": 0,
+              "AlbumRatingKind": 1,
+              "identity_errors": []
+            }
+          ],
+          "saved_sha256": "f611af4ee5b22a5df19af6b740bf8a2b0b788e360200538dbe0eff92c53d38c2"
+        },
+        {
+          "phase": "same-value-repeat",
+          "rating_write": {
+            "requested": 0,
+            "before": 0,
+            "immediate": 0,
+            "exact": true,
+            "same_value_request": true
+          },
+          "rating_gate": {
+            "expected": 0,
+            "actual": 0,
+            "passed": true
+          },
+          "projection_sequence": [
+            {
+              "label": "before-1",
+              "Rating": 0,
+              "RatingKind": 1,
+              "AlbumRating": 0,
+              "AlbumRatingKind": 1,
+              "identity_errors": []
+            },
+            {
+              "label": "before-2",
+              "Rating": 0,
+              "RatingKind": 1,
+              "AlbumRating": 0,
+              "AlbumRatingKind": 1,
+              "identity_errors": []
+            },
+            {
+              "label": "after-1",
+              "Rating": 0,
+              "RatingKind": 1,
+              "AlbumRating": 0,
+              "AlbumRatingKind": 1,
+              "identity_errors": []
+            },
+            {
+              "label": "after-2",
+              "Rating": 0,
+              "RatingKind": 1,
+              "AlbumRating": 0,
+              "AlbumRatingKind": 1,
+              "identity_errors": []
+            }
+          ],
+          "saved_sha256": "fc25d37bf822d8db96e1f30420aacc4f78baaf392412308276f8983268f66f10"
+        },
+        {
+          "phase": "restart-verification",
+          "rating_write": null,
+          "rating_gate": {
+            "expected": 0,
+            "actual": 0,
+            "passed": true
+          },
+          "projection_sequence": [
+            {
+              "label": "before-1",
+              "Rating": 0,
+              "RatingKind": 1,
+              "AlbumRating": 0,
+              "AlbumRatingKind": 1,
+              "identity_errors": []
+            },
+            {
+              "label": "before-2",
+              "Rating": 0,
+              "RatingKind": 1,
+              "AlbumRating": 0,
+              "AlbumRatingKind": 1,
+              "identity_errors": []
+            },
+            {
+              "label": "after-1",
+              "Rating": 0,
+              "RatingKind": 1,
+              "AlbumRating": 0,
+              "AlbumRatingKind": 1,
+              "identity_errors": []
+            },
+            {
+              "label": "after-2",
+              "Rating": 0,
+              "RatingKind": 1,
+              "AlbumRating": 0,
+              "AlbumRatingKind": 1,
+              "identity_errors": []
+            }
+          ],
+          "saved_sha256": "35b232a59bc882b23eb9a0fefb97b0bdc22612104cc0e40f394637345ab339f0"
+        }
+      ]
+    },
+    {
+      "case": "rating-020",
+      "expected": 20,
+      "observed": {
+        "mutation": 20,
+        "same-value-repeat": 20,
+        "restart-verification": 20
+      },
+      "passed": true,
+      "snapshots": {
+        "baseline": {
+          "sha256": "c6c68171d57350ceb3cf379eee13a764ea199536ef18238fe4faf80583492d74",
+          "bytes": 10566,
+          "rating": 0,
+          "name_refresh_flag_raw": 0,
+          "legacy_loved_byte_raw": 0,
+          "legacy_loved_bit": false,
+          "track_header_length": 756,
+          "track_header_sha256": "ee97eed8c481b9f8606b23389fe32739a413757cc5c48248c8f61809102c911e",
+          "high_level_library": {
+            "outcome": "blocked",
+            "error": {
+              "type": "FormatError",
+              "message": "zero or duplicate secondary track ID",
+              "args_repr": "('zero or duplicate secondary track ID',)"
+            }
+          },
+          "primary_independent_validator_passed": true,
+          "validator_valid": true
+        },
+        "mutation": {
+          "sha256": "ac3bed7583373bd5b2e94ef18b88c84d0ee11d1863471c7d90ef852e8c1f1715",
+          "bytes": 4111,
+          "rating": 20,
+          "name_refresh_flag_raw": 0,
+          "legacy_loved_byte_raw": 0,
+          "legacy_loved_bit": false,
+          "track_header_length": 756,
+          "track_header_sha256": "ce43decfdc35161e77cc77dc837fca56bb59bbacdec1bc062447cfc987273c8a",
+          "high_level_library": {
+            "outcome": "observed",
+            "track_count": 1
+          },
+          "primary_independent_validator_passed": true,
+          "validator_valid": true
+        },
+        "same-value-repeat": {
+          "sha256": "51842dfa26bf772fc62f93c05dffd8a44cb3d199da51d63b0729967e330e601d",
+          "bytes": 4149,
+          "rating": 20,
+          "name_refresh_flag_raw": 0,
+          "legacy_loved_byte_raw": 0,
+          "legacy_loved_bit": false,
+          "track_header_length": 756,
+          "track_header_sha256": "ce43decfdc35161e77cc77dc837fca56bb59bbacdec1bc062447cfc987273c8a",
+          "high_level_library": {
+            "outcome": "observed",
+            "track_count": 1
+          },
+          "primary_independent_validator_passed": true,
+          "validator_valid": true
+        },
+        "restart-verification": {
+          "sha256": "245e630ac9c7135a8fb671f2223766c5a57bd1d187b37330c214507d660d49d7",
+          "bytes": 4149,
+          "rating": 20,
+          "name_refresh_flag_raw": 0,
+          "legacy_loved_byte_raw": 0,
+          "legacy_loved_bit": false,
+          "track_header_length": 756,
+          "track_header_sha256": "ce43decfdc35161e77cc77dc837fca56bb59bbacdec1bc062447cfc987273c8a",
+          "high_level_library": {
+            "outcome": "observed",
+            "track_count": 1
+          },
+          "primary_independent_validator_passed": true,
+          "validator_valid": true
+        }
+      },
+      "transitions": {
+        "baseline_to_mutation": {
+          "before_sha256": "c6c68171d57350ceb3cf379eee13a764ea199536ef18238fe4faf80583492d74",
+          "after_sha256": "ac3bed7583373bd5b2e94ef18b88c84d0ee11d1863471c7d90ef852e8c1f1715",
+          "raw_itl_diff": {
+            "before_bytes": 10566,
+            "after_bytes": 4111,
+            "changed_byte_positions": 10420,
+            "range_count": 19
+          },
+          "track_header_diff": {
+            "changed_byte_positions": 12,
+            "range_count": 8,
+            "ranges": [
+              {
+                "start": 8,
+                "end_exclusive": 9,
+                "length": 1,
+                "before_hex": "3a",
+                "after_hex": "2b"
+              },
+              {
+                "start": 16,
+                "end_exclusive": 17,
+                "length": 1,
+                "before_hex": "01",
+                "after_hex": "47"
+              },
+              {
+                "start": 108,
+                "end_exclusive": 109,
+                "length": 1,
+                "before_hex": "00",
+                "after_hex": "14"
+              },
+              {
+                "start": 220,
+                "end_exclusive": 221,
+                "length": 1,
+                "before_hex": "03",
+                "after_hex": "45"
+              },
+              {
+                "start": 297,
+                "end_exclusive": 298,
+                "length": 1,
+                "before_hex": "00",
+                "after_hex": "01"
+              },
+              {
+                "start": 333,
+                "end_exclusive": 338,
+                "length": 5,
+                "before_hex": "0000000000",
+                "after_hex": "8080808080"
+              },
+              {
+                "start": 480,
+                "end_exclusive": 481,
+                "length": 1,
+                "before_hex": "04",
+                "after_hex": "46"
+              },
+              {
+                "start": 500,
+                "end_exclusive": 501,
+                "length": 1,
+                "before_hex": "00",
+                "after_hex": "48"
+              }
+            ]
+          },
+          "target_fields": {
+            "rating": {
+              "before": 0,
+              "after": 20
+            },
+            "name_refresh_flag_raw": {
+              "before": 0,
+              "after": 0
+            },
+            "legacy_loved_byte_raw": {
+              "before": 0,
+              "after": 0
+            },
+            "legacy_loved_bit": {
+              "before": false,
+              "after": false
+            }
+          },
+          "primary_and_independent_parsers_passed": true
+        },
+        "mutation_to_same-value-repeat": {
+          "before_sha256": "ac3bed7583373bd5b2e94ef18b88c84d0ee11d1863471c7d90ef852e8c1f1715",
+          "after_sha256": "51842dfa26bf772fc62f93c05dffd8a44cb3d199da51d63b0729967e330e601d",
+          "raw_itl_diff": {
+            "before_bytes": 4111,
+            "after_bytes": 4149,
+            "changed_byte_positions": 3987,
+            "range_count": 23
+          },
+          "track_header_diff": {
+            "changed_byte_positions": 0,
+            "range_count": 0,
+            "ranges": []
+          },
+          "target_fields": {
+            "rating": {
+              "before": 20,
+              "after": 20
+            },
+            "name_refresh_flag_raw": {
+              "before": 0,
+              "after": 0
+            },
+            "legacy_loved_byte_raw": {
+              "before": 0,
+              "after": 0
+            },
+            "legacy_loved_bit": {
+              "before": false,
+              "after": false
+            }
+          },
+          "primary_and_independent_parsers_passed": true
+        },
+        "same-value-repeat_to_restart-verification": {
+          "before_sha256": "51842dfa26bf772fc62f93c05dffd8a44cb3d199da51d63b0729967e330e601d",
+          "after_sha256": "245e630ac9c7135a8fb671f2223766c5a57bd1d187b37330c214507d660d49d7",
+          "raw_itl_diff": {
+            "before_bytes": 4149,
+            "after_bytes": 4149,
+            "changed_byte_positions": 3616,
+            "range_count": 31
+          },
+          "track_header_diff": {
+            "changed_byte_positions": 0,
+            "range_count": 0,
+            "ranges": []
+          },
+          "target_fields": {
+            "rating": {
+              "before": 20,
+              "after": 20
+            },
+            "name_refresh_flag_raw": {
+              "before": 0,
+              "after": 0
+            },
+            "legacy_loved_byte_raw": {
+              "before": 0,
+              "after": 0
+            },
+            "legacy_loved_bit": {
+              "before": false,
+              "after": false
+            }
+          },
+          "primary_and_independent_parsers_passed": true
+        }
+      },
+      "sessions": [
+        {
+          "phase": "mutation",
+          "rating_write": {
+            "requested": 20,
+            "before": 0,
+            "immediate": 20,
+            "exact": true,
+            "same_value_request": false
+          },
+          "rating_gate": {
+            "expected": 20,
+            "actual": 20,
+            "passed": true
+          },
+          "projection_sequence": [
+            {
+              "label": "before-1",
+              "Rating": 0,
+              "RatingKind": 1,
+              "AlbumRating": 0,
+              "AlbumRatingKind": 1,
+              "identity_errors": []
+            },
+            {
+              "label": "before-2",
+              "Rating": 0,
+              "RatingKind": 1,
+              "AlbumRating": 0,
+              "AlbumRatingKind": 1,
+              "identity_errors": []
+            },
+            {
+              "label": "after-1",
+              "Rating": 20,
+              "RatingKind": 0,
+              "AlbumRating": 20,
+              "AlbumRatingKind": 1,
+              "identity_errors": []
+            },
+            {
+              "label": "after-2",
+              "Rating": 20,
+              "RatingKind": 0,
+              "AlbumRating": 20,
+              "AlbumRatingKind": 1,
+              "identity_errors": []
+            }
+          ],
+          "saved_sha256": "ac3bed7583373bd5b2e94ef18b88c84d0ee11d1863471c7d90ef852e8c1f1715"
+        },
+        {
+          "phase": "same-value-repeat",
+          "rating_write": {
+            "requested": 20,
+            "before": 20,
+            "immediate": 20,
+            "exact": true,
+            "same_value_request": true
+          },
+          "rating_gate": {
+            "expected": 20,
+            "actual": 20,
+            "passed": true
+          },
+          "projection_sequence": [
+            {
+              "label": "before-1",
+              "Rating": 20,
+              "RatingKind": 0,
+              "AlbumRating": 20,
+              "AlbumRatingKind": 1,
+              "identity_errors": []
+            },
+            {
+              "label": "before-2",
+              "Rating": 20,
+              "RatingKind": 0,
+              "AlbumRating": 20,
+              "AlbumRatingKind": 1,
+              "identity_errors": []
+            },
+            {
+              "label": "after-1",
+              "Rating": 20,
+              "RatingKind": 0,
+              "AlbumRating": 20,
+              "AlbumRatingKind": 1,
+              "identity_errors": []
+            },
+            {
+              "label": "after-2",
+              "Rating": 20,
+              "RatingKind": 0,
+              "AlbumRating": 20,
+              "AlbumRatingKind": 1,
+              "identity_errors": []
+            }
+          ],
+          "saved_sha256": "51842dfa26bf772fc62f93c05dffd8a44cb3d199da51d63b0729967e330e601d"
+        },
+        {
+          "phase": "restart-verification",
+          "rating_write": null,
+          "rating_gate": {
+            "expected": 20,
+            "actual": 20,
+            "passed": true
+          },
+          "projection_sequence": [
+            {
+              "label": "before-1",
+              "Rating": 20,
+              "RatingKind": 0,
+              "AlbumRating": 20,
+              "AlbumRatingKind": 1,
+              "identity_errors": []
+            },
+            {
+              "label": "before-2",
+              "Rating": 20,
+              "RatingKind": 0,
+              "AlbumRating": 20,
+              "AlbumRatingKind": 1,
+              "identity_errors": []
+            },
+            {
+              "label": "after-1",
+              "Rating": 20,
+              "RatingKind": 0,
+              "AlbumRating": 20,
+              "AlbumRatingKind": 1,
+              "identity_errors": []
+            },
+            {
+              "label": "after-2",
+              "Rating": 20,
+              "RatingKind": 0,
+              "AlbumRating": 20,
+              "AlbumRatingKind": 1,
+              "identity_errors": []
+            }
+          ],
+          "saved_sha256": "245e630ac9c7135a8fb671f2223766c5a57bd1d187b37330c214507d660d49d7"
+        }
+      ]
+    },
+    {
+      "case": "rating-040",
+      "expected": 40,
+      "observed": {
+        "mutation": 40,
+        "same-value-repeat": 40,
+        "restart-verification": 40
+      },
+      "passed": true,
+      "snapshots": {
+        "baseline": {
+          "sha256": "c6c68171d57350ceb3cf379eee13a764ea199536ef18238fe4faf80583492d74",
+          "bytes": 10566,
+          "rating": 0,
+          "name_refresh_flag_raw": 0,
+          "legacy_loved_byte_raw": 0,
+          "legacy_loved_bit": false,
+          "track_header_length": 756,
+          "track_header_sha256": "ee97eed8c481b9f8606b23389fe32739a413757cc5c48248c8f61809102c911e",
+          "high_level_library": {
+            "outcome": "blocked",
+            "error": {
+              "type": "FormatError",
+              "message": "zero or duplicate secondary track ID",
+              "args_repr": "('zero or duplicate secondary track ID',)"
+            }
+          },
+          "primary_independent_validator_passed": true,
+          "validator_valid": true
+        },
+        "mutation": {
+          "sha256": "50fbb732d2fe91c904da8ccad005930829ec98cbc6946b2e5d604f51557e0e52",
+          "bytes": 4104,
+          "rating": 40,
+          "name_refresh_flag_raw": 0,
+          "legacy_loved_byte_raw": 0,
+          "legacy_loved_bit": false,
+          "track_header_length": 756,
+          "track_header_sha256": "a454bcbd2a79033915c39ec711bd67cb1970ddd48aeabf3764c6a1c3df721918",
+          "high_level_library": {
+            "outcome": "observed",
+            "track_count": 1
+          },
+          "primary_independent_validator_passed": true,
+          "validator_valid": true
+        },
+        "same-value-repeat": {
+          "sha256": "060545612bc94c290f32e3351851e4181181860443e5ab1c9fc1041a9dc3caa6",
+          "bytes": 4134,
+          "rating": 40,
+          "name_refresh_flag_raw": 0,
+          "legacy_loved_byte_raw": 0,
+          "legacy_loved_bit": false,
+          "track_header_length": 756,
+          "track_header_sha256": "a454bcbd2a79033915c39ec711bd67cb1970ddd48aeabf3764c6a1c3df721918",
+          "high_level_library": {
+            "outcome": "observed",
+            "track_count": 1
+          },
+          "primary_independent_validator_passed": true,
+          "validator_valid": true
+        },
+        "restart-verification": {
+          "sha256": "cc66e054bdade9e9e374de573f6ef18bd8c7a76ccfdd41181f5930ded59dd0b4",
+          "bytes": 4134,
+          "rating": 40,
+          "name_refresh_flag_raw": 0,
+          "legacy_loved_byte_raw": 0,
+          "legacy_loved_bit": false,
+          "track_header_length": 756,
+          "track_header_sha256": "a454bcbd2a79033915c39ec711bd67cb1970ddd48aeabf3764c6a1c3df721918",
+          "high_level_library": {
+            "outcome": "observed",
+            "track_count": 1
+          },
+          "primary_independent_validator_passed": true,
+          "validator_valid": true
+        }
+      },
+      "transitions": {
+        "baseline_to_mutation": {
+          "before_sha256": "c6c68171d57350ceb3cf379eee13a764ea199536ef18238fe4faf80583492d74",
+          "after_sha256": "50fbb732d2fe91c904da8ccad005930829ec98cbc6946b2e5d604f51557e0e52",
+          "raw_itl_diff": {
+            "before_bytes": 10566,
+            "after_bytes": 4104,
+            "changed_byte_positions": 10404,
+            "range_count": 35
+          },
+          "track_header_diff": {
+            "changed_byte_positions": 12,
+            "range_count": 8,
+            "ranges": [
+              {
+                "start": 8,
+                "end_exclusive": 9,
+                "length": 1,
+                "before_hex": "3a",
+                "after_hex": "2b"
+              },
+              {
+                "start": 16,
+                "end_exclusive": 17,
+                "length": 1,
+                "before_hex": "01",
+                "after_hex": "47"
+              },
+              {
+                "start": 108,
+                "end_exclusive": 109,
+                "length": 1,
+                "before_hex": "00",
+                "after_hex": "28"
+              },
+              {
+                "start": 220,
+                "end_exclusive": 221,
+                "length": 1,
+                "before_hex": "03",
+                "after_hex": "45"
+              },
+              {
+                "start": 297,
+                "end_exclusive": 298,
+                "length": 1,
+                "before_hex": "00",
+                "after_hex": "01"
+              },
+              {
+                "start": 333,
+                "end_exclusive": 338,
+                "length": 5,
+                "before_hex": "0000000000",
+                "after_hex": "8080808080"
+              },
+              {
+                "start": 480,
+                "end_exclusive": 481,
+                "length": 1,
+                "before_hex": "04",
+                "after_hex": "46"
+              },
+              {
+                "start": 500,
+                "end_exclusive": 501,
+                "length": 1,
+                "before_hex": "00",
+                "after_hex": "48"
+              }
+            ]
+          },
+          "target_fields": {
+            "rating": {
+              "before": 0,
+              "after": 40
+            },
+            "name_refresh_flag_raw": {
+              "before": 0,
+              "after": 0
+            },
+            "legacy_loved_byte_raw": {
+              "before": 0,
+              "after": 0
+            },
+            "legacy_loved_bit": {
+              "before": false,
+              "after": false
+            }
+          },
+          "primary_and_independent_parsers_passed": true
+        },
+        "mutation_to_same-value-repeat": {
+          "before_sha256": "50fbb732d2fe91c904da8ccad005930829ec98cbc6946b2e5d604f51557e0e52",
+          "after_sha256": "060545612bc94c290f32e3351851e4181181860443e5ab1c9fc1041a9dc3caa6",
+          "raw_itl_diff": {
+            "before_bytes": 4104,
+            "after_bytes": 4134,
+            "changed_byte_positions": 3980,
+            "range_count": 15
+          },
+          "track_header_diff": {
+            "changed_byte_positions": 0,
+            "range_count": 0,
+            "ranges": []
+          },
+          "target_fields": {
+            "rating": {
+              "before": 40,
+              "after": 40
+            },
+            "name_refresh_flag_raw": {
+              "before": 0,
+              "after": 0
+            },
+            "legacy_loved_byte_raw": {
+              "before": 0,
+              "after": 0
+            },
+            "legacy_loved_bit": {
+              "before": false,
+              "after": false
+            }
+          },
+          "primary_and_independent_parsers_passed": true
+        },
+        "same-value-repeat_to_restart-verification": {
+          "before_sha256": "060545612bc94c290f32e3351851e4181181860443e5ab1c9fc1041a9dc3caa6",
+          "after_sha256": "cc66e054bdade9e9e374de573f6ef18bd8c7a76ccfdd41181f5930ded59dd0b4",
+          "raw_itl_diff": {
+            "before_bytes": 4134,
+            "after_bytes": 4134,
+            "changed_byte_positions": 3854,
+            "range_count": 28
+          },
+          "track_header_diff": {
+            "changed_byte_positions": 0,
+            "range_count": 0,
+            "ranges": []
+          },
+          "target_fields": {
+            "rating": {
+              "before": 40,
+              "after": 40
+            },
+            "name_refresh_flag_raw": {
+              "before": 0,
+              "after": 0
+            },
+            "legacy_loved_byte_raw": {
+              "before": 0,
+              "after": 0
+            },
+            "legacy_loved_bit": {
+              "before": false,
+              "after": false
+            }
+          },
+          "primary_and_independent_parsers_passed": true
+        }
+      },
+      "sessions": [
+        {
+          "phase": "mutation",
+          "rating_write": {
+            "requested": 40,
+            "before": 0,
+            "immediate": 40,
+            "exact": true,
+            "same_value_request": false
+          },
+          "rating_gate": {
+            "expected": 40,
+            "actual": 40,
+            "passed": true
+          },
+          "projection_sequence": [
+            {
+              "label": "before-1",
+              "Rating": 0,
+              "RatingKind": 1,
+              "AlbumRating": 0,
+              "AlbumRatingKind": 1,
+              "identity_errors": []
+            },
+            {
+              "label": "before-2",
+              "Rating": 0,
+              "RatingKind": 1,
+              "AlbumRating": 0,
+              "AlbumRatingKind": 1,
+              "identity_errors": []
+            },
+            {
+              "label": "after-1",
+              "Rating": 40,
+              "RatingKind": 0,
+              "AlbumRating": 40,
+              "AlbumRatingKind": 1,
+              "identity_errors": []
+            },
+            {
+              "label": "after-2",
+              "Rating": 40,
+              "RatingKind": 0,
+              "AlbumRating": 40,
+              "AlbumRatingKind": 1,
+              "identity_errors": []
+            }
+          ],
+          "saved_sha256": "50fbb732d2fe91c904da8ccad005930829ec98cbc6946b2e5d604f51557e0e52"
+        },
+        {
+          "phase": "same-value-repeat",
+          "rating_write": {
+            "requested": 40,
+            "before": 40,
+            "immediate": 40,
+            "exact": true,
+            "same_value_request": true
+          },
+          "rating_gate": {
+            "expected": 40,
+            "actual": 40,
+            "passed": true
+          },
+          "projection_sequence": [
+            {
+              "label": "before-1",
+              "Rating": 40,
+              "RatingKind": 0,
+              "AlbumRating": 40,
+              "AlbumRatingKind": 1,
+              "identity_errors": []
+            },
+            {
+              "label": "before-2",
+              "Rating": 40,
+              "RatingKind": 0,
+              "AlbumRating": 40,
+              "AlbumRatingKind": 1,
+              "identity_errors": []
+            },
+            {
+              "label": "after-1",
+              "Rating": 40,
+              "RatingKind": 0,
+              "AlbumRating": 40,
+              "AlbumRatingKind": 1,
+              "identity_errors": []
+            },
+            {
+              "label": "after-2",
+              "Rating": 40,
+              "RatingKind": 0,
+              "AlbumRating": 40,
+              "AlbumRatingKind": 1,
+              "identity_errors": []
+            }
+          ],
+          "saved_sha256": "060545612bc94c290f32e3351851e4181181860443e5ab1c9fc1041a9dc3caa6"
+        },
+        {
+          "phase": "restart-verification",
+          "rating_write": null,
+          "rating_gate": {
+            "expected": 40,
+            "actual": 40,
+            "passed": true
+          },
+          "projection_sequence": [
+            {
+              "label": "before-1",
+              "Rating": 40,
+              "RatingKind": 0,
+              "AlbumRating": 40,
+              "AlbumRatingKind": 1,
+              "identity_errors": []
+            },
+            {
+              "label": "before-2",
+              "Rating": 40,
+              "RatingKind": 0,
+              "AlbumRating": 40,
+              "AlbumRatingKind": 1,
+              "identity_errors": []
+            },
+            {
+              "label": "after-1",
+              "Rating": 40,
+              "RatingKind": 0,
+              "AlbumRating": 40,
+              "AlbumRatingKind": 1,
+              "identity_errors": []
+            },
+            {
+              "label": "after-2",
+              "Rating": 40,
+              "RatingKind": 0,
+              "AlbumRating": 40,
+              "AlbumRatingKind": 1,
+              "identity_errors": []
+            }
+          ],
+          "saved_sha256": "cc66e054bdade9e9e374de573f6ef18bd8c7a76ccfdd41181f5930ded59dd0b4"
+        }
+      ]
+    },
+    {
+      "case": "rating-060",
+      "expected": 60,
+      "observed": {
+        "mutation": 60,
+        "same-value-repeat": 60,
+        "restart-verification": 60
+      },
+      "passed": true,
+      "snapshots": {
+        "baseline": {
+          "sha256": "c6c68171d57350ceb3cf379eee13a764ea199536ef18238fe4faf80583492d74",
+          "bytes": 10566,
+          "rating": 0,
+          "name_refresh_flag_raw": 0,
+          "legacy_loved_byte_raw": 0,
+          "legacy_loved_bit": false,
+          "track_header_length": 756,
+          "track_header_sha256": "ee97eed8c481b9f8606b23389fe32739a413757cc5c48248c8f61809102c911e",
+          "high_level_library": {
+            "outcome": "blocked",
+            "error": {
+              "type": "FormatError",
+              "message": "zero or duplicate secondary track ID",
+              "args_repr": "('zero or duplicate secondary track ID',)"
+            }
+          },
+          "primary_independent_validator_passed": true,
+          "validator_valid": true
+        },
+        "mutation": {
+          "sha256": "fcfc1402f380d07bef83a259504bea8319f61a713d3d67b3bd97ba2e4c6ea3d1",
+          "bytes": 4108,
+          "rating": 60,
+          "name_refresh_flag_raw": 0,
+          "legacy_loved_byte_raw": 0,
+          "legacy_loved_bit": false,
+          "track_header_length": 756,
+          "track_header_sha256": "bdd16a5b8f51cef931627f1fb57e2666d2cc877850cbfbefac07593c3bfaa86d",
+          "high_level_library": {
+            "outcome": "observed",
+            "track_count": 1
+          },
+          "primary_independent_validator_passed": true,
+          "validator_valid": true
+        },
+        "same-value-repeat": {
+          "sha256": "54b6eebda11a6d1eb41538a5ddc98437825b13d4b0eb7c8bb9f3dfd3eccd6e32",
+          "bytes": 4143,
+          "rating": 60,
+          "name_refresh_flag_raw": 0,
+          "legacy_loved_byte_raw": 0,
+          "legacy_loved_bit": false,
+          "track_header_length": 756,
+          "track_header_sha256": "bdd16a5b8f51cef931627f1fb57e2666d2cc877850cbfbefac07593c3bfaa86d",
+          "high_level_library": {
+            "outcome": "observed",
+            "track_count": 1
+          },
+          "primary_independent_validator_passed": true,
+          "validator_valid": true
+        },
+        "restart-verification": {
+          "sha256": "b733fb302263f09ff677feb65b7eb7902e458341cb90e6f6c6842352d7a0047b",
+          "bytes": 4143,
+          "rating": 60,
+          "name_refresh_flag_raw": 0,
+          "legacy_loved_byte_raw": 0,
+          "legacy_loved_bit": false,
+          "track_header_length": 756,
+          "track_header_sha256": "bdd16a5b8f51cef931627f1fb57e2666d2cc877850cbfbefac07593c3bfaa86d",
+          "high_level_library": {
+            "outcome": "observed",
+            "track_count": 1
+          },
+          "primary_independent_validator_passed": true,
+          "validator_valid": true
+        }
+      },
+      "transitions": {
+        "baseline_to_mutation": {
+          "before_sha256": "c6c68171d57350ceb3cf379eee13a764ea199536ef18238fe4faf80583492d74",
+          "after_sha256": "fcfc1402f380d07bef83a259504bea8319f61a713d3d67b3bd97ba2e4c6ea3d1",
+          "raw_itl_diff": {
+            "before_bytes": 10566,
+            "after_bytes": 4108,
+            "changed_byte_positions": 10413,
+            "range_count": 25
+          },
+          "track_header_diff": {
+            "changed_byte_positions": 12,
+            "range_count": 8,
+            "ranges": [
+              {
+                "start": 8,
+                "end_exclusive": 9,
+                "length": 1,
+                "before_hex": "3a",
+                "after_hex": "2b"
+              },
+              {
+                "start": 16,
+                "end_exclusive": 17,
+                "length": 1,
+                "before_hex": "01",
+                "after_hex": "47"
+              },
+              {
+                "start": 108,
+                "end_exclusive": 109,
+                "length": 1,
+                "before_hex": "00",
+                "after_hex": "3c"
+              },
+              {
+                "start": 220,
+                "end_exclusive": 221,
+                "length": 1,
+                "before_hex": "03",
+                "after_hex": "45"
+              },
+              {
+                "start": 297,
+                "end_exclusive": 298,
+                "length": 1,
+                "before_hex": "00",
+                "after_hex": "01"
+              },
+              {
+                "start": 333,
+                "end_exclusive": 338,
+                "length": 5,
+                "before_hex": "0000000000",
+                "after_hex": "8080808080"
+              },
+              {
+                "start": 480,
+                "end_exclusive": 481,
+                "length": 1,
+                "before_hex": "04",
+                "after_hex": "46"
+              },
+              {
+                "start": 500,
+                "end_exclusive": 501,
+                "length": 1,
+                "before_hex": "00",
+                "after_hex": "48"
+              }
+            ]
+          },
+          "target_fields": {
+            "rating": {
+              "before": 0,
+              "after": 60
+            },
+            "name_refresh_flag_raw": {
+              "before": 0,
+              "after": 0
+            },
+            "legacy_loved_byte_raw": {
+              "before": 0,
+              "after": 0
+            },
+            "legacy_loved_bit": {
+              "before": false,
+              "after": false
+            }
+          },
+          "primary_and_independent_parsers_passed": true
+        },
+        "mutation_to_same-value-repeat": {
+          "before_sha256": "fcfc1402f380d07bef83a259504bea8319f61a713d3d67b3bd97ba2e4c6ea3d1",
+          "after_sha256": "54b6eebda11a6d1eb41538a5ddc98437825b13d4b0eb7c8bb9f3dfd3eccd6e32",
+          "raw_itl_diff": {
+            "before_bytes": 4108,
+            "after_bytes": 4143,
+            "changed_byte_positions": 3988,
+            "range_count": 15
+          },
+          "track_header_diff": {
+            "changed_byte_positions": 0,
+            "range_count": 0,
+            "ranges": []
+          },
+          "target_fields": {
+            "rating": {
+              "before": 60,
+              "after": 60
+            },
+            "name_refresh_flag_raw": {
+              "before": 0,
+              "after": 0
+            },
+            "legacy_loved_byte_raw": {
+              "before": 0,
+              "after": 0
+            },
+            "legacy_loved_bit": {
+              "before": false,
+              "after": false
+            }
+          },
+          "primary_and_independent_parsers_passed": true
+        },
+        "same-value-repeat_to_restart-verification": {
+          "before_sha256": "54b6eebda11a6d1eb41538a5ddc98437825b13d4b0eb7c8bb9f3dfd3eccd6e32",
+          "after_sha256": "b733fb302263f09ff677feb65b7eb7902e458341cb90e6f6c6842352d7a0047b",
+          "raw_itl_diff": {
+            "before_bytes": 4143,
+            "after_bytes": 4143,
+            "changed_byte_positions": 3688,
+            "range_count": 31
+          },
+          "track_header_diff": {
+            "changed_byte_positions": 0,
+            "range_count": 0,
+            "ranges": []
+          },
+          "target_fields": {
+            "rating": {
+              "before": 60,
+              "after": 60
+            },
+            "name_refresh_flag_raw": {
+              "before": 0,
+              "after": 0
+            },
+            "legacy_loved_byte_raw": {
+              "before": 0,
+              "after": 0
+            },
+            "legacy_loved_bit": {
+              "before": false,
+              "after": false
+            }
+          },
+          "primary_and_independent_parsers_passed": true
+        }
+      },
+      "sessions": [
+        {
+          "phase": "mutation",
+          "rating_write": {
+            "requested": 60,
+            "before": 0,
+            "immediate": 60,
+            "exact": true,
+            "same_value_request": false
+          },
+          "rating_gate": {
+            "expected": 60,
+            "actual": 60,
+            "passed": true
+          },
+          "projection_sequence": [
+            {
+              "label": "before-1",
+              "Rating": 0,
+              "RatingKind": 1,
+              "AlbumRating": 0,
+              "AlbumRatingKind": 1,
+              "identity_errors": []
+            },
+            {
+              "label": "before-2",
+              "Rating": 0,
+              "RatingKind": 1,
+              "AlbumRating": 0,
+              "AlbumRatingKind": 1,
+              "identity_errors": []
+            },
+            {
+              "label": "after-1",
+              "Rating": 60,
+              "RatingKind": 0,
+              "AlbumRating": 60,
+              "AlbumRatingKind": 1,
+              "identity_errors": []
+            },
+            {
+              "label": "after-2",
+              "Rating": 60,
+              "RatingKind": 0,
+              "AlbumRating": 60,
+              "AlbumRatingKind": 1,
+              "identity_errors": []
+            }
+          ],
+          "saved_sha256": "fcfc1402f380d07bef83a259504bea8319f61a713d3d67b3bd97ba2e4c6ea3d1"
+        },
+        {
+          "phase": "same-value-repeat",
+          "rating_write": {
+            "requested": 60,
+            "before": 60,
+            "immediate": 60,
+            "exact": true,
+            "same_value_request": true
+          },
+          "rating_gate": {
+            "expected": 60,
+            "actual": 60,
+            "passed": true
+          },
+          "projection_sequence": [
+            {
+              "label": "before-1",
+              "Rating": 60,
+              "RatingKind": 0,
+              "AlbumRating": 60,
+              "AlbumRatingKind": 1,
+              "identity_errors": []
+            },
+            {
+              "label": "before-2",
+              "Rating": 60,
+              "RatingKind": 0,
+              "AlbumRating": 60,
+              "AlbumRatingKind": 1,
+              "identity_errors": []
+            },
+            {
+              "label": "after-1",
+              "Rating": 60,
+              "RatingKind": 0,
+              "AlbumRating": 60,
+              "AlbumRatingKind": 1,
+              "identity_errors": []
+            },
+            {
+              "label": "after-2",
+              "Rating": 60,
+              "RatingKind": 0,
+              "AlbumRating": 60,
+              "AlbumRatingKind": 1,
+              "identity_errors": []
+            }
+          ],
+          "saved_sha256": "54b6eebda11a6d1eb41538a5ddc98437825b13d4b0eb7c8bb9f3dfd3eccd6e32"
+        },
+        {
+          "phase": "restart-verification",
+          "rating_write": null,
+          "rating_gate": {
+            "expected": 60,
+            "actual": 60,
+            "passed": true
+          },
+          "projection_sequence": [
+            {
+              "label": "before-1",
+              "Rating": 60,
+              "RatingKind": 0,
+              "AlbumRating": 60,
+              "AlbumRatingKind": 1,
+              "identity_errors": []
+            },
+            {
+              "label": "before-2",
+              "Rating": 60,
+              "RatingKind": 0,
+              "AlbumRating": 60,
+              "AlbumRatingKind": 1,
+              "identity_errors": []
+            },
+            {
+              "label": "after-1",
+              "Rating": 60,
+              "RatingKind": 0,
+              "AlbumRating": 60,
+              "AlbumRatingKind": 1,
+              "identity_errors": []
+            },
+            {
+              "label": "after-2",
+              "Rating": 60,
+              "RatingKind": 0,
+              "AlbumRating": 60,
+              "AlbumRatingKind": 1,
+              "identity_errors": []
+            }
+          ],
+          "saved_sha256": "b733fb302263f09ff677feb65b7eb7902e458341cb90e6f6c6842352d7a0047b"
+        }
+      ]
+    },
+    {
+      "case": "rating-080",
+      "expected": 80,
+      "observed": {
+        "mutation": 80,
+        "same-value-repeat": 80,
+        "restart-verification": 80
+      },
+      "passed": true,
+      "snapshots": {
+        "baseline": {
+          "sha256": "c6c68171d57350ceb3cf379eee13a764ea199536ef18238fe4faf80583492d74",
+          "bytes": 10566,
+          "rating": 0,
+          "name_refresh_flag_raw": 0,
+          "legacy_loved_byte_raw": 0,
+          "legacy_loved_bit": false,
+          "track_header_length": 756,
+          "track_header_sha256": "ee97eed8c481b9f8606b23389fe32739a413757cc5c48248c8f61809102c911e",
+          "high_level_library": {
+            "outcome": "blocked",
+            "error": {
+              "type": "FormatError",
+              "message": "zero or duplicate secondary track ID",
+              "args_repr": "('zero or duplicate secondary track ID',)"
+            }
+          },
+          "primary_independent_validator_passed": true,
+          "validator_valid": true
+        },
+        "mutation": {
+          "sha256": "a9177fb07ad74d98403970b317f7c69b049007704d73a96c32b7366fef0c521d",
+          "bytes": 4113,
+          "rating": 80,
+          "name_refresh_flag_raw": 0,
+          "legacy_loved_byte_raw": 0,
+          "legacy_loved_bit": false,
+          "track_header_length": 756,
+          "track_header_sha256": "b808191851946c2f4d44dd2bcd259808233402c7e7e9a7080e88998a60907893",
+          "high_level_library": {
+            "outcome": "observed",
+            "track_count": 1
+          },
+          "primary_independent_validator_passed": true,
+          "validator_valid": true
+        },
+        "same-value-repeat": {
+          "sha256": "78d4de3c2cb144184ef1d7aa49ede3d934bd6720a3c406057b8445078de5a46e",
+          "bytes": 4138,
+          "rating": 80,
+          "name_refresh_flag_raw": 0,
+          "legacy_loved_byte_raw": 0,
+          "legacy_loved_bit": false,
+          "track_header_length": 756,
+          "track_header_sha256": "b808191851946c2f4d44dd2bcd259808233402c7e7e9a7080e88998a60907893",
+          "high_level_library": {
+            "outcome": "observed",
+            "track_count": 1
+          },
+          "primary_independent_validator_passed": true,
+          "validator_valid": true
+        },
+        "restart-verification": {
+          "sha256": "7eee360224e6ba229f8906dca01635b00567a3e451d2f769057ce559fdd55700",
+          "bytes": 4138,
+          "rating": 80,
+          "name_refresh_flag_raw": 0,
+          "legacy_loved_byte_raw": 0,
+          "legacy_loved_bit": false,
+          "track_header_length": 756,
+          "track_header_sha256": "b808191851946c2f4d44dd2bcd259808233402c7e7e9a7080e88998a60907893",
+          "high_level_library": {
+            "outcome": "observed",
+            "track_count": 1
+          },
+          "primary_independent_validator_passed": true,
+          "validator_valid": true
+        }
+      },
+      "transitions": {
+        "baseline_to_mutation": {
+          "before_sha256": "c6c68171d57350ceb3cf379eee13a764ea199536ef18238fe4faf80583492d74",
+          "after_sha256": "a9177fb07ad74d98403970b317f7c69b049007704d73a96c32b7366fef0c521d",
+          "raw_itl_diff": {
+            "before_bytes": 10566,
+            "after_bytes": 4113,
+            "changed_byte_positions": 10412,
+            "range_count": 27
+          },
+          "track_header_diff": {
+            "changed_byte_positions": 12,
+            "range_count": 8,
+            "ranges": [
+              {
+                "start": 8,
+                "end_exclusive": 9,
+                "length": 1,
+                "before_hex": "3a",
+                "after_hex": "2b"
+              },
+              {
+                "start": 16,
+                "end_exclusive": 17,
+                "length": 1,
+                "before_hex": "01",
+                "after_hex": "47"
+              },
+              {
+                "start": 108,
+                "end_exclusive": 109,
+                "length": 1,
+                "before_hex": "00",
+                "after_hex": "50"
+              },
+              {
+                "start": 220,
+                "end_exclusive": 221,
+                "length": 1,
+                "before_hex": "03",
+                "after_hex": "45"
+              },
+              {
+                "start": 297,
+                "end_exclusive": 298,
+                "length": 1,
+                "before_hex": "00",
+                "after_hex": "01"
+              },
+              {
+                "start": 333,
+                "end_exclusive": 338,
+                "length": 5,
+                "before_hex": "0000000000",
+                "after_hex": "8080808080"
+              },
+              {
+                "start": 480,
+                "end_exclusive": 481,
+                "length": 1,
+                "before_hex": "04",
+                "after_hex": "46"
+              },
+              {
+                "start": 500,
+                "end_exclusive": 501,
+                "length": 1,
+                "before_hex": "00",
+                "after_hex": "48"
+              }
+            ]
+          },
+          "target_fields": {
+            "rating": {
+              "before": 0,
+              "after": 80
+            },
+            "name_refresh_flag_raw": {
+              "before": 0,
+              "after": 0
+            },
+            "legacy_loved_byte_raw": {
+              "before": 0,
+              "after": 0
+            },
+            "legacy_loved_bit": {
+              "before": false,
+              "after": false
+            }
+          },
+          "primary_and_independent_parsers_passed": true
+        },
+        "mutation_to_same-value-repeat": {
+          "before_sha256": "a9177fb07ad74d98403970b317f7c69b049007704d73a96c32b7366fef0c521d",
+          "after_sha256": "78d4de3c2cb144184ef1d7aa49ede3d934bd6720a3c406057b8445078de5a46e",
+          "raw_itl_diff": {
+            "before_bytes": 4113,
+            "after_bytes": 4138,
+            "changed_byte_positions": 3986,
+            "range_count": 13
+          },
+          "track_header_diff": {
+            "changed_byte_positions": 0,
+            "range_count": 0,
+            "ranges": []
+          },
+          "target_fields": {
+            "rating": {
+              "before": 80,
+              "after": 80
+            },
+            "name_refresh_flag_raw": {
+              "before": 0,
+              "after": 0
+            },
+            "legacy_loved_byte_raw": {
+              "before": 0,
+              "after": 0
+            },
+            "legacy_loved_bit": {
+              "before": false,
+              "after": false
+            }
+          },
+          "primary_and_independent_parsers_passed": true
+        },
+        "same-value-repeat_to_restart-verification": {
+          "before_sha256": "78d4de3c2cb144184ef1d7aa49ede3d934bd6720a3c406057b8445078de5a46e",
+          "after_sha256": "7eee360224e6ba229f8906dca01635b00567a3e451d2f769057ce559fdd55700",
+          "raw_itl_diff": {
+            "before_bytes": 4138,
+            "after_bytes": 4138,
+            "changed_byte_positions": 3899,
+            "range_count": 18
+          },
+          "track_header_diff": {
+            "changed_byte_positions": 0,
+            "range_count": 0,
+            "ranges": []
+          },
+          "target_fields": {
+            "rating": {
+              "before": 80,
+              "after": 80
+            },
+            "name_refresh_flag_raw": {
+              "before": 0,
+              "after": 0
+            },
+            "legacy_loved_byte_raw": {
+              "before": 0,
+              "after": 0
+            },
+            "legacy_loved_bit": {
+              "before": false,
+              "after": false
+            }
+          },
+          "primary_and_independent_parsers_passed": true
+        }
+      },
+      "sessions": [
+        {
+          "phase": "mutation",
+          "rating_write": {
+            "requested": 80,
+            "before": 0,
+            "immediate": 80,
+            "exact": true,
+            "same_value_request": false
+          },
+          "rating_gate": {
+            "expected": 80,
+            "actual": 80,
+            "passed": true
+          },
+          "projection_sequence": [
+            {
+              "label": "before-1",
+              "Rating": 0,
+              "RatingKind": 1,
+              "AlbumRating": 0,
+              "AlbumRatingKind": 1,
+              "identity_errors": []
+            },
+            {
+              "label": "before-2",
+              "Rating": 0,
+              "RatingKind": 1,
+              "AlbumRating": 0,
+              "AlbumRatingKind": 1,
+              "identity_errors": []
+            },
+            {
+              "label": "after-1",
+              "Rating": 80,
+              "RatingKind": 0,
+              "AlbumRating": 80,
+              "AlbumRatingKind": 1,
+              "identity_errors": []
+            },
+            {
+              "label": "after-2",
+              "Rating": 80,
+              "RatingKind": 0,
+              "AlbumRating": 80,
+              "AlbumRatingKind": 1,
+              "identity_errors": []
+            }
+          ],
+          "saved_sha256": "a9177fb07ad74d98403970b317f7c69b049007704d73a96c32b7366fef0c521d"
+        },
+        {
+          "phase": "same-value-repeat",
+          "rating_write": {
+            "requested": 80,
+            "before": 80,
+            "immediate": 80,
+            "exact": true,
+            "same_value_request": true
+          },
+          "rating_gate": {
+            "expected": 80,
+            "actual": 80,
+            "passed": true
+          },
+          "projection_sequence": [
+            {
+              "label": "before-1",
+              "Rating": 80,
+              "RatingKind": 0,
+              "AlbumRating": 80,
+              "AlbumRatingKind": 1,
+              "identity_errors": []
+            },
+            {
+              "label": "before-2",
+              "Rating": 80,
+              "RatingKind": 0,
+              "AlbumRating": 80,
+              "AlbumRatingKind": 1,
+              "identity_errors": []
+            },
+            {
+              "label": "after-1",
+              "Rating": 80,
+              "RatingKind": 0,
+              "AlbumRating": 80,
+              "AlbumRatingKind": 1,
+              "identity_errors": []
+            },
+            {
+              "label": "after-2",
+              "Rating": 80,
+              "RatingKind": 0,
+              "AlbumRating": 80,
+              "AlbumRatingKind": 1,
+              "identity_errors": []
+            }
+          ],
+          "saved_sha256": "78d4de3c2cb144184ef1d7aa49ede3d934bd6720a3c406057b8445078de5a46e"
+        },
+        {
+          "phase": "restart-verification",
+          "rating_write": null,
+          "rating_gate": {
+            "expected": 80,
+            "actual": 80,
+            "passed": true
+          },
+          "projection_sequence": [
+            {
+              "label": "before-1",
+              "Rating": 80,
+              "RatingKind": 0,
+              "AlbumRating": 80,
+              "AlbumRatingKind": 1,
+              "identity_errors": []
+            },
+            {
+              "label": "before-2",
+              "Rating": 80,
+              "RatingKind": 0,
+              "AlbumRating": 80,
+              "AlbumRatingKind": 1,
+              "identity_errors": []
+            },
+            {
+              "label": "after-1",
+              "Rating": 80,
+              "RatingKind": 0,
+              "AlbumRating": 80,
+              "AlbumRatingKind": 1,
+              "identity_errors": []
+            },
+            {
+              "label": "after-2",
+              "Rating": 80,
+              "RatingKind": 0,
+              "AlbumRating": 80,
+              "AlbumRatingKind": 1,
+              "identity_errors": []
+            }
+          ],
+          "saved_sha256": "7eee360224e6ba229f8906dca01635b00567a3e451d2f769057ce559fdd55700"
+        }
+      ]
+    },
+    {
+      "case": "rating-100",
+      "expected": 100,
+      "observed": {
+        "mutation": 100,
+        "same-value-repeat": 100,
+        "restart-verification": 100
+      },
+      "passed": true,
+      "snapshots": {
+        "baseline": {
+          "sha256": "c6c68171d57350ceb3cf379eee13a764ea199536ef18238fe4faf80583492d74",
+          "bytes": 10566,
+          "rating": 0,
+          "name_refresh_flag_raw": 0,
+          "legacy_loved_byte_raw": 0,
+          "legacy_loved_bit": false,
+          "track_header_length": 756,
+          "track_header_sha256": "ee97eed8c481b9f8606b23389fe32739a413757cc5c48248c8f61809102c911e",
+          "high_level_library": {
+            "outcome": "blocked",
+            "error": {
+              "type": "FormatError",
+              "message": "zero or duplicate secondary track ID",
+              "args_repr": "('zero or duplicate secondary track ID',)"
+            }
+          },
+          "primary_independent_validator_passed": true,
+          "validator_valid": true
+        },
+        "mutation": {
+          "sha256": "6937ec8e828c255af870990f3934499c8e12cea3958c35b566f70fa3525da48c",
+          "bytes": 4089,
+          "rating": 100,
+          "name_refresh_flag_raw": 0,
+          "legacy_loved_byte_raw": 0,
+          "legacy_loved_bit": false,
+          "track_header_length": 756,
+          "track_header_sha256": "2b9f7a4285e84ba51d480e9959fd03284932fc5ff860aacdacc4ba87f764551e",
+          "high_level_library": {
+            "outcome": "observed",
+            "track_count": 1
+          },
+          "primary_independent_validator_passed": true,
+          "validator_valid": true
+        },
+        "same-value-repeat": {
+          "sha256": "9482f80305e3d16835f142c53bdf63505434172090d2c629dd026b85dde7ff9d",
+          "bytes": 4125,
+          "rating": 100,
+          "name_refresh_flag_raw": 0,
+          "legacy_loved_byte_raw": 0,
+          "legacy_loved_bit": false,
+          "track_header_length": 756,
+          "track_header_sha256": "2b9f7a4285e84ba51d480e9959fd03284932fc5ff860aacdacc4ba87f764551e",
+          "high_level_library": {
+            "outcome": "observed",
+            "track_count": 1
+          },
+          "primary_independent_validator_passed": true,
+          "validator_valid": true
+        },
+        "restart-verification": {
+          "sha256": "afceb55926aee1d529bc3c4c3cc5ca3f09f34817fdba998d282dd01f26c05c25",
+          "bytes": 4125,
+          "rating": 100,
+          "name_refresh_flag_raw": 0,
+          "legacy_loved_byte_raw": 0,
+          "legacy_loved_bit": false,
+          "track_header_length": 756,
+          "track_header_sha256": "2b9f7a4285e84ba51d480e9959fd03284932fc5ff860aacdacc4ba87f764551e",
+          "high_level_library": {
+            "outcome": "observed",
+            "track_count": 1
+          },
+          "primary_independent_validator_passed": true,
+          "validator_valid": true
+        }
+      },
+      "transitions": {
+        "baseline_to_mutation": {
+          "before_sha256": "c6c68171d57350ceb3cf379eee13a764ea199536ef18238fe4faf80583492d74",
+          "after_sha256": "6937ec8e828c255af870990f3934499c8e12cea3958c35b566f70fa3525da48c",
+          "raw_itl_diff": {
+            "before_bytes": 10566,
+            "after_bytes": 4089,
+            "changed_byte_positions": 10417,
+            "range_count": 21
+          },
+          "track_header_diff": {
+            "changed_byte_positions": 12,
+            "range_count": 8,
+            "ranges": [
+              {
+                "start": 8,
+                "end_exclusive": 9,
+                "length": 1,
+                "before_hex": "3a",
+                "after_hex": "2b"
+              },
+              {
+                "start": 16,
+                "end_exclusive": 17,
+                "length": 1,
+                "before_hex": "01",
+                "after_hex": "47"
+              },
+              {
+                "start": 108,
+                "end_exclusive": 109,
+                "length": 1,
+                "before_hex": "00",
+                "after_hex": "64"
+              },
+              {
+                "start": 220,
+                "end_exclusive": 221,
+                "length": 1,
+                "before_hex": "03",
+                "after_hex": "45"
+              },
+              {
+                "start": 297,
+                "end_exclusive": 298,
+                "length": 1,
+                "before_hex": "00",
+                "after_hex": "01"
+              },
+              {
+                "start": 333,
+                "end_exclusive": 338,
+                "length": 5,
+                "before_hex": "0000000000",
+                "after_hex": "8080808080"
+              },
+              {
+                "start": 480,
+                "end_exclusive": 481,
+                "length": 1,
+                "before_hex": "04",
+                "after_hex": "46"
+              },
+              {
+                "start": 500,
+                "end_exclusive": 501,
+                "length": 1,
+                "before_hex": "00",
+                "after_hex": "48"
+              }
+            ]
+          },
+          "target_fields": {
+            "rating": {
+              "before": 0,
+              "after": 100
+            },
+            "name_refresh_flag_raw": {
+              "before": 0,
+              "after": 0
+            },
+            "legacy_loved_byte_raw": {
+              "before": 0,
+              "after": 0
+            },
+            "legacy_loved_bit": {
+              "before": false,
+              "after": false
+            }
+          },
+          "primary_and_independent_parsers_passed": true
+        },
+        "mutation_to_same-value-repeat": {
+          "before_sha256": "6937ec8e828c255af870990f3934499c8e12cea3958c35b566f70fa3525da48c",
+          "after_sha256": "9482f80305e3d16835f142c53bdf63505434172090d2c629dd026b85dde7ff9d",
+          "raw_itl_diff": {
+            "before_bytes": 4089,
+            "after_bytes": 4125,
+            "changed_byte_positions": 3969,
+            "range_count": 18
+          },
+          "track_header_diff": {
+            "changed_byte_positions": 0,
+            "range_count": 0,
+            "ranges": []
+          },
+          "target_fields": {
+            "rating": {
+              "before": 100,
+              "after": 100
+            },
+            "name_refresh_flag_raw": {
+              "before": 0,
+              "after": 0
+            },
+            "legacy_loved_byte_raw": {
+              "before": 0,
+              "after": 0
+            },
+            "legacy_loved_bit": {
+              "before": false,
+              "after": false
+            }
+          },
+          "primary_and_independent_parsers_passed": true
+        },
+        "same-value-repeat_to_restart-verification": {
+          "before_sha256": "9482f80305e3d16835f142c53bdf63505434172090d2c629dd026b85dde7ff9d",
+          "after_sha256": "afceb55926aee1d529bc3c4c3cc5ca3f09f34817fdba998d282dd01f26c05c25",
+          "raw_itl_diff": {
+            "before_bytes": 4125,
+            "after_bytes": 4125,
+            "changed_byte_positions": 3897,
+            "range_count": 23
+          },
+          "track_header_diff": {
+            "changed_byte_positions": 0,
+            "range_count": 0,
+            "ranges": []
+          },
+          "target_fields": {
+            "rating": {
+              "before": 100,
+              "after": 100
+            },
+            "name_refresh_flag_raw": {
+              "before": 0,
+              "after": 0
+            },
+            "legacy_loved_byte_raw": {
+              "before": 0,
+              "after": 0
+            },
+            "legacy_loved_bit": {
+              "before": false,
+              "after": false
+            }
+          },
+          "primary_and_independent_parsers_passed": true
+        }
+      },
+      "sessions": [
+        {
+          "phase": "mutation",
+          "rating_write": {
+            "requested": 100,
+            "before": 0,
+            "immediate": 100,
+            "exact": true,
+            "same_value_request": false
+          },
+          "rating_gate": {
+            "expected": 100,
+            "actual": 100,
+            "passed": true
+          },
+          "projection_sequence": [
+            {
+              "label": "before-1",
+              "Rating": 0,
+              "RatingKind": 1,
+              "AlbumRating": 0,
+              "AlbumRatingKind": 1,
+              "identity_errors": []
+            },
+            {
+              "label": "before-2",
+              "Rating": 0,
+              "RatingKind": 1,
+              "AlbumRating": 0,
+              "AlbumRatingKind": 1,
+              "identity_errors": []
+            },
+            {
+              "label": "after-1",
+              "Rating": 100,
+              "RatingKind": 0,
+              "AlbumRating": 100,
+              "AlbumRatingKind": 1,
+              "identity_errors": []
+            },
+            {
+              "label": "after-2",
+              "Rating": 100,
+              "RatingKind": 0,
+              "AlbumRating": 100,
+              "AlbumRatingKind": 1,
+              "identity_errors": []
+            }
+          ],
+          "saved_sha256": "6937ec8e828c255af870990f3934499c8e12cea3958c35b566f70fa3525da48c"
+        },
+        {
+          "phase": "same-value-repeat",
+          "rating_write": {
+            "requested": 100,
+            "before": 100,
+            "immediate": 100,
+            "exact": true,
+            "same_value_request": true
+          },
+          "rating_gate": {
+            "expected": 100,
+            "actual": 100,
+            "passed": true
+          },
+          "projection_sequence": [
+            {
+              "label": "before-1",
+              "Rating": 100,
+              "RatingKind": 0,
+              "AlbumRating": 100,
+              "AlbumRatingKind": 1,
+              "identity_errors": []
+            },
+            {
+              "label": "before-2",
+              "Rating": 100,
+              "RatingKind": 0,
+              "AlbumRating": 100,
+              "AlbumRatingKind": 1,
+              "identity_errors": []
+            },
+            {
+              "label": "after-1",
+              "Rating": 100,
+              "RatingKind": 0,
+              "AlbumRating": 100,
+              "AlbumRatingKind": 1,
+              "identity_errors": []
+            },
+            {
+              "label": "after-2",
+              "Rating": 100,
+              "RatingKind": 0,
+              "AlbumRating": 100,
+              "AlbumRatingKind": 1,
+              "identity_errors": []
+            }
+          ],
+          "saved_sha256": "9482f80305e3d16835f142c53bdf63505434172090d2c629dd026b85dde7ff9d"
+        },
+        {
+          "phase": "restart-verification",
+          "rating_write": null,
+          "rating_gate": {
+            "expected": 100,
+            "actual": 100,
+            "passed": true
+          },
+          "projection_sequence": [
+            {
+              "label": "before-1",
+              "Rating": 100,
+              "RatingKind": 0,
+              "AlbumRating": 100,
+              "AlbumRatingKind": 1,
+              "identity_errors": []
+            },
+            {
+              "label": "before-2",
+              "Rating": 100,
+              "RatingKind": 0,
+              "AlbumRating": 100,
+              "AlbumRatingKind": 1,
+              "identity_errors": []
+            },
+            {
+              "label": "after-1",
+              "Rating": 100,
+              "RatingKind": 0,
+              "AlbumRating": 100,
+              "AlbumRatingKind": 1,
+              "identity_errors": []
+            },
+            {
+              "label": "after-2",
+              "Rating": 100,
+              "RatingKind": 0,
+              "AlbumRating": 100,
+              "AlbumRatingKind": 1,
+              "identity_errors": []
+            }
+          ],
+          "saved_sha256": "afceb55926aee1d529bc3c4c3cc5ca3f09f34817fdba998d282dd01f26c05c25"
+        }
+      ]
+    }
+  ],
+  "global_gates": {
+    "all_worker_exit_zero": true,
+    "all_itunes_exit_zero": true,
+    "all_sessions_accepted": true,
+    "all_sessions_requested_normal_quit": true,
+    "all_before_after_samples_stable": true,
+    "all_identity_gates_passed": true,
+    "forbidden_artifacts_observed": 0,
+    "ui_actions": [
+      "dismiss_audio_warning"
+    ],
+    "saved_snapshot_validations_passed": 20,
+    "saved_snapshot_validations_total": 20,
+    "all_target_name_refresh_zero": true,
+    "all_target_legacy_loved_zero": true
+  },
+  "observed": [
+    "COM type-library declarations were inspected from the installed signed iTunes executable.",
+    "Each rating value used a fresh isolated copy of the pinned one-track ITL.",
+    "Every saved snapshot was parsed by the primary and independent parsers and passed VALIDATOR."
+  ],
+  "attempted": [
+    "RatingKind and AlbumRatingKind getter and same-value setter attempts.",
+    "Loved and Disliked getter and setter attempts.",
+    "Loved/Disliked interaction sequence only if both runtime members were readable and writable.",
+    "Rating 0/20/40/60/80/100 mutation, same-value repeat save, and restart verification."
+  ],
+  "blocked": [
+    {
+      "member": "RatingKind",
+      "classification": "read_only",
+      "runtime_get": {
+        "member": "RatingKind",
+        "operation": "get",
+        "attempted": true,
+        "outcome": "observed",
+        "value": 1
+      },
+      "runtime_put": {
+        "member": "RatingKind",
+        "operation": "put",
+        "attempted": true,
+        "requested": 1,
+        "outcome": "blocked",
+        "error": {
+          "type": "AttributeError",
+          "message": "Property '<unknown>.RatingKind' can not be set.",
+          "args_repr": "(\"Property '<unknown>.RatingKind' can not be set.\",)"
+        }
+      }
+    },
+    {
+      "member": "AlbumRatingKind",
+      "classification": "read_only",
+      "runtime_get": {
+        "member": "AlbumRatingKind",
+        "operation": "get",
+        "attempted": true,
+        "outcome": "observed",
+        "value": 1
+      },
+      "runtime_put": {
+        "member": "AlbumRatingKind",
+        "operation": "put",
+        "attempted": true,
+        "requested": 1,
+        "outcome": "blocked",
+        "error": {
+          "type": "AttributeError",
+          "message": "Property '<unknown>.AlbumRatingKind' can not be set.",
+          "args_repr": "(\"Property '<unknown>.AlbumRatingKind' can not be set.\",)"
+        }
+      }
+    },
+    {
+      "member": "Loved",
+      "classification": "unsupported",
+      "runtime_get": {
+        "member": "Loved",
+        "operation": "get",
+        "attempted": true,
+        "outcome": "blocked",
+        "error": {
+          "type": "AttributeError",
+          "message": "<unknown>.Loved",
+          "args_repr": "('<unknown>.Loved',)"
+        }
+      },
+      "runtime_put": {
+        "member": "Loved",
+        "operation": "put",
+        "attempted": true,
+        "requested": false,
+        "outcome": "blocked",
+        "error": {
+          "type": "AttributeError",
+          "message": "Property '<unknown>.Loved' can not be set.",
+          "args_repr": "(\"Property '<unknown>.Loved' can not be set.\",)"
+        }
+      }
+    },
+    {
+      "member": "Disliked",
+      "classification": "unsupported",
+      "runtime_get": {
+        "member": "Disliked",
+        "operation": "get",
+        "attempted": true,
+        "outcome": "blocked",
+        "error": {
+          "type": "AttributeError",
+          "message": "<unknown>.Disliked",
+          "args_repr": "('<unknown>.Disliked',)"
+        }
+      },
+      "runtime_put": {
+        "member": "Disliked",
+        "operation": "put",
+        "attempted": true,
+        "requested": false,
+        "outcome": "blocked",
+        "error": {
+          "type": "AttributeError",
+          "message": "Property '<unknown>.Disliked' can not be set.",
+          "args_repr": "(\"Property '<unknown>.Disliked' can not be set.\",)"
+        }
+      }
+    }
+  ],
+  "claim_boundary": [
+    "This is one standalone Windows iTunes 12.13.10.3 build and one pinned one-track ITL profile.",
+    "RatingKind and AlbumRatingKind were observed as read-only COM projections, not writable controls.",
+    "Loved and Disliked were absent from the inspected file-track typelib and unavailable at runtime, so their interaction sequence was blocked.",
+    "Raw ITL bytes changed between semantically equal saves; targeted record-header stability is not whole-file byte idempotence.",
+    "Targeted structural validation does not establish universal native acceptance or complete opaque-byte semantics.",
+    "UI factorials, direct Loved/Disliked transitions, album-derived factorials, additional media/track shapes, other versions, and independent reproduction remain open."
+  ]
+}

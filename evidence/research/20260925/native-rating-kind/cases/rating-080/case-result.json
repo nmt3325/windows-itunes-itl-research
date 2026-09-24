@@ -1,0 +1,4232 @@
+{
+  "name": "rating-080",
+  "case": {
+    "name": "rating-080",
+    "mode": "rating",
+    "rating": 80
+  },
+  "candidate": {
+    "path": "D:\\a\\_temp\\gha-mcp\\win-dj1cymvp\\work\\itl-analysis\\repo\\TEST_CORPUS\\generated\\reference-one-track-raw.itl",
+    "bytes": 10566,
+    "mtime_ns": 1790265642217330600,
+    "sha256": "c6c68171d57350ceb3cf379eee13a764ea199536ef18238fe4faf80583492d74"
+  },
+  "baseline_analysis": {
+    "file": {
+      "path": "D:\\a\\_temp\\gha-mcp\\win-dj1cymvp\\work\\itl-analysis\\repo\\evidence\\research\\20260925\\native-rating-kind\\cases\\rating-080\\baseline.itl",
+      "bytes": 10566,
+      "mtime_ns": 1790265642217330600,
+      "sha256": "c6c68171d57350ceb3cf379eee13a764ea199536ef18238fe4faf80583492d74"
+    },
+    "primary": {
+      "parser_path": "itlkit.Container + itlkit.model.parse_sections",
+      "high_level_library": {
+        "outcome": "blocked",
+        "error": {
+          "type": "FormatError",
+          "message": "zero or duplicate secondary track ID",
+          "args_repr": "('zero or duplicate secondary track ID',)"
+        }
+      },
+      "version": "12.13.10.3",
+      "persistent_id": "A17E000000000001",
+      "rating": 0,
+      "name_refresh_flag_raw": 0,
+      "legacy_loved_bit": false,
+      "legacy_loved_byte_raw": 0,
+      "track_header_length": 756,
+      "track_header_sha256": "ee97eed8c481b9f8606b23389fe32739a413757cc5c48248c8f61809102c911e",
+      "rating_window_0x60_0x72": "000000000000000000000000000000000000",
+      "legacy_loved_window_0x2b8_0x2c4": "000000000000000000000000"
+    },
+    "independent": {
+      "track": {
+        "persistent_id": "A17E000000000001",
+        "track_id": 1,
+        "record_kind_raw": 1,
+        "date_modified": 0,
+        "file_size": 0,
+        "total_time": 0,
+        "track_number": 0,
+        "track_count": 0,
+        "year": 0,
+        "bit_rate": 0,
+        "play_count": 0,
+        "play_date": 0,
+        "disc_number": 0,
+        "disc_count": 0,
+        "rating": 0,
+        "name_refresh_flag_raw": 0,
+        "legacy_loved_byte_raw": 0,
+        "date_added": 3865040640,
+        "skip_count": 0,
+        "album_id": 3,
+        "unplayed_raw": 0,
+        "sample_rate": 0,
+        "skip_date": 0,
+        "artist_id": 4,
+        "header_length": 756,
+        "name": "Reference Track",
+        "album": null,
+        "artist": null,
+        "genre": null,
+        "kind": null,
+        "comment": null,
+        "url": null,
+        "composer": null,
+        "path": null,
+        "album_artist": null,
+        "sort_name": null,
+        "sort_album": null,
+        "sort_artist": null,
+        "sort_album_artist": null,
+        "purchaser_name": null,
+        "unplayed": true,
+        "legacy_loved_bit": false
+      },
+      "track_header_sha256": "ee97eed8c481b9f8606b23389fe32739a413757cc5c48248c8f61809102c911e"
+    },
+    "validator": {
+      "schema": "reference-itl.validation.v1",
+      "sha256": "c6c68171d57350ceb3cf379eee13a764ea199536ef18238fe4faf80583492d74",
+      "valid": true,
+      "version": "12.13.10.3",
+      "counts": {
+        "declared": {
+          "sections": 10,
+          "tracks": 1,
+          "playlists": 2,
+          "albums": 1,
+          "artists": 1
+        },
+        "parsed": {
+          "sections": 10,
+          "tracks": 1,
+          "playlists": 2,
+          "albums": 1,
+          "artists": 1
+        }
+      },
+      "issues": [
+        {
+          "severity": "warning",
+          "code": "scope.opaque_section",
+          "path": "section[6]/type[23]",
+          "message": "section body is retained but not semantically decoded",
+          "details": {
+            "section_type": 23,
+            "bytes": 96
+          }
+        },
+        {
+          "severity": "warning",
+          "code": "scope.opaque_section",
+          "path": "section[9]/type[4]",
+          "message": "section body is retained but not semantically decoded",
+          "details": {
+            "section_type": 4,
+            "bytes": 66
+          }
+        }
+      ],
+      "coverage": {
+        "envelope_and_record_boundaries": true,
+        "known_reference_namespaces": [
+          "track local/Persistent IDs",
+          "playlist local/Persistent IDs",
+          "playlist item IDs and track references",
+          "track album and artist local references"
+        ],
+        "opaque_bytes_semantically_validated": false,
+        "opaque_reference_scan": false
+      },
+      "native_acceptance": "unverified"
+    },
+    "errors": [],
+    "passed": true
+  },
+  "started_utc": "2026-09-24T16:47:57.041621+00:00",
+  "sessions": [
+    {
+      "phase": "mutation",
+      "mode": "rating_mutation",
+      "started_utc": "2026-09-24T16:47:57.052642+00:00",
+      "prelaunch": {
+        "path": "D:\\a\\_temp\\gha-mcp\\win-dj1cymvp\\work\\itl-analysis\\native-rating-kind-20260925-run1\\rating-080\\live\\iTunes Library.itl",
+        "bytes": 10566,
+        "mtime_ns": 1790265642217330600,
+        "sha256": "c6c68171d57350ceb3cf379eee13a764ea199536ef18238fe4faf80583492d74"
+      },
+      "inventory_before": [
+        {
+          "path": "iTunes Library.itl",
+          "kind": "file",
+          "bytes": 10566,
+          "sha256": "c6c68171d57350ceb3cf379eee13a764ea199536ef18238fe4faf80583492d74"
+        }
+      ],
+      "ui": [
+        {
+          "action": "dismiss_audio_warning",
+          "pid": 6640,
+          "window": {
+            "hwnd": 1114646,
+            "pid": 6640,
+            "class": "iTunesCustomModalDialog",
+            "title": "iTunes",
+            "children": [
+              {
+                "hwnd": 1638942,
+                "class": "Static",
+                "text": "iTunes has detected a problem with your audio configuration.\rAudio/Video playback may not operate properly.",
+                "id": 101,
+                "enabled": true,
+                "visible": true
+              },
+              {
+                "hwnd": 2424862,
+                "class": "Static",
+                "text": "",
+                "id": 103,
+                "enabled": true,
+                "visible": false
+              },
+              {
+                "hwnd": 1442180,
+                "class": "Button",
+                "text": "",
+                "id": 104,
+                "enabled": true,
+                "visible": false
+              },
+              {
+                "hwnd": 1442268,
+                "class": "Button",
+                "text": "OK",
+                "id": 1,
+                "enabled": true,
+                "visible": true
+              },
+              {
+                "hwnd": 1704446,
+                "class": "Button",
+                "text": "More Info",
+                "id": 105,
+                "enabled": true,
+                "visible": false
+              },
+              {
+                "hwnd": 2163042,
+                "class": "Static",
+                "text": "",
+                "id": 102,
+                "enabled": true,
+                "visible": true
+              }
+            ]
+          }
+        }
+      ],
+      "forbidden_before": [],
+      "itunes_pid": 6640,
+      "post_readiness_settle_seconds": 3.0,
+      "worker_command": [
+        "D:\\a\\_temp\\gha-mcp\\win-dj1cymvp\\work\\itl-analysis\\.venv-native-rating\\Scripts\\python.exe",
+        "-B",
+        "-u",
+        "D:\\a\\_temp\\gha-mcp\\win-dj1cymvp\\work\\itl-analysis\\repo\\scripts\\windows\\native_rating_kind_20260925.py",
+        "_worker",
+        "--spec",
+        "D:\\a\\_temp\\gha-mcp\\win-dj1cymvp\\work\\itl-analysis\\repo\\evidence\\research\\20260925\\native-rating-kind\\cases\\rating-080\\mutation\\worker-spec.json",
+        "--output",
+        "D:\\a\\_temp\\gha-mcp\\win-dj1cymvp\\work\\itl-analysis\\repo\\evidence\\research\\20260925\\native-rating-kind\\cases\\rating-080\\mutation\\com.json"
+      ],
+      "worker_exit_code": 0,
+      "worker": {
+        "schema_version": 1,
+        "started_utc": "2026-09-24T16:48:04.774461+00:00",
+        "spec": {
+          "schema_version": 1,
+          "case": "rating-080",
+          "phase": "mutation",
+          "mode": "rating_mutation",
+          "rating": 80
+        },
+        "samples": [
+          {
+            "label": "before-1",
+            "state": {
+              "version": "12.13.10.3",
+              "library_persistent_id": "5245464552454E43",
+              "tracks": [
+                {
+                  "persistent_id": "A17E000000000001",
+                  "Name": "Reference Track",
+                  "Artist": "",
+                  "Album": "",
+                  "AlbumArtist": "",
+                  "Composer": "",
+                  "Genre": "",
+                  "Comment": "",
+                  "Grouping": "",
+                  "Lyrics": "",
+                  "SortName": "",
+                  "SortArtist": "",
+                  "SortAlbum": "",
+                  "SortAlbumArtist": "",
+                  "Rating": 0,
+                  "AlbumRating": 0,
+                  "PlayedCount": 0,
+                  "PlayedDate": "1899-12-30T00:00:00+00:00",
+                  "SkippedCount": 0,
+                  "SkippedDate": "1899-12-30T00:00:00+00:00",
+                  "DateAdded": "2026-06-23T06:24:00+00:00",
+                  "ModificationDate": "1899-12-30T00:00:00+00:00",
+                  "TrackNumber": 0,
+                  "TrackCount": 0,
+                  "DiscNumber": 0,
+                  "DiscCount": 0,
+                  "Year": 0,
+                  "BPM": 0,
+                  "Compilation": false,
+                  "Enabled": true,
+                  "VolumeAdjustment": 0,
+                  "Location": "",
+                  "Duration": 0,
+                  "SampleRate": 0,
+                  "BitRate": 0,
+                  "Size": 0,
+                  "TrackDatabaseID": 71,
+                  "TrackID": 76,
+                  "PlayOrderIndex": 1,
+                  "Unplayed": true,
+                  "RatingKind": 1,
+                  "AlbumRatingKind": 1
+                }
+              ],
+              "playlists": [
+                {
+                  "name": "Library",
+                  "persistent_id": "5245464552454E43",
+                  "kind": 1,
+                  "members": [
+                    {
+                      "persistent_id": "A17E000000000001",
+                      "name": "Reference Track",
+                      "play_order_index": 1
+                    }
+                  ],
+                  "special_kind": null
+                },
+                {
+                  "name": "Music",
+                  "persistent_id": "2916B1866EB0BB7B",
+                  "kind": 2,
+                  "members": [
+                    {
+                      "persistent_id": "A17E000000000001",
+                      "name": "Reference Track",
+                      "play_order_index": 1
+                    }
+                  ],
+                  "special_kind": 6
+                },
+                {
+                  "name": "Movies",
+                  "persistent_id": "FF9551F17013EBA6",
+                  "kind": 2,
+                  "members": [],
+                  "special_kind": 7
+                },
+                {
+                  "name": "TV Shows",
+                  "persistent_id": "9DE4BAF458A0FDB2",
+                  "kind": 2,
+                  "members": [],
+                  "special_kind": 8
+                },
+                {
+                  "name": "Podcasts",
+                  "persistent_id": "96B75204177AC260",
+                  "kind": 2,
+                  "members": [],
+                  "special_kind": 3
+                },
+                {
+                  "name": "Audiobooks",
+                  "persistent_id": "5F31B22D63E23F56",
+                  "kind": 2,
+                  "members": [],
+                  "special_kind": 9
+                },
+                {
+                  "name": "Genius",
+                  "persistent_id": "B6756A75BDA567C6",
+                  "kind": 2,
+                  "members": [],
+                  "special_kind": 11
+                },
+                {
+                  "name": "Reference Playlist",
+                  "persistent_id": "A17E000000000002",
+                  "kind": 2,
+                  "members": [
+                    {
+                      "persistent_id": "A17E000000000001",
+                      "name": "Reference Track",
+                      "play_order_index": 1
+                    }
+                  ],
+                  "special_kind": 0
+                }
+              ],
+              "track_count": 1
+            },
+            "identity_errors": []
+          },
+          {
+            "label": "before-2",
+            "state": {
+              "version": "12.13.10.3",
+              "library_persistent_id": "5245464552454E43",
+              "tracks": [
+                {
+                  "persistent_id": "A17E000000000001",
+                  "Name": "Reference Track",
+                  "Artist": "",
+                  "Album": "",
+                  "AlbumArtist": "",
+                  "Composer": "",
+                  "Genre": "",
+                  "Comment": "",
+                  "Grouping": "",
+                  "Lyrics": "",
+                  "SortName": "",
+                  "SortArtist": "",
+                  "SortAlbum": "",
+                  "SortAlbumArtist": "",
+                  "Rating": 0,
+                  "AlbumRating": 0,
+                  "PlayedCount": 0,
+                  "PlayedDate": "1899-12-30T00:00:00+00:00",
+                  "SkippedCount": 0,
+                  "SkippedDate": "1899-12-30T00:00:00+00:00",
+                  "DateAdded": "2026-06-23T06:24:00+00:00",
+                  "ModificationDate": "1899-12-30T00:00:00+00:00",
+                  "TrackNumber": 0,
+                  "TrackCount": 0,
+                  "DiscNumber": 0,
+                  "DiscCount": 0,
+                  "Year": 0,
+                  "BPM": 0,
+                  "Compilation": false,
+                  "Enabled": true,
+                  "VolumeAdjustment": 0,
+                  "Location": "",
+                  "Duration": 0,
+                  "SampleRate": 0,
+                  "BitRate": 0,
+                  "Size": 0,
+                  "TrackDatabaseID": 71,
+                  "TrackID": 76,
+                  "PlayOrderIndex": 1,
+                  "Unplayed": true,
+                  "RatingKind": 1,
+                  "AlbumRatingKind": 1
+                }
+              ],
+              "playlists": [
+                {
+                  "name": "Library",
+                  "persistent_id": "5245464552454E43",
+                  "kind": 1,
+                  "members": [
+                    {
+                      "persistent_id": "A17E000000000001",
+                      "name": "Reference Track",
+                      "play_order_index": 1
+                    }
+                  ],
+                  "special_kind": null
+                },
+                {
+                  "name": "Music",
+                  "persistent_id": "2916B1866EB0BB7B",
+                  "kind": 2,
+                  "members": [
+                    {
+                      "persistent_id": "A17E000000000001",
+                      "name": "Reference Track",
+                      "play_order_index": 1
+                    }
+                  ],
+                  "special_kind": 6
+                },
+                {
+                  "name": "Movies",
+                  "persistent_id": "FF9551F17013EBA6",
+                  "kind": 2,
+                  "members": [],
+                  "special_kind": 7
+                },
+                {
+                  "name": "TV Shows",
+                  "persistent_id": "9DE4BAF458A0FDB2",
+                  "kind": 2,
+                  "members": [],
+                  "special_kind": 8
+                },
+                {
+                  "name": "Podcasts",
+                  "persistent_id": "96B75204177AC260",
+                  "kind": 2,
+                  "members": [],
+                  "special_kind": 3
+                },
+                {
+                  "name": "Audiobooks",
+                  "persistent_id": "5F31B22D63E23F56",
+                  "kind": 2,
+                  "members": [],
+                  "special_kind": 9
+                },
+                {
+                  "name": "Genius",
+                  "persistent_id": "B6756A75BDA567C6",
+                  "kind": 2,
+                  "members": [],
+                  "special_kind": 11
+                },
+                {
+                  "name": "Reference Playlist",
+                  "persistent_id": "A17E000000000002",
+                  "kind": 2,
+                  "members": [
+                    {
+                      "persistent_id": "A17E000000000001",
+                      "name": "Reference Track",
+                      "play_order_index": 1
+                    }
+                  ],
+                  "special_kind": 0
+                }
+              ],
+              "track_count": 1
+            },
+            "identity_errors": []
+          },
+          {
+            "label": "after-1",
+            "state": {
+              "version": "12.13.10.3",
+              "library_persistent_id": "5245464552454E43",
+              "tracks": [
+                {
+                  "persistent_id": "A17E000000000001",
+                  "Name": "Reference Track",
+                  "Artist": "",
+                  "Album": "",
+                  "AlbumArtist": "",
+                  "Composer": "",
+                  "Genre": "",
+                  "Comment": "",
+                  "Grouping": "",
+                  "Lyrics": "",
+                  "SortName": "",
+                  "SortArtist": "",
+                  "SortAlbum": "",
+                  "SortAlbumArtist": "",
+                  "Rating": 80,
+                  "AlbumRating": 80,
+                  "PlayedCount": 0,
+                  "PlayedDate": "1899-12-30T00:00:00+00:00",
+                  "SkippedCount": 0,
+                  "SkippedDate": "1899-12-30T00:00:00+00:00",
+                  "DateAdded": "2026-06-23T06:24:00+00:00",
+                  "ModificationDate": "1899-12-30T00:00:00+00:00",
+                  "TrackNumber": 0,
+                  "TrackCount": 0,
+                  "DiscNumber": 0,
+                  "DiscCount": 0,
+                  "Year": 0,
+                  "BPM": 0,
+                  "Compilation": false,
+                  "Enabled": true,
+                  "VolumeAdjustment": 0,
+                  "Location": "",
+                  "Duration": 0,
+                  "SampleRate": 0,
+                  "BitRate": 0,
+                  "Size": 0,
+                  "TrackDatabaseID": 71,
+                  "TrackID": 76,
+                  "PlayOrderIndex": 1,
+                  "Unplayed": true,
+                  "RatingKind": 0,
+                  "AlbumRatingKind": 1
+                }
+              ],
+              "playlists": [
+                {
+                  "name": "Library",
+                  "persistent_id": "5245464552454E43",
+                  "kind": 1,
+                  "members": [
+                    {
+                      "persistent_id": "A17E000000000001",
+                      "name": "Reference Track",
+                      "play_order_index": 1
+                    }
+                  ],
+                  "special_kind": null
+                },
+                {
+                  "name": "Music",
+                  "persistent_id": "2916B1866EB0BB7B",
+                  "kind": 2,
+                  "members": [
+                    {
+                      "persistent_id": "A17E000000000001",
+                      "name": "Reference Track",
+                      "play_order_index": 1
+                    }
+                  ],
+                  "special_kind": 6
+                },
+                {
+                  "name": "Movies",
+                  "persistent_id": "FF9551F17013EBA6",
+                  "kind": 2,
+                  "members": [],
+                  "special_kind": 7
+                },
+                {
+                  "name": "TV Shows",
+                  "persistent_id": "9DE4BAF458A0FDB2",
+                  "kind": 2,
+                  "members": [],
+                  "special_kind": 8
+                },
+                {
+                  "name": "Podcasts",
+                  "persistent_id": "96B75204177AC260",
+                  "kind": 2,
+                  "members": [],
+                  "special_kind": 3
+                },
+                {
+                  "name": "Audiobooks",
+                  "persistent_id": "5F31B22D63E23F56",
+                  "kind": 2,
+                  "members": [],
+                  "special_kind": 9
+                },
+                {
+                  "name": "Genius",
+                  "persistent_id": "B6756A75BDA567C6",
+                  "kind": 2,
+                  "members": [],
+                  "special_kind": 11
+                },
+                {
+                  "name": "Reference Playlist",
+                  "persistent_id": "A17E000000000002",
+                  "kind": 2,
+                  "members": [
+                    {
+                      "persistent_id": "A17E000000000001",
+                      "name": "Reference Track",
+                      "play_order_index": 1
+                    }
+                  ],
+                  "special_kind": 0
+                }
+              ],
+              "track_count": 1
+            },
+            "identity_errors": []
+          },
+          {
+            "label": "after-2",
+            "state": {
+              "version": "12.13.10.3",
+              "library_persistent_id": "5245464552454E43",
+              "tracks": [
+                {
+                  "persistent_id": "A17E000000000001",
+                  "Name": "Reference Track",
+                  "Artist": "",
+                  "Album": "",
+                  "AlbumArtist": "",
+                  "Composer": "",
+                  "Genre": "",
+                  "Comment": "",
+                  "Grouping": "",
+                  "Lyrics": "",
+                  "SortName": "",
+                  "SortArtist": "",
+                  "SortAlbum": "",
+                  "SortAlbumArtist": "",
+                  "Rating": 80,
+                  "AlbumRating": 80,
+                  "PlayedCount": 0,
+                  "PlayedDate": "1899-12-30T00:00:00+00:00",
+                  "SkippedCount": 0,
+                  "SkippedDate": "1899-12-30T00:00:00+00:00",
+                  "DateAdded": "2026-06-23T06:24:00+00:00",
+                  "ModificationDate": "1899-12-30T00:00:00+00:00",
+                  "TrackNumber": 0,
+                  "TrackCount": 0,
+                  "DiscNumber": 0,
+                  "DiscCount": 0,
+                  "Year": 0,
+                  "BPM": 0,
+                  "Compilation": false,
+                  "Enabled": true,
+                  "VolumeAdjustment": 0,
+                  "Location": "",
+                  "Duration": 0,
+                  "SampleRate": 0,
+                  "BitRate": 0,
+                  "Size": 0,
+                  "TrackDatabaseID": 71,
+                  "TrackID": 76,
+                  "PlayOrderIndex": 1,
+                  "Unplayed": true,
+                  "RatingKind": 0,
+                  "AlbumRatingKind": 1
+                }
+              ],
+              "playlists": [
+                {
+                  "name": "Library",
+                  "persistent_id": "5245464552454E43",
+                  "kind": 1,
+                  "members": [
+                    {
+                      "persistent_id": "A17E000000000001",
+                      "name": "Reference Track",
+                      "play_order_index": 1
+                    }
+                  ],
+                  "special_kind": null
+                },
+                {
+                  "name": "Music",
+                  "persistent_id": "2916B1866EB0BB7B",
+                  "kind": 2,
+                  "members": [
+                    {
+                      "persistent_id": "A17E000000000001",
+                      "name": "Reference Track",
+                      "play_order_index": 1
+                    }
+                  ],
+                  "special_kind": 6
+                },
+                {
+                  "name": "Movies",
+                  "persistent_id": "FF9551F17013EBA6",
+                  "kind": 2,
+                  "members": [],
+                  "special_kind": 7
+                },
+                {
+                  "name": "TV Shows",
+                  "persistent_id": "9DE4BAF458A0FDB2",
+                  "kind": 2,
+                  "members": [],
+                  "special_kind": 8
+                },
+                {
+                  "name": "Podcasts",
+                  "persistent_id": "96B75204177AC260",
+                  "kind": 2,
+                  "members": [],
+                  "special_kind": 3
+                },
+                {
+                  "name": "Audiobooks",
+                  "persistent_id": "5F31B22D63E23F56",
+                  "kind": 2,
+                  "members": [],
+                  "special_kind": 9
+                },
+                {
+                  "name": "Genius",
+                  "persistent_id": "B6756A75BDA567C6",
+                  "kind": 2,
+                  "members": [],
+                  "special_kind": 11
+                },
+                {
+                  "name": "Reference Playlist",
+                  "persistent_id": "A17E000000000002",
+                  "kind": 2,
+                  "members": [
+                    {
+                      "persistent_id": "A17E000000000001",
+                      "name": "Reference Track",
+                      "play_order_index": 1
+                    }
+                  ],
+                  "special_kind": 0
+                }
+              ],
+              "track_count": 1
+            },
+            "identity_errors": []
+          }
+        ],
+        "operation_log": [
+          {
+            "utc": "2026-09-24T16:48:07.213097+00:00",
+            "action": "member_probes_complete",
+            "mode": "rating_mutation"
+          },
+          {
+            "utc": "2026-09-24T16:48:07.215110+00:00",
+            "action": "rating_put",
+            "requested": 80,
+            "before": 0,
+            "immediate": 80,
+            "same_value_request": false
+          },
+          {
+            "utc": "2026-09-24T16:48:09.596603+00:00",
+            "action": "normal_quit_requested"
+          }
+        ],
+        "accepted": true,
+        "quit_requested": true,
+        "before_stable": true,
+        "member_probes": {
+          "getters": {
+            "Rating": {
+              "member": "Rating",
+              "operation": "get",
+              "attempted": true,
+              "outcome": "observed",
+              "value": 0
+            },
+            "RatingKind": {
+              "member": "RatingKind",
+              "operation": "get",
+              "attempted": true,
+              "outcome": "observed",
+              "value": 1
+            },
+            "AlbumRating": {
+              "member": "AlbumRating",
+              "operation": "get",
+              "attempted": true,
+              "outcome": "observed",
+              "value": 0
+            },
+            "AlbumRatingKind": {
+              "member": "AlbumRatingKind",
+              "operation": "get",
+              "attempted": true,
+              "outcome": "observed",
+              "value": 1
+            },
+            "Loved": {
+              "member": "Loved",
+              "operation": "get",
+              "attempted": true,
+              "outcome": "blocked",
+              "error": {
+                "type": "AttributeError",
+                "message": "<unknown>.Loved",
+                "args_repr": "('<unknown>.Loved',)"
+              }
+            },
+            "Disliked": {
+              "member": "Disliked",
+              "operation": "get",
+              "attempted": true,
+              "outcome": "blocked",
+              "error": {
+                "type": "AttributeError",
+                "message": "<unknown>.Disliked",
+                "args_repr": "('<unknown>.Disliked',)"
+              }
+            }
+          },
+          "setters": {},
+          "interaction": {
+            "outcome": "not_attempted",
+            "reason": "setter attempts are isolated to the interface-probe case"
+          }
+        },
+        "rating_write": {
+          "requested": 80,
+          "before": 0,
+          "immediate": 80,
+          "exact": true,
+          "same_value_request": false
+        },
+        "after_stable": true,
+        "rating_gate": {
+          "expected": 80,
+          "actual": 80,
+          "passed": true
+        },
+        "within_session_snapshot_changed": true,
+        "finished_utc": "2026-09-24T16:48:09.596968+00:00"
+      },
+      "itunes_exit_code": 0,
+      "inventory_after": [
+        {
+          "path": "Album Artwork",
+          "kind": "directory"
+        },
+        {
+          "path": "Album Artwork/Cache",
+          "kind": "directory"
+        },
+        {
+          "path": "Album Artwork/Custom",
+          "kind": "directory"
+        },
+        {
+          "path": "Album Artwork/Download",
+          "kind": "directory"
+        },
+        {
+          "path": "Album Artwork/Generated",
+          "kind": "directory"
+        },
+        {
+          "path": "Album Artwork/Store",
+          "kind": "directory"
+        },
+        {
+          "path": "iTunes Library Extras.itdb",
+          "kind": "file",
+          "bytes": 16384,
+          "sha256": "e1937a7a396264a1d85599295ce5d66fe16e5771e91be496987a16b26d406553"
+        },
+        {
+          "path": "iTunes Library Genius.itdb",
+          "kind": "file",
+          "bytes": 32768,
+          "sha256": "2eb4fbe42c4deb56e05baad259d5f59be82809c0479600934c4d46f08592566a"
+        },
+        {
+          "path": "iTunes Library.itl",
+          "kind": "file",
+          "bytes": 4113,
+          "sha256": "a9177fb07ad74d98403970b317f7c69b049007704d73a96c32b7366fef0c521d"
+        },
+        {
+          "path": "iTunes Media",
+          "kind": "directory"
+        },
+        {
+          "path": "iTunes Media/.iTunes Preferences.plist",
+          "kind": "file",
+          "bytes": 305,
+          "sha256": "5b1bcbc20d8da6f78ea417158324667a114f56ae8abf75201b66170b7d94ce0b"
+        },
+        {
+          "path": "iTunes Media/Automatically Add to iTunes",
+          "kind": "directory"
+        },
+        {
+          "path": "sentinel",
+          "kind": "file",
+          "bytes": 8,
+          "sha256": "7fd2326e6e7f2c00c03b8a57e3b3f0f5267bf22d6ddfa098f153fce7f8c18a53"
+        }
+      ],
+      "forbidden_after": [],
+      "saved": {
+        "path": "D:\\a\\_temp\\gha-mcp\\win-dj1cymvp\\work\\itl-analysis\\repo\\evidence\\research\\20260925\\native-rating-kind\\cases\\rating-080\\mutation\\native-saved.itl",
+        "bytes": 4113,
+        "mtime_ns": 1790268492708211400,
+        "sha256": "a9177fb07ad74d98403970b317f7c69b049007704d73a96c32b7366fef0c521d"
+      },
+      "targeted_validation": {
+        "file": {
+          "path": "D:\\a\\_temp\\gha-mcp\\win-dj1cymvp\\work\\itl-analysis\\repo\\evidence\\research\\20260925\\native-rating-kind\\cases\\rating-080\\mutation\\native-saved.itl",
+          "bytes": 4113,
+          "mtime_ns": 1790268492708211400,
+          "sha256": "a9177fb07ad74d98403970b317f7c69b049007704d73a96c32b7366fef0c521d"
+        },
+        "primary": {
+          "parser_path": "itlkit.Container + itlkit.model.parse_sections",
+          "high_level_library": {
+            "outcome": "observed",
+            "track_count": 1
+          },
+          "version": "12.13.10.3",
+          "persistent_id": "A17E000000000001",
+          "rating": 80,
+          "name_refresh_flag_raw": 0,
+          "legacy_loved_bit": false,
+          "legacy_loved_byte_raw": 0,
+          "track_header_length": 756,
+          "track_header_sha256": "b808191851946c2f4d44dd2bcd259808233402c7e7e9a7080e88998a60907893",
+          "rating_window_0x60_0x72": "000000000000000000000000500000000000",
+          "legacy_loved_window_0x2b8_0x2c4": "000000000000000000000000"
+        },
+        "independent": {
+          "track": {
+            "persistent_id": "A17E000000000001",
+            "track_id": 71,
+            "record_kind_raw": 1,
+            "date_modified": 0,
+            "file_size": 0,
+            "total_time": 0,
+            "track_number": 0,
+            "track_count": 0,
+            "year": 0,
+            "bit_rate": 0,
+            "play_count": 0,
+            "play_date": 0,
+            "disc_number": 0,
+            "disc_count": 0,
+            "rating": 80,
+            "name_refresh_flag_raw": 0,
+            "legacy_loved_byte_raw": 0,
+            "date_added": 3865040640,
+            "skip_count": 0,
+            "album_id": 69,
+            "unplayed_raw": 0,
+            "sample_rate": 0,
+            "skip_date": 0,
+            "artist_id": 70,
+            "header_length": 756,
+            "name": "Reference Track",
+            "album": null,
+            "artist": null,
+            "genre": null,
+            "kind": null,
+            "comment": null,
+            "url": null,
+            "composer": null,
+            "path": null,
+            "album_artist": null,
+            "sort_name": null,
+            "sort_album": null,
+            "sort_artist": null,
+            "sort_album_artist": null,
+            "purchaser_name": null,
+            "unplayed": true,
+            "legacy_loved_bit": false
+          },
+          "track_header_sha256": "b808191851946c2f4d44dd2bcd259808233402c7e7e9a7080e88998a60907893"
+        },
+        "validator": {
+          "schema": "reference-itl.validation.v1",
+          "sha256": "a9177fb07ad74d98403970b317f7c69b049007704d73a96c32b7366fef0c521d",
+          "valid": true,
+          "version": "12.13.10.3",
+          "counts": {
+            "declared": {
+              "sections": 10,
+              "tracks": 1,
+              "playlists": 15,
+              "albums": 1,
+              "artists": 1
+            },
+            "parsed": {
+              "sections": 10,
+              "tracks": 1,
+              "playlists": 15,
+              "albums": 1,
+              "artists": 1
+            }
+          },
+          "issues": [
+            {
+              "severity": "warning",
+              "code": "scope.opaque_section",
+              "path": "section[6]/type[23]",
+              "message": "section body is retained but not semantically decoded",
+              "details": {
+                "section_type": 23,
+                "bytes": 96
+              }
+            },
+            {
+              "severity": "warning",
+              "code": "scope.opaque_section",
+              "path": "section[9]/type[4]",
+              "message": "section body is retained but not semantically decoded",
+              "details": {
+                "section_type": 4,
+                "bytes": 66
+              }
+            }
+          ],
+          "coverage": {
+            "envelope_and_record_boundaries": true,
+            "known_reference_namespaces": [
+              "track local/Persistent IDs",
+              "playlist local/Persistent IDs",
+              "playlist item IDs and track references",
+              "track album and artist local references"
+            ],
+            "opaque_bytes_semantically_validated": false,
+            "opaque_reference_scan": false
+          },
+          "native_acceptance": "unverified"
+        },
+        "errors": [],
+        "passed": true
+      },
+      "status": "passed",
+      "finished_utc": "2026-09-24T16:48:14.297414+00:00"
+    },
+    {
+      "phase": "same-value-repeat",
+      "mode": "rating_repeat",
+      "started_utc": "2026-09-24T16:48:14.299424+00:00",
+      "prelaunch": {
+        "path": "D:\\a\\_temp\\gha-mcp\\win-dj1cymvp\\work\\itl-analysis\\native-rating-kind-20260925-run1\\rating-080\\live\\iTunes Library.itl",
+        "bytes": 4113,
+        "mtime_ns": 1790268492708211400,
+        "sha256": "a9177fb07ad74d98403970b317f7c69b049007704d73a96c32b7366fef0c521d"
+      },
+      "inventory_before": [
+        {
+          "path": "Album Artwork",
+          "kind": "directory"
+        },
+        {
+          "path": "Album Artwork/Cache",
+          "kind": "directory"
+        },
+        {
+          "path": "Album Artwork/Custom",
+          "kind": "directory"
+        },
+        {
+          "path": "Album Artwork/Download",
+          "kind": "directory"
+        },
+        {
+          "path": "Album Artwork/Generated",
+          "kind": "directory"
+        },
+        {
+          "path": "Album Artwork/Store",
+          "kind": "directory"
+        },
+        {
+          "path": "iTunes Library Extras.itdb",
+          "kind": "file",
+          "bytes": 16384,
+          "sha256": "e1937a7a396264a1d85599295ce5d66fe16e5771e91be496987a16b26d406553"
+        },
+        {
+          "path": "iTunes Library Genius.itdb",
+          "kind": "file",
+          "bytes": 32768,
+          "sha256": "2eb4fbe42c4deb56e05baad259d5f59be82809c0479600934c4d46f08592566a"
+        },
+        {
+          "path": "iTunes Library.itl",
+          "kind": "file",
+          "bytes": 4113,
+          "sha256": "a9177fb07ad74d98403970b317f7c69b049007704d73a96c32b7366fef0c521d"
+        },
+        {
+          "path": "iTunes Media",
+          "kind": "directory"
+        },
+        {
+          "path": "iTunes Media/.iTunes Preferences.plist",
+          "kind": "file",
+          "bytes": 305,
+          "sha256": "5b1bcbc20d8da6f78ea417158324667a114f56ae8abf75201b66170b7d94ce0b"
+        },
+        {
+          "path": "iTunes Media/Automatically Add to iTunes",
+          "kind": "directory"
+        },
+        {
+          "path": "sentinel",
+          "kind": "file",
+          "bytes": 8,
+          "sha256": "7fd2326e6e7f2c00c03b8a57e3b3f0f5267bf22d6ddfa098f153fce7f8c18a53"
+        }
+      ],
+      "ui": [
+        {
+          "action": "dismiss_audio_warning",
+          "pid": 3668,
+          "window": {
+            "hwnd": 2097696,
+            "pid": 3668,
+            "class": "iTunesCustomModalDialog",
+            "title": "iTunes",
+            "children": [
+              {
+                "hwnd": 1966192,
+                "class": "Static",
+                "text": "iTunes has detected a problem with your audio configuration.\rAudio/Video playback may not operate properly.",
+                "id": 101,
+                "enabled": true,
+                "visible": true
+              },
+              {
+                "hwnd": 1376556,
+                "class": "Static",
+                "text": "",
+                "id": 103,
+                "enabled": true,
+                "visible": false
+              },
+              {
+                "hwnd": 1770038,
+                "class": "Button",
+                "text": "",
+                "id": 104,
+                "enabled": true,
+                "visible": false
+              },
+              {
+                "hwnd": 1835128,
+                "class": "Button",
+                "text": "OK",
+                "id": 1,
+                "enabled": true,
+                "visible": true
+              },
+              {
+                "hwnd": 2097458,
+                "class": "Button",
+                "text": "More Info",
+                "id": 105,
+                "enabled": true,
+                "visible": false
+              },
+              {
+                "hwnd": 2359786,
+                "class": "Static",
+                "text": "",
+                "id": 102,
+                "enabled": true,
+                "visible": true
+              }
+            ]
+          }
+        }
+      ],
+      "forbidden_before": [],
+      "itunes_pid": 3668,
+      "post_readiness_settle_seconds": 3.0,
+      "worker_command": [
+        "D:\\a\\_temp\\gha-mcp\\win-dj1cymvp\\work\\itl-analysis\\.venv-native-rating\\Scripts\\python.exe",
+        "-B",
+        "-u",
+        "D:\\a\\_temp\\gha-mcp\\win-dj1cymvp\\work\\itl-analysis\\repo\\scripts\\windows\\native_rating_kind_20260925.py",
+        "_worker",
+        "--spec",
+        "D:\\a\\_temp\\gha-mcp\\win-dj1cymvp\\work\\itl-analysis\\repo\\evidence\\research\\20260925\\native-rating-kind\\cases\\rating-080\\same-value-repeat\\worker-spec.json",
+        "--output",
+        "D:\\a\\_temp\\gha-mcp\\win-dj1cymvp\\work\\itl-analysis\\repo\\evidence\\research\\20260925\\native-rating-kind\\cases\\rating-080\\same-value-repeat\\com.json"
+      ],
+      "worker_exit_code": 0,
+      "worker": {
+        "schema_version": 1,
+        "started_utc": "2026-09-24T16:48:21.780810+00:00",
+        "spec": {
+          "schema_version": 1,
+          "case": "rating-080",
+          "phase": "same-value-repeat",
+          "mode": "rating_repeat",
+          "rating": 80
+        },
+        "samples": [
+          {
+            "label": "before-1",
+            "state": {
+              "version": "12.13.10.3",
+              "library_persistent_id": "5245464552454E43",
+              "tracks": [
+                {
+                  "persistent_id": "A17E000000000001",
+                  "Name": "Reference Track",
+                  "Artist": "",
+                  "Album": "",
+                  "AlbumArtist": "",
+                  "Composer": "",
+                  "Genre": "",
+                  "Comment": "",
+                  "Grouping": "",
+                  "Lyrics": "",
+                  "SortName": "",
+                  "SortArtist": "",
+                  "SortAlbum": "",
+                  "SortAlbumArtist": "",
+                  "Rating": 80,
+                  "AlbumRating": 80,
+                  "PlayedCount": 0,
+                  "PlayedDate": "1899-12-30T00:00:00+00:00",
+                  "SkippedCount": 0,
+                  "SkippedDate": "1899-12-30T00:00:00+00:00",
+                  "DateAdded": "2026-06-23T06:24:00+00:00",
+                  "ModificationDate": "1899-12-30T00:00:00+00:00",
+                  "TrackNumber": 0,
+                  "TrackCount": 0,
+                  "DiscNumber": 0,
+                  "DiscCount": 0,
+                  "Year": 0,
+                  "BPM": 0,
+                  "Compilation": false,
+                  "Enabled": true,
+                  "VolumeAdjustment": 0,
+                  "Location": "",
+                  "Duration": 0,
+                  "SampleRate": 0,
+                  "BitRate": 0,
+                  "Size": 0,
+                  "TrackDatabaseID": 71,
+                  "TrackID": 76,
+                  "PlayOrderIndex": 1,
+                  "Unplayed": true,
+                  "RatingKind": 0,
+                  "AlbumRatingKind": 1
+                }
+              ],
+              "playlists": [
+                {
+                  "name": "Library",
+                  "persistent_id": "5245464552454E43",
+                  "kind": 1,
+                  "members": [
+                    {
+                      "persistent_id": "A17E000000000001",
+                      "name": "Reference Track",
+                      "play_order_index": 1
+                    }
+                  ],
+                  "special_kind": null
+                },
+                {
+                  "name": "Music",
+                  "persistent_id": "2916B1866EB0BB7B",
+                  "kind": 2,
+                  "members": [
+                    {
+                      "persistent_id": "A17E000000000001",
+                      "name": "Reference Track",
+                      "play_order_index": 1
+                    }
+                  ],
+                  "special_kind": 6
+                },
+                {
+                  "name": "Movies",
+                  "persistent_id": "FF9551F17013EBA6",
+                  "kind": 2,
+                  "members": [],
+                  "special_kind": 7
+                },
+                {
+                  "name": "TV Shows",
+                  "persistent_id": "9DE4BAF458A0FDB2",
+                  "kind": 2,
+                  "members": [],
+                  "special_kind": 8
+                },
+                {
+                  "name": "Podcasts",
+                  "persistent_id": "96B75204177AC260",
+                  "kind": 2,
+                  "members": [],
+                  "special_kind": 3
+                },
+                {
+                  "name": "Audiobooks",
+                  "persistent_id": "5F31B22D63E23F56",
+                  "kind": 2,
+                  "members": [],
+                  "special_kind": 9
+                },
+                {
+                  "name": "Genius",
+                  "persistent_id": "B6756A75BDA567C6",
+                  "kind": 2,
+                  "members": [],
+                  "special_kind": 11
+                },
+                {
+                  "name": "Reference Playlist",
+                  "persistent_id": "A17E000000000002",
+                  "kind": 2,
+                  "members": [
+                    {
+                      "persistent_id": "A17E000000000001",
+                      "name": "Reference Track",
+                      "play_order_index": 1
+                    }
+                  ],
+                  "special_kind": 0
+                }
+              ],
+              "track_count": 1
+            },
+            "identity_errors": []
+          },
+          {
+            "label": "before-2",
+            "state": {
+              "version": "12.13.10.3",
+              "library_persistent_id": "5245464552454E43",
+              "tracks": [
+                {
+                  "persistent_id": "A17E000000000001",
+                  "Name": "Reference Track",
+                  "Artist": "",
+                  "Album": "",
+                  "AlbumArtist": "",
+                  "Composer": "",
+                  "Genre": "",
+                  "Comment": "",
+                  "Grouping": "",
+                  "Lyrics": "",
+                  "SortName": "",
+                  "SortArtist": "",
+                  "SortAlbum": "",
+                  "SortAlbumArtist": "",
+                  "Rating": 80,
+                  "AlbumRating": 80,
+                  "PlayedCount": 0,
+                  "PlayedDate": "1899-12-30T00:00:00+00:00",
+                  "SkippedCount": 0,
+                  "SkippedDate": "1899-12-30T00:00:00+00:00",
+                  "DateAdded": "2026-06-23T06:24:00+00:00",
+                  "ModificationDate": "1899-12-30T00:00:00+00:00",
+                  "TrackNumber": 0,
+                  "TrackCount": 0,
+                  "DiscNumber": 0,
+                  "DiscCount": 0,
+                  "Year": 0,
+                  "BPM": 0,
+                  "Compilation": false,
+                  "Enabled": true,
+                  "VolumeAdjustment": 0,
+                  "Location": "",
+                  "Duration": 0,
+                  "SampleRate": 0,
+                  "BitRate": 0,
+                  "Size": 0,
+                  "TrackDatabaseID": 71,
+                  "TrackID": 76,
+                  "PlayOrderIndex": 1,
+                  "Unplayed": true,
+                  "RatingKind": 0,
+                  "AlbumRatingKind": 1
+                }
+              ],
+              "playlists": [
+                {
+                  "name": "Library",
+                  "persistent_id": "5245464552454E43",
+                  "kind": 1,
+                  "members": [
+                    {
+                      "persistent_id": "A17E000000000001",
+                      "name": "Reference Track",
+                      "play_order_index": 1
+                    }
+                  ],
+                  "special_kind": null
+                },
+                {
+                  "name": "Music",
+                  "persistent_id": "2916B1866EB0BB7B",
+                  "kind": 2,
+                  "members": [
+                    {
+                      "persistent_id": "A17E000000000001",
+                      "name": "Reference Track",
+                      "play_order_index": 1
+                    }
+                  ],
+                  "special_kind": 6
+                },
+                {
+                  "name": "Movies",
+                  "persistent_id": "FF9551F17013EBA6",
+                  "kind": 2,
+                  "members": [],
+                  "special_kind": 7
+                },
+                {
+                  "name": "TV Shows",
+                  "persistent_id": "9DE4BAF458A0FDB2",
+                  "kind": 2,
+                  "members": [],
+                  "special_kind": 8
+                },
+                {
+                  "name": "Podcasts",
+                  "persistent_id": "96B75204177AC260",
+                  "kind": 2,
+                  "members": [],
+                  "special_kind": 3
+                },
+                {
+                  "name": "Audiobooks",
+                  "persistent_id": "5F31B22D63E23F56",
+                  "kind": 2,
+                  "members": [],
+                  "special_kind": 9
+                },
+                {
+                  "name": "Genius",
+                  "persistent_id": "B6756A75BDA567C6",
+                  "kind": 2,
+                  "members": [],
+                  "special_kind": 11
+                },
+                {
+                  "name": "Reference Playlist",
+                  "persistent_id": "A17E000000000002",
+                  "kind": 2,
+                  "members": [
+                    {
+                      "persistent_id": "A17E000000000001",
+                      "name": "Reference Track",
+                      "play_order_index": 1
+                    }
+                  ],
+                  "special_kind": 0
+                }
+              ],
+              "track_count": 1
+            },
+            "identity_errors": []
+          },
+          {
+            "label": "after-1",
+            "state": {
+              "version": "12.13.10.3",
+              "library_persistent_id": "5245464552454E43",
+              "tracks": [
+                {
+                  "persistent_id": "A17E000000000001",
+                  "Name": "Reference Track",
+                  "Artist": "",
+                  "Album": "",
+                  "AlbumArtist": "",
+                  "Composer": "",
+                  "Genre": "",
+                  "Comment": "",
+                  "Grouping": "",
+                  "Lyrics": "",
+                  "SortName": "",
+                  "SortArtist": "",
+                  "SortAlbum": "",
+                  "SortAlbumArtist": "",
+                  "Rating": 80,
+                  "AlbumRating": 80,
+                  "PlayedCount": 0,
+                  "PlayedDate": "1899-12-30T00:00:00+00:00",
+                  "SkippedCount": 0,
+                  "SkippedDate": "1899-12-30T00:00:00+00:00",
+                  "DateAdded": "2026-06-23T06:24:00+00:00",
+                  "ModificationDate": "1899-12-30T00:00:00+00:00",
+                  "TrackNumber": 0,
+                  "TrackCount": 0,
+                  "DiscNumber": 0,
+                  "DiscCount": 0,
+                  "Year": 0,
+                  "BPM": 0,
+                  "Compilation": false,
+                  "Enabled": true,
+                  "VolumeAdjustment": 0,
+                  "Location": "",
+                  "Duration": 0,
+                  "SampleRate": 0,
+                  "BitRate": 0,
+                  "Size": 0,
+                  "TrackDatabaseID": 71,
+                  "TrackID": 76,
+                  "PlayOrderIndex": 1,
+                  "Unplayed": true,
+                  "RatingKind": 0,
+                  "AlbumRatingKind": 1
+                }
+              ],
+              "playlists": [
+                {
+                  "name": "Library",
+                  "persistent_id": "5245464552454E43",
+                  "kind": 1,
+                  "members": [
+                    {
+                      "persistent_id": "A17E000000000001",
+                      "name": "Reference Track",
+                      "play_order_index": 1
+                    }
+                  ],
+                  "special_kind": null
+                },
+                {
+                  "name": "Music",
+                  "persistent_id": "2916B1866EB0BB7B",
+                  "kind": 2,
+                  "members": [
+                    {
+                      "persistent_id": "A17E000000000001",
+                      "name": "Reference Track",
+                      "play_order_index": 1
+                    }
+                  ],
+                  "special_kind": 6
+                },
+                {
+                  "name": "Movies",
+                  "persistent_id": "FF9551F17013EBA6",
+                  "kind": 2,
+                  "members": [],
+                  "special_kind": 7
+                },
+                {
+                  "name": "TV Shows",
+                  "persistent_id": "9DE4BAF458A0FDB2",
+                  "kind": 2,
+                  "members": [],
+                  "special_kind": 8
+                },
+                {
+                  "name": "Podcasts",
+                  "persistent_id": "96B75204177AC260",
+                  "kind": 2,
+                  "members": [],
+                  "special_kind": 3
+                },
+                {
+                  "name": "Audiobooks",
+                  "persistent_id": "5F31B22D63E23F56",
+                  "kind": 2,
+                  "members": [],
+                  "special_kind": 9
+                },
+                {
+                  "name": "Genius",
+                  "persistent_id": "B6756A75BDA567C6",
+                  "kind": 2,
+                  "members": [],
+                  "special_kind": 11
+                },
+                {
+                  "name": "Reference Playlist",
+                  "persistent_id": "A17E000000000002",
+                  "kind": 2,
+                  "members": [
+                    {
+                      "persistent_id": "A17E000000000001",
+                      "name": "Reference Track",
+                      "play_order_index": 1
+                    }
+                  ],
+                  "special_kind": 0
+                }
+              ],
+              "track_count": 1
+            },
+            "identity_errors": []
+          },
+          {
+            "label": "after-2",
+            "state": {
+              "version": "12.13.10.3",
+              "library_persistent_id": "5245464552454E43",
+              "tracks": [
+                {
+                  "persistent_id": "A17E000000000001",
+                  "Name": "Reference Track",
+                  "Artist": "",
+                  "Album": "",
+                  "AlbumArtist": "",
+                  "Composer": "",
+                  "Genre": "",
+                  "Comment": "",
+                  "Grouping": "",
+                  "Lyrics": "",
+                  "SortName": "",
+                  "SortArtist": "",
+                  "SortAlbum": "",
+                  "SortAlbumArtist": "",
+                  "Rating": 80,
+                  "AlbumRating": 80,
+                  "PlayedCount": 0,
+                  "PlayedDate": "1899-12-30T00:00:00+00:00",
+                  "SkippedCount": 0,
+                  "SkippedDate": "1899-12-30T00:00:00+00:00",
+                  "DateAdded": "2026-06-23T06:24:00+00:00",
+                  "ModificationDate": "1899-12-30T00:00:00+00:00",
+                  "TrackNumber": 0,
+                  "TrackCount": 0,
+                  "DiscNumber": 0,
+                  "DiscCount": 0,
+                  "Year": 0,
+                  "BPM": 0,
+                  "Compilation": false,
+                  "Enabled": true,
+                  "VolumeAdjustment": 0,
+                  "Location": "",
+                  "Duration": 0,
+                  "SampleRate": 0,
+                  "BitRate": 0,
+                  "Size": 0,
+                  "TrackDatabaseID": 71,
+                  "TrackID": 76,
+                  "PlayOrderIndex": 1,
+                  "Unplayed": true,
+                  "RatingKind": 0,
+                  "AlbumRatingKind": 1
+                }
+              ],
+              "playlists": [
+                {
+                  "name": "Library",
+                  "persistent_id": "5245464552454E43",
+                  "kind": 1,
+                  "members": [
+                    {
+                      "persistent_id": "A17E000000000001",
+                      "name": "Reference Track",
+                      "play_order_index": 1
+                    }
+                  ],
+                  "special_kind": null
+                },
+                {
+                  "name": "Music",
+                  "persistent_id": "2916B1866EB0BB7B",
+                  "kind": 2,
+                  "members": [
+                    {
+                      "persistent_id": "A17E000000000001",
+                      "name": "Reference Track",
+                      "play_order_index": 1
+                    }
+                  ],
+                  "special_kind": 6
+                },
+                {
+                  "name": "Movies",
+                  "persistent_id": "FF9551F17013EBA6",
+                  "kind": 2,
+                  "members": [],
+                  "special_kind": 7
+                },
+                {
+                  "name": "TV Shows",
+                  "persistent_id": "9DE4BAF458A0FDB2",
+                  "kind": 2,
+                  "members": [],
+                  "special_kind": 8
+                },
+                {
+                  "name": "Podcasts",
+                  "persistent_id": "96B75204177AC260",
+                  "kind": 2,
+                  "members": [],
+                  "special_kind": 3
+                },
+                {
+                  "name": "Audiobooks",
+                  "persistent_id": "5F31B22D63E23F56",
+                  "kind": 2,
+                  "members": [],
+                  "special_kind": 9
+                },
+                {
+                  "name": "Genius",
+                  "persistent_id": "B6756A75BDA567C6",
+                  "kind": 2,
+                  "members": [],
+                  "special_kind": 11
+                },
+                {
+                  "name": "Reference Playlist",
+                  "persistent_id": "A17E000000000002",
+                  "kind": 2,
+                  "members": [
+                    {
+                      "persistent_id": "A17E000000000001",
+                      "name": "Reference Track",
+                      "play_order_index": 1
+                    }
+                  ],
+                  "special_kind": 0
+                }
+              ],
+              "track_count": 1
+            },
+            "identity_errors": []
+          }
+        ],
+        "operation_log": [
+          {
+            "utc": "2026-09-24T16:48:24.218357+00:00",
+            "action": "member_probes_complete",
+            "mode": "rating_repeat"
+          },
+          {
+            "utc": "2026-09-24T16:48:24.220376+00:00",
+            "action": "rating_put",
+            "requested": 80,
+            "before": 80,
+            "immediate": 80,
+            "same_value_request": true
+          },
+          {
+            "utc": "2026-09-24T16:48:26.597123+00:00",
+            "action": "normal_quit_requested"
+          }
+        ],
+        "accepted": true,
+        "quit_requested": true,
+        "before_stable": true,
+        "member_probes": {
+          "getters": {
+            "Rating": {
+              "member": "Rating",
+              "operation": "get",
+              "attempted": true,
+              "outcome": "observed",
+              "value": 80
+            },
+            "RatingKind": {
+              "member": "RatingKind",
+              "operation": "get",
+              "attempted": true,
+              "outcome": "observed",
+              "value": 0
+            },
+            "AlbumRating": {
+              "member": "AlbumRating",
+              "operation": "get",
+              "attempted": true,
+              "outcome": "observed",
+              "value": 80
+            },
+            "AlbumRatingKind": {
+              "member": "AlbumRatingKind",
+              "operation": "get",
+              "attempted": true,
+              "outcome": "observed",
+              "value": 1
+            },
+            "Loved": {
+              "member": "Loved",
+              "operation": "get",
+              "attempted": true,
+              "outcome": "blocked",
+              "error": {
+                "type": "AttributeError",
+                "message": "<unknown>.Loved",
+                "args_repr": "('<unknown>.Loved',)"
+              }
+            },
+            "Disliked": {
+              "member": "Disliked",
+              "operation": "get",
+              "attempted": true,
+              "outcome": "blocked",
+              "error": {
+                "type": "AttributeError",
+                "message": "<unknown>.Disliked",
+                "args_repr": "('<unknown>.Disliked',)"
+              }
+            }
+          },
+          "setters": {},
+          "interaction": {
+            "outcome": "not_attempted",
+            "reason": "setter attempts are isolated to the interface-probe case"
+          }
+        },
+        "rating_write": {
+          "requested": 80,
+          "before": 80,
+          "immediate": 80,
+          "exact": true,
+          "same_value_request": true
+        },
+        "after_stable": true,
+        "rating_gate": {
+          "expected": 80,
+          "actual": 80,
+          "passed": true
+        },
+        "within_session_snapshot_changed": false,
+        "finished_utc": "2026-09-24T16:48:26.597123+00:00"
+      },
+      "itunes_exit_code": 0,
+      "inventory_after": [
+        {
+          "path": "Album Artwork",
+          "kind": "directory"
+        },
+        {
+          "path": "Album Artwork/Cache",
+          "kind": "directory"
+        },
+        {
+          "path": "Album Artwork/Custom",
+          "kind": "directory"
+        },
+        {
+          "path": "Album Artwork/Download",
+          "kind": "directory"
+        },
+        {
+          "path": "Album Artwork/Generated",
+          "kind": "directory"
+        },
+        {
+          "path": "Album Artwork/Store",
+          "kind": "directory"
+        },
+        {
+          "path": "iTunes Library Extras.itdb",
+          "kind": "file",
+          "bytes": 16384,
+          "sha256": "86f51fea2be5ea3d51a396f709a555cbf4e1c13dc2793290f92f7ec543cfe186"
+        },
+        {
+          "path": "iTunes Library Genius.itdb",
+          "kind": "file",
+          "bytes": 32768,
+          "sha256": "2eb4fbe42c4deb56e05baad259d5f59be82809c0479600934c4d46f08592566a"
+        },
+        {
+          "path": "iTunes Library.itl",
+          "kind": "file",
+          "bytes": 4138,
+          "sha256": "78d4de3c2cb144184ef1d7aa49ede3d934bd6720a3c406057b8445078de5a46e"
+        },
+        {
+          "path": "iTunes Media",
+          "kind": "directory"
+        },
+        {
+          "path": "iTunes Media/.iTunes Preferences.plist",
+          "kind": "file",
+          "bytes": 305,
+          "sha256": "5b1bcbc20d8da6f78ea417158324667a114f56ae8abf75201b66170b7d94ce0b"
+        },
+        {
+          "path": "iTunes Media/Automatically Add to iTunes",
+          "kind": "directory"
+        },
+        {
+          "path": "sentinel",
+          "kind": "file",
+          "bytes": 8,
+          "sha256": "7fd2326e6e7f2c00c03b8a57e3b3f0f5267bf22d6ddfa098f153fce7f8c18a53"
+        }
+      ],
+      "forbidden_after": [],
+      "saved": {
+        "path": "D:\\a\\_temp\\gha-mcp\\win-dj1cymvp\\work\\itl-analysis\\repo\\evidence\\research\\20260925\\native-rating-kind\\cases\\rating-080\\same-value-repeat\\native-saved.itl",
+        "bytes": 4138,
+        "mtime_ns": 1790268509714743800,
+        "sha256": "78d4de3c2cb144184ef1d7aa49ede3d934bd6720a3c406057b8445078de5a46e"
+      },
+      "targeted_validation": {
+        "file": {
+          "path": "D:\\a\\_temp\\gha-mcp\\win-dj1cymvp\\work\\itl-analysis\\repo\\evidence\\research\\20260925\\native-rating-kind\\cases\\rating-080\\same-value-repeat\\native-saved.itl",
+          "bytes": 4138,
+          "mtime_ns": 1790268509714743800,
+          "sha256": "78d4de3c2cb144184ef1d7aa49ede3d934bd6720a3c406057b8445078de5a46e"
+        },
+        "primary": {
+          "parser_path": "itlkit.Container + itlkit.model.parse_sections",
+          "high_level_library": {
+            "outcome": "observed",
+            "track_count": 1
+          },
+          "version": "12.13.10.3",
+          "persistent_id": "A17E000000000001",
+          "rating": 80,
+          "name_refresh_flag_raw": 0,
+          "legacy_loved_bit": false,
+          "legacy_loved_byte_raw": 0,
+          "track_header_length": 756,
+          "track_header_sha256": "b808191851946c2f4d44dd2bcd259808233402c7e7e9a7080e88998a60907893",
+          "rating_window_0x60_0x72": "000000000000000000000000500000000000",
+          "legacy_loved_window_0x2b8_0x2c4": "000000000000000000000000"
+        },
+        "independent": {
+          "track": {
+            "persistent_id": "A17E000000000001",
+            "track_id": 71,
+            "record_kind_raw": 1,
+            "date_modified": 0,
+            "file_size": 0,
+            "total_time": 0,
+            "track_number": 0,
+            "track_count": 0,
+            "year": 0,
+            "bit_rate": 0,
+            "play_count": 0,
+            "play_date": 0,
+            "disc_number": 0,
+            "disc_count": 0,
+            "rating": 80,
+            "name_refresh_flag_raw": 0,
+            "legacy_loved_byte_raw": 0,
+            "date_added": 3865040640,
+            "skip_count": 0,
+            "album_id": 69,
+            "unplayed_raw": 0,
+            "sample_rate": 0,
+            "skip_date": 0,
+            "artist_id": 70,
+            "header_length": 756,
+            "name": "Reference Track",
+            "album": null,
+            "artist": null,
+            "genre": null,
+            "kind": null,
+            "comment": null,
+            "url": null,
+            "composer": null,
+            "path": null,
+            "album_artist": null,
+            "sort_name": null,
+            "sort_album": null,
+            "sort_artist": null,
+            "sort_album_artist": null,
+            "purchaser_name": null,
+            "unplayed": true,
+            "legacy_loved_bit": false
+          },
+          "track_header_sha256": "b808191851946c2f4d44dd2bcd259808233402c7e7e9a7080e88998a60907893"
+        },
+        "validator": {
+          "schema": "reference-itl.validation.v1",
+          "sha256": "78d4de3c2cb144184ef1d7aa49ede3d934bd6720a3c406057b8445078de5a46e",
+          "valid": true,
+          "version": "12.13.10.3",
+          "counts": {
+            "declared": {
+              "sections": 10,
+              "tracks": 1,
+              "playlists": 15,
+              "albums": 1,
+              "artists": 1
+            },
+            "parsed": {
+              "sections": 10,
+              "tracks": 1,
+              "playlists": 15,
+              "albums": 1,
+              "artists": 1
+            }
+          },
+          "issues": [
+            {
+              "severity": "warning",
+              "code": "scope.opaque_section",
+              "path": "section[6]/type[23]",
+              "message": "section body is retained but not semantically decoded",
+              "details": {
+                "section_type": 23,
+                "bytes": 96
+              }
+            },
+            {
+              "severity": "warning",
+              "code": "scope.opaque_section",
+              "path": "section[9]/type[4]",
+              "message": "section body is retained but not semantically decoded",
+              "details": {
+                "section_type": 4,
+                "bytes": 66
+              }
+            }
+          ],
+          "coverage": {
+            "envelope_and_record_boundaries": true,
+            "known_reference_namespaces": [
+              "track local/Persistent IDs",
+              "playlist local/Persistent IDs",
+              "playlist item IDs and track references",
+              "track album and artist local references"
+            ],
+            "opaque_bytes_semantically_validated": false,
+            "opaque_reference_scan": false
+          },
+          "native_acceptance": "unverified"
+        },
+        "errors": [],
+        "passed": true
+      },
+      "status": "passed",
+      "finished_utc": "2026-09-24T16:48:31.540091+00:00"
+    },
+    {
+      "phase": "restart-verification",
+      "mode": "rating_verify",
+      "started_utc": "2026-09-24T16:48:31.542100+00:00",
+      "prelaunch": {
+        "path": "D:\\a\\_temp\\gha-mcp\\win-dj1cymvp\\work\\itl-analysis\\native-rating-kind-20260925-run1\\rating-080\\live\\iTunes Library.itl",
+        "bytes": 4138,
+        "mtime_ns": 1790268509714743800,
+        "sha256": "78d4de3c2cb144184ef1d7aa49ede3d934bd6720a3c406057b8445078de5a46e"
+      },
+      "inventory_before": [
+        {
+          "path": "Album Artwork",
+          "kind": "directory"
+        },
+        {
+          "path": "Album Artwork/Cache",
+          "kind": "directory"
+        },
+        {
+          "path": "Album Artwork/Custom",
+          "kind": "directory"
+        },
+        {
+          "path": "Album Artwork/Download",
+          "kind": "directory"
+        },
+        {
+          "path": "Album Artwork/Generated",
+          "kind": "directory"
+        },
+        {
+          "path": "Album Artwork/Store",
+          "kind": "directory"
+        },
+        {
+          "path": "iTunes Library Extras.itdb",
+          "kind": "file",
+          "bytes": 16384,
+          "sha256": "86f51fea2be5ea3d51a396f709a555cbf4e1c13dc2793290f92f7ec543cfe186"
+        },
+        {
+          "path": "iTunes Library Genius.itdb",
+          "kind": "file",
+          "bytes": 32768,
+          "sha256": "2eb4fbe42c4deb56e05baad259d5f59be82809c0479600934c4d46f08592566a"
+        },
+        {
+          "path": "iTunes Library.itl",
+          "kind": "file",
+          "bytes": 4138,
+          "sha256": "78d4de3c2cb144184ef1d7aa49ede3d934bd6720a3c406057b8445078de5a46e"
+        },
+        {
+          "path": "iTunes Media",
+          "kind": "directory"
+        },
+        {
+          "path": "iTunes Media/.iTunes Preferences.plist",
+          "kind": "file",
+          "bytes": 305,
+          "sha256": "5b1bcbc20d8da6f78ea417158324667a114f56ae8abf75201b66170b7d94ce0b"
+        },
+        {
+          "path": "iTunes Media/Automatically Add to iTunes",
+          "kind": "directory"
+        },
+        {
+          "path": "sentinel",
+          "kind": "file",
+          "bytes": 8,
+          "sha256": "7fd2326e6e7f2c00c03b8a57e3b3f0f5267bf22d6ddfa098f153fce7f8c18a53"
+        }
+      ],
+      "ui": [
+        {
+          "action": "dismiss_audio_warning",
+          "pid": 2308,
+          "window": {
+            "hwnd": 2425302,
+            "pid": 2308,
+            "class": "iTunesCustomModalDialog",
+            "title": "iTunes",
+            "children": [
+              {
+                "hwnd": 2687004,
+                "class": "Static",
+                "text": "iTunes has detected a problem with your audio configuration.\rAudio/Video playback may not operate properly.",
+                "id": 101,
+                "enabled": true,
+                "visible": true
+              },
+              {
+                "hwnd": 2359840,
+                "class": "Static",
+                "text": "",
+                "id": 103,
+                "enabled": true,
+                "visible": false
+              },
+              {
+                "hwnd": 1704324,
+                "class": "Button",
+                "text": "",
+                "id": 104,
+                "enabled": true,
+                "visible": false
+              },
+              {
+                "hwnd": 3735578,
+                "class": "Button",
+                "text": "OK",
+                "id": 1,
+                "enabled": true,
+                "visible": true
+              },
+              {
+                "hwnd": 1638746,
+                "class": "Button",
+                "text": "More Info",
+                "id": 105,
+                "enabled": true,
+                "visible": false
+              },
+              {
+                "hwnd": 2293784,
+                "class": "Static",
+                "text": "",
+                "id": 102,
+                "enabled": true,
+                "visible": true
+              }
+            ]
+          }
+        }
+      ],
+      "forbidden_before": [],
+      "itunes_pid": 2308,
+      "post_readiness_settle_seconds": 3.0,
+      "worker_command": [
+        "D:\\a\\_temp\\gha-mcp\\win-dj1cymvp\\work\\itl-analysis\\.venv-native-rating\\Scripts\\python.exe",
+        "-B",
+        "-u",
+        "D:\\a\\_temp\\gha-mcp\\win-dj1cymvp\\work\\itl-analysis\\repo\\scripts\\windows\\native_rating_kind_20260925.py",
+        "_worker",
+        "--spec",
+        "D:\\a\\_temp\\gha-mcp\\win-dj1cymvp\\work\\itl-analysis\\repo\\evidence\\research\\20260925\\native-rating-kind\\cases\\rating-080\\restart-verification\\worker-spec.json",
+        "--output",
+        "D:\\a\\_temp\\gha-mcp\\win-dj1cymvp\\work\\itl-analysis\\repo\\evidence\\research\\20260925\\native-rating-kind\\cases\\rating-080\\restart-verification\\com.json"
+      ],
+      "worker_exit_code": 0,
+      "worker": {
+        "schema_version": 1,
+        "started_utc": "2026-09-24T16:48:39.023888+00:00",
+        "spec": {
+          "schema_version": 1,
+          "case": "rating-080",
+          "phase": "restart-verification",
+          "mode": "rating_verify",
+          "rating": 80
+        },
+        "samples": [
+          {
+            "label": "before-1",
+            "state": {
+              "version": "12.13.10.3",
+              "library_persistent_id": "5245464552454E43",
+              "tracks": [
+                {
+                  "persistent_id": "A17E000000000001",
+                  "Name": "Reference Track",
+                  "Artist": "",
+                  "Album": "",
+                  "AlbumArtist": "",
+                  "Composer": "",
+                  "Genre": "",
+                  "Comment": "",
+                  "Grouping": "",
+                  "Lyrics": "",
+                  "SortName": "",
+                  "SortArtist": "",
+                  "SortAlbum": "",
+                  "SortAlbumArtist": "",
+                  "Rating": 80,
+                  "AlbumRating": 80,
+                  "PlayedCount": 0,
+                  "PlayedDate": "1899-12-30T00:00:00+00:00",
+                  "SkippedCount": 0,
+                  "SkippedDate": "1899-12-30T00:00:00+00:00",
+                  "DateAdded": "2026-06-23T06:24:00+00:00",
+                  "ModificationDate": "1899-12-30T00:00:00+00:00",
+                  "TrackNumber": 0,
+                  "TrackCount": 0,
+                  "DiscNumber": 0,
+                  "DiscCount": 0,
+                  "Year": 0,
+                  "BPM": 0,
+                  "Compilation": false,
+                  "Enabled": true,
+                  "VolumeAdjustment": 0,
+                  "Location": "",
+                  "Duration": 0,
+                  "SampleRate": 0,
+                  "BitRate": 0,
+                  "Size": 0,
+                  "TrackDatabaseID": 71,
+                  "TrackID": 76,
+                  "PlayOrderIndex": 1,
+                  "Unplayed": true,
+                  "RatingKind": 0,
+                  "AlbumRatingKind": 1
+                }
+              ],
+              "playlists": [
+                {
+                  "name": "Library",
+                  "persistent_id": "5245464552454E43",
+                  "kind": 1,
+                  "members": [
+                    {
+                      "persistent_id": "A17E000000000001",
+                      "name": "Reference Track",
+                      "play_order_index": 1
+                    }
+                  ],
+                  "special_kind": null
+                },
+                {
+                  "name": "Music",
+                  "persistent_id": "2916B1866EB0BB7B",
+                  "kind": 2,
+                  "members": [
+                    {
+                      "persistent_id": "A17E000000000001",
+                      "name": "Reference Track",
+                      "play_order_index": 1
+                    }
+                  ],
+                  "special_kind": 6
+                },
+                {
+                  "name": "Movies",
+                  "persistent_id": "FF9551F17013EBA6",
+                  "kind": 2,
+                  "members": [],
+                  "special_kind": 7
+                },
+                {
+                  "name": "TV Shows",
+                  "persistent_id": "9DE4BAF458A0FDB2",
+                  "kind": 2,
+                  "members": [],
+                  "special_kind": 8
+                },
+                {
+                  "name": "Podcasts",
+                  "persistent_id": "96B75204177AC260",
+                  "kind": 2,
+                  "members": [],
+                  "special_kind": 3
+                },
+                {
+                  "name": "Audiobooks",
+                  "persistent_id": "5F31B22D63E23F56",
+                  "kind": 2,
+                  "members": [],
+                  "special_kind": 9
+                },
+                {
+                  "name": "Genius",
+                  "persistent_id": "B6756A75BDA567C6",
+                  "kind": 2,
+                  "members": [],
+                  "special_kind": 11
+                },
+                {
+                  "name": "Reference Playlist",
+                  "persistent_id": "A17E000000000002",
+                  "kind": 2,
+                  "members": [
+                    {
+                      "persistent_id": "A17E000000000001",
+                      "name": "Reference Track",
+                      "play_order_index": 1
+                    }
+                  ],
+                  "special_kind": 0
+                }
+              ],
+              "track_count": 1
+            },
+            "identity_errors": []
+          },
+          {
+            "label": "before-2",
+            "state": {
+              "version": "12.13.10.3",
+              "library_persistent_id": "5245464552454E43",
+              "tracks": [
+                {
+                  "persistent_id": "A17E000000000001",
+                  "Name": "Reference Track",
+                  "Artist": "",
+                  "Album": "",
+                  "AlbumArtist": "",
+                  "Composer": "",
+                  "Genre": "",
+                  "Comment": "",
+                  "Grouping": "",
+                  "Lyrics": "",
+                  "SortName": "",
+                  "SortArtist": "",
+                  "SortAlbum": "",
+                  "SortAlbumArtist": "",
+                  "Rating": 80,
+                  "AlbumRating": 80,
+                  "PlayedCount": 0,
+                  "PlayedDate": "1899-12-30T00:00:00+00:00",
+                  "SkippedCount": 0,
+                  "SkippedDate": "1899-12-30T00:00:00+00:00",
+                  "DateAdded": "2026-06-23T06:24:00+00:00",
+                  "ModificationDate": "1899-12-30T00:00:00+00:00",
+                  "TrackNumber": 0,
+                  "TrackCount": 0,
+                  "DiscNumber": 0,
+                  "DiscCount": 0,
+                  "Year": 0,
+                  "BPM": 0,
+                  "Compilation": false,
+                  "Enabled": true,
+                  "VolumeAdjustment": 0,
+                  "Location": "",
+                  "Duration": 0,
+                  "SampleRate": 0,
+                  "BitRate": 0,
+                  "Size": 0,
+                  "TrackDatabaseID": 71,
+                  "TrackID": 76,
+                  "PlayOrderIndex": 1,
+                  "Unplayed": true,
+                  "RatingKind": 0,
+                  "AlbumRatingKind": 1
+                }
+              ],
+              "playlists": [
+                {
+                  "name": "Library",
+                  "persistent_id": "5245464552454E43",
+                  "kind": 1,
+                  "members": [
+                    {
+                      "persistent_id": "A17E000000000001",
+                      "name": "Reference Track",
+                      "play_order_index": 1
+                    }
+                  ],
+                  "special_kind": null
+                },
+                {
+                  "name": "Music",
+                  "persistent_id": "2916B1866EB0BB7B",
+                  "kind": 2,
+                  "members": [
+                    {
+                      "persistent_id": "A17E000000000001",
+                      "name": "Reference Track",
+                      "play_order_index": 1
+                    }
+                  ],
+                  "special_kind": 6
+                },
+                {
+                  "name": "Movies",
+                  "persistent_id": "FF9551F17013EBA6",
+                  "kind": 2,
+                  "members": [],
+                  "special_kind": 7
+                },
+                {
+                  "name": "TV Shows",
+                  "persistent_id": "9DE4BAF458A0FDB2",
+                  "kind": 2,
+                  "members": [],
+                  "special_kind": 8
+                },
+                {
+                  "name": "Podcasts",
+                  "persistent_id": "96B75204177AC260",
+                  "kind": 2,
+                  "members": [],
+                  "special_kind": 3
+                },
+                {
+                  "name": "Audiobooks",
+                  "persistent_id": "5F31B22D63E23F56",
+                  "kind": 2,
+                  "members": [],
+                  "special_kind": 9
+                },
+                {
+                  "name": "Genius",
+                  "persistent_id": "B6756A75BDA567C6",
+                  "kind": 2,
+                  "members": [],
+                  "special_kind": 11
+                },
+                {
+                  "name": "Reference Playlist",
+                  "persistent_id": "A17E000000000002",
+                  "kind": 2,
+                  "members": [
+                    {
+                      "persistent_id": "A17E000000000001",
+                      "name": "Reference Track",
+                      "play_order_index": 1
+                    }
+                  ],
+                  "special_kind": 0
+                }
+              ],
+              "track_count": 1
+            },
+            "identity_errors": []
+          },
+          {
+            "label": "after-1",
+            "state": {
+              "version": "12.13.10.3",
+              "library_persistent_id": "5245464552454E43",
+              "tracks": [
+                {
+                  "persistent_id": "A17E000000000001",
+                  "Name": "Reference Track",
+                  "Artist": "",
+                  "Album": "",
+                  "AlbumArtist": "",
+                  "Composer": "",
+                  "Genre": "",
+                  "Comment": "",
+                  "Grouping": "",
+                  "Lyrics": "",
+                  "SortName": "",
+                  "SortArtist": "",
+                  "SortAlbum": "",
+                  "SortAlbumArtist": "",
+                  "Rating": 80,
+                  "AlbumRating": 80,
+                  "PlayedCount": 0,
+                  "PlayedDate": "1899-12-30T00:00:00+00:00",
+                  "SkippedCount": 0,
+                  "SkippedDate": "1899-12-30T00:00:00+00:00",
+                  "DateAdded": "2026-06-23T06:24:00+00:00",
+                  "ModificationDate": "1899-12-30T00:00:00+00:00",
+                  "TrackNumber": 0,
+                  "TrackCount": 0,
+                  "DiscNumber": 0,
+                  "DiscCount": 0,
+                  "Year": 0,
+                  "BPM": 0,
+                  "Compilation": false,
+                  "Enabled": true,
+                  "VolumeAdjustment": 0,
+                  "Location": "",
+                  "Duration": 0,
+                  "SampleRate": 0,
+                  "BitRate": 0,
+                  "Size": 0,
+                  "TrackDatabaseID": 71,
+                  "TrackID": 76,
+                  "PlayOrderIndex": 1,
+                  "Unplayed": true,
+                  "RatingKind": 0,
+                  "AlbumRatingKind": 1
+                }
+              ],
+              "playlists": [
+                {
+                  "name": "Library",
+                  "persistent_id": "5245464552454E43",
+                  "kind": 1,
+                  "members": [
+                    {
+                      "persistent_id": "A17E000000000001",
+                      "name": "Reference Track",
+                      "play_order_index": 1
+                    }
+                  ],
+                  "special_kind": null
+                },
+                {
+                  "name": "Music",
+                  "persistent_id": "2916B1866EB0BB7B",
+                  "kind": 2,
+                  "members": [
+                    {
+                      "persistent_id": "A17E000000000001",
+                      "name": "Reference Track",
+                      "play_order_index": 1
+                    }
+                  ],
+                  "special_kind": 6
+                },
+                {
+                  "name": "Movies",
+                  "persistent_id": "FF9551F17013EBA6",
+                  "kind": 2,
+                  "members": [],
+                  "special_kind": 7
+                },
+                {
+                  "name": "TV Shows",
+                  "persistent_id": "9DE4BAF458A0FDB2",
+                  "kind": 2,
+                  "members": [],
+                  "special_kind": 8
+                },
+                {
+                  "name": "Podcasts",
+                  "persistent_id": "96B75204177AC260",
+                  "kind": 2,
+                  "members": [],
+                  "special_kind": 3
+                },
+                {
+                  "name": "Audiobooks",
+                  "persistent_id": "5F31B22D63E23F56",
+                  "kind": 2,
+                  "members": [],
+                  "special_kind": 9
+                },
+                {
+                  "name": "Genius",
+                  "persistent_id": "B6756A75BDA567C6",
+                  "kind": 2,
+                  "members": [],
+                  "special_kind": 11
+                },
+                {
+                  "name": "Reference Playlist",
+                  "persistent_id": "A17E000000000002",
+                  "kind": 2,
+                  "members": [
+                    {
+                      "persistent_id": "A17E000000000001",
+                      "name": "Reference Track",
+                      "play_order_index": 1
+                    }
+                  ],
+                  "special_kind": 0
+                }
+              ],
+              "track_count": 1
+            },
+            "identity_errors": []
+          },
+          {
+            "label": "after-2",
+            "state": {
+              "version": "12.13.10.3",
+              "library_persistent_id": "5245464552454E43",
+              "tracks": [
+                {
+                  "persistent_id": "A17E000000000001",
+                  "Name": "Reference Track",
+                  "Artist": "",
+                  "Album": "",
+                  "AlbumArtist": "",
+                  "Composer": "",
+                  "Genre": "",
+                  "Comment": "",
+                  "Grouping": "",
+                  "Lyrics": "",
+                  "SortName": "",
+                  "SortArtist": "",
+                  "SortAlbum": "",
+                  "SortAlbumArtist": "",
+                  "Rating": 80,
+                  "AlbumRating": 80,
+                  "PlayedCount": 0,
+                  "PlayedDate": "1899-12-30T00:00:00+00:00",
+                  "SkippedCount": 0,
+                  "SkippedDate": "1899-12-30T00:00:00+00:00",
+                  "DateAdded": "2026-06-23T06:24:00+00:00",
+                  "ModificationDate": "1899-12-30T00:00:00+00:00",
+                  "TrackNumber": 0,
+                  "TrackCount": 0,
+                  "DiscNumber": 0,
+                  "DiscCount": 0,
+                  "Year": 0,
+                  "BPM": 0,
+                  "Compilation": false,
+                  "Enabled": true,
+                  "VolumeAdjustment": 0,
+                  "Location": "",
+                  "Duration": 0,
+                  "SampleRate": 0,
+                  "BitRate": 0,
+                  "Size": 0,
+                  "TrackDatabaseID": 71,
+                  "TrackID": 76,
+                  "PlayOrderIndex": 1,
+                  "Unplayed": true,
+                  "RatingKind": 0,
+                  "AlbumRatingKind": 1
+                }
+              ],
+              "playlists": [
+                {
+                  "name": "Library",
+                  "persistent_id": "5245464552454E43",
+                  "kind": 1,
+                  "members": [
+                    {
+                      "persistent_id": "A17E000000000001",
+                      "name": "Reference Track",
+                      "play_order_index": 1
+                    }
+                  ],
+                  "special_kind": null
+                },
+                {
+                  "name": "Music",
+                  "persistent_id": "2916B1866EB0BB7B",
+                  "kind": 2,
+                  "members": [
+                    {
+                      "persistent_id": "A17E000000000001",
+                      "name": "Reference Track",
+                      "play_order_index": 1
+                    }
+                  ],
+                  "special_kind": 6
+                },
+                {
+                  "name": "Movies",
+                  "persistent_id": "FF9551F17013EBA6",
+                  "kind": 2,
+                  "members": [],
+                  "special_kind": 7
+                },
+                {
+                  "name": "TV Shows",
+                  "persistent_id": "9DE4BAF458A0FDB2",
+                  "kind": 2,
+                  "members": [],
+                  "special_kind": 8
+                },
+                {
+                  "name": "Podcasts",
+                  "persistent_id": "96B75204177AC260",
+                  "kind": 2,
+                  "members": [],
+                  "special_kind": 3
+                },
+                {
+                  "name": "Audiobooks",
+                  "persistent_id": "5F31B22D63E23F56",
+                  "kind": 2,
+                  "members": [],
+                  "special_kind": 9
+                },
+                {
+                  "name": "Genius",
+                  "persistent_id": "B6756A75BDA567C6",
+                  "kind": 2,
+                  "members": [],
+                  "special_kind": 11
+                },
+                {
+                  "name": "Reference Playlist",
+                  "persistent_id": "A17E000000000002",
+                  "kind": 2,
+                  "members": [
+                    {
+                      "persistent_id": "A17E000000000001",
+                      "name": "Reference Track",
+                      "play_order_index": 1
+                    }
+                  ],
+                  "special_kind": 0
+                }
+              ],
+              "track_count": 1
+            },
+            "identity_errors": []
+          }
+        ],
+        "operation_log": [
+          {
+            "utc": "2026-09-24T16:48:41.461019+00:00",
+            "action": "member_probes_complete",
+            "mode": "rating_verify"
+          },
+          {
+            "utc": "2026-09-24T16:48:41.463048+00:00",
+            "action": "no_rating_put",
+            "mode": "rating_verify"
+          },
+          {
+            "utc": "2026-09-24T16:48:43.832449+00:00",
+            "action": "normal_quit_requested"
+          }
+        ],
+        "accepted": true,
+        "quit_requested": true,
+        "before_stable": true,
+        "member_probes": {
+          "getters": {
+            "Rating": {
+              "member": "Rating",
+              "operation": "get",
+              "attempted": true,
+              "outcome": "observed",
+              "value": 80
+            },
+            "RatingKind": {
+              "member": "RatingKind",
+              "operation": "get",
+              "attempted": true,
+              "outcome": "observed",
+              "value": 0
+            },
+            "AlbumRating": {
+              "member": "AlbumRating",
+              "operation": "get",
+              "attempted": true,
+              "outcome": "observed",
+              "value": 80
+            },
+            "AlbumRatingKind": {
+              "member": "AlbumRatingKind",
+              "operation": "get",
+              "attempted": true,
+              "outcome": "observed",
+              "value": 1
+            },
+            "Loved": {
+              "member": "Loved",
+              "operation": "get",
+              "attempted": true,
+              "outcome": "blocked",
+              "error": {
+                "type": "AttributeError",
+                "message": "<unknown>.Loved",
+                "args_repr": "('<unknown>.Loved',)"
+              }
+            },
+            "Disliked": {
+              "member": "Disliked",
+              "operation": "get",
+              "attempted": true,
+              "outcome": "blocked",
+              "error": {
+                "type": "AttributeError",
+                "message": "<unknown>.Disliked",
+                "args_repr": "('<unknown>.Disliked',)"
+              }
+            }
+          },
+          "setters": {},
+          "interaction": {
+            "outcome": "not_attempted",
+            "reason": "setter attempts are isolated to the interface-probe case"
+          }
+        },
+        "after_stable": true,
+        "rating_gate": {
+          "expected": 80,
+          "actual": 80,
+          "passed": true
+        },
+        "within_session_snapshot_changed": false,
+        "finished_utc": "2026-09-24T16:48:43.834473+00:00"
+      },
+      "itunes_exit_code": 0,
+      "inventory_after": [
+        {
+          "path": "Album Artwork",
+          "kind": "directory"
+        },
+        {
+          "path": "Album Artwork/Cache",
+          "kind": "directory"
+        },
+        {
+          "path": "Album Artwork/Custom",
+          "kind": "directory"
+        },
+        {
+          "path": "Album Artwork/Download",
+          "kind": "directory"
+        },
+        {
+          "path": "Album Artwork/Generated",
+          "kind": "directory"
+        },
+        {
+          "path": "Album Artwork/Store",
+          "kind": "directory"
+        },
+        {
+          "path": "iTunes Library Extras.itdb",
+          "kind": "file",
+          "bytes": 16384,
+          "sha256": "3f48a3edf56c23d46c19c2d089042c19445e293ea528237816646405c9aac0c4"
+        },
+        {
+          "path": "iTunes Library Genius.itdb",
+          "kind": "file",
+          "bytes": 32768,
+          "sha256": "2eb4fbe42c4deb56e05baad259d5f59be82809c0479600934c4d46f08592566a"
+        },
+        {
+          "path": "iTunes Library.itl",
+          "kind": "file",
+          "bytes": 4138,
+          "sha256": "7eee360224e6ba229f8906dca01635b00567a3e451d2f769057ce559fdd55700"
+        },
+        {
+          "path": "iTunes Media",
+          "kind": "directory"
+        },
+        {
+          "path": "iTunes Media/.iTunes Preferences.plist",
+          "kind": "file",
+          "bytes": 305,
+          "sha256": "5b1bcbc20d8da6f78ea417158324667a114f56ae8abf75201b66170b7d94ce0b"
+        },
+        {
+          "path": "iTunes Media/Automatically Add to iTunes",
+          "kind": "directory"
+        },
+        {
+          "path": "sentinel",
+          "kind": "file",
+          "bytes": 8,
+          "sha256": "7fd2326e6e7f2c00c03b8a57e3b3f0f5267bf22d6ddfa098f153fce7f8c18a53"
+        }
+      ],
+      "forbidden_after": [],
+      "saved": {
+        "path": "D:\\a\\_temp\\gha-mcp\\win-dj1cymvp\\work\\itl-analysis\\repo\\evidence\\research\\20260925\\native-rating-kind\\cases\\rating-080\\restart-verification\\native-saved.itl",
+        "bytes": 4138,
+        "mtime_ns": 1790268526960553300,
+        "sha256": "7eee360224e6ba229f8906dca01635b00567a3e451d2f769057ce559fdd55700"
+      },
+      "targeted_validation": {
+        "file": {
+          "path": "D:\\a\\_temp\\gha-mcp\\win-dj1cymvp\\work\\itl-analysis\\repo\\evidence\\research\\20260925\\native-rating-kind\\cases\\rating-080\\restart-verification\\native-saved.itl",
+          "bytes": 4138,
+          "mtime_ns": 1790268526960553300,
+          "sha256": "7eee360224e6ba229f8906dca01635b00567a3e451d2f769057ce559fdd55700"
+        },
+        "primary": {
+          "parser_path": "itlkit.Container + itlkit.model.parse_sections",
+          "high_level_library": {
+            "outcome": "observed",
+            "track_count": 1
+          },
+          "version": "12.13.10.3",
+          "persistent_id": "A17E000000000001",
+          "rating": 80,
+          "name_refresh_flag_raw": 0,
+          "legacy_loved_bit": false,
+          "legacy_loved_byte_raw": 0,
+          "track_header_length": 756,
+          "track_header_sha256": "b808191851946c2f4d44dd2bcd259808233402c7e7e9a7080e88998a60907893",
+          "rating_window_0x60_0x72": "000000000000000000000000500000000000",
+          "legacy_loved_window_0x2b8_0x2c4": "000000000000000000000000"
+        },
+        "independent": {
+          "track": {
+            "persistent_id": "A17E000000000001",
+            "track_id": 71,
+            "record_kind_raw": 1,
+            "date_modified": 0,
+            "file_size": 0,
+            "total_time": 0,
+            "track_number": 0,
+            "track_count": 0,
+            "year": 0,
+            "bit_rate": 0,
+            "play_count": 0,
+            "play_date": 0,
+            "disc_number": 0,
+            "disc_count": 0,
+            "rating": 80,
+            "name_refresh_flag_raw": 0,
+            "legacy_loved_byte_raw": 0,
+            "date_added": 3865040640,
+            "skip_count": 0,
+            "album_id": 69,
+            "unplayed_raw": 0,
+            "sample_rate": 0,
+            "skip_date": 0,
+            "artist_id": 70,
+            "header_length": 756,
+            "name": "Reference Track",
+            "album": null,
+            "artist": null,
+            "genre": null,
+            "kind": null,
+            "comment": null,
+            "url": null,
+            "composer": null,
+            "path": null,
+            "album_artist": null,
+            "sort_name": null,
+            "sort_album": null,
+            "sort_artist": null,
+            "sort_album_artist": null,
+            "purchaser_name": null,
+            "unplayed": true,
+            "legacy_loved_bit": false
+          },
+          "track_header_sha256": "b808191851946c2f4d44dd2bcd259808233402c7e7e9a7080e88998a60907893"
+        },
+        "validator": {
+          "schema": "reference-itl.validation.v1",
+          "sha256": "7eee360224e6ba229f8906dca01635b00567a3e451d2f769057ce559fdd55700",
+          "valid": true,
+          "version": "12.13.10.3",
+          "counts": {
+            "declared": {
+              "sections": 10,
+              "tracks": 1,
+              "playlists": 15,
+              "albums": 1,
+              "artists": 1
+            },
+            "parsed": {
+              "sections": 10,
+              "tracks": 1,
+              "playlists": 15,
+              "albums": 1,
+              "artists": 1
+            }
+          },
+          "issues": [
+            {
+              "severity": "warning",
+              "code": "scope.opaque_section",
+              "path": "section[6]/type[23]",
+              "message": "section body is retained but not semantically decoded",
+              "details": {
+                "section_type": 23,
+                "bytes": 96
+              }
+            },
+            {
+              "severity": "warning",
+              "code": "scope.opaque_section",
+              "path": "section[9]/type[4]",
+              "message": "section body is retained but not semantically decoded",
+              "details": {
+                "section_type": 4,
+                "bytes": 66
+              }
+            }
+          ],
+          "coverage": {
+            "envelope_and_record_boundaries": true,
+            "known_reference_namespaces": [
+              "track local/Persistent IDs",
+              "playlist local/Persistent IDs",
+              "playlist item IDs and track references",
+              "track album and artist local references"
+            ],
+            "opaque_bytes_semantically_validated": false,
+            "opaque_reference_scan": false
+          },
+          "native_acceptance": "unverified"
+        },
+        "errors": [],
+        "passed": true
+      },
+      "status": "passed",
+      "finished_utc": "2026-09-24T16:48:48.789811+00:00"
+    }
+  ],
+  "profile_junction_create": {
+    "argv": [
+      "cmd.exe",
+      "/d",
+      "/c",
+      "mklink",
+      "/J",
+      "C:\\Users\\runneradmin\\Music\\iTunes",
+      "D:\\a\\_temp\\gha-mcp\\win-dj1cymvp\\work\\itl-analysis\\native-rating-kind-20260925-run1\\rating-080\\live"
+    ],
+    "returncode": 0,
+    "output": "Junction created for C:\\Users\\runneradmin\\Music\\iTunes <<===>> D:\\a\\_temp\\gha-mcp\\win-dj1cymvp\\work\\itl-analysis\\native-rating-kind-20260925-run1\\rating-080\\live\n"
+  },
+  "snapshot_analyses": {
+    "baseline": {
+      "file": {
+        "path": "D:\\a\\_temp\\gha-mcp\\win-dj1cymvp\\work\\itl-analysis\\repo\\evidence\\research\\20260925\\native-rating-kind\\cases\\rating-080\\baseline.itl",
+        "bytes": 10566,
+        "mtime_ns": 1790265642217330600,
+        "sha256": "c6c68171d57350ceb3cf379eee13a764ea199536ef18238fe4faf80583492d74"
+      },
+      "primary": {
+        "parser_path": "itlkit.Container + itlkit.model.parse_sections",
+        "high_level_library": {
+          "outcome": "blocked",
+          "error": {
+            "type": "FormatError",
+            "message": "zero or duplicate secondary track ID",
+            "args_repr": "('zero or duplicate secondary track ID',)"
+          }
+        },
+        "version": "12.13.10.3",
+        "persistent_id": "A17E000000000001",
+        "rating": 0,
+        "name_refresh_flag_raw": 0,
+        "legacy_loved_bit": false,
+        "legacy_loved_byte_raw": 0,
+        "track_header_length": 756,
+        "track_header_sha256": "ee97eed8c481b9f8606b23389fe32739a413757cc5c48248c8f61809102c911e",
+        "rating_window_0x60_0x72": "000000000000000000000000000000000000",
+        "legacy_loved_window_0x2b8_0x2c4": "000000000000000000000000"
+      },
+      "independent": {
+        "track": {
+          "persistent_id": "A17E000000000001",
+          "track_id": 1,
+          "record_kind_raw": 1,
+          "date_modified": 0,
+          "file_size": 0,
+          "total_time": 0,
+          "track_number": 0,
+          "track_count": 0,
+          "year": 0,
+          "bit_rate": 0,
+          "play_count": 0,
+          "play_date": 0,
+          "disc_number": 0,
+          "disc_count": 0,
+          "rating": 0,
+          "name_refresh_flag_raw": 0,
+          "legacy_loved_byte_raw": 0,
+          "date_added": 3865040640,
+          "skip_count": 0,
+          "album_id": 3,
+          "unplayed_raw": 0,
+          "sample_rate": 0,
+          "skip_date": 0,
+          "artist_id": 4,
+          "header_length": 756,
+          "name": "Reference Track",
+          "album": null,
+          "artist": null,
+          "genre": null,
+          "kind": null,
+          "comment": null,
+          "url": null,
+          "composer": null,
+          "path": null,
+          "album_artist": null,
+          "sort_name": null,
+          "sort_album": null,
+          "sort_artist": null,
+          "sort_album_artist": null,
+          "purchaser_name": null,
+          "unplayed": true,
+          "legacy_loved_bit": false
+        },
+        "track_header_sha256": "ee97eed8c481b9f8606b23389fe32739a413757cc5c48248c8f61809102c911e"
+      },
+      "validator": {
+        "schema": "reference-itl.validation.v1",
+        "sha256": "c6c68171d57350ceb3cf379eee13a764ea199536ef18238fe4faf80583492d74",
+        "valid": true,
+        "version": "12.13.10.3",
+        "counts": {
+          "declared": {
+            "sections": 10,
+            "tracks": 1,
+            "playlists": 2,
+            "albums": 1,
+            "artists": 1
+          },
+          "parsed": {
+            "sections": 10,
+            "tracks": 1,
+            "playlists": 2,
+            "albums": 1,
+            "artists": 1
+          }
+        },
+        "issues": [
+          {
+            "severity": "warning",
+            "code": "scope.opaque_section",
+            "path": "section[6]/type[23]",
+            "message": "section body is retained but not semantically decoded",
+            "details": {
+              "section_type": 23,
+              "bytes": 96
+            }
+          },
+          {
+            "severity": "warning",
+            "code": "scope.opaque_section",
+            "path": "section[9]/type[4]",
+            "message": "section body is retained but not semantically decoded",
+            "details": {
+              "section_type": 4,
+              "bytes": 66
+            }
+          }
+        ],
+        "coverage": {
+          "envelope_and_record_boundaries": true,
+          "known_reference_namespaces": [
+            "track local/Persistent IDs",
+            "playlist local/Persistent IDs",
+            "playlist item IDs and track references",
+            "track album and artist local references"
+          ],
+          "opaque_bytes_semantically_validated": false,
+          "opaque_reference_scan": false
+        },
+        "native_acceptance": "unverified"
+      },
+      "errors": [],
+      "passed": true
+    },
+    "mutation": {
+      "file": {
+        "path": "D:\\a\\_temp\\gha-mcp\\win-dj1cymvp\\work\\itl-analysis\\repo\\evidence\\research\\20260925\\native-rating-kind\\cases\\rating-080\\mutation\\native-saved.itl",
+        "bytes": 4113,
+        "mtime_ns": 1790268492708211400,
+        "sha256": "a9177fb07ad74d98403970b317f7c69b049007704d73a96c32b7366fef0c521d"
+      },
+      "primary": {
+        "parser_path": "itlkit.Container + itlkit.model.parse_sections",
+        "high_level_library": {
+          "outcome": "observed",
+          "track_count": 1
+        },
+        "version": "12.13.10.3",
+        "persistent_id": "A17E000000000001",
+        "rating": 80,
+        "name_refresh_flag_raw": 0,
+        "legacy_loved_bit": false,
+        "legacy_loved_byte_raw": 0,
+        "track_header_length": 756,
+        "track_header_sha256": "b808191851946c2f4d44dd2bcd259808233402c7e7e9a7080e88998a60907893",
+        "rating_window_0x60_0x72": "000000000000000000000000500000000000",
+        "legacy_loved_window_0x2b8_0x2c4": "000000000000000000000000"
+      },
+      "independent": {
+        "track": {
+          "persistent_id": "A17E000000000001",
+          "track_id": 71,
+          "record_kind_raw": 1,
+          "date_modified": 0,
+          "file_size": 0,
+          "total_time": 0,
+          "track_number": 0,
+          "track_count": 0,
+          "year": 0,
+          "bit_rate": 0,
+          "play_count": 0,
+          "play_date": 0,
+          "disc_number": 0,
+          "disc_count": 0,
+          "rating": 80,
+          "name_refresh_flag_raw": 0,
+          "legacy_loved_byte_raw": 0,
+          "date_added": 3865040640,
+          "skip_count": 0,
+          "album_id": 69,
+          "unplayed_raw": 0,
+          "sample_rate": 0,
+          "skip_date": 0,
+          "artist_id": 70,
+          "header_length": 756,
+          "name": "Reference Track",
+          "album": null,
+          "artist": null,
+          "genre": null,
+          "kind": null,
+          "comment": null,
+          "url": null,
+          "composer": null,
+          "path": null,
+          "album_artist": null,
+          "sort_name": null,
+          "sort_album": null,
+          "sort_artist": null,
+          "sort_album_artist": null,
+          "purchaser_name": null,
+          "unplayed": true,
+          "legacy_loved_bit": false
+        },
+        "track_header_sha256": "b808191851946c2f4d44dd2bcd259808233402c7e7e9a7080e88998a60907893"
+      },
+      "validator": {
+        "schema": "reference-itl.validation.v1",
+        "sha256": "a9177fb07ad74d98403970b317f7c69b049007704d73a96c32b7366fef0c521d",
+        "valid": true,
+        "version": "12.13.10.3",
+        "counts": {
+          "declared": {
+            "sections": 10,
+            "tracks": 1,
+            "playlists": 15,
+            "albums": 1,
+            "artists": 1
+          },
+          "parsed": {
+            "sections": 10,
+            "tracks": 1,
+            "playlists": 15,
+            "albums": 1,
+            "artists": 1
+          }
+        },
+        "issues": [
+          {
+            "severity": "warning",
+            "code": "scope.opaque_section",
+            "path": "section[6]/type[23]",
+            "message": "section body is retained but not semantically decoded",
+            "details": {
+              "section_type": 23,
+              "bytes": 96
+            }
+          },
+          {
+            "severity": "warning",
+            "code": "scope.opaque_section",
+            "path": "section[9]/type[4]",
+            "message": "section body is retained but not semantically decoded",
+            "details": {
+              "section_type": 4,
+              "bytes": 66
+            }
+          }
+        ],
+        "coverage": {
+          "envelope_and_record_boundaries": true,
+          "known_reference_namespaces": [
+            "track local/Persistent IDs",
+            "playlist local/Persistent IDs",
+            "playlist item IDs and track references",
+            "track album and artist local references"
+          ],
+          "opaque_bytes_semantically_validated": false,
+          "opaque_reference_scan": false
+        },
+        "native_acceptance": "unverified"
+      },
+      "errors": [],
+      "passed": true
+    },
+    "same-value-repeat": {
+      "file": {
+        "path": "D:\\a\\_temp\\gha-mcp\\win-dj1cymvp\\work\\itl-analysis\\repo\\evidence\\research\\20260925\\native-rating-kind\\cases\\rating-080\\same-value-repeat\\native-saved.itl",
+        "bytes": 4138,
+        "mtime_ns": 1790268509714743800,
+        "sha256": "78d4de3c2cb144184ef1d7aa49ede3d934bd6720a3c406057b8445078de5a46e"
+      },
+      "primary": {
+        "parser_path": "itlkit.Container + itlkit.model.parse_sections",
+        "high_level_library": {
+          "outcome": "observed",
+          "track_count": 1
+        },
+        "version": "12.13.10.3",
+        "persistent_id": "A17E000000000001",
+        "rating": 80,
+        "name_refresh_flag_raw": 0,
+        "legacy_loved_bit": false,
+        "legacy_loved_byte_raw": 0,
+        "track_header_length": 756,
+        "track_header_sha256": "b808191851946c2f4d44dd2bcd259808233402c7e7e9a7080e88998a60907893",
+        "rating_window_0x60_0x72": "000000000000000000000000500000000000",
+        "legacy_loved_window_0x2b8_0x2c4": "000000000000000000000000"
+      },
+      "independent": {
+        "track": {
+          "persistent_id": "A17E000000000001",
+          "track_id": 71,
+          "record_kind_raw": 1,
+          "date_modified": 0,
+          "file_size": 0,
+          "total_time": 0,
+          "track_number": 0,
+          "track_count": 0,
+          "year": 0,
+          "bit_rate": 0,
+          "play_count": 0,
+          "play_date": 0,
+          "disc_number": 0,
+          "disc_count": 0,
+          "rating": 80,
+          "name_refresh_flag_raw": 0,
+          "legacy_loved_byte_raw": 0,
+          "date_added": 3865040640,
+          "skip_count": 0,
+          "album_id": 69,
+          "unplayed_raw": 0,
+          "sample_rate": 0,
+          "skip_date": 0,
+          "artist_id": 70,
+          "header_length": 756,
+          "name": "Reference Track",
+          "album": null,
+          "artist": null,
+          "genre": null,
+          "kind": null,
+          "comment": null,
+          "url": null,
+          "composer": null,
+          "path": null,
+          "album_artist": null,
+          "sort_name": null,
+          "sort_album": null,
+          "sort_artist": null,
+          "sort_album_artist": null,
+          "purchaser_name": null,
+          "unplayed": true,
+          "legacy_loved_bit": false
+        },
+        "track_header_sha256": "b808191851946c2f4d44dd2bcd259808233402c7e7e9a7080e88998a60907893"
+      },
+      "validator": {
+        "schema": "reference-itl.validation.v1",
+        "sha256": "78d4de3c2cb144184ef1d7aa49ede3d934bd6720a3c406057b8445078de5a46e",
+        "valid": true,
+        "version": "12.13.10.3",
+        "counts": {
+          "declared": {
+            "sections": 10,
+            "tracks": 1,
+            "playlists": 15,
+            "albums": 1,
+            "artists": 1
+          },
+          "parsed": {
+            "sections": 10,
+            "tracks": 1,
+            "playlists": 15,
+            "albums": 1,
+            "artists": 1
+          }
+        },
+        "issues": [
+          {
+            "severity": "warning",
+            "code": "scope.opaque_section",
+            "path": "section[6]/type[23]",
+            "message": "section body is retained but not semantically decoded",
+            "details": {
+              "section_type": 23,
+              "bytes": 96
+            }
+          },
+          {
+            "severity": "warning",
+            "code": "scope.opaque_section",
+            "path": "section[9]/type[4]",
+            "message": "section body is retained but not semantically decoded",
+            "details": {
+              "section_type": 4,
+              "bytes": 66
+            }
+          }
+        ],
+        "coverage": {
+          "envelope_and_record_boundaries": true,
+          "known_reference_namespaces": [
+            "track local/Persistent IDs",
+            "playlist local/Persistent IDs",
+            "playlist item IDs and track references",
+            "track album and artist local references"
+          ],
+          "opaque_bytes_semantically_validated": false,
+          "opaque_reference_scan": false
+        },
+        "native_acceptance": "unverified"
+      },
+      "errors": [],
+      "passed": true
+    },
+    "restart-verification": {
+      "file": {
+        "path": "D:\\a\\_temp\\gha-mcp\\win-dj1cymvp\\work\\itl-analysis\\repo\\evidence\\research\\20260925\\native-rating-kind\\cases\\rating-080\\restart-verification\\native-saved.itl",
+        "bytes": 4138,
+        "mtime_ns": 1790268526960553300,
+        "sha256": "7eee360224e6ba229f8906dca01635b00567a3e451d2f769057ce559fdd55700"
+      },
+      "primary": {
+        "parser_path": "itlkit.Container + itlkit.model.parse_sections",
+        "high_level_library": {
+          "outcome": "observed",
+          "track_count": 1
+        },
+        "version": "12.13.10.3",
+        "persistent_id": "A17E000000000001",
+        "rating": 80,
+        "name_refresh_flag_raw": 0,
+        "legacy_loved_bit": false,
+        "legacy_loved_byte_raw": 0,
+        "track_header_length": 756,
+        "track_header_sha256": "b808191851946c2f4d44dd2bcd259808233402c7e7e9a7080e88998a60907893",
+        "rating_window_0x60_0x72": "000000000000000000000000500000000000",
+        "legacy_loved_window_0x2b8_0x2c4": "000000000000000000000000"
+      },
+      "independent": {
+        "track": {
+          "persistent_id": "A17E000000000001",
+          "track_id": 71,
+          "record_kind_raw": 1,
+          "date_modified": 0,
+          "file_size": 0,
+          "total_time": 0,
+          "track_number": 0,
+          "track_count": 0,
+          "year": 0,
+          "bit_rate": 0,
+          "play_count": 0,
+          "play_date": 0,
+          "disc_number": 0,
+          "disc_count": 0,
+          "rating": 80,
+          "name_refresh_flag_raw": 0,
+          "legacy_loved_byte_raw": 0,
+          "date_added": 3865040640,
+          "skip_count": 0,
+          "album_id": 69,
+          "unplayed_raw": 0,
+          "sample_rate": 0,
+          "skip_date": 0,
+          "artist_id": 70,
+          "header_length": 756,
+          "name": "Reference Track",
+          "album": null,
+          "artist": null,
+          "genre": null,
+          "kind": null,
+          "comment": null,
+          "url": null,
+          "composer": null,
+          "path": null,
+          "album_artist": null,
+          "sort_name": null,
+          "sort_album": null,
+          "sort_artist": null,
+          "sort_album_artist": null,
+          "purchaser_name": null,
+          "unplayed": true,
+          "legacy_loved_bit": false
+        },
+        "track_header_sha256": "b808191851946c2f4d44dd2bcd259808233402c7e7e9a7080e88998a60907893"
+      },
+      "validator": {
+        "schema": "reference-itl.validation.v1",
+        "sha256": "7eee360224e6ba229f8906dca01635b00567a3e451d2f769057ce559fdd55700",
+        "valid": true,
+        "version": "12.13.10.3",
+        "counts": {
+          "declared": {
+            "sections": 10,
+            "tracks": 1,
+            "playlists": 15,
+            "albums": 1,
+            "artists": 1
+          },
+          "parsed": {
+            "sections": 10,
+            "tracks": 1,
+            "playlists": 15,
+            "albums": 1,
+            "artists": 1
+          }
+        },
+        "issues": [
+          {
+            "severity": "warning",
+            "code": "scope.opaque_section",
+            "path": "section[6]/type[23]",
+            "message": "section body is retained but not semantically decoded",
+            "details": {
+              "section_type": 23,
+              "bytes": 96
+            }
+          },
+          {
+            "severity": "warning",
+            "code": "scope.opaque_section",
+            "path": "section[9]/type[4]",
+            "message": "section body is retained but not semantically decoded",
+            "details": {
+              "section_type": 4,
+              "bytes": 66
+            }
+          }
+        ],
+        "coverage": {
+          "envelope_and_record_boundaries": true,
+          "known_reference_namespaces": [
+            "track local/Persistent IDs",
+            "playlist local/Persistent IDs",
+            "playlist item IDs and track references",
+            "track album and artist local references"
+          ],
+          "opaque_bytes_semantically_validated": false,
+          "opaque_reference_scan": false
+        },
+        "native_acceptance": "unverified"
+      },
+      "errors": [],
+      "passed": true
+    }
+  },
+  "transitions": {
+    "baseline_to_mutation": {
+      "before": {
+        "path": "D:\\a\\_temp\\gha-mcp\\win-dj1cymvp\\work\\itl-analysis\\repo\\evidence\\research\\20260925\\native-rating-kind\\cases\\rating-080\\baseline.itl",
+        "bytes": 10566,
+        "mtime_ns": 1790265642217330600,
+        "sha256": "c6c68171d57350ceb3cf379eee13a764ea199536ef18238fe4faf80583492d74"
+      },
+      "after": {
+        "path": "D:\\a\\_temp\\gha-mcp\\win-dj1cymvp\\work\\itl-analysis\\repo\\evidence\\research\\20260925\\native-rating-kind\\cases\\rating-080\\mutation\\native-saved.itl",
+        "bytes": 4113,
+        "mtime_ns": 1790268492708211400,
+        "sha256": "a9177fb07ad74d98403970b317f7c69b049007704d73a96c32b7366fef0c521d"
+      },
+      "raw_itl_diff": {
+        "before_bytes": 10566,
+        "after_bytes": 4113,
+        "changed_byte_positions": 10412,
+        "range_count": 27,
+        "ranges": [
+          {
+            "start": 10,
+            "end_exclusive": 12,
+            "length": 2,
+            "before_hex": "2946",
+            "after_hex": "1011"
+          },
+          {
+            "start": 65,
+            "end_exclusive": 66,
+            "length": 1,
+            "before_hex": "00",
+            "after_hex": "02"
+          },
+          {
+            "start": 67,
+            "end_exclusive": 68,
+            "length": 1,
+            "before_hex": "00",
+            "after_hex": "01"
+          },
+          {
+            "start": 75,
+            "end_exclusive": 76,
+            "length": 1,
+            "before_hex": "02",
+            "after_hex": "0f"
+          },
+          {
+            "start": 93,
+            "end_exclusive": 95,
+            "length": 2,
+            "before_hex": "0000",
+            "after_hex": "0190"
+          },
+          {
+            "start": 113,
+            "end_exclusive": 116,
+            "length": 3,
+            "before_hex": "5fd700",
+            "after_hex": "db04cc"
+          },
+          {
+            "start": 144,
+            "end_exclusive": 611,
+            "length": 467,
+            "before_hex": "6d73646860000000f00000001000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000006d6664689000000046290000430001000a31322e31332e31302e330000000000000000000000000000000000000000000a000000434e4552454645526f00000002000000010000000200000001000000380001000100000064000000000000000000000000000000000000000000000000d75fe6000000000000000000000000000000000000000000000000000000006d73646860000000780100000c00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000006d686768180100000000000000002c0000000000000000000000000000000000000000000000000000000100000000000000010000010003000000000000000100000000000000000000000000000000000000000000000000000000000000000000000000000002000000000000000000000000000000000000000000000000000000",
+            "after_hex": "d6f6df74bedf5b27212f5a566bba42aa0c678df8fe4991c204e2d1ef3d8067d77859c57b9f133df6a86a3e477749e18eee8b1337df69865ae565ca159a11b851db207d4cd762b10bfac9334d8d05c2bed0fd40dc5e23c541486d76d6ec5d1a2ae24d0bfe0f9ea25f9276831d84c45b177b70aeaaebc76542080be9227d674b6647bcf008a1eaebfef8427a3f2c294f77f96cddfef7eb9fa092320e92877b4183f7670e753620672cd66a2d625df3de68b2b14faa68f23b297a6f730302f877e1f0705515fabc910eed7658ce6e158e2f56571f7e18292d8edbc67276c2a09ea3aa861edd7893ad434fefe50aa2c8224d33ec6d9dc5d49f4c133ae2fdb61ebfb03e409aa116d7dd6d969d43c1cad29317ab36dcd67556d09a354662de41035c955153b37bd1dbfa2601ad66c68b34b9619f901a9ecb209046741ae73a71887f26954a9f7dc932c81d9ed551a14099d92d6cd40ac7c051dff6219cf6916aebb181c5db5f34ad013e8b33868a7e28d93812533fefc22fb069a51b89a32762a817e7754fac70641b2368a9d17292d3b263d98002fa240c8999cb24a52fc42ad86d60a430c6ce43c89c1dee9d527c994c3bd6354edd363b3837e6e1bfdce25a2ebb47ae41a1d1ee795509f456d9b256d3f69b9c21de"
+          },
+          {
+            "start": 612,
+            "end_exclusive": 736,
+            "length": 124,
+            "before_hex": "00000000000000000000000000000000000001000000000000000000000000000000000080510100000000000000000000d75fe600000000000000000000000000000000000000000000000000000006ffffffffffffffff030100000000000002000200000000000000000000000000000000000000010000000000",
+            "after_hex": "3c0113100cd191620fe9e5bb62282eba7cd0f2ab72f82569fe9735c3b4129fbc303d8ca8a2d7493d84d1ff9e062de884f0749768d244020f41dfa8ff5f92d1ccb6fb4dd33161d74602a7b9ba075a4ebf1b525e73df133131af5f220a0f1345dc2e8a88577e66da88f1e4299b36eba8d0eaf5120a4f3d795218a9195f"
+          },
+          {
+            "start": 737,
+            "end_exclusive": 967,
+            "length": 230,
+            "before_hex": "00000000000000000000000000000000000000000000006d73646860000000140100000900000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000006d6c61685c0000000100000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000006d696168580000005800000000000000030000",
+            "after_hex": "4b999136e4cc6280af6117f5d00a2c35078fc4899ab825f89d531eeb53b1edc07ce5070757e4a2dd2e648a32044208c4b4f0c6ef3d6597dd0bf4b850f18515ad9b17cd11b78d37cf2877246f649a7576552e9b7318eeeccd0c57db87c8679785ac633d12f7b6ef668e9ebf076733c64cce1a3c1845f741146779e2fbde716ffa55b706c61ed7ea5eadb11bafce0849fcc65be0c8ee2a88a94fd2ad6f6aabe4bd0b351eee849756f83785d79fee365b2aaf8c20be4452c94049ddced4cda2e4eae1cd48e7e093dacefffcf3ad1bddabe389e388db570f4fcd676c35e6136bd7dcb2c2358fe58b"
+          },
+          {
+            "start": 968,
+            "end_exclusive": 1560,
+            "length": 592,
+            "before_hex": "0400000000007ea10200000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000006d73646860000000280100000b00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000006d6c69686400000001000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000006d696968640000006400000000000000040000000500000000007ea10200000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000006d73646860000000f60300000100000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000006d6c74685c0000000100000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000006d697468f40200003a03000001000000010000000100000000000000000000000000000000000000",
+            "after_hex": "a2aac332b577e7937dbdb3f2cc3c079bb99d1dadfb2acd1588ef0c0fea036e0eb8600d3cb01d4764a7bf1413bb0bc5c5f5cdc9391651f85f9ae583a5d22b80230cbf748da46ed563d8c17de4cc5480b392c2414562d1292798a3e1ace372b0f779ff3775bb21405fd46cdbffed4db26ac00c4493dd8759e0cb4d013e47c2e1889c95549448df3d692565cd9827b79aef8fb8714b227472ff4f06e2fe7f094e5bb171175cd64a98e52feacfaec99fdd1274b5d5dc592365050196e11670adbaa942060c6f87424a70caae557e98e18f2a790b915d92a593364284ef2db38304bff0e13550c1af07184e6e5081158c9a20c4e93f7899de7cf117b9a05a2520e95b22124eb183edddccb70ee5509b8082f9720db5890f557bd08c4c747c1115d86baafa013eca02e9631a39184266e73b3b08f89fa6149d55e4843dd4c5d0296f18e62b7df9de99f7c56555a9bd65b797485ebaf7d12e172c76937d39a9e0b1e7a0e4966b6c336b092ec07b3466331eec42df48d3f17e27797ee4cf4f0edb8c40bf203e5b85f781b95b14762089c5803de35be255d7e2acf9ea9cb5a34607b005510b32bd6675b2e8124681530fe14b4c664262d9b847a6e1de425a45bcca5635cd912c5bb7a5019ba0968710901c64c3889f0d99c80bbe0bd6681c7f1b0edf9f5cbfc39ff7849e0e189bc3b277387b499735408663cbdd82ba406ff1146e4399bfa0a56104d5912b589c159c18f14a3ca98021359d01088ea1c62806b54ea080a350e70a5685e88ddb0924ded60d2428773077addbaa72a75494de15f7dd90743c678a2ff268afc8d219872a97b839b288"
+          },
+          {
+            "start": 1561,
+            "end_exclusive": 1589,
+            "length": 28,
+            "before_hex": "00000000000000000000000000000000000000000000000000000000",
+            "after_hex": "40f942c38520c6785a9b1f3e0f26c5640f114afcf78ebc3642fe7649"
+          },
+          {
+            "start": 1590,
+            "end_exclusive": 1598,
+            "length": 8,
+            "before_hex": "0000000000000000",
+            "after_hex": "7593b290b5ddd191"
+          },
+          {
+            "start": 1599,
+            "end_exclusive": 1789,
+            "length": 190,
+            "before_hex": "000200000000000000000000000000000000000000000000000000000000000000000000000000000000d75fe6000000000100000000007ea100000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000003000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+            "after_hex": "f14e90c35d81bc69b03ab5c1d631fee33bfb8eeb32087027760f04e727b199839fc0cd42dacb1a9d3447232de945d88e8469b6c083e211ce017e599d3c84288a7f5adb7b69c5a4da381c841b5a02e90aff5a0a46b9d062b1b7a931906ce8c9717c1e5143f8d185a21d968a3b7586679eb47a4bc5ca78882af8872be0bdb95a611af34b323b6303198c934c05d5c42dd1ba72f5b64ef0994b714cf749ff7d21c8c4ed1f889b500f3875cdff1471071e63a2dfcee4c886c16d591b4e5ccdf2"
+          },
+          {
+            "start": 1790,
+            "end_exclusive": 1864,
+            "length": 74,
+            "before_hex": "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000800000000000000000000000",
+            "after_hex": "d30f14e9b45baa3b29d04cc77c90dba4abbcc5d044f1a03e18d4d1b8901fcda6d784ba1e11c2cf663786ac03972445518db142e6cc9d64de90f47d186f72376228cac99b8706e52146a6"
+          },
+          {
+            "start": 1865,
+            "end_exclusive": 2238,
+            "length": 373,
+            "before_hex": "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000400000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000001000000000000000000000000000000000000000000000000000000e8030000e8030000e8030000e8030000e8030000e8030000e803000000000000000000000000000000000000000000000000000000000000000000000000",
+            "after_hex": "72d9612217479ab268833eb0c7bbe7376c0fa0461eabb014dbaf9c7599398569b02ecff9d773422b2c9d53d4fa859a4e07683a3cb5c516b06124a48523f913e60d6fef12d653027e740a191d6ca5539f68d784897dc427109df54b458d1c1b73220fbdb6361a826bb55939c24ee50c9464a5aeeb703bf0df6946c0d213bf323fe4e4ee18c4cae69c22d6c990b7ed45f721429d0ca5fd63461bde2039d24617c8566c104b051871d71ac4780cdd9a0a3fcfe2f1bd66d8f3b34fefc9857a0a1ef4c2e48e24017b7df3602bbedf6d2e06036fae268295269c660f5f7599cece3183be82ae035d8ced5d65dd2c940fa59fbf6e4adcf572dc0683efe2adf844f3e4e3814a928b9041d4f1e9c616f177b78966c9379dd7ef87f841139150b78890a6bc8d146b43fa97fe58114c1562fcceb679eed58e32db1b832ae6d09d4d6bee632e6ba6268fdbfd76c38ba4b64eb0f7092bf193bb88ef40fd7aa48f5b8c427c490e4bcdd6755eeeacf0dc11314d33dc957396e69e3e07"
+          },
+          {
+            "start": 2239,
+            "end_exclusive": 2282,
+            "length": 43,
+            "before_hex": "000000000000000000000000000000000000000000000000000000000000000000000000006d686f681800",
+            "after_hex": "ad62d8500a57511eead27020a3fb949d624a3a28b3d10b2c874a05306243677a412e690bf4da57ee02b9da"
+          },
+          {
+            "start": 2283,
+            "end_exclusive": 2334,
+            "length": 51,
+            "before_hex": "0046000000020000000000000000000000010000001e00000000000000000000005200650066006500720065006e0063006500",
+            "after_hex": "26383e673c92715a87fd182ea1e3d489c6b3ba7de38befd5dec4ae67b0641a75b5d4f3fe4b9589e8ca58c4cd0f3f9c2bd5e31e"
+          },
+          {
+            "start": 2335,
+            "end_exclusive": 2573,
+            "length": 238,
+            "before_hex": "0054007200610063006b006d73646860000000bc0000000d00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000006d6c74685c0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000006d73646860000000c0000000170000000000000000000000000000000000000000000000000000",
+            "after_hex": "37ad28ee1a5f8e8cb939d8699792975459bc7501cdbbcd53c430aec25c06e6b1e57a94e98940b3e32c16f8f95ee38d231176076c509bf7058b1f97975e0441735eed0c4852d80a52585753180c02af76f829ba6f0dbba7b0c9a0dd18794ac0e4ac97a6422464e4aefe4af6c419fe8f57614f089ffb79f4c370e9519053a13f979ba2123a4428296636db42eb06ae33fae6cdbbd8f3e11a0c6ed55f96b920b2ad59a6555b57233913c7566365df8031a5b93eb161ee8787b9508a4dbd76af2424e32ed2d48b30269ec2ad733241050f04d2d9c488a04a09f92c17be5ef57ec69a40f7eac3c931b6937fc6ca3ea01b"
+          },
+          {
+            "start": 2574,
+            "end_exclusive": 2928,
+            "length": 354,
+            "before_hex": "00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000007374736860000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000006d73646860000000421d00000200000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000006d6c70685c0000000200000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000006d697068ac0d00003a0e00000100",
+            "after_hex": "93e09fb655dbc8e8fa350b4220d3f57c56dd324e391dc770d84740f560f0147de1a2e0f2a8c14d20f966b51fe6305e5ad059a6b5276e94a529f44759ffd0766b9daf64e46e08138b06f6847b708b431e9ec78bfe8f722dbc929abbb53e7cc85acf0553291627de7f5a4b39a4676f4676ad4d87732cbc0ee4b95a5d09fb03ed11aeefb513c653d9a2e65e731ebe295f4c1bd7313532f01a2334cd557202b3fd44720ae8e9a663ad34ce6d4a13034f667203a1d33521af826151b9870639e458f4320adf7e24ab4482478fd9a56f7c996ccafad061fd7bfb0f87265a425dca5c87f975e5bc6beceb3f8783793bd68210e55de0aec26866d6a9aea9163020087ffe61dd8e2c42359f06ff58656b11dd94621a5c9bc82d635c7185d4693de3784dacddd78cd6730e21f31d636796b1640deef2a48390ab926b5873e0fe9e64c63fc59a3514f6f9cfe75ce0575c0bcf69e9e60e4380dbce55b16283526ecff37de0f247cd"
+          },
+          {
+            "start": 2929,
+            "end_exclusive": 3170,
+            "length": 241,
+            "before_hex": "00010000000000010007000100000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+            "after_hex": "6d1246ef0744ca51732b87d783f1f784c1248609951dadd3f221cb731a47a4f7452d17d95dc9209fb7e84a9cb2956d28671d9d03dda1711cbdff3573f719a9994019a43378b3588e16bdf1914f0d2d7013ee1f88a1d8428a926112c8b08273941d45ad14ce63c4c1edc0a3fe532de19c2d4fc0107b7aafae3932f0cf28bd2323356faf8bdd1c6485724bbb8b0daa175694a00de9798cc50e034a1f10708f2eab1db0e92d76b2601373b02ca11fedea6725cf712852cb0beb927595b3ed32bd30ba4d689fbc89edb86a13262457e558312ae4a27c2f61f4c90dff63b6dff8bfaba118f0a8afd583139ab89f01c7fce7234d"
+          },
+          {
+            "start": 3171,
+            "end_exclusive": 3379,
+            "length": 208,
+            "before_hex": "000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000434e4552454645520000000000000000000000000000000000",
+            "after_hex": "73e395e1d6d03a5fbce431869aad706b635ea196f47e381fe7a288fe210f3fc49111540db528805dac1ace23f011201cfc793b987f331a4e1ba60baed4df345498a8937519b11731c98c8e1f75ee262577b43960130f37f211bf9dfef0b38fae3d878e7e7b2d60215a19d77b1ed3a70d853ad340457f66e5566e0463cb1d5f80e8db3778a03b9fba09eb6ed88d89b7c33c4e3189d4486d51261373b4f53e74aab17636bddac76fd7d170224b5ed1b2294608c88f55216b8ebfbcaa0c95cbfc8c2822a5d06f4fe76118aca9f3570e1bea"
+          },
+          {
+            "start": 3380,
+            "end_exclusive": 3714,
+            "length": 334,
+            "before_hex": "00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+            "after_hex": "8d472f5372518d920f15d2419267f6c36435090f281e5e0a8482738cc1db60e8f1e1709eae03e1d472c94c203f1f85b34be2a5bf2dd329a4ace9d5ceb047d672a1813fef374d44d9f9ac18079c51e0f0b22ebd8c4c0ec4d761aec1c1c037da6078a3a7223a3ef6a8e401c86a66a3fea58813a5b325b4f72584f97823f579319ae0febed42b063e9026fd4ef2782e6ac83638f62f671dbccee761dff2b426360768b15ab57e4edf57adc38faf38c6bd170360a5deaf586daf8d2f27eded4e98c542ac2e4635553cbd949e763e7c17283ca89e87b50e2a2e92495e65fd57dad27257d10af0f0dca0d3845bc170c4baa75aa5a44620ebce9f57d355461c112b10071187179f796983771db83c445fb46aaa7aa831f6c3b98ca88de72bb4ec1ef79f0bb0d102ab8993023a813d4912404ec0660bd40f343f155e3f60d9142e2466e7bf7941bede6a713e04422d050b75"
+          },
+          {
+            "start": 3715,
+            "end_exclusive": 3945,
+            "length": 230,
+            "before_hex": "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+            "after_hex": "41974138609b5aea21f7f0215fd4cb97ad353534f2f656f92dc1ee0fa83443496df2c88b2c21a36d38974114d8f16a5931501b229c09e3140ef9545d0fcd075e80b76878e3e9bb932e3f12c1fdcdaa067145666ffc32cc1b42b53684140e169dbe38678f285d7c78961ff6e796d1a4789c1cc689efac67b385e0a68437d6c280d99f1c3807ed58253e49edbc6705077e0304ef35db0e661cbdfcb02af6fa406921091228e8d24ad984ac6d46c5a915172690a81cd5180f0c450e63d83b050b5a0f23f07197bb6feecd13ac6089ac0e68950aec7f8107e39e608a8a15c637688ffeaacbd612ae"
+          },
+          {
+            "start": 3946,
+            "end_exclusive": 3954,
+            "length": 8,
+            "before_hex": "0000000000000000",
+            "after_hex": "8057fa6098c89ade"
+          },
+          {
+            "start": 3955,
+            "end_exclusive": 3974,
+            "length": 19,
+            "before_hex": "00000000000000000000000000000000000000",
+            "after_hex": "161c723c18df45d2560a2935711c8cd6961b3a"
+          },
+          {
+            "start": 3975,
+            "end_exclusive": 4078,
+            "length": 103,
+            "before_hex": "00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+            "after_hex": "fadab58c9e6e8454703be9ddfdcde87c38b8a238751eed22bc54d6e209db5ef67a98b12e20ce840e7ed0fae27c8465542866a3668cc558b598c60268bcb89180aa66a22865826a4dd59dd8f08b6a4d370b6127293ebb6e79b2d1ee7ee5b5f1f215ba2efb96f3f1"
+          },
+          {
+            "start": 4079,
+            "end_exclusive": 10566,
+            "length": 6487,
+            "before_hex": "000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000100000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000500000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000006d686f68180000003a000000640000000000000000000000010000001200000000000000000000002300230023002300210023002300230023006d747068540000005400000000000000010000000000000001000000000000000100000000000000000000000000000000000000000000000000000000000000000000000600000000007ea100000000000000006d697068ac0d00004c0e000001000000010000000000000007000100000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000200000000007ea1000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000100000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000600000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000006d686f68180000004c000000640000000000000000000000010000002400000000000000000000005200650066006500720065006e0063006500200050006c00610079006c006900730074006d747068540000005400000000000000010000000000000001000000000000000100000000000000000000000000000000000000000000000000000000000000000000000300000000007ea100000000000000006d73646860000000bc0000000e00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000006d6c70685c0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000006d73646860000000a200000004000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000066696c653a2f2f6c6f63616c686f73742f433a2f55736572732f72756e6e657261646d696e2f4d757369632f6954756e65732f6954756e65732532304d656469612f",
+            "after_hex": "a0b10913142a496a1db961f7befc9be80333df5d87daf65f984fb2ac6c01c5d5a9d0"
+          }
+        ],
+        "ranges_truncated": false
+      },
+      "track_header_diff": {
+        "before_bytes": 756,
+        "after_bytes": 756,
+        "changed_byte_positions": 12,
+        "range_count": 8,
+        "ranges": [
+          {
+            "start": 8,
+            "end_exclusive": 9,
+            "length": 1,
+            "before_hex": "3a",
+            "after_hex": "2b"
+          },
+          {
+            "start": 16,
+            "end_exclusive": 17,
+            "length": 1,
+            "before_hex": "01",
+            "after_hex": "47"
+          },
+          {
+            "start": 108,
+            "end_exclusive": 109,
+            "length": 1,
+            "before_hex": "00",
+            "after_hex": "50"
+          },
+          {
+            "start": 220,
+            "end_exclusive": 221,
+            "length": 1,
+            "before_hex": "03",
+            "after_hex": "45"
+          },
+          {
+            "start": 297,
+            "end_exclusive": 298,
+            "length": 1,
+            "before_hex": "00",
+            "after_hex": "01"
+          },
+          {
+            "start": 333,
+            "end_exclusive": 338,
+            "length": 5,
+            "before_hex": "0000000000",
+            "after_hex": "8080808080"
+          },
+          {
+            "start": 480,
+            "end_exclusive": 481,
+            "length": 1,
+            "before_hex": "04",
+            "after_hex": "46"
+          },
+          {
+            "start": 500,
+            "end_exclusive": 501,
+            "length": 1,
+            "before_hex": "00",
+            "after_hex": "48"
+          }
+        ],
+        "ranges_truncated": false
+      },
+      "target_fields": {
+        "rating": {
+          "before": 0,
+          "after": 80
+        },
+        "name_refresh_flag_raw": {
+          "before": 0,
+          "after": 0
+        },
+        "legacy_loved_byte_raw": {
+          "before": 0,
+          "after": 0
+        },
+        "legacy_loved_bit": {
+          "before": false,
+          "after": false
+        }
+      },
+      "primary_and_independent_parsers_passed": true
+    },
+    "mutation_to_same-value-repeat": {
+      "before": {
+        "path": "D:\\a\\_temp\\gha-mcp\\win-dj1cymvp\\work\\itl-analysis\\repo\\evidence\\research\\20260925\\native-rating-kind\\cases\\rating-080\\mutation\\native-saved.itl",
+        "bytes": 4113,
+        "mtime_ns": 1790268492708211400,
+        "sha256": "a9177fb07ad74d98403970b317f7c69b049007704d73a96c32b7366fef0c521d"
+      },
+      "after": {
+        "path": "D:\\a\\_temp\\gha-mcp\\win-dj1cymvp\\work\\itl-analysis\\repo\\evidence\\research\\20260925\\native-rating-kind\\cases\\rating-080\\same-value-repeat\\native-saved.itl",
+        "bytes": 4138,
+        "mtime_ns": 1790268509714743800,
+        "sha256": "78d4de3c2cb144184ef1d7aa49ede3d934bd6720a3c406057b8445078de5a46e"
+      },
+      "raw_itl_diff": {
+        "before_bytes": 4113,
+        "after_bytes": 4138,
+        "changed_byte_positions": 3986,
+        "range_count": 13,
+        "ranges": [
+          {
+            "start": 11,
+            "end_exclusive": 12,
+            "length": 1,
+            "before_hex": "11",
+            "after_hex": "2a"
+          },
+          {
+            "start": 115,
+            "end_exclusive": 116,
+            "length": 1,
+            "before_hex": "cc",
+            "after_hex": "dd"
+          },
+          {
+            "start": 144,
+            "end_exclusive": 1538,
+            "length": 1394,
+            "before_hex": "d6f6df74bedf5b27212f5a566bba42aa0c678df8fe4991c204e2d1ef3d8067d77859c57b9f133df6a86a3e477749e18eee8b1337df69865ae565ca159a11b851db207d4cd762b10bfac9334d8d05c2bed0fd40dc5e23c541486d76d6ec5d1a2ae24d0bfe0f9ea25f9276831d84c45b177b70aeaaebc76542080be9227d674b6647bcf008a1eaebfef8427a3f2c294f77f96cddfef7eb9fa092320e92877b4183f7670e753620672cd66a2d625df3de68b2b14faa68f23b297a6f730302f877e1f0705515fabc910eed7658ce6e158e2f56571f7e18292d8edbc67276c2a09ea3aa861edd7893ad434fefe50aa2c8224d33ec6d9dc5d49f4c133ae2fdb61ebfb03e409aa116d7dd6d969d43c1cad29317ab36dcd67556d09a354662de41035c955153b37bd1dbfa2601ad66c68b34b9619f901a9ecb209046741ae73a71887f26954a9f7dc932c81d9ed551a14099d92d6cd40ac7c051dff6219cf6916aebb181c5db5f34ad013e8b33868a7e28d93812533fefc22fb069a51b89a32762a817e7754fac70641b2368a9d17292d3b263d98002fa240c8999cb24a52fc42ad86d60a430c6ce43c89c1dee9d527c994c3bd6354edd363b3837e6e1bfdce25a2ebb47ae41a1d1ee795509f456d9b256d3f69b9c21de003c0113100cd191620fe9e5bb62282eba7cd0f2ab72f82569fe9735c3b4129fbc303d8ca8a2d7493d84d1ff9e062de884f0749768d244020f41dfa8ff5f92d1ccb6fb4dd33161d74602a7b9ba075a4ebf1b525e73df133131af5f220a0f1345dc2e8a88577e66da88f1e4299b36eba8d0eaf5120a4f3d795218a9195f004b999136e4cc6280af6117f5d00a2c35078fc4899ab825f89d531eeb53b1edc07ce5070757e4a2dd2e648a32044208c4b4f0c6ef3d6597dd0bf4b850f18515ad9b17cd11b78d37cf2877246f649a7576552e9b7318eeeccd0c57db87c8679785ac633d12f7b6ef668e9ebf076733c64cce1a3c1845f741146779e2fbde716ffa55b706c61ed7ea5eadb11bafce0849fcc65be0c8ee2a88a94fd2ad6f6aabe4bd0b351eee849756f83785d79fee365b2aaf8c20be4452c94049ddced4cda2e4eae1cd48e7e093dacefffcf3ad1bddabe389e388db570f4fcd676c35e6136bd7dcb2c2358fe58b00a2aac332b577e7937dbdb3f2cc3c079bb99d1dadfb2acd1588ef0c0fea036e0eb8600d3cb01d4764a7bf1413bb0bc5c5f5cdc9391651f85f9ae583a5d22b80230cbf748da46ed563d8c17de4cc5480b392c2414562d1292798a3e1ace372b0f779ff3775bb21405fd46cdbffed4db26ac00c4493dd8759e0cb4d013e47c2e1889c95549448df3d692565cd9827b79aef8fb8714b227472ff4f06e2fe7f094e5bb171175cd64a98e52feacfaec99fdd1274b5d5dc592365050196e11670adbaa942060c6f87424a70caae557e98e18f2a790b915d92a593364284ef2db38304bff0e13550c1af07184e6e5081158c9a20c4e93f7899de7cf117b9a05a2520e95b22124eb183edddccb70ee5509b8082f9720db5890f557bd08c4c747c1115d86baafa013eca02e9631a39184266e73b3b08f89fa6149d55e4843dd4c5d0296f18e62b7df9de99f7c56555a9bd65b797485ebaf7d12e172c76937d39a9e0b1e7a0e4966b6c336b092ec07b3466331eec42df48d3f17e27797ee4cf4f0edb8c40bf203e5b85f781b95b14762089c5803de35be255d7e2acf9ea9cb5a34607b005510b32bd6675b2e8124681530fe14b4c664262d9b847a6e1de425a45bcca5635cd912c5bb7a5019ba0968710901c64c3889f0d99c80bbe0bd6681c7f1b0edf9f5cbfc39ff7849e0e189bc3b277387b499735408663cbdd82ba406ff1146e4399bfa0a56104d5912b589c159c18f14a3ca98021359d01088ea1c62806b54ea080a350e70a5685e88ddb0924ded60d2428773077addbaa72a75494de",
+            "after_hex": "3e1373ae91385efe730e398e5fa2a4f2e2444b8b2096755e4367b0c86947018228faddb932f30c144d38112108e3c8657f1b2efed543593467986d647007c77230fb1b104fe4b904b6ae85030cc79a85d9bba8e22ab9f663339018a882ebf5f3ec644d197a50281f4d6a9821a5ccf18ad076b714353dae1ae3b2ffd4629e6e3236ed56218998ccf00720c064d2947050e1edb77c765a2a7b046bca641ab603d5ba21ef6ba2bbcaea243a3e420d3684afef7c14d731e754e2acb85f5ce858d82b85ca8c66801a0e58432bd36dba96d8543219eec26197e72583467f9759a1dff22757699a4e9964cfa78d97dacfeb03e77896ee751e8ebd677800936af8e1d325f5cbcf6aa5db057467a2b91f0fb3007c1937ab2d0cad871f2b26a69f81a8c9db905b619a01cc95d3b329c63b10886372fcbdb3d5cff8b99439dd85ee746a45e6741e66b8a3e77567d2ebc7ca1bc6d628193329a92bbb5852c8b409d459a22dd6d8b9597e8ecc80718b6f0076c49e519f82da2eed19642530c45bd4a6820889ce529cd7d0409e14ca9170d3428503281ea94f3e1728e6dc261d6f682b8d4b8a4272f92f5a8459bf82692a764daf24af7b9f109c8db47de8a94edc1d4c1d9dadeef9c21ceb20332fc0449a0b2c3d90dc6bfa9f13db979cc8281b9014d2956b030168a95d526d7e499439eab9aa4a366c9c243be89e5a17b3f207b6fd31a4a4dee48cb459c90a2172cb2f30d768ab8abdf213c15aabce93ae0be09ef3bf4afcfe3e7e100faa42459940de6113b557f8f71c5a7d7c14761f837b68e492c43a5851f2e2d2c92a7949e3d8616059de7a3efc7c4723681eb4756563d28b6a7c1d97f59f22e252e22d1d48d6e78bf26d9be3b769ffc073f50b1576fd036693168f2f59d531b3a418017327c411dafefd52cc181b5ed8371d5e8bda63d7dae57824979015f9a4aef421de8250fbd172205e51072ae75055862f92441cded6746e9129e6e0eeaf9bcf0db47e7a152b1db0112e32fab1bbca1a30f67db98f576bd04874f98b1c159efdd5fa1d43ad69d04fd2895aef45b9328e3536d90277f10d1c3d5f2e95922e5e02bdc062dbf3d25db5e83a728eca64b9b6990b084611930ed5d6d982baf968c1b41ddae7e78adf5b372b2e033af3f0b792fc1f2dd8ad1eee87e74b365cc13cdd0f69e856934aa9800e60544a4b3447b8ea5b3a044b52fbfa8cf496a187679731e5615cd4dabee2c33217fa794e7140721afb958864cdb8cc62bec57c64ccb6649b76728e92b1c51da1be230753008410269366d674e6f8d79c68c383d218d8e0675e617a782dc3c39c015887431e132faf5d35d04e46b486d623edfeca806095bb0281d30d0ec11a156f6067d6f2a4581ddf241797a5b9d53e06356027b9c5b891ef4aab43e1c53b08d3f8e735aa4b8d548b9bacc08fc9cb3210333edfea9d30a3bfd78312016742c381c308459bc4d01c428a63357c796d3ffd252f0aa4970991b178091ba654bcc3b30d67e42a98e6b1b6aaacaf60cee5739a7e6f103a15f2f952a47282365a9fef52a594ff9b323d5617bdbd025fec845b596009e311b7cc54153f0225900e147ae7f5c28c2a98653be38e1e7a84d32a9dd70976338666fca108f62cb050ebbfbf243abedc2c24638a4be3cc5a3948b86556aa507c9506e3e615ac93c15e5f58a48b3975bafd4a4c05f6de55a5da3460a0ab0b7f8ce561baf23221ec723e2f0d2eed9edf345bac872c7069c1bd75765edfbef0f822432f7a4b18795940aa76578b64ad25cbaf693a02f273941b9bce7d8c3859818e904f629e2dafd233bdf65899b2170e9fa3ca30b89d2b8bce0505edd068bd555085ae7a3b4a10f92acd13e6b9e5e199f6024dbb8eaea84ded3ed66f42228235f301cc91464c2d1c3defeefb038a3761c69143c8c4ec727885a058fdbea724626f9fd16ed74197d0b4dde02dfa0e51796871c1"
+          },
+          {
+            "start": 1539,
+            "end_exclusive": 2686,
+            "length": 1147,
+            "before_hex": "f7dd90743c678a2ff268afc8d219872a97b839b2880040f942c38520c6785a9b1f3e0f26c5640f114afcf78ebc3642fe7649007593b290b5ddd19100f14e90c35d81bc69b03ab5c1d631fee33bfb8eeb32087027760f04e727b199839fc0cd42dacb1a9d3447232de945d88e8469b6c083e211ce017e599d3c84288a7f5adb7b69c5a4da381c841b5a02e90aff5a0a46b9d062b1b7a931906ce8c9717c1e5143f8d185a21d968a3b7586679eb47a4bc5ca78882af8872be0bdb95a611af34b323b6303198c934c05d5c42dd1ba72f5b64ef0994b714cf749ff7d21c8c4ed1f889b500f3875cdff1471071e63a2dfcee4c886c16d591b4e5ccdf200d30f14e9b45baa3b29d04cc77c90dba4abbcc5d044f1a03e18d4d1b8901fcda6d784ba1e11c2cf663786ac03972445518db142e6cc9d64de90f47d186f72376228cac99b8706e52146a60072d9612217479ab268833eb0c7bbe7376c0fa0461eabb014dbaf9c7599398569b02ecff9d773422b2c9d53d4fa859a4e07683a3cb5c516b06124a48523f913e60d6fef12d653027e740a191d6ca5539f68d784897dc427109df54b458d1c1b73220fbdb6361a826bb55939c24ee50c9464a5aeeb703bf0df6946c0d213bf323fe4e4ee18c4cae69c22d6c990b7ed45f721429d0ca5fd63461bde2039d24617c8566c104b051871d71ac4780cdd9a0a3fcfe2f1bd66d8f3b34fefc9857a0a1ef4c2e48e24017b7df3602bbedf6d2e06036fae268295269c660f5f7599cece3183be82ae035d8ced5d65dd2c940fa59fbf6e4adcf572dc0683efe2adf844f3e4e3814a928b9041d4f1e9c616f177b78966c9379dd7ef87f841139150b78890a6bc8d146b43fa97fe58114c1562fcceb679eed58e32db1b832ae6d09d4d6bee632e6ba6268fdbfd76c38ba4b64eb0f7092bf193bb88ef40fd7aa48f5b8c427c490e4bcdd6755eeeacf0dc11314d33dc957396e69e3e0700ad62d8500a57511eead27020a3fb949d624a3a28b3d10b2c874a05306243677a412e690bf4da57ee02b9da0026383e673c92715a87fd182ea1e3d489c6b3ba7de38befd5dec4ae67b0641a75b5d4f3fe4b9589e8ca58c4cd0f3f9c2bd5e31e2037ad28ee1a5f8e8cb939d8699792975459bc7501cdbbcd53c430aec25c06e6b1e57a94e98940b3e32c16f8f95ee38d231176076c509bf7058b1f97975e0441735eed0c4852d80a52585753180c02af76f829ba6f0dbba7b0c9a0dd18794ac0e4ac97a6422464e4aefe4af6c419fe8f57614f089ffb79f4c370e9519053a13f979ba2123a4428296636db42eb06ae33fae6cdbbd8f3e11a0c6ed55f96b920b2ad59a6555b57233913c7566365df8031a5b93eb161ee8787b9508a4dbd76af2424e32ed2d48b30269ec2ad733241050f04d2d9c488a04a09f92c17be5ef57ec69a40f7eac3c931b6937fc6ca3ea01b0093e09fb655dbc8e8fa350b4220d3f57c56dd324e391dc770d84740f560f0147de1a2e0f2a8c14d20f966b51fe6305e5ad059a6b5276e94a529f44759ffd0766b9daf64e46e08138b06f6847b708b431e9ec78bfe8f722dbc929abbb53e7cc85acf0553291627de7f5a4b39a4676f4676",
+            "after_hex": "03ed7088e886ab060ac5ed1c4ac879e543b2ea5f41bcad300e0a193f366061f2f9a48b053f628b309eba7f8291586bf067c619f24fb9fdd460fb6b6de46802944635bf9fa4796217a2eddb525792e9f6f0d9c834923d65458b4e9a0b030f65f8456ff01645fdf2b5868a143f90517190c25a92345734ccd3249ee89d0977514b0824c7244077c83c0db36dd498499451f086782a53edb3f7b7399d2a51e6178395ea54b6621d6925d81a1ef0b23993f3b5f27614b385bd9247a8bdd1429ba7a1004aaf485b9d25e76ac076b21f9f7bb0d00664c6da60428ce3787483b0502748a4ad8abaacd93b0441e15c1454e9768f172eabb9270f69113e74cd2d4b9773a79142aef20d02c9cbe7dde2a3dd09ac5f8857a104e147e3d05d1efc715617590d631de2d25afd6d036787dd3c6a76ec86da5f672144c66d940a0fa6863df42f0f87a1ab71d91f893717880cedd8203ce871fd37f6d10785e1723662e8dc298f8f05916f816f5d83379161290f316c3a42a27f17a7b23c998409a6e9a63b88b6acae5766d14f398a118db8b8521d223db63171476b933b357f721881debf505cf929f12dd4a15126892cdfe381fc2de00690881dd27118095f9aed48464b1e7e9a82595902b3b6423e568374dc1137a5c5511a786351629f9c07890758d5d2f747388e74e5076b08f795662c3a054ad6f54d24081c812d366b1a9a748997fcad9df7953f7ddd7c9826931178be0286e9c3f55e98b6ee23d40c0edbcc0a4eb11b64a5ccb5e4890e02a5c20baf2049bf7e31c483e7ce06550597fa3a0e96b89f70d631be912d7fef3dba075f0bb3bb0886726fb803cc535e59a861ed22b003cbae59639068106d2a70f7dc6e2f71e125d70091d65685b8c4a310229eef9b14858d6a2eeda76c971a7a703f7dd76613a28e63307f8b6069854c065d13fd77f41a4768a724a7f844f4fa5117c3b434579c72e977220e05c523731aed38196a6ee37d855fe6d01ad04a0951d2a8b070016a71bc59c2e3f9be609b9158981d50158ad3a979dbe6d1778a5a979a148fd9ceae7dd61b46e6de088e8b6bb71ab0762f7590e45781d36c2acc476b7e7972a9127e9d021cb578a1d5d4cd2218d915acde05d13761a4760ab2658985cd53d20407d14fae78ebe6136279dc6f77e5eff3979087cbba05747a186c42385d35bf1ee4b1bd04eb3caf677cf46e1341ae91f9df2cfdd131e61cd6708048e120a62d8fa8fb5d50479d2ffa46bc21d84a46bfe8345c1ce6045e45d6ae5300cd28995a009215bc1aa0998ddc5efb50e10395ba377783a7a59178bc83b4f79c29537c7bcd545cfa9c7411c1309b436e2cfb3b177fb6814f79aa819783d62a213b4afa2b99889e66a8893e9a94c20fd6b03fdfd815cd997e646e09cdb0e6dacb0966ba03ae9789167773f619bb3defc6f5fb73e1f463d019d973c858f6c72a8a4a84885742c16afe4a2730f68a6039b6fbcba93c236ac547f148cd2fe74855d5885717bacd37cb7fcecde2be1ddfe16db5aa03de333407e6a8314f978880f6ea68baeecfc3fae76f5a2e07ce60ae6fd7e5daecd1f935f6e15119beedb31902520b1b4695f22b6f8a4a7af887b0776ec1147788d0"
+          },
+          {
+            "start": 2687,
+            "end_exclusive": 2791,
+            "length": 104,
+            "before_hex": "4d87732cbc0ee4b95a5d09fb03ed11aeefb513c653d9a2e65e731ebe295f4c1bd7313532f01a2334cd557202b3fd44720ae8e9a663ad34ce6d4a13034f667203a1d33521af826151b9870639e458f4320adf7e24ab4482478fd9a56f7c996ccafad061fd7bfb0f87",
+            "after_hex": "51d528d3cc53f28676f4e1e8b7b1ba11735423b14eb83e8e1e801bc1feb288e88d4550f0b39ddcf2c8fe66c7d08aa0ea37b12266ea3d5508c29bb262b94aced52840c7ac22db4cc754a1ef677d50cfe9bc73cd9058ef7119e6dac4e8ed1fe570efc650246ff241bd"
+          },
+          {
+            "start": 2792,
+            "end_exclusive": 2821,
+            "length": 29,
+            "before_hex": "5a425dca5c87f975e5bc6beceb3f8783793bd68210e55de0aec26866d6",
+            "after_hex": "2a91426abf6c8432d096c6ac5fe0e244a590974b035e4587a6671b059a"
+          },
+          {
+            "start": 2822,
+            "end_exclusive": 2823,
+            "length": 1,
+            "before_hex": "ae",
+            "after_hex": "fe"
+          },
+          {
+            "start": 2824,
+            "end_exclusive": 2876,
+            "length": 52,
+            "before_hex": "163020087ffe61dd8e2c42359f06ff58656b11dd94621a5c9bc82d635c7185d4693de3784dacddd78cd6730e21f31d636796b164",
+            "after_hex": "3ef55c8c64f7c04641fa8c61517b1a7dabdc7c9b361b3084bcb23ad1e60410cbb804844c12bc7d383f0320fde9983082ef3e7e28"
+          },
+          {
+            "start": 2877,
+            "end_exclusive": 3037,
+            "length": 160,
+            "before_hex": "eef2a48390ab926b5873e0fe9e64c63fc59a3514f6f9cfe75ce0575c0bcf69e9e60e4380dbce55b16283526ecff37de0f247cd006d1246ef0744ca51732b87d783f1f784c1248609951dadd3f221cb731a47a4f7452d17d95dc9209fb7e84a9cb2956d28671d9d03dda1711cbdff3573f719a9994019a43378b3588e16bdf1914f0d2d7013ee1f88a1d8428a926112c8b08273941d45ad14ce63c4c1edc0a3fe",
+            "after_hex": "94a7ab8d80821c7d34af7298061499b68e3ff790a1af9feb385703fccce81ea359740f21a8d4e02198b9a24361d28ca2107478d620fd72966c01c0bd473d218a4fba848ecd354376aab6603639237c6b21f0611cff593fa722f7ff1ef7dc1b843c930cf9c82a58767b6b8a871b6db1e3fabad4f04f322117e6d5993fa3f5b0250e2fe905e64c49e7500865ff86443fa789096b9db42acb8ca865722d911d1213"
+          },
+          {
+            "start": 3038,
+            "end_exclusive": 3367,
+            "length": 329,
+            "before_hex": "2de19c2d4fc0107b7aafae3932f0cf28bd2323356faf8bdd1c6485724bbb8b0daa175694a00de9798cc50e034a1f10708f2eab1db0e92d76b2601373b02ca11fedea6725cf712852cb0beb927595b3ed32bd30ba4d689fbc89edb86a13262457e558312ae4a27c2f61f4c90dff63b6dff8bfaba118f0a8afd583139ab89f01c7fce7234d0073e395e1d6d03a5fbce431869aad706b635ea196f47e381fe7a288fe210f3fc49111540db528805dac1ace23f011201cfc793b987f331a4e1ba60baed4df345498a8937519b11731c98c8e1f75ee262577b43960130f37f211bf9dfef0b38fae3d878e7e7b2d60215a19d77b1ed3a70d853ad340457f66e5566e0463cb1d5f80e8db3778a03b9fba09eb6ed88d89b7c33c4e3189d4486d51261373b4f53e74aab17636bddac76fd7d170224b5ed1b2294608c88f55216b8ebfbcaa0c95cbfc8c2822a5d0",
+            "after_hex": "670da5c7ed00cac3178f71ee993ceebe47ea5f4c92eefb168f0449f2a15442786026be13236c031f983196a31651da0ff9f392a95ec9879c16c0258337e99c8688d95bd8bac7117b6b6549c079dcd336f8d02a84b26a303f34f370d8c5b8d3278ba8281bfc77d2d5cf49e6204c57a43714dee8ad404e1e60a8fc346244fddd37321e3517c7335e7339a3146daf8ff03070a1b935c4f48191b88c9ebe624c20ca813d07114051d5bb46c5b9b391dd5972cc572c195fb3f54bb4a4596f5610d3107ba48128c82c26355d33ab312719f4119c479cc3789be8d5abbe56fd1895eae1a2ccb4844fa74fbe072b0b5984f8de8690dd5ac30662514a7bc7602eaced0917de20ec061293b54c05b025ab86c207c16c8c2b46f84c5c6d8d2a12809db9ad2e7fc66c32ca6a862671fe6244357b8a01e18daf770ef09eb0f7568fb61a256bf1f0d2510bcc2a763700"
+          },
+          {
+            "start": 3368,
+            "end_exclusive": 3515,
+            "length": 147,
+            "before_hex": "4fe76118aca9f3570e1bea008d472f5372518d920f15d2419267f6c36435090f281e5e0a8482738cc1db60e8f1e1709eae03e1d472c94c203f1f85b34be2a5bf2dd329a4ace9d5ceb047d672a1813fef374d44d9f9ac18079c51e0f0b22ebd8c4c0ec4d761aec1c1c037da6078a3a7223a3ef6a8e401c86a66a3fea58813a5b325b4f72584f97823f579319ae0febed42b063e",
+            "after_hex": "da6d5ea83c01a33a797e1633fc1b8526a1471fba9de6784230400f1edb1cae701c548f66a224f1a1f532783d1c38e266f8825df6d5e9eb4ed499124cd8fde32b1c4e9a1366bd1c438a9953170a2f24057de3492f00b706e0f1ae72b08df94d4a61493fbe6e6ad9794eb016e3ca91f41707365cad6415aedc68efca137fde7342bca866e5e620998495bb71c65dd8257ca9bb57"
+          },
+          {
+            "start": 3516,
+            "end_exclusive": 3779,
+            "length": 263,
+            "before_hex": "26fd4ef2782e6ac83638f62f671dbccee761dff2b426360768b15ab57e4edf57adc38faf38c6bd170360a5deaf586daf8d2f27eded4e98c542ac2e4635553cbd949e763e7c17283ca89e87b50e2a2e92495e65fd57dad27257d10af0f0dca0d3845bc170c4baa75aa5a44620ebce9f57d355461c112b10071187179f796983771db83c445fb46aaa7aa831f6c3b98ca88de72bb4ec1ef79f0bb0d102ab8993023a813d4912404ec0660bd40f343f155e3f60d9142e2466e7bf7941bede6a713e04422d050b750041974138609b5aea21f7f0215fd4cb97ad353534f2f656f92dc1ee0fa83443496df2c88b2c21a36d38974114d8f16a5931501b229c09e3140ef9545d0fcd075e",
+            "after_hex": "2b57f1abf9caf784a2564cc8df61e2c9d7a05edc65b25c44e334fa2ddd6eebe8311c081b5b0167b15ba7da8cd3f98f0afe9ca0244f988caa12c25a23f8f387622a0c425af0ce780a9d1fcbf8cf586ae85cb94de9c4f89b2c80985db0475ec49dfdfa328e652c79cf3fd8cde64cb44770738c529ec405f8faac2d700214ec0a30273bf2ead33006501a2972f8899501eaaa0d32e6c270520d9bfc60b6f2cdfb530c5a7a40e7903d31f5af5ed642042f3851c51072fbd5ba00edb584f3023d97e109e30a2efa2a4ab3ae51b39b374dcc7109b84c0b899787454e1b12235183b4ae12df927c5fe268b35d88876cc070782045b40c860cac6d7ecae5d067fe488f77a09ae6e6e37a9d"
+          },
+          {
+            "start": 3780,
+            "end_exclusive": 4138,
+            "length": 358,
+            "before_hex": "b76878e3e9bb932e3f12c1fdcdaa067145666ffc32cc1b42b53684140e169dbe38678f285d7c78961ff6e796d1a4789c1cc689efac67b385e0a68437d6c280d99f1c3807ed58253e49edbc6705077e0304ef35db0e661cbdfcb02af6fa406921091228e8d24ad984ac6d46c5a915172690a81cd5180f0c450e63d83b050b5a0f23f07197bb6feecd13ac6089ac0e68950aec7f8107e39e608a8a15c637688ffeaacbd612ae008057fa6098c89ade00161c723c18df45d2560a2935711c8cd6961b3a00fadab58c9e6e8454703be9ddfdcde87c38b8a238751eed22bc54d6e209db5ef67a98b12e20ce840e7ed0fae27c8465542866a3668cc558b598c60268bcb89180aa66a22865826a4dd59dd8f08b6a4d370b6127293ebb6e79b2d1ee7ee5b5f1f215ba2efb96f3f100a0b10913142a496a1db961f7befc9be80333df5d87daf65f984fb2ac6c01c5d5a9d0",
+            "after_hex": "6082194cd4d8c298b48b4c90f358f15ab18e09c49614f8c28f70a0fb7f65e1e55c03455ffb97b6b3fd2de2736ac2755bf2f0ba0eb319cd2c79dbd14c470393600c77949d61352fde1913ad89eb34d338aebbba827002b2a637634b340df6a146ba4981b5263e2443ae45b85b24a277b59418ce4f32926f26ed94bd3803edc69a1418a5046a2e64af939a70c9116100b4d63780ddee502f356d3549fd71c4efd68902568d2a9f651412919f16964c672f0241829834c77ebbc35d7f9543fb5ec1ad88d315df5fcba3062addce68adb961be66dc3364abd91fbf5fb488fcc5d47ee1b82f1b7f5fe7f6dcfb67b03b8fdc7a7049ffdd48ee62f41636acdbbe5a4cda13170816dcd534ee42d567d603aac6bc1244aa227704c59c2e46b370f9acb4fec88ebf84ceda31d2dfb90257ba46815cb097fbd969bb9a6edb13d17d903340ad63f22bf5fd8cf44c0d89cdf844cd867c30133afb62529f740d8031d43d6524b5ff03ec1c56d7"
+          }
+        ],
+        "ranges_truncated": false
+      },
+      "track_header_diff": {
+        "before_bytes": 756,
+        "after_bytes": 756,
+        "changed_byte_positions": 0,
+        "range_count": 0,
+        "ranges": [],
+        "ranges_truncated": false
+      },
+      "target_fields": {
+        "rating": {
+          "before": 80,
+          "after": 80
+        },
+        "name_refresh_flag_raw": {
+          "before": 0,
+          "after": 0
+        },
+        "legacy_loved_byte_raw": {
+          "before": 0,
+          "after": 0
+        },
+        "legacy_loved_bit": {
+          "before": false,
+          "after": false
+        }
+      },
+      "primary_and_independent_parsers_passed": true
+    },
+    "same-value-repeat_to_restart-verification": {
+      "before": {
+        "path": "D:\\a\\_temp\\gha-mcp\\win-dj1cymvp\\work\\itl-analysis\\repo\\evidence\\research\\20260925\\native-rating-kind\\cases\\rating-080\\same-value-repeat\\native-saved.itl",
+        "bytes": 4138,
+        "mtime_ns": 1790268509714743800,
+        "sha256": "78d4de3c2cb144184ef1d7aa49ede3d934bd6720a3c406057b8445078de5a46e"
+      },
+      "after": {
+        "path": "D:\\a\\_temp\\gha-mcp\\win-dj1cymvp\\work\\itl-analysis\\repo\\evidence\\research\\20260925\\native-rating-kind\\cases\\rating-080\\restart-verification\\native-saved.itl",
+        "bytes": 4138,
+        "mtime_ns": 1790268526960553300,
+        "sha256": "7eee360224e6ba229f8906dca01635b00567a3e451d2f769057ce559fdd55700"
+      },
+      "raw_itl_diff": {
+        "before_bytes": 4138,
+        "after_bytes": 4138,
+        "changed_byte_positions": 3899,
+        "range_count": 18,
+        "ranges": [
+          {
+            "start": 115,
+            "end_exclusive": 116,
+            "length": 1,
+            "before_hex": "dd",
+            "after_hex": "ee"
+          },
+          {
+            "start": 224,
+            "end_exclusive": 269,
+            "length": 45,
+            "before_hex": "d9bba8e22ab9f663339018a882ebf5f3ec644d197a50281f4d6a9821a5ccf18ad076b714353dae1ae3b2ffd462",
+            "after_hex": "161fc5ffbeb0e933a91b97b6f6b24e141641f017f55cfd668f449d915c8d499529f07f4781bf7562da6515cd35"
+          },
+          {
+            "start": 270,
+            "end_exclusive": 409,
+            "length": 139,
+            "before_hex": "6e3236ed56218998ccf00720c064d2947050e1edb77c765a2a7b046bca641ab603d5ba21ef6ba2bbcaea243a3e420d3684afef7c14d731e754e2acb85f5ce858d82b85ca8c66801a0e58432bd36dba96d8543219eec26197e72583467f9759a1dff22757699a4e9964cfa78d97dacfeb03e77896ee751e8ebd677800936af8e1d325f5cbcf6aa5db057467",
+            "after_hex": "2c354290dbe91d22863a55bb9c58e988f6a82f9324c606d261432b1e649d81824d4e0490b58a16252dd89300562c8490bd3de3c057953b63f767d698b6cf8cd15b7037d8f1b90e16a4c93b896e0848f3ca8033285e3bd93dee866d42bd49e2cbb90af958de8ea9b44c5929c55d8310659aa1f4150cedb41fa60ec372c8526019a5922b94a63ca0201f36de"
+          },
+          {
+            "start": 410,
+            "end_exclusive": 636,
+            "length": 226,
+            "before_hex": "b91f0fb3007c1937ab2d0cad871f2b26a69f81a8c9db905b619a01cc95d3b329c63b10886372fcbdb3d5cff8b99439dd85ee746a45e6741e66b8a3e77567d2ebc7ca1bc6d628193329a92bbb5852c8b409d459a22dd6d8b9597e8ecc80718b6f0076c49e519f82da2eed19642530c45bd4a6820889ce529cd7d0409e14ca9170d3428503281ea94f3e1728e6dc261d6f682b8d4b8a4272f92f5a8459bf82692a764daf24af7b9f109c8db47de8a94edc1d4c1d9dadeef9c21ceb20332fc0449a0b2c3d90dc6bfa9f13db979cc8281b9014d2956b030168a95d526d7e499439eab9aa",
+            "after_hex": "7b66d9e4dc6f148b3200f143678eeb77d289d4497a9ae8574b7002b28f494b7130177e8c987da7b757c9a4dcc41a05c92e557e5373532f40fe59a477c5e29dae18f2a6c14f43ca71bbacdcaec605190baecac22c4b5c91cd1d9469fef247d48d8a1f831e86d5132a233b24fde4e15076db03d461cfaf97039866d81a0d0e30d226eaf03e0d3ab43b1613624b049c12da3ebd16f3e69381dcc713b246d4e8e3bb8bc90fe5c7d4307ede2cd7b4f6684c7940571e681dab2be5b59d349e3d6a78d591e1ebbefcf783fa107008624b6b58cf226fd624525f9ace0141e83b6a43fb8d3b5b"
+          },
+          {
+            "start": 637,
+            "end_exclusive": 991,
+            "length": 354,
+            "before_hex": "366c9c243be89e5a17b3f207b6fd31a4a4dee48cb459c90a2172cb2f30d768ab8abdf213c15aabce93ae0be09ef3bf4afcfe3e7e100faa42459940de6113b557f8f71c5a7d7c14761f837b68e492c43a5851f2e2d2c92a7949e3d8616059de7a3efc7c4723681eb4756563d28b6a7c1d97f59f22e252e22d1d48d6e78bf26d9be3b769ffc073f50b1576fd036693168f2f59d531b3a418017327c411dafefd52cc181b5ed8371d5e8bda63d7dae57824979015f9a4aef421de8250fbd172205e51072ae75055862f92441cded6746e9129e6e0eeaf9bcf0db47e7a152b1db0112e32fab1bbca1a30f67db98f576bd04874f98b1c159efdd5fa1d43ad69d04fd2895aef45b9328e3536d90277f10d1c3d5f2e95922e5e02bdc062dbf3d25db5e83a728eca64b9b6990b084611930ed5d6d982baf968c1b41ddae7e78adf5b372b2e033af3f0b792fc1f2dd8ad1eee87e74b365cc13cdd0f69e856934aa9800e60544a",
+            "after_hex": "4e497396c73b0200117382aab7ade694214fd40fbe8e39303317ae206f3db8c0bba0b6b51690c1e4dec3d94a5a46be765435c0b6ccc051cb6ea5f77891d9a33685620ede91988b0c9344cd46503014fb81e3af0e8cb9556bcd5d74f86d4bc4a845cbc34a71c85dee0ba6d6c5ba6101bfd3aa20ac6246f3932221332ee716f8b8f6192f45884d5999083f7cc2ad4bbf85474b1eefa8ec60ed3757ab810b6bb3286be8033b4991d9d3097f4f64fc5d1008465cb2c42359e9d51e939e207eb7a1c7395bc058a4b85305daeeb5a6983907a6fc809156071517fee2944ca97152f121546178dc351bb29b84c6704d2cad32cc126fcae53f3d9fa9646d7868e3278748b4b09b94a0e2462093c745323a7a1b75fb4131b847c27ec3b04d57567d50fdcf83c48d43bc217d194b9bab635fb72c7e67ec93f5cb0e3184e176c6a321ba0221453d7fd7bc1984fe432077607c642563e18b67602db7313007b1dff27cbe8c200c62"
+          },
+          {
+            "start": 992,
+            "end_exclusive": 1112,
+            "length": 120,
+            "before_hex": "3447b8ea5b3a044b52fbfa8cf496a187679731e5615cd4dabee2c33217fa794e7140721afb958864cdb8cc62bec57c64ccb6649b76728e92b1c51da1be230753008410269366d674e6f8d79c68c383d218d8e0675e617a782dc3c39c015887431e132faf5d35d04e46b486d623edfeca806095bb0281d30d",
+            "after_hex": "69119f0b0ed09ba5590d0ea89386b3ecd684aab4d8316e644b912f808f3f3446478a197ef60060bd3466c735e7cfc4334ab13d3d2ad5776de1127d058ab37f34848c4fd340bc517d9116ec8f0011995db5d996d333489f1409b6c756a8a983372cd5b43c79a4cf9c79b12110ba63a37c562e6931fd0f44b0"
+          },
+          {
+            "start": 1113,
+            "end_exclusive": 1225,
+            "length": 112,
+            "before_hex": "c11a156f6067d6f2a4581ddf241797a5b9d53e06356027b9c5b891ef4aab43e1c53b08d3f8e735aa4b8d548b9bacc08fc9cb3210333edfea9d30a3bfd78312016742c381c308459bc4d01c428a63357c796d3ffd252f0aa4970991b178091ba654bcc3b30d67e42a98e6b1b6aaacaf60",
+            "after_hex": "9e65bfc44322d55ba5c3082c41ad9990d87b4744a433f843d0e31b788da51e1162ea20935abcfd95959730c038c4118aeed489a5abdffa6169f95c04d5aa1b389eebcb9789730943fdbcbe63fd391d214de14ced31c7fa863cd53a217459412221c28d716435ced0718dc81811d298f2"
+          },
+          {
+            "start": 1226,
+            "end_exclusive": 1353,
+            "length": 127,
+            "before_hex": "e5739a7e6f103a15f2f952a47282365a9fef52a594ff9b323d5617bdbd025fec845b596009e311b7cc54153f0225900e147ae7f5c28c2a98653be38e1e7a84d32a9dd70976338666fca108f62cb050ebbfbf243abedc2c24638a4be3cc5a3948b86556aa507c9506e3e615ac93c15e5f58a48b3975bafd4a4c05f6de55a5da",
+            "after_hex": "03d7e106a706b752cb61c032fe9c57913a4578f90cf458707513049e45bf0bb8d2c5c7d232dd20f0cecb18134d89757d4bb610a34d8513ee044bed834304787cffba1b6b68b890b866bee9a1474830ed1c635f997bb287426d383ec117fd4a94e6f570ccb7382bc1e1754c62131c4f0e8fc913bb8f90f9b28411025b636417"
+          },
+          {
+            "start": 1354,
+            "end_exclusive": 1662,
+            "length": 308,
+            "before_hex": "60a0ab0b7f8ce561baf23221ec723e2f0d2eed9edf345bac872c7069c1bd75765edfbef0f822432f7a4b18795940aa76578b64ad25cbaf693a02f273941b9bce7d8c3859818e904f629e2dafd233bdf65899b2170e9fa3ca30b89d2b8bce0505edd068bd555085ae7a3b4a10f92acd13e6b9e5e199f6024dbb8eaea84ded3ed66f42228235f301cc91464c2d1c3defeefb038a3761c69143c8c4ec727885a058fdbea724626f9fd16ed74197d0b4dde02dfa0e51796871c11503ed7088e886ab060ac5ed1c4ac879e543b2ea5f41bcad300e0a193f366061f2f9a48b053f628b309eba7f8291586bf067c619f24fb9fdd460fb6b6de46802944635bf9fa4796217a2eddb525792e9f6f0d9c834923d65458b4e9a0b030f65f8456ff01645fdf2b5868a143f90517190c25a92345734ccd3249ee8",
+            "after_hex": "52e89699002172f61c5e1cbefac5fe42db0a504579c5e903c7b14b335b22bc8f16690c8d2f178861321f082fb789a9d6002af0bfff79aec2de82ff3de3694e6eaa85a6d4eda2f3fb5db35ae262ad261de1b47af4b04ae7de4cfce1c98cb2c59e121e2734a19ad1a4e28e3931d1e60710478cd2342a4c81400640efab6878691b38bf3ef11e04abff90f849b0c43f660dba1505caeb81f32a6b2e39168a45aeb99bc4723cc439f4b101822eec7c8c42d2eed1a21e0c89572a9ab73df5198453082d88443bab2453258f02dde4f9ced3df0d582bc95dea3d9825381cc952ffb68ffb3253367e425cb11944bd3f7a0938a40f3dae71444d8017b79ca40bad964bfe829f38aff1f62fcae9a55fbc44982a383400d4b8facf1ef5242dc5af6fd28b92055c3a4b5a7f7238e2f6ca26f145a5b0c8f9db2c"
+          },
+          {
+            "start": 1663,
+            "end_exclusive": 2662,
+            "length": 999,
+            "before_hex": "0977514b0824c7244077c83c0db36dd498499451f086782a53edb3f7b7399d2a51e6178395ea54b6621d6925d81a1ef0b23993f3b5f27614b385bd9247a8bdd1429ba7a1004aaf485b9d25e76ac076b21f9f7bb0d00664c6da60428ce3787483b0502748a4ad8abaacd93b0441e15c1454e9768f172eabb9270f69113e74cd2d4b9773a79142aef20d02c9cbe7dde2a3dd09ac5f8857a104e147e3d05d1efc715617590d631de2d25afd6d036787dd3c6a76ec86da5f672144c66d940a0fa6863df42f0f87a1ab71d91f893717880cedd8203ce871fd37f6d10785e1723662e8dc298f8f05916f816f5d83379161290f316c3a42a27f17a7b23c998409a6e9a63b88b6acae5766d14f398a118db8b8521d223db63171476b933b357f721881debf505cf929f12dd4a15126892cdfe381fc2de00690881dd27118095f9aed48464b1e7e9a82595902b3b6423e568374dc1137a5c5511a786351629f9c07890758d5d2f747388e74e5076b08f795662c3a054ad6f54d24081c812d366b1a9a748997fcad9df7953f7ddd7c9826931178be0286e9c3f55e98b6ee23d40c0edbcc0a4eb11b64a5ccb5e4890e02a5c20baf2049bf7e31c483e7ce06550597fa3a0e96b89f70d631be912d7fef3dba075f0bb3bb0886726fb803cc535e59a861ed22b003cbae59639068106d2a70f7dc6e2f71e125d70091d65685b8c4a310229eef9b14858d6a2eeda76c971a7a703f7dd76613a28e63307f8b6069854c065d13fd77f41a4768a724a7f844f4fa5117c3b434579c72e977220e05c523731aed38196a6ee37d855fe6d01ad04a0951d2a8b070016a71bc59c2e3f9be609b9158981d50158ad3a979dbe6d1778a5a979a148fd9ceae7dd61b46e6de088e8b6bb71ab0762f7590e45781d36c2acc476b7e7972a9127e9d021cb578a1d5d4cd2218d915acde05d13761a4760ab2658985cd53d20407d14fae78ebe6136279dc6f77e5eff3979087cbba05747a186c42385d35bf1ee4b1bd04eb3caf677cf46e1341ae91f9df2cfdd131e61cd6708048e120a62d8fa8fb5d50479d2ffa46bc21d84a46bfe8345c1ce6045e45d6ae5300cd28995a009215bc1aa0998ddc5efb50e10395ba377783a7a59178bc83b4f79c29537c7bcd545cfa9c7411c1309b436e2cfb3b177fb6814f79aa819783d62a213b4afa2b99889e66a8893e9a94c20fd6b03fdfd815cd997e646e09cdb0e6dacb0966ba03ae9789167773f619bb3defc6f5fb73e1f463d019d973c858f6c72a8a4a84885742c16afe4a2730f68a6039b6fbcba93c236ac547f148cd2fe74855d5885717bacd37cb7fcecde2be1ddfe16db5aa03de333407e6a8314f978880f6ea68baeecfc3fae76f5a2e07ce60ae6fd7e5daecd1f935f6e15119beed",
+            "after_hex": "82a7f86ee807b8420efb97beb27a478d4d3fb94d500fa9016aef74c2ed30b0f2a61a7a0d1a1f2ca31196bc69d6b886c39b3578383d56115f458dc84693a9fdf784e4586ada7901dd1ccb641ba5cb6c5c4c45ddbe99b3f8810249250f30f897e83914c493c5104c9a2b5925f2d0e0b0d68105f2bfb70b328444fe638a0b0d981afbe42e874cf7919bf56be1bbc555ffcbe4bca79321635f9fd6819dff0b79452789d25f275d46a2d51b71717b66f7824b85eb741b3ccfdc0a4bd01fb07f5f018ca20ed39926eb853faa0b1929e81532aabe9f96fa8315283f05caf507d74b6837a39ac593549c7144b5aea4d06ba921f7c00ac4fb508b109c9ff3dd02ed76423e369d432674e05a3be4a4db913de950ec9da175c89a14c655f880716348ff9103364aa4aa1a0a8264d90b0cfc745255980550ec53b934d9a235b68332e4bb2c8e6df98ef4940bb659491b4a105ac6356981629b55671bbf545d9974bc6f0cc84ec4fe2802ba61a2b383b94573d6197c1a58f7080fa502ed6a579ec7a3d87537f53896f0d447e932fb7e141017a625fab99097d9d6d643565c017c742ef7d07f58d234ee28b15b97c323a923dd7421a8067bab43a3502683de4c4bf8e8b92bcf64fe8b8e07aff7dbaa76a48a4b318e689e7524c72c2a7b0f80e946baf16d5308f3e237e79d0fd9abd182bc6790175c9c0cfb2e4375e763c9e7e0fa421e86399e5d8880e9a8d2de5c285ff86123192ade3b0a00e123818531f48be847b2ffc3e8c825078cbf2d4376d53775585e15491e3784967da2cdbb83ff29b1b5353181127e23432d3023316a3838c2aa8c31e1d67f522df91e78b587819f87244decf375cfbe02bdedd1048bb2e8d09521c799f36b98212b079c5674df36cbd08589955c2ded3176f0de6ca72f8d128c402fbe7151d4d60983c78e57ac99f0b3635b1b79569e68647ec0bc7905c9a4501772b9dae3dcb986518503606fc4fce869f0b6f1230418852ccbe126b74100fc550b19f831a4d7e591ad307904556e2d37c4e12ba9699219d6855d36a2ff00340c0767a10cf3b05ec115225d26a2249f9f68106c7e1be36a1b3bca88fcb19f7010c50173b8dc1d8fa20ccad6ab6db559c266daa61153d91bcd7e7224091667f2ed351f261db1f292ab8ebc307f1a807d4f0e99375acbcaf6b4c92c6dfa59d0ed4cd8b549dad673754173c097a8d034f1273b9835e1b6196ed7a61749dc5167ad7d7d1b7607c827430b9944149d6d9f4574739b97115fe4c379a015805e8c19caef37c0fc4f7061ef37747aebbb9d61834f648e6250bc1afe672bbc27269b06751c1c576932333dd48dfaf9d18ff7a6875c045e699bbb4d48f971d4443b9f79772f70f14436c8e68f55687ccb6fa4a7be996cbc4fdee06596fe55eb7a"
+          },
+          {
+            "start": 2663,
+            "end_exclusive": 2696,
+            "length": 33,
+            "before_hex": "1902520b1b4695f22b6f8a4a7af887b0776ec1147788d0ad51d528d3cc53f28676",
+            "after_hex": "61c0042a9cdd275cc59d5434e9a819b2f288632150f7d59c813b8c5565b2367fc3"
+          },
+          {
+            "start": 2697,
+            "end_exclusive": 3560,
+            "length": 863,
+            "before_hex": "e1e8b7b1ba11735423b14eb83e8e1e801bc1feb288e88d4550f0b39ddcf2c8fe66c7d08aa0ea37b12266ea3d5508c29bb262b94aced52840c7ac22db4cc754a1ef677d50cfe9bc73cd9058ef7119e6dac4e8ed1fe570efc650246ff241bd262a91426abf6c8432d096c6ac5fe0e244a590974b035e4587a6671b059aa9fea93ef55c8c64f7c04641fa8c61517b1a7dabdc7c9b361b3084bcb23ad1e60410cbb804844c12bc7d383f0320fde9983082ef3e7e280d94a7ab8d80821c7d34af7298061499b68e3ff790a1af9feb385703fccce81ea359740f21a8d4e02198b9a24361d28ca2107478d620fd72966c01c0bd473d218a4fba848ecd354376aab6603639237c6b21f0611cff593fa722f7ff1ef7dc1b843c930cf9c82a58767b6b8a871b6db1e3fabad4f04f322117e6d5993fa3f5b0250e2fe905e64c49e7500865ff86443fa789096b9db42acb8ca865722d911d121353670da5c7ed00cac3178f71ee993ceebe47ea5f4c92eefb168f0449f2a15442786026be13236c031f983196a31651da0ff9f392a95ec9879c16c0258337e99c8688d95bd8bac7117b6b6549c079dcd336f8d02a84b26a303f34f370d8c5b8d3278ba8281bfc77d2d5cf49e6204c57a43714dee8ad404e1e60a8fc346244fddd37321e3517c7335e7339a3146daf8ff03070a1b935c4f48191b88c9ebe624c20ca813d07114051d5bb46c5b9b391dd5972cc572c195fb3f54bb4a4596f5610d3107ba48128c82c26355d33ab312719f4119c479cc3789be8d5abbe56fd1895eae1a2ccb4844fa74fbe072b0b5984f8de8690dd5ac30662514a7bc7602eaced0917de20ec061293b54c05b025ab86c207c16c8c2b46f84c5c6d8d2a12809db9ad2e7fc66c32ca6a862671fe6244357b8a01e18daf770ef09eb0f7568fb61a256bf1f0d2510bcc2a7637006fda6d5ea83c01a33a797e1633fc1b8526a1471fba9de6784230400f1edb1cae701c548f66a224f1a1f532783d1c38e266f8825df6d5e9eb4ed499124cd8fde32b1c4e9a1366bd1c438a9953170a2f24057de3492f00b706e0f1ae72b08df94d4a61493fbe6e6ad9794eb016e3ca91f41707365cad6415aedc68efca137fde7342bca866e5e620998495bb71c65dd8257ca9bb57902b57f1abf9caf784a2564cc8df61e2c9d7a05edc65b25c44e334fa2ddd6eebe8311c081b5b0167b15ba7da8c",
+            "after_hex": "976a32dd80611b241f999adbb6cd03a57c64c0b0f88fa830fdd76b1e136c4fc742bd9337a46d07c1bb32f66236fb9633159de08ec9a3e1c570a1a0c8466b4ca436ff90316f5f716df9a6c03bcb5e4c722ccd4e1ab8871ac24f56678165939ceb95d5f035cbee701e608006adddab3c2fa9b059e27b7231dc3406a5aeea1963fcb5d9097271626902cfe839c0ff1b1a516e5ee22ee6a8c57396f98c22fd2beafd8ec095da75fae121d8dcd6097ae59a393a856313f7249b464dcc761b553d0583f16201867ceef2928e846d6643d679e7000879b4d4b70d5b9dcf6e4c436714936762ce8e07cb5c965a487957bab412108cd646695a8e9cc640d560f7d7609f1d79bed236642410ee1e53d9e7bf184eeea3a4fe97648b95b138fd26bcaf8975b525467a92ef6e92cc5c0655bc1c56fdb3278f2d0fba0653b5a5923ead29c90e65f742153a709da96a2f3141dd28b865e94dbea72ff4f8b1c0020e5287b11532df2e27118293046aa92851e17a2a481b47fa55557630afe19cfcbf0007f49241e35035fa13c87a2a5f08dadb2ffe71f6c313915d95a58344d1ed7226739dacd3a646d708fce6df98f7f2fb7075a6708c9763c06c7ceca93dfa34651fdc1e3918f5fd8d81bf369d75dd3728e41a5a98c7f5e58c3c1bcf230a3bad634f19d61542189668378a6461eb56da173412388abf7c02ab44fb751cc32c00f9d6ba3b98d1e87caf9ec2d73a2ccc9d9cf096f2da126b15c21828cb787f6846f29a4c6f1687ebb3e625585fe05a2230b64a7a8023718a960c4785cbeb4d292cf003a6e1d2b30262719f672bbcbc3ac288dd78181bdc19359b8da9a7d3020a15ba98866bcbb2086857785fce01fb842e0d846e9c04b0e3397c624c1ff59587739eb075f40d5e70a8dd103f72369f1e22aeaed2c946a6e4a3aaeb17e6ed193e834d672f3ef04295da2053247970bd4ebae1b7faca7ac8c238cc61f550b61efd052071683fe369b319a57fcccd19ac9f644d1afa36b810519a33faadc64f1fd2a41371c76e0669fc9e12f7157a7b11a97817da11bdd6db8b4962492c84c70359d8d881c23913084d0f0b908a1907f5e722112357e5cf3bf2d6a718f306609682fb90def98c08477e53a28a4087d752dd601f86d22a270a43c2a0b2a537793f017de7afae97edaf74d81f75858bcbe7aa866d600e0eb9874001ee647ec559cb4ff83a5f2af080fc"
+          },
+          {
+            "start": 3561,
+            "end_exclusive": 3649,
+            "length": 88,
+            "before_hex": "f98f0afe9ca0244f988caa12c25a23f8f387622a0c425af0ce780a9d1fcbf8cf586ae85cb94de9c4f89b2c80985db0475ec49dfdfa328e652c79cf3fd8cde64cb44770738c529ec405f8faac2d700214ec0a30273bf2ead3",
+            "after_hex": "6c0520492e4ea9e458257bfe0bae052328b4a5cc494c9254ea309645375ecb0d39505555dc1b2f6f2d5c77f0351ae68d81d10eaa77205fa205da8e2ab77c9d428c88ba98dbbd8d9c73da333f42cf28bdc5485fe8af6c49c8"
+          },
+          {
+            "start": 3650,
+            "end_exclusive": 3769,
+            "length": 119,
+            "before_hex": "06501a2972f8899501eaaa0d32e6c270520d9bfc60b6f2cdfb530c5a7a40e7903d31f5af5ed642042f3851c51072fbd5ba00edb584f3023d97e109e30a2efa2a4ab3ae51b39b374dcc7109b84c0b899787454e1b12235183b4ae12df927c5fe268b35d88876cc070782045b40c860cac6d7ecae5d067fe",
+            "after_hex": "6112a22c8385b283abf1265d0dae9c78a667a3c412b4105dad5b298425eedb1d87589e09f5b1a81fb6b7b8bb6a347302fff6e5a7da62c4af3e91e2123921d48b205e7da72a0cbcf3e8a8926b6afb421fdba26f1c7a5ad19d4d6fd4823c0ecf041a7595effb7357328b246bbc0e2596e4582f41fa6e4c21"
+          },
+          {
+            "start": 3770,
+            "end_exclusive": 4064,
+            "length": 294,
+            "before_hex": "8f77a09ae6e6e37a9d806082194cd4d8c298b48b4c90f358f15ab18e09c49614f8c28f70a0fb7f65e1e55c03455ffb97b6b3fd2de2736ac2755bf2f0ba0eb319cd2c79dbd14c470393600c77949d61352fde1913ad89eb34d338aebbba827002b2a637634b340df6a146ba4981b5263e2443ae45b85b24a277b59418ce4f32926f26ed94bd3803edc69a1418a5046a2e64af939a70c9116100b4d63780ddee502f356d3549fd71c4efd68902568d2a9f651412919f16964c672f0241829834c77ebbc35d7f9543fb5ec1ad88d315df5fcba3062addce68adb961be66dc3364abd91fbf5fb488fcc5d47ee1b82f1b7f5fe7f6dcfb67b03b8fdc7a7049ffdd48ee62f41636acdbbe5a4cda13170816dcd534ee42d567d603aac6bc1244aa227704c59c2e46b370",
+            "after_hex": "c4ae095192ab5470b10e71a652ae163aff5775014a8aa33bbea19d726b21e9e63d717df44d8b20bfd3edb248e149f202883f75820fce90518378ddd524579c910c406c086f8c8c28b2258e92737722570fd9321e70918ad8747fe9f28604b8b354eb062e2588fea96b5cad816fb06cbf60dddd2bc35cf19a4f4dd6a2d71638230a719249ac1bc2ae874d945c8c4f4a838f66a7a005bab9c4f9a974bdca5259c48f58b77038b84d909f4480f23947bb7a26f46cb3acf9f9c72d3885b1ece11c8ee0ea332de3ba182d0ec3af541eb197a5d9e36ae4b8fe3ff77fcfedd5126e5fd761441361fa3fc84fd1f153d7f6117d19e2025fe4eaf3dd85d5b6a2af6abb6bb6b80591873df5d038c48003249b49700adcf6fd5f06285afe131dad980b531e838a69d668e082"
+          },
+          {
+            "start": 4065,
+            "end_exclusive": 4097,
+            "length": 32,
+            "before_hex": "acb4fec88ebf84ceda31d2dfb90257ba46815cb097fbd969bb9a6edb13d17d90",
+            "after_hex": "3ab9b9ea6c26b14f7e4fa2c7b4e6ef8a7acb2a89d1a4443148864fa6833ac828"
+          },
+          {
+            "start": 4098,
+            "end_exclusive": 4136,
+            "length": 38,
+            "before_hex": "40ad63f22bf5fd8cf44c0d89cdf844cd867c30133afb62529f740d8031d43d6524b5ff03ec1c",
+            "after_hex": "ed7c6dd5ad03cddc5a2015a97569d2d3dd8b2e38b2f95cf217a7f110c656f49491d4fe0f1b88"
+          },
+          {
+            "start": 4137,
+            "end_exclusive": 4138,
+            "length": 1,
+            "before_hex": "d7",
+            "after_hex": "e8"
+          }
+        ],
+        "ranges_truncated": false
+      },
+      "track_header_diff": {
+        "before_bytes": 756,
+        "after_bytes": 756,
+        "changed_byte_positions": 0,
+        "range_count": 0,
+        "ranges": [],
+        "ranges_truncated": false
+      },
+      "target_fields": {
+        "rating": {
+          "before": 80,
+          "after": 80
+        },
+        "name_refresh_flag_raw": {
+          "before": 0,
+          "after": 0
+        },
+        "legacy_loved_byte_raw": {
+          "before": 0,
+          "after": 0
+        },
+        "legacy_loved_bit": {
+          "before": false,
+          "after": false
+        }
+      },
+      "primary_and_independent_parsers_passed": true
+    }
+  },
+  "rating_persistence": {
+    "expected": 80,
+    "observed": {
+      "mutation": 80,
+      "same-value-repeat": 80,
+      "restart-verification": 80
+    },
+    "passed": true
+  },
+  "passed": true,
+  "status": "passed",
+  "profile_junction_remove": {
+    "removed": true,
+    "command": {
+      "argv": [
+        "cmd.exe",
+        "/d",
+        "/c",
+        "rmdir",
+        "C:\\Users\\runneradmin\\Music\\iTunes"
+      ],
+      "returncode": 0,
+      "output": ""
+    }
+  },
+  "finished_utc": "2026-09-24T16:48:48.861659+00:00"
+}
