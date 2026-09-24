@@ -14,11 +14,11 @@ Only the named standalone Windows 12.13.10.3 profile has the full packaged nativ
 
 ### U-02 — big-endian semantic payloads
 
-**State:** opaque preservation only.
+**State:** open; opaque production preservation plus bounded public prior-art framing evidence.
 
-The outer header describes payload byte order, but `Library` intentionally implements little-endian record/text semantics only. `Container` can preserve or rebuild raw bytes without understanding them.
+The outer header describes payload byte order, but `Library` intentionally implements little-endian record/text semantics only. `Container` can preserve or rebuild raw bytes without understanding them. The pinned public-prior-art audit in [`evidence/research/20260925/big-endian-prior-art/`](evidence/research/20260925/big-endian-prior-art/) independently rechecks 14 historical fixtures (13 big-endian, one little-endian): all 14 pass envelope decode, exact no-op serialization, forced-rebuild reparse, and a separate read-only record/count/string/reference census. This is framing evidence, not production BE semantic support. The repository semantic parsers still accept 0/13 big-endian payloads, and no native BE-producing iTunes version was run.
 
-**Closure evidence required:** independent BE fixtures, endian-aware record/string primitives, count/reference tests, and native acceptance on an exact BE-producing version.
+**Closure evidence required:** an endian-aware production semantic implementation, broader independent fixtures and negative tests, complete field/reference validation, and native save/reload acceptance on an exact BE-producing version.
 
 ### U-03 — general identity and string-pool allocation
 
