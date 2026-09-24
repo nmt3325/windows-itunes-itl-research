@@ -1,4 +1,4 @@
-"""Bounded offline tests for the strict delivery verifier; no native application imports."""
+"""Bounded offline tests for delivery verifier contracts; no native application imports."""
 from pathlib import Path
 import copy
 import hashlib
@@ -32,11 +32,17 @@ def main():
             error = str(exc)
             ok = False
         else:
-            if not isinstance(verdict, dict) or not isinstance(verdict.get('ok'), bool):
-                raise AssertionError((name, 'verifier returned no boolean ok', verdict))
-            ok = verdict['ok']
-            if not ok:
-                error = json.dumps(verdict.get('issues', []), sort_keys=True)
+            if isinstance(verdict, dict):
+                if not isinstance(verdict.get('ok'), bool):
+                    raise AssertionError((name, 'verifier returned no boolean ok', verdict))
+                ok = verdict['ok']
+                if not ok:
+                    error = json.dumps(verdict.get('issues', []), sort_keys=True)
+            elif type(verdict) is int and verdict >= 0:
+                # The production verifier returns the verified manifest-entry count.
+                ok = True
+            else:
+                raise AssertionError((name, 'unsupported verifier result', verdict))
         if ok != expect_ok:
             raise AssertionError((name, expect_ok, ok, error, verdict))
         results.append({'name': name, 'passed': True, 'refused': not ok, 'reason': error})
