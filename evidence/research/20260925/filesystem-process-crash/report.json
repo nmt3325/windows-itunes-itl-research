@@ -1,0 +1,396 @@
+{
+  "bounds": {
+    "actual_process_crash_case_scenarios": 4,
+    "actual_sigkill_operations": 4,
+    "case_scenarios": 5,
+    "child_processes_spawned": 5,
+    "complete_payload_file_fsyncs_completed": 3,
+    "linux_hard_link_commits_completed": 2,
+    "linux_mkstemp_creations_completed": 5,
+    "native_itunes_operations": 0,
+    "network_filesystem_operations": 0,
+    "normal_completion_control_case_scenarios": 1,
+    "parent_reaped_children": 5,
+    "partial_prefix_flushes_completed": 1,
+    "power_loss_operations": 0,
+    "production_cleanup_unlinks_completed": 1,
+    "production_code_changes": 0,
+    "scratch_root_policy": "fresh absolute path resolving below /tmp; removed after measurement"
+  },
+  "cases": [
+    {
+      "boundary_event": {
+        "boundary": "after_native_mkstemp_before_fdopen_and_payload_write",
+        "event": "boundary_reached",
+        "native_temporary_creation_completed": true,
+        "payload_write_started": false,
+        "stage": "after_temp_create_before_write"
+      },
+      "boundary_observation": {
+        "child_alive_and_paused": true,
+        "child_open_fd_count_for_temporary": 1,
+        "destination": {
+          "kind": "absent",
+          "normalized_path": "destination"
+        },
+        "temporary": {
+          "bytes": 0,
+          "kind": "regular",
+          "link_count": 1,
+          "mode": "-rw-------",
+          "normalized_path": "temporary[0]",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      },
+      "category": "actual_process_crash",
+      "hook": {
+        "mechanics": "os.fdopen wrapper pauses after native temporary creation and before any payload write",
+        "production_write_new_invoked": true,
+        "production_write_new_source_changed": false,
+        "used": true
+      },
+      "id": "after_temp_create_before_write",
+      "retained_after_reap": {
+        "destination": {
+          "kind": "absent",
+          "normalized_path": "destination"
+        },
+        "temporary": {
+          "bytes": 0,
+          "kind": "regular",
+          "link_count": 1,
+          "mode": "-rw-------",
+          "normalized_path": "temporary[0]",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "temporary_count": 1,
+        "temporary_retained_because_child_finally_did_not_run": true
+      },
+      "termination": {
+        "child_died_by_signal": true,
+        "child_exited_normally": false,
+        "child_returncode": -9,
+        "parent_reaped_child": true,
+        "parent_sent_signal": "SIGKILL",
+        "signal_number": 9
+      }
+    },
+    {
+      "boundary_event": {
+        "boundary": "inside_stream_write_after_real_prefix_write_and_flush",
+        "event": "boundary_reached",
+        "production_payload_helper_entered": true,
+        "real_flush_completed": true,
+        "real_prefix_bytes": 4097,
+        "stage": "after_partial_write_flush_before_publication"
+      },
+      "boundary_observation": {
+        "child_alive_and_paused": true,
+        "child_open_fd_count_for_temporary": 1,
+        "destination": {
+          "kind": "absent",
+          "normalized_path": "destination"
+        },
+        "temporary": {
+          "bytes": 4097,
+          "kind": "regular",
+          "link_count": 1,
+          "mode": "-rw-------",
+          "normalized_path": "temporary[0]",
+          "sha256": "e9209535f1ee8f9970f4e005fd0be640ec1fa6371ff5fdf4ca65955c93f772c4"
+        }
+      },
+      "category": "actual_process_crash",
+      "hook": {
+        "mechanics": "stream wrapper performs one real prefix write and flush, then pauses inside production stream.write",
+        "production_write_new_invoked": true,
+        "production_write_new_source_changed": false,
+        "used": true
+      },
+      "id": "after_partial_write_flush_before_publication",
+      "retained_after_reap": {
+        "destination": {
+          "kind": "absent",
+          "normalized_path": "destination"
+        },
+        "temporary": {
+          "bytes": 4097,
+          "kind": "regular",
+          "link_count": 1,
+          "mode": "-rw-------",
+          "normalized_path": "temporary[0]",
+          "sha256": "e9209535f1ee8f9970f4e005fd0be640ec1fa6371ff5fdf4ca65955c93f772c4"
+        },
+        "temporary_count": 1,
+        "temporary_retained_because_child_finally_did_not_run": true
+      },
+      "termination": {
+        "child_died_by_signal": true,
+        "child_exited_normally": false,
+        "child_returncode": -9,
+        "parent_reaped_child": true,
+        "parent_sent_signal": "SIGKILL",
+        "signal_number": 9
+      }
+    },
+    {
+      "boundary_event": {
+        "boundary": "after_complete_write_flush_fsync_close_before_native_link",
+        "event": "boundary_reached",
+        "native_link_completed": false,
+        "production_payload_helper_returned": true,
+        "stage": "after_complete_fsync_close_before_link"
+      },
+      "boundary_observation": {
+        "child_alive_and_paused": true,
+        "child_open_fd_count_for_temporary": 0,
+        "destination": {
+          "kind": "absent",
+          "normalized_path": "destination"
+        },
+        "temporary": {
+          "bytes": 79876,
+          "kind": "regular",
+          "link_count": 1,
+          "mode": "-rw-------",
+          "normalized_path": "temporary[0]",
+          "sha256": "3c39b3a05a4be268cda3c6b92a926ac96329b6bcda31b05b66e43e2d9bb14e8e"
+        }
+      },
+      "category": "actual_process_crash",
+      "hook": {
+        "mechanics": "os.link wrapper pauses before the native link after production write, flush, fsync, and close",
+        "production_write_new_invoked": true,
+        "production_write_new_source_changed": false,
+        "used": true
+      },
+      "id": "after_complete_fsync_close_before_link",
+      "retained_after_reap": {
+        "destination": {
+          "kind": "absent",
+          "normalized_path": "destination"
+        },
+        "temporary": {
+          "bytes": 79876,
+          "kind": "regular",
+          "link_count": 1,
+          "mode": "-rw-------",
+          "normalized_path": "temporary[0]",
+          "sha256": "3c39b3a05a4be268cda3c6b92a926ac96329b6bcda31b05b66e43e2d9bb14e8e"
+        },
+        "temporary_count": 1,
+        "temporary_retained_because_child_finally_did_not_run": true
+      },
+      "termination": {
+        "child_died_by_signal": true,
+        "child_exited_normally": false,
+        "child_returncode": -9,
+        "parent_reaped_child": true,
+        "parent_sent_signal": "SIGKILL",
+        "signal_number": 9
+      }
+    },
+    {
+      "boundary_event": {
+        "boundary": "after_native_hard_link_commit_before_return_and_cleanup",
+        "event": "boundary_reached",
+        "native_link_completed": true,
+        "production_cleanup_started": false,
+        "stage": "after_native_link_before_cleanup"
+      },
+      "boundary_observation": {
+        "child_alive_and_paused": true,
+        "child_open_fd_count_for_temporary": 0,
+        "destination": {
+          "bytes": 79876,
+          "kind": "regular",
+          "link_count": 2,
+          "mode": "-rw-------",
+          "normalized_path": "destination",
+          "sha256": "3c39b3a05a4be268cda3c6b92a926ac96329b6bcda31b05b66e43e2d9bb14e8e"
+        },
+        "temporary": {
+          "bytes": 79876,
+          "kind": "regular",
+          "link_count": 2,
+          "mode": "-rw-------",
+          "normalized_path": "temporary[0]",
+          "sha256": "3c39b3a05a4be268cda3c6b92a926ac96329b6bcda31b05b66e43e2d9bb14e8e"
+        }
+      },
+      "category": "actual_process_crash",
+      "hook": {
+        "mechanics": "os.link wrapper performs the real hard-link commit, then pauses before returning to production cleanup",
+        "production_write_new_invoked": true,
+        "production_write_new_source_changed": false,
+        "used": true
+      },
+      "id": "after_native_link_before_cleanup",
+      "retained_after_reap": {
+        "destination": {
+          "bytes": 79876,
+          "kind": "regular",
+          "link_count": 2,
+          "mode": "-rw-------",
+          "normalized_path": "destination",
+          "sha256": "3c39b3a05a4be268cda3c6b92a926ac96329b6bcda31b05b66e43e2d9bb14e8e"
+        },
+        "destination_and_temporary_same_inode": true,
+        "temporary": {
+          "bytes": 79876,
+          "kind": "regular",
+          "link_count": 2,
+          "mode": "-rw-------",
+          "normalized_path": "temporary[0]",
+          "sha256": "3c39b3a05a4be268cda3c6b92a926ac96329b6bcda31b05b66e43e2d9bb14e8e"
+        },
+        "temporary_count": 1,
+        "temporary_retained_because_child_finally_did_not_run": true
+      },
+      "termination": {
+        "child_died_by_signal": true,
+        "child_exited_normally": false,
+        "child_returncode": -9,
+        "parent_reaped_child": true,
+        "parent_sent_signal": "SIGKILL",
+        "signal_number": 9
+      }
+    },
+    {
+      "boundary_event": {
+        "boundary": "after_unmodified_write_new_returned",
+        "event": "boundary_reached",
+        "native_link_completed": true,
+        "production_cleanup_completed": true,
+        "stage": "normal_completion_control"
+      },
+      "boundary_observation": {
+        "destination": {
+          "bytes": 79876,
+          "kind": "regular",
+          "link_count": 1,
+          "mode": "-rw-------",
+          "normalized_path": "destination",
+          "sha256": "3c39b3a05a4be268cda3c6b92a926ac96329b6bcda31b05b66e43e2d9bb14e8e"
+        },
+        "event_after_write_new_returned": true,
+        "temporary_count": 0
+      },
+      "category": "normal_completion_control",
+      "hook": {
+        "mechanics": "no scheduling hook",
+        "production_write_new_invoked": true,
+        "production_write_new_source_changed": false,
+        "used": false
+      },
+      "id": "normal_completion_control",
+      "retained_after_reap": {
+        "destination": {
+          "bytes": 79876,
+          "kind": "regular",
+          "link_count": 1,
+          "mode": "-rw-------",
+          "normalized_path": "destination",
+          "sha256": "3c39b3a05a4be268cda3c6b92a926ac96329b6bcda31b05b66e43e2d9bb14e8e"
+        },
+        "production_cleanup_removed_temporary": true,
+        "temporary_count": 0
+      },
+      "termination": {
+        "child_died_by_signal": false,
+        "child_exited_normally": true,
+        "child_returncode": 0,
+        "parent_reaped_child": true,
+        "parent_sent_signal": null,
+        "signal_number": null
+      }
+    }
+  ],
+  "claim_limits": [
+    "These cases characterize only the selected Linux process-termination schedules on the recorded runtime and local /tmp filesystem.",
+    "Scheduling hooks position the child; they are not additional crash experiments or evidence for arbitrary schedules.",
+    "No power loss was performed, so directory-entry durability and post-power-loss content are untested.",
+    "The campaign does not establish hostile-directory safety, network-filesystem behavior, Windows parity, universal atomicity, or native iTunes acceptance.",
+    "Retained temporaries are expected after SIGKILL because the child cannot execute production finally cleanup; the campaign removes the entire synthetic scratch root after measurement."
+  ],
+  "environment": {
+    "filesystem_block_size": 4096,
+    "filesystem_fragment_size": 4096,
+    "filesystem_magic_hex": "ef53",
+    "filesystem_stat_type": "ext2/ext3",
+    "kernel_release": "6.17.0-1022-azure",
+    "libc": "glibc 2.39",
+    "machine": "x86_64",
+    "mount_filesystem_type": "ext4",
+    "mount_options": [
+      "commit=30",
+      "data=writeback",
+      "discard",
+      "errors=remount-ro",
+      "journal_async_commit",
+      "nobarrier",
+      "relatime",
+      "rw"
+    ],
+    "operating_system": "Linux",
+    "python_implementation": "CPython",
+    "python_optimization": 0,
+    "python_version": "3.12.3",
+    "scope": "the one local filesystem backing the fresh /tmp campaign root"
+  },
+  "generator": {
+    "path": "scripts/research/audit_filesystem_process_crash_20260925.py",
+    "sha256": "a902293a363ec02237290947113e3d0b212bbc553910f752a97538b3902c7a41"
+  },
+  "integration_recommendation": "Integrate as research-only evidence, make no production itlkit change, and keep U-17 open for power-loss and broader filesystem/runtime work.",
+  "methodology": {
+    "case_counts_are_independent_experiments": false,
+    "normal_control": "a separate child invokes unmodified production write_new without scheduling hooks and exits zero",
+    "normalization": "no timestamps, PIDs, host paths, random temporary basenames, inode numbers, or device numbers",
+    "process_crash": "parent receives one atomic pipe event, confirms the child is alive, sends SIGKILL, and reaps return code -9",
+    "repetitions_controls_and_retained_artifacts_are_independent_experiments": false,
+    "scheduling_hooks": "child-local wrappers pause at explicit boundaries; retained outcomes use real Linux file, flush, fsync, close, and link operations as stated per case",
+    "timeouts_seconds": {
+      "event": 15.0,
+      "reap": 10.0
+    }
+  },
+  "observations": [
+    "SIGKILL after temporary creation but before payload write retained one empty temporary and no destination.",
+    "SIGKILL after one real partial write and flush retained exactly the synthetic prefix and no destination.",
+    "SIGKILL after the complete payload was written, flushed, fsynced, and closed but before link retained one complete temporary and no destination.",
+    "SIGKILL immediately after the native hard-link commit retained a complete destination and complete temporary as two names for one inode with link count two.",
+    "The normal child completed with a complete destination, no temporary, link count one, and exit code zero."
+  ],
+  "production_source": {
+    "path": "itlkit/io.py",
+    "sha256": "f042b3d98a71cfedf9cfd39fdd0d4acf5bacedd623dbc07d9d1d8bb54292a6f4"
+  },
+  "repository_baseline_commit": "c9f271d36a7095262c6195c04eb7f09d6cf88dee",
+  "schema": "windows-itunes-itl.filesystem-process-crash.v1",
+  "scratch_cleanup": {
+    "retained_report_contains_random_temporary_names": false,
+    "root_removed_after_measurement": true
+  },
+  "status": "completed_bounded_linux_process_termination_campaign",
+  "summary": {
+    "actual_process_crash_cases": 4,
+    "normal_control_cases": 1,
+    "production_change_warranted": false,
+    "production_code_changed": false,
+    "u17_status": "open",
+    "unexpected_anomalies": 0
+  },
+  "synthetic_inputs": {
+    "complete_payload": {
+      "bytes": 79876,
+      "sha256": "3c39b3a05a4be268cda3c6b92a926ac96329b6bcda31b05b66e43e2d9bb14e8e"
+    },
+    "empty_temporary_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "partial_prefix": {
+      "bytes": 4097,
+      "sha256": "e9209535f1ee8f9970f4e005fd0be640ec1fa6371ff5fdf4ca65955c93f772c4"
+    },
+    "user_data_operations": 0
+  }
+}

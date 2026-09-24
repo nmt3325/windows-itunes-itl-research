@@ -11,8 +11,8 @@
   },
   {
     "path": "EVIDENCE.md",
-    "bytes": 30393,
-    "sha256": "0b8892dda94c8a23bd0daafd226103bd9f40bdd8b88a5885966843e46e86b87f"
+    "bytes": 31372,
+    "sha256": "7ab98dc463e488f47ddd5b4781ebb61bfa7079c324d54e0c574e7bb77879c213"
   },
   {
     "path": "ITL_DATA_MODEL.md",
@@ -36,8 +36,8 @@
   },
   {
     "path": "README.md",
-    "bytes": 21610,
-    "sha256": "710e5cc08235dc14b5e04b76895076402d62df751bea03482a2c403003dd1092"
+    "bytes": 22231,
+    "sha256": "7f6a878df2260592df689621910a709c5c8662f237061563307f4ecb7247b438"
   },
   {
     "path": "REFERENCE_PARSER/README.md",
@@ -91,8 +91,8 @@
   },
   {
     "path": "SCOPE.md",
-    "bytes": 11738,
-    "sha256": "3304697d6ec551908c644b17a5571086f022bc76ba0f781694f270384029ba6c"
+    "bytes": 12040,
+    "sha256": "3179f08f5758a7ace23cdda182fd702fe4315240d2e7faf937e077e8325088f8"
   },
   {
     "path": "SEMANTIC_DIFF/README.md",
@@ -196,8 +196,8 @@
   },
   {
     "path": "UNRESOLVED.md",
-    "bytes": 20436,
-    "sha256": "dc608118fb1b6284b17b5307e9e21a47edf47eb4d717f0fe025f54e7d42b8b10"
+    "bytes": 21305,
+    "sha256": "52adafb5918be43417b6989a0ef6b42809b45b987b9d18cd1e6c7e306b9758e1"
   },
   {
     "path": "VALIDATOR/README.md",
@@ -231,13 +231,13 @@
   },
   {
     "path": "completion-status.yaml",
-    "bytes": 7667,
-    "sha256": "ae73fc6931da5488762d2e37bf006bf6f56fd269447bf99820620d16763714c9"
+    "bytes": 8477,
+    "sha256": "90020f574cb48bc9da53cbb41adbbbc8bb7d1cef5cee378b6c78c112dac39c07"
   },
   {
     "path": "corpus-manifest.json",
-    "bytes": 151462,
-    "sha256": "d92d879fab95040871c7dcbb0ed7a1c714cb9fbc80b36563f912a46aa0a6113e"
+    "bytes": 151991,
+    "sha256": "9362281f45fbdc254161f799c01a77c0e69a8171c66b4db2f6074951cc72ee10"
   },
   {
     "path": "docs/PUBLIC_PRIOR_ART_AUDIT_20260925.md",
@@ -9645,6 +9645,16 @@
     "sha256": "cbf33f4d8f0ea9d6ea3aae968bb081a6b59d64314f0d51dbb74caf7c51a2af37"
   },
   {
+    "path": "evidence/research/20260925/filesystem-process-crash/README.md",
+    "bytes": 6733,
+    "sha256": "b4d40777c27daf5d5508d4c284856cb4919cdab74ea5951e277d101cf9c439d8"
+  },
+  {
+    "path": "evidence/research/20260925/filesystem-process-crash/report.json",
+    "bytes": 14981,
+    "sha256": "9ab1d5c69379e27319bc7b817639f8c7179ae402770de3f860b40c103da7e525"
+  },
+  {
     "path": "evidence/research/20260925/filesystem-threat-model/README.md",
     "bytes": 5984,
     "sha256": "43193ae8c9121d8216063cbd57c4b7ef7765f05f38aa76518262212d26365c36"
@@ -10517,7 +10527,7 @@
   {
     "path": "evidence/research/20260925/sort-rank-audit/input-manifest.json",
     "bytes": 24766,
-    "sha256": "6c7a65ff908f506e4b311b675821fcd7fd4e965e0839b5e999db09a8dc0c9c32"
+    "sha256": "0c15eb7ed1f38b60928f0c8857d1043e8285524a9a8d43805f20633b9b25e09e"
   },
   {
     "path": "evidence/research/20260925/trailer-coverage-audit/README.md",
@@ -12895,6 +12905,11 @@
     "sha256": "691a32a37aff016c8399dc2e6a8fe407f30027dfe80b828325640f30f2cceb31"
   },
   {
+    "path": "scripts/research/audit_filesystem_process_crash_20260925.py",
+    "bytes": 28852,
+    "sha256": "a902293a363ec02237290947113e3d0b212bbc553910f752a97538b3902c7a41"
+  },
+  {
     "path": "scripts/research/audit_filesystem_publication_20260925.py",
     "bytes": 29872,
     "sha256": "3554fd155e628b4cfce13782bdd4af49c72ef78c369d7805ce4d1b72ddab8e5c"
@@ -12936,8 +12951,8 @@
   },
   {
     "path": "scripts/research/build_manifests.py",
-    "bytes": 10867,
-    "sha256": "a9877d883037900dc4241cb5183688c92c6195fa2c7b5f1099b6f06af849c625"
+    "bytes": 11280,
+    "sha256": "4785759d6fa240354c9a6c7259650873af92ff367a83ed157e00ce3a3eb286d6"
   },
   {
     "path": "scripts/research/generate_synthetic_library_inputs.py",
@@ -13283,6 +13298,11 @@
     "path": "tests/test_coverage_guided_fuzz_20260925.py",
     "bytes": 4920,
     "sha256": "9db1810bd2f848944cde1e0eedde42ba0c0773551ab7b352ae6bf5e4a60d6746"
+  },
+  {
+    "path": "tests/test_filesystem_process_crash_20260925.py",
+    "bytes": 10214,
+    "sha256": "d6cdd1b7030b9d4cc2da381cdf325db51d2685c9446266654587fa4adc851a85"
   },
   {
     "path": "tests/test_filesystem_threat_model_20260925.py",

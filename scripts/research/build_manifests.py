@@ -126,6 +126,7 @@ def build_corpus() -> dict:
         "evidence/research/20260925/native-trailer-u13/native-run/summary.json",
         "evidence/research/20260925/coverage-guided-fuzz/report.json",
         "evidence/research/20260925/filesystem-threat-model/report.json",
+        "evidence/research/20260925/filesystem-process-crash/report.json",
     ):
         path = ROOT / name
         if path.is_file():
@@ -151,6 +152,7 @@ def build_corpus() -> dict:
             "native_trailer_note": "one exact 17-byte opaque-trailer candidate and its trailer-free control each passed two native cycles; the candidate trailer was stripped on first save; retained copies and repeated saves are not independent experiments",
             "coverage_guided_note": "20,000 deterministic offline mutations completed without a retained anomaly; coarse line-transition guidance is not proof of parser safety or native acceptance",
             "filesystem_publication_note": "21 deterministic Linux case scenarios bound stable-parent guarantees and demonstrate the existing hostile-parent exclusion; scenarios are not independent experiments, no power loss was simulated, production code was unchanged, and U-17 remains open",
+            "filesystem_process_crash_note": "five selected Linux child schedules used unchanged production write_new: four actual parent-issued/reaped SIGKILL deaths and one normal control; cases, control, replays, and artifacts are not independent experiments, zero power-loss/native-iTunes operations occurred, and U-17 remains open",
         },
         "summary": {"itl_file_count": len(rows), "by_class": counts},
         "referenced_manifests_and_analyses": references,

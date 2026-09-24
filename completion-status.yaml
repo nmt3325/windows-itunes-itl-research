@@ -50,6 +50,7 @@ qualification:
   compressed_trailer: one_fixed_seed_17_byte_candidate_stripped_on_first_native_save_u13_open
   parser_coverage_guided_campaign: bounded_offline_20000_mutations_zero_retained_anomalies_u17_open
   filesystem_publication_threat_model: bounded_offline_linux_21_scenarios_parent_swap_limit_confirmed_u17_open
+  filesystem_process_crash: bounded_linux_4_sigkill_1_normal_control_production_unchanged_u17_open
   audible_playback: not_established
   atomic_native_save_protocol: not_established
 
@@ -125,9 +126,28 @@ validation:
     hostile_directory_safety_established: false
     production_code_changed: false
     unresolved_item: U-17
+  filesystem_process_crash:
+    status: passed_bounded_linux_process_termination_campaign
+    case_scenarios: 5
+    process_crash_case_scenarios: 4
+    normal_completion_control_case_scenarios: 1
+    case_scenarios_are_independent_experiments: false
+    child_processes_spawned: 5
+    actual_sigkill_operations: 4
+    sigkill_child_returncode: -9
+    parent_reaped_children: 5
+    linux_mkstemp_creations_completed: 5
+    partial_prefix_flushes_completed: 1
+    complete_payload_file_fsyncs_completed: 3
+    linux_hard_link_commits_completed: 2
+    production_cleanup_unlinks_completed: 1
+    power_loss_operations: 0
+    native_itunes_operations: 0
+    production_code_changed: false
+    unresolved_item: U-17
   integrated_tests:
     status: passed
-    passed: 1125
+    passed: 1129
     skipped: 7
     skipped_missing_com_oracle: 5
     skipped_windows_only_helpers_on_linux: 2
