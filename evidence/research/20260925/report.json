@@ -1,0 +1,4763 @@
+{
+  "cases": [
+    {
+      "candidate": {
+        "bytes": 10566,
+        "sha256": "c6c68171d57350ceb3cf379eee13a764ea199536ef18238fe4faf80583492d74"
+      },
+      "expectation": "valid",
+      "family": "baseline",
+      "id": "baseline-reference-one-track-raw",
+      "mutation": {},
+      "outcomes": {
+        "detection": {
+          "decision": "accept",
+          "status": "recognized",
+          "version": "12.13.10.3"
+        },
+        "primary_container": {
+          "decision": "accept",
+          "no_op_exact": true,
+          "payload_bytes": 10422,
+          "payload_sha256": "d026b318d7107776c872980c407ec32f6ce8e615730baa02d0871fb5c62d5780",
+          "trailer_bytes": 0,
+          "trailer_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "primary_container_relaxed": {
+          "decision": "accept",
+          "no_op_exact": true,
+          "payload_bytes": 10422,
+          "payload_sha256": "d026b318d7107776c872980c407ec32f6ce8e615730baa02d0871fb5c62d5780",
+          "trailer_bytes": 0,
+          "trailer_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "primary_library": {
+          "decision": "accept",
+          "no_op_exact": true,
+          "playlists": 2,
+          "sections": 10,
+          "tracks": 1,
+          "trailer_bytes": 0
+        },
+        "reference_envelope": {
+          "decision": "accept",
+          "payload_bytes": 10422,
+          "payload_sha256": "d026b318d7107776c872980c407ec32f6ce8e615730baa02d0871fb5c62d5780",
+          "trailer_bytes": 0,
+          "trailer_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "reference_library": {
+          "decision": "accept",
+          "playlists": 2,
+          "sections": 10,
+          "tracks": 1,
+          "trailer_bytes": 0
+        },
+        "validator": {
+          "coverage": {
+            "compressed_trailer": {
+              "bytes": 0,
+              "present": false,
+              "semantically_validated": false
+            },
+            "envelope_and_record_boundaries": true,
+            "known_reference_namespaces": [
+              "track local/Persistent IDs",
+              "playlist local/Persistent IDs",
+              "playlist item IDs and track references",
+              "track album and artist local references"
+            ],
+            "opaque_bytes_semantically_validated": false,
+            "opaque_reference_scan": false
+          },
+          "decision": "accept",
+          "issue_codes": [
+            "scope.opaque_section",
+            "scope.opaque_section"
+          ],
+          "valid": true
+        }
+      },
+      "recipe": "checked-in input without mutation",
+      "source": "TEST_CORPUS/generated/reference-one-track-raw.itl"
+    },
+    {
+      "candidate": {
+        "bytes": 775,
+        "sha256": "25f8aba00330caaa0ef4b529f67a203cd6da2b3d652923f7e44c7396f7bd13ad"
+      },
+      "expectation": "valid",
+      "family": "baseline",
+      "id": "baseline-reference-one-track-zlib",
+      "mutation": {},
+      "outcomes": {
+        "detection": {
+          "decision": "accept",
+          "status": "recognized",
+          "version": "12.13.10.3"
+        },
+        "primary_container": {
+          "decision": "accept",
+          "no_op_exact": true,
+          "payload_bytes": 10442,
+          "payload_sha256": "666c74d34556f413a76a31691be9b20f1eec8f2a9459f15b7b98f2ea0dcfa797",
+          "trailer_bytes": 0,
+          "trailer_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "primary_container_relaxed": {
+          "decision": "accept",
+          "no_op_exact": true,
+          "payload_bytes": 10442,
+          "payload_sha256": "666c74d34556f413a76a31691be9b20f1eec8f2a9459f15b7b98f2ea0dcfa797",
+          "trailer_bytes": 0,
+          "trailer_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "primary_library": {
+          "decision": "accept",
+          "no_op_exact": true,
+          "playlists": 2,
+          "sections": 10,
+          "tracks": 1,
+          "trailer_bytes": 0
+        },
+        "reference_envelope": {
+          "decision": "accept",
+          "payload_bytes": 10442,
+          "payload_sha256": "666c74d34556f413a76a31691be9b20f1eec8f2a9459f15b7b98f2ea0dcfa797",
+          "trailer_bytes": 0,
+          "trailer_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "reference_library": {
+          "decision": "accept",
+          "playlists": 2,
+          "sections": 10,
+          "tracks": 1,
+          "trailer_bytes": 0
+        },
+        "validator": {
+          "coverage": {
+            "compressed_trailer": {
+              "bytes": 0,
+              "present": false,
+              "semantically_validated": false
+            },
+            "envelope_and_record_boundaries": true,
+            "known_reference_namespaces": [
+              "track local/Persistent IDs",
+              "playlist local/Persistent IDs",
+              "playlist item IDs and track references",
+              "track album and artist local references"
+            ],
+            "opaque_bytes_semantically_validated": false,
+            "opaque_reference_scan": false
+          },
+          "decision": "accept",
+          "issue_codes": [
+            "scope.opaque_section",
+            "scope.opaque_section"
+          ],
+          "valid": true
+        }
+      },
+      "recipe": "checked-in input without mutation",
+      "source": "TEST_CORPUS/generated/reference-one-track-zlib.itl"
+    },
+    {
+      "candidate": {
+        "bytes": 12564,
+        "sha256": "7d9b274765471d2d77440049273b210138e36b998d39d4790fe750d60c32406b"
+      },
+      "expectation": "valid",
+      "family": "baseline",
+      "id": "baseline-reference-three-track-raw",
+      "mutation": {},
+      "outcomes": {
+        "detection": {
+          "decision": "accept",
+          "status": "recognized",
+          "version": "12.13.10.3"
+        },
+        "primary_container": {
+          "decision": "accept",
+          "no_op_exact": true,
+          "payload_bytes": 12420,
+          "payload_sha256": "c2d990133ff312a17f3a0cab33e964b7c6537b24fc00f263eaf34c2b899d1734",
+          "trailer_bytes": 0,
+          "trailer_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "primary_container_relaxed": {
+          "decision": "accept",
+          "no_op_exact": true,
+          "payload_bytes": 12420,
+          "payload_sha256": "c2d990133ff312a17f3a0cab33e964b7c6537b24fc00f263eaf34c2b899d1734",
+          "trailer_bytes": 0,
+          "trailer_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "primary_library": {
+          "decision": "accept",
+          "no_op_exact": true,
+          "playlists": 2,
+          "sections": 10,
+          "tracks": 3,
+          "trailer_bytes": 0
+        },
+        "reference_envelope": {
+          "decision": "accept",
+          "payload_bytes": 12420,
+          "payload_sha256": "c2d990133ff312a17f3a0cab33e964b7c6537b24fc00f263eaf34c2b899d1734",
+          "trailer_bytes": 0,
+          "trailer_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "reference_library": {
+          "decision": "accept",
+          "playlists": 2,
+          "sections": 10,
+          "tracks": 3,
+          "trailer_bytes": 0
+        },
+        "validator": {
+          "coverage": {
+            "compressed_trailer": {
+              "bytes": 0,
+              "present": false,
+              "semantically_validated": false
+            },
+            "envelope_and_record_boundaries": true,
+            "known_reference_namespaces": [
+              "track local/Persistent IDs",
+              "playlist local/Persistent IDs",
+              "playlist item IDs and track references",
+              "track album and artist local references"
+            ],
+            "opaque_bytes_semantically_validated": false,
+            "opaque_reference_scan": false
+          },
+          "decision": "accept",
+          "issue_codes": [
+            "scope.opaque_section",
+            "scope.opaque_section"
+          ],
+          "valid": true
+        }
+      },
+      "recipe": "checked-in input without mutation",
+      "source": "TEST_CORPUS/generated/reference-three-track-raw.itl"
+    },
+    {
+      "candidate": {
+        "bytes": 879,
+        "sha256": "73dbb405fbd2b68b62d29913b697a72100f8606cdb2ee704c55908e4de389e17"
+      },
+      "expectation": "valid",
+      "family": "baseline",
+      "id": "baseline-reference-three-track-zlib",
+      "mutation": {},
+      "outcomes": {
+        "detection": {
+          "decision": "accept",
+          "status": "recognized",
+          "version": "12.13.10.3"
+        },
+        "primary_container": {
+          "decision": "accept",
+          "no_op_exact": true,
+          "payload_bytes": 12422,
+          "payload_sha256": "6cf0126d9c092ec26b0c6aebe77bb1c29934990dacd9f6805d4687651b7a0882",
+          "trailer_bytes": 0,
+          "trailer_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "primary_container_relaxed": {
+          "decision": "accept",
+          "no_op_exact": true,
+          "payload_bytes": 12422,
+          "payload_sha256": "6cf0126d9c092ec26b0c6aebe77bb1c29934990dacd9f6805d4687651b7a0882",
+          "trailer_bytes": 0,
+          "trailer_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "primary_library": {
+          "decision": "accept",
+          "no_op_exact": true,
+          "playlists": 2,
+          "sections": 10,
+          "tracks": 3,
+          "trailer_bytes": 0
+        },
+        "reference_envelope": {
+          "decision": "accept",
+          "payload_bytes": 12422,
+          "payload_sha256": "6cf0126d9c092ec26b0c6aebe77bb1c29934990dacd9f6805d4687651b7a0882",
+          "trailer_bytes": 0,
+          "trailer_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "reference_library": {
+          "decision": "accept",
+          "playlists": 2,
+          "sections": 10,
+          "tracks": 3,
+          "trailer_bytes": 0
+        },
+        "validator": {
+          "coverage": {
+            "compressed_trailer": {
+              "bytes": 0,
+              "present": false,
+              "semantically_validated": false
+            },
+            "envelope_and_record_boundaries": true,
+            "known_reference_namespaces": [
+              "track local/Persistent IDs",
+              "playlist local/Persistent IDs",
+              "playlist item IDs and track references",
+              "track album and artist local references"
+            ],
+            "opaque_bytes_semantically_validated": false,
+            "opaque_reference_scan": false
+          },
+          "decision": "accept",
+          "issue_codes": [
+            "scope.opaque_section",
+            "scope.opaque_section"
+          ],
+          "valid": true
+        }
+      },
+      "recipe": "checked-in input without mutation",
+      "source": "TEST_CORPUS/generated/reference-three-track-zlib.itl"
+    },
+    {
+      "candidate": {
+        "bytes": 4536,
+        "sha256": "c1aad11c66d497788be5cc417a5b2931c59d5eb2589c8cc83d31594097e9d9f1"
+      },
+      "expectation": "valid",
+      "family": "baseline",
+      "id": "baseline-001-one-track",
+      "mutation": {},
+      "outcomes": {
+        "detection": {
+          "decision": "accept",
+          "status": "recognized",
+          "version": "12.13.10.3"
+        },
+        "primary_container": {
+          "decision": "accept",
+          "no_op_exact": true,
+          "payload_bytes": 100057,
+          "payload_sha256": "09b4a4eeea24cf2383539c754688b7b5b57931aa6da3ca1d69844f240fcee727",
+          "trailer_bytes": 0,
+          "trailer_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "primary_container_relaxed": {
+          "decision": "accept",
+          "no_op_exact": true,
+          "payload_bytes": 100057,
+          "payload_sha256": "09b4a4eeea24cf2383539c754688b7b5b57931aa6da3ca1d69844f240fcee727",
+          "trailer_bytes": 0,
+          "trailer_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "primary_library": {
+          "decision": "accept",
+          "no_op_exact": true,
+          "playlists": 14,
+          "sections": 11,
+          "tracks": 1,
+          "trailer_bytes": 0
+        },
+        "reference_envelope": {
+          "decision": "accept",
+          "payload_bytes": 100057,
+          "payload_sha256": "09b4a4eeea24cf2383539c754688b7b5b57931aa6da3ca1d69844f240fcee727",
+          "trailer_bytes": 0,
+          "trailer_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "reference_library": {
+          "decision": "accept",
+          "playlists": 14,
+          "sections": 11,
+          "tracks": 1,
+          "trailer_bytes": 0
+        },
+        "validator": {
+          "coverage": {
+            "compressed_trailer": {
+              "bytes": 0,
+              "present": false,
+              "semantically_validated": false
+            },
+            "envelope_and_record_boundaries": true,
+            "known_reference_namespaces": [
+              "track local/Persistent IDs",
+              "playlist local/Persistent IDs",
+              "playlist item IDs and track references",
+              "track album and artist local references"
+            ],
+            "opaque_bytes_semantically_validated": false,
+            "opaque_reference_scan": false
+          },
+          "decision": "accept",
+          "issue_codes": [
+            "scope.opaque_section",
+            "scope.opaque_section"
+          ],
+          "valid": true
+        }
+      },
+      "recipe": "checked-in input without mutation",
+      "source": "evidence/native/snapshots/001-one-track.itl"
+    },
+    {
+      "candidate": {
+        "bytes": 776,
+        "sha256": "db706d9ab1f4fb0b58d4b41f3c2b17c628a32a9d5006782519d3c2d8d3c43489"
+      },
+      "expectation": "trailer_valid",
+      "family": "compressed_trailer",
+      "id": "trailer-opaque-01",
+      "mutation": {
+        "seed": 539363621,
+        "trailer_bytes": 1
+      },
+      "outcomes": {
+        "detection": {
+          "decision": "accept",
+          "status": "recognized",
+          "version": "12.13.10.3"
+        },
+        "primary_container": {
+          "decision": "accept",
+          "no_op_exact": true,
+          "payload_bytes": 10442,
+          "payload_sha256": "666c74d34556f413a76a31691be9b20f1eec8f2a9459f15b7b98f2ea0dcfa797",
+          "trailer_bytes": 1,
+          "trailer_sha256": "9e076ceaf246b6003d9c2680a2b4cf0bffd069805902b0b5edeebf49039fe4bd"
+        },
+        "primary_container_relaxed": {
+          "decision": "accept",
+          "no_op_exact": true,
+          "payload_bytes": 10442,
+          "payload_sha256": "666c74d34556f413a76a31691be9b20f1eec8f2a9459f15b7b98f2ea0dcfa797",
+          "trailer_bytes": 1,
+          "trailer_sha256": "9e076ceaf246b6003d9c2680a2b4cf0bffd069805902b0b5edeebf49039fe4bd"
+        },
+        "primary_library": {
+          "decision": "accept",
+          "no_op_exact": true,
+          "playlists": 2,
+          "sections": 10,
+          "tracks": 1,
+          "trailer_bytes": 1
+        },
+        "reference_envelope": {
+          "decision": "accept",
+          "payload_bytes": 10442,
+          "payload_sha256": "666c74d34556f413a76a31691be9b20f1eec8f2a9459f15b7b98f2ea0dcfa797",
+          "trailer_bytes": 1,
+          "trailer_sha256": "9e076ceaf246b6003d9c2680a2b4cf0bffd069805902b0b5edeebf49039fe4bd"
+        },
+        "reference_library": {
+          "decision": "accept",
+          "playlists": 2,
+          "sections": 10,
+          "tracks": 1,
+          "trailer_bytes": 1
+        },
+        "validator": {
+          "coverage": {
+            "compressed_trailer": {
+              "bytes": 1,
+              "present": true,
+              "semantically_validated": false
+            },
+            "envelope_and_record_boundaries": true,
+            "known_reference_namespaces": [
+              "track local/Persistent IDs",
+              "playlist local/Persistent IDs",
+              "playlist item IDs and track references",
+              "track album and artist local references"
+            ],
+            "opaque_bytes_semantically_validated": false,
+            "opaque_reference_scan": false
+          },
+          "decision": "accept",
+          "issue_codes": [
+            "scope.compressed_trailer",
+            "scope.opaque_section",
+            "scope.opaque_section"
+          ],
+          "valid": true
+        }
+      },
+      "recipe": "append 1 fixed-seed opaque bytes after the first zlib member",
+      "source": "TEST_CORPUS/generated/reference-one-track-zlib.itl"
+    },
+    {
+      "candidate": {
+        "bytes": 790,
+        "sha256": "878abfa1f97fc65177ad6d98668b07e2f8c362c9103413caadc1bf8df599409f"
+      },
+      "expectation": "trailer_valid",
+      "family": "compressed_trailer",
+      "id": "trailer-opaque-15",
+      "mutation": {
+        "seed": 539363621,
+        "trailer_bytes": 15
+      },
+      "outcomes": {
+        "detection": {
+          "decision": "accept",
+          "status": "recognized",
+          "version": "12.13.10.3"
+        },
+        "primary_container": {
+          "decision": "accept",
+          "no_op_exact": true,
+          "payload_bytes": 10442,
+          "payload_sha256": "666c74d34556f413a76a31691be9b20f1eec8f2a9459f15b7b98f2ea0dcfa797",
+          "trailer_bytes": 15,
+          "trailer_sha256": "866108bd6e7a3c2161bdbee5d524d12ee2866098ef16949bba16c426c8915577"
+        },
+        "primary_container_relaxed": {
+          "decision": "accept",
+          "no_op_exact": true,
+          "payload_bytes": 10442,
+          "payload_sha256": "666c74d34556f413a76a31691be9b20f1eec8f2a9459f15b7b98f2ea0dcfa797",
+          "trailer_bytes": 15,
+          "trailer_sha256": "866108bd6e7a3c2161bdbee5d524d12ee2866098ef16949bba16c426c8915577"
+        },
+        "primary_library": {
+          "decision": "accept",
+          "no_op_exact": true,
+          "playlists": 2,
+          "sections": 10,
+          "tracks": 1,
+          "trailer_bytes": 15
+        },
+        "reference_envelope": {
+          "decision": "accept",
+          "payload_bytes": 10442,
+          "payload_sha256": "666c74d34556f413a76a31691be9b20f1eec8f2a9459f15b7b98f2ea0dcfa797",
+          "trailer_bytes": 15,
+          "trailer_sha256": "866108bd6e7a3c2161bdbee5d524d12ee2866098ef16949bba16c426c8915577"
+        },
+        "reference_library": {
+          "decision": "accept",
+          "playlists": 2,
+          "sections": 10,
+          "tracks": 1,
+          "trailer_bytes": 15
+        },
+        "validator": {
+          "coverage": {
+            "compressed_trailer": {
+              "bytes": 15,
+              "present": true,
+              "semantically_validated": false
+            },
+            "envelope_and_record_boundaries": true,
+            "known_reference_namespaces": [
+              "track local/Persistent IDs",
+              "playlist local/Persistent IDs",
+              "playlist item IDs and track references",
+              "track album and artist local references"
+            ],
+            "opaque_bytes_semantically_validated": false,
+            "opaque_reference_scan": false
+          },
+          "decision": "accept",
+          "issue_codes": [
+            "scope.compressed_trailer",
+            "scope.opaque_section",
+            "scope.opaque_section"
+          ],
+          "valid": true
+        }
+      },
+      "recipe": "append 15 fixed-seed opaque bytes after the first zlib member",
+      "source": "TEST_CORPUS/generated/reference-one-track-zlib.itl"
+    },
+    {
+      "candidate": {
+        "bytes": 791,
+        "sha256": "2d0cdb1d1344c9385b02df9f359f79267fba48cd2bda9499aeed1ca1c47e10ca"
+      },
+      "expectation": "trailer_valid",
+      "family": "compressed_trailer",
+      "id": "trailer-opaque-16",
+      "mutation": {
+        "seed": 539363621,
+        "trailer_bytes": 16
+      },
+      "outcomes": {
+        "detection": {
+          "decision": "accept",
+          "status": "recognized",
+          "version": "12.13.10.3"
+        },
+        "primary_container": {
+          "decision": "accept",
+          "no_op_exact": true,
+          "payload_bytes": 10442,
+          "payload_sha256": "666c74d34556f413a76a31691be9b20f1eec8f2a9459f15b7b98f2ea0dcfa797",
+          "trailer_bytes": 16,
+          "trailer_sha256": "ae2892c783401103f68a02300acdfce6b9ffb6099175c7a4db75832edda170c2"
+        },
+        "primary_container_relaxed": {
+          "decision": "accept",
+          "no_op_exact": true,
+          "payload_bytes": 10442,
+          "payload_sha256": "666c74d34556f413a76a31691be9b20f1eec8f2a9459f15b7b98f2ea0dcfa797",
+          "trailer_bytes": 16,
+          "trailer_sha256": "ae2892c783401103f68a02300acdfce6b9ffb6099175c7a4db75832edda170c2"
+        },
+        "primary_library": {
+          "decision": "accept",
+          "no_op_exact": true,
+          "playlists": 2,
+          "sections": 10,
+          "tracks": 1,
+          "trailer_bytes": 16
+        },
+        "reference_envelope": {
+          "decision": "accept",
+          "payload_bytes": 10442,
+          "payload_sha256": "666c74d34556f413a76a31691be9b20f1eec8f2a9459f15b7b98f2ea0dcfa797",
+          "trailer_bytes": 16,
+          "trailer_sha256": "ae2892c783401103f68a02300acdfce6b9ffb6099175c7a4db75832edda170c2"
+        },
+        "reference_library": {
+          "decision": "accept",
+          "playlists": 2,
+          "sections": 10,
+          "tracks": 1,
+          "trailer_bytes": 16
+        },
+        "validator": {
+          "coverage": {
+            "compressed_trailer": {
+              "bytes": 16,
+              "present": true,
+              "semantically_validated": false
+            },
+            "envelope_and_record_boundaries": true,
+            "known_reference_namespaces": [
+              "track local/Persistent IDs",
+              "playlist local/Persistent IDs",
+              "playlist item IDs and track references",
+              "track album and artist local references"
+            ],
+            "opaque_bytes_semantically_validated": false,
+            "opaque_reference_scan": false
+          },
+          "decision": "accept",
+          "issue_codes": [
+            "scope.compressed_trailer",
+            "scope.opaque_section",
+            "scope.opaque_section"
+          ],
+          "valid": true
+        }
+      },
+      "recipe": "append 16 fixed-seed opaque bytes after the first zlib member",
+      "source": "TEST_CORPUS/generated/reference-one-track-zlib.itl"
+    },
+    {
+      "candidate": {
+        "bytes": 792,
+        "sha256": "10b17fbdd783ad17e6fa3b488ee6421f43a417b9350de547754d24d4369e4e34"
+      },
+      "expectation": "trailer_valid",
+      "family": "compressed_trailer",
+      "id": "trailer-opaque-17",
+      "mutation": {
+        "seed": 539363621,
+        "trailer_bytes": 17
+      },
+      "outcomes": {
+        "detection": {
+          "decision": "accept",
+          "status": "recognized",
+          "version": "12.13.10.3"
+        },
+        "primary_container": {
+          "decision": "accept",
+          "no_op_exact": true,
+          "payload_bytes": 10442,
+          "payload_sha256": "666c74d34556f413a76a31691be9b20f1eec8f2a9459f15b7b98f2ea0dcfa797",
+          "trailer_bytes": 17,
+          "trailer_sha256": "103ea80001690bf2fccc5b4fb924760bf817e9c0b798c085e5359f68b10616ab"
+        },
+        "primary_container_relaxed": {
+          "decision": "accept",
+          "no_op_exact": true,
+          "payload_bytes": 10442,
+          "payload_sha256": "666c74d34556f413a76a31691be9b20f1eec8f2a9459f15b7b98f2ea0dcfa797",
+          "trailer_bytes": 17,
+          "trailer_sha256": "103ea80001690bf2fccc5b4fb924760bf817e9c0b798c085e5359f68b10616ab"
+        },
+        "primary_library": {
+          "decision": "accept",
+          "no_op_exact": true,
+          "playlists": 2,
+          "sections": 10,
+          "tracks": 1,
+          "trailer_bytes": 17
+        },
+        "reference_envelope": {
+          "decision": "accept",
+          "payload_bytes": 10442,
+          "payload_sha256": "666c74d34556f413a76a31691be9b20f1eec8f2a9459f15b7b98f2ea0dcfa797",
+          "trailer_bytes": 17,
+          "trailer_sha256": "103ea80001690bf2fccc5b4fb924760bf817e9c0b798c085e5359f68b10616ab"
+        },
+        "reference_library": {
+          "decision": "accept",
+          "playlists": 2,
+          "sections": 10,
+          "tracks": 1,
+          "trailer_bytes": 17
+        },
+        "validator": {
+          "coverage": {
+            "compressed_trailer": {
+              "bytes": 17,
+              "present": true,
+              "semantically_validated": false
+            },
+            "envelope_and_record_boundaries": true,
+            "known_reference_namespaces": [
+              "track local/Persistent IDs",
+              "playlist local/Persistent IDs",
+              "playlist item IDs and track references",
+              "track album and artist local references"
+            ],
+            "opaque_bytes_semantically_validated": false,
+            "opaque_reference_scan": false
+          },
+          "decision": "accept",
+          "issue_codes": [
+            "scope.compressed_trailer",
+            "scope.opaque_section",
+            "scope.opaque_section"
+          ],
+          "valid": true
+        }
+      },
+      "recipe": "append 17 fixed-seed opaque bytes after the first zlib member",
+      "source": "TEST_CORPUS/generated/reference-one-track-zlib.itl"
+    },
+    {
+      "candidate": {
+        "bytes": 806,
+        "sha256": "191407868c04e2da8b3b8a8ff4591f50f839c84afd4d18be8a98a2f707cc2b02"
+      },
+      "expectation": "trailer_valid",
+      "family": "compressed_trailer",
+      "id": "trailer-opaque-31",
+      "mutation": {
+        "seed": 539363621,
+        "trailer_bytes": 31
+      },
+      "outcomes": {
+        "detection": {
+          "decision": "accept",
+          "status": "recognized",
+          "version": "12.13.10.3"
+        },
+        "primary_container": {
+          "decision": "accept",
+          "no_op_exact": true,
+          "payload_bytes": 10442,
+          "payload_sha256": "666c74d34556f413a76a31691be9b20f1eec8f2a9459f15b7b98f2ea0dcfa797",
+          "trailer_bytes": 31,
+          "trailer_sha256": "6157563b34d56e3895914d3ce0a00c5c67b0fe237b1a0be90edd520c2cbc0b4c"
+        },
+        "primary_container_relaxed": {
+          "decision": "accept",
+          "no_op_exact": true,
+          "payload_bytes": 10442,
+          "payload_sha256": "666c74d34556f413a76a31691be9b20f1eec8f2a9459f15b7b98f2ea0dcfa797",
+          "trailer_bytes": 31,
+          "trailer_sha256": "6157563b34d56e3895914d3ce0a00c5c67b0fe237b1a0be90edd520c2cbc0b4c"
+        },
+        "primary_library": {
+          "decision": "accept",
+          "no_op_exact": true,
+          "playlists": 2,
+          "sections": 10,
+          "tracks": 1,
+          "trailer_bytes": 31
+        },
+        "reference_envelope": {
+          "decision": "accept",
+          "payload_bytes": 10442,
+          "payload_sha256": "666c74d34556f413a76a31691be9b20f1eec8f2a9459f15b7b98f2ea0dcfa797",
+          "trailer_bytes": 31,
+          "trailer_sha256": "6157563b34d56e3895914d3ce0a00c5c67b0fe237b1a0be90edd520c2cbc0b4c"
+        },
+        "reference_library": {
+          "decision": "accept",
+          "playlists": 2,
+          "sections": 10,
+          "tracks": 1,
+          "trailer_bytes": 31
+        },
+        "validator": {
+          "coverage": {
+            "compressed_trailer": {
+              "bytes": 31,
+              "present": true,
+              "semantically_validated": false
+            },
+            "envelope_and_record_boundaries": true,
+            "known_reference_namespaces": [
+              "track local/Persistent IDs",
+              "playlist local/Persistent IDs",
+              "playlist item IDs and track references",
+              "track album and artist local references"
+            ],
+            "opaque_bytes_semantically_validated": false,
+            "opaque_reference_scan": false
+          },
+          "decision": "accept",
+          "issue_codes": [
+            "scope.compressed_trailer",
+            "scope.opaque_section",
+            "scope.opaque_section"
+          ],
+          "valid": true
+        }
+      },
+      "recipe": "append 31 fixed-seed opaque bytes after the first zlib member",
+      "source": "TEST_CORPUS/generated/reference-one-track-zlib.itl"
+    },
+    {
+      "candidate": {
+        "bytes": 807,
+        "sha256": "c46124b535b71df052f7989955972728371c5f99070cb7e81fcd44c2423b7926"
+      },
+      "expectation": "trailer_valid",
+      "family": "compressed_trailer",
+      "id": "trailer-opaque-32",
+      "mutation": {
+        "seed": 539363621,
+        "trailer_bytes": 32
+      },
+      "outcomes": {
+        "detection": {
+          "decision": "accept",
+          "status": "recognized",
+          "version": "12.13.10.3"
+        },
+        "primary_container": {
+          "decision": "accept",
+          "no_op_exact": true,
+          "payload_bytes": 10442,
+          "payload_sha256": "666c74d34556f413a76a31691be9b20f1eec8f2a9459f15b7b98f2ea0dcfa797",
+          "trailer_bytes": 32,
+          "trailer_sha256": "7a3db154b55eaf7f6b77a2604cd8d168d21a1f60e340a05288eebc749be38344"
+        },
+        "primary_container_relaxed": {
+          "decision": "accept",
+          "no_op_exact": true,
+          "payload_bytes": 10442,
+          "payload_sha256": "666c74d34556f413a76a31691be9b20f1eec8f2a9459f15b7b98f2ea0dcfa797",
+          "trailer_bytes": 32,
+          "trailer_sha256": "7a3db154b55eaf7f6b77a2604cd8d168d21a1f60e340a05288eebc749be38344"
+        },
+        "primary_library": {
+          "decision": "accept",
+          "no_op_exact": true,
+          "playlists": 2,
+          "sections": 10,
+          "tracks": 1,
+          "trailer_bytes": 32
+        },
+        "reference_envelope": {
+          "decision": "accept",
+          "payload_bytes": 10442,
+          "payload_sha256": "666c74d34556f413a76a31691be9b20f1eec8f2a9459f15b7b98f2ea0dcfa797",
+          "trailer_bytes": 32,
+          "trailer_sha256": "7a3db154b55eaf7f6b77a2604cd8d168d21a1f60e340a05288eebc749be38344"
+        },
+        "reference_library": {
+          "decision": "accept",
+          "playlists": 2,
+          "sections": 10,
+          "tracks": 1,
+          "trailer_bytes": 32
+        },
+        "validator": {
+          "coverage": {
+            "compressed_trailer": {
+              "bytes": 32,
+              "present": true,
+              "semantically_validated": false
+            },
+            "envelope_and_record_boundaries": true,
+            "known_reference_namespaces": [
+              "track local/Persistent IDs",
+              "playlist local/Persistent IDs",
+              "playlist item IDs and track references",
+              "track album and artist local references"
+            ],
+            "opaque_bytes_semantically_validated": false,
+            "opaque_reference_scan": false
+          },
+          "decision": "accept",
+          "issue_codes": [
+            "scope.compressed_trailer",
+            "scope.opaque_section",
+            "scope.opaque_section"
+          ],
+          "valid": true
+        }
+      },
+      "recipe": "append 32 fixed-seed opaque bytes after the first zlib member",
+      "source": "TEST_CORPUS/generated/reference-one-track-zlib.itl"
+    },
+    {
+      "candidate": {
+        "bytes": 808,
+        "sha256": "c83aab4599591731855c8ddfd2fcc40d3afcd3027214aeb6c5f7e487bf905876"
+      },
+      "expectation": "trailer_valid",
+      "family": "compressed_trailer",
+      "id": "trailer-opaque-33",
+      "mutation": {
+        "seed": 539363621,
+        "trailer_bytes": 33
+      },
+      "outcomes": {
+        "detection": {
+          "decision": "accept",
+          "status": "recognized",
+          "version": "12.13.10.3"
+        },
+        "primary_container": {
+          "decision": "accept",
+          "no_op_exact": true,
+          "payload_bytes": 10442,
+          "payload_sha256": "666c74d34556f413a76a31691be9b20f1eec8f2a9459f15b7b98f2ea0dcfa797",
+          "trailer_bytes": 33,
+          "trailer_sha256": "5119531cf6e153ff72bff4ee32d0c34cf95b726b5619b392589053bd6ff5ad7c"
+        },
+        "primary_container_relaxed": {
+          "decision": "accept",
+          "no_op_exact": true,
+          "payload_bytes": 10442,
+          "payload_sha256": "666c74d34556f413a76a31691be9b20f1eec8f2a9459f15b7b98f2ea0dcfa797",
+          "trailer_bytes": 33,
+          "trailer_sha256": "5119531cf6e153ff72bff4ee32d0c34cf95b726b5619b392589053bd6ff5ad7c"
+        },
+        "primary_library": {
+          "decision": "accept",
+          "no_op_exact": true,
+          "playlists": 2,
+          "sections": 10,
+          "tracks": 1,
+          "trailer_bytes": 33
+        },
+        "reference_envelope": {
+          "decision": "accept",
+          "payload_bytes": 10442,
+          "payload_sha256": "666c74d34556f413a76a31691be9b20f1eec8f2a9459f15b7b98f2ea0dcfa797",
+          "trailer_bytes": 33,
+          "trailer_sha256": "5119531cf6e153ff72bff4ee32d0c34cf95b726b5619b392589053bd6ff5ad7c"
+        },
+        "reference_library": {
+          "decision": "accept",
+          "playlists": 2,
+          "sections": 10,
+          "tracks": 1,
+          "trailer_bytes": 33
+        },
+        "validator": {
+          "coverage": {
+            "compressed_trailer": {
+              "bytes": 33,
+              "present": true,
+              "semantically_validated": false
+            },
+            "envelope_and_record_boundaries": true,
+            "known_reference_namespaces": [
+              "track local/Persistent IDs",
+              "playlist local/Persistent IDs",
+              "playlist item IDs and track references",
+              "track album and artist local references"
+            ],
+            "opaque_bytes_semantically_validated": false,
+            "opaque_reference_scan": false
+          },
+          "decision": "accept",
+          "issue_codes": [
+            "scope.compressed_trailer",
+            "scope.opaque_section",
+            "scope.opaque_section"
+          ],
+          "valid": true
+        }
+      },
+      "recipe": "append 33 fixed-seed opaque bytes after the first zlib member",
+      "source": "TEST_CORPUS/generated/reference-one-track-zlib.itl"
+    },
+    {
+      "candidate": {
+        "bytes": 810,
+        "sha256": "bd4db257e9f9bc880a16577123a51d947b51bb8d86b56db3a7d960b2cdd2c8ca"
+      },
+      "expectation": "trailer_valid",
+      "family": "compressed_trailer",
+      "id": "trailer-concatenated-zlib-member",
+      "mutation": {
+        "second_member_plaintext": "deterministic-second-member"
+      },
+      "outcomes": {
+        "detection": {
+          "decision": "accept",
+          "status": "recognized",
+          "version": "12.13.10.3"
+        },
+        "primary_container": {
+          "decision": "accept",
+          "no_op_exact": true,
+          "payload_bytes": 10442,
+          "payload_sha256": "666c74d34556f413a76a31691be9b20f1eec8f2a9459f15b7b98f2ea0dcfa797",
+          "trailer_bytes": 35,
+          "trailer_sha256": "695ffd2c8bc332fa4bd98ac3c8e2a79e4d2ca6b80323f03797a2f3fb0fa7d1bc"
+        },
+        "primary_container_relaxed": {
+          "decision": "accept",
+          "no_op_exact": true,
+          "payload_bytes": 10442,
+          "payload_sha256": "666c74d34556f413a76a31691be9b20f1eec8f2a9459f15b7b98f2ea0dcfa797",
+          "trailer_bytes": 35,
+          "trailer_sha256": "695ffd2c8bc332fa4bd98ac3c8e2a79e4d2ca6b80323f03797a2f3fb0fa7d1bc"
+        },
+        "primary_library": {
+          "decision": "accept",
+          "no_op_exact": true,
+          "playlists": 2,
+          "sections": 10,
+          "tracks": 1,
+          "trailer_bytes": 35
+        },
+        "reference_envelope": {
+          "decision": "accept",
+          "payload_bytes": 10442,
+          "payload_sha256": "666c74d34556f413a76a31691be9b20f1eec8f2a9459f15b7b98f2ea0dcfa797",
+          "trailer_bytes": 35,
+          "trailer_sha256": "695ffd2c8bc332fa4bd98ac3c8e2a79e4d2ca6b80323f03797a2f3fb0fa7d1bc"
+        },
+        "reference_library": {
+          "decision": "accept",
+          "playlists": 2,
+          "sections": 10,
+          "tracks": 1,
+          "trailer_bytes": 35
+        },
+        "validator": {
+          "coverage": {
+            "compressed_trailer": {
+              "bytes": 35,
+              "present": true,
+              "semantically_validated": false
+            },
+            "envelope_and_record_boundaries": true,
+            "known_reference_namespaces": [
+              "track local/Persistent IDs",
+              "playlist local/Persistent IDs",
+              "playlist item IDs and track references",
+              "track album and artist local references"
+            ],
+            "opaque_bytes_semantically_validated": false,
+            "opaque_reference_scan": false
+          },
+          "decision": "accept",
+          "issue_codes": [
+            "scope.compressed_trailer",
+            "scope.opaque_section",
+            "scope.opaque_section"
+          ],
+          "valid": true
+        }
+      },
+      "recipe": "append a complete second zlib member; only the first member is payload",
+      "source": "TEST_CORPUS/generated/reference-one-track-zlib.itl"
+    },
+    {
+      "candidate": {
+        "bytes": 792,
+        "sha256": "c50ebbf6457f7b507c22f9c80ef328910421d5e3d6601a8594f8686310d1e5b5"
+      },
+      "expectation": "trailer_valid",
+      "family": "trailer_encryption_boundary",
+      "id": "trailer-encryption-flag0",
+      "mutation": {
+        "compressed_member_bytes": 631,
+        "encryption_flag": 0,
+        "max_crypt_size": 0
+      },
+      "outcomes": {
+        "detection": {
+          "decision": "accept",
+          "status": "recognized",
+          "version": "12.13.10.3"
+        },
+        "primary_container": {
+          "decision": "accept",
+          "no_op_exact": true,
+          "payload_bytes": 10442,
+          "payload_sha256": "666c74d34556f413a76a31691be9b20f1eec8f2a9459f15b7b98f2ea0dcfa797",
+          "trailer_bytes": 17,
+          "trailer_sha256": "2522c2cd624436d4cbb24c6eeb49ae1d84f74fce770543a12d6dcaeaee65937b"
+        },
+        "primary_container_relaxed": {
+          "decision": "accept",
+          "no_op_exact": true,
+          "payload_bytes": 10442,
+          "payload_sha256": "666c74d34556f413a76a31691be9b20f1eec8f2a9459f15b7b98f2ea0dcfa797",
+          "trailer_bytes": 17,
+          "trailer_sha256": "2522c2cd624436d4cbb24c6eeb49ae1d84f74fce770543a12d6dcaeaee65937b"
+        },
+        "primary_library": {
+          "decision": "accept",
+          "no_op_exact": true,
+          "playlists": 2,
+          "sections": 10,
+          "tracks": 1,
+          "trailer_bytes": 17
+        },
+        "reference_envelope": {
+          "decision": "accept",
+          "payload_bytes": 10442,
+          "payload_sha256": "666c74d34556f413a76a31691be9b20f1eec8f2a9459f15b7b98f2ea0dcfa797",
+          "trailer_bytes": 17,
+          "trailer_sha256": "2522c2cd624436d4cbb24c6eeb49ae1d84f74fce770543a12d6dcaeaee65937b"
+        },
+        "reference_library": {
+          "decision": "accept",
+          "playlists": 2,
+          "sections": 10,
+          "tracks": 1,
+          "trailer_bytes": 17
+        },
+        "validator": {
+          "coverage": {
+            "compressed_trailer": {
+              "bytes": 17,
+              "present": true,
+              "semantically_validated": false
+            },
+            "envelope_and_record_boundaries": true,
+            "known_reference_namespaces": [
+              "track local/Persistent IDs",
+              "playlist local/Persistent IDs",
+              "playlist item IDs and track references",
+              "track album and artist local references"
+            ],
+            "opaque_bytes_semantically_validated": false,
+            "opaque_reference_scan": false
+          },
+          "decision": "accept",
+          "issue_codes": [
+            "scope.compressed_trailer",
+            "scope.opaque_section",
+            "scope.opaque_section"
+          ],
+          "valid": true
+        }
+      },
+      "recipe": "append 17 opaque bytes and vary AES interval selection/rounding",
+      "source": "TEST_CORPUS/generated/reference-one-track-zlib.itl"
+    },
+    {
+      "candidate": {
+        "bytes": 792,
+        "sha256": "84baa98e69e49fe66edc7141591314e477479ca6ab8eb604d077629db5acac5f"
+      },
+      "expectation": "trailer_valid",
+      "family": "trailer_encryption_boundary",
+      "id": "trailer-encryption-flag1",
+      "mutation": {
+        "compressed_member_bytes": 631,
+        "encryption_flag": 1,
+        "max_crypt_size": 0
+      },
+      "outcomes": {
+        "detection": {
+          "decision": "accept",
+          "status": "recognized",
+          "version": "12.13.10.3"
+        },
+        "primary_container": {
+          "decision": "accept",
+          "no_op_exact": true,
+          "payload_bytes": 10442,
+          "payload_sha256": "666c74d34556f413a76a31691be9b20f1eec8f2a9459f15b7b98f2ea0dcfa797",
+          "trailer_bytes": 17,
+          "trailer_sha256": "68c93f4b41bbd2320358b68ac182001ad648145754448d2a0e2b31b14a87331e"
+        },
+        "primary_container_relaxed": {
+          "decision": "accept",
+          "no_op_exact": true,
+          "payload_bytes": 10442,
+          "payload_sha256": "666c74d34556f413a76a31691be9b20f1eec8f2a9459f15b7b98f2ea0dcfa797",
+          "trailer_bytes": 17,
+          "trailer_sha256": "68c93f4b41bbd2320358b68ac182001ad648145754448d2a0e2b31b14a87331e"
+        },
+        "primary_library": {
+          "decision": "accept",
+          "no_op_exact": true,
+          "playlists": 2,
+          "sections": 10,
+          "tracks": 1,
+          "trailer_bytes": 17
+        },
+        "reference_envelope": {
+          "decision": "accept",
+          "payload_bytes": 10442,
+          "payload_sha256": "666c74d34556f413a76a31691be9b20f1eec8f2a9459f15b7b98f2ea0dcfa797",
+          "trailer_bytes": 17,
+          "trailer_sha256": "68c93f4b41bbd2320358b68ac182001ad648145754448d2a0e2b31b14a87331e"
+        },
+        "reference_library": {
+          "decision": "accept",
+          "playlists": 2,
+          "sections": 10,
+          "tracks": 1,
+          "trailer_bytes": 17
+        },
+        "validator": {
+          "coverage": {
+            "compressed_trailer": {
+              "bytes": 17,
+              "present": true,
+              "semantically_validated": false
+            },
+            "envelope_and_record_boundaries": true,
+            "known_reference_namespaces": [
+              "track local/Persistent IDs",
+              "playlist local/Persistent IDs",
+              "playlist item IDs and track references",
+              "track album and artist local references"
+            ],
+            "opaque_bytes_semantically_validated": false,
+            "opaque_reference_scan": false
+          },
+          "decision": "accept",
+          "issue_codes": [
+            "scope.compressed_trailer",
+            "scope.opaque_section",
+            "scope.opaque_section"
+          ],
+          "valid": true
+        }
+      },
+      "recipe": "append 17 opaque bytes and vary AES interval selection/rounding",
+      "source": "TEST_CORPUS/generated/reference-one-track-zlib.itl"
+    },
+    {
+      "candidate": {
+        "bytes": 792,
+        "sha256": "931aa0f602ba81ce58eba43be0be7a16336d604d3f2720b77b967a5f3566f35b"
+      },
+      "expectation": "trailer_valid",
+      "family": "trailer_encryption_boundary",
+      "id": "trailer-encryption-flag2-cap0",
+      "mutation": {
+        "compressed_member_bytes": 631,
+        "encryption_flag": 2,
+        "max_crypt_size": 0
+      },
+      "outcomes": {
+        "detection": {
+          "decision": "accept",
+          "status": "recognized",
+          "version": "12.13.10.3"
+        },
+        "primary_container": {
+          "decision": "accept",
+          "no_op_exact": true,
+          "payload_bytes": 10442,
+          "payload_sha256": "666c74d34556f413a76a31691be9b20f1eec8f2a9459f15b7b98f2ea0dcfa797",
+          "trailer_bytes": 17,
+          "trailer_sha256": "6379086ca91754ca0d2e3ea22bd78bed51b0b2b230b5ac9a48763c38b069c2f2"
+        },
+        "primary_container_relaxed": {
+          "decision": "accept",
+          "no_op_exact": true,
+          "payload_bytes": 10442,
+          "payload_sha256": "666c74d34556f413a76a31691be9b20f1eec8f2a9459f15b7b98f2ea0dcfa797",
+          "trailer_bytes": 17,
+          "trailer_sha256": "6379086ca91754ca0d2e3ea22bd78bed51b0b2b230b5ac9a48763c38b069c2f2"
+        },
+        "primary_library": {
+          "decision": "accept",
+          "no_op_exact": true,
+          "playlists": 2,
+          "sections": 10,
+          "tracks": 1,
+          "trailer_bytes": 17
+        },
+        "reference_envelope": {
+          "decision": "accept",
+          "payload_bytes": 10442,
+          "payload_sha256": "666c74d34556f413a76a31691be9b20f1eec8f2a9459f15b7b98f2ea0dcfa797",
+          "trailer_bytes": 17,
+          "trailer_sha256": "6379086ca91754ca0d2e3ea22bd78bed51b0b2b230b5ac9a48763c38b069c2f2"
+        },
+        "reference_library": {
+          "decision": "accept",
+          "playlists": 2,
+          "sections": 10,
+          "tracks": 1,
+          "trailer_bytes": 17
+        },
+        "validator": {
+          "coverage": {
+            "compressed_trailer": {
+              "bytes": 17,
+              "present": true,
+              "semantically_validated": false
+            },
+            "envelope_and_record_boundaries": true,
+            "known_reference_namespaces": [
+              "track local/Persistent IDs",
+              "playlist local/Persistent IDs",
+              "playlist item IDs and track references",
+              "track album and artist local references"
+            ],
+            "opaque_bytes_semantically_validated": false,
+            "opaque_reference_scan": false
+          },
+          "decision": "accept",
+          "issue_codes": [
+            "scope.compressed_trailer",
+            "scope.opaque_section",
+            "scope.opaque_section"
+          ],
+          "valid": true
+        }
+      },
+      "recipe": "append 17 opaque bytes and vary AES interval selection/rounding",
+      "source": "TEST_CORPUS/generated/reference-one-track-zlib.itl"
+    },
+    {
+      "candidate": {
+        "bytes": 792,
+        "sha256": "179f98fc64ed6fdd54cdab20f6ab5c583bf1154ab1b136f486473b3b41fe6878"
+      },
+      "expectation": "trailer_valid",
+      "family": "trailer_encryption_boundary",
+      "id": "trailer-encryption-flag2-cap15",
+      "mutation": {
+        "compressed_member_bytes": 631,
+        "encryption_flag": 2,
+        "max_crypt_size": 15
+      },
+      "outcomes": {
+        "detection": {
+          "decision": "accept",
+          "status": "recognized",
+          "version": "12.13.10.3"
+        },
+        "primary_container": {
+          "decision": "accept",
+          "no_op_exact": true,
+          "payload_bytes": 10442,
+          "payload_sha256": "666c74d34556f413a76a31691be9b20f1eec8f2a9459f15b7b98f2ea0dcfa797",
+          "trailer_bytes": 17,
+          "trailer_sha256": "bf4660dcc7858e9a2663abd87bbbf5ad3986634b76bfcfda9a793e2ac3e85ea9"
+        },
+        "primary_container_relaxed": {
+          "decision": "accept",
+          "no_op_exact": true,
+          "payload_bytes": 10442,
+          "payload_sha256": "666c74d34556f413a76a31691be9b20f1eec8f2a9459f15b7b98f2ea0dcfa797",
+          "trailer_bytes": 17,
+          "trailer_sha256": "bf4660dcc7858e9a2663abd87bbbf5ad3986634b76bfcfda9a793e2ac3e85ea9"
+        },
+        "primary_library": {
+          "decision": "accept",
+          "no_op_exact": true,
+          "playlists": 2,
+          "sections": 10,
+          "tracks": 1,
+          "trailer_bytes": 17
+        },
+        "reference_envelope": {
+          "decision": "accept",
+          "payload_bytes": 10442,
+          "payload_sha256": "666c74d34556f413a76a31691be9b20f1eec8f2a9459f15b7b98f2ea0dcfa797",
+          "trailer_bytes": 17,
+          "trailer_sha256": "bf4660dcc7858e9a2663abd87bbbf5ad3986634b76bfcfda9a793e2ac3e85ea9"
+        },
+        "reference_library": {
+          "decision": "accept",
+          "playlists": 2,
+          "sections": 10,
+          "tracks": 1,
+          "trailer_bytes": 17
+        },
+        "validator": {
+          "coverage": {
+            "compressed_trailer": {
+              "bytes": 17,
+              "present": true,
+              "semantically_validated": false
+            },
+            "envelope_and_record_boundaries": true,
+            "known_reference_namespaces": [
+              "track local/Persistent IDs",
+              "playlist local/Persistent IDs",
+              "playlist item IDs and track references",
+              "track album and artist local references"
+            ],
+            "opaque_bytes_semantically_validated": false,
+            "opaque_reference_scan": false
+          },
+          "decision": "accept",
+          "issue_codes": [
+            "scope.compressed_trailer",
+            "scope.opaque_section",
+            "scope.opaque_section"
+          ],
+          "valid": true
+        }
+      },
+      "recipe": "append 17 opaque bytes and vary AES interval selection/rounding",
+      "source": "TEST_CORPUS/generated/reference-one-track-zlib.itl"
+    },
+    {
+      "candidate": {
+        "bytes": 792,
+        "sha256": "24fc1e3c4573cd66c3540e98a754b6ea4e5908b056ac8753bf3cba98319e12b3"
+      },
+      "expectation": "trailer_valid",
+      "family": "trailer_encryption_boundary",
+      "id": "trailer-encryption-flag2-cap16",
+      "mutation": {
+        "compressed_member_bytes": 631,
+        "encryption_flag": 2,
+        "max_crypt_size": 16
+      },
+      "outcomes": {
+        "detection": {
+          "decision": "accept",
+          "status": "recognized",
+          "version": "12.13.10.3"
+        },
+        "primary_container": {
+          "decision": "accept",
+          "no_op_exact": true,
+          "payload_bytes": 10442,
+          "payload_sha256": "666c74d34556f413a76a31691be9b20f1eec8f2a9459f15b7b98f2ea0dcfa797",
+          "trailer_bytes": 17,
+          "trailer_sha256": "880b9f666441ebe29ed97276c26d90ca446a106dd6c561891a56a907ac946b1a"
+        },
+        "primary_container_relaxed": {
+          "decision": "accept",
+          "no_op_exact": true,
+          "payload_bytes": 10442,
+          "payload_sha256": "666c74d34556f413a76a31691be9b20f1eec8f2a9459f15b7b98f2ea0dcfa797",
+          "trailer_bytes": 17,
+          "trailer_sha256": "880b9f666441ebe29ed97276c26d90ca446a106dd6c561891a56a907ac946b1a"
+        },
+        "primary_library": {
+          "decision": "accept",
+          "no_op_exact": true,
+          "playlists": 2,
+          "sections": 10,
+          "tracks": 1,
+          "trailer_bytes": 17
+        },
+        "reference_envelope": {
+          "decision": "accept",
+          "payload_bytes": 10442,
+          "payload_sha256": "666c74d34556f413a76a31691be9b20f1eec8f2a9459f15b7b98f2ea0dcfa797",
+          "trailer_bytes": 17,
+          "trailer_sha256": "880b9f666441ebe29ed97276c26d90ca446a106dd6c561891a56a907ac946b1a"
+        },
+        "reference_library": {
+          "decision": "accept",
+          "playlists": 2,
+          "sections": 10,
+          "tracks": 1,
+          "trailer_bytes": 17
+        },
+        "validator": {
+          "coverage": {
+            "compressed_trailer": {
+              "bytes": 17,
+              "present": true,
+              "semantically_validated": false
+            },
+            "envelope_and_record_boundaries": true,
+            "known_reference_namespaces": [
+              "track local/Persistent IDs",
+              "playlist local/Persistent IDs",
+              "playlist item IDs and track references",
+              "track album and artist local references"
+            ],
+            "opaque_bytes_semantically_validated": false,
+            "opaque_reference_scan": false
+          },
+          "decision": "accept",
+          "issue_codes": [
+            "scope.compressed_trailer",
+            "scope.opaque_section",
+            "scope.opaque_section"
+          ],
+          "valid": true
+        }
+      },
+      "recipe": "append 17 opaque bytes and vary AES interval selection/rounding",
+      "source": "TEST_CORPUS/generated/reference-one-track-zlib.itl"
+    },
+    {
+      "candidate": {
+        "bytes": 792,
+        "sha256": "5a0a9fc28608e251b42aa5b5d76419fe225873b7fd79755df8d8efd32a4b9102"
+      },
+      "expectation": "trailer_valid",
+      "family": "trailer_encryption_boundary",
+      "id": "trailer-encryption-flag2-cap17",
+      "mutation": {
+        "compressed_member_bytes": 631,
+        "encryption_flag": 2,
+        "max_crypt_size": 17
+      },
+      "outcomes": {
+        "detection": {
+          "decision": "accept",
+          "status": "recognized",
+          "version": "12.13.10.3"
+        },
+        "primary_container": {
+          "decision": "accept",
+          "no_op_exact": true,
+          "payload_bytes": 10442,
+          "payload_sha256": "666c74d34556f413a76a31691be9b20f1eec8f2a9459f15b7b98f2ea0dcfa797",
+          "trailer_bytes": 17,
+          "trailer_sha256": "069791ef98a2d3175853fb3935fd2487402c2390688407adea718ca4073b9189"
+        },
+        "primary_container_relaxed": {
+          "decision": "accept",
+          "no_op_exact": true,
+          "payload_bytes": 10442,
+          "payload_sha256": "666c74d34556f413a76a31691be9b20f1eec8f2a9459f15b7b98f2ea0dcfa797",
+          "trailer_bytes": 17,
+          "trailer_sha256": "069791ef98a2d3175853fb3935fd2487402c2390688407adea718ca4073b9189"
+        },
+        "primary_library": {
+          "decision": "accept",
+          "no_op_exact": true,
+          "playlists": 2,
+          "sections": 10,
+          "tracks": 1,
+          "trailer_bytes": 17
+        },
+        "reference_envelope": {
+          "decision": "accept",
+          "payload_bytes": 10442,
+          "payload_sha256": "666c74d34556f413a76a31691be9b20f1eec8f2a9459f15b7b98f2ea0dcfa797",
+          "trailer_bytes": 17,
+          "trailer_sha256": "069791ef98a2d3175853fb3935fd2487402c2390688407adea718ca4073b9189"
+        },
+        "reference_library": {
+          "decision": "accept",
+          "playlists": 2,
+          "sections": 10,
+          "tracks": 1,
+          "trailer_bytes": 17
+        },
+        "validator": {
+          "coverage": {
+            "compressed_trailer": {
+              "bytes": 17,
+              "present": true,
+              "semantically_validated": false
+            },
+            "envelope_and_record_boundaries": true,
+            "known_reference_namespaces": [
+              "track local/Persistent IDs",
+              "playlist local/Persistent IDs",
+              "playlist item IDs and track references",
+              "track album and artist local references"
+            ],
+            "opaque_bytes_semantically_validated": false,
+            "opaque_reference_scan": false
+          },
+          "decision": "accept",
+          "issue_codes": [
+            "scope.compressed_trailer",
+            "scope.opaque_section",
+            "scope.opaque_section"
+          ],
+          "valid": true
+        }
+      },
+      "recipe": "append 17 opaque bytes and vary AES interval selection/rounding",
+      "source": "TEST_CORPUS/generated/reference-one-track-zlib.itl"
+    },
+    {
+      "candidate": {
+        "bytes": 792,
+        "sha256": "7cd9400b5a53440c17d0443f091fae068045977a47bf1bd67f6852682d4986be"
+      },
+      "expectation": "trailer_valid",
+      "family": "trailer_encryption_boundary",
+      "id": "trailer-encryption-flag2-before-stream-end",
+      "mutation": {
+        "compressed_member_bytes": 631,
+        "encryption_flag": 2,
+        "max_crypt_size": 630
+      },
+      "outcomes": {
+        "detection": {
+          "decision": "accept",
+          "status": "recognized",
+          "version": "12.13.10.3"
+        },
+        "primary_container": {
+          "decision": "accept",
+          "no_op_exact": true,
+          "payload_bytes": 10442,
+          "payload_sha256": "666c74d34556f413a76a31691be9b20f1eec8f2a9459f15b7b98f2ea0dcfa797",
+          "trailer_bytes": 17,
+          "trailer_sha256": "edce2f5a8ed1680926ac8946210efe9ce32020ca51bb8e8dde980ff8bd8cfe09"
+        },
+        "primary_container_relaxed": {
+          "decision": "accept",
+          "no_op_exact": true,
+          "payload_bytes": 10442,
+          "payload_sha256": "666c74d34556f413a76a31691be9b20f1eec8f2a9459f15b7b98f2ea0dcfa797",
+          "trailer_bytes": 17,
+          "trailer_sha256": "edce2f5a8ed1680926ac8946210efe9ce32020ca51bb8e8dde980ff8bd8cfe09"
+        },
+        "primary_library": {
+          "decision": "accept",
+          "no_op_exact": true,
+          "playlists": 2,
+          "sections": 10,
+          "tracks": 1,
+          "trailer_bytes": 17
+        },
+        "reference_envelope": {
+          "decision": "accept",
+          "payload_bytes": 10442,
+          "payload_sha256": "666c74d34556f413a76a31691be9b20f1eec8f2a9459f15b7b98f2ea0dcfa797",
+          "trailer_bytes": 17,
+          "trailer_sha256": "edce2f5a8ed1680926ac8946210efe9ce32020ca51bb8e8dde980ff8bd8cfe09"
+        },
+        "reference_library": {
+          "decision": "accept",
+          "playlists": 2,
+          "sections": 10,
+          "tracks": 1,
+          "trailer_bytes": 17
+        },
+        "validator": {
+          "coverage": {
+            "compressed_trailer": {
+              "bytes": 17,
+              "present": true,
+              "semantically_validated": false
+            },
+            "envelope_and_record_boundaries": true,
+            "known_reference_namespaces": [
+              "track local/Persistent IDs",
+              "playlist local/Persistent IDs",
+              "playlist item IDs and track references",
+              "track album and artist local references"
+            ],
+            "opaque_bytes_semantically_validated": false,
+            "opaque_reference_scan": false
+          },
+          "decision": "accept",
+          "issue_codes": [
+            "scope.compressed_trailer",
+            "scope.opaque_section",
+            "scope.opaque_section"
+          ],
+          "valid": true
+        }
+      },
+      "recipe": "append 17 opaque bytes and vary AES interval selection/rounding",
+      "source": "TEST_CORPUS/generated/reference-one-track-zlib.itl"
+    },
+    {
+      "candidate": {
+        "bytes": 792,
+        "sha256": "938ff3a7cd7469f5c60eac5ce959407d0cbc81ebf6acf07571083349f1b99e4b"
+      },
+      "expectation": "trailer_valid",
+      "family": "trailer_encryption_boundary",
+      "id": "trailer-encryption-flag2-at-stream-end",
+      "mutation": {
+        "compressed_member_bytes": 631,
+        "encryption_flag": 2,
+        "max_crypt_size": 631
+      },
+      "outcomes": {
+        "detection": {
+          "decision": "accept",
+          "status": "recognized",
+          "version": "12.13.10.3"
+        },
+        "primary_container": {
+          "decision": "accept",
+          "no_op_exact": true,
+          "payload_bytes": 10442,
+          "payload_sha256": "666c74d34556f413a76a31691be9b20f1eec8f2a9459f15b7b98f2ea0dcfa797",
+          "trailer_bytes": 17,
+          "trailer_sha256": "f7439d738145bc991cdff3fd2fe9f1ee9e1f9d89339f974f45a6705fa3ae5c9d"
+        },
+        "primary_container_relaxed": {
+          "decision": "accept",
+          "no_op_exact": true,
+          "payload_bytes": 10442,
+          "payload_sha256": "666c74d34556f413a76a31691be9b20f1eec8f2a9459f15b7b98f2ea0dcfa797",
+          "trailer_bytes": 17,
+          "trailer_sha256": "f7439d738145bc991cdff3fd2fe9f1ee9e1f9d89339f974f45a6705fa3ae5c9d"
+        },
+        "primary_library": {
+          "decision": "accept",
+          "no_op_exact": true,
+          "playlists": 2,
+          "sections": 10,
+          "tracks": 1,
+          "trailer_bytes": 17
+        },
+        "reference_envelope": {
+          "decision": "accept",
+          "payload_bytes": 10442,
+          "payload_sha256": "666c74d34556f413a76a31691be9b20f1eec8f2a9459f15b7b98f2ea0dcfa797",
+          "trailer_bytes": 17,
+          "trailer_sha256": "f7439d738145bc991cdff3fd2fe9f1ee9e1f9d89339f974f45a6705fa3ae5c9d"
+        },
+        "reference_library": {
+          "decision": "accept",
+          "playlists": 2,
+          "sections": 10,
+          "tracks": 1,
+          "trailer_bytes": 17
+        },
+        "validator": {
+          "coverage": {
+            "compressed_trailer": {
+              "bytes": 17,
+              "present": true,
+              "semantically_validated": false
+            },
+            "envelope_and_record_boundaries": true,
+            "known_reference_namespaces": [
+              "track local/Persistent IDs",
+              "playlist local/Persistent IDs",
+              "playlist item IDs and track references",
+              "track album and artist local references"
+            ],
+            "opaque_bytes_semantically_validated": false,
+            "opaque_reference_scan": false
+          },
+          "decision": "accept",
+          "issue_codes": [
+            "scope.compressed_trailer",
+            "scope.opaque_section",
+            "scope.opaque_section"
+          ],
+          "valid": true
+        }
+      },
+      "recipe": "append 17 opaque bytes and vary AES interval selection/rounding",
+      "source": "TEST_CORPUS/generated/reference-one-track-zlib.itl"
+    },
+    {
+      "candidate": {
+        "bytes": 792,
+        "sha256": "3eaae4390de22ca5d050755b1ab4fde7e28de125c55ec4d4259098dbb0f9d025"
+      },
+      "expectation": "trailer_valid",
+      "family": "trailer_encryption_boundary",
+      "id": "trailer-encryption-flag2-after-stream-end",
+      "mutation": {
+        "compressed_member_bytes": 631,
+        "encryption_flag": 2,
+        "max_crypt_size": 632
+      },
+      "outcomes": {
+        "detection": {
+          "decision": "accept",
+          "status": "recognized",
+          "version": "12.13.10.3"
+        },
+        "primary_container": {
+          "decision": "accept",
+          "no_op_exact": true,
+          "payload_bytes": 10442,
+          "payload_sha256": "666c74d34556f413a76a31691be9b20f1eec8f2a9459f15b7b98f2ea0dcfa797",
+          "trailer_bytes": 17,
+          "trailer_sha256": "0501dcb2f14eade09541d25a13c370d579417aa1a466ca00ee606290cff747fa"
+        },
+        "primary_container_relaxed": {
+          "decision": "accept",
+          "no_op_exact": true,
+          "payload_bytes": 10442,
+          "payload_sha256": "666c74d34556f413a76a31691be9b20f1eec8f2a9459f15b7b98f2ea0dcfa797",
+          "trailer_bytes": 17,
+          "trailer_sha256": "0501dcb2f14eade09541d25a13c370d579417aa1a466ca00ee606290cff747fa"
+        },
+        "primary_library": {
+          "decision": "accept",
+          "no_op_exact": true,
+          "playlists": 2,
+          "sections": 10,
+          "tracks": 1,
+          "trailer_bytes": 17
+        },
+        "reference_envelope": {
+          "decision": "accept",
+          "payload_bytes": 10442,
+          "payload_sha256": "666c74d34556f413a76a31691be9b20f1eec8f2a9459f15b7b98f2ea0dcfa797",
+          "trailer_bytes": 17,
+          "trailer_sha256": "0501dcb2f14eade09541d25a13c370d579417aa1a466ca00ee606290cff747fa"
+        },
+        "reference_library": {
+          "decision": "accept",
+          "playlists": 2,
+          "sections": 10,
+          "tracks": 1,
+          "trailer_bytes": 17
+        },
+        "validator": {
+          "coverage": {
+            "compressed_trailer": {
+              "bytes": 17,
+              "present": true,
+              "semantically_validated": false
+            },
+            "envelope_and_record_boundaries": true,
+            "known_reference_namespaces": [
+              "track local/Persistent IDs",
+              "playlist local/Persistent IDs",
+              "playlist item IDs and track references",
+              "track album and artist local references"
+            ],
+            "opaque_bytes_semantically_validated": false,
+            "opaque_reference_scan": false
+          },
+          "decision": "accept",
+          "issue_codes": [
+            "scope.compressed_trailer",
+            "scope.opaque_section",
+            "scope.opaque_section"
+          ],
+          "valid": true
+        }
+      },
+      "recipe": "append 17 opaque bytes and vary AES interval selection/rounding",
+      "source": "TEST_CORPUS/generated/reference-one-track-zlib.itl"
+    },
+    {
+      "candidate": {
+        "bytes": 792,
+        "sha256": "aba63c097ca66cf3ad97e4d39abee4895e6082f79b1d7156c576aae2af4a9226"
+      },
+      "expectation": "trailer_valid",
+      "family": "trailer_corruption",
+      "id": "trailer-one-byte-corruption",
+      "mutation": {
+        "file_offset": 791,
+        "xor": 1
+      },
+      "outcomes": {
+        "detection": {
+          "decision": "accept",
+          "status": "recognized",
+          "version": "12.13.10.3"
+        },
+        "primary_container": {
+          "decision": "accept",
+          "no_op_exact": true,
+          "payload_bytes": 10442,
+          "payload_sha256": "666c74d34556f413a76a31691be9b20f1eec8f2a9459f15b7b98f2ea0dcfa797",
+          "trailer_bytes": 17,
+          "trailer_sha256": "14c359ea7e87f686b4647c94643b23491bf2a281f7ff9b827643fcb57f2d3896"
+        },
+        "primary_container_relaxed": {
+          "decision": "accept",
+          "no_op_exact": true,
+          "payload_bytes": 10442,
+          "payload_sha256": "666c74d34556f413a76a31691be9b20f1eec8f2a9459f15b7b98f2ea0dcfa797",
+          "trailer_bytes": 17,
+          "trailer_sha256": "14c359ea7e87f686b4647c94643b23491bf2a281f7ff9b827643fcb57f2d3896"
+        },
+        "primary_library": {
+          "decision": "accept",
+          "no_op_exact": true,
+          "playlists": 2,
+          "sections": 10,
+          "tracks": 1,
+          "trailer_bytes": 17
+        },
+        "reference_envelope": {
+          "decision": "accept",
+          "payload_bytes": 10442,
+          "payload_sha256": "666c74d34556f413a76a31691be9b20f1eec8f2a9459f15b7b98f2ea0dcfa797",
+          "trailer_bytes": 17,
+          "trailer_sha256": "14c359ea7e87f686b4647c94643b23491bf2a281f7ff9b827643fcb57f2d3896"
+        },
+        "reference_library": {
+          "decision": "accept",
+          "playlists": 2,
+          "sections": 10,
+          "tracks": 1,
+          "trailer_bytes": 17
+        },
+        "validator": {
+          "coverage": {
+            "compressed_trailer": {
+              "bytes": 17,
+              "present": true,
+              "semantically_validated": false
+            },
+            "envelope_and_record_boundaries": true,
+            "known_reference_namespaces": [
+              "track local/Persistent IDs",
+              "playlist local/Persistent IDs",
+              "playlist item IDs and track references",
+              "track album and artist local references"
+            ],
+            "opaque_bytes_semantically_validated": false,
+            "opaque_reference_scan": false
+          },
+          "decision": "accept",
+          "issue_codes": [
+            "scope.compressed_trailer",
+            "scope.opaque_section",
+            "scope.opaque_section"
+          ],
+          "valid": true
+        }
+      },
+      "recipe": "flip one bit in the opaque trailer while leaving the zlib member intact",
+      "source": "TEST_CORPUS/generated/reference-one-track-zlib.itl"
+    },
+    {
+      "candidate": {
+        "bytes": 3440,
+        "sha256": "259d1caaa7e038ea4cfeb0d69bda1324ad18217d8d717e481c5e69fa1d17edfa"
+      },
+      "expectation": "trailer_valid",
+      "family": "compressed_trailer",
+      "id": "trailer-native-profile-write-guard",
+      "mutation": {
+        "native_input_modified": false
+      },
+      "outcomes": {
+        "detection": {
+          "decision": "accept",
+          "status": "recognized",
+          "version": "12.13.10.3"
+        },
+        "primary_container": {
+          "decision": "accept",
+          "no_op_exact": true,
+          "payload_bytes": 100057,
+          "payload_sha256": "09b4a4eeea24cf2383539c754688b7b5b57931aa6da3ca1d69844f240fcee727",
+          "trailer_bytes": 22,
+          "trailer_sha256": "3f23cb8f0da7dec03043f932ac6dd5ccaa63e0b35afd56b03212824ab5e2692e"
+        },
+        "primary_container_relaxed": {
+          "decision": "accept",
+          "no_op_exact": true,
+          "payload_bytes": 100057,
+          "payload_sha256": "09b4a4eeea24cf2383539c754688b7b5b57931aa6da3ca1d69844f240fcee727",
+          "trailer_bytes": 22,
+          "trailer_sha256": "3f23cb8f0da7dec03043f932ac6dd5ccaa63e0b35afd56b03212824ab5e2692e"
+        },
+        "primary_library": {
+          "decision": "accept",
+          "no_op_exact": true,
+          "playlists": 14,
+          "sections": 11,
+          "tracks": 1,
+          "trailer_bytes": 22
+        },
+        "reference_envelope": {
+          "decision": "accept",
+          "payload_bytes": 100057,
+          "payload_sha256": "09b4a4eeea24cf2383539c754688b7b5b57931aa6da3ca1d69844f240fcee727",
+          "trailer_bytes": 22,
+          "trailer_sha256": "3f23cb8f0da7dec03043f932ac6dd5ccaa63e0b35afd56b03212824ab5e2692e"
+        },
+        "reference_library": {
+          "decision": "accept",
+          "playlists": 14,
+          "sections": 11,
+          "tracks": 1,
+          "trailer_bytes": 22
+        },
+        "validator": {
+          "coverage": {
+            "compressed_trailer": {
+              "bytes": 22,
+              "present": true,
+              "semantically_validated": false
+            },
+            "envelope_and_record_boundaries": true,
+            "known_reference_namespaces": [
+              "track local/Persistent IDs",
+              "playlist local/Persistent IDs",
+              "playlist item IDs and track references",
+              "track album and artist local references"
+            ],
+            "opaque_bytes_semantically_validated": false,
+            "opaque_reference_scan": false
+          },
+          "decision": "accept",
+          "issue_codes": [
+            "scope.compressed_trailer",
+            "scope.opaque_section",
+            "scope.opaque_section"
+          ],
+          "valid": true
+        }
+      },
+      "recipe": "repack the frozen native payload and append an opaque trailer in memory",
+      "semantic_write_gate": {
+        "decision": "reject",
+        "error_class": "opaque_trailer",
+        "error_type": "UnsupportedError"
+      },
+      "source": "evidence/native/snapshots/001-one-track.itl"
+    },
+    {
+      "candidate": {
+        "bytes": 775,
+        "sha256": "2f51befb4cf93e83b047d91a8dcbb0448a6c8fdb0660a4da928da379b11e5c13"
+      },
+      "expectation": "outer_size_mismatch",
+      "family": "outer_size",
+      "id": "outer-declared-size--1",
+      "mutation": {
+        "declared_size_delta": -1,
+        "header_offset": 8
+      },
+      "outcomes": {
+        "detection": {
+          "decision": "reject",
+          "error_class": "other",
+          "error_type": "ValueError"
+        },
+        "primary_container": {
+          "decision": "reject",
+          "error_class": "outer_size",
+          "error_type": "FormatError"
+        },
+        "primary_container_relaxed": {
+          "decision": "accept",
+          "no_op_exact": true,
+          "payload_bytes": 10442,
+          "payload_sha256": "666c74d34556f413a76a31691be9b20f1eec8f2a9459f15b7b98f2ea0dcfa797",
+          "trailer_bytes": 0,
+          "trailer_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "primary_library": {
+          "decision": "reject",
+          "error_class": "outer_size",
+          "error_type": "FormatError"
+        },
+        "reference_envelope": {
+          "decision": "reject",
+          "error_class": "outer_size",
+          "error_type": "FormatError"
+        },
+        "reference_library": {
+          "decision": "reject",
+          "error_class": "outer_size",
+          "error_type": "FormatError"
+        },
+        "validator": {
+          "coverage": {
+            "compressed_trailer": {
+              "bytes": null,
+              "present": null,
+              "semantically_validated": false
+            },
+            "envelope_and_record_boundaries": false,
+            "known_reference_namespaces": [],
+            "opaque_bytes_semantically_validated": false
+          },
+          "decision": "reject",
+          "issue_codes": [
+            "profile.not_recognized",
+            "parse.failed"
+          ],
+          "valid": false
+        }
+      },
+      "recipe": "change hdfm+0x08 by -1 without changing file bytes",
+      "source": "TEST_CORPUS/generated/reference-one-track-zlib.itl"
+    },
+    {
+      "candidate": {
+        "bytes": 775,
+        "sha256": "6cb0c4e3d7dcde748523b9bba98678cbe0e0727667ce8405e1e21861c7294c4d"
+      },
+      "expectation": "outer_size_mismatch",
+      "family": "outer_size",
+      "id": "outer-declared-size-+1",
+      "mutation": {
+        "declared_size_delta": 1,
+        "header_offset": 8
+      },
+      "outcomes": {
+        "detection": {
+          "decision": "reject",
+          "error_class": "other",
+          "error_type": "ValueError"
+        },
+        "primary_container": {
+          "decision": "reject",
+          "error_class": "outer_size",
+          "error_type": "FormatError"
+        },
+        "primary_container_relaxed": {
+          "decision": "accept",
+          "no_op_exact": true,
+          "payload_bytes": 10442,
+          "payload_sha256": "666c74d34556f413a76a31691be9b20f1eec8f2a9459f15b7b98f2ea0dcfa797",
+          "trailer_bytes": 0,
+          "trailer_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "primary_library": {
+          "decision": "reject",
+          "error_class": "outer_size",
+          "error_type": "FormatError"
+        },
+        "reference_envelope": {
+          "decision": "reject",
+          "error_class": "outer_size",
+          "error_type": "FormatError"
+        },
+        "reference_library": {
+          "decision": "reject",
+          "error_class": "outer_size",
+          "error_type": "FormatError"
+        },
+        "validator": {
+          "coverage": {
+            "compressed_trailer": {
+              "bytes": null,
+              "present": null,
+              "semantically_validated": false
+            },
+            "envelope_and_record_boundaries": false,
+            "known_reference_namespaces": [],
+            "opaque_bytes_semantically_validated": false
+          },
+          "decision": "reject",
+          "issue_codes": [
+            "profile.not_recognized",
+            "parse.failed"
+          ],
+          "valid": false
+        }
+      },
+      "recipe": "change hdfm+0x08 by +1 without changing file bytes",
+      "source": "TEST_CORPUS/generated/reference-one-track-zlib.itl"
+    },
+    {
+      "candidate": {
+        "bytes": 775,
+        "sha256": "95901c26c051924a3598b73a8727ed2ccd9d86f479889e71e315774023ab40aa"
+      },
+      "expectation": "envelope_invalid",
+      "family": "outer_header_length",
+      "id": "outer-header-length-95",
+      "mutation": {
+        "header_offset": 4,
+        "value": 95
+      },
+      "outcomes": {
+        "detection": {
+          "decision": "reject",
+          "error_class": "other",
+          "error_type": "ValueError"
+        },
+        "primary_container": {
+          "decision": "reject",
+          "error_class": "outer_header",
+          "error_type": "FormatError"
+        },
+        "primary_container_relaxed": {
+          "decision": "reject",
+          "error_class": "outer_header",
+          "error_type": "FormatError"
+        },
+        "primary_library": {
+          "decision": "reject",
+          "error_class": "outer_header",
+          "error_type": "FormatError"
+        },
+        "reference_envelope": {
+          "decision": "reject",
+          "error_class": "outer_header",
+          "error_type": "FormatError"
+        },
+        "reference_library": {
+          "decision": "reject",
+          "error_class": "outer_header",
+          "error_type": "FormatError"
+        },
+        "validator": {
+          "coverage": {
+            "compressed_trailer": {
+              "bytes": null,
+              "present": null,
+              "semantically_validated": false
+            },
+            "envelope_and_record_boundaries": false,
+            "known_reference_namespaces": [],
+            "opaque_bytes_semantically_validated": false
+          },
+          "decision": "reject",
+          "issue_codes": [
+            "profile.not_recognized",
+            "parse.failed"
+          ],
+          "valid": false
+        }
+      },
+      "recipe": "set hdfm+0x04 header length to 95",
+      "source": "TEST_CORPUS/generated/reference-one-track-zlib.itl"
+    },
+    {
+      "candidate": {
+        "bytes": 775,
+        "sha256": "f8dfb06aa6fc3bbf549ffc627ecbca8d0d885a2e4845205faa0cfe34e327d7ea"
+      },
+      "expectation": "envelope_invalid",
+      "family": "outer_header_length",
+      "id": "outer-header-length-96",
+      "mutation": {
+        "header_offset": 4,
+        "value": 96
+      },
+      "outcomes": {
+        "detection": {
+          "decision": "reject",
+          "error_class": "other",
+          "error_type": "ValueError"
+        },
+        "primary_container": {
+          "decision": "reject",
+          "error_class": "zlib_invalid",
+          "error_type": "FormatError"
+        },
+        "primary_container_relaxed": {
+          "decision": "reject",
+          "error_class": "zlib_invalid",
+          "error_type": "FormatError"
+        },
+        "primary_library": {
+          "decision": "reject",
+          "error_class": "zlib_invalid",
+          "error_type": "FormatError"
+        },
+        "reference_envelope": {
+          "decision": "reject",
+          "error_class": "zlib_invalid",
+          "error_type": "FormatError"
+        },
+        "reference_library": {
+          "decision": "reject",
+          "error_class": "zlib_invalid",
+          "error_type": "FormatError"
+        },
+        "validator": {
+          "coverage": {
+            "compressed_trailer": {
+              "bytes": null,
+              "present": null,
+              "semantically_validated": false
+            },
+            "envelope_and_record_boundaries": false,
+            "known_reference_namespaces": [],
+            "opaque_bytes_semantically_validated": false
+          },
+          "decision": "reject",
+          "issue_codes": [
+            "profile.not_recognized",
+            "parse.failed"
+          ],
+          "valid": false
+        }
+      },
+      "recipe": "set hdfm+0x04 header length to 96",
+      "source": "TEST_CORPUS/generated/reference-one-track-zlib.itl"
+    },
+    {
+      "candidate": {
+        "bytes": 775,
+        "sha256": "784efeac7ad7a8089d7c65791e3b16fb855d3609c26d05afd68983e6b8fa5814"
+      },
+      "expectation": "envelope_invalid",
+      "family": "outer_header_length",
+      "id": "outer-header-length-145",
+      "mutation": {
+        "header_offset": 4,
+        "value": 145
+      },
+      "outcomes": {
+        "detection": {
+          "decision": "reject",
+          "error_class": "other",
+          "error_type": "ValueError"
+        },
+        "primary_container": {
+          "decision": "reject",
+          "error_class": "zlib_invalid",
+          "error_type": "FormatError"
+        },
+        "primary_container_relaxed": {
+          "decision": "reject",
+          "error_class": "zlib_invalid",
+          "error_type": "FormatError"
+        },
+        "primary_library": {
+          "decision": "reject",
+          "error_class": "zlib_invalid",
+          "error_type": "FormatError"
+        },
+        "reference_envelope": {
+          "decision": "reject",
+          "error_class": "zlib_invalid",
+          "error_type": "FormatError"
+        },
+        "reference_library": {
+          "decision": "reject",
+          "error_class": "zlib_invalid",
+          "error_type": "FormatError"
+        },
+        "validator": {
+          "coverage": {
+            "compressed_trailer": {
+              "bytes": null,
+              "present": null,
+              "semantically_validated": false
+            },
+            "envelope_and_record_boundaries": false,
+            "known_reference_namespaces": [],
+            "opaque_bytes_semantically_validated": false
+          },
+          "decision": "reject",
+          "issue_codes": [
+            "profile.not_recognized",
+            "parse.failed"
+          ],
+          "valid": false
+        }
+      },
+      "recipe": "set hdfm+0x04 header length to 145",
+      "source": "TEST_CORPUS/generated/reference-one-track-zlib.itl"
+    },
+    {
+      "candidate": {
+        "bytes": 775,
+        "sha256": "336404b61bb84b624f52d8b0719fab54fcba026216b11c52cb0e230083c04978"
+      },
+      "expectation": "envelope_invalid",
+      "family": "outer_header_length",
+      "id": "outer-header-length-776",
+      "mutation": {
+        "header_offset": 4,
+        "value": 776
+      },
+      "outcomes": {
+        "detection": {
+          "decision": "reject",
+          "error_class": "other",
+          "error_type": "ValueError"
+        },
+        "primary_container": {
+          "decision": "reject",
+          "error_class": "outer_header",
+          "error_type": "FormatError"
+        },
+        "primary_container_relaxed": {
+          "decision": "reject",
+          "error_class": "outer_header",
+          "error_type": "FormatError"
+        },
+        "primary_library": {
+          "decision": "reject",
+          "error_class": "outer_header",
+          "error_type": "FormatError"
+        },
+        "reference_envelope": {
+          "decision": "reject",
+          "error_class": "outer_header",
+          "error_type": "FormatError"
+        },
+        "reference_library": {
+          "decision": "reject",
+          "error_class": "outer_header",
+          "error_type": "FormatError"
+        },
+        "validator": {
+          "coverage": {
+            "compressed_trailer": {
+              "bytes": null,
+              "present": null,
+              "semantically_validated": false
+            },
+            "envelope_and_record_boundaries": false,
+            "known_reference_namespaces": [],
+            "opaque_bytes_semantically_validated": false
+          },
+          "decision": "reject",
+          "issue_codes": [
+            "profile.not_recognized",
+            "parse.failed"
+          ],
+          "valid": false
+        }
+      },
+      "recipe": "set hdfm+0x04 header length to 776",
+      "source": "TEST_CORPUS/generated/reference-one-track-zlib.itl"
+    },
+    {
+      "candidate": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "expectation": "envelope_invalid",
+      "family": "truncation",
+      "id": "truncate-prefix-000",
+      "mutation": {
+        "retained_bytes": 0
+      },
+      "outcomes": {
+        "detection": {
+          "decision": "reject",
+          "error_class": "other",
+          "error_type": "ValueError"
+        },
+        "primary_container": {
+          "decision": "reject",
+          "error_class": "other",
+          "error_type": "FormatError"
+        },
+        "primary_container_relaxed": {
+          "decision": "reject",
+          "error_class": "other",
+          "error_type": "FormatError"
+        },
+        "primary_library": {
+          "decision": "reject",
+          "error_class": "other",
+          "error_type": "FormatError"
+        },
+        "reference_envelope": {
+          "decision": "reject",
+          "error_class": "outer_header",
+          "error_type": "FormatError"
+        },
+        "reference_library": {
+          "decision": "reject",
+          "error_class": "outer_header",
+          "error_type": "FormatError"
+        },
+        "validator": {
+          "coverage": {
+            "compressed_trailer": {
+              "bytes": null,
+              "present": null,
+              "semantically_validated": false
+            },
+            "envelope_and_record_boundaries": false,
+            "known_reference_namespaces": [],
+            "opaque_bytes_semantically_validated": false
+          },
+          "decision": "reject",
+          "issue_codes": [
+            "profile.not_recognized",
+            "parse.failed"
+          ],
+          "valid": false
+        }
+      },
+      "recipe": "retain only the first 0 file bytes",
+      "source": "TEST_CORPUS/generated/reference-one-track-zlib.itl"
+    },
+    {
+      "candidate": {
+        "bytes": 3,
+        "sha256": "1b145eb5f8c4be8f4ed63bdaf00009211ac9075d4f37c2dc29fb9a7f01e9d4cb"
+      },
+      "expectation": "envelope_invalid",
+      "family": "truncation",
+      "id": "truncate-prefix-003",
+      "mutation": {
+        "retained_bytes": 3
+      },
+      "outcomes": {
+        "detection": {
+          "decision": "reject",
+          "error_class": "other",
+          "error_type": "ValueError"
+        },
+        "primary_container": {
+          "decision": "reject",
+          "error_class": "other",
+          "error_type": "FormatError"
+        },
+        "primary_container_relaxed": {
+          "decision": "reject",
+          "error_class": "other",
+          "error_type": "FormatError"
+        },
+        "primary_library": {
+          "decision": "reject",
+          "error_class": "other",
+          "error_type": "FormatError"
+        },
+        "reference_envelope": {
+          "decision": "reject",
+          "error_class": "outer_header",
+          "error_type": "FormatError"
+        },
+        "reference_library": {
+          "decision": "reject",
+          "error_class": "outer_header",
+          "error_type": "FormatError"
+        },
+        "validator": {
+          "coverage": {
+            "compressed_trailer": {
+              "bytes": null,
+              "present": null,
+              "semantically_validated": false
+            },
+            "envelope_and_record_boundaries": false,
+            "known_reference_namespaces": [],
+            "opaque_bytes_semantically_validated": false
+          },
+          "decision": "reject",
+          "issue_codes": [
+            "profile.not_recognized",
+            "parse.failed"
+          ],
+          "valid": false
+        }
+      },
+      "recipe": "retain only the first 3 file bytes",
+      "source": "TEST_CORPUS/generated/reference-one-track-zlib.itl"
+    },
+    {
+      "candidate": {
+        "bytes": 4,
+        "sha256": "28f1f8d261363cb5f8da5f93f368bbe39965cdcf301be6a5385ed7d72d542706"
+      },
+      "expectation": "envelope_invalid",
+      "family": "truncation",
+      "id": "truncate-prefix-004",
+      "mutation": {
+        "retained_bytes": 4
+      },
+      "outcomes": {
+        "detection": {
+          "decision": "reject",
+          "error_class": "other",
+          "error_type": "ValueError"
+        },
+        "primary_container": {
+          "decision": "reject",
+          "error_class": "other",
+          "error_type": "FormatError"
+        },
+        "primary_container_relaxed": {
+          "decision": "reject",
+          "error_class": "other",
+          "error_type": "FormatError"
+        },
+        "primary_library": {
+          "decision": "reject",
+          "error_class": "other",
+          "error_type": "FormatError"
+        },
+        "reference_envelope": {
+          "decision": "reject",
+          "error_class": "outer_header",
+          "error_type": "FormatError"
+        },
+        "reference_library": {
+          "decision": "reject",
+          "error_class": "outer_header",
+          "error_type": "FormatError"
+        },
+        "validator": {
+          "coverage": {
+            "compressed_trailer": {
+              "bytes": null,
+              "present": null,
+              "semantically_validated": false
+            },
+            "envelope_and_record_boundaries": false,
+            "known_reference_namespaces": [],
+            "opaque_bytes_semantically_validated": false
+          },
+          "decision": "reject",
+          "issue_codes": [
+            "profile.not_recognized",
+            "parse.failed"
+          ],
+          "valid": false
+        }
+      },
+      "recipe": "retain only the first 4 file bytes",
+      "source": "TEST_CORPUS/generated/reference-one-track-zlib.itl"
+    },
+    {
+      "candidate": {
+        "bytes": 95,
+        "sha256": "73c8c88f9d05e3473dfcb6e23820f1d6a661ee3cc94f5b9fb348611139c9cc66"
+      },
+      "expectation": "envelope_invalid",
+      "family": "truncation",
+      "id": "truncate-prefix-095",
+      "mutation": {
+        "retained_bytes": 95
+      },
+      "outcomes": {
+        "detection": {
+          "decision": "reject",
+          "error_class": "other",
+          "error_type": "ValueError"
+        },
+        "primary_container": {
+          "decision": "reject",
+          "error_class": "other",
+          "error_type": "FormatError"
+        },
+        "primary_container_relaxed": {
+          "decision": "reject",
+          "error_class": "other",
+          "error_type": "FormatError"
+        },
+        "primary_library": {
+          "decision": "reject",
+          "error_class": "other",
+          "error_type": "FormatError"
+        },
+        "reference_envelope": {
+          "decision": "reject",
+          "error_class": "outer_header",
+          "error_type": "FormatError"
+        },
+        "reference_library": {
+          "decision": "reject",
+          "error_class": "outer_header",
+          "error_type": "FormatError"
+        },
+        "validator": {
+          "coverage": {
+            "compressed_trailer": {
+              "bytes": null,
+              "present": null,
+              "semantically_validated": false
+            },
+            "envelope_and_record_boundaries": false,
+            "known_reference_namespaces": [],
+            "opaque_bytes_semantically_validated": false
+          },
+          "decision": "reject",
+          "issue_codes": [
+            "profile.not_recognized",
+            "parse.failed"
+          ],
+          "valid": false
+        }
+      },
+      "recipe": "retain only the first 95 file bytes",
+      "source": "TEST_CORPUS/generated/reference-one-track-zlib.itl"
+    },
+    {
+      "candidate": {
+        "bytes": 96,
+        "sha256": "a9965e4921ba31e530e8cb9e21c4d71837326ed1fe3163e96f8f9d614073d62e"
+      },
+      "expectation": "envelope_invalid",
+      "family": "truncation",
+      "id": "truncate-prefix-096",
+      "mutation": {
+        "retained_bytes": 96
+      },
+      "outcomes": {
+        "detection": {
+          "decision": "reject",
+          "error_class": "other",
+          "error_type": "ValueError"
+        },
+        "primary_container": {
+          "decision": "reject",
+          "error_class": "outer_header",
+          "error_type": "FormatError"
+        },
+        "primary_container_relaxed": {
+          "decision": "reject",
+          "error_class": "outer_header",
+          "error_type": "FormatError"
+        },
+        "primary_library": {
+          "decision": "reject",
+          "error_class": "outer_header",
+          "error_type": "FormatError"
+        },
+        "reference_envelope": {
+          "decision": "reject",
+          "error_class": "outer_header",
+          "error_type": "FormatError"
+        },
+        "reference_library": {
+          "decision": "reject",
+          "error_class": "outer_header",
+          "error_type": "FormatError"
+        },
+        "validator": {
+          "coverage": {
+            "compressed_trailer": {
+              "bytes": null,
+              "present": null,
+              "semantically_validated": false
+            },
+            "envelope_and_record_boundaries": false,
+            "known_reference_namespaces": [],
+            "opaque_bytes_semantically_validated": false
+          },
+          "decision": "reject",
+          "issue_codes": [
+            "profile.not_recognized",
+            "parse.failed"
+          ],
+          "valid": false
+        }
+      },
+      "recipe": "retain only the first 96 file bytes",
+      "source": "TEST_CORPUS/generated/reference-one-track-zlib.itl"
+    },
+    {
+      "candidate": {
+        "bytes": 143,
+        "sha256": "caab5b3b179208feb31eb72428c28226334971e2241aae9f3e4f2729fe420d0f"
+      },
+      "expectation": "envelope_invalid",
+      "family": "truncation",
+      "id": "truncate-prefix-143",
+      "mutation": {
+        "retained_bytes": 143
+      },
+      "outcomes": {
+        "detection": {
+          "decision": "reject",
+          "error_class": "other",
+          "error_type": "ValueError"
+        },
+        "primary_container": {
+          "decision": "reject",
+          "error_class": "outer_header",
+          "error_type": "FormatError"
+        },
+        "primary_container_relaxed": {
+          "decision": "reject",
+          "error_class": "outer_header",
+          "error_type": "FormatError"
+        },
+        "primary_library": {
+          "decision": "reject",
+          "error_class": "outer_header",
+          "error_type": "FormatError"
+        },
+        "reference_envelope": {
+          "decision": "reject",
+          "error_class": "outer_header",
+          "error_type": "FormatError"
+        },
+        "reference_library": {
+          "decision": "reject",
+          "error_class": "outer_header",
+          "error_type": "FormatError"
+        },
+        "validator": {
+          "coverage": {
+            "compressed_trailer": {
+              "bytes": null,
+              "present": null,
+              "semantically_validated": false
+            },
+            "envelope_and_record_boundaries": false,
+            "known_reference_namespaces": [],
+            "opaque_bytes_semantically_validated": false
+          },
+          "decision": "reject",
+          "issue_codes": [
+            "profile.not_recognized",
+            "parse.failed"
+          ],
+          "valid": false
+        }
+      },
+      "recipe": "retain only the first 143 file bytes",
+      "source": "TEST_CORPUS/generated/reference-one-track-zlib.itl"
+    },
+    {
+      "candidate": {
+        "bytes": 144,
+        "sha256": "a22bed18a9ffbcd9d2731948d1f531744669ab9fbf979d873a9be769d2f9651d"
+      },
+      "expectation": "envelope_invalid",
+      "family": "truncation",
+      "id": "truncate-prefix-144",
+      "mutation": {
+        "retained_bytes": 144
+      },
+      "outcomes": {
+        "detection": {
+          "decision": "reject",
+          "error_class": "other",
+          "error_type": "ValueError"
+        },
+        "primary_container": {
+          "decision": "reject",
+          "error_class": "outer_size",
+          "error_type": "FormatError"
+        },
+        "primary_container_relaxed": {
+          "decision": "reject",
+          "error_class": "zlib_truncated",
+          "error_type": "FormatError"
+        },
+        "primary_library": {
+          "decision": "reject",
+          "error_class": "outer_size",
+          "error_type": "FormatError"
+        },
+        "reference_envelope": {
+          "decision": "reject",
+          "error_class": "outer_size",
+          "error_type": "FormatError"
+        },
+        "reference_library": {
+          "decision": "reject",
+          "error_class": "outer_size",
+          "error_type": "FormatError"
+        },
+        "validator": {
+          "coverage": {
+            "compressed_trailer": {
+              "bytes": null,
+              "present": null,
+              "semantically_validated": false
+            },
+            "envelope_and_record_boundaries": false,
+            "known_reference_namespaces": [],
+            "opaque_bytes_semantically_validated": false
+          },
+          "decision": "reject",
+          "issue_codes": [
+            "profile.not_recognized",
+            "parse.failed"
+          ],
+          "valid": false
+        }
+      },
+      "recipe": "retain only the first 144 file bytes",
+      "source": "TEST_CORPUS/generated/reference-one-track-zlib.itl"
+    },
+    {
+      "candidate": {
+        "bytes": 775,
+        "sha256": "f5578fa7013ecac4adc9e01d4080488e37e24760eade7ebb48e4680e2faa43bd"
+      },
+      "expectation": "envelope_invalid",
+      "family": "compressed_corruption",
+      "id": "zlib-checksum-one-bit-corruption",
+      "mutation": {
+        "file_offset": 774,
+        "xor": 1
+      },
+      "outcomes": {
+        "detection": {
+          "decision": "reject",
+          "error_class": "other",
+          "error_type": "ValueError"
+        },
+        "primary_container": {
+          "decision": "reject",
+          "error_class": "zlib_invalid",
+          "error_type": "FormatError"
+        },
+        "primary_container_relaxed": {
+          "decision": "reject",
+          "error_class": "zlib_invalid",
+          "error_type": "FormatError"
+        },
+        "primary_library": {
+          "decision": "reject",
+          "error_class": "zlib_invalid",
+          "error_type": "FormatError"
+        },
+        "reference_envelope": {
+          "decision": "reject",
+          "error_class": "zlib_invalid",
+          "error_type": "FormatError"
+        },
+        "reference_library": {
+          "decision": "reject",
+          "error_class": "zlib_invalid",
+          "error_type": "FormatError"
+        },
+        "validator": {
+          "coverage": {
+            "compressed_trailer": {
+              "bytes": null,
+              "present": null,
+              "semantically_validated": false
+            },
+            "envelope_and_record_boundaries": false,
+            "known_reference_namespaces": [],
+            "opaque_bytes_semantically_validated": false
+          },
+          "decision": "reject",
+          "issue_codes": [
+            "profile.not_recognized",
+            "parse.failed"
+          ],
+          "valid": false
+        }
+      },
+      "recipe": "flip one bit in the Adler-32 tail of an unencrypted zlib body",
+      "source": "TEST_CORPUS/generated/reference-one-track-zlib.itl"
+    },
+    {
+      "candidate": {
+        "bytes": 774,
+        "sha256": "3f7db84f584f4acacb9a98269976d65919680f5e57cc2587cc8a38f11d4767bf"
+      },
+      "expectation": "envelope_invalid",
+      "family": "truncation",
+      "id": "zlib-truncate-01",
+      "mutation": {
+        "outer_size_repaired": true,
+        "removed_tail_bytes": 1
+      },
+      "outcomes": {
+        "detection": {
+          "decision": "reject",
+          "error_class": "other",
+          "error_type": "ValueError"
+        },
+        "primary_container": {
+          "decision": "reject",
+          "error_class": "zlib_truncated",
+          "error_type": "FormatError"
+        },
+        "primary_container_relaxed": {
+          "decision": "reject",
+          "error_class": "zlib_truncated",
+          "error_type": "FormatError"
+        },
+        "primary_library": {
+          "decision": "reject",
+          "error_class": "zlib_truncated",
+          "error_type": "FormatError"
+        },
+        "reference_envelope": {
+          "decision": "reject",
+          "error_class": "zlib_truncated",
+          "error_type": "FormatError"
+        },
+        "reference_library": {
+          "decision": "reject",
+          "error_class": "zlib_truncated",
+          "error_type": "FormatError"
+        },
+        "validator": {
+          "coverage": {
+            "compressed_trailer": {
+              "bytes": null,
+              "present": null,
+              "semantically_validated": false
+            },
+            "envelope_and_record_boundaries": false,
+            "known_reference_namespaces": [],
+            "opaque_bytes_semantically_validated": false
+          },
+          "decision": "reject",
+          "issue_codes": [
+            "profile.not_recognized",
+            "parse.failed"
+          ],
+          "valid": false
+        }
+      },
+      "recipe": "remove 1 compressed tail bytes and repair only outer size",
+      "source": "TEST_CORPUS/generated/reference-one-track-zlib.itl"
+    },
+    {
+      "candidate": {
+        "bytes": 771,
+        "sha256": "e9e513af872d3c20b984828a70ac0f5c75e7d4cc26c1975fb1061c66e2868bf7"
+      },
+      "expectation": "envelope_invalid",
+      "family": "truncation",
+      "id": "zlib-truncate-04",
+      "mutation": {
+        "outer_size_repaired": true,
+        "removed_tail_bytes": 4
+      },
+      "outcomes": {
+        "detection": {
+          "decision": "reject",
+          "error_class": "other",
+          "error_type": "ValueError"
+        },
+        "primary_container": {
+          "decision": "reject",
+          "error_class": "zlib_truncated",
+          "error_type": "FormatError"
+        },
+        "primary_container_relaxed": {
+          "decision": "reject",
+          "error_class": "zlib_truncated",
+          "error_type": "FormatError"
+        },
+        "primary_library": {
+          "decision": "reject",
+          "error_class": "zlib_truncated",
+          "error_type": "FormatError"
+        },
+        "reference_envelope": {
+          "decision": "reject",
+          "error_class": "zlib_truncated",
+          "error_type": "FormatError"
+        },
+        "reference_library": {
+          "decision": "reject",
+          "error_class": "zlib_truncated",
+          "error_type": "FormatError"
+        },
+        "validator": {
+          "coverage": {
+            "compressed_trailer": {
+              "bytes": null,
+              "present": null,
+              "semantically_validated": false
+            },
+            "envelope_and_record_boundaries": false,
+            "known_reference_namespaces": [],
+            "opaque_bytes_semantically_validated": false
+          },
+          "decision": "reject",
+          "issue_codes": [
+            "profile.not_recognized",
+            "parse.failed"
+          ],
+          "valid": false
+        }
+      },
+      "recipe": "remove 4 compressed tail bytes and repair only outer size",
+      "source": "TEST_CORPUS/generated/reference-one-track-zlib.itl"
+    },
+    {
+      "candidate": {
+        "bytes": 767,
+        "sha256": "59552ad365d0e8a11580cbe7168cd0f7b279f2a7f20d30c5dc555ee7fbbe9635"
+      },
+      "expectation": "envelope_invalid",
+      "family": "truncation",
+      "id": "zlib-truncate-08",
+      "mutation": {
+        "outer_size_repaired": true,
+        "removed_tail_bytes": 8
+      },
+      "outcomes": {
+        "detection": {
+          "decision": "reject",
+          "error_class": "other",
+          "error_type": "ValueError"
+        },
+        "primary_container": {
+          "decision": "reject",
+          "error_class": "zlib_truncated",
+          "error_type": "FormatError"
+        },
+        "primary_container_relaxed": {
+          "decision": "reject",
+          "error_class": "zlib_truncated",
+          "error_type": "FormatError"
+        },
+        "primary_library": {
+          "decision": "reject",
+          "error_class": "zlib_truncated",
+          "error_type": "FormatError"
+        },
+        "reference_envelope": {
+          "decision": "reject",
+          "error_class": "zlib_truncated",
+          "error_type": "FormatError"
+        },
+        "reference_library": {
+          "decision": "reject",
+          "error_class": "zlib_truncated",
+          "error_type": "FormatError"
+        },
+        "validator": {
+          "coverage": {
+            "compressed_trailer": {
+              "bytes": null,
+              "present": null,
+              "semantically_validated": false
+            },
+            "envelope_and_record_boundaries": false,
+            "known_reference_namespaces": [],
+            "opaque_bytes_semantically_validated": false
+          },
+          "decision": "reject",
+          "issue_codes": [
+            "profile.not_recognized",
+            "parse.failed"
+          ],
+          "valid": false
+        }
+      },
+      "recipe": "remove 8 compressed tail bytes and repair only outer size",
+      "source": "TEST_CORPUS/generated/reference-one-track-zlib.itl"
+    },
+    {
+      "candidate": {
+        "bytes": 10566,
+        "sha256": "bbd2424c7d734285da79d70df70375881754807dc0853b074d165a70e072c525"
+      },
+      "expectation": "semantic_boundary_invalid",
+      "family": "record_length",
+      "id": "section-total-minus-one",
+      "mutation": {
+        "payload_offset": 8,
+        "u32le": 239
+      },
+      "outcomes": {
+        "detection": {
+          "decision": "reject",
+          "error_class": "other",
+          "error_type": "ValueError"
+        },
+        "primary_container": {
+          "decision": "accept",
+          "no_op_exact": true,
+          "payload_bytes": 10422,
+          "payload_sha256": "ebc2ac89b5fa2894cd6c02d00f1224f07cc03aada5201c17084464404a8b5c3f",
+          "trailer_bytes": 0,
+          "trailer_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "primary_container_relaxed": {
+          "decision": "accept",
+          "no_op_exact": true,
+          "payload_bytes": 10422,
+          "payload_sha256": "ebc2ac89b5fa2894cd6c02d00f1224f07cc03aada5201c17084464404a8b5c3f",
+          "trailer_bytes": 0,
+          "trailer_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "primary_library": {
+          "decision": "reject",
+          "error_class": "record_boundary",
+          "error_type": "FormatError"
+        },
+        "reference_envelope": {
+          "decision": "accept",
+          "payload_bytes": 10422,
+          "payload_sha256": "ebc2ac89b5fa2894cd6c02d00f1224f07cc03aada5201c17084464404a8b5c3f",
+          "trailer_bytes": 0,
+          "trailer_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "reference_library": {
+          "decision": "reject",
+          "error_class": "record_boundary",
+          "error_type": "FormatError"
+        },
+        "validator": {
+          "coverage": {
+            "compressed_trailer": {
+              "bytes": null,
+              "present": null,
+              "semantically_validated": false
+            },
+            "envelope_and_record_boundaries": false,
+            "known_reference_namespaces": [],
+            "opaque_bytes_semantically_validated": false
+          },
+          "decision": "reject",
+          "issue_codes": [
+            "profile.not_recognized",
+            "parse.failed"
+          ],
+          "valid": false
+        }
+      },
+      "recipe": "shrink the first msdh total length by one byte",
+      "source": "TEST_CORPUS/generated/reference-one-track-raw.itl"
+    },
+    {
+      "candidate": {
+        "bytes": 10566,
+        "sha256": "3a015ffb7fe8778532a04aab7533132ba843bfb6c387619d7eef00866f801401"
+      },
+      "expectation": "semantic_boundary_invalid",
+      "family": "record_length",
+      "id": "section-total-plus-one",
+      "mutation": {
+        "payload_offset": 8,
+        "u32le": 241
+      },
+      "outcomes": {
+        "detection": {
+          "decision": "reject",
+          "error_class": "other",
+          "error_type": "ValueError"
+        },
+        "primary_container": {
+          "decision": "accept",
+          "no_op_exact": true,
+          "payload_bytes": 10422,
+          "payload_sha256": "4d20a6d97b450831f0474e33bd4638be909da0c21e8b5be4f903e475862030d7",
+          "trailer_bytes": 0,
+          "trailer_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "primary_container_relaxed": {
+          "decision": "accept",
+          "no_op_exact": true,
+          "payload_bytes": 10422,
+          "payload_sha256": "4d20a6d97b450831f0474e33bd4638be909da0c21e8b5be4f903e475862030d7",
+          "trailer_bytes": 0,
+          "trailer_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "primary_library": {
+          "decision": "reject",
+          "error_class": "other",
+          "error_type": "FormatError"
+        },
+        "reference_envelope": {
+          "decision": "accept",
+          "payload_bytes": 10422,
+          "payload_sha256": "4d20a6d97b450831f0474e33bd4638be909da0c21e8b5be4f903e475862030d7",
+          "trailer_bytes": 0,
+          "trailer_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "reference_library": {
+          "decision": "reject",
+          "error_class": "other",
+          "error_type": "FormatError"
+        },
+        "validator": {
+          "coverage": {
+            "compressed_trailer": {
+              "bytes": null,
+              "present": null,
+              "semantically_validated": false
+            },
+            "envelope_and_record_boundaries": false,
+            "known_reference_namespaces": [],
+            "opaque_bytes_semantically_validated": false
+          },
+          "decision": "reject",
+          "issue_codes": [
+            "profile.not_recognized",
+            "parse.failed"
+          ],
+          "valid": false
+        }
+      },
+      "recipe": "extend the first msdh total length into the next section",
+      "source": "TEST_CORPUS/generated/reference-one-track-raw.itl"
+    },
+    {
+      "candidate": {
+        "bytes": 10566,
+        "sha256": "806b16eff64adff75044f422695da6dc12eea423e60ab0b0d8b82c12d4a0e355"
+      },
+      "expectation": "semantic_boundary_invalid",
+      "family": "record_length",
+      "id": "section-header-short",
+      "mutation": {
+        "payload_offset": 4,
+        "u32le": 15
+      },
+      "outcomes": {
+        "detection": {
+          "decision": "reject",
+          "error_class": "other",
+          "error_type": "ValueError"
+        },
+        "primary_container": {
+          "decision": "accept",
+          "no_op_exact": true,
+          "payload_bytes": 10422,
+          "payload_sha256": "3fb5f09f52dd90315080407a10ac16d3459ac6175b770c81ffd629051be5f326",
+          "trailer_bytes": 0,
+          "trailer_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "primary_container_relaxed": {
+          "decision": "accept",
+          "no_op_exact": true,
+          "payload_bytes": 10422,
+          "payload_sha256": "3fb5f09f52dd90315080407a10ac16d3459ac6175b770c81ffd629051be5f326",
+          "trailer_bytes": 0,
+          "trailer_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "primary_library": {
+          "decision": "reject",
+          "error_class": "section_boundary",
+          "error_type": "FormatError"
+        },
+        "reference_envelope": {
+          "decision": "accept",
+          "payload_bytes": 10422,
+          "payload_sha256": "3fb5f09f52dd90315080407a10ac16d3459ac6175b770c81ffd629051be5f326",
+          "trailer_bytes": 0,
+          "trailer_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "reference_library": {
+          "decision": "reject",
+          "error_class": "section_boundary",
+          "error_type": "FormatError"
+        },
+        "validator": {
+          "coverage": {
+            "compressed_trailer": {
+              "bytes": null,
+              "present": null,
+              "semantically_validated": false
+            },
+            "envelope_and_record_boundaries": false,
+            "known_reference_namespaces": [],
+            "opaque_bytes_semantically_validated": false
+          },
+          "decision": "reject",
+          "issue_codes": [
+            "profile.not_recognized",
+            "parse.failed"
+          ],
+          "valid": false
+        }
+      },
+      "recipe": "set the first msdh header length below the 16-byte minimum",
+      "source": "TEST_CORPUS/generated/reference-one-track-raw.itl"
+    },
+    {
+      "candidate": {
+        "bytes": 10566,
+        "sha256": "b564251a74a43dc2fd25d5fc19933aa3681c8e5533550492a15a1cdd0c2c9be7"
+      },
+      "expectation": "semantic_boundary_invalid",
+      "family": "record_length",
+      "id": "track-total-below-header",
+      "mutation": {
+        "payload_offset": 1384,
+        "u32le": 755
+      },
+      "outcomes": {
+        "detection": {
+          "decision": "reject",
+          "error_class": "other",
+          "error_type": "ValueError"
+        },
+        "primary_container": {
+          "decision": "accept",
+          "no_op_exact": true,
+          "payload_bytes": 10422,
+          "payload_sha256": "6ac257e30f94cb787b608991d44c40ef45b58e5a903571dc66f456479a38eb95",
+          "trailer_bytes": 0,
+          "trailer_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "primary_container_relaxed": {
+          "decision": "accept",
+          "no_op_exact": true,
+          "payload_bytes": 10422,
+          "payload_sha256": "6ac257e30f94cb787b608991d44c40ef45b58e5a903571dc66f456479a38eb95",
+          "trailer_bytes": 0,
+          "trailer_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "primary_library": {
+          "decision": "reject",
+          "error_class": "record_boundary",
+          "error_type": "FormatError"
+        },
+        "reference_envelope": {
+          "decision": "accept",
+          "payload_bytes": 10422,
+          "payload_sha256": "6ac257e30f94cb787b608991d44c40ef45b58e5a903571dc66f456479a38eb95",
+          "trailer_bytes": 0,
+          "trailer_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "reference_library": {
+          "decision": "reject",
+          "error_class": "record_boundary",
+          "error_type": "FormatError"
+        },
+        "validator": {
+          "coverage": {
+            "compressed_trailer": {
+              "bytes": null,
+              "present": null,
+              "semantically_validated": false
+            },
+            "envelope_and_record_boundaries": false,
+            "known_reference_namespaces": [],
+            "opaque_bytes_semantically_validated": false
+          },
+          "decision": "reject",
+          "issue_codes": [
+            "profile.not_recognized",
+            "parse.failed"
+          ],
+          "valid": false
+        }
+      },
+      "recipe": "set mith total length below its header length",
+      "source": "TEST_CORPUS/generated/reference-one-track-raw.itl"
+    },
+    {
+      "candidate": {
+        "bytes": 10566,
+        "sha256": "a1e072f8e7ff0a6f838c642968ec0fd7f71aa2d19d6aef5afb7996053b4426c3"
+      },
+      "expectation": "semantic_boundary_invalid",
+      "family": "record_length",
+      "id": "track-total-plus-one",
+      "mutation": {
+        "payload_offset": 1384,
+        "u32le": 827
+      },
+      "outcomes": {
+        "detection": {
+          "decision": "reject",
+          "error_class": "other",
+          "error_type": "ValueError"
+        },
+        "primary_container": {
+          "decision": "accept",
+          "no_op_exact": true,
+          "payload_bytes": 10422,
+          "payload_sha256": "c549b19f86ee81c10a6c2fd1384e7a54dfabef608547250377cc030add1acbb8",
+          "trailer_bytes": 0,
+          "trailer_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "primary_container_relaxed": {
+          "decision": "accept",
+          "no_op_exact": true,
+          "payload_bytes": 10422,
+          "payload_sha256": "c549b19f86ee81c10a6c2fd1384e7a54dfabef608547250377cc030add1acbb8",
+          "trailer_bytes": 0,
+          "trailer_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "primary_library": {
+          "decision": "reject",
+          "error_class": "record_boundary",
+          "error_type": "FormatError"
+        },
+        "reference_envelope": {
+          "decision": "accept",
+          "payload_bytes": 10422,
+          "payload_sha256": "c549b19f86ee81c10a6c2fd1384e7a54dfabef608547250377cc030add1acbb8",
+          "trailer_bytes": 0,
+          "trailer_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "reference_library": {
+          "decision": "reject",
+          "error_class": "record_boundary",
+          "error_type": "FormatError"
+        },
+        "validator": {
+          "coverage": {
+            "compressed_trailer": {
+              "bytes": null,
+              "present": null,
+              "semantically_validated": false
+            },
+            "envelope_and_record_boundaries": false,
+            "known_reference_namespaces": [],
+            "opaque_bytes_semantically_validated": false
+          },
+          "decision": "reject",
+          "issue_codes": [
+            "profile.not_recognized",
+            "parse.failed"
+          ],
+          "valid": false
+        }
+      },
+      "recipe": "extend mith total length one byte past the enclosing list",
+      "source": "TEST_CORPUS/generated/reference-one-track-raw.itl"
+    },
+    {
+      "candidate": {
+        "bytes": 10566,
+        "sha256": "282147b17da4bf4073ca5f1a148a10081145a907cd5f1fc0bb4d0125820eec60"
+      },
+      "expectation": "semantic_boundary_invalid",
+      "family": "record_length",
+      "id": "track-header-minus-one",
+      "mutation": {
+        "payload_offset": 1380,
+        "u32le": 755
+      },
+      "outcomes": {
+        "detection": {
+          "decision": "reject",
+          "error_class": "other",
+          "error_type": "ValueError"
+        },
+        "primary_container": {
+          "decision": "accept",
+          "no_op_exact": true,
+          "payload_bytes": 10422,
+          "payload_sha256": "2e816e6126392e137fd76e33bd9d4ed620d4107a2251a4f51118b2826e9c20c9",
+          "trailer_bytes": 0,
+          "trailer_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "primary_container_relaxed": {
+          "decision": "accept",
+          "no_op_exact": true,
+          "payload_bytes": 10422,
+          "payload_sha256": "2e816e6126392e137fd76e33bd9d4ed620d4107a2251a4f51118b2826e9c20c9",
+          "trailer_bytes": 0,
+          "trailer_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "primary_library": {
+          "decision": "reject",
+          "error_class": "record_boundary",
+          "error_type": "FormatError"
+        },
+        "reference_envelope": {
+          "decision": "accept",
+          "payload_bytes": 10422,
+          "payload_sha256": "2e816e6126392e137fd76e33bd9d4ed620d4107a2251a4f51118b2826e9c20c9",
+          "trailer_bytes": 0,
+          "trailer_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "reference_library": {
+          "decision": "reject",
+          "error_class": "record_boundary",
+          "error_type": "FormatError"
+        },
+        "validator": {
+          "coverage": {
+            "compressed_trailer": {
+              "bytes": null,
+              "present": null,
+              "semantically_validated": false
+            },
+            "envelope_and_record_boundaries": false,
+            "known_reference_namespaces": [],
+            "opaque_bytes_semantically_validated": false
+          },
+          "decision": "reject",
+          "issue_codes": [
+            "profile.not_recognized",
+            "parse.failed"
+          ],
+          "valid": false
+        }
+      },
+      "recipe": "move the first child offset one byte into the track header",
+      "source": "TEST_CORPUS/generated/reference-one-track-raw.itl"
+    },
+    {
+      "candidate": {
+        "bytes": 10566,
+        "sha256": "150d839ead7439956ee6a9cdc235ae97c75e9ef51a8e47fcf6199e8a4c28b59a"
+      },
+      "expectation": "semantic_boundary_invalid",
+      "family": "record_length",
+      "id": "track-header-plus-one",
+      "mutation": {
+        "payload_offset": 1380,
+        "u32le": 757
+      },
+      "outcomes": {
+        "detection": {
+          "decision": "reject",
+          "error_class": "other",
+          "error_type": "ValueError"
+        },
+        "primary_container": {
+          "decision": "accept",
+          "no_op_exact": true,
+          "payload_bytes": 10422,
+          "payload_sha256": "40e5af632a1503be9f0ce9b7127c63527120311c662a85d9dfdeb9c5a6126661",
+          "trailer_bytes": 0,
+          "trailer_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "primary_container_relaxed": {
+          "decision": "accept",
+          "no_op_exact": true,
+          "payload_bytes": 10422,
+          "payload_sha256": "40e5af632a1503be9f0ce9b7127c63527120311c662a85d9dfdeb9c5a6126661",
+          "trailer_bytes": 0,
+          "trailer_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "primary_library": {
+          "decision": "reject",
+          "error_class": "record_boundary",
+          "error_type": "FormatError"
+        },
+        "reference_envelope": {
+          "decision": "accept",
+          "payload_bytes": 10422,
+          "payload_sha256": "40e5af632a1503be9f0ce9b7127c63527120311c662a85d9dfdeb9c5a6126661",
+          "trailer_bytes": 0,
+          "trailer_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "reference_library": {
+          "decision": "reject",
+          "error_class": "record_boundary",
+          "error_type": "FormatError"
+        },
+        "validator": {
+          "coverage": {
+            "compressed_trailer": {
+              "bytes": null,
+              "present": null,
+              "semantically_validated": false
+            },
+            "envelope_and_record_boundaries": false,
+            "known_reference_namespaces": [],
+            "opaque_bytes_semantically_validated": false
+          },
+          "decision": "reject",
+          "issue_codes": [
+            "profile.not_recognized",
+            "parse.failed"
+          ],
+          "valid": false
+        }
+      },
+      "recipe": "move the first child offset one byte into the child tag",
+      "source": "TEST_CORPUS/generated/reference-one-track-raw.itl"
+    },
+    {
+      "candidate": {
+        "bytes": 10566,
+        "sha256": "a04d8e06112b711612d0e2fa3965db9d77332f7acbed9d67d689e447968f392c"
+      },
+      "expectation": "semantic_boundary_invalid",
+      "family": "record_length",
+      "id": "text-total-minus-one",
+      "mutation": {
+        "payload_offset": 2140,
+        "u32le": 69
+      },
+      "outcomes": {
+        "detection": {
+          "decision": "reject",
+          "error_class": "other",
+          "error_type": "ValueError"
+        },
+        "primary_container": {
+          "decision": "accept",
+          "no_op_exact": true,
+          "payload_bytes": 10422,
+          "payload_sha256": "36658ad2ed02cf3d2774986f5245fe3926bef10cb574c649b6ff79793d3854e4",
+          "trailer_bytes": 0,
+          "trailer_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "primary_container_relaxed": {
+          "decision": "accept",
+          "no_op_exact": true,
+          "payload_bytes": 10422,
+          "payload_sha256": "36658ad2ed02cf3d2774986f5245fe3926bef10cb574c649b6ff79793d3854e4",
+          "trailer_bytes": 0,
+          "trailer_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "primary_library": {
+          "decision": "reject",
+          "error_class": "record_boundary",
+          "error_type": "FormatError"
+        },
+        "reference_envelope": {
+          "decision": "accept",
+          "payload_bytes": 10422,
+          "payload_sha256": "36658ad2ed02cf3d2774986f5245fe3926bef10cb574c649b6ff79793d3854e4",
+          "trailer_bytes": 0,
+          "trailer_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "reference_library": {
+          "decision": "reject",
+          "error_class": "record_boundary",
+          "error_type": "FormatError"
+        },
+        "validator": {
+          "coverage": {
+            "compressed_trailer": {
+              "bytes": null,
+              "present": null,
+              "semantically_validated": false
+            },
+            "envelope_and_record_boundaries": false,
+            "known_reference_namespaces": [],
+            "opaque_bytes_semantically_validated": false
+          },
+          "decision": "reject",
+          "issue_codes": [
+            "profile.not_recognized",
+            "parse.failed"
+          ],
+          "valid": false
+        }
+      },
+      "recipe": "shrink the first mhoh text object by one byte",
+      "source": "TEST_CORPUS/generated/reference-one-track-raw.itl"
+    },
+    {
+      "candidate": {
+        "bytes": 10566,
+        "sha256": "d364da8b458650a6e43afdc64ef42d01788a9105754c05c3e9fd98174ef481cf"
+      },
+      "expectation": "semantic_boundary_invalid",
+      "family": "record_length",
+      "id": "text-total-plus-one",
+      "mutation": {
+        "payload_offset": 2140,
+        "u32le": 71
+      },
+      "outcomes": {
+        "detection": {
+          "decision": "reject",
+          "error_class": "other",
+          "error_type": "ValueError"
+        },
+        "primary_container": {
+          "decision": "accept",
+          "no_op_exact": true,
+          "payload_bytes": 10422,
+          "payload_sha256": "25ddd27f06d2d164501d29e9ea17e284fee96a17cf1f49f5e799540479e22e24",
+          "trailer_bytes": 0,
+          "trailer_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "primary_container_relaxed": {
+          "decision": "accept",
+          "no_op_exact": true,
+          "payload_bytes": 10422,
+          "payload_sha256": "25ddd27f06d2d164501d29e9ea17e284fee96a17cf1f49f5e799540479e22e24",
+          "trailer_bytes": 0,
+          "trailer_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "primary_library": {
+          "decision": "reject",
+          "error_class": "record_boundary",
+          "error_type": "FormatError"
+        },
+        "reference_envelope": {
+          "decision": "accept",
+          "payload_bytes": 10422,
+          "payload_sha256": "25ddd27f06d2d164501d29e9ea17e284fee96a17cf1f49f5e799540479e22e24",
+          "trailer_bytes": 0,
+          "trailer_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "reference_library": {
+          "decision": "reject",
+          "error_class": "record_boundary",
+          "error_type": "FormatError"
+        },
+        "validator": {
+          "coverage": {
+            "compressed_trailer": {
+              "bytes": null,
+              "present": null,
+              "semantically_validated": false
+            },
+            "envelope_and_record_boundaries": false,
+            "known_reference_namespaces": [],
+            "opaque_bytes_semantically_validated": false
+          },
+          "decision": "reject",
+          "issue_codes": [
+            "profile.not_recognized",
+            "parse.failed"
+          ],
+          "valid": false
+        }
+      },
+      "recipe": "extend the first mhoh text object by one byte",
+      "source": "TEST_CORPUS/generated/reference-one-track-raw.itl"
+    },
+    {
+      "candidate": {
+        "bytes": 10567,
+        "sha256": "6e5c0b7b74e7895e81feadee14321bf5bf9be96e54173cd498b8103316950b13"
+      },
+      "expectation": "semantic_boundary_invalid",
+      "family": "section_offset",
+      "id": "section-offset-insert-one",
+      "mutation": {
+        "insert_hex": "00",
+        "payload_offset": 240
+      },
+      "outcomes": {
+        "detection": {
+          "decision": "reject",
+          "error_class": "other",
+          "error_type": "ValueError"
+        },
+        "primary_container": {
+          "decision": "accept",
+          "no_op_exact": true,
+          "payload_bytes": 10423,
+          "payload_sha256": "eccd424e4282ba16f6b7fadbde47f19ba38058139f2072cc71f327e62e9aba96",
+          "trailer_bytes": 0,
+          "trailer_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "primary_container_relaxed": {
+          "decision": "accept",
+          "no_op_exact": true,
+          "payload_bytes": 10423,
+          "payload_sha256": "eccd424e4282ba16f6b7fadbde47f19ba38058139f2072cc71f327e62e9aba96",
+          "trailer_bytes": 0,
+          "trailer_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "primary_library": {
+          "decision": "reject",
+          "error_class": "record_boundary",
+          "error_type": "FormatError"
+        },
+        "reference_envelope": {
+          "decision": "accept",
+          "payload_bytes": 10423,
+          "payload_sha256": "eccd424e4282ba16f6b7fadbde47f19ba38058139f2072cc71f327e62e9aba96",
+          "trailer_bytes": 0,
+          "trailer_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "reference_library": {
+          "decision": "reject",
+          "error_class": "record_boundary",
+          "error_type": "FormatError"
+        },
+        "validator": {
+          "coverage": {
+            "compressed_trailer": {
+              "bytes": null,
+              "present": null,
+              "semantically_validated": false
+            },
+            "envelope_and_record_boundaries": false,
+            "known_reference_namespaces": [],
+            "opaque_bytes_semantically_validated": false
+          },
+          "decision": "reject",
+          "issue_codes": [
+            "profile.not_recognized",
+            "parse.failed"
+          ],
+          "valid": false
+        }
+      },
+      "recipe": "insert one byte at the second msdh offset without updating section lengths",
+      "source": "TEST_CORPUS/generated/reference-one-track-raw.itl"
+    },
+    {
+      "candidate": {
+        "bytes": 10565,
+        "sha256": "95d0e5647f969d5d54e96a441d32f455caa401549daf335dccbc15cd59dd3239"
+      },
+      "expectation": "semantic_boundary_invalid",
+      "family": "section_offset",
+      "id": "section-offset-delete-one",
+      "mutation": {
+        "deleted_hex": "6d",
+        "payload_offset": 240
+      },
+      "outcomes": {
+        "detection": {
+          "decision": "reject",
+          "error_class": "other",
+          "error_type": "ValueError"
+        },
+        "primary_container": {
+          "decision": "accept",
+          "no_op_exact": true,
+          "payload_bytes": 10421,
+          "payload_sha256": "ddd38dec371af7cb4156a49d588729554a90efb39b7e3e9bd3ce8897574b6dd5",
+          "trailer_bytes": 0,
+          "trailer_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "primary_container_relaxed": {
+          "decision": "accept",
+          "no_op_exact": true,
+          "payload_bytes": 10421,
+          "payload_sha256": "ddd38dec371af7cb4156a49d588729554a90efb39b7e3e9bd3ce8897574b6dd5",
+          "trailer_bytes": 0,
+          "trailer_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "primary_library": {
+          "decision": "reject",
+          "error_class": "record_boundary",
+          "error_type": "FormatError"
+        },
+        "reference_envelope": {
+          "decision": "accept",
+          "payload_bytes": 10421,
+          "payload_sha256": "ddd38dec371af7cb4156a49d588729554a90efb39b7e3e9bd3ce8897574b6dd5",
+          "trailer_bytes": 0,
+          "trailer_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "reference_library": {
+          "decision": "reject",
+          "error_class": "record_boundary",
+          "error_type": "FormatError"
+        },
+        "validator": {
+          "coverage": {
+            "compressed_trailer": {
+              "bytes": null,
+              "present": null,
+              "semantically_validated": false
+            },
+            "envelope_and_record_boundaries": false,
+            "known_reference_namespaces": [],
+            "opaque_bytes_semantically_validated": false
+          },
+          "decision": "reject",
+          "issue_codes": [
+            "profile.not_recognized",
+            "parse.failed"
+          ],
+          "valid": false
+        }
+      },
+      "recipe": "delete one byte at the second msdh offset without updating section lengths",
+      "source": "TEST_CORPUS/generated/reference-one-track-raw.itl"
+    },
+    {
+      "candidate": {
+        "bytes": 10566,
+        "sha256": "20607e773799e6ca22c6e8feec0fe8f2ee1a4732546dcb8b1355f96b05eba558"
+      },
+      "expectation": "semantic_count_invalid",
+      "family": "declared_count",
+      "id": "track-root-count-plus-one",
+      "mutation": {
+        "payload_offset": 1292,
+        "u32le": 2
+      },
+      "outcomes": {
+        "detection": {
+          "decision": "accept",
+          "status": "recognized",
+          "version": "12.13.10.3"
+        },
+        "primary_container": {
+          "decision": "accept",
+          "no_op_exact": true,
+          "payload_bytes": 10422,
+          "payload_sha256": "7c38b02d87d38d21c07562dcc4e94c91f508611aa27387cfb70d95eb1d50de5c",
+          "trailer_bytes": 0,
+          "trailer_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "primary_container_relaxed": {
+          "decision": "accept",
+          "no_op_exact": true,
+          "payload_bytes": 10422,
+          "payload_sha256": "7c38b02d87d38d21c07562dcc4e94c91f508611aa27387cfb70d95eb1d50de5c",
+          "trailer_bytes": 0,
+          "trailer_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "primary_library": {
+          "decision": "reject",
+          "error_class": "count",
+          "error_type": "FormatError"
+        },
+        "reference_envelope": {
+          "decision": "accept",
+          "payload_bytes": 10422,
+          "payload_sha256": "7c38b02d87d38d21c07562dcc4e94c91f508611aa27387cfb70d95eb1d50de5c",
+          "trailer_bytes": 0,
+          "trailer_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "reference_library": {
+          "decision": "accept",
+          "playlists": 2,
+          "sections": 10,
+          "tracks": 1,
+          "trailer_bytes": 0
+        },
+        "validator": {
+          "coverage": {
+            "compressed_trailer": {
+              "bytes": 0,
+              "present": false,
+              "semantically_validated": false
+            },
+            "envelope_and_record_boundaries": true,
+            "known_reference_namespaces": [
+              "track local/Persistent IDs",
+              "playlist local/Persistent IDs",
+              "playlist item IDs and track references",
+              "track album and artist local references"
+            ],
+            "opaque_bytes_semantically_validated": false,
+            "opaque_reference_scan": false
+          },
+          "decision": "reject",
+          "issue_codes": [
+            "count.root_mismatch",
+            "scope.opaque_section",
+            "scope.opaque_section"
+          ],
+          "valid": false
+        }
+      },
+      "recipe": "increment the mlth declared child count",
+      "source": "TEST_CORPUS/generated/reference-one-track-raw.itl"
+    },
+    {
+      "candidate": {
+        "bytes": 10566,
+        "sha256": "b29329e709318990c90a70dcbb2b1e53ed868fbad8c944ca5d2ccaa949fd4bab"
+      },
+      "expectation": "semantic_count_invalid",
+      "family": "declared_count",
+      "id": "track-child-count-zero",
+      "mutation": {
+        "payload_offset": 1388,
+        "u32le": 0
+      },
+      "outcomes": {
+        "detection": {
+          "decision": "accept",
+          "status": "recognized",
+          "version": "12.13.10.3"
+        },
+        "primary_container": {
+          "decision": "accept",
+          "no_op_exact": true,
+          "payload_bytes": 10422,
+          "payload_sha256": "c02f4e77946328053030aa26b07e4b550aa1d5f256512435f0cadb1be4b3a1f1",
+          "trailer_bytes": 0,
+          "trailer_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "primary_container_relaxed": {
+          "decision": "accept",
+          "no_op_exact": true,
+          "payload_bytes": 10422,
+          "payload_sha256": "c02f4e77946328053030aa26b07e4b550aa1d5f256512435f0cadb1be4b3a1f1",
+          "trailer_bytes": 0,
+          "trailer_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "primary_library": {
+          "decision": "reject",
+          "error_class": "count",
+          "error_type": "FormatError"
+        },
+        "reference_envelope": {
+          "decision": "accept",
+          "payload_bytes": 10422,
+          "payload_sha256": "c02f4e77946328053030aa26b07e4b550aa1d5f256512435f0cadb1be4b3a1f1",
+          "trailer_bytes": 0,
+          "trailer_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "reference_library": {
+          "decision": "accept",
+          "playlists": 2,
+          "sections": 10,
+          "tracks": 1,
+          "trailer_bytes": 0
+        },
+        "validator": {
+          "coverage": {
+            "compressed_trailer": {
+              "bytes": 0,
+              "present": false,
+              "semantically_validated": false
+            },
+            "envelope_and_record_boundaries": true,
+            "known_reference_namespaces": [
+              "track local/Persistent IDs",
+              "playlist local/Persistent IDs",
+              "playlist item IDs and track references",
+              "track album and artist local references"
+            ],
+            "opaque_bytes_semantically_validated": false,
+            "opaque_reference_scan": false
+          },
+          "decision": "reject",
+          "issue_codes": [
+            "count.record_mismatch",
+            "scope.opaque_section",
+            "scope.opaque_section"
+          ],
+          "valid": false
+        }
+      },
+      "recipe": "set the mith declared child count to zero",
+      "source": "TEST_CORPUS/generated/reference-one-track-raw.itl"
+    },
+    {
+      "candidate": {
+        "bytes": 10566,
+        "sha256": "37298e32f23d113b051483c1e4b30cd9f80f1808a9d5332f5fc9f48b4f834489"
+      },
+      "expectation": "semantic_count_invalid",
+      "family": "declared_count",
+      "id": "playlist-metadata-count-plus-one",
+      "mutation": {
+        "payload_offset": 2782,
+        "u32le": 2
+      },
+      "outcomes": {
+        "detection": {
+          "decision": "accept",
+          "status": "recognized",
+          "version": "12.13.10.3"
+        },
+        "primary_container": {
+          "decision": "accept",
+          "no_op_exact": true,
+          "payload_bytes": 10422,
+          "payload_sha256": "2703b7dada844e5183b4c6a393feee4645f4a7906715c2c786b32daabd723474",
+          "trailer_bytes": 0,
+          "trailer_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "primary_container_relaxed": {
+          "decision": "accept",
+          "no_op_exact": true,
+          "payload_bytes": 10422,
+          "payload_sha256": "2703b7dada844e5183b4c6a393feee4645f4a7906715c2c786b32daabd723474",
+          "trailer_bytes": 0,
+          "trailer_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "primary_library": {
+          "decision": "reject",
+          "error_class": "count",
+          "error_type": "FormatError"
+        },
+        "reference_envelope": {
+          "decision": "accept",
+          "payload_bytes": 10422,
+          "payload_sha256": "2703b7dada844e5183b4c6a393feee4645f4a7906715c2c786b32daabd723474",
+          "trailer_bytes": 0,
+          "trailer_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "reference_library": {
+          "decision": "accept",
+          "playlists": 2,
+          "sections": 10,
+          "tracks": 1,
+          "trailer_bytes": 0
+        },
+        "validator": {
+          "coverage": {
+            "compressed_trailer": {
+              "bytes": 0,
+              "present": false,
+              "semantically_validated": false
+            },
+            "envelope_and_record_boundaries": true,
+            "known_reference_namespaces": [
+              "track local/Persistent IDs",
+              "playlist local/Persistent IDs",
+              "playlist item IDs and track references",
+              "track album and artist local references"
+            ],
+            "opaque_bytes_semantically_validated": false,
+            "opaque_reference_scan": false
+          },
+          "decision": "reject",
+          "issue_codes": [
+            "scope.opaque_section",
+            "count.playlist_mismatch",
+            "scope.opaque_section"
+          ],
+          "valid": false
+        }
+      },
+      "recipe": "increment the miph metadata-object count",
+      "source": "TEST_CORPUS/generated/reference-one-track-raw.itl"
+    },
+    {
+      "candidate": {
+        "bytes": 10566,
+        "sha256": "6cd861bc6598e7e37b28e98de6b71706c810c80c01425f374da608c4c834937f"
+      },
+      "expectation": "semantic_count_invalid",
+      "family": "declared_count",
+      "id": "outer-track-count-plus-one",
+      "mutation": {
+        "delta": 1,
+        "header_offset": 68
+      },
+      "outcomes": {
+        "detection": {
+          "decision": "accept",
+          "status": "recognized",
+          "version": "12.13.10.3"
+        },
+        "primary_container": {
+          "decision": "accept",
+          "no_op_exact": true,
+          "payload_bytes": 10422,
+          "payload_sha256": "d026b318d7107776c872980c407ec32f6ce8e615730baa02d0871fb5c62d5780",
+          "trailer_bytes": 0,
+          "trailer_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "primary_container_relaxed": {
+          "decision": "accept",
+          "no_op_exact": true,
+          "payload_bytes": 10422,
+          "payload_sha256": "d026b318d7107776c872980c407ec32f6ce8e615730baa02d0871fb5c62d5780",
+          "trailer_bytes": 0,
+          "trailer_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "primary_library": {
+          "decision": "reject",
+          "error_class": "count",
+          "error_type": "FormatError"
+        },
+        "reference_envelope": {
+          "decision": "accept",
+          "payload_bytes": 10422,
+          "payload_sha256": "d026b318d7107776c872980c407ec32f6ce8e615730baa02d0871fb5c62d5780",
+          "trailer_bytes": 0,
+          "trailer_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "reference_library": {
+          "decision": "accept",
+          "playlists": 2,
+          "sections": 10,
+          "tracks": 1,
+          "trailer_bytes": 0
+        },
+        "validator": {
+          "coverage": {
+            "compressed_trailer": {
+              "bytes": 0,
+              "present": false,
+              "semantically_validated": false
+            },
+            "envelope_and_record_boundaries": true,
+            "known_reference_namespaces": [
+              "track local/Persistent IDs",
+              "playlist local/Persistent IDs",
+              "playlist item IDs and track references",
+              "track album and artist local references"
+            ],
+            "opaque_bytes_semantically_validated": false,
+            "opaque_reference_scan": false
+          },
+          "decision": "reject",
+          "issue_codes": [
+            "count.outer_mismatch",
+            "scope.opaque_section",
+            "scope.opaque_section"
+          ],
+          "valid": false
+        }
+      },
+      "recipe": "increment hdfm+0x44 without changing payload records",
+      "source": "TEST_CORPUS/generated/reference-one-track-raw.itl"
+    },
+    {
+      "candidate": {
+        "bytes": 10566,
+        "sha256": "1cfaae1c6662738da976931316111cc550fe1f1b2a289e3f6834db8f4a7a2831"
+      },
+      "expectation": "logical_size_invalid",
+      "family": "logical_size",
+      "id": "mfdh-logical-size-plus-one",
+      "mutation": {
+        "delta": 1,
+        "payload_offset": 104
+      },
+      "outcomes": {
+        "detection": {
+          "decision": "accept",
+          "status": "recognized",
+          "version": "12.13.10.3"
+        },
+        "primary_container": {
+          "decision": "accept",
+          "no_op_exact": true,
+          "payload_bytes": 10422,
+          "payload_sha256": "ea5b59e0c4b91146bc5b1da99701abba94835bc0a8f9c2e8dbf1f300b22d6c9d",
+          "trailer_bytes": 0,
+          "trailer_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "primary_container_relaxed": {
+          "decision": "accept",
+          "no_op_exact": true,
+          "payload_bytes": 10422,
+          "payload_sha256": "ea5b59e0c4b91146bc5b1da99701abba94835bc0a8f9c2e8dbf1f300b22d6c9d",
+          "trailer_bytes": 0,
+          "trailer_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "primary_library": {
+          "decision": "reject",
+          "error_class": "outer_header",
+          "error_type": "FormatError"
+        },
+        "reference_envelope": {
+          "decision": "accept",
+          "payload_bytes": 10422,
+          "payload_sha256": "ea5b59e0c4b91146bc5b1da99701abba94835bc0a8f9c2e8dbf1f300b22d6c9d",
+          "trailer_bytes": 0,
+          "trailer_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "reference_library": {
+          "decision": "accept",
+          "playlists": 2,
+          "sections": 10,
+          "tracks": 1,
+          "trailer_bytes": 0
+        },
+        "validator": {
+          "coverage": {
+            "compressed_trailer": {
+              "bytes": 0,
+              "present": false,
+              "semantically_validated": false
+            },
+            "envelope_and_record_boundaries": true,
+            "known_reference_namespaces": [
+              "track local/Persistent IDs",
+              "playlist local/Persistent IDs",
+              "playlist item IDs and track references",
+              "track album and artist local references"
+            ],
+            "opaque_bytes_semantically_validated": false,
+            "opaque_reference_scan": false
+          },
+          "decision": "reject",
+          "issue_codes": [
+            "size.logical_mismatch",
+            "scope.opaque_section",
+            "scope.opaque_section"
+          ],
+          "valid": false
+        }
+      },
+      "recipe": "increment mfdh logical size without changing payload bytes",
+      "source": "TEST_CORPUS/generated/reference-one-track-raw.itl"
+    }
+  ],
+  "coverage": {
+    "cases": 57,
+    "families": {
+      "baseline": 5,
+      "compressed_corruption": 1,
+      "compressed_trailer": 9,
+      "declared_count": 4,
+      "logical_size": 1,
+      "outer_header_length": 4,
+      "outer_size": 2,
+      "record_length": 9,
+      "section_offset": 2,
+      "trailer_corruption": 1,
+      "trailer_encryption_boundary": 9,
+      "truncation": 10
+    },
+    "plaintext_limit_probes": 4,
+    "regions": [
+      "outer header length and declared size",
+      "AES interval/cap block boundaries",
+      "zlib checksum/end marker and unused_data trailer",
+      "plaintext budget exact/one-below boundary",
+      "msdh section lengths and offsets",
+      "list/record header and total lengths",
+      "declared root/record/playlist/outer counts",
+      "mfdh logical coverage size"
+    ],
+    "tool_layers": [
+      "itlkit.Container(strict)",
+      "itlkit.Container(strict_size=False)",
+      "itlkit.Library",
+      "REFERENCE_PARSER envelope",
+      "REFERENCE_PARSER ReferenceLibrary",
+      "REFERENCE_PARSER detect_bytes",
+      "VALIDATOR validate_bytes",
+      "REFERENCE_WRITER encode_envelope cross-check"
+    ],
+    "trailer_cases": 19
+  },
+  "expectation_profiles": {
+    "envelope_invalid": {
+      "detection": "reject",
+      "primary_container": "reject",
+      "primary_container_relaxed": "reject",
+      "primary_library": "reject",
+      "reference_envelope": "reject",
+      "reference_library": "reject",
+      "validator": "reject"
+    },
+    "logical_size_invalid": {
+      "detection": "accept",
+      "primary_container": "accept",
+      "primary_container_relaxed": "accept",
+      "primary_library": "reject",
+      "reference_envelope": "accept",
+      "reference_library": "accept",
+      "validator": "reject"
+    },
+    "outer_size_mismatch": {
+      "detection": "reject",
+      "primary_container": "reject",
+      "primary_container_relaxed": "accept",
+      "primary_library": "reject",
+      "reference_envelope": "reject",
+      "reference_library": "reject",
+      "validator": "reject"
+    },
+    "semantic_boundary_invalid": {
+      "detection": "reject",
+      "primary_container": "accept",
+      "primary_container_relaxed": "accept",
+      "primary_library": "reject",
+      "reference_envelope": "accept",
+      "reference_library": "reject",
+      "validator": "reject"
+    },
+    "semantic_count_invalid": {
+      "detection": "accept",
+      "primary_container": "accept",
+      "primary_container_relaxed": "accept",
+      "primary_library": "reject",
+      "reference_envelope": "accept",
+      "reference_library": "accept",
+      "validator": "reject"
+    },
+    "trailer_valid": {
+      "detection": "accept",
+      "primary_container": "accept",
+      "primary_container_relaxed": "accept",
+      "primary_library": "accept",
+      "reference_envelope": "accept",
+      "reference_library": "accept",
+      "validator": "accept"
+    },
+    "valid": {
+      "detection": "accept",
+      "primary_container": "accept",
+      "primary_container_relaxed": "accept",
+      "primary_library": "accept",
+      "reference_envelope": "accept",
+      "reference_library": "accept",
+      "validator": "accept"
+    }
+  },
+  "findings": [
+    {
+      "evidence": "Primary and independent envelope decisions plus payload/trailer hashes agreed for every case.",
+      "id": "F-01",
+      "result": "no unexplained envelope differential"
+    },
+    {
+      "evidence": "19 opaque/concatenated/encryption-boundary cases were retained exactly and now receive scope.compressed_trailer.",
+      "id": "F-02",
+      "result": "compressed trailer is a structural boundary, not validated semantics"
+    },
+    {
+      "evidence": "Neither decoder implicitly merges the concatenated member into the semantic payload.",
+      "id": "F-03",
+      "result": "a second zlib member remains opaque trailer data"
+    },
+    {
+      "evidence": "Only primary Container(strict_size=False) accepted the two declared-size mismatches; strict/high-level/reference tools rejected them.",
+      "id": "F-04",
+      "result": "forensic outer-size relaxation is isolated"
+    },
+    {
+      "evidence": "All four exact generated hashes parse and no-op round-trip in primary Library; semantic writes still require the nonzero observed write profile.",
+      "id": "F-05",
+      "result": "primary read gate corrected for exact native-qualified zero secondary IDs"
+    }
+  ],
+  "limitations": [
+    "No mutated candidate was run in native iTunes; structural acceptance is not native acceptance.",
+    "Opaque trailer bytes have no provenance or decoder and remain semantically unvalidated.",
+    "The audit is a finite fixed-seed boundary matrix, not coverage-guided fuzzing or a universal format proof.",
+    "Unknown sections and records can still contain hidden dependencies.",
+    "Only the exact listed 12.13.10.3 corpus and mutation recipes are covered."
+  ],
+  "plaintext_limit_probes": [
+    {
+      "expected": "reject",
+      "max_plain_bytes": 10421,
+      "payload_bytes": 10422,
+      "primary_container": {
+        "decision": "reject",
+        "error_class": "plain_limit",
+        "error_type": "FormatError"
+      },
+      "reference_envelope": {
+        "decision": "reject",
+        "error_class": "plain_limit",
+        "error_type": "FormatError"
+      },
+      "source": "TEST_CORPUS/generated/reference-one-track-raw.itl"
+    },
+    {
+      "expected": "accept",
+      "max_plain_bytes": 10422,
+      "payload_bytes": 10422,
+      "primary_container": {
+        "decision": "accept",
+        "payload_bytes": 10422
+      },
+      "reference_envelope": {
+        "decision": "accept",
+        "payload_bytes": 10422
+      },
+      "source": "TEST_CORPUS/generated/reference-one-track-raw.itl"
+    },
+    {
+      "expected": "reject",
+      "max_plain_bytes": 10441,
+      "payload_bytes": 10442,
+      "primary_container": {
+        "decision": "reject",
+        "error_class": "plain_limit",
+        "error_type": "FormatError"
+      },
+      "reference_envelope": {
+        "decision": "reject",
+        "error_class": "plain_limit",
+        "error_type": "FormatError"
+      },
+      "source": "TEST_CORPUS/generated/reference-one-track-zlib.itl"
+    },
+    {
+      "expected": "accept",
+      "max_plain_bytes": 10442,
+      "payload_bytes": 10442,
+      "primary_container": {
+        "decision": "accept",
+        "payload_bytes": 10442
+      },
+      "reference_envelope": {
+        "decision": "accept",
+        "payload_bytes": 10442
+      },
+      "source": "TEST_CORPUS/generated/reference-one-track-zlib.itl"
+    }
+  ],
+  "reference_writer_checks": [
+    {
+      "compression_flag": 0,
+      "encryption_flag": 0,
+      "expected_sha256": "c6c68171d57350ceb3cf379eee13a764ea199536ef18238fe4faf80583492d74",
+      "max_crypt_size": 0,
+      "reference_writer_repack_exact": true,
+      "source": "TEST_CORPUS/generated/reference-one-track-raw.itl",
+      "writer_bytes": 10566,
+      "writer_sha256": "c6c68171d57350ceb3cf379eee13a764ea199536ef18238fe4faf80583492d74"
+    },
+    {
+      "compression_flag": 1,
+      "encryption_flag": 0,
+      "manual_matches_reference_writer_without_trailer": true,
+      "max_crypt_size": 0,
+      "source": "TEST_CORPUS/generated/reference-one-track-zlib.itl",
+      "writer_bytes": 775,
+      "writer_sha256": "f49e318f2f94dbc90e274013398d565a4d97ed39b26da94b8ee9ca84dc522548"
+    },
+    {
+      "compression_flag": 1,
+      "encryption_flag": 1,
+      "manual_matches_reference_writer_without_trailer": true,
+      "max_crypt_size": 0,
+      "source": "TEST_CORPUS/generated/reference-one-track-zlib.itl",
+      "writer_bytes": 775,
+      "writer_sha256": "3250e21ea56e912f3f78971a0d64cbd2f08a668387b8c7bb21110dc32577b9b1"
+    },
+    {
+      "compression_flag": 1,
+      "encryption_flag": 2,
+      "manual_matches_reference_writer_without_trailer": true,
+      "max_crypt_size": 0,
+      "source": "TEST_CORPUS/generated/reference-one-track-zlib.itl",
+      "writer_bytes": 775,
+      "writer_sha256": "f8eff99781c089a154775d487a2479ccd5c329d199ba0129b5b0dee26929e2f5"
+    },
+    {
+      "compression_flag": 1,
+      "encryption_flag": 2,
+      "manual_matches_reference_writer_without_trailer": true,
+      "max_crypt_size": 15,
+      "source": "TEST_CORPUS/generated/reference-one-track-zlib.itl",
+      "writer_bytes": 775,
+      "writer_sha256": "4e5d48f739c26bcf864a4d5075688b84ee1bacbe0f2dc23bccdccd001ea4c473"
+    },
+    {
+      "compression_flag": 1,
+      "encryption_flag": 2,
+      "manual_matches_reference_writer_without_trailer": true,
+      "max_crypt_size": 16,
+      "source": "TEST_CORPUS/generated/reference-one-track-zlib.itl",
+      "writer_bytes": 775,
+      "writer_sha256": "7598c9e9007df9fd145ce617a2b5dfd59d9b10e3945d156214b6356c17092e83"
+    },
+    {
+      "compression_flag": 1,
+      "encryption_flag": 2,
+      "manual_matches_reference_writer_without_trailer": true,
+      "max_crypt_size": 17,
+      "source": "TEST_CORPUS/generated/reference-one-track-zlib.itl",
+      "writer_bytes": 775,
+      "writer_sha256": "6c83a7be53dfab5aa3500d7cd2cd3020d6e24781265563fd989ee8cdc0279e9f"
+    },
+    {
+      "compression_flag": 1,
+      "encryption_flag": 2,
+      "manual_matches_reference_writer_without_trailer": true,
+      "max_crypt_size": 630,
+      "source": "TEST_CORPUS/generated/reference-one-track-zlib.itl",
+      "writer_bytes": 775,
+      "writer_sha256": "e62a8ea32347e928494794422b768509d8cc07f310c4dd96595700717a8075ba"
+    },
+    {
+      "compression_flag": 1,
+      "encryption_flag": 2,
+      "manual_matches_reference_writer_without_trailer": true,
+      "max_crypt_size": 631,
+      "source": "TEST_CORPUS/generated/reference-one-track-zlib.itl",
+      "writer_bytes": 775,
+      "writer_sha256": "5545d6bc52aa67f7a8a71824862332b8f7c0cf2f5cecc054cad406e6329de8e2"
+    },
+    {
+      "compression_flag": 1,
+      "encryption_flag": 2,
+      "manual_matches_reference_writer_without_trailer": true,
+      "max_crypt_size": 632,
+      "source": "TEST_CORPUS/generated/reference-one-track-zlib.itl",
+      "writer_bytes": 775,
+      "writer_sha256": "b541fb836b7f15d073c9d331a3663a2aa404fface9f7f7dca74f6d39ffe3a456"
+    },
+    {
+      "compression_flag": 1,
+      "encryption_flag": 2,
+      "manual_matches_reference_writer_without_trailer": true,
+      "max_crypt_size": 102400,
+      "source": "TEST_CORPUS/generated/reference-one-track-zlib.itl",
+      "writer_bytes": 775,
+      "writer_sha256": "25f8aba00330caaa0ef4b529f67a203cd6da2b3d652923f7e44c7396f7bd13ad"
+    },
+    {
+      "compression_flag": 0,
+      "encryption_flag": 0,
+      "expected_sha256": "7d9b274765471d2d77440049273b210138e36b998d39d4790fe750d60c32406b",
+      "max_crypt_size": 0,
+      "reference_writer_repack_exact": true,
+      "source": "TEST_CORPUS/generated/reference-three-track-raw.itl",
+      "writer_bytes": 12564,
+      "writer_sha256": "7d9b274765471d2d77440049273b210138e36b998d39d4790fe750d60c32406b"
+    },
+    {
+      "compression_flag": 1,
+      "encryption_flag": 2,
+      "expected_sha256": "73dbb405fbd2b68b62d29913b697a72100f8606cdb2ee704c55908e4de389e17",
+      "max_crypt_size": 102400,
+      "reference_writer_repack_exact": true,
+      "source": "TEST_CORPUS/generated/reference-three-track-zlib.itl",
+      "writer_bytes": 879,
+      "writer_sha256": "73dbb405fbd2b68b62d29913b697a72100f8606cdb2ee704c55908e4de389e17"
+    },
+    {
+      "compression_flag": 1,
+      "encryption_flag": 2,
+      "manual_matches_reference_writer_without_trailer": true,
+      "max_crypt_size": 102400,
+      "source": "evidence/native/snapshots/001-one-track.itl",
+      "writer_bytes": 3418,
+      "writer_sha256": "798d6e3044517cf7f8e51549b2c8ffa7ca2df79b4c2ef52bba41bf94987bbbd4"
+    }
+  ],
+  "schema": "windows-itl.trailer-coverage-audit.v1",
+  "scope": {
+    "claims": "deterministic structural/parser behavior for the exact listed corpus and mutations",
+    "frozen_inputs_modified": false,
+    "native_actions": false,
+    "profile": "12.13.10.3"
+  },
+  "seed": {
+    "decimal": 539363621,
+    "hex": "0x20260925"
+  },
+  "sources": [
+    {
+      "bytes": 10566,
+      "native_acceptance": {
+        "cycles": 2,
+        "evidence": "evidence/native/reference-generated-20260922-passed/cases/reference-one-track-raw/result.json",
+        "evidence_sha256": "30cab6e40fa2344b41c42e6a017e92498027d99f8040cac259d64d4a2a73317d",
+        "scope": "exact_output_sha256",
+        "status": "verified"
+      },
+      "path": "TEST_CORPUS/generated/reference-one-track-raw.itl",
+      "provenance": "TEST_CORPUS/generated/reference-one-track-raw.itl.provenance.json",
+      "provenance_sha256": "ab6ce0913d7fd04992914a40a2cea4d86bd1f139d5262963fd04fa581041471d",
+      "sha256": "c6c68171d57350ceb3cf379eee13a764ea199536ef18238fe4faf80583492d74"
+    },
+    {
+      "bytes": 775,
+      "native_acceptance": {
+        "cycles": 2,
+        "evidence": "evidence/native/reference-generated-20260922-passed/cases/reference-one-track-zlib/result.json",
+        "evidence_sha256": "47ed3e0ce63d8cf12ef333ed6feb641fd29e266d7c7696d47f4647383f6d202e",
+        "scope": "exact_output_sha256",
+        "status": "verified"
+      },
+      "path": "TEST_CORPUS/generated/reference-one-track-zlib.itl",
+      "provenance": "TEST_CORPUS/generated/reference-one-track-zlib.itl.provenance.json",
+      "provenance_sha256": "f7be548ea546119ec31fed33e0333539367c8fded51ad2cf599e0a698834ecc7",
+      "sha256": "25f8aba00330caaa0ef4b529f67a203cd6da2b3d652923f7e44c7396f7bd13ad"
+    },
+    {
+      "bytes": 12564,
+      "native_acceptance": {
+        "cycles": 2,
+        "evidence": "evidence/native/reference-multi-track-20260922-v2/cases/reference-three-track-raw/result.json",
+        "evidence_sha256": "058ebeadca6833071397da9e9e1180b9ab38ab0e809b40eb416a59af3ab8dc1c",
+        "scope": "exact_output_sha256",
+        "status": "verified"
+      },
+      "path": "TEST_CORPUS/generated/reference-three-track-raw.itl",
+      "provenance": "TEST_CORPUS/generated/reference-three-track-raw.itl.provenance.json",
+      "provenance_sha256": "28f13dca60cc366f1ad6183d98ae418f9222e6946c5c6a84ecc2a07c14a914e4",
+      "sha256": "7d9b274765471d2d77440049273b210138e36b998d39d4790fe750d60c32406b"
+    },
+    {
+      "bytes": 879,
+      "native_acceptance": {
+        "cycles": 2,
+        "evidence": "evidence/native/reference-multi-track-20260922-v2/cases/reference-three-track-zlib/result.json",
+        "evidence_sha256": "263b7d8230d1cc7c40dea7637726e16fbfac0702b54772f937072007cf6a0c14",
+        "scope": "exact_output_sha256",
+        "status": "verified"
+      },
+      "path": "TEST_CORPUS/generated/reference-three-track-zlib.itl",
+      "provenance": "TEST_CORPUS/generated/reference-three-track-zlib.itl.provenance.json",
+      "provenance_sha256": "fca874944e9314ce798e3f4f4c68e22f1943e8d49e6f53d585399fd421039df3",
+      "sha256": "73dbb405fbd2b68b62d29913b697a72100f8606cdb2ee704c55908e4de389e17"
+    },
+    {
+      "bytes": 4536,
+      "native_acceptance": {
+        "scope": "read_only_input",
+        "status": "frozen_native_snapshot"
+      },
+      "path": "evidence/native/snapshots/001-one-track.itl",
+      "sha256": "c1aad11c66d497788be5cc417a5b2931c59d5eb2589c8cc83d31594097e9d9f1"
+    }
+  ],
+  "status": "passed"
+}
