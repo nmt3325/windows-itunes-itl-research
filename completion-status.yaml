@@ -147,7 +147,7 @@ validation:
     unresolved_item: U-17
   integrated_tests:
     status: passed
-    passed: 1129
+    passed: 1135
     skipped: 7
     skipped_missing_com_oracle: 5
     skipped_windows_only_helpers_on_linux: 2
@@ -163,6 +163,24 @@ validation:
     status: passed
     passed: 6
     failed: 0
+  public_static_replay_bootstrap:
+    status: preflight_completed_with_expected_blockers
+    focused_tests_passed: 6
+    focused_tests_failed: 0
+    locked_public_files: 108
+    deterministic_external_root_repetitions: 2
+    independent_experiments: 0
+    synthetic_positive_cases: 2
+    synthetic_negative_cases: 6
+    proprietary_binary_reads: 0
+    ghidra_invocations: 0
+    unicorn_invocations: 0
+    network_operations_by_preflight: 0
+    native_acceptance_operations: 0
+    historical_replay_available: false
+    atlas_c_hash_matches: 0
+    atlas_c_hash_mismatches: 47
+    unresolved_item: U-18
   spec_consistency: passed
   delivery_manifest: verified
   root_corpus_manifest:

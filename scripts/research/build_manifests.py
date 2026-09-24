@@ -127,6 +127,7 @@ def build_corpus() -> dict:
         "evidence/research/20260925/coverage-guided-fuzz/report.json",
         "evidence/research/20260925/filesystem-threat-model/report.json",
         "evidence/research/20260925/filesystem-process-crash/report.json",
+        "evidence/research/20260925/public-static-replay-bootstrap/report.json",
     ):
         path = ROOT / name
         if path.is_file():

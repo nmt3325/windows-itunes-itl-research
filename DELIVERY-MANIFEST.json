@@ -11,8 +11,8 @@
   },
   {
     "path": "EVIDENCE.md",
-    "bytes": 31372,
-    "sha256": "7ab98dc463e488f47ddd5b4781ebb61bfa7079c324d54e0c574e7bb77879c213"
+    "bytes": 31990,
+    "sha256": "cf0dea343968b1c12d5b6901fa94b797c2c7fc24f06a67b0200b8272e3f7d220"
   },
   {
     "path": "ITL_DATA_MODEL.md",
@@ -37,7 +37,7 @@
   {
     "path": "README.md",
     "bytes": 22231,
-    "sha256": "7f6a878df2260592df689621910a709c5c8662f237061563307f4ecb7247b438"
+    "sha256": "b4cc143f623ffc1da5c636aabaa9f0c6b0a1e2fa23d61f21fd8c6fa25d725515"
   },
   {
     "path": "REFERENCE_PARSER/README.md",
@@ -53,6 +53,11 @@
     "path": "REFERENCE_PARSER/__main__.py",
     "bytes": 48,
     "sha256": "935a1c1166b0c1ea35a82256345000bf2c73ded718d77773bc27a71ecce28f7d"
+  },
+  {
+    "path": "REFERENCE_PARSER/__pycache__/core.cpython-312.pyc",
+    "bytes": 37178,
+    "sha256": "3553028df928b2a7b26fb9ad6d8bc48ffb192a0c43c708eea6f1c65fc558a909"
   },
   {
     "path": "REFERENCE_PARSER/cli.py",
@@ -196,8 +201,8 @@
   },
   {
     "path": "UNRESOLVED.md",
-    "bytes": 21305,
-    "sha256": "52adafb5918be43417b6989a0ef6b42809b45b987b9d18cd1e6c7e306b9758e1"
+    "bytes": 22154,
+    "sha256": "9dd20c79110c357bc31483132abdd1f6537c71995b9ce0514d4f522cf3489616"
   },
   {
     "path": "VALIDATOR/README.md",
@@ -231,13 +236,13 @@
   },
   {
     "path": "completion-status.yaml",
-    "bytes": 8477,
-    "sha256": "90020f574cb48bc9da53cbb41adbbbc8bb7d1cef5cee378b6c78c112dac39c07"
+    "bytes": 9078,
+    "sha256": "c63b15783d5e7d7733ffd9dfc797dbe2124a2219b99609c457fba52dd1ec3663"
   },
   {
     "path": "corpus-manifest.json",
-    "bytes": 151991,
-    "sha256": "9362281f45fbdc254161f799c01a77c0e69a8171c66b4db2f6074951cc72ee10"
+    "bytes": 152195,
+    "sha256": "822fd654ef2d4f7b55216e19aff33fd1e17cb83e1473142162fd9f1ffa36ae6f"
   },
   {
     "path": "docs/PUBLIC_PRIOR_ART_AUDIT_20260925.md",
@@ -246,8 +251,8 @@
   },
   {
     "path": "docs/PUBLIC_REPLAY_AUDIT.md",
-    "bytes": 2600,
-    "sha256": "315b8719e841980012b3b86d4949121bf07a9d2ce46b6a466f27c7d202acbbea"
+    "bytes": 4624,
+    "sha256": "fc0777d74b6fdacce539e440bf1d695f388aafddf09e7bb0ebe51825822d7bac"
   },
   {
     "path": "docs/SMART_PRIOR_ART_AUDIT_20260925.md",
@@ -10450,6 +10455,16 @@
     "sha256": "b88faafa687a43de4ff20a634c47be7302fc72ebdc3b4ad50783da404279aa46"
   },
   {
+    "path": "evidence/research/20260925/public-static-replay-bootstrap/README.md",
+    "bytes": 3157,
+    "sha256": "fbc86a2546450c7d9f3026ff21f48230a35132c74ef8da25db99dbbfdf6ba5ce"
+  },
+  {
+    "path": "evidence/research/20260925/public-static-replay-bootstrap/report.json",
+    "bytes": 3505,
+    "sha256": "51a58ed158675dd7c1e99359ca312ff32cfc22be298db0e1c71743c0e7323b06"
+  },
+  {
     "path": "evidence/research/20260925/rating-kind-corpus-audit/README.md",
     "bytes": 2527,
     "sha256": "027f9dd0ff4f427883b1274cd6103a3b9818362e1da813768b4563529f6dffd5"
@@ -10527,7 +10542,7 @@
   {
     "path": "evidence/research/20260925/sort-rank-audit/input-manifest.json",
     "bytes": 24766,
-    "sha256": "0c15eb7ed1f38b60928f0c8857d1043e8285524a9a8d43805f20633b9b25e09e"
+    "sha256": "1889221ef6872d747491aed68fab717ef0e41b7ae265ae5e5b618b9fd58a909d"
   },
   {
     "path": "evidence/research/20260925/trailer-coverage-audit/README.md",
@@ -12951,8 +12966,8 @@
   },
   {
     "path": "scripts/research/build_manifests.py",
-    "bytes": 11280,
-    "sha256": "4785759d6fa240354c9a6c7259650873af92ff367a83ed157e00ce3a3eb286d6"
+    "bytes": 11361,
+    "sha256": "81a24cf57ccae9daae5aae20fc469cc7629149364e8594b76e00871d54cf1f46"
   },
   {
     "path": "scripts/research/generate_synthetic_library_inputs.py",
@@ -13008,6 +13023,16 @@
     "path": "scripts/static/prepare_targets.py",
     "bytes": 2678,
     "sha256": "af6083bfa8fd7f29a99e672c81fb10ed7b066a933a3cdeee4d5f51a930479b1d"
+  },
+  {
+    "path": "scripts/static/public-replay-lock.json",
+    "bytes": 20622,
+    "sha256": "c640a4fbc4450def54a8f4446dcc4fb1d316750b3a454d50e66df97994ba6d89"
+  },
+  {
+    "path": "scripts/static/public_replay_preflight.py",
+    "bytes": 21663,
+    "sha256": "8fb83602a23f5b022675563f111f2a74d1d3e4b1427654b077fa1e1cab1bfe47"
   },
   {
     "path": "scripts/static/rebuild_targets.py",
@@ -13358,6 +13383,11 @@
     "path": "tests/test_public_replay_audit_20260925.py",
     "bytes": 3750,
     "sha256": "bbc388724801da12a887d67585d77c9c9385d54296f9775228b5877b844502b8"
+  },
+  {
+    "path": "tests/test_public_static_replay_bootstrap_20260925.py",
+    "bytes": 5454,
+    "sha256": "b580df14c7d24102b83a990972098ce81815a237dfaf9c6e1f145aece6827c57"
   },
   {
     "path": "tests/test_rating_kind_corpus_20260925.py",
