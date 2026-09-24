@@ -1075,7 +1075,7 @@ def run_campaign(scratch_root: Path) -> dict[str, object]:
             "production_change_warranted": False,
         },
         "observed_guarantees": [
-            "On this Windows Server 2025 / CPython 3.12.10 / NTFS runner, stable-parent existing destinations and available hard-link, symlink, dangling-symlink, junction, and lexical aliases were not replaced in the listed direct cases.",
+            "On the recorded Windows/NTFS environment above, stable-parent existing destinations and available hard-link, symlink, dangling-symlink, junction, and lexical aliases were not replaced in the listed direct cases.",
             "A destination created immediately before the real os.link call won with EEXIST, and two synchronized publishers produced one complete winner and one EEXIST refusal.",
             "Injected write, short-write, flush, file-fsync, close, and hard-link failures occurred before publication and left no destination when ordinary cleanup succeeded.",
             "Injected cleanup failures preserved the primary pre-publication error or reported that a complete destination had already been published.",

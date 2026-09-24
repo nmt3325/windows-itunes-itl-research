@@ -1,11 +1,13 @@
 """Regressions for the bounded U-17 Windows/NTFS publication audit."""
 from __future__ import annotations
 
+from copy import deepcopy
 import hashlib
 import importlib.util
 import json
 import os
 from pathlib import Path
+import platform
 import re
 import shutil
 import sys
@@ -19,7 +21,7 @@ SCRIPT = ROOT / "scripts" / "research" / "audit_windows_filesystem_publication_2
 REPORT = ROOT / "evidence" / "research" / "20260925" / "windows-filesystem-publication" / "report.json"
 SOURCE = ROOT / "itlkit" / "io.py"
 BASE_COMMIT = "c9f271d36a7095262c6195c04eb7f09d6cf88dee"
-REPORT_SHA256 = "82921e322da3ea9edd16afeb439a3f13e60d71cc933e44bfa6ae74b7d6227c6d"
+REPORT_SHA256 = "867e68693aa74d2c1a19def1483f64a243f242d4e5b1348ee017b2a87669eda1"
 
 
 def load_campaign_module():
@@ -32,6 +34,22 @@ def load_campaign_module():
 
 def retained_report() -> dict:
     return json.loads(REPORT.read_text(encoding="utf-8"))
+
+
+def without_environment(report: dict) -> dict:
+    result = deepcopy(report)
+    result.pop("environment")
+    return result
+
+
+def test_without_environment_preserves_every_non_environment_field() -> None:
+    report = retained_report()
+    projected = without_environment(report)
+    assert set(projected) == set(report) - {"environment"}
+    assert all(projected[key] == report[key] for key in projected)
+    changed = deepcopy(report)
+    changed["bounds"]["power_loss_operations"] = 1
+    assert without_environment(changed) != projected
 
 
 def cases_by_id(report: dict) -> dict[str, dict]:
@@ -200,7 +218,7 @@ def test_retained_cases_separate_native_injection_limits_and_termination() -> No
 
 
 @pytest.mark.skipif(os.name != "nt" or sys.platform != "win32", reason="retained campaign is Windows-specific")
-def test_campaign_replays_byte_exact_across_two_fresh_windows_temp_roots() -> None:
+def test_campaign_replays_twice_from_fresh_windows_temp_roots_with_only_environment_variance() -> None:
     campaign = load_campaign_module()
     roots = [
         Path(tempfile.mkdtemp(prefix="itl-u17-win-replay-a-")),
@@ -212,7 +230,17 @@ def test_campaign_replays_byte_exact_across_two_fresh_windows_temp_roots() -> No
     finally:
         for root in roots:
             shutil.rmtree(root, ignore_errors=True)
-    assert first == second == retained_report()
+    assert first == second
+    assert first["environment"]["python_implementation"] == platform.python_implementation()
+    assert first["environment"]["python_version"] == platform.python_version()
+    assert first["environment"]["filesystem"]["filesystem_name"] == "NTFS"
+    assert first["observed_guarantees"][0].startswith(
+        "On the recorded Windows/NTFS environment above, "
+    )
+    retained = retained_report()
+    assert without_environment(first) == without_environment(retained)
+    if first["environment"] == retained["environment"]:
+        assert first == retained
 
 
 @pytest.mark.skipif(os.name != "nt" or sys.platform != "win32", reason="scratch guard is Windows-specific")

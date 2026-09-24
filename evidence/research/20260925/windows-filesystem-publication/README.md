@@ -93,13 +93,13 @@ Compare-Object `
   ([IO.File]::ReadAllBytes('evidence/research/20260925/windows-filesystem-publication/report.json'))
 ```
 
-The retained run and a second fresh scratch-root replay were byte-identical.
+The retained run and a second fresh scratch-root replay were byte-identical. On another Windows or Python runtime, the focused regression requires two fresh replays to match each other and compares the report body only after removing the structured `environment` object. Such a run is runtime-specific corroboration, not a byte-for-byte reproduction or an expansion of the retained claim.
 
 Expected SHA-256 values:
 
 ```text
-report.json  82921e322da3ea9edd16afeb439a3f13e60d71cc933e44bfa6ae74b7d6227c6d
-generator    e36d23729e7c8844b5d7cf4fad3ed05dec9a70db6a1d7a6d57e59c7bb8948082
+report.json  867e68693aa74d2c1a19def1483f64a243f242d4e5b1348ee017b2a87669eda1
+generator    277b7209032155f35057f1ad956a0ee77af1744a30453306b8f6c08de843e590
 ```
 
 Focused Windows regression:
