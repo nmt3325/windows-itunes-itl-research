@@ -117,6 +117,8 @@ Native counter differentials establish that 0x60 and 0x118 do **not** change whe
 
 The native writer stores +0x2bc and +0x2bf as independent bytes. The previous u32 mask 0x02000000 did preserve adjacent bytes on LE; no corruption was reproduced for that mask. Access is now explicitly one-byte at +0x2bf with mask 0x02. The rest of that byte and +0x2bc/+0x2bd/+0x2be remain unchanged. The legacy loved name is not a claim that all loved/disliked state has been dynamically verified.
 
+A [2026-09-25 bounded native ladder](evidence/research/20260925/native-rating-kind/README.md) confirms `mith+0x6c` as the exact one-byte Rating value for 20/40/60/80/100 in one pinned one-track profile. The native same-value save and following verification restart left the targeted 756-byte header unchanged even though whole encrypted ITL hashes changed. On this iTunes build, COM `RatingKind` was get-only and projected 1 for rating 0 and 0 after nonzero Rating setters; `AlbumRatingKind` remained 1. `Loved`/`Disliked` were unavailable through the inspected interface, while +0x2bf bit 0x02 remained clear. These facts do not identify an on-disk RatingKind field, certify Loved/Disliked UI semantics, or generalize beyond this profile.
+
 Date helpers require explicit timezones. `hfs_from_datetime` requires an aware datetime and encodes the supplied local wall time; `hfs_to_datetime` requires a caller-specified UTC offset. Zero is treated as unset. Timezone and historical daylight-saving transitions are not inferred from the runner.
 
 ### String data objects (`mhoh`)

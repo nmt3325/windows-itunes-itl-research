@@ -106,9 +106,11 @@ Closure still requires provenance for the trailer/record, a decoder or safe inde
 
 ### U-14 — full `loved`/disliked/rating-kind semantics
 
-The API exposes a bounded legacy `loved` bit and preserves neighboring bytes. Static/dynamic evidence does not establish every UI state, RatingKind, AlbumRatingKind, or disliked transition.
+The API exposes a bounded legacy `loved` bit and preserves neighboring bytes. The [2026-09-25 bounded native replacement](evidence/research/20260925/native-rating-kind/README.md) adds one signed standalone Windows iTunes 12.13.10.3 / pinned one-track profile: typelib plus runtime probes classify `Rating` and `AlbumRating` as writable, `RatingKind` and `AlbumRatingKind` as read-only, and `Loved`/`Disliked` as unsupported on that file-track interface. The six-value `Rating` ladder (0, 20, 40, 60, 80, 100) survived a same-value save and a verification restart in 18/18 sessions. Nonzero writes projected `Rating/RatingKind/AlbumRating/AlbumRatingKind` from `0/1/0/1` to `value/0/value/1`; zero remained `0/1/0/1`. The one-track AlbumRating projection is not a general album-derived rule.
 
-Closure requires native setter/readback factorials, adjacent-bit sentinels, album-derived behavior, and restart persistence.
+`Loved` and `Disliked` were absent from the inspected typelib and both getter/setter attempts raised `AttributeError`, so their mutual interaction was attempted conditionally but blocked rather than inferred. Across 27 targeted analyses of 21 unique snapshots, `mith+0x6d` and the bounded `mith+0x2bf & 0x02` sentinel stayed clear, while nonzero values changed `mith+0x6c` exactly to 0x14/0x28/0x3c/0x50/0x64. Same-value and restart targeted headers were stable, but whole encrypted ITL hashes changed on every save. This does not map all UI Loved/Disliked states, prove general album behavior, or turn structural validation into universal native acceptance. U-14 remains open.
+
+Closure still requires safe UI/direct-state factorials for Loved/Disliked, native adjacent-bit sentinels under those transitions, isolated album-derived behavior, additional track/media shapes and versions, and independent reproduction.
 
 ## Validation and operational gaps
 
