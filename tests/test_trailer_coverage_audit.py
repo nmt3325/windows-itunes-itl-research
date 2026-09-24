@@ -15,7 +15,7 @@ from VALIDATOR.validator import validate_bytes
 
 ROOT = Path(__file__).resolve().parents[1]
 SCRIPT = ROOT / "scripts" / "research" / "audit_trailer_coverage.py"
-REPORT = ROOT / "evidence" / "research" / "20260925" / "report.json"
+REPORT = ROOT / "evidence" / "research" / "20260925" / "trailer-coverage-audit" / "report.json"
 GENERATED = sorted((ROOT / "TEST_CORPUS" / "generated").glob("*.itl"))
 
 

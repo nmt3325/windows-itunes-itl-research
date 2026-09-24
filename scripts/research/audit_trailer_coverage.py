@@ -1,7 +1,7 @@
 """Deterministic differential audit for ITL trailer, length, offset, and coverage boundaries.
 
 The audit mutates checked-in inputs in memory only.  It compares the primary
-``itlkit`` stack with the independent reference parser, writer, and validator.
+``itlkit`` stack with the independent reference parser/writer and the production validator.
 Structural success is never reported as native acceptance.
 """
 from __future__ import annotations
@@ -34,7 +34,7 @@ from REFERENCE_WRITER.writer import encode_envelope
 from VALIDATOR.validator import validate_bytes
 
 
-DEFAULT_REPORT = ROOT / "evidence" / "research" / "20260925" / "report.json"
+DEFAULT_REPORT = ROOT / "evidence" / "research" / "20260925" / "trailer-coverage-audit" / "report.json"
 SEED = 0x20260925
 MAX_PLAIN_BYTES = 16 * 1024 * 1024
 GENERATED_HASHES = {

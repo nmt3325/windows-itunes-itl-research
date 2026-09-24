@@ -19,7 +19,7 @@ From the repository root with the project dependencies installed:
 ```bash
 python -B scripts/research/audit_trailer_coverage.py \
   --output /tmp/itl-trailer-coverage-report.json
-cmp evidence/research/20260925/report.json \
+cmp evidence/research/20260925/trailer-coverage-audit/report.json \
   /tmp/itl-trailer-coverage-report.json
 ```
 
