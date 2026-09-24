@@ -1,0 +1,574 @@
+{
+  "schema": "windows-itl-research.allocator-cow-report.v1",
+  "date": "2026-09-25",
+  "status": "completed_offline_audit",
+  "branch": "research/20260925-allocator",
+  "base_sha": "9dc9be906c30172fc8d0ac9550d28cb137e63e42",
+  "native_qualification_added": false,
+  "scope": {
+    "topics": [
+      "U-03 identity and string-pool allocation",
+      "U-05 shared-object copy-on-write",
+      "U-10 sort/rank/cache regeneration"
+    ],
+    "fixture_globs": [
+      "TEST_CORPUS/**/*.itl",
+      "evidence/**/*.itl"
+    ],
+    "mode": "offline read-only snapshot audit",
+    "comparison_unit": "one ITL file snapshot; no cross-library identity namespace",
+    "output_detail": "/home/runner/work/_temp/gha-mcp/linux-ytedy5cd/work/itl-analysis/reports/allocator-audit.json"
+  },
+  "disposition": {
+    "U-03": {
+      "state": "unresolved",
+      "bounded_conclusion": "Current code uses one modeled-local high-water plus a conservative raw four-byte collision guard; known pool bindings can be audited without inferring unknown pools.",
+      "not_established": [
+        "native high-water domains",
+        "native PID generation",
+        "compaction or reuse",
+        "complete string-pool map",
+        "unknown reference consumers",
+        "collision, deletion, restart, and repeated-allocation policy"
+      ]
+    },
+    "U-05": {
+      "state": "exact_case_confirmed_general_case_unresolved",
+      "bounded_conclusion": "The exact shared-two to shared-COW phase3 pair performs peer-preserving aux-object separation and the COW candidate survived two archived native cycles.",
+      "not_established": [
+        "general album/artist COW",
+        "string-pool COW",
+        "all consumer rewrites",
+        "deduplication choice",
+        "deletion and compaction policy",
+        "version or media-family breadth"
+      ]
+    },
+    "U-10": {
+      "state": "bounded_field_evidence_general_case_unresolved",
+      "bounded_conclusion": "Four exact native field cases show field-specific mutation rank vectors and all-1000 verification vectors while sort atom ID and wire6d remain independently observable.",
+      "not_established": [
+        "collation",
+        "tie breaking",
+        "empty or absent sort fields",
+        "normalization and locale behavior",
+        "seven-word semantics",
+        "callback and cache lifecycle",
+        "system-view behavior"
+      ]
+    }
+  },
+  "source_matrix": [
+    {
+      "topic": "U-03 contract",
+      "path": "UNRESOLVED.md",
+      "lines": "23-29",
+      "role": "declares conservative guards and unresolved allocator consumers/policy"
+    },
+    {
+      "topic": "U-05 contract",
+      "path": "UNRESOLVED.md",
+      "lines": "39-45",
+      "role": "declares general shared-object COW unresolved"
+    },
+    {
+      "topic": "U-10 contract",
+      "path": "UNRESOLVED.md",
+      "lines": "79-83",
+      "role": "declares Name-refresh bounded and rank/cache regeneration unresolved"
+    },
+    {
+      "topic": "identity namespaces",
+      "path": "ITL_DATA_MODEL.md",
+      "lines": "57-79",
+      "role": "field widths, offsets, and scopes"
+    },
+    {
+      "topic": "record parser",
+      "path": "itlkit/model.py",
+      "lines": "108-163",
+      "role": "boundary-driven parse, depth cap, opaque unknown sections"
+    },
+    {
+      "topic": "high-level validation",
+      "path": "itlkit/library.py",
+      "lines": "312-321,394-446",
+      "role": "constructor validation and current identity/reference invariants"
+    },
+    {
+      "topic": "allocator",
+      "path": "itlkit/operations.py",
+      "lines": "70-111",
+      "role": "global local high-water, raw LE guard, PID collision scan"
+    },
+    {
+      "topic": "playlist and item writes",
+      "path": "itlkit/operations.py",
+      "lines": "120-126,141-192",
+      "role": "allocation call sites"
+    },
+    {
+      "topic": "track restore",
+      "path": "itlkit/trackops.py",
+      "lines": "236-266",
+      "role": "aux, track, secondary, and item allocation sequence"
+    },
+    {
+      "topic": "shared aux refusal",
+      "path": "itlkit/trackops.py",
+      "lines": "131-176",
+      "role": "production refusal of changed shared album/artist object"
+    },
+    {
+      "topic": "known string pools",
+      "path": "itlkit/atoms.py",
+      "lines": "9-18,34-90",
+      "role": "implemented pool map and conflict/shared/unkeyed guards"
+    },
+    {
+      "topic": "opaque PID guard",
+      "path": "itlkit/references.py",
+      "lines": "11-60",
+      "role": "conservative byte-form reference scan"
+    },
+    {
+      "topic": "bounded importer",
+      "path": "scripts/experimental-import/experimental_import.py",
+      "lines": "272-365",
+      "role": "research-only local/PID/atom remapping under exact-profile guards"
+    },
+    {
+      "topic": "static pools and rank",
+      "path": "evidence/static/phase2/findings.md",
+      "lines": "43-90",
+      "role": "pool map evidence, 433 mapped uses, 83 shared groups, rank/object separation"
+    },
+    {
+      "topic": "phase3 scope",
+      "path": "docs/dynamic.md",
+      "lines": "251-270",
+      "role": "six exact cases, shared COW description, reference audit, one native allocation control"
+    },
+    {
+      "topic": "COW native cycles",
+      "path": "evidence/native/phase3/parent-independent-audit.json",
+      "lines": "109-195",
+      "role": "shared-two and COW candidate/cycle hashes and passed status"
+    },
+    {
+      "topic": "COW case result",
+      "path": "evidence/native/phase3/cases/crud3-cross-shared-COW-037/result.json",
+      "lines": "3-6,186,381",
+      "role": "shared_group_cow classification and two accepted cycles"
+    },
+    {
+      "topic": "native allocation control",
+      "path": "evidence/native/phase3/controls/post-acceptance-allocation/result.json",
+      "lines": "85-90,135-136,430-822",
+      "role": "classification, new PID, preservation gates, and two reload cycles"
+    },
+    {
+      "topic": "sort fields and Name refresh",
+      "path": "ITL_RECORD_TYPES.md; itlkit/library.py",
+      "lines": "ITL_RECORD_TYPES.md:90,120,139; itlkit/library.py:15-18,194-200",
+      "role": "sort atom types, wire6d, and bounded Name-only refresh behavior"
+    },
+    {
+      "topic": "new audit",
+      "path": "scripts/research/audit_allocation_graph_20260925.py",
+      "lines": "27-49,112-234,237-508,517-731",
+      "role": "deterministic read-only identity/ref/pool/rank census"
+    },
+    {
+      "topic": "new regressions",
+      "path": "tests/test_allocation_graph_20260925.py",
+      "lines": "101-214",
+      "role": "seven synthetic and checked-in-boundary tests"
+    }
+  ],
+  "corpus_audit": {
+    "artifact": {
+      "path": "/home/runner/work/_temp/gha-mcp/linux-ytedy5cd/work/itl-analysis/reports/allocator-audit.json",
+      "bytes": 3529480,
+      "sha256": "640449682fbf34d1a0c356ff45d8a06bb5607edfe0cea75247d3335e8cd12316",
+      "schema": "windows-itl-research.allocation-graph-audit.v1"
+    },
+    "path_view": {
+      "files": 356,
+      "bytes": 2562311,
+      "unique_sha256": 333,
+      "duplicate_paths_beyond_first": 23,
+      "duplicate_sha256_groups": 9,
+      "container_ok": 356,
+      "structure_ok": 356,
+      "model_ok": 356,
+      "high_level_library_ok": 336,
+      "high_level_library_refused": 20,
+      "record_counts": {
+        "tracks": 1113,
+        "albums": 1066,
+        "artists": 1042,
+        "playlists": 4826,
+        "items": 3488
+      },
+      "identity": {
+        "file_scoped_local_duplicate_positive_groups": 0,
+        "file_scoped_local_zero_values": 24,
+        "file_scoped_persistent_duplicate_positive_groups": 0,
+        "file_scoped_persistent_zero_values": 0,
+        "item_local_within_playlist_duplicate_positive_groups": 0,
+        "item_local_within_playlist_zero_values": 0,
+        "item_pid_within_playlist_duplicate_positive_groups": 0,
+        "item_pid_within_playlist_zero_values": 0
+      },
+      "allocator_projection": {
+        "files_with_domain_overapproximation": 352,
+        "files_with_raw_guard_skip": 127,
+        "raw_guard_skipped_values": 143
+      },
+      "aux_references": {
+        "files_with_shared_reference": 22,
+        "shared_groups": 58,
+        "missing_target_groups": 0,
+        "ambiguous_target_groups": 0
+      },
+      "known_pools": {
+        "occurrences": 2176,
+        "shared_positive_binding_groups": 235,
+        "conflicting_decoded_binding_groups": 0,
+        "zero_id_nonempty_occurrences": 25,
+        "positive_id_empty_occurrences": 0,
+        "decode_failures": 0,
+        "unmapped_owner_type_occurrences": 2999
+      },
+      "sort_rank": {
+        "sort_type_occurrences": {
+          "mith/30": 2,
+          "mith/31": 2,
+          "mith/32": 2,
+          "mith/33": 2,
+          "miih/401": 2
+        },
+        "wire6d": {
+          "0": 201,
+          "1": 912
+        }
+      }
+    },
+    "sha_deduplicated_view": {
+      "snapshots": 333,
+      "record_counts": {
+        "tracks": 1091,
+        "albums": 1044,
+        "artists": 1020,
+        "playlists": 4658,
+        "items": 3434
+      },
+      "identity": {
+        "file_scoped_local_duplicate_positive_groups": 0,
+        "file_scoped_local_zero_values": 11,
+        "item_local_within_playlist_duplicate_positive_groups": 0,
+        "item_local_within_playlist_zero_values": 0,
+        "item_pid_within_playlist_duplicate_positive_groups": 0,
+        "item_pid_within_playlist_zero_values": 0
+      },
+      "allocator_projection": {
+        "snapshots_with_domain_overapproximation": 330,
+        "snapshots_with_raw_guard_skip": 124,
+        "raw_guard_skipped_values": 140
+      },
+      "aux_references": {
+        "shared_groups": 58,
+        "missing_target_groups": 0,
+        "ambiguous_target_groups": 0
+      },
+      "known_pools": {
+        "occurrences": 2151,
+        "shared_positive_binding_groups": 234,
+        "conflicting_decoded_binding_groups": 0,
+        "zero_id_nonempty_occurrences": 12,
+        "positive_id_empty_occurrences": 0,
+        "unmapped_owner_type_occurrences": 2975
+      },
+      "sort_rank": {
+        "distinct_complete_rank_vectors": 68,
+        "top_vectors": [
+          [
+            "1000,1000,1000,1000,1000,1000,1000",
+            218
+          ],
+          [
+            "2000,1000,1000,1000,1000,1000,1000",
+            125
+          ],
+          [
+            "3000,1000,1000,1000,1000,1000,1000",
+            123
+          ],
+          [
+            "0,0,0,0,0,0,0",
+            93
+          ]
+        ],
+        "wire6d": {
+          "0": 187,
+          "1": 904
+        }
+      }
+    },
+    "high_level_refusals": {
+      "path_counts": {
+        "zero or duplicate secondary track ID": 19,
+        "mfdh logical size differs from payload + outer header at 0x60": 1
+      },
+      "unique_sha_counts": {
+        "zero or duplicate secondary track ID": 6,
+        "mfdh logical size differs from payload + outer header at 0x60": 1
+      },
+      "interpretation": "high-level modeled validation results; all 356 containers and record trees parsed"
+    }
+  },
+  "fixture_model_mismatch": {
+    "status": "reproduced_and_regression_tested",
+    "generator_path": "TEST_CORPUS/generate.py",
+    "generator_lines": "94-116",
+    "validator_path": "itlkit/library.py",
+    "validator_lines": "419-421",
+    "affected_checked_in_test_corpus_paths": 4,
+    "error": "zero or duplicate secondary track ID",
+    "minimal_regression": "tests/test_allocation_graph_20260925.py::test_reference_fixture_distinguishes_structure_from_high_level_identity",
+    "reason_not_fixed": "Current evidence does not justify synthesizing a secondary ID or weakening the observed-profile invariant."
+  },
+  "allocation_control_observation": {
+    "source_candidate": {
+      "sha256": "a813f8ad7d493214aaefc9f20d536fc86883e511dfeaf30dd8735baf5895dc39",
+      "current_allocator_projection": {
+        "global_max": 176,
+        "naive_next": 177,
+        "raw_guard_skips": 1,
+        "first_return": 178,
+        "max_domains": [
+          "item_local",
+          "item_order_token"
+        ]
+      },
+      "constructed_track": {
+        "pid": "412ABAD099FB1F36",
+        "track_local": 171,
+        "secondary_local": 173,
+        "album_local": 169,
+        "artist_local": 170
+      }
+    },
+    "native_addfile_snapshot": {
+      "sha256": "c583c45277d38ee795f80d6a4d810f095bee862ce6a6769ce5e5b311c7135db7",
+      "new_track": {
+        "pid": "F20377F9F2DAF23E",
+        "track_local": 172,
+        "secondary_local": 173,
+        "album_local": 174,
+        "artist_local": 175
+      }
+    },
+    "reload_1": {
+      "sha256": "b5e0b0f0524c93001443024c565380dc2242905e56d7b8230e98742006ecb597",
+      "new_track_local": 87,
+      "new_track_secondary": 88,
+      "new_album_local": 73,
+      "new_artist_local": 78
+    },
+    "reload_2": {
+      "sha256": "cb725b68e22aa2c110ad2ccc953cc204ea32301229facc03c0f10cf9694b8830",
+      "new_track_local": 87,
+      "new_track_secondary": 88,
+      "new_album_local": 73,
+      "new_artist_local": 78
+    },
+    "bounded_inference": "Local/session identities can be renumbered while persistent identity and the accepted state remain stable; this one control does not reveal native allocator policy."
+  },
+  "cow_pair": {
+    "shared_two": {
+      "sha256": "2bf00425a238492c427e07108638fb7e6317ccdbbc62cadb6c4499b656c08ee1",
+      "tracks": {
+        "E95DD2B085330A12": {
+          "album_local": 169,
+          "artist_local": 170,
+          "album_artist": "Synthetic Ensemble 00"
+        },
+        "0EA4623DE17EC6F6": {
+          "album_local": 169,
+          "artist_local": 170,
+          "album_artist": "Synthetic Ensemble 00"
+        }
+      }
+    },
+    "cow_candidate": {
+      "sha256": "f6f2a221eacadffba1ae9180b877872a595736a47f92644b9a38e6173981bda3",
+      "tracks": {
+        "E95DD2B085330A12": {
+          "album_local": 184,
+          "artist_local": 185,
+          "album_artist": "Synthetic Phase3 COW Ensemble"
+        },
+        "0EA4623DE17EC6F6": {
+          "album_local": 169,
+          "artist_local": 170,
+          "album_artist": "Synthetic Ensemble 00"
+        }
+      },
+      "new_aux_pids": {
+        "album": "5ECBDDD8C66BDEA8",
+        "artist": "B67DCD64D3FD050D"
+      },
+      "accepted_native_cycles": 2
+    },
+    "production_status": "set_indexed_fields intentionally refuses changed shared aux objects; no public API broadening"
+  },
+  "sort_snapshots": [
+    {
+      "field": "SortName",
+      "mutation_sha256": "7e02e91fe81341b74a9528c646cb353404e86923cd84cb936cd2a60e46b9e869",
+      "mutation_ranks": [
+        0,
+        1000,
+        1000,
+        1000,
+        1000,
+        1000,
+        1000
+      ],
+      "verification_sha256": "31f2ed93fb733ab3eb5c1dadbeebe7fd48fc24b9564cd373ecd675d3c6b9b125",
+      "verification_ranks": [
+        1000,
+        1000,
+        1000,
+        1000,
+        1000,
+        1000,
+        1000
+      ],
+      "sort_type": 30,
+      "atom_id": 1,
+      "wire6d": 0
+    },
+    {
+      "field": "SortAlbum",
+      "mutation_sha256": "dc63032047057e6a9f95f03f077bc602365e4f806ca934c656ec41f4ff3ab6a9",
+      "mutation_ranks": [
+        1000,
+        0,
+        1000,
+        1000,
+        1000,
+        1000,
+        1000
+      ],
+      "verification_sha256": "0b7c057143a2a73b1275686ad13611a7e4acb4358848d77605fe37b57ed95456",
+      "verification_ranks": [
+        1000,
+        1000,
+        1000,
+        1000,
+        1000,
+        1000,
+        1000
+      ],
+      "sort_type": 31,
+      "atom_id": 1,
+      "wire6d": 0
+    },
+    {
+      "field": "SortArtist",
+      "mutation_sha256": "a6d7f064faef91df9b2bbdd0f75fde6dbe7ddaab4112ce9a83c63642535df79f",
+      "mutation_ranks": [
+        1000,
+        1000,
+        0,
+        1000,
+        1000,
+        1000,
+        0
+      ],
+      "verification_sha256": "ac44785f3499d6da8af4729d717caa201323e7befc9b62bf3a5a3af2526862e7",
+      "verification_ranks": [
+        1000,
+        1000,
+        1000,
+        1000,
+        1000,
+        1000,
+        1000
+      ],
+      "sort_type": 32,
+      "atom_id": 1,
+      "wire6d": 0
+    },
+    {
+      "field": "SortAlbumArtist",
+      "mutation_sha256": "9a1fe07e5d78405456605bcbbd71827661df262385a10bea71f2bec6d4459217",
+      "mutation_ranks": [
+        1000,
+        1000,
+        1000,
+        1000,
+        1000,
+        1000,
+        1000
+      ],
+      "verification_sha256": "4828f10a1ba74ebee1f7df1f87ddcd8922bbab61caed77008e3d86f54b0df2f2",
+      "verification_ranks": [
+        1000,
+        1000,
+        1000,
+        1000,
+        1000,
+        1000,
+        1000
+      ],
+      "sort_type": 33,
+      "atom_id": 1,
+      "wire6d": 0
+    }
+  ],
+  "validation": [
+    {
+      "command": "python -m pytest -q tests/test_allocation_graph_20260925.py",
+      "exit_code": 0,
+      "summary": "7 passed in 0.03s",
+      "log": "/home/runner/work/_temp/gha-mcp/linux-ytedy5cd/work/itl-analysis/reports/allocator-test-dedicated.log"
+    },
+    {
+      "command": "python -m pytest -q tests/test_codec_fresh_state.py tests/test_codec_tracks.py tests/test_codec_review_hardening.py tests/test_codec_playlists.py tests/test_model_structure.py tests/test_reference_tools.py",
+      "exit_code": 0,
+      "summary": "198 passed in 1.42s",
+      "log": "/home/runner/work/_temp/gha-mcp/linux-ytedy5cd/work/itl-analysis/reports/allocator-test-related.log"
+    },
+    {
+      "command": "python -m compileall -q itlkit scripts/research/audit_allocation_graph_20260925.py tests/test_allocation_graph_20260925.py",
+      "exit_code": 0,
+      "summary": "completed without diagnostics",
+      "log": "/home/runner/work/_temp/gha-mcp/linux-ytedy5cd/work/itl-analysis/reports/allocator-compileall.log"
+    },
+    {
+      "command": "python scripts/research/audit_allocation_graph_20260925.py --root . --output /home/runner/work/_temp/gha-mcp/linux-ytedy5cd/work/itl-analysis/reports/allocator-audit.json",
+      "exit_code": 0,
+      "summary": "356 files; 356 container, structure, and audit-model successes; 336 high-level Library successes",
+      "log": "/home/runner/work/_temp/gha-mcp/linux-ytedy5cd/work/itl-analysis/reports/allocator-audit.log"
+    }
+  ],
+  "residual_blockers": [
+    "No native collision/deletion/repeated-allocation factorial establishes high-water or reuse policy.",
+    "Persistent-ID generation is observed only through bounded candidates and one AddFile control.",
+    "Known pool mapping is partial; 2975 SHA-deduplicated unmapped owner/type mhoh occurrences were intentionally not assigned semantics.",
+    "The exact accepted aux-object COW case does not cover general aux or string-pool COW.",
+    "Opaque reference consumers and compaction/deletion closure remain unknown.",
+    "Sort/rank/cache evidence lacks empty/missing/tie/normalization/locale/system-view factorials.",
+    "Generated reference fixtures and the current high-level secondary-ID invariant disagree; evidence does not yet select a safe fix."
+  ],
+  "owned_paths": [
+    "evidence/research/20260925/allocator-cow/report.md",
+    "evidence/research/20260925/allocator-cow/report.json",
+    "scripts/research/audit_allocation_graph_20260925.py",
+    "tests/test_allocation_graph_20260925.py"
+  ]
+}
