@@ -1,0 +1,356 @@
+{
+  "cases": [
+    {
+      "action": {
+        "com_readback": "2026-01-15T12:34:56+00:00",
+        "error": null,
+        "outcome": "accepted"
+      },
+      "input": "2026-01-15T12:34:56",
+      "name": "031-set-date-naive-utc",
+      "reference_parser_selected_date_transition": {
+        "changed_track_count": 1,
+        "date_modified_deltas_seconds": [],
+        "field_change_counts": {
+          "play_date": 1
+        }
+      },
+      "snapshot": {
+        "path": "evidence/path-time/native/snapshots/031-031-set-date-naive-utc.itl",
+        "sha256": "758e53049736bbeb8e1dbc1cf382bcfec0c198f4f4448fd17699230a484adf5f",
+        "track_count": 23,
+        "version": "12.13.10.3"
+      },
+      "target": {
+        "expected_wall_scalar_from_com_readback": 3851325296,
+        "name": "date-naive-utc",
+        "persistent_id": "31F8F58965C9628E",
+        "play_date_after": 3851325296,
+        "play_date_before": 0
+      },
+      "timezone": "UTC"
+    },
+    {
+      "action": {
+        "com_readback": "2026-01-15T12:34:56+00:00",
+        "error": null,
+        "outcome": "accepted"
+      },
+      "input": "2026-01-15T12:34:56+00:00",
+      "name": "032-set-date-aware-utc",
+      "reference_parser_selected_date_transition": {
+        "changed_track_count": 1,
+        "date_modified_deltas_seconds": [],
+        "field_change_counts": {
+          "play_date": 1
+        }
+      },
+      "snapshot": {
+        "path": "evidence/path-time/native/snapshots/032-032-set-date-aware-utc.itl",
+        "sha256": "9d8c7a5deda928d419039f4faf1e42291579c8a927ee28de5e4e6550cc0441c0",
+        "track_count": 23,
+        "version": "12.13.10.3"
+      },
+      "target": {
+        "expected_wall_scalar_from_com_readback": 3851325296,
+        "name": "date-aware-utc",
+        "persistent_id": "AA936DA5AD8E56FB",
+        "play_date_after": 3851325296,
+        "play_date_before": 0
+      },
+      "timezone": "UTC"
+    },
+    {
+      "action": {
+        "com_readback": "2026-01-15T12:34:56+00:00",
+        "error": null,
+        "outcome": "accepted"
+      },
+      "input": "2026-01-15T12:34:56",
+      "name": "033-set-date-naive-eastern",
+      "reference_parser_selected_date_transition": {
+        "changed_track_count": 23,
+        "date_modified_deltas_seconds": [
+          -14400
+        ],
+        "field_change_counts": {
+          "date_modified": 23,
+          "play_date": 1
+        }
+      },
+      "snapshot": {
+        "path": "evidence/path-time/native/snapshots/033-033-set-date-naive-eastern.itl",
+        "sha256": "656b181be257eb3ce6363c68db1e440ecc070ac635c8b61f894869560496230b",
+        "track_count": 23,
+        "version": "12.13.10.3"
+      },
+      "target": {
+        "expected_wall_scalar_from_com_readback": 3851325296,
+        "name": "date-naive-eastern",
+        "persistent_id": "AD92C3A986BAE84C",
+        "play_date_after": 3851325296,
+        "play_date_before": 0
+      },
+      "timezone": "Eastern Standard Time"
+    },
+    {
+      "action": {
+        "com_readback": "2026-01-15T12:34:56+00:00",
+        "error": null,
+        "outcome": "accepted"
+      },
+      "input": "2026-01-15T17:34:56+00:00",
+      "name": "034-set-date-aware-instant",
+      "reference_parser_selected_date_transition": {
+        "changed_track_count": 1,
+        "date_modified_deltas_seconds": [],
+        "field_change_counts": {
+          "play_date": 1
+        }
+      },
+      "snapshot": {
+        "path": "evidence/path-time/native/snapshots/034-034-set-date-aware-instant.itl",
+        "sha256": "27e704693e22381455e027be7bddfe1557354df4187b7270f27451daa445b539",
+        "track_count": 23,
+        "version": "12.13.10.3"
+      },
+      "target": {
+        "expected_wall_scalar_from_com_readback": 3851325296,
+        "name": "date-aware-instant",
+        "persistent_id": "F0E2B200BBAB0B90",
+        "play_date_after": 3851325296,
+        "play_date_before": 0
+      },
+      "timezone": "Eastern Standard Time"
+    },
+    {
+      "action": {
+        "com_readback": "2026-11-01T01:30:00+00:00",
+        "error": null,
+        "outcome": "accepted"
+      },
+      "input": "2026-11-01T01:30:00",
+      "name": "035-set-date-fold",
+      "reference_parser_selected_date_transition": {
+        "changed_track_count": 1,
+        "date_modified_deltas_seconds": [],
+        "field_change_counts": {
+          "play_date": 1
+        }
+      },
+      "snapshot": {
+        "path": "evidence/path-time/native/snapshots/035-035-set-date-fold.itl",
+        "sha256": "f3312c36b43645e63b41fdd6c2e6d8925c87db39f55aefa8364dc41f6aeb4b4d",
+        "track_count": 23,
+        "version": "12.13.10.3"
+      },
+      "target": {
+        "expected_wall_scalar_from_com_readback": 3876341400,
+        "name": "date-fold",
+        "persistent_id": "C5C4D27CFB72A6EA",
+        "play_date_after": 3876341400,
+        "play_date_before": 0
+      },
+      "timezone": "Eastern Standard Time"
+    },
+    {
+      "action": {
+        "com_readback": "2026-03-08T03:30:00+00:00",
+        "error": null,
+        "outcome": "accepted"
+      },
+      "input": "2026-03-08T02:30:00",
+      "name": "036-set-date-gap",
+      "reference_parser_selected_date_transition": {
+        "changed_track_count": 1,
+        "date_modified_deltas_seconds": [],
+        "field_change_counts": {
+          "play_date": 1
+        }
+      },
+      "snapshot": {
+        "path": "evidence/path-time/native/snapshots/036-036-set-date-gap.itl",
+        "sha256": "f4f0520035fe8ab04c029efcb474c2148c9037b5f94519136fcfa6491b71a152",
+        "track_count": 23,
+        "version": "12.13.10.3"
+      },
+      "target": {
+        "expected_wall_scalar_from_com_readback": 3855785400,
+        "name": "date-gap",
+        "persistent_id": "52C1AD6A2A274130",
+        "play_date_after": 3855785400,
+        "play_date_before": 0
+      },
+      "timezone": "Eastern Standard Time"
+    },
+    {
+      "action": {
+        "com_readback": null,
+        "error": "OSError: [Errno 22] Invalid argument",
+        "outcome": "rejected_or_failed"
+      },
+      "input": "1904-01-01T00:00:00",
+      "name": "037-set-date-epoch",
+      "reference_parser_selected_date_transition": {
+        "changed_track_count": 0,
+        "date_modified_deltas_seconds": [],
+        "field_change_counts": {}
+      },
+      "snapshot": {
+        "path": "evidence/path-time/native/snapshots/037-037-set-date-epoch.itl",
+        "sha256": "a49725f7022829d0f65fbe006117440217dd75781850dc96f0734b3ccf3c2d37",
+        "track_count": 23,
+        "version": "12.13.10.3"
+      },
+      "target": {
+        "expected_wall_scalar_from_com_readback": null,
+        "name": "date-epoch",
+        "persistent_id": "4DD1A712B47451B0",
+        "play_date_after": 0,
+        "play_date_before": 0
+      },
+      "timezone": "Eastern Standard Time"
+    },
+    {
+      "action": {
+        "com_readback": null,
+        "error": "OSError: [Errno 22] Invalid argument",
+        "outcome": "rejected_or_failed"
+      },
+      "input": "1904-01-01T00:00:01",
+      "name": "038-set-date-epoch-plus-one",
+      "reference_parser_selected_date_transition": {
+        "changed_track_count": 0,
+        "date_modified_deltas_seconds": [],
+        "field_change_counts": {}
+      },
+      "snapshot": {
+        "path": "evidence/path-time/native/snapshots/038-038-set-date-epoch-plus-one.itl",
+        "sha256": "6a589ceea0531e5ee45d75ea23abddaef5f5c36c2b6c32c5b2d98e361b47ae0c",
+        "track_count": 23,
+        "version": "12.13.10.3"
+      },
+      "target": {
+        "expected_wall_scalar_from_com_readback": null,
+        "name": "date-epoch-plus-one",
+        "persistent_id": "A427D47F9B943FB9",
+        "play_date_after": 0,
+        "play_date_before": 0
+      },
+      "timezone": "Eastern Standard Time"
+    }
+  ],
+  "findings": {
+    "aware_utc_input_converted_before_storage": {
+      "case_name": "034-set-date-aware-instant",
+      "com_readback": "2026-01-15T12:34:56+00:00",
+      "input": "2026-01-15T17:34:56+00:00",
+      "stored_scalar": 3851325296
+    },
+    "epoch_boundary_failures": {
+      "bounded_meaning": "Both retained assignments failed at the Python/COM boundary and made no separately parsed date-field transition. This does not prove raw ITL scalar 0 or 1 rejection.",
+      "case_names": [
+        "037-set-date-epoch",
+        "038-set-date-epoch-plus-one"
+      ],
+      "errors": [
+        "OSError: [Errno 22] Invalid argument",
+        "OSError: [Errno 22] Invalid argument"
+      ],
+      "reference_parser_date_field_changes": [
+        {
+          "changed_track_count": 0,
+          "date_modified_deltas_seconds": [],
+          "field_change_counts": {}
+        },
+        {
+          "changed_track_count": 0,
+          "date_modified_deltas_seconds": [],
+          "field_change_counts": {}
+        }
+      ]
+    },
+    "four_equal_wall_tuple_scalars": {
+      "bounded_meaning": "These four retained cases serialize the displayed 2026-01-15 12:34:56 wall tuple as the same uint32 despite UTC/Eastern and naive/aware COM inputs.",
+      "case_names": [
+        "031-set-date-naive-utc",
+        "032-set-date-aware-utc",
+        "033-set-date-naive-eastern",
+        "034-set-date-aware-instant"
+      ],
+      "scalar": 3851325296
+    },
+    "gap_normalization": {
+      "case_name": "036-set-date-gap",
+      "com_readback": "2026-03-08T03:30:00+00:00",
+      "input": "2026-03-08T02:30:00",
+      "stored_scalar": 3855785400
+    },
+    "timezone_transition": {
+      "bounded_meaning": "Across the retained 032->033 transition, all 23 separately parsed date_modified values moved by -14,400 seconds, while date_added and skip_date did not change; one target play_date was also set. Cause is not established.",
+      "case_name": "033-set-date-naive-eastern",
+      "changed_track_count": 23,
+      "date_added_change_count": 0,
+      "date_modified_deltas_seconds": [
+        -14400
+      ],
+      "field_change_counts": {
+        "date_modified": 23,
+        "play_date": 1
+      },
+      "skip_date_change_count": 0
+    },
+    "u11_closed": false
+  },
+  "limitations": [
+    "This is a deterministic re-audit of one already-retained native run, not an independent native reproduction.",
+    "Only PlayedDate on standalone Windows iTunes 12.13.10.3 is represented by these eight actions.",
+    "The 23-track -14,400-second date_modified shift is observed, but its cause is not isolated.",
+    "The fold case does not retain a second fold choice, and no offset/fold metadata is established.",
+    "The epoch cases failed before successful COM assignment; raw-writer acceptance remains untested.",
+    "Other date fields, zones, locales, versions, file timestamps, and epoch boundaries remain unresolved.",
+    "U-11 remains open."
+  ],
+  "public_prior_art": {
+    "bounded_use": "The article independently associates XML Play Date integers with seconds since 1904-01-01. It does not establish the retained binary ITL wall-time, DST, COM marshalling, or cross-version behavior audited here.",
+    "classification": "historical iTunes XML observation; not binary-ITL native evidence",
+    "url": "https://www.joabj.com/Writing/Tech/Tuts/Apps-APIs/iTunes-PlayDate.html"
+  },
+  "report_date": "2026-09-25",
+  "schema": "windows-itl.path-time-retained-audit.v1",
+  "scope": {
+    "frozen_evidence_modified": false,
+    "native_actions_performed": false,
+    "parser_boundary": "REFERENCE_PARSER is a second checked-in parser that deliberately does not import itlkit; it is not a new native experiment or an external oracle.",
+    "reference_parser_core": "REFERENCE_PARSER/core.py",
+    "reference_parser_core_sha256": "a42f337e430e65e7d5752a6a5db3f88c81b5ce17e94f069ccacd6ec3366efb44",
+    "retained_snapshot_file_set_sha256": "e38949f720a7c4f2a11ebd910b58bc1edbaee5803bbd38a3b2c094e05e698899",
+    "retained_snapshot_paths": [
+      "evidence/path-time/native/snapshots/030-030-add-date-epoch-plus-one.itl",
+      "evidence/path-time/native/snapshots/031-031-set-date-naive-utc.itl",
+      "evidence/path-time/native/snapshots/032-032-set-date-aware-utc.itl",
+      "evidence/path-time/native/snapshots/033-033-set-date-naive-eastern.itl",
+      "evidence/path-time/native/snapshots/034-034-set-date-aware-instant.itl",
+      "evidence/path-time/native/snapshots/035-035-set-date-fold.itl",
+      "evidence/path-time/native/snapshots/036-036-set-date-gap.itl",
+      "evidence/path-time/native/snapshots/037-037-set-date-epoch.itl",
+      "evidence/path-time/native/snapshots/038-038-set-date-epoch-plus-one.itl"
+    ],
+    "retained_snapshots_parsed": 9,
+    "source_summary": "evidence/path-time/native/native-summary.json",
+    "source_summary_sha256": "dce9b5382f454620a848f1f3b9c31be6c9eeaf78fcaa320140c1a349ccd8c996"
+  },
+  "summary": {
+    "accepted": 6,
+    "case_snapshots_cross_checked": 8,
+    "date_cases": 8,
+    "rejected_or_failed": 2,
+    "selected_track_field_values_cross_checked": 1104,
+    "tracks_per_case_snapshot": [
+      23
+    ],
+    "versions": [
+      "12.13.10.3"
+    ]
+  }
+}
