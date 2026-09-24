@@ -72,8 +72,17 @@ def test_modeled_identity_namespaces_reject_zero_and_duplicates(namespace,zero):
     else:nodes=[t.node for t in lib.tracks];off,size=0x1f4,4
     put(nodes[1].header,off,0 if zero else uint(nodes[0].header,off,size),size)
     raw=bad_bytes(lib)
-    with pytest.raises(FormatError,match='zero or duplicate'):Library.from_bytes(raw)
-    with pytest.raises(FormatError,match='zero or duplicate'):lib.to_bytes()
+    if namespace == 'secondary' and zero:
+        # Exact native-qualified template-free fixtures can carry zero here.
+        # Preserve reads/no-op writes but retain the stricter semantic gate.
+        parsed=Library.from_bytes(raw)
+        assert parsed.to_bytes()==raw
+        with pytest.raises(FormatError,match='zero secondary'):
+            parsed.tracks[0].set(rating=parsed.tracks[0].get('rating'))
+    else:
+        pattern='zero or duplicate|duplicate secondary'
+        with pytest.raises(FormatError,match=pattern):Library.from_bytes(raw)
+        with pytest.raises(FormatError,match=pattern):lib.to_bytes()
 
 
 @pytest.mark.parametrize('reverse',[False,True])

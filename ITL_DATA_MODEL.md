@@ -64,7 +64,7 @@ Identity values are not interchangeable merely because they have the same width.
 | Master playlist persistent ID | `miph+0x1b8` | u64 LE | Reported by COM for the library playlist. It is a distinct field/domain. Equality with the file PID is an exact generated-fixture construction choice, not a universal native invariant. |
 | Track local ID | `mith+0x10` | u32 LE | Nonzero and unique among main tracks. |
 | Track persistent ID | `mith+0x80` | u64 LE | Nonzero and unique among main tracks. |
-| Secondary track local ID | `mith+0x1f4` | u32 LE | Nonzero/unique for the observed 756-byte profile. |
+| Secondary track local ID | `mith+0x1f4` | u32 LE | Nonzero values must be unique. Zero is preserved for read/no-op on the four exact native-qualified template-free fixtures, but semantic/structural writes require nonzero values. |
 | Album local ID | `miah+0x10` | u32 LE | Referenced from `mith+0xdc`; independent namespace. |
 | Album persistent ID | `miah+0x14` | u64 LE | Nonzero/unique for the observed 88-byte profile. |
 | Artist local ID | `miih+0x10` | u32 LE | Referenced from `mith+0x1e0`; independent namespace. |

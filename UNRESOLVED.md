@@ -98,9 +98,9 @@ Closure requires direct-file and native setter matrices by field and encoding, U
 
 ### U-13 — unknown compressed trailers and opaque dependency edits
 
-`Container` preserves bytes after a valid zlib stream, but `Library` refuses semantic writes when such a trailer exists. Unknown sections/records may contain hidden references.
+`Container` preserves bytes after a valid zlib stream, but `Library` refuses semantic writes when such a trailer exists. The fixed-seed 2026-09-25 audit covered 57 baseline/mutation cases, including 19 opaque, concatenated-member, corruption, and AES cap/block-boundary trailer cases. Primary and independent envelope decisions and recovered payload/trailer hashes agreed throughout. `VALIDATOR` now reports `scope.compressed_trailer` plus exact byte coverage with `semantically_validated: false`; see [`evidence/research/20260925/`](evidence/research/20260925/). Unknown sections/records may still contain hidden references. No mutated candidate was run in native iTunes.
 
-Closure requires provenance for the trailer/record, a decoder or safe independence proof, and negative reference tests.
+Closure still requires provenance for the trailer/record, a decoder or safe independence proof, native negative tests, and independent reproduction. Structural parser agreement does not establish native acceptance or safe editability.
 
 ### U-14 — full `loved`/disliked/rating-kind semantics
 
@@ -124,7 +124,7 @@ Closure requires a deliberately sampled compatibility matrix, retained failures,
 
 ### U-17 — fuzzing breadth and crash/power-loss behavior
 
-The bounded fuzz corpus executed 503 deterministic cases with zero recorded anomalies, but it was not coverage-guided and performed no native, parallel, crash, power-loss, symlink-race, or hostile-directory campaign.
+The bounded fuzz corpus executed 503 deterministic cases with zero recorded anomalies. The later fixed-seed trailer/length/offset audit adds 57 expectation-checked cases and four plaintext-budget probes with no unexplained envelope differential. Neither campaign was coverage-guided, and neither performed native, parallel, crash, power-loss, symlink-race, or hostile-directory testing.
 
 Closure requires separate parser coverage/fault campaigns and filesystem threat-model tests. Those results still would not prove native acceptance.
 
