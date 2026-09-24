@@ -1,0 +1,142 @@
+{
+  "evidence_class": "cross-format-prior-art",
+  "license_policy": {
+    "snapshot_origins": [
+      {
+        "repository": "smart-playlist-io",
+        "snapshot": "smart-playlist-io-golden-criteria.bin",
+        "source_path": "tests/fixtures/golden_criteria.bin"
+      },
+      {
+        "repository": "smart-playlist-io",
+        "snapshot": "smart-playlist-io-golden-info.bin",
+        "source_path": "tests/fixtures/golden_info.bin"
+      },
+      {
+        "repository": "itunes_smartplaylist",
+        "snapshot": "itunes-smartplaylist-minimal-criteria.bin",
+        "source_path": "tests/library_minimal.xml#Smart Criteria"
+      },
+      {
+        "repository": "itunes_smartplaylist",
+        "snapshot": "itunes-smartplaylist-minimal-info.bin",
+        "source_path": "tests/library_minimal.xml#Smart Info"
+      }
+    ],
+    "spdx": "MIT",
+    "third_party_notices": {
+      "path": "evidence/research/20260925/smart-prior-art/THIRD_PARTY_NOTICES.md",
+      "sha256": "5e6b14178ddf48ff3f887bc8449ec54244ac40c502693af23e1128d5a23e415d"
+    }
+  },
+  "minimal_playlist_name": "Chip - League of My Own II",
+  "repositories": [
+    {
+      "commit": "31acf7f058278f120b9d054459134416e76d1d8e",
+      "files": [
+        {
+          "bytes": 1065,
+          "path": "LICENSE",
+          "sha256": "7839b3fbd43277bf8c334d8920940ed8a6ba78dbb0bda29d910418603b74099e"
+        },
+        {
+          "bytes": 1742,
+          "path": "NOTICE",
+          "sha256": "bdfbd96e0d2dd3fc5bd960ed77a393e25783fb2d69f481a4bfb330e8073125eb"
+        },
+        {
+          "bytes": 6573,
+          "path": "src/smart_playlist_io/constants.py",
+          "sha256": "a8616b1f6789e05815f4f6ba022b3322a47f8627d3087250bcb732ec0286bb72"
+        },
+        {
+          "bytes": 23746,
+          "path": "src/smart_playlist_io/encode.py",
+          "sha256": "922dff42b5dc813078cca9f0797dc837649600e9a5639fc6698464396891769f"
+        },
+        {
+          "bytes": 12116,
+          "path": "src/smart_playlist_io/decode.py",
+          "sha256": "5d408bf2038ce1dddfb16af6c089f7ac574ede3eed0ffb68cadc0b42836d6572"
+        },
+        {
+          "bytes": 1463,
+          "path": "tests/fixtures/golden_criteria.bin",
+          "sha256": "884ec390daabf84aae0ed19983f1c27b8d244b3b481476b46c36771b3a0f9b1e"
+        },
+        {
+          "bytes": 112,
+          "path": "tests/fixtures/golden_info.bin",
+          "sha256": "101dde6edd686b478b3f6c036c413018dd229ca96c18789d971ceda8d6fd252f"
+        }
+      ],
+      "license": {
+        "notice_path": "NOTICE",
+        "path": "LICENSE",
+        "spdx": "MIT"
+      },
+      "name": "smart-playlist-io",
+      "url": "https://github.com/kynoptic/smart-playlist-io"
+    },
+    {
+      "commit": "9a36e82d5bfaad9154b50166fee0489f5d9306e2",
+      "files": [
+        {
+          "bytes": 1080,
+          "path": "LICENSE",
+          "sha256": "0becf4519f22527da9fd7c3522fe4c088d190dc450b84340cb5b5c11e6508182"
+        },
+        {
+          "bytes": 38124,
+          "path": "itunessmart/parse.py",
+          "sha256": "a3c52d416ca24a32ac760071f27278fd5a0270d1614104cf9a6090bd9e8df39c"
+        },
+        {
+          "bytes": 7670,
+          "path": "itunessmart/data_structure.py",
+          "sha256": "189d25bccc949429c1b48f3f20fd9666c02c5f8a102a4c30e5c08a7c0ec77f87"
+        },
+        {
+          "bytes": 4330,
+          "path": "tests/library_minimal.xml",
+          "sha256": "b66575ed3f15393d7645bf2120b72b5d4e991252bce0acfe5a2071a45cbb7d2f"
+        },
+        {
+          "bytes": 885078,
+          "path": "tests/library_onlysmartplaylists.xml",
+          "sha256": "4c8c5e5699b313bffcce7bd7e6e6b98d3ae5cd089333b2b233015bad7466bdd0"
+        }
+      ],
+      "license": {
+        "path": "LICENSE",
+        "spdx": "MIT"
+      },
+      "name": "itunes_smartplaylist",
+      "url": "https://github.com/cvzi/itunes_smartplaylist"
+    }
+  ],
+  "retained_snapshots": [
+    {
+      "bytes": 862,
+      "path": "evidence/research/20260925/smart-prior-art/itunes-smartplaylist-minimal-criteria.bin",
+      "sha256": "db4f8d35373abf79e68091fa435c71b81dbbbfe7e855bd7a70ee1a63154ca01c"
+    },
+    {
+      "bytes": 112,
+      "path": "evidence/research/20260925/smart-prior-art/itunes-smartplaylist-minimal-info.bin",
+      "sha256": "15f5b9c419659b06901509ff8d61d9f068f4e41eceb384b4860b9158ad4f51ab"
+    },
+    {
+      "bytes": 1463,
+      "path": "evidence/research/20260925/smart-prior-art/smart-playlist-io-golden-criteria.bin",
+      "sha256": "884ec390daabf84aae0ed19983f1c27b8d244b3b481476b46c36771b3a0f9b1e"
+    },
+    {
+      "bytes": 112,
+      "path": "evidence/research/20260925/smart-prior-art/smart-playlist-io-golden-info.bin",
+      "sha256": "101dde6edd686b478b3f6c036c413018dd229ca96c18789d971ceda8d6fd252f"
+    }
+  ],
+  "schema": "windows-itl.smart-prior-art-source-manifest.v1",
+  "warning": "These sources and snapshots are not Windows-native proof."
+}
