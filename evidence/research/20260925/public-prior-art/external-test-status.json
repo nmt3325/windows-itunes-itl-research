@@ -1,0 +1,49 @@
+{
+  "checks": {
+    "AppMusicLibParser": {
+      "dotnet_test_exit_code": 0,
+      "result": {
+        "failed": 0,
+        "passed": 1,
+        "skipped": 0
+      },
+      "scope_note": "macOS Apple Music Library.musicdb, not Windows ITL"
+    },
+    "itunes_smartplaylist": {
+      "install_exit_code": 0,
+      "result": {
+        "failed": 0,
+        "passed": 18
+      },
+      "test_exit_code": 0
+    },
+    "libitlp": {
+      "configure_exit_code": 0,
+      "initial_build_exit_code": 2,
+      "initial_interpretation": "modern GCC unused-result diagnostics became errors under upstream warnings-as-errors",
+      "result": "shared library built; no fixture parser claim made",
+      "retry_build_exit_code": 0,
+      "retry_flag": "-Wno-error=unused-result"
+    },
+    "smart-playlist-io": {
+      "initial_interpretation": "pytest configuration required pytest-cov, which was not supplied by the declared test extra",
+      "initial_test_exit_code": 4,
+      "install_exit_code": 0,
+      "result": {
+        "coverage_percent": 98.43,
+        "failed": 0,
+        "passed": 144
+      },
+      "retry_exit_code": 0,
+      "retry_setup": "installed pytest-cov 7.1.0 without modifying the checkout"
+    },
+    "titl": {
+      "initial_maven_exit_code": 1,
+      "interpretation": "compilation stopped before tests because the POM requests Java source/target 6, unsupported by the installed modern JDK",
+      "result": "tests not executed; neither pass nor parser failure",
+      "retry_maven_exit_code": 1
+    }
+  },
+  "claim_boundary": "Exit status and upstream tests describe only the pinned public checkout under this Linux toolchain; they do not establish Windows iTunes native acceptance or ITL semantic compatibility.",
+  "schema": "windows-itunes-itl.public-prior-art-upstream-checks.20260925.v1"
+}
