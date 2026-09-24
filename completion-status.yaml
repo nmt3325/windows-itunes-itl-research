@@ -49,7 +49,7 @@ qualification:
   path_time: bounded_native_matrix_only
   compressed_trailer: one_fixed_seed_17_byte_candidate_stripped_on_first_native_save_u13_open
   parser_coverage_guided_campaign: bounded_offline_20000_mutations_zero_retained_anomalies_u17_open
-  filesystem_publication_threat_model: bounded_offline_linux_21_scenarios_parent_swap_limit_confirmed_u17_open
+  filesystem_publication_threat_model: bounded_linux_21_plus_windows_ntfs_25_scenarios_parent_swap_limits_2_actual_terminations_u17_open
   audible_playback: not_established
   atomic_native_save_protocol: not_established
 
@@ -123,6 +123,24 @@ validation:
     process_crash_operations: 0
     power_loss_operations: 0
     hostile_directory_safety_established: false
+    production_code_changed: false
+    unresolved_item: U-17
+  windows_filesystem_publication:
+    status: passed_bounded_windows_ntfs_campaign
+    platform: Windows_Server_2025_10.0.26100_AMD64
+    runtime: CPython_3.12.10
+    filesystem: runner_temporary_NTFS
+    case_scenarios: 25
+    case_scenarios_are_independent_experiments: false
+    native_direct: 9
+    scheduler_assisted_native_syscall: 6
+    fault_injection: 8
+    actual_process_termination: 2
+    unavailable: 0
+    power_loss_operations: 0
+    native_itunes_operations: 0
+    hostile_directory_safety_established: false
+    universal_windows_or_ntfs_behavior_established: false
     production_code_changed: false
     unresolved_item: U-17
   integrated_tests:

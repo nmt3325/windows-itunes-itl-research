@@ -24,14 +24,22 @@ def main():
         rows = [{'path': 'sample.txt', 'bytes': len(content), 'sha256': hashlib.sha256(content).hexdigest()}]
         change(root, rows)
         (root / module.MANIFEST).write_text(json.dumps(rows), encoding='utf-8')
+        verdict = None
         error = None
         try:
-            module.verify(root)
+            verdict = module.verify(root)
         except (OSError, ValueError, TypeError, KeyError) as exc:
             error = str(exc)
-        if (error is None) != expect_ok:
-            raise AssertionError((name, expect_ok, error))
-        results.append({'name': name, 'passed': True, 'refused': error is not None, 'reason': error})
+            ok = False
+        else:
+            if not isinstance(verdict, dict) or not isinstance(verdict.get('ok'), bool):
+                raise AssertionError((name, 'verifier returned no boolean ok', verdict))
+            ok = verdict['ok']
+            if not ok:
+                error = json.dumps(verdict.get('issues', []), sort_keys=True)
+        if ok != expect_ok:
+            raise AssertionError((name, expect_ok, ok, error, verdict))
+        results.append({'name': name, 'passed': True, 'refused': not ok, 'reason': error})
     test('valid', lambda r, x: None, True)
     test('git-directory-excluded', lambda r, x: ((r / '.git').mkdir(), (r / '.git/config').write_text('test')), True)
     test('git-pointer-excluded', lambda r, x: (r / '.git').write_text('gitdir: elsewhere'), True)
