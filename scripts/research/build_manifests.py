@@ -47,6 +47,13 @@ def classify_itl(path: Path) -> tuple[str, dict]:
         if evidence is not None:
             extra["native_acceptance_evidence"] = evidence
         return "independent_from_scratch_generated", extra
+    if rel.startswith("evidence/research/20260925/native-rating-kind/"):
+        return "native_rating_bounded_matrix", {
+            "qualification": (
+                "20 native-saved snapshots plus eight repeated baseline copies; "
+                "see native-rating-kind report and integration addendum; occurrences are not independent runs"
+            ),
+        }
     if rel.startswith("evidence/independent/itl-rs-20260922/"):
         return "external_independent_interop_candidate", {
             "qualification": "see conformance summary; structural preservation is not semantic interoperability",
@@ -127,6 +134,7 @@ def build_corpus() -> dict:
             "lyrics_authority_note": "three exact reset-ITL probes followed the supplied MP3 ID3v2.2 ULT input; one track/build only, with hidden caches and general authority unresolved",
             "external_interop_note": "one exact structural no-op passed native cycles; semantic reimplementation remains false",
             "smart_playlist_note": "native nested framing observed; operand and membership gates failed",
+            "native_rating_note": "20 native-saved snapshots and eight repeated baseline copies narrow Rating/RatingKind behavior for one exact build/profile; snapshot occurrences are not independent experiments",
         },
         "summary": {"itl_file_count": len(rows), "by_class": counts},
         "referenced_manifests_and_analyses": references,

@@ -14,16 +14,18 @@
     "lyrics_ceiling_note": "one deterministic MP3/ID3v2.2/ULT/COM/build path has an exact 16,777,209-character result adjacent to a native non-exact 16,777,210-character result; retained reports prove unsigned-24-bit frame-size wrap, not a universal Lyrics limit",
     "lyrics_authority_note": "three exact reset-ITL probes followed the supplied MP3 ID3v2.2 ULT input; one track/build only, with hidden caches and general authority unresolved",
     "external_interop_note": "one exact structural no-op passed native cycles; semantic reimplementation remains false",
-    "smart_playlist_note": "native nested framing observed; operand and membership gates failed"
+    "smart_playlist_note": "native nested framing observed; operand and membership gates failed",
+    "native_rating_note": "20 native-saved snapshots and eight repeated baseline copies narrow Rating/RatingKind behavior for one exact build/profile; snapshot occurrences are not independent experiments"
   },
   "summary": {
-    "itl_file_count": 356,
+    "itl_file_count": 384,
     "by_class": {
       "independent_from_scratch_generated": 4,
       "external_independent_interop_candidate": 5,
       "archived_native_or_exact_candidate": 302,
       "native_itunes_fresh_library": 6,
-      "native_itunes_path_time_sequence": 39
+      "native_itunes_path_time_sequence": 39,
+      "native_rating_bounded_matrix": 28
     }
   },
   "referenced_manifests_and_analyses": [
@@ -2693,6 +2695,202 @@
       "corpus_class": "native_itunes_path_time_sequence",
       "producer": "iTunes 12.13.10.3",
       "reference_writer_acceptance": "not_applicable"
+    },
+    {
+      "path": "evidence/research/20260925/native-rating-kind/cases/interface-probe/baseline.itl",
+      "bytes": 10566,
+      "sha256": "c6c68171d57350ceb3cf379eee13a764ea199536ef18238fe4faf80583492d74",
+      "corpus_class": "native_rating_bounded_matrix",
+      "qualification": "20 native-saved snapshots plus eight repeated baseline copies; see native-rating-kind report and integration addendum; occurrences are not independent runs"
+    },
+    {
+      "path": "evidence/research/20260925/native-rating-kind/cases/interface-probe/probe/native-saved.itl",
+      "bytes": 4112,
+      "sha256": "f58df844bb741048b6da785877deb64515a81fed4c396458eafd8839190d1fc9",
+      "corpus_class": "native_rating_bounded_matrix",
+      "qualification": "20 native-saved snapshots plus eight repeated baseline copies; see native-rating-kind report and integration addendum; occurrences are not independent runs"
+    },
+    {
+      "path": "evidence/research/20260925/native-rating-kind/cases/interface-probe/reload/native-saved.itl",
+      "bytes": 4141,
+      "sha256": "71934aac518048fb6d6bb675d4ca99f11def8e9158a716efd7a37cd7214adfaa",
+      "corpus_class": "native_rating_bounded_matrix",
+      "qualification": "20 native-saved snapshots plus eight repeated baseline copies; see native-rating-kind report and integration addendum; occurrences are not independent runs"
+    },
+    {
+      "path": "evidence/research/20260925/native-rating-kind/cases/rating-000/baseline.itl",
+      "bytes": 10566,
+      "sha256": "c6c68171d57350ceb3cf379eee13a764ea199536ef18238fe4faf80583492d74",
+      "corpus_class": "native_rating_bounded_matrix",
+      "qualification": "20 native-saved snapshots plus eight repeated baseline copies; see native-rating-kind report and integration addendum; occurrences are not independent runs"
+    },
+    {
+      "path": "evidence/research/20260925/native-rating-kind/cases/rating-000/mutation/native-saved.itl",
+      "bytes": 4112,
+      "sha256": "f611af4ee5b22a5df19af6b740bf8a2b0b788e360200538dbe0eff92c53d38c2",
+      "corpus_class": "native_rating_bounded_matrix",
+      "qualification": "20 native-saved snapshots plus eight repeated baseline copies; see native-rating-kind report and integration addendum; occurrences are not independent runs"
+    },
+    {
+      "path": "evidence/research/20260925/native-rating-kind/cases/rating-000/restart-verification/native-saved.itl",
+      "bytes": 4143,
+      "sha256": "35b232a59bc882b23eb9a0fefb97b0bdc22612104cc0e40f394637345ab339f0",
+      "corpus_class": "native_rating_bounded_matrix",
+      "qualification": "20 native-saved snapshots plus eight repeated baseline copies; see native-rating-kind report and integration addendum; occurrences are not independent runs"
+    },
+    {
+      "path": "evidence/research/20260925/native-rating-kind/cases/rating-000/same-value-repeat/native-saved.itl",
+      "bytes": 4142,
+      "sha256": "fc25d37bf822d8db96e1f30420aacc4f78baaf392412308276f8983268f66f10",
+      "corpus_class": "native_rating_bounded_matrix",
+      "qualification": "20 native-saved snapshots plus eight repeated baseline copies; see native-rating-kind report and integration addendum; occurrences are not independent runs"
+    },
+    {
+      "path": "evidence/research/20260925/native-rating-kind/cases/rating-020/baseline.itl",
+      "bytes": 10566,
+      "sha256": "c6c68171d57350ceb3cf379eee13a764ea199536ef18238fe4faf80583492d74",
+      "corpus_class": "native_rating_bounded_matrix",
+      "qualification": "20 native-saved snapshots plus eight repeated baseline copies; see native-rating-kind report and integration addendum; occurrences are not independent runs"
+    },
+    {
+      "path": "evidence/research/20260925/native-rating-kind/cases/rating-020/mutation/native-saved.itl",
+      "bytes": 4111,
+      "sha256": "ac3bed7583373bd5b2e94ef18b88c84d0ee11d1863471c7d90ef852e8c1f1715",
+      "corpus_class": "native_rating_bounded_matrix",
+      "qualification": "20 native-saved snapshots plus eight repeated baseline copies; see native-rating-kind report and integration addendum; occurrences are not independent runs"
+    },
+    {
+      "path": "evidence/research/20260925/native-rating-kind/cases/rating-020/restart-verification/native-saved.itl",
+      "bytes": 4149,
+      "sha256": "245e630ac9c7135a8fb671f2223766c5a57bd1d187b37330c214507d660d49d7",
+      "corpus_class": "native_rating_bounded_matrix",
+      "qualification": "20 native-saved snapshots plus eight repeated baseline copies; see native-rating-kind report and integration addendum; occurrences are not independent runs"
+    },
+    {
+      "path": "evidence/research/20260925/native-rating-kind/cases/rating-020/same-value-repeat/native-saved.itl",
+      "bytes": 4149,
+      "sha256": "51842dfa26bf772fc62f93c05dffd8a44cb3d199da51d63b0729967e330e601d",
+      "corpus_class": "native_rating_bounded_matrix",
+      "qualification": "20 native-saved snapshots plus eight repeated baseline copies; see native-rating-kind report and integration addendum; occurrences are not independent runs"
+    },
+    {
+      "path": "evidence/research/20260925/native-rating-kind/cases/rating-040/baseline.itl",
+      "bytes": 10566,
+      "sha256": "c6c68171d57350ceb3cf379eee13a764ea199536ef18238fe4faf80583492d74",
+      "corpus_class": "native_rating_bounded_matrix",
+      "qualification": "20 native-saved snapshots plus eight repeated baseline copies; see native-rating-kind report and integration addendum; occurrences are not independent runs"
+    },
+    {
+      "path": "evidence/research/20260925/native-rating-kind/cases/rating-040/mutation/native-saved.itl",
+      "bytes": 4104,
+      "sha256": "50fbb732d2fe91c904da8ccad005930829ec98cbc6946b2e5d604f51557e0e52",
+      "corpus_class": "native_rating_bounded_matrix",
+      "qualification": "20 native-saved snapshots plus eight repeated baseline copies; see native-rating-kind report and integration addendum; occurrences are not independent runs"
+    },
+    {
+      "path": "evidence/research/20260925/native-rating-kind/cases/rating-040/restart-verification/native-saved.itl",
+      "bytes": 4134,
+      "sha256": "cc66e054bdade9e9e374de573f6ef18bd8c7a76ccfdd41181f5930ded59dd0b4",
+      "corpus_class": "native_rating_bounded_matrix",
+      "qualification": "20 native-saved snapshots plus eight repeated baseline copies; see native-rating-kind report and integration addendum; occurrences are not independent runs"
+    },
+    {
+      "path": "evidence/research/20260925/native-rating-kind/cases/rating-040/same-value-repeat/native-saved.itl",
+      "bytes": 4134,
+      "sha256": "060545612bc94c290f32e3351851e4181181860443e5ab1c9fc1041a9dc3caa6",
+      "corpus_class": "native_rating_bounded_matrix",
+      "qualification": "20 native-saved snapshots plus eight repeated baseline copies; see native-rating-kind report and integration addendum; occurrences are not independent runs"
+    },
+    {
+      "path": "evidence/research/20260925/native-rating-kind/cases/rating-060/baseline.itl",
+      "bytes": 10566,
+      "sha256": "c6c68171d57350ceb3cf379eee13a764ea199536ef18238fe4faf80583492d74",
+      "corpus_class": "native_rating_bounded_matrix",
+      "qualification": "20 native-saved snapshots plus eight repeated baseline copies; see native-rating-kind report and integration addendum; occurrences are not independent runs"
+    },
+    {
+      "path": "evidence/research/20260925/native-rating-kind/cases/rating-060/mutation/native-saved.itl",
+      "bytes": 4108,
+      "sha256": "fcfc1402f380d07bef83a259504bea8319f61a713d3d67b3bd97ba2e4c6ea3d1",
+      "corpus_class": "native_rating_bounded_matrix",
+      "qualification": "20 native-saved snapshots plus eight repeated baseline copies; see native-rating-kind report and integration addendum; occurrences are not independent runs"
+    },
+    {
+      "path": "evidence/research/20260925/native-rating-kind/cases/rating-060/restart-verification/native-saved.itl",
+      "bytes": 4143,
+      "sha256": "b733fb302263f09ff677feb65b7eb7902e458341cb90e6f6c6842352d7a0047b",
+      "corpus_class": "native_rating_bounded_matrix",
+      "qualification": "20 native-saved snapshots plus eight repeated baseline copies; see native-rating-kind report and integration addendum; occurrences are not independent runs"
+    },
+    {
+      "path": "evidence/research/20260925/native-rating-kind/cases/rating-060/same-value-repeat/native-saved.itl",
+      "bytes": 4143,
+      "sha256": "54b6eebda11a6d1eb41538a5ddc98437825b13d4b0eb7c8bb9f3dfd3eccd6e32",
+      "corpus_class": "native_rating_bounded_matrix",
+      "qualification": "20 native-saved snapshots plus eight repeated baseline copies; see native-rating-kind report and integration addendum; occurrences are not independent runs"
+    },
+    {
+      "path": "evidence/research/20260925/native-rating-kind/cases/rating-080/baseline.itl",
+      "bytes": 10566,
+      "sha256": "c6c68171d57350ceb3cf379eee13a764ea199536ef18238fe4faf80583492d74",
+      "corpus_class": "native_rating_bounded_matrix",
+      "qualification": "20 native-saved snapshots plus eight repeated baseline copies; see native-rating-kind report and integration addendum; occurrences are not independent runs"
+    },
+    {
+      "path": "evidence/research/20260925/native-rating-kind/cases/rating-080/mutation/native-saved.itl",
+      "bytes": 4113,
+      "sha256": "a9177fb07ad74d98403970b317f7c69b049007704d73a96c32b7366fef0c521d",
+      "corpus_class": "native_rating_bounded_matrix",
+      "qualification": "20 native-saved snapshots plus eight repeated baseline copies; see native-rating-kind report and integration addendum; occurrences are not independent runs"
+    },
+    {
+      "path": "evidence/research/20260925/native-rating-kind/cases/rating-080/restart-verification/native-saved.itl",
+      "bytes": 4138,
+      "sha256": "7eee360224e6ba229f8906dca01635b00567a3e451d2f769057ce559fdd55700",
+      "corpus_class": "native_rating_bounded_matrix",
+      "qualification": "20 native-saved snapshots plus eight repeated baseline copies; see native-rating-kind report and integration addendum; occurrences are not independent runs"
+    },
+    {
+      "path": "evidence/research/20260925/native-rating-kind/cases/rating-080/same-value-repeat/native-saved.itl",
+      "bytes": 4138,
+      "sha256": "78d4de3c2cb144184ef1d7aa49ede3d934bd6720a3c406057b8445078de5a46e",
+      "corpus_class": "native_rating_bounded_matrix",
+      "qualification": "20 native-saved snapshots plus eight repeated baseline copies; see native-rating-kind report and integration addendum; occurrences are not independent runs"
+    },
+    {
+      "path": "evidence/research/20260925/native-rating-kind/cases/rating-100/baseline.itl",
+      "bytes": 10566,
+      "sha256": "c6c68171d57350ceb3cf379eee13a764ea199536ef18238fe4faf80583492d74",
+      "corpus_class": "native_rating_bounded_matrix",
+      "qualification": "20 native-saved snapshots plus eight repeated baseline copies; see native-rating-kind report and integration addendum; occurrences are not independent runs"
+    },
+    {
+      "path": "evidence/research/20260925/native-rating-kind/cases/rating-100/mutation/native-saved.itl",
+      "bytes": 4089,
+      "sha256": "6937ec8e828c255af870990f3934499c8e12cea3958c35b566f70fa3525da48c",
+      "corpus_class": "native_rating_bounded_matrix",
+      "qualification": "20 native-saved snapshots plus eight repeated baseline copies; see native-rating-kind report and integration addendum; occurrences are not independent runs"
+    },
+    {
+      "path": "evidence/research/20260925/native-rating-kind/cases/rating-100/restart-verification/native-saved.itl",
+      "bytes": 4125,
+      "sha256": "afceb55926aee1d529bc3c4c3cc5ca3f09f34817fdba998d282dd01f26c05c25",
+      "corpus_class": "native_rating_bounded_matrix",
+      "qualification": "20 native-saved snapshots plus eight repeated baseline copies; see native-rating-kind report and integration addendum; occurrences are not independent runs"
+    },
+    {
+      "path": "evidence/research/20260925/native-rating-kind/cases/rating-100/same-value-repeat/native-saved.itl",
+      "bytes": 4125,
+      "sha256": "9482f80305e3d16835f142c53bdf63505434172090d2c629dd026b85dde7ff9d",
+      "corpus_class": "native_rating_bounded_matrix",
+      "qualification": "20 native-saved snapshots plus eight repeated baseline copies; see native-rating-kind report and integration addendum; occurrences are not independent runs"
+    },
+    {
+      "path": "evidence/research/20260925/native-rating-kind/pinned-baseline.itl",
+      "bytes": 10566,
+      "sha256": "c6c68171d57350ceb3cf379eee13a764ea199536ef18238fe4faf80583492d74",
+      "corpus_class": "native_rating_bounded_matrix",
+      "qualification": "20 native-saved snapshots plus eight repeated baseline copies; see native-rating-kind report and integration addendum; occurrences are not independent runs"
     }
   ]
 }

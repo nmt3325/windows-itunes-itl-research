@@ -10,14 +10,21 @@ from test_core_support import library_bytes
 
 ROOT = Path(__file__).resolve().parents[1]
 SCRIPT = ROOT / "scripts" / "windows" / "native_rating_kind_20260925.py"
+REANALYSIS_SCRIPT = ROOT / "scripts" / "research" / "reanalyze_native_rating_integration_20260925.py"
 EVIDENCE = ROOT / "evidence" / "research" / "20260925" / "native-rating-kind"
 REPORT = EVIDENCE / "report.json"
 ORACLE = EVIDENCE / "oracle.json"
 EVIDENCE_README = EVIDENCE / "README.md"
+INTEGRATED_REANALYSIS = EVIDENCE / "integrated-reanalysis.json"
+INTEGRATION_README = EVIDENCE / "INTEGRATION.md"
 SPEC = importlib.util.spec_from_file_location("native_rating_kind_20260925", SCRIPT)
 assert SPEC and SPEC.loader
 research = importlib.util.module_from_spec(SPEC)
 SPEC.loader.exec_module(research)
+REANALYSIS_SPEC = importlib.util.spec_from_file_location("native_rating_integration_reanalysis", REANALYSIS_SCRIPT)
+assert REANALYSIS_SPEC and REANALYSIS_SPEC.loader
+reanalysis = importlib.util.module_from_spec(REANALYSIS_SPEC)
+REANALYSIS_SPEC.loader.exec_module(reanalysis)
 
 
 def test_cases_use_pinned_candidate_and_complete_rating_ladder():
@@ -43,13 +50,13 @@ def test_byte_diff_reports_ranges_and_size_changes():
     ]
 
 
-def test_primary_and_independent_parser_agree_on_pinned_candidate():
+def test_integrated_primary_and_independent_parser_agree_on_pinned_candidate():
     analysis = research.analyze_snapshot(research.CANDIDATE)
     assert analysis["passed"] is True
     assert analysis["primary"]["rating"] == 0
     assert analysis["primary"]["legacy_loved_bit"] is False
     assert analysis["independent"]["track"]["legacy_loved_bit"] is False
-    assert analysis["primary"]["high_level_library"]["outcome"] == "blocked"
+    assert analysis["primary"]["high_level_library"] == {"outcome": "observed", "track_count": 1}
 
 
 def test_independent_parser_tracks_bounded_legacy_loved_bit():
@@ -158,3 +165,32 @@ def test_native_oracle_records_capabilities_persistence_and_bounded_gates():
             "all_target_legacy_loved_zero",
         )
     )
+
+
+def test_integrated_reanalysis_is_deterministic_and_keeps_frozen_report_explicit():
+    expected = json.loads(INTEGRATED_REANALYSIS.read_text(encoding="utf-8"))
+    rebuilt = reanalysis.build_reanalysis(ROOT)
+    assert rebuilt == expected
+    assert reanalysis.canonical_json(rebuilt) == INTEGRATED_REANALYSIS.read_text(encoding="utf-8")
+    assert reanalysis.render_markdown(rebuilt) == INTEGRATION_README.read_text(encoding="utf-8")
+
+    counts = rebuilt["counts"]
+    assert counts["snapshot_occurrences"] == 27
+    assert counts["unique_snapshot_sha256"] == 21
+    assert counts["frozen_high_level_library_outcomes"] == {"blocked": 7, "observed": 20}
+    assert counts["integrated_high_level_library_outcomes"] == {"observed": 27}
+    assert counts["high_level_outcome_differences"] == 7
+    assert counts["unique_difference_sha256"] == 1
+    assert counts["integrated_primary_independent_validator_passed"] == 27
+    assert {row["snapshot"] for row in rebuilt["differences"]} == {"baseline"}
+    assert {row["sha256"] for row in rebuilt["differences"]} == {
+        "c6c68171d57350ceb3cf379eee13a764ea199536ef18238fe4faf80583492d74"
+    }
+    assert rebuilt["native_execution_facts_preserved"] == {
+        "report_passed": True,
+        "cases_passed": 7,
+        "cases_total": 7,
+        "native_sessions_passed": 20,
+        "native_sessions": 20,
+        "rating_values": [0, 20, 40, 60, 80, 100],
+    }
