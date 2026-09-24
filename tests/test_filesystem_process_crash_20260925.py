@@ -8,7 +8,6 @@ import json
 import os
 from pathlib import Path
 import re
-import signal
 import sys
 
 import pytest
@@ -26,6 +25,7 @@ REPORT = (
 )
 SOURCE = ROOT / "itlkit" / "io.py"
 BASE_COMMIT = "c9f271d36a7095262c6195c04eb7f09d6cf88dee"
+LINUX_SIGKILL_NUMBER = 9  # POSIX/Linux SIGKILL retained in report.json.
 
 
 def load_campaign_module():
@@ -146,10 +146,10 @@ def test_crash_stages_prove_sigkill_reap_and_exact_retained_outcomes() -> None:
         assert case["termination"] == {
             "child_died_by_signal": True,
             "child_exited_normally": False,
-            "child_returncode": -signal.SIGKILL,
+            "child_returncode": -LINUX_SIGKILL_NUMBER,
             "parent_reaped_child": True,
             "parent_sent_signal": "SIGKILL",
-            "signal_number": signal.SIGKILL,
+            "signal_number": LINUX_SIGKILL_NUMBER,
         }
         assert case["retained_after_reap"]["temporary_count"] == 1
         assert case["retained_after_reap"][
@@ -224,6 +224,7 @@ def test_campaign_replays_twice_from_fresh_roots_with_only_environment_variance(
     assert_path_and_name_hygiene(first)
 
 
+@pytest.mark.skipif(not sys.platform.startswith("linux"), reason="scratch guard is Linux-specific")
 def test_scratch_guard_rejects_relative_outside_and_existing_roots(tmp_path: Path) -> None:
     campaign = load_campaign_module()
     with pytest.raises(ValueError, match="absolute"):
