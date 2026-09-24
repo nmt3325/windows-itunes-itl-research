@@ -18,7 +18,7 @@
     "native_rating_note": "20 native-saved snapshots and eight repeated baseline copies narrow Rating/RatingKind behavior for one exact build/profile; snapshot occurrences are not independent experiments",
     "native_trailer_note": "one exact 17-byte opaque-trailer candidate and its trailer-free control each passed two native cycles; the candidate trailer was stripped on first save; retained copies and repeated saves are not independent experiments",
     "coverage_guided_note": "20,000 deterministic offline mutations completed without a retained anomaly; coarse line-transition guidance is not proof of parser safety or native acceptance",
-    "filesystem_publication_note": "21 deterministic Linux case scenarios bound stable-parent guarantees and demonstrate the existing hostile-parent exclusion; scenarios are not independent experiments, no power loss was simulated, production code was unchanged, and U-17 remains open",
+    "filesystem_publication_note": "21 deterministic Linux scenarios plus 25 specifically qualified Windows Server 2025 / CPython 3.12.10 / runner-temporary NTFS scenarios bound stable-parent behavior and demonstrate the existing hostile-parent exclusion; counts are not independent experiments, the Windows campaign includes two parent-triggered/reaped TerminateProcess boundaries and zero unavailable cases, neither campaign cut power, no native-iTunes operation was added, production code was unchanged, and U-17 remains open",
     "filesystem_process_crash_note": "five selected Linux child schedules used unchanged production write_new: four actual parent-issued/reaped SIGKILL deaths and one normal control; cases, control, replays, and artifacts are not independent experiments, zero power-loss/native-iTunes operations occurred, and U-17 remains open"
   },
   "summary": {
@@ -193,6 +193,11 @@
       "path": "evidence/research/20260925/public-static-replay-bootstrap/report.json",
       "bytes": 3505,
       "sha256": "51a58ed158675dd7c1e99359ca312ff32cfc22be298db0e1c71743c0e7323b06"
+    },
+    {
+      "path": "evidence/research/20260925/windows-filesystem-publication/report.json",
+      "bytes": 19409,
+      "sha256": "82921e322da3ea9edd16afeb439a3f13e60d71cc933e44bfa6ae74b7d6227c6d"
     }
   ],
   "itl_files": [

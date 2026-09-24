@@ -1,0 +1,555 @@
+{
+  "bounds": {
+    "actual_process_termination_scenarios": 2,
+    "case_scenarios": 25,
+    "executed_case_scenarios": 25,
+    "hostile_directory_safety_claims": 0,
+    "native_itunes_operations": 0,
+    "network_filesystem_operations": 0,
+    "power_loss_operations": 0,
+    "scratch_root_policy": "fresh absolute path resolving below tempfile.gettempdir(); removed by CLI",
+    "unavailable_case_scenarios": 0,
+    "uncontrolled_process_crashes": 0
+  },
+  "capabilities": {
+    "dangling_symlink": {
+      "available": true
+    },
+    "directory_junction": {
+      "available": true
+    },
+    "directory_symlink": {
+      "available": true
+    },
+    "file_symlink": {
+      "available": true
+    },
+    "hard_link": {
+      "available": true
+    }
+  },
+  "cases": [
+    {
+      "category": "native_direct",
+      "claim_scope": "stable_directory_model",
+      "id": "new_destination_success",
+      "observed": {
+        "destination": {
+          "bytes": 820,
+          "kind": "regular",
+          "sha256": "0360f6df8b4cbeb8a9637125e2c1717c83d9f9637334558ae5927d51a910e29d"
+        },
+        "destination_link_count_after_cleanup": 1,
+        "returned": true,
+        "temporary_count": 0
+      },
+      "status": "executed"
+    },
+    {
+      "category": "native_direct",
+      "claim_scope": "stable_directory_model",
+      "id": "existing_regular_refused",
+      "observed": {
+        "error": {
+          "errno": 17,
+          "errno_name": "EEXIST",
+          "type": "FileExistsError",
+          "winerror": null,
+          "winerror_name": null
+        },
+        "existing_destination_unchanged": true,
+        "returned": false,
+        "temporary_count": 0
+      },
+      "status": "executed"
+    },
+    {
+      "category": "native_direct",
+      "claim_scope": "stable_directory_model",
+      "id": "existing_hardlink_alias_refused",
+      "observed": {
+        "alias_unchanged": true,
+        "error": {
+          "errno": 17,
+          "errno_name": "EEXIST",
+          "type": "FileExistsError",
+          "winerror": null,
+          "winerror_name": null
+        },
+        "link_count": 2,
+        "returned": false,
+        "same_file_identity": true,
+        "temporary_count": 0
+      },
+      "status": "executed"
+    },
+    {
+      "category": "native_direct",
+      "claim_scope": "stable_directory_model",
+      "id": "existing_symlink_alias_refused",
+      "observed": {
+        "error": {
+          "errno": 17,
+          "errno_name": "EEXIST",
+          "type": "FileExistsError",
+          "winerror": null,
+          "winerror_name": null
+        },
+        "returned": false,
+        "symlink_unchanged": true,
+        "temporary_count": 0,
+        "victim_unchanged": true
+      },
+      "status": "executed"
+    },
+    {
+      "category": "native_direct",
+      "claim_scope": "stable_directory_model",
+      "id": "existing_dangling_symlink_refused",
+      "observed": {
+        "dangling_symlink_unchanged": true,
+        "error": {
+          "errno": 17,
+          "errno_name": "EEXIST",
+          "type": "FileExistsError",
+          "winerror": null,
+          "winerror_name": null
+        },
+        "returned": false,
+        "temporary_count": 0
+      },
+      "status": "executed"
+    },
+    {
+      "category": "native_direct",
+      "claim_scope": "stable_directory_model",
+      "id": "stable_parent_symlink_success",
+      "observed": {
+        "alias_and_real_destination_same_file_identity": true,
+        "destination_matches_payload": true,
+        "returned": true,
+        "temporary_count": 0
+      },
+      "status": "executed"
+    },
+    {
+      "category": "native_direct",
+      "claim_scope": "stable_directory_model",
+      "id": "stable_parent_junction_success",
+      "observed": {
+        "alias_and_real_destination_same_file_identity": true,
+        "alias_kind": "NTFS_directory_junction",
+        "destination_matches_payload": true,
+        "returned": true,
+        "temporary_count": 0
+      },
+      "status": "executed"
+    },
+    {
+      "category": "native_direct",
+      "claim_scope": "stable_directory_model",
+      "id": "lexical_parent_alias_success",
+      "observed": {
+        "destination_matches_payload": true,
+        "lexical_and_canonical_destination_same_file_identity": true,
+        "returned": true,
+        "temporary_count": 0
+      },
+      "status": "executed"
+    },
+    {
+      "category": "native_direct",
+      "claim_scope": "stable_directory_model",
+      "id": "missing_parent_refused",
+      "observed": {
+        "destination_absent": true,
+        "error": {
+          "errno": 2,
+          "errno_name": "ENOENT",
+          "type": "FileNotFoundError",
+          "winerror": null,
+          "winerror_name": null
+        },
+        "parent_not_created": true,
+        "returned": false
+      },
+      "status": "executed"
+    },
+    {
+      "category": "scheduler_assisted_native_syscall",
+      "claim_scope": "stable_directory_model",
+      "id": "destination_created_before_link_refused",
+      "observed": {
+        "error": {
+          "errno": 17,
+          "errno_name": "EEXIST",
+          "type": "FileExistsError",
+          "winerror": 183,
+          "winerror_name": "ERROR_ALREADY_EXISTS"
+        },
+        "final_link_syscall_was_native": true,
+        "racing_destination_unchanged": true,
+        "returned": false,
+        "schedule_hook_only": true,
+        "temporary_count": 0
+      },
+      "status": "executed"
+    },
+    {
+      "category": "scheduler_assisted_native_syscall",
+      "claim_scope": "stable_directory_model",
+      "id": "two_publishers_single_winner",
+      "observed": {
+        "destination_is_merged_payload": false,
+        "destination_is_one_complete_payload": true,
+        "final_link_syscalls_were_native": true,
+        "normalized_outcomes": [
+          "exists",
+          "published"
+        ],
+        "schedule_hook_only": true,
+        "temporary_count": 0,
+        "winner_count": 1
+      },
+      "status": "executed"
+    },
+    {
+      "category": "fault_injection",
+      "claim_scope": "stable_directory_model",
+      "id": "partial_write_exception_refused_clean",
+      "observed": {
+        "destination_absent": true,
+        "error": {
+          "errno": 28,
+          "errno_name": "ENOSPC",
+          "type": "OSError",
+          "winerror": null,
+          "winerror_name": null
+        },
+        "returned": false,
+        "temporary_count": 0
+      },
+      "status": "executed"
+    },
+    {
+      "category": "fault_injection",
+      "claim_scope": "stable_directory_model",
+      "id": "short_write_refused_clean",
+      "observed": {
+        "destination_absent": true,
+        "error": {
+          "errno": 5,
+          "errno_name": "EIO",
+          "type": "OSError",
+          "winerror": null,
+          "winerror_name": null
+        },
+        "returned": false,
+        "temporary_count": 0
+      },
+      "status": "executed"
+    },
+    {
+      "category": "fault_injection",
+      "claim_scope": "stable_directory_model",
+      "id": "flush_failure_refused_clean",
+      "observed": {
+        "destination_absent": true,
+        "error": {
+          "errno": 5,
+          "errno_name": "EIO",
+          "type": "OSError",
+          "winerror": null,
+          "winerror_name": null
+        },
+        "returned": false,
+        "temporary_count": 0
+      },
+      "status": "executed"
+    },
+    {
+      "category": "fault_injection",
+      "claim_scope": "stable_directory_model",
+      "id": "fsync_failure_refused_clean",
+      "observed": {
+        "destination_absent": true,
+        "error": {
+          "errno": 5,
+          "errno_name": "EIO",
+          "type": "OSError",
+          "winerror": null,
+          "winerror_name": null
+        },
+        "returned": false,
+        "temporary_count": 0
+      },
+      "status": "executed"
+    },
+    {
+      "category": "fault_injection",
+      "claim_scope": "stable_directory_model",
+      "id": "close_failure_refused_clean",
+      "observed": {
+        "destination_absent": true,
+        "error": {
+          "errno": 5,
+          "errno_name": "EIO",
+          "type": "OSError",
+          "winerror": null,
+          "winerror_name": null
+        },
+        "returned": false,
+        "temporary_count": 0
+      },
+      "status": "executed"
+    },
+    {
+      "category": "fault_injection",
+      "claim_scope": "stable_directory_model",
+      "id": "hardlink_refusal_refused_clean",
+      "observed": {
+        "destination_absent": true,
+        "error": {
+          "errno": 1,
+          "errno_name": "EPERM",
+          "type": "PermissionError",
+          "winerror": null,
+          "winerror_name": null
+        },
+        "rename_fallback_observed": false,
+        "returned": false,
+        "temporary_count": 0
+      },
+      "status": "executed"
+    },
+    {
+      "category": "fault_injection",
+      "claim_scope": "stable_directory_model",
+      "id": "cleanup_failure_before_publish_preserves_primary_error",
+      "observed": {
+        "cleanup_failure_note_present": true,
+        "destination_absent": true,
+        "error": {
+          "errno": 28,
+          "errno_name": "ENOSPC",
+          "type": "OSError",
+          "winerror": null,
+          "winerror_name": null
+        },
+        "primary_error_retained": true,
+        "retained_temporary_bytes": 13,
+        "retained_temporary_count": 1,
+        "returned": false
+      },
+      "status": "executed"
+    },
+    {
+      "category": "fault_injection",
+      "claim_scope": "stable_directory_model",
+      "id": "cleanup_failure_after_publish_reports_complete_destination",
+      "observed": {
+        "destination_and_temporary_same_file_identity": true,
+        "destination_matches_payload": true,
+        "error": {
+          "errno": null,
+          "errno_name": null,
+          "type": "OSError",
+          "winerror": null,
+          "winerror_name": null
+        },
+        "link_count": 2,
+        "message_identifies_complete_publication": true,
+        "retained_temporary_count": 1,
+        "retained_temporary_matches_payload": true,
+        "returned": false
+      },
+      "status": "executed"
+    },
+    {
+      "category": "scheduler_assisted_native_syscall",
+      "claim_scope": "documented_out_of_model_limit",
+      "id": "parent_rename_without_replacement_leaves_temporary",
+      "observed": {
+        "destination_absent": true,
+        "displaced_complete_temporary_count": 1,
+        "displaced_temporary_matches_payload": true,
+        "error": {
+          "errno": 2,
+          "errno_name": "ENOENT",
+          "type": "FileNotFoundError",
+          "winerror": 3,
+          "winerror_name": "ERROR_PATH_NOT_FOUND"
+        },
+        "rename_and_link_syscalls_were_native": true,
+        "returned": false,
+        "schedule_hook_only": true
+      },
+      "status": "executed"
+    },
+    {
+      "category": "scheduler_assisted_native_syscall",
+      "claim_scope": "documented_out_of_model_limit",
+      "id": "parent_directory_swap_can_publish_spoof",
+      "observed": {
+        "destination_matches_requested_payload": false,
+        "destination_matches_spoof": true,
+        "displaced_complete_temporary_count": 1,
+        "displaced_temporary_matches_payload": true,
+        "rename_mkdir_write_and_link_syscalls_were_native": true,
+        "replacement_parent_temporary_count": 0,
+        "returned": true,
+        "schedule_hook_only": true
+      },
+      "status": "executed"
+    },
+    {
+      "category": "scheduler_assisted_native_syscall",
+      "claim_scope": "documented_out_of_model_limit",
+      "id": "parent_symlink_retarget_can_publish_spoof",
+      "observed": {
+        "destination_matches_requested_payload": false,
+        "destination_matches_spoof": true,
+        "original_parent_complete_temporary_count": 1,
+        "original_temporary_matches_payload": true,
+        "retargeted_parent_temporary_count": 0,
+        "returned": true,
+        "schedule_hook_only": true,
+        "symlink_write_and_link_syscalls_were_native": true
+      },
+      "status": "executed"
+    },
+    {
+      "category": "scheduler_assisted_native_syscall",
+      "claim_scope": "documented_out_of_model_limit",
+      "id": "parent_junction_retarget_can_publish_spoof",
+      "observed": {
+        "alias_kind": "NTFS_directory_junction",
+        "destination_matches_requested_payload": false,
+        "destination_matches_spoof": true,
+        "junction_retarget_write_and_link_operations_were_native": true,
+        "original_parent_complete_temporary_count": 1,
+        "original_temporary_matches_payload": true,
+        "retargeted_parent_temporary_count": 0,
+        "returned": true,
+        "schedule_hook_only": true
+      },
+      "status": "executed"
+    },
+    {
+      "category": "actual_process_termination",
+      "claim_scope": "stable_directory_model",
+      "id": "terminate_process_before_link",
+      "observed": {
+        "child_reaped": true,
+        "destination_absent": true,
+        "explicit_boundary": "after_payload_fsync_and_stream_close_before_link_call",
+        "linux_SIGKILL_operation": false,
+        "native_link_calls_before_termination": 0,
+        "parent_called_win32_TerminateProcess": true,
+        "power_loss_operation": false,
+        "retained_complete_temporary_count": 1,
+        "retained_temporary_matches_payload": true,
+        "termination_exit_code": 102
+      },
+      "status": "executed"
+    },
+    {
+      "category": "actual_process_termination",
+      "claim_scope": "stable_directory_model",
+      "id": "terminate_process_after_link_before_cleanup",
+      "observed": {
+        "child_reaped": true,
+        "destination_and_temporary_same_file_identity": true,
+        "destination_matches_payload": true,
+        "explicit_boundary": "after_native_link_before_temporary_unlink",
+        "link_count": 2,
+        "linux_SIGKILL_operation": false,
+        "native_link_calls_before_termination": 1,
+        "parent_called_win32_TerminateProcess": true,
+        "power_loss_operation": false,
+        "retained_complete_temporary_count": 1,
+        "retained_temporary_matches_payload": true,
+        "termination_exit_code": 102
+      },
+      "status": "executed"
+    }
+  ],
+  "environment": {
+    "filesystem": {
+      "filesystem_name": "NTFS",
+      "maximum_component_length": 255,
+      "query_api": "GetVolumePathNameW+GetVolumeInformationW",
+      "supports_hard_links_flag": true,
+      "supports_posix_unlink_rename_flag": true,
+      "supports_reparse_points_flag": true,
+      "volume_path_and_serial_retained": false
+    },
+    "machine": "AMD64",
+    "os_name": "nt",
+    "python_implementation": "CPython",
+    "python_version": "3.12.10",
+    "qualification": "one GitHub-hosted Windows runner temporary volume; not universal Windows or NTFS behavior",
+    "release": "2025Server",
+    "sys_platform": "win32",
+    "system": "Windows",
+    "version": "10.0.26100"
+  },
+  "generator": {
+    "path": "scripts/research/audit_windows_filesystem_publication_20260925.py",
+    "sha256": "e36d23729e7c8844b5d7cf4fad3ed05dec9a70db6a1d7a6d57e59c7bb8948082"
+  },
+  "integration_recommendation": "Retain this Windows-specific corroborating audit without changing production publication code; preserve the trusted/stable-parent disclaimer, keep U-17 open, and do not generalize these observations beyond the exact runner/runtime/NTFS qualification.",
+  "methodology": {
+    "actual_process_termination": "the parent observed an explicit boundary, called Win32 TerminateProcess with exit code 0x66, and reaped the child; this is neither Linux SIGKILL nor power loss",
+    "case_counts_are_independent_experiments": false,
+    "competing_publishers_are_independent_experiments": false,
+    "fault_injection": "Python substitution at one documented I/O boundary; not a native failure-frequency or hostile-directory claim",
+    "native_direct": "unmodified production calls on the observed Windows temporary NTFS volume",
+    "normalization": "no timestamps, absolute paths, random temporary names, PIDs, runner IDs, or volume serials",
+    "repetitions_and_controls_are_independent_experiments": false,
+    "scheduler_assisted_native_syscall": "Python hooks control interleaving only; reported Windows rename, reparse-point, mkdir, write, and link outcomes use real operations",
+    "unavailable": "capability was probed directly and the case is retained as unavailable rather than passed or silently skipped"
+  },
+  "observed_guarantees": [
+    "On this Windows Server 2025 / CPython 3.12.10 / NTFS runner, stable-parent existing destinations and available hard-link, symlink, dangling-symlink, junction, and lexical aliases were not replaced in the listed direct cases.",
+    "A destination created immediately before the real os.link call won with EEXIST, and two synchronized publishers produced one complete winner and one EEXIST refusal.",
+    "Injected write, short-write, flush, file-fsync, close, and hard-link failures occurred before publication and left no destination when ordinary cleanup succeeded.",
+    "Injected cleanup failures preserved the primary pre-publication error or reported that a complete destination had already been published.",
+    "Parent-triggered TerminateProcess before link retained one complete temporary with no destination; termination after the real link but before cleanup retained one complete destination and its temporary hard-link alias."
+  ],
+  "observed_limits": [
+    "The observed NTFS volume permitted parent rename after stream close. Renaming the parent away before link produced a path-not-found result and left the complete temporary in the displaced directory.",
+    "The observed NTFS volume permitted parent directory replacement, directory-symlink retargeting, and junction retargeting at the scheduled boundary; spoofing the temporary basename then allowed spoof bytes to be linked while the requested complete temporary remained in the original directory.",
+    "These are bounded real-operation witnesses for the trusted/stable-parent precondition, not hostile-directory safety coverage or universal Windows/NTFS behavior.",
+    "The campaign did not cut power, test directory-entry durability, exercise a network filesystem, launch iTunes, use COM/UI/media import, or test native iTunes acceptance.",
+    "Explicit TerminateProcess observations are process-termination evidence only; they are not Linux SIGKILL evidence and do not model power loss."
+  ],
+  "production_source": {
+    "path": "itlkit/io.py",
+    "sha256": "f042b3d98a71cfedf9cfd39fdd0d4acf5bacedd623dbc07d9d1d8bb54292a6f4"
+  },
+  "repository_baseline_commit": "c9f271d36a7095262c6195c04eb7f09d6cf88dee",
+  "schema": "windows-itunes-itl.windows-filesystem-publication-audit.v1",
+  "status": "completed_bounded_windows_ntfs_campaign",
+  "summary": {
+    "category_counts": {
+      "actual_process_termination": 2,
+      "fault_injection": 8,
+      "native_direct": 9,
+      "scheduler_assisted_native_syscall": 6
+    },
+    "production_change_warranted": false,
+    "production_code_changed": false,
+    "scope_counts": {
+      "documented_out_of_model_limit": 4,
+      "stable_directory_model": 21
+    },
+    "unavailable_by_intended_category": {
+      "actual_process_termination": 0,
+      "fault_injection": 0,
+      "native_direct": 0,
+      "scheduler_assisted_native_syscall": 0
+    },
+    "unexpected_anomalies": 0
+  }
+}

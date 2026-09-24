@@ -135,6 +135,7 @@ def test_campaign_replays_byte_exact_across_two_fresh_tmp_roots() -> None:
     assert first == second == retained_report()
 
 
+@pytest.mark.skipif(not sys.platform.startswith("linux"), reason="retained campaign is Linux-specific")
 def test_scratch_guard_rejects_relative_outside_and_existing_roots() -> None:
     campaign = load_campaign_module()
     with pytest.raises(ValueError, match="absolute"):

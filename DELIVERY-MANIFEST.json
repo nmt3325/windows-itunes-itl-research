@@ -11,8 +11,8 @@
   },
   {
     "path": "EVIDENCE.md",
-    "bytes": 31990,
-    "sha256": "cf0dea343968b1c12d5b6901fa94b797c2c7fc24f06a67b0200b8272e3f7d220"
+    "bytes": 32590,
+    "sha256": "d75960bfac50f0ebbdcca2582a741fcb0cd1bb87580c0f2f053a5877caef92ac"
   },
   {
     "path": "ITL_DATA_MODEL.md",
@@ -21,8 +21,8 @@
   },
   {
     "path": "ITL_FORMAT_SPEC.md",
-    "bytes": 40696,
-    "sha256": "9478397df63ba43e3164e24915eb433e0b3f2820084c34b7c45821612c0f1405"
+    "bytes": 41672,
+    "sha256": "4094ddd81afc30f6c2d4db078055cb9a63f1dd13e7d3e64e32e88f524650f78a"
   },
   {
     "path": "ITL_RECORD_TYPES.md",
@@ -36,8 +36,8 @@
   },
   {
     "path": "README.md",
-    "bytes": 22231,
-    "sha256": "b4cc143f623ffc1da5c636aabaa9f0c6b0a1e2fa23d61f21fd8c6fa25d725515"
+    "bytes": 23006,
+    "sha256": "b1f270dd791f26fdbbbf283c905662a90e77e300426a8c9f5e625233914e4af0"
   },
   {
     "path": "REFERENCE_PARSER/README.md",
@@ -53,11 +53,6 @@
     "path": "REFERENCE_PARSER/__main__.py",
     "bytes": 48,
     "sha256": "935a1c1166b0c1ea35a82256345000bf2c73ded718d77773bc27a71ecce28f7d"
-  },
-  {
-    "path": "REFERENCE_PARSER/__pycache__/core.cpython-312.pyc",
-    "bytes": 37178,
-    "sha256": "3553028df928b2a7b26fb9ad6d8bc48ffb192a0c43c708eea6f1c65fc558a909"
   },
   {
     "path": "REFERENCE_PARSER/cli.py",
@@ -201,8 +196,8 @@
   },
   {
     "path": "UNRESOLVED.md",
-    "bytes": 22154,
-    "sha256": "9dd20c79110c357bc31483132abdd1f6537c71995b9ce0514d4f522cf3489616"
+    "bytes": 23547,
+    "sha256": "e8421125f251735519d9b287f0eec103a08c25f9a07fba6f9032e392bdb895c5"
   },
   {
     "path": "VALIDATOR/README.md",
@@ -236,13 +231,13 @@
   },
   {
     "path": "completion-status.yaml",
-    "bytes": 9078,
-    "sha256": "c63b15783d5e7d7733ffd9dfc797dbe2124a2219b99609c457fba52dd1ec3663"
+    "bytes": 9797,
+    "sha256": "d88edf59db4f4dec30cf4ca34c8e0df85d2f2bb48d0a79000547c90821e5a32b"
   },
   {
     "path": "corpus-manifest.json",
-    "bytes": 152195,
-    "sha256": "822fd654ef2d4f7b55216e19aff33fd1e17cb83e1473142162fd9f1ffa36ae6f"
+    "bytes": 152644,
+    "sha256": "b3b166bf68575b4508a87a8ccf512399525c301897b87d9bd47333ba2afa7fe2"
   },
   {
     "path": "docs/PUBLIC_PRIOR_ART_AUDIT_20260925.md",
@@ -10542,7 +10537,7 @@
   {
     "path": "evidence/research/20260925/sort-rank-audit/input-manifest.json",
     "bytes": 24766,
-    "sha256": "1889221ef6872d747491aed68fab717ef0e41b7ae265ae5e5b618b9fd58a909d"
+    "sha256": "40622eff6d585e997854b0f743cc72a35381ec16dcff95599a0f0576d2a07d90"
   },
   {
     "path": "evidence/research/20260925/trailer-coverage-audit/README.md",
@@ -10553,6 +10548,16 @@
     "path": "evidence/research/20260925/trailer-coverage-audit/report.json",
     "bytes": 162425,
     "sha256": "5afaccff5cf8baa3773f9890020c5785341d29bc300fac535c7ecce435504c99"
+  },
+  {
+    "path": "evidence/research/20260925/windows-filesystem-publication/README.md",
+    "bytes": 7425,
+    "sha256": "ed93dad3b5f83e1f50bff29f8b3d5c8156b26579407ec033f6a6d0a0e9b2605d"
+  },
+  {
+    "path": "evidence/research/20260925/windows-filesystem-publication/report.json",
+    "bytes": 19409,
+    "sha256": "82921e322da3ea9edd16afeb439a3f13e60d71cc933e44bfa6ae74b7d6227c6d"
   },
   {
     "path": "evidence/research/bounded-fuzz/README.md",
@@ -12965,9 +12970,14 @@
     "sha256": "1cadedefd0cd542180115499442d93b526ee12ddc344f74af8d27373d2100020"
   },
   {
+    "path": "scripts/research/audit_windows_filesystem_publication_20260925.py",
+    "bytes": 46207,
+    "sha256": "e36d23729e7c8844b5d7cf4fad3ed05dec9a70db6a1d7a6d57e59c7bb8948082"
+  },
+  {
     "path": "scripts/research/build_manifests.py",
-    "bytes": 11361,
-    "sha256": "81a24cf57ccae9daae5aae20fc469cc7629149364e8594b76e00871d54cf1f46"
+    "bytes": 11686,
+    "sha256": "b7720322edc577ba7762ed4f6fa2e2ee9b87a459d6b8b22686af44110353bc5c"
   },
   {
     "path": "scripts/research/generate_synthetic_library_inputs.py",
@@ -12986,8 +12996,8 @@
   },
   {
     "path": "scripts/research/qa_delivery_verifier.py",
-    "bytes": 4102,
-    "sha256": "22f1298b0fcba6cc4ab2b073bb0d56c5bc3b8fb44e61443a9377f4b27f5314c3"
+    "bytes": 4471,
+    "sha256": "b4674d39f9b74917bf2e5e7fb8adbccae05b2fe935c85c067ddd9ff2e3d80024"
   },
   {
     "path": "scripts/research/reanalyze_native_rating_integration_20260925.py",
@@ -13331,8 +13341,8 @@
   },
   {
     "path": "tests/test_filesystem_threat_model_20260925.py",
-    "bytes": 6246,
-    "sha256": "bb2529ad14481602e4d0e86d313cf8a3de0e5cf9c9af67ec5eaa507367157eff"
+    "bytes": 6350,
+    "sha256": "d755b808ab2bdc9112f1b4a88917fd5a35001805c3ca7a5d64091c3b43326779"
   },
   {
     "path": "tests/test_lyrics_authority_helpers.py",
@@ -13413,5 +13423,10 @@
     "path": "tests/test_trailer_coverage_audit.py",
     "bytes": 3280,
     "sha256": "5dfbb913f14b4c46d36d360e9620126501d97cbdbfc3eb2304c13df712e20542"
+  },
+  {
+    "path": "tests/test_windows_filesystem_publication_20260925.py",
+    "bytes": 9835,
+    "sha256": "6acd68e84085d836c90530b50e4d8120bb994cae96d39ca6f4321526bdacfe6a"
   }
 ]
