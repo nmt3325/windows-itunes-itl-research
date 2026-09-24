@@ -7,7 +7,7 @@ This addendum reanalyzes the retained native-rating snapshots without launching 
 - Frozen producer commit: `e1392568c77fbd3a49c72d3e80f802999b7aac6a` (parent `9dc9be906c30172fc8d0ac9550d28cb137e63e42`).
 - Frozen report canonical JSON SHA-256: `b6881790a3eed66a07245c3ddddf6b3d7dfa1dfef10d91b65f3043114ed79051`.
 - Integrated source hashes:
-  - `itlkit/library.py`: `32706ce24ac2698934949c345f8c60104ffd962e1edd68f4f5bec498558f6d3c`
+  - `itlkit/library.py`: `e75403812ab758bdcec8e2ab7849e204daa033f8cfbd1c1617744ca28c39b9ba`
   - `REFERENCE_PARSER/core.py`: `096eba595724c30e24360b527a9756ee8044e0e5fa12a860e000245cbbe67bde`
   - `scripts/windows/native_rating_kind_20260925.py`: `b25df8811296e1ff1e6715956ad97a3af1d70c6f5ba07f43e50b13a5f92fbb48`
 

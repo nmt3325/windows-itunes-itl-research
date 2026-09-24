@@ -15,8 +15,19 @@ def test_json_tampering_cannot_rebase_around_operations_guard():
 
 
 def test_library_json_propagates_explicit_plaintext_budget():
-    doc = Library.from_bytes(library_bytes()).to_dict()
+    library = Library.from_bytes(library_bytes())
+    doc = library.to_dict()
     with pytest.raises(FormatError, match='exceeds'):
         Library.from_dict(doc, max_plain_bytes=128)
+
+    # A small projected payload must not bypass the retained original baseline.
+    doc['container']['payload_hex'] = ''
+    with pytest.raises(FormatError, match='exceeds'):
+        Library.from_dict(doc, max_plain_bytes=128)
+
+    exact = library.to_dict()
+    assert Library.from_dict(
+        exact, max_plain_bytes=len(library.container.payload)
+    ).to_bytes() == library_bytes()
     with pytest.raises(ValueError, match='positive'):
-        Library.from_dict(doc, max_plain_bytes=False)
+        Library.from_dict(exact, max_plain_bytes=False)
