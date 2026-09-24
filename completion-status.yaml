@@ -94,19 +94,27 @@ validation:
     nonempty_string_operand_observed: false
   integrated_tests:
     status: passed
-    passed: 1081
-    skipped: 5
+    passed: 1110
+    skipped: 7
+    skipped_missing_com_oracle: 5
+    skipped_windows_only_helpers_on_linux: 2
     failed: 0
-    command: python -B -m pytest tests -q -rs -p no:cacheprovider
+    command: ITLKIT_NATIVE_ROOT=evidence/native/snapshots ITLKIT_NATIVE_REPORTS=evidence/native/oracles TITL_REPO=josephw/titl@e7060370973d624d5c7b18f82303407b76421501 python -B -m pytest tests -q -rs -p no:cacheprovider --basetemp=<repository-external-path>
   strict_delivery_verifier_tests:
     status: passed
-    passed: 23
+    passed: 40
+    proposal_unittest_cases: 13
+    production_qa_checks: 27
+    failed: 0
+  public_replay_audit_tests:
+    status: passed
+    passed: 6
     failed: 0
   spec_consistency: passed
   delivery_manifest: verified
   root_corpus_manifest:
     status: verified
-    itl_files: 356
+    itl_files: 384
   path_time_snapshots:
     parsed: 39
     errors: 0

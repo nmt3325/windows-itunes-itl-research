@@ -8,7 +8,7 @@ Windows版の**Apple公式スタンドアロンEXE版 iTunes 12.13.10.3**を対�
 
 ## 今回確認したこと
 
-- 回帰テスト：**1069 passed / 5 skipped**（独立リファレンスツール27件を含む）。合成テストに加え、固定55個のネイティブITL構造と50個の対応COM記録を検査しました。5件はCOM記録がない明示的スキップで、ネイティブ操作の回数ではありません。
+- 回帰テスト：**1110 passed / 7 skipped**（独立リファレンスツール27件を含む）。合成テストに加え、固定55個のネイティブITL構造と50個の対応COM記録を検査しました。スキップはCOM記録がない5件と、Linux検証環境に `win32gui` がないWindows専用helper 2件です。テスト件数やスキップ件数はネイティブ操作の回数ではありません。
 - 日時の負の端数が1904年エポックの0へ化ける問題を修正。保持される入れ子・未知のプレイリスト項目、復元元と不一致のシステム定義は変更前に拒否します。
 - テンプレートを使わず構築した1曲／3曲・raw/zlibの4つの参照ITLは、隔離したiTunesで各2回のopen/save/restartに合格しました。合格は4つの正確なSHA-256だけに限定され、任意件数・任意入力や完全仕様を意味しません。
 - 下記6候補を**実iTunesで選択して開き、各2回保存・終了・再起動**。最初45秒、次30秒の観察後にも期待値を確認しました。
@@ -58,7 +58,13 @@ python -B -m TEST_CORPUS manifest --check
 - [`PATH_AND_TIME_SPEC.md`](PATH_AND_TIME_SPEC.md) records 30 path cases and 8 `PlayedDate` mutations on isolated Windows iTunes 12.13.10.3. It retains 39 native-saved snapshots, all parseable; physical external media, remote SMB, drive reassignment, and a direct Japanese filesystem path remain unresolved.
 - [`evidence/native/fresh-20260921/`](evidence/native/fresh-20260921/) records a genuinely fresh iTunes-created library through empty/one/three-track, traced edit, and repeated saves. Because iTunes created it, this cohort alone is not reference-writer evidence.
 - [`evidence/native/reference-generated-20260922-passed/`](evidence/native/reference-generated-20260922-passed/) records the two exact one-track hashes; [`evidence/native/reference-multi-track-20260922-v2/`](evidence/native/reference-multi-track-20260922-v2/) records two exact three-track hashes with Japanese, emoji, and decomposed Unicode names. All four passed two strict cycles with exact identities and ordered membership, no XML/backup fallback, normal quit, and independent validation after each save. The preceding [`reference-multi-track-20260922/`](evidence/native/reference-multi-track-20260922/) attempt failed in UTF-8 preflight before iTunes launch and is retained as harness evidence, not native rejection.
-- [`corpus-manifest.json`](corpus-manifest.json) hashes all 356 retained ITLs and links the nested reference, fresh-native, path/time, smart-playlist, reference-generation, media-field, Lyrics-authority, boundary, and frame-size-ceiling analyses. The four checked-in one-track/three-track reference fixtures are `verified` only for their pinned hashes.
+- [`corpus-manifest.json`](corpus-manifest.json) hashes all 384 retained ITLs and links the nested reference, fresh-native, path/time, smart-playlist, reference-generation, media-field, Lyrics-authority, boundary, and frame-size-ceiling analyses. Its 28-file native-rating class is 20 native-saved snapshots plus eight repeated baseline copies (21 unique hashes), not 28 independent experiments. The four checked-in one-track/three-track reference fixtures are `verified` only for their pinned hashes.
+
+## 2026-09-25 bounded integration checkpoint
+
+- The [native Rating/RatingKind bundle](evidence/research/20260925/native-rating-kind/README.md) records 20/20 isolated native sessions across Rating `0/20/40/60/80/100`. On this exact one-track iTunes 12.13.10.3 interface, `RatingKind`/`AlbumRatingKind` were read-only projections and `Loved`/`Disliked` were unavailable; [integrated offline reanalysis](evidence/research/20260925/native-rating-kind/INTEGRATION.md) separates later parser behavior from the immutable execution-time report. U-14 remains open.
+- The [pinned big-endian prior-art audit](evidence/research/20260925/big-endian-prior-art/README.md) structurally bounded 14 public historical fixtures (13 big-endian), while the [57-case trailer/coverage audit](evidence/research/20260925/trailer-coverage-audit/README.md) made opaque compressed-trailer coverage explicit. Parser return, exact no-op, and envelope reconstruction do not establish native acceptance or complete semantics; U-02, U-13, and U-17 remain open.
+- The [retained path/time](evidence/research/20260925/path-time-retained-audit/README.md) and [sort/rank](evidence/research/20260925/sort-rank-audit/README.md) audits are deterministic offline reanalyses of archived evidence, not new native runs. Repeated snapshots, summary rows, and parser-agreement counts are not independent experiments; U-10 and U-11 remain open.
 
 ## 2026-09-22 retained closure probes
 
@@ -96,10 +102,14 @@ $env:PYTHONDONTWRITEBYTECODE='1'
 $env:PYTHONIOENCODING='utf-8'
 $env:ITLKIT_NATIVE_ROOT=(Resolve-Path '.\evidence\native\snapshots').Path
 $env:ITLKIT_NATIVE_REPORTS=(Resolve-Path '.\evidence\native\oracles').Path
+$titl=Join-Path $env:TEMP 'titl-e706037'
+if (-not (Test-Path $titl)) { git clone https://github.com/josephw/titl.git $titl }
+git -C $titl checkout --detach e7060370973d624d5c7b18f82303407b76421501
+$env:TITL_REPO=(Resolve-Path $titl).Path
 python -B -m pytest tests -q -rs -p no:cacheprovider --basetemp "$env:TEMP\itl-research-tests-new"
 ```
 
-このテストは保存済みの合成ITL・COM記録を使うオフライン回帰です。iTunesを新規起動する実機受入試験の代わりではありません。試験用一時ディレクトリは新しいものを指定してください。
+このテストは保存済みの合成ITL・COM記録を使うオフライン回帰です。iTunesを新規起動する実機受入試験の代わりではありません。試験用一時ディレクトリは新しいものを指定してください。 `TITL_REPO` を使う2件の公開prior-art統合テストにはJDKが必要で、変数を指定しない場合は明示的にスキップされます。
 
 ### 配送ファイルの整合性
 
