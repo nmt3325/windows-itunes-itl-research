@@ -1,0 +1,620 @@
+{
+  "audit_date": "2026-09-25",
+  "counting_rule": {
+    "derived_material": "Summary JSON and COM projections are hash-chain/context sources, not independent native executions.",
+    "field_matrix": "Each named case contributes once; mutation and verification ITLs are stages of that case.",
+    "phase3": "Each named acceptance case contributes once; candidate/reload snapshots and repeated tracks are not additional native cases."
+  },
+  "files": [
+    {
+      "bytes": 38798,
+      "native_case": null,
+      "native_case_count_contribution": 0,
+      "path": "ITL_FORMAT_SPEC.md",
+      "provenance": "static_or_scope_source",
+      "role": "claim-boundary source",
+      "sha256": "72b05cca0bcec733861940cd566e0a1443048179567eaa10bb267720187ccdd8",
+      "stage": null
+    },
+    {
+      "bytes": 28792,
+      "native_case": null,
+      "native_case_count_contribution": 0,
+      "path": "REFERENCE_PARSER/core.py",
+      "provenance": "source_code",
+      "role": "bounded structural parser",
+      "sha256": "a42f337e430e65e7d5752a6a5db3f88c81b5ce17e94f069ccacd6ec3366efb44",
+      "stage": null
+    },
+    {
+      "bytes": 10566,
+      "native_case": null,
+      "native_case_count_contribution": 0,
+      "path": "TEST_CORPUS/generated/reference-one-track-raw.itl",
+      "provenance": "synthetic_candidate",
+      "role": "field-matrix pre-native baseline",
+      "sha256": "c6c68171d57350ceb3cf379eee13a764ea199536ef18238fe4faf80583492d74",
+      "stage": null
+    },
+    {
+      "bytes": 14791,
+      "native_case": null,
+      "native_case_count_contribution": 0,
+      "path": "UNRESOLVED.md",
+      "provenance": "static_or_scope_source",
+      "role": "claim-boundary source",
+      "sha256": "35285d43d3b9f109be72f50fb9f976a0686f8a4ff01b57f7cf7c4cb72449ee35",
+      "stage": null
+    },
+    {
+      "bytes": 44707,
+      "native_case": null,
+      "native_case_count_contribution": 0,
+      "path": "docs/dynamic.md",
+      "provenance": "static_or_scope_source",
+      "role": "claim-boundary source",
+      "sha256": "ecff3e1851089b98da48ebfbb8de9165af7569eab56a9494cfd20be6123ee6ac",
+      "stage": null
+    },
+    {
+      "bytes": 2939,
+      "native_case": null,
+      "native_case_count_contribution": 0,
+      "path": "evidence/native/field-matrix-20260922/README.md",
+      "provenance": "derived_summary",
+      "role": "field-matrix scope",
+      "sha256": "159c7c5c0059d09d558bb8c7d631bda5d424fa297d752e00eee1cb7ea44e628c",
+      "stage": null
+    },
+    {
+      "bytes": 2051,
+      "native_case": null,
+      "native_case_count_contribution": 0,
+      "path": "evidence/native/field-matrix-20260922/case-matrix.json",
+      "provenance": "derived_summary",
+      "role": "field-matrix case declarations",
+      "sha256": "6c2817c6c0fab06b3da8876a5cd103b2fb83202dfa8b3dce241ff4e9c6a3ea2c",
+      "stage": null
+    },
+    {
+      "bytes": 4199,
+      "native_case": "album-artist-unicode",
+      "native_case_count_contribution": 1,
+      "path": "evidence/native/field-matrix-20260922/cases/album-artist-unicode/mutation/native-saved.itl",
+      "provenance": "native_saved_stage",
+      "role": "archived native-saved ITL stage",
+      "sha256": "7eb502e207d3a7ff4bae84814fe28a6eddd84c672da7a42b7477b7b52f1c1119",
+      "stage": "mutation"
+    },
+    {
+      "bytes": 76609,
+      "native_case": "album-artist-unicode",
+      "native_case_count_contribution": 0,
+      "path": "evidence/native/field-matrix-20260922/cases/album-artist-unicode/result.json",
+      "provenance": "derived_summary",
+      "role": "native case hash chain and status",
+      "sha256": "6b1a49f4dc77fe31b33c27ffa92d547fc1c40cf238f36d4c344718d500b5993c",
+      "stage": null
+    },
+    {
+      "bytes": 4238,
+      "native_case": "album-artist-unicode",
+      "native_case_count_contribution": 0,
+      "path": "evidence/native/field-matrix-20260922/cases/album-artist-unicode/verification/native-saved.itl",
+      "provenance": "native_saved_stage",
+      "role": "archived native-saved ITL stage",
+      "sha256": "641fac5c28d2f4ca2c8d6f224a5dc33e218a1e545cec8a1fb21a380d9223217c",
+      "stage": "verification"
+    },
+    {
+      "bytes": 4178,
+      "native_case": "album-unicode",
+      "native_case_count_contribution": 1,
+      "path": "evidence/native/field-matrix-20260922/cases/album-unicode/mutation/native-saved.itl",
+      "provenance": "native_saved_stage",
+      "role": "archived native-saved ITL stage",
+      "sha256": "e705c50010af8f3fd61f4461dcf97cf5eb6e7838a56345f693769fa76be69520",
+      "stage": "mutation"
+    },
+    {
+      "bytes": 76467,
+      "native_case": "album-unicode",
+      "native_case_count_contribution": 0,
+      "path": "evidence/native/field-matrix-20260922/cases/album-unicode/result.json",
+      "provenance": "derived_summary",
+      "role": "native case hash chain and status",
+      "sha256": "6a05e4065d4c8a28ae739e2f12533abb6de830e2cd64ec888f5eb3e28af689d9",
+      "stage": null
+    },
+    {
+      "bytes": 4208,
+      "native_case": "album-unicode",
+      "native_case_count_contribution": 0,
+      "path": "evidence/native/field-matrix-20260922/cases/album-unicode/verification/native-saved.itl",
+      "provenance": "native_saved_stage",
+      "role": "archived native-saved ITL stage",
+      "sha256": "4b3fd32c0dcf7f866f5c2ff45ff26d57a0437aa49a92822ee26425d24b402f95",
+      "stage": "verification"
+    },
+    {
+      "bytes": 4186,
+      "native_case": "artist-unicode",
+      "native_case_count_contribution": 1,
+      "path": "evidence/native/field-matrix-20260922/cases/artist-unicode/mutation/native-saved.itl",
+      "provenance": "native_saved_stage",
+      "role": "archived native-saved ITL stage",
+      "sha256": "aab4f62b7e4c6b861279e4a453724a00f2647f5bac09949c4ef1b99ca4a274cb",
+      "stage": "mutation"
+    },
+    {
+      "bytes": 76591,
+      "native_case": "artist-unicode",
+      "native_case_count_contribution": 0,
+      "path": "evidence/native/field-matrix-20260922/cases/artist-unicode/result.json",
+      "provenance": "derived_summary",
+      "role": "native case hash chain and status",
+      "sha256": "e6c0416f6dc8c708b513ffe118007334b2a50f92cc6aa9fc56e1900a776c1bb4",
+      "stage": null
+    },
+    {
+      "bytes": 4216,
+      "native_case": "artist-unicode",
+      "native_case_count_contribution": 0,
+      "path": "evidence/native/field-matrix-20260922/cases/artist-unicode/verification/native-saved.itl",
+      "provenance": "native_saved_stage",
+      "role": "archived native-saved ITL stage",
+      "sha256": "96b98b294d0b838cea568b971a4e0d66efe2490cc8e086cb3c9180dbc4085980",
+      "stage": "verification"
+    },
+    {
+      "bytes": 4153,
+      "native_case": "composer-unicode",
+      "native_case_count_contribution": 1,
+      "path": "evidence/native/field-matrix-20260922/cases/composer-unicode/mutation/native-saved.itl",
+      "provenance": "native_saved_stage",
+      "role": "archived native-saved ITL stage",
+      "sha256": "f848c05fa4532ce558fde8147a4fffa2f519bf1f3ddef956ddba754001b91bfc",
+      "stage": "mutation"
+    },
+    {
+      "bytes": 76495,
+      "native_case": "composer-unicode",
+      "native_case_count_contribution": 0,
+      "path": "evidence/native/field-matrix-20260922/cases/composer-unicode/result.json",
+      "provenance": "derived_summary",
+      "role": "native case hash chain and status",
+      "sha256": "7716f34584270fc2f0a03bd493cf71c01fc30dd274f6101dc607c26920b43028",
+      "stage": null
+    },
+    {
+      "bytes": 4176,
+      "native_case": "composer-unicode",
+      "native_case_count_contribution": 0,
+      "path": "evidence/native/field-matrix-20260922/cases/composer-unicode/verification/native-saved.itl",
+      "provenance": "native_saved_stage",
+      "role": "archived native-saved ITL stage",
+      "sha256": "47f5a945b83317400ccf0831cb86c7a715e8dcd3d610f33e008db271d0142f9f",
+      "stage": "verification"
+    },
+    {
+      "bytes": 4126,
+      "native_case": "name-unicode",
+      "native_case_count_contribution": 1,
+      "path": "evidence/native/field-matrix-20260922/cases/name-unicode/mutation/native-saved.itl",
+      "provenance": "native_saved_stage",
+      "role": "archived native-saved ITL stage",
+      "sha256": "60a99eb12f5a93820271b0e612119ac898367816a623f5b9c15a02ff35c96d41",
+      "stage": "mutation"
+    },
+    {
+      "bytes": 76590,
+      "native_case": "name-unicode",
+      "native_case_count_contribution": 0,
+      "path": "evidence/native/field-matrix-20260922/cases/name-unicode/result.json",
+      "provenance": "derived_summary",
+      "role": "native case hash chain and status",
+      "sha256": "2a25aa0bba9ab19a966368635f2dc71ccdd008c328eff1502b72cd2079c41861",
+      "stage": null
+    },
+    {
+      "bytes": 4157,
+      "native_case": "name-unicode",
+      "native_case_count_contribution": 0,
+      "path": "evidence/native/field-matrix-20260922/cases/name-unicode/verification/native-saved.itl",
+      "provenance": "native_saved_stage",
+      "role": "archived native-saved ITL stage",
+      "sha256": "f76542dcfb677decb957b2debe5a6590b6ad4c09c5015285c1c3525c9e101817",
+      "stage": "verification"
+    },
+    {
+      "bytes": 4128,
+      "native_case": "sort-album-artist",
+      "native_case_count_contribution": 1,
+      "path": "evidence/native/field-matrix-20260922/cases/sort-album-artist/mutation/native-saved.itl",
+      "provenance": "native_saved_stage",
+      "role": "archived native-saved ITL stage",
+      "sha256": "9a1fe07e5d78405456605bcbbd71827661df262385a10bea71f2bec6d4459217",
+      "stage": "mutation"
+    },
+    {
+      "bytes": 76484,
+      "native_case": "sort-album-artist",
+      "native_case_count_contribution": 0,
+      "path": "evidence/native/field-matrix-20260922/cases/sort-album-artist/result.json",
+      "provenance": "derived_summary",
+      "role": "native case hash chain and status",
+      "sha256": "573ef5b0c21127180eddedfa8cf43f3f716e37bce3f0e1cf29e8e4ba3e2be235",
+      "stage": null
+    },
+    {
+      "bytes": 4163,
+      "native_case": "sort-album-artist",
+      "native_case_count_contribution": 0,
+      "path": "evidence/native/field-matrix-20260922/cases/sort-album-artist/verification/native-saved.itl",
+      "provenance": "native_saved_stage",
+      "role": "archived native-saved ITL stage",
+      "sha256": "4828f10a1ba74ebee1f7df1f87ddcd8922bbab61caed77008e3d86f54b0df2f2",
+      "stage": "verification"
+    },
+    {
+      "bytes": 4138,
+      "native_case": "sort-album",
+      "native_case_count_contribution": 1,
+      "path": "evidence/native/field-matrix-20260922/cases/sort-album/mutation/native-saved.itl",
+      "provenance": "native_saved_stage",
+      "role": "archived native-saved ITL stage",
+      "sha256": "dc63032047057e6a9f95f03f077bc602365e4f806ca934c656ec41f4ff3ab6a9",
+      "stage": "mutation"
+    },
+    {
+      "bytes": 76224,
+      "native_case": "sort-album",
+      "native_case_count_contribution": 0,
+      "path": "evidence/native/field-matrix-20260922/cases/sort-album/result.json",
+      "provenance": "derived_summary",
+      "role": "native case hash chain and status",
+      "sha256": "99ced138ac0515539d5c535087ea749899987e1757980ec94cd9186fd4b18924",
+      "stage": null
+    },
+    {
+      "bytes": 4169,
+      "native_case": "sort-album",
+      "native_case_count_contribution": 0,
+      "path": "evidence/native/field-matrix-20260922/cases/sort-album/verification/native-saved.itl",
+      "provenance": "native_saved_stage",
+      "role": "archived native-saved ITL stage",
+      "sha256": "0b7c057143a2a73b1275686ad13611a7e4acb4358848d77605fe37b57ed95456",
+      "stage": "verification"
+    },
+    {
+      "bytes": 4170,
+      "native_case": "sort-artist",
+      "native_case_count_contribution": 1,
+      "path": "evidence/native/field-matrix-20260922/cases/sort-artist/mutation/native-saved.itl",
+      "provenance": "native_saved_stage",
+      "role": "archived native-saved ITL stage",
+      "sha256": "a6d7f064faef91df9b2bbdd0f75fde6dbe7ddaab4112ce9a83c63642535df79f",
+      "stage": "mutation"
+    },
+    {
+      "bytes": 76262,
+      "native_case": "sort-artist",
+      "native_case_count_contribution": 0,
+      "path": "evidence/native/field-matrix-20260922/cases/sort-artist/result.json",
+      "provenance": "derived_summary",
+      "role": "native case hash chain and status",
+      "sha256": "c74a79729ab25b51455400c69b5a1ceae1f9fe1815d6a447dba3b168d555fbf3",
+      "stage": null
+    },
+    {
+      "bytes": 4200,
+      "native_case": "sort-artist",
+      "native_case_count_contribution": 0,
+      "path": "evidence/native/field-matrix-20260922/cases/sort-artist/verification/native-saved.itl",
+      "provenance": "native_saved_stage",
+      "role": "archived native-saved ITL stage",
+      "sha256": "ac44785f3499d6da8af4729d717caa201323e7befc9b62bf3a5a3af2526862e7",
+      "stage": "verification"
+    },
+    {
+      "bytes": 4143,
+      "native_case": "sort-name",
+      "native_case_count_contribution": 1,
+      "path": "evidence/native/field-matrix-20260922/cases/sort-name/mutation/native-saved.itl",
+      "provenance": "native_saved_stage",
+      "role": "archived native-saved ITL stage",
+      "sha256": "7e02e91fe81341b74a9528c646cb353404e86923cd84cb936cd2a60e46b9e869",
+      "stage": "mutation"
+    },
+    {
+      "bytes": 76220,
+      "native_case": "sort-name",
+      "native_case_count_contribution": 0,
+      "path": "evidence/native/field-matrix-20260922/cases/sort-name/result.json",
+      "provenance": "derived_summary",
+      "role": "native case hash chain and status",
+      "sha256": "7199380d513025a1111977db385ff43cba617e7216a69f06cc1b6baea0df20f4",
+      "stage": null
+    },
+    {
+      "bytes": 4172,
+      "native_case": "sort-name",
+      "native_case_count_contribution": 0,
+      "path": "evidence/native/field-matrix-20260922/cases/sort-name/verification/native-saved.itl",
+      "provenance": "native_saved_stage",
+      "role": "archived native-saved ITL stage",
+      "sha256": "31f2ed93fb733ab3eb5c1dadbeebe7fd48fc24b9564cd373ecd675d3c6b9b125",
+      "stage": "verification"
+    },
+    {
+      "bytes": 2377581,
+      "native_case": null,
+      "native_case_count_contribution": 0,
+      "path": "evidence/native/field-matrix-20260922/summary.json",
+      "provenance": "derived_summary",
+      "role": "field-matrix aggregate",
+      "sha256": "40b81b4829cf18132fb7f3d4682aa1aa186e9ee8c22217a417d77987ac5f59ed",
+      "stage": null
+    },
+    {
+      "bytes": 5687,
+      "native_case": "crud3-cross-one-003",
+      "native_case_count_contribution": 0,
+      "path": "evidence/native/phase3/candidates/crud3-cross-one-003.itl",
+      "provenance": "synthetic_candidate",
+      "role": "phase3 pre-native candidate",
+      "sha256": "60c5f1541981ddedd457f3e78ca07c63a8d71e3b8e42f3211b175aad2a8facaa",
+      "stage": "candidate"
+    },
+    {
+      "bytes": 6783,
+      "native_case": "crud3-cross-shared-COW-037",
+      "native_case_count_contribution": 0,
+      "path": "evidence/native/phase3/candidates/crud3-cross-shared-COW-037.itl",
+      "provenance": "synthetic_candidate",
+      "role": "phase3 pre-native candidate",
+      "sha256": "f6f2a221eacadffba1ae9180b877872a595736a47f92644b9a38e6173981bda3",
+      "stage": "candidate"
+    },
+    {
+      "bytes": 6653,
+      "native_case": "crud3-cross-shared-two-037",
+      "native_case_count_contribution": 0,
+      "path": "evidence/native/phase3/candidates/crud3-cross-shared-two-037.itl",
+      "provenance": "synthetic_candidate",
+      "role": "phase3 pre-native candidate",
+      "sha256": "2bf00425a238492c427e07108638fb7e6317ccdbbc62cadb6c4499b656c08ee1",
+      "stage": "candidate"
+    },
+    {
+      "bytes": 4025,
+      "native_case": "fresh-constructed-wav-003-v2",
+      "native_case_count_contribution": 0,
+      "path": "evidence/native/phase3/candidates/fresh-constructed-wav-003-v2.itl",
+      "provenance": "synthetic_candidate",
+      "role": "phase3 pre-native candidate",
+      "sha256": "41a6a073db030a9ceb9e1a690420a0fa28b73cb0c675af005653f732df6c4a84",
+      "stage": "candidate"
+    },
+    {
+      "bytes": 4446,
+      "native_case": "fresh-constructed-wav-037-v2",
+      "native_case_count_contribution": 0,
+      "path": "evidence/native/phase3/candidates/fresh-constructed-wav-037-v2.itl",
+      "provenance": "synthetic_candidate",
+      "role": "phase3 pre-native candidate",
+      "sha256": "a813f8ad7d493214aaefc9f20d536fc86883e511dfeaf30dd8735baf5895dc39",
+      "stage": "candidate"
+    },
+    {
+      "bytes": 3847,
+      "native_case": "p4-fresh-api",
+      "native_case_count_contribution": 0,
+      "path": "evidence/native/phase3/candidates/p4-fresh-api.itl",
+      "provenance": "synthetic_candidate",
+      "role": "phase3 pre-native candidate",
+      "sha256": "bcb6d06f8c83a9f2f6cd7e03a5a427dfdc81e40e1a6bc48fa4350afd9cb3cc4b",
+      "stage": "candidate"
+    },
+    {
+      "bytes": 10720,
+      "native_case": null,
+      "native_case_count_contribution": 0,
+      "path": "evidence/native/phase3/parent-independent-audit.json",
+      "provenance": "derived_summary",
+      "role": "phase3 archived-run hash chain",
+      "sha256": "b01435998b39731f617bf96ecb67a7d2da9c9a324d000d161621ba3a7487ebd2",
+      "stage": null
+    },
+    {
+      "bytes": 5725,
+      "native_case": "crud3-cross-one-003",
+      "native_case_count_contribution": 1,
+      "path": "evidence/native/phase3/snapshots/crud3-cross-one-003-reload1.itl",
+      "provenance": "native_saved_stage",
+      "role": "phase3 archived native-saved ITL stage",
+      "sha256": "526bb2410054f1de217589725c33d7b59effc992817b2115bf39b9bce701d8fb",
+      "stage": "reload1"
+    },
+    {
+      "bytes": 5731,
+      "native_case": "crud3-cross-one-003",
+      "native_case_count_contribution": 0,
+      "path": "evidence/native/phase3/snapshots/crud3-cross-one-003-reload2.itl",
+      "provenance": "native_saved_stage",
+      "role": "phase3 archived native-saved ITL stage",
+      "sha256": "d11966e748ce2eb72c967b6ec169a84c6711a007af1305fa7069c4beb88dfa33",
+      "stage": "reload2"
+    },
+    {
+      "bytes": 6822,
+      "native_case": "crud3-cross-shared-COW-037",
+      "native_case_count_contribution": 1,
+      "path": "evidence/native/phase3/snapshots/crud3-cross-shared-COW-037-reload1.itl",
+      "provenance": "native_saved_stage",
+      "role": "phase3 archived native-saved ITL stage",
+      "sha256": "a2374f30707194de1e6ab67a1f9457c6995bf22f2f2aeea5c5199d34ee7ebaa5",
+      "stage": "reload1"
+    },
+    {
+      "bytes": 6827,
+      "native_case": "crud3-cross-shared-COW-037",
+      "native_case_count_contribution": 0,
+      "path": "evidence/native/phase3/snapshots/crud3-cross-shared-COW-037-reload2.itl",
+      "provenance": "native_saved_stage",
+      "role": "phase3 archived native-saved ITL stage",
+      "sha256": "3d7463b2446ff11ad6cfc5233b99f51696b55ba096b100157163376c78b2ab9c",
+      "stage": "reload2"
+    },
+    {
+      "bytes": 6668,
+      "native_case": "crud3-cross-shared-two-037",
+      "native_case_count_contribution": 1,
+      "path": "evidence/native/phase3/snapshots/crud3-cross-shared-two-037-reload1.itl",
+      "provenance": "native_saved_stage",
+      "role": "phase3 archived native-saved ITL stage",
+      "sha256": "7400c9f2730daed353a60c3c2eb277119b0506d640ab37cffe17f8e12db6641d",
+      "stage": "reload1"
+    },
+    {
+      "bytes": 6674,
+      "native_case": "crud3-cross-shared-two-037",
+      "native_case_count_contribution": 0,
+      "path": "evidence/native/phase3/snapshots/crud3-cross-shared-two-037-reload2.itl",
+      "provenance": "native_saved_stage",
+      "role": "phase3 archived native-saved ITL stage",
+      "sha256": "2a33d419d5d33edac0f646bbbb8a8175d663fbe889040f1793fc3526e9bada18",
+      "stage": "reload2"
+    },
+    {
+      "bytes": 5262,
+      "native_case": "fresh-constructed-wav-003-v2",
+      "native_case_count_contribution": 1,
+      "path": "evidence/native/phase3/snapshots/fresh-constructed-wav-003-v2-reload1.itl",
+      "provenance": "native_saved_stage",
+      "role": "phase3 archived native-saved ITL stage",
+      "sha256": "d81d0828faa58cbc3b0e673817499a83cdccea821a22f92b5882cf1001c0df00",
+      "stage": "reload1"
+    },
+    {
+      "bytes": 5267,
+      "native_case": "fresh-constructed-wav-003-v2",
+      "native_case_count_contribution": 0,
+      "path": "evidence/native/phase3/snapshots/fresh-constructed-wav-003-v2-reload2.itl",
+      "provenance": "native_saved_stage",
+      "role": "phase3 archived native-saved ITL stage",
+      "sha256": "7353d3fe7d417ec01098e89828e88810281d88f6af25313ca21a382e66b5a43e",
+      "stage": "reload2"
+    },
+    {
+      "bytes": 5816,
+      "native_case": "fresh-constructed-wav-037-v2",
+      "native_case_count_contribution": 1,
+      "path": "evidence/native/phase3/snapshots/fresh-constructed-wav-037-v2-reload1.itl",
+      "provenance": "native_saved_stage",
+      "role": "phase3 archived native-saved ITL stage",
+      "sha256": "5e0898e3f0f432c87850aa0665e66a042ba4355da4b89a61dc7bf571bc7b019b",
+      "stage": "reload1"
+    },
+    {
+      "bytes": 5820,
+      "native_case": "fresh-constructed-wav-037-v2",
+      "native_case_count_contribution": 0,
+      "path": "evidence/native/phase3/snapshots/fresh-constructed-wav-037-v2-reload2.itl",
+      "provenance": "native_saved_stage",
+      "role": "phase3 archived native-saved ITL stage",
+      "sha256": "d3dac042f777ba734a213c4394f5116ce1365a65abceb73fae304260440240dd",
+      "stage": "reload2"
+    },
+    {
+      "bytes": 5035,
+      "native_case": "p4-fresh-api",
+      "native_case_count_contribution": 1,
+      "path": "evidence/native/phase3/snapshots/p4-fresh-api-reload1.itl",
+      "provenance": "native_saved_stage",
+      "role": "phase3 archived native-saved ITL stage",
+      "sha256": "2562f9465fb4788d7fb7a920427e7a1bf4b24993d1159eb9ff4924c935e7a23a",
+      "stage": "reload1"
+    },
+    {
+      "bytes": 5038,
+      "native_case": "p4-fresh-api",
+      "native_case_count_contribution": 0,
+      "path": "evidence/native/phase3/snapshots/p4-fresh-api-reload2.itl",
+      "provenance": "native_saved_stage",
+      "role": "phase3 archived native-saved ITL stage",
+      "sha256": "73b52bd5a292be783a4007d6af5e773e3e2b40501d64f116e454642e8283da19",
+      "stage": "reload2"
+    },
+    {
+      "bytes": 8916,
+      "native_case": null,
+      "native_case_count_contribution": 0,
+      "path": "evidence/static/phase2/findings.md",
+      "provenance": "static_or_scope_source",
+      "role": "claim-boundary source",
+      "sha256": "559a883221e94c3529ff874cd6636e8e517e1c3cac9772815a0b37782e7827b3",
+      "stage": null
+    },
+    {
+      "bytes": 7235,
+      "native_case": null,
+      "native_case_count_contribution": 0,
+      "path": "evidence/static/phase3/findings.md",
+      "provenance": "static_or_scope_source",
+      "role": "claim-boundary source",
+      "sha256": "49f6307ea1f1dc49ed6c3aa1a52ba9385abcf4ad145dab7fc5062e810250c05a",
+      "stage": null
+    },
+    {
+      "bytes": 13881,
+      "native_case": null,
+      "native_case_count_contribution": 0,
+      "path": "evidence/static/phase3/name-origin-invalidation-and-sort-calls.txt",
+      "provenance": "static_or_scope_source",
+      "role": "claim-boundary source",
+      "sha256": "f70db7f29b8e6fc4de9d91b8cea311734935b9923dd9f98b1841e0fa7f580e30",
+      "stage": null
+    },
+    {
+      "bytes": 12696,
+      "native_case": null,
+      "native_case_count_contribution": 0,
+      "path": "evidence/static/phase3/native-name-diff.json",
+      "provenance": "static_or_scope_source",
+      "role": "claim-boundary source",
+      "sha256": "a69185877dedd240d3a8b57d0a7da79919a3ca110535259784693c31c03b08d3",
+      "stage": null
+    },
+    {
+      "bytes": 348,
+      "native_case": null,
+      "native_case_count_contribution": 0,
+      "path": "evidence/static/phase3/sort-descriptor-jumptable.json",
+      "provenance": "static_or_scope_source",
+      "role": "claim-boundary source",
+      "sha256": "812210f7960f384ea2960f497ed24e2d07c76b26d304a7a538f7108d9b7ea99c",
+      "stage": null
+    },
+    {
+      "bytes": 39010,
+      "native_case": null,
+      "native_case_count_contribution": 0,
+      "path": "scripts/research/audit_sort_rank_20260925.py",
+      "provenance": "source_code",
+      "role": "audit implementation",
+      "sha256": "b14577c02996fc05db059f87d69a0b941a9d7739c822cbe133ba82934165d529",
+      "stage": null
+    }
+  ],
+  "input_roots": [
+    "TEST_CORPUS/generated/reference-one-track-raw.itl",
+    "evidence/native/field-matrix-20260922",
+    "evidence/native/phase3",
+    "evidence/static/phase2",
+    "evidence/static/phase3",
+    "REFERENCE_PARSER/core.py"
+  ],
+  "reproduction": "python3 scripts/research/audit_sort_rank_20260925.py --repo-root . --output-dir evidence/research/20260925/sort-rank-audit",
+  "schema": "itl.sort-rank.input-manifest.v1"
+}

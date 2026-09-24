@@ -80,6 +80,8 @@ Closure requires per-format native templates, field/dependency comparison, const
 
 Selected text edits and known pool guards do not define every sort key, rank word, cache, or callback. The Name-refresh bit is a bounded correction, not a general rank reset rule.
 
+The deterministic 2026-09-25 audit (`evidence/research/20260925/sort-rank-audit/`) hashes and structurally parses 37 retained ITLs from nine field-matrix cases and six phase3 chains. It records exact seven-word transitions and Unicode bytes, including a persisted `SortAlbumArtist` counterexample with no first-save zero and zero serialized-empty target atoms. These are 94 repeated track occurrences, not 94 native runs, and they do not yield a safe universal production regeneration rule. U-10 remains open.
+
 Closure requires consumer mapping and native factorials for empty/missing/nonempty names, multiple scripts, normalization, sort fields, and system views.
 
 ### U-11 — date/time semantics
