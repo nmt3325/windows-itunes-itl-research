@@ -146,14 +146,25 @@ class Container:
                 'original_sha256': hashlib.sha256(self._original).hexdigest() if self._original else None}
 
     @classmethod
-    def from_dict(cls, value: dict) -> Container:
+    def from_dict(cls, value: dict, *, max_plain_bytes: int = DEFAULT_MAX_PLAIN_BYTES) -> Container:
+        if type(max_plain_bytes) is not int or max_plain_bytes < 1:
+            raise ValueError('max_plain_bytes must be positive')
         try:
             if value['schema'] != 'itlkit.container.v1':
                 raise FormatError('unsupported container JSON schema')
-            header, payload, trailer = (bytes.fromhex(value[k]) for k in ('header_hex','payload_hex','trailer_hex'))
+            payload_hex = value['payload_hex']
+            if not isinstance(payload_hex, str):
+                raise TypeError('payload_hex must be a string')
+            if sum(not char.isspace() for char in payload_hex) > max_plain_bytes * 2:
+                raise FormatError(f'decompressed payload exceeds {max_plain_bytes} bytes')
+            header = bytes.fromhex(value['header_hex'])
+            payload = bytes.fromhex(payload_hex)
+            trailer = bytes.fromhex(value['trailer_hex'])
             _header_check(header)
             original_b64 = value.get('original_file_b64')
-            obj = cls.from_bytes(base64.b64decode(original_b64, validate=True)) if original_b64 else cls(header,payload,trailer)
+            obj = (cls.from_bytes(base64.b64decode(original_b64, validate=True),
+                                  max_plain_bytes=max_plain_bytes)
+                   if original_b64 else cls(header, payload, trailer))
             if original_b64 and hashlib.sha256(obj._original).hexdigest() != value.get('original_sha256'):
                 raise FormatError('original container digest mismatch')
             obj.header, obj.payload, obj.trailer = header, payload, trailer

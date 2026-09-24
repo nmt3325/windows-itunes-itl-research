@@ -8,7 +8,7 @@ from pathlib import Path
 import copy
 from datetime import datetime, timedelta, timezone
 from .binary import uint, put
-from .container import Container
+from .container import Container, DEFAULT_MAX_PLAIN_BYTES
 from .model import Node, parse_sections, serialize_sections
 from .errors import FormatError, UnsupportedError
 
@@ -511,11 +511,11 @@ class Library:
                 'sections': [s.to_dict() for s in current.sections], 'operations': []}
 
     @classmethod
-    def from_dict(cls, value: dict) -> Library:
+    def from_dict(cls, value: dict, *, max_plain_bytes: int = DEFAULT_MAX_PLAIN_BYTES) -> Library:
         if not isinstance(value, dict) or value.get('schema') != 'itlkit.library.v1':
             raise FormatError('unsupported library JSON schema')
         try:
-            container = Container.from_dict(value['container'])
+            container = Container.from_dict(value['container'], max_plain_bytes=max_plain_bytes)
             if not container.unchanged:
                 raise UnsupportedError('library JSON requires an intact original baseline; raw edits belong to the low-level container API')
             lib = cls(container)

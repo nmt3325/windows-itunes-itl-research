@@ -82,6 +82,19 @@ def test_container_json_roundtrip_and_digest_guard():
     with pytest.raises(FormatError):Container.from_dict(doc)
 
 
+def test_container_json_honors_plaintext_budget_before_reconstruction():
+    source = pack(b'x' * 4096)
+    doc = Container.from_bytes(source).to_dict()
+    with pytest.raises(FormatError, match='exceeds'):
+        Container.from_dict(doc, max_plain_bytes=128)
+    doc['original_file_b64'] = None
+    doc['original_sha256'] = None
+    with pytest.raises(FormatError, match='exceeds'):
+        Container.from_dict(doc, max_plain_bytes=128)
+    with pytest.raises(ValueError, match='positive'):
+        Container.from_dict(doc, max_plain_bytes=0)
+
+
 def test_changed_payload_never_reuses_original_ciphertext():
     c=Container.from_bytes(pack(b'first'))
     c.payload=b'second'
