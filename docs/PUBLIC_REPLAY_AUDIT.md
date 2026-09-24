@@ -24,11 +24,16 @@ The exclusion is intentionally not a generic `*.egg-info` glob. Editable-install
 ## Regression gates
 
 ```bash
-python -m pytest -q tests/test_public_replay_audit_20260925.py
-python proposals/test_verify_delivery_strict.py
-python -B scripts/research/qa_delivery_verifier.py   scripts/research/verify_delivery.py /tmp/new-delivery-qa
+PYTHONDONTWRITEBYTECODE=1 python -B -m pytest -q -p no:cacheprovider \
+  --basetemp /tmp/new-public-replay-pytest \
+  tests/test_public_replay_audit_20260925.py
+PYTHONDONTWRITEBYTECODE=1 python -B proposals/test_verify_delivery_strict.py
+python -B scripts/research/qa_delivery_verifier.py \
+  scripts/research/verify_delivery.py /tmp/new-delivery-qa
 python -B scripts/research/verify_delivery.py
 ```
+
+The two `/tmp/new-*` paths above must be fresh and repository-external. These flags also prevent the regression gates from contaminating the exact delivered file set with bytecode or pytest cache files.
 
 A clean public replay should then verify both before and after an editable install performed in a disposable environment:
 
