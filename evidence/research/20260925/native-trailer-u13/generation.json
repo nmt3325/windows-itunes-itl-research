@@ -1,0 +1,292 @@
+{
+  "audit": {
+    "candidate_case_id": "trailer-opaque-17",
+    "control_case_id": "baseline-reference-one-track-zlib",
+    "report": "evidence/research/20260925/trailer-coverage-audit/report.json",
+    "report_sha256": "5afaccff5cf8baa3773f9890020c5785341d29bc300fac535c7ecce435504c99",
+    "script": "scripts/research/audit_trailer_coverage.py",
+    "script_sha256": "1cadedefd0cd542180115499442d93b526ee12ddc344f74af8d27373d2100020",
+    "seed": "0x20260925"
+  },
+  "cases": [
+    {
+      "analysis": {
+        "file": {
+          "bytes": 775,
+          "sha256": "25f8aba00330caaa0ef4b529f67a203cd6da2b3d652923f7e44c7396f7bd13ad"
+        },
+        "primary": {
+          "compression_flag": 1,
+          "encryption_flag": 2,
+          "max_crypt_size": 102400,
+          "no_op_exact": true,
+          "payload_bytes": 10442,
+          "payload_sha256": "666c74d34556f413a76a31691be9b20f1eec8f2a9459f15b7b98f2ea0dcfa797",
+          "trailer_bytes": 0,
+          "trailer_hex": "",
+          "trailer_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "version": "12.13.10.3"
+        },
+        "reference": {
+          "detection": {
+            "evidence": [
+              {
+                "check": "magic",
+                "ok": true,
+                "value": "hdfm"
+              },
+              {
+                "check": "header_length",
+                "ok": true,
+                "value": 144
+              },
+              {
+                "check": "declared_size",
+                "ok": true,
+                "value": 775
+              },
+              {
+                "check": "pascal_version",
+                "ok": true,
+                "value": "12.13.10.3"
+              },
+              {
+                "check": "payload_byteorder",
+                "ok": true,
+                "value": "little"
+              },
+              {
+                "check": "encryption_flag",
+                "ok": true,
+                "value": 2
+              },
+              {
+                "check": "section_boundaries",
+                "ok": true,
+                "value": [
+                  16,
+                  12,
+                  9,
+                  11,
+                  1,
+                  13,
+                  23,
+                  2,
+                  14,
+                  4
+                ]
+              }
+            ],
+            "limitations": [
+              "The Pascal version label is authoritative only for the observed envelope.",
+              "No native iTunes acceptance is implied by structural detection."
+            ],
+            "profile": {
+              "cross_version_write": false,
+              "identity_write": true,
+              "playlist_header_lengths": [
+                3500
+              ],
+              "semantic_read": true,
+              "track_header_lengths": [
+                756
+              ]
+            },
+            "reason": "observed version label and bounded section framing agree",
+            "schema": "reference-itl.version-detection.v1",
+            "sha256": "25f8aba00330caaa0ef4b529f67a203cd6da2b3d652923f7e44c7396f7bd13ad",
+            "status": "recognized",
+            "version": "12.13.10.3"
+          },
+          "payload_bytes": 10442,
+          "payload_sha256": "666c74d34556f413a76a31691be9b20f1eec8f2a9459f15b7b98f2ea0dcfa797",
+          "playlists": 2,
+          "sections": 10,
+          "tracks": 1,
+          "trailer_bytes": 0,
+          "trailer_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "version": "12.13.10.3"
+        },
+        "validator": {
+          "coverage": {
+            "compressed_trailer": {
+              "bytes": 0,
+              "present": false,
+              "semantically_validated": false
+            },
+            "envelope_and_record_boundaries": true,
+            "known_reference_namespaces": [
+              "track local/Persistent IDs",
+              "playlist local/Persistent IDs",
+              "playlist item IDs and track references",
+              "track album and artist local references"
+            ],
+            "opaque_bytes_semantically_validated": false,
+            "opaque_reference_scan": false
+          },
+          "issue_codes": [
+            "scope.opaque_section",
+            "scope.opaque_section"
+          ],
+          "valid": true
+        }
+      },
+      "name": "u13-control-no-trailer",
+      "path": "evidence/research/20260925/native-trailer-u13/candidates/control-reference-one-track-zlib.itl",
+      "role": "exact_trailer_free_control"
+    },
+    {
+      "analysis": {
+        "file": {
+          "bytes": 792,
+          "sha256": "10b17fbdd783ad17e6fa3b488ee6421f43a417b9350de547754d24d4369e4e34"
+        },
+        "primary": {
+          "compression_flag": 1,
+          "encryption_flag": 2,
+          "max_crypt_size": 102400,
+          "no_op_exact": true,
+          "payload_bytes": 10442,
+          "payload_sha256": "666c74d34556f413a76a31691be9b20f1eec8f2a9459f15b7b98f2ea0dcfa797",
+          "trailer_bytes": 17,
+          "trailer_hex": "ab9a7d82ac4119e858b335bd75ec56ec7c",
+          "trailer_sha256": "103ea80001690bf2fccc5b4fb924760bf817e9c0b798c085e5359f68b10616ab",
+          "version": "12.13.10.3"
+        },
+        "reference": {
+          "detection": {
+            "evidence": [
+              {
+                "check": "magic",
+                "ok": true,
+                "value": "hdfm"
+              },
+              {
+                "check": "header_length",
+                "ok": true,
+                "value": 144
+              },
+              {
+                "check": "declared_size",
+                "ok": true,
+                "value": 792
+              },
+              {
+                "check": "pascal_version",
+                "ok": true,
+                "value": "12.13.10.3"
+              },
+              {
+                "check": "payload_byteorder",
+                "ok": true,
+                "value": "little"
+              },
+              {
+                "check": "encryption_flag",
+                "ok": true,
+                "value": 2
+              },
+              {
+                "check": "section_boundaries",
+                "ok": true,
+                "value": [
+                  16,
+                  12,
+                  9,
+                  11,
+                  1,
+                  13,
+                  23,
+                  2,
+                  14,
+                  4
+                ]
+              }
+            ],
+            "limitations": [
+              "The Pascal version label is authoritative only for the observed envelope.",
+              "No native iTunes acceptance is implied by structural detection."
+            ],
+            "profile": {
+              "cross_version_write": false,
+              "identity_write": true,
+              "playlist_header_lengths": [
+                3500
+              ],
+              "semantic_read": true,
+              "track_header_lengths": [
+                756
+              ]
+            },
+            "reason": "observed version label and bounded section framing agree",
+            "schema": "reference-itl.version-detection.v1",
+            "sha256": "10b17fbdd783ad17e6fa3b488ee6421f43a417b9350de547754d24d4369e4e34",
+            "status": "recognized",
+            "version": "12.13.10.3"
+          },
+          "payload_bytes": 10442,
+          "payload_sha256": "666c74d34556f413a76a31691be9b20f1eec8f2a9459f15b7b98f2ea0dcfa797",
+          "playlists": 2,
+          "sections": 10,
+          "tracks": 1,
+          "trailer_bytes": 17,
+          "trailer_sha256": "103ea80001690bf2fccc5b4fb924760bf817e9c0b798c085e5359f68b10616ab",
+          "version": "12.13.10.3"
+        },
+        "validator": {
+          "coverage": {
+            "compressed_trailer": {
+              "bytes": 17,
+              "present": true,
+              "semantically_validated": false
+            },
+            "envelope_and_record_boundaries": true,
+            "known_reference_namespaces": [
+              "track local/Persistent IDs",
+              "playlist local/Persistent IDs",
+              "playlist item IDs and track references",
+              "track album and artist local references"
+            ],
+            "opaque_bytes_semantically_validated": false,
+            "opaque_reference_scan": false
+          },
+          "issue_codes": [
+            "scope.compressed_trailer",
+            "scope.opaque_section",
+            "scope.opaque_section"
+          ],
+          "valid": true
+        }
+      },
+      "name": "u13-opaque-trailer-17",
+      "path": "evidence/research/20260925/native-trailer-u13/candidates/opaque-trailer-17-reference-one-track-zlib.itl",
+      "role": "fixed_seed_opaque_trailer_candidate"
+    }
+  ],
+  "claim_boundaries": [
+    "Exact-candidate evidence only: one 17-byte fixed-seed opaque trailer and its exact trailer-free control.",
+    "Native acceptance, if observed, does not establish trailer meaning, provenance, safe semantic editability, or universal ITL support.",
+    "Parser, validator, no-op, and envelope agreement are structural evidence and are not substitutes for native acceptance.",
+    "Repeated saves and the copied control are phase-chain observations, not independent experiments.",
+    "Results are bounded to the signed standalone Windows iTunes 12.13.10.3 executable and the retained one-track semantic profile."
+  ],
+  "native_harness": {
+    "case_manifest": "evidence/research/20260925/native-trailer-u13/native-cases.json",
+    "path": "scripts/windows/reference_generated_native.py",
+    "policy": "existing fail-closed isolated harness; two cycles; no weakened gates"
+  },
+  "operation": "deterministic_generation",
+  "pair_gate": {
+    "candidate_trailer_bytes": 17,
+    "candidate_trailer_sha256": "103ea80001690bf2fccc5b4fb924760bf817e9c0b798c085e5359f68b10616ab",
+    "control_trailer_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "same_semantic_payload_sha256": "666c74d34556f413a76a31691be9b20f1eec8f2a9459f15b7b98f2ea0dcfa797"
+  },
+  "schema": "windows-itl.native-trailer-u13.v1",
+  "source": {
+    "path": "TEST_CORPUS/generated/reference-one-track-zlib.itl",
+    "retained_native_qualification": "evidence/native/reference-generated-20260922-passed/qualification-summary.json",
+    "sha256": "25f8aba00330caaa0ef4b529f67a203cd6da2b3d652923f7e44c7396f7bd13ad"
+  },
+  "source_repository_commit": "a6876a532e0abc12535316a97ad20897eccedf7d"
+}

@@ -266,11 +266,10 @@ def render_markdown(report: dict[str, Any]) -> str:
 def write_outputs(output_dir: Path) -> dict[str, Any]:
     report = build_report()
     output_dir.mkdir(parents=True, exist_ok=True)
-    (output_dir / "report.json").write_text(
-        json.dumps(report, indent=2, sort_keys=True, ensure_ascii=False) + "\n",
-        encoding="utf-8",
+    (output_dir / "report.json").write_bytes(
+        (json.dumps(report, indent=2, sort_keys=True, ensure_ascii=False) + "\n").encode("utf-8")
     )
-    (output_dir / "README.md").write_text(render_markdown(report), encoding="utf-8")
+    (output_dir / "README.md").write_bytes(render_markdown(report).encode("utf-8"))
     return report
 
 
