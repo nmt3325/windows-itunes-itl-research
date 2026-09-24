@@ -35,6 +35,7 @@ def main():
     test('valid', lambda r, x: None, True)
     test('git-directory-excluded', lambda r, x: ((r / '.git').mkdir(), (r / '.git/config').write_text('test')), True)
     test('git-pointer-excluded', lambda r, x: (r / '.git').write_text('gitdir: elsewhere'), True)
+    test('generated-metadata-directory-excluded', lambda r, x: ((r / module.GENERATED_METADATA_DIR).mkdir(), (r / module.GENERATED_METADATA_DIR / 'PKG-INFO').write_text('generated')), True)
     test('unlisted-extra', lambda r, x: (r / 'extra.txt').write_text('extra'))
     test('missing-file', lambda r, x: (r / 'sample.txt').unlink())
     test('size-mismatch', lambda r, x: (r / 'sample.txt').write_text('short'))
@@ -55,6 +56,9 @@ def main():
     test('bad-digest', lambda r, x: x[0].update(sha256='z' * 64))
     test('self-entry', lambda r, x: x[0].update(path=module.MANIFEST))
     test('git-entry', lambda r, x: x[0].update(path='.git/config'))
+    test('generated-metadata-entry', lambda r, x: x[0].update(path=module.GENERATED_METADATA_DIR + '/PKG-INFO'))
+    test('other-egg-info-not-excluded', lambda r, x: ((r / 'other.egg-info').mkdir(), (r / 'other.egg-info/PKG-INFO').write_text('extra')))
+    test('nested-generated-name-not-excluded', lambda r, x: ((r / 'nested' / module.GENERATED_METADATA_DIR).mkdir(parents=True), (r / 'nested' / module.GENERATED_METADATA_DIR / 'PKG-INFO').write_text('extra')))
     result = {'status': 'passed', 'checks': len(results), 'cases': results, 'native_actions': False, 'verifier_sha256': hashlib.sha256(verifier.read_bytes()).hexdigest()}
     (scratch / 'report.json').write_text(json.dumps(result, indent=2), encoding='utf-8')
     print(json.dumps({'status': result['status'], 'checks': result['checks'], 'native_actions': False}))

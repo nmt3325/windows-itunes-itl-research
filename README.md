@@ -107,7 +107,7 @@ python -B -m pytest tests -q -rs -p no:cacheprovider --basetemp "$env:TEMP\itl-r
 python -B scripts/research/verify_delivery.py
 ```
 
-SHA-256、サイズ、ファイル集合の一致を検証し、余分なファイルやパスの大文字小文字による衝突等を拒否します。除外はルートの `.git` とマニフェスト自身のみです。テストの生成物はリポジトリ外へ保存してください。
+SHA-256、サイズ、ファイル集合の一致を検証し、余分なファイルやパスの大文字小文字による衝突等を拒否します。除外はルートの `.git`、マニフェスト自身、および editable install が生成するトップレベルの `windows_itl_research.egg-info` だけです。その他または入れ子の `*.egg-info` は除外しません。テストの生成物はリポジトリ外へ保存してください。
 
 ## 証拠と再現上の注意
 

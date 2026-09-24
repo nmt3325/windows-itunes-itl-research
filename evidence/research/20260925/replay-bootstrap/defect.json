@@ -1,0 +1,20 @@
+{
+  "base_commit": "9dc9be906c30172fc8d0ac9550d28cb137e63e42",
+  "classification": "repository delivery/bootstrap defect; not a GHA MCP defect",
+  "clean_clone_preinstall_result": "manifest-declared files absent",
+  "editable_install_observed_failure": "Size mismatch: windows_itl_research.egg-info/PKG-INFO",
+  "git_tracked_entry_count": 0,
+  "gitignore_rule": "*.egg-info/",
+  "manifest_entries": [
+    "windows_itl_research.egg-info/PKG-INFO",
+    "windows_itl_research.egg-info/SOURCES.txt",
+    "windows_itl_research.egg-info/dependency_links.txt",
+    "windows_itl_research.egg-info/entry_points.txt",
+    "windows_itl_research.egg-info/requires.txt",
+    "windows_itl_research.egg-info/top_level.txt"
+  ],
+  "manifest_entry_count": 6,
+  "repair_boundary": "exclude only the exact top-level generated windows_itl_research.egg-info directory and reject entries beneath it; do not ignore arbitrary or nested egg-info directories",
+  "schema": "windows-itunes-itl.public-replay-defect.20260925.v1",
+  "u18_closed": false
+}

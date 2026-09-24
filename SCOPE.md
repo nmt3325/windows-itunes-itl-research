@@ -98,7 +98,7 @@ Native qualification attaches to the exact candidate and stated operation, not t
 
 ### Gate E — delivery integrity
 
-The exact file set, sizes, and SHA-256 values must match [`DELIVERY-MANIFEST.json`](DELIVERY-MANIFEST.json); tests must write outside the repository. The manifest excludes only itself and `.git`.
+The exact file set, sizes, and SHA-256 values must match [`DELIVERY-MANIFEST.json`](DELIVERY-MANIFEST.json); tests must write outside the repository. The manifest excludes itself, `.git`, and only the exact top-level generated packaging directory `windows_itl_research.egg-info`. Other or nested `*.egg-info` directories remain in the exact file set.
 
 Implementation: [`scripts/research/verify_delivery.py`](scripts/research/verify_delivery.py).
 Tests: [`proposals/test_verify_delivery_strict.py`](proposals/test_verify_delivery_strict.py).

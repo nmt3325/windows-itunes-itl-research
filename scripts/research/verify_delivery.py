@@ -1,4 +1,4 @@
-"""Verify checksums and the exact delivered file set, excluding only .git and this manifest."""
+"""Verify the delivered file set, excluding .git, generated egg-info, and this manifest."""
 from pathlib import Path, PurePosixPath, PureWindowsPath
 import argparse
 import hashlib
@@ -7,6 +7,9 @@ import os
 import re
 
 MANIFEST = 'DELIVERY-MANIFEST.json'
+GENERATED_METADATA_DIR = 'windows_itl_research.egg-info'
+EXCLUDED_ROOT_DIRS = {'.git', GENERATED_METADATA_DIR}
+EXCLUDED_ROOT_DIRS_FOLDED = {name.casefold() for name in EXCLUDED_ROOT_DIRS}
 RESERVED = {'CON', 'PRN', 'AUX', 'NUL'} | {f'{p}{i}' for p in ('COM', 'LPT') for i in range(1, 10)}
 
 
@@ -18,7 +21,7 @@ def safe_relative(value):
         raise ValueError('Non-canonical manifest path: ' + value)
     if any(x in ('', '.', '..') or x.rstrip(' .') != x or x.split('.')[0].upper() in RESERVED for x in p.parts):
         raise ValueError('Unsafe path component: ' + value)
-    if p.parts[0].casefold() == '.git' or value.casefold() == MANIFEST.casefold():
+    if p.parts[0].casefold() in EXCLUDED_ROOT_DIRS_FOLDED or value.casefold() == MANIFEST.casefold():
         raise ValueError('Excluded or self-referencing manifest path: ' + value)
     return p
 
@@ -33,7 +36,7 @@ def actual_files(root):
     for base, dirs, files in os.walk(root, followlinks=False):
         base = Path(base)
         if base == root:
-            dirs[:] = [x for x in dirs if x != '.git']
+            dirs[:] = [x for x in dirs if x.casefold() not in EXCLUDED_ROOT_DIRS_FOLDED]
         for name in dirs:
             p = base / name
             if is_link(p):
@@ -109,7 +112,10 @@ def main():
         count = verify(args.root)
     except (OSError, ValueError, TypeError, KeyError) as exc:
         raise SystemExit('Verification failed: ' + str(exc)) from exc
-    print(f'Verified {count} files, checksums and exact file set (manifest and .git excluded).')
+    print(
+        f'Verified {count} files, checksums and exact file set '
+        f'(manifest, .git, and {GENERATED_METADATA_DIR} excluded).'
+    )
 
 
 if __name__ == '__main__':

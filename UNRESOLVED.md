@@ -134,6 +134,8 @@ Some static/research scripts retain historical root/tool-layout assumptions; pri
 
 Closure requires a clean disposable bootstrap, pinned tool versions, synthetic/public inputs, and end-to-end replay receipts without private artifacts.
 
+A 2026-09-25 bounded repair removes one concrete blocker: the delivery manifest no longer lists ignored, regenerated top-level `windows_itl_research.egg-info` files, and both positive and narrow-exclusion negative tests are retained in [`docs/PUBLIC_REPLAY_AUDIT.md`](docs/PUBLIC_REPLAY_AUDIT.md). Historical private/tool-layout replay remains unstaged, so U-18 stays open.
+
 ## Completion policy
 
 - These items remain open even when all current tests pass.
