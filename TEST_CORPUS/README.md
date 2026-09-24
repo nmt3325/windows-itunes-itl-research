@@ -13,7 +13,7 @@ Each `.itl` has a JSON sidecar recording template use, output SHA-256 and size, 
 
 One-track evidence is under [`../evidence/native/reference-generated-20260922-passed/`](../evidence/native/reference-generated-20260922-passed/); three-track evidence is under [`../evidence/native/reference-multi-track-20260922-v2/`](../evidence/native/reference-multi-track-20260922-v2/). The preceding multi-track attempt failed during Unicode preflight before iTunes launch and is retained separately as harness evidence.
 
-Qualification is exact-output only. Changing a name, path, identity, count, record, flag, version, or template makes the output `unverified` until separately tested. The 1–16 bound defines what the generator will construct, not what native evidence has qualified.
+Qualification is exact-output only. Changing a name, path, identity, count, record, flag, version, template, or compression backend makes the output `unverified` until separately tested. The checked-in compressed hashes use the classic zlib backend. Python builds linked to zlib-ng can emit different, structurally valid compressed bytes; they do not inherit the retained hashes' native acceptance, and byte-exact evidence replay fails closed on that backend. Raw-output generation and semantic validation remain available. The 1–16 bound defines what the generator will construct, not what native evidence has qualified.
 
 ```powershell
 python -m TEST_CORPUS generate output.itl

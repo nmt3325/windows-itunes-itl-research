@@ -6,6 +6,7 @@ import json
 from pathlib import Path
 import subprocess
 import sys
+import zlib
 
 import pytest
 
@@ -31,6 +32,7 @@ REFERENCE_DIRECTORIES = (
 )
 NATIVE_ONE_TRACK = ROOT / "evidence" / "native" / "snapshots" / "001-one-track.itl"
 CHECKED_IN_RAW = ROOT / "TEST_CORPUS" / "generated" / "reference-one-track-raw.itl"
+ZLIB_NG = "zlib-ng" in zlib.ZLIB_RUNTIME_VERSION.lower()
 
 
 def _imported_modules(tree: ast.AST) -> set[str]:
@@ -104,12 +106,22 @@ def test_generated_library_has_selected_semantics_and_valid_references(
     }
     assert summary["envelope"]["compression_flag"] == int(compressed)
     assert summary["envelope"]["encryption_flag"] == expected_encryption
-    assert hashlib.sha256(raw).hexdigest() == expected_sha
+    digest = hashlib.sha256(raw).hexdigest()
+    if compressed and ZLIB_NG:
+        repeated, _ = generate_bytes(
+            compressed=compressed, track_name=track_name, playlist_name=playlist_name
+        )
+        assert repeated == raw
+        assert digest != expected_sha
+        assert provenance["native_acceptance"]["status"] == "unverified"
+        assert provenance["native_acceptance"]["tested"] is False
+    else:
+        assert digest == expected_sha
+        assert provenance["native_acceptance"]["status"] == "verified"
+        assert provenance["native_acceptance"]["tested"] is True
     assert validation["valid"] is True
     assert provenance["template_reused"] is False
     assert provenance["template_sha256"] is None
-    assert provenance["native_acceptance"]["status"] == "verified"
-    assert provenance["native_acceptance"]["tested"] is True
     assert provenance["native_acceptance"]["scope"] == "exact_output_sha256"
 
 
@@ -147,7 +159,15 @@ def test_generated_three_track_library_has_deterministic_identities_and_ordered_
     playlists = {entry["persistent_id"]: entry for entry in summary["playlists"]}
     expected_track_pids = [f"A17E10000000000{index}" for index in range(1, 4)]
 
-    assert hashlib.sha256(raw).hexdigest() == expected_sha
+    digest = hashlib.sha256(raw).hexdigest()
+    if compressed and ZLIB_NG:
+        repeated, _ = generate_bytes(
+            compressed=compressed, track_names=track_names, playlist_name=playlist_name
+        )
+        assert repeated == raw
+        assert digest != expected_sha
+    else:
+        assert digest == expected_sha
     assert [row["name"] for row in summary["tracks"]] == track_names
     assert [row["persistent_id"] for row in summary["tracks"]] == expected_track_pids
     assert [row["track_id"] for row in summary["tracks"]] == [1, 2, 3]
@@ -164,12 +184,17 @@ def test_generated_three_track_library_has_deterministic_identities_and_ordered_
     assert summary["envelope"]["encryption_flag"] == expected_encryption
     assert validation["valid"] is True
     assert provenance["inputs"]["track_names"] == track_names
-    assert provenance["native_acceptance"]["status"] == "verified"
-    assert provenance["native_acceptance"]["tested"] is True
-    assert provenance["native_acceptance"]["cycles"] == 2
-    assert provenance["native_acceptance"]["evidence"].startswith(
-        "evidence/native/reference-multi-track-20260922-v2/"
-    )
+    if compressed and ZLIB_NG:
+        assert provenance["native_acceptance"]["status"] == "unverified"
+        assert provenance["native_acceptance"]["tested"] is False
+        assert provenance["native_acceptance"]["scope"] == "exact_output_sha256"
+    else:
+        assert provenance["native_acceptance"]["status"] == "verified"
+        assert provenance["native_acceptance"]["tested"] is True
+        assert provenance["native_acceptance"]["cycles"] == 2
+        assert provenance["native_acceptance"]["evidence"].startswith(
+            "evidence/native/reference-multi-track-20260922-v2/"
+        )
 
 
 @pytest.mark.parametrize(
@@ -303,9 +328,14 @@ def test_manifest_hashes_generated_files(tmp_path: Path) -> None:
         assert entry["sha256"] == hashlib.sha256(raw).hexdigest()
         if path.suffix == ".itl":
             provenance = json.loads(provenance_path(path).read_text(encoding="utf-8"))
-            assert provenance["native_acceptance"]["status"] == "verified"
-            assert provenance["native_acceptance"]["tested"] is True
-            assert entry["native_acceptance"] == "verified"
+            if ZLIB_NG and "zlib" in path.name:
+                assert provenance["native_acceptance"]["status"] == "unverified"
+                assert provenance["native_acceptance"]["tested"] is False
+                assert entry["native_acceptance"] == "unverified"
+            else:
+                assert provenance["native_acceptance"]["status"] == "verified"
+                assert provenance["native_acceptance"]["tested"] is True
+                assert entry["native_acceptance"] == "verified"
             assert entry["template_reused"] is False
 
 

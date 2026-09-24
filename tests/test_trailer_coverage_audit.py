@@ -6,6 +6,7 @@ import json
 from pathlib import Path
 import subprocess
 import sys
+import zlib
 
 import pytest
 
@@ -17,6 +18,7 @@ ROOT = Path(__file__).resolve().parents[1]
 SCRIPT = ROOT / "scripts" / "research" / "audit_trailer_coverage.py"
 REPORT = ROOT / "evidence" / "research" / "20260925" / "trailer-coverage-audit" / "report.json"
 GENERATED = sorted((ROOT / "TEST_CORPUS" / "generated").glob("*.itl"))
+ZLIB_NG = "zlib-ng" in zlib.ZLIB_RUNTIME_VERSION.lower()
 
 
 def test_exact_native_qualified_fixtures_are_primary_readable_but_not_editable() -> None:
@@ -51,10 +53,16 @@ def test_trailer_coverage_report_regenerates_byte_exactly(tmp_path: Path) -> Non
     completed = subprocess.run(
         [sys.executable, "-B", str(SCRIPT), "--output", str(regenerated)],
         cwd=ROOT,
-        check=True,
+        check=False,
         capture_output=True,
         text=True,
     )
+    if ZLIB_NG:
+        assert completed.returncode != 0
+        assert "reference writer failed exact fixture repack" in completed.stderr
+        assert not regenerated.exists()
+        return
+    completed.check_returncode()
     summary = json.loads(completed.stdout)
     report = json.loads(regenerated.read_text(encoding="utf-8"))
 
@@ -78,10 +86,16 @@ def test_minimized_repro_is_addressable_by_case_id(tmp_path: Path) -> None:
             str(output),
         ],
         cwd=ROOT,
-        check=True,
+        check=False,
         capture_output=True,
         text=True,
     )
+    if ZLIB_NG:
+        assert completed.returncode != 0
+        assert "reference writer failed exact fixture repack" in completed.stderr
+        assert not output.exists()
+        return
+    completed.check_returncode()
     receipt = json.loads(completed.stdout)
     report = json.loads(REPORT.read_text(encoding="utf-8"))
     witness = next(

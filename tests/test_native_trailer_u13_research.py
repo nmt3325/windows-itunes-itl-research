@@ -2,6 +2,9 @@ import hashlib
 import importlib.util
 import json
 import sys
+import zlib
+
+import pytest
 from pathlib import Path
 
 
@@ -14,6 +17,7 @@ ANALYSIS = EVIDENCE / "analysis.json"
 PROVENANCE = EVIDENCE / "environment-provenance.json"
 EVIDENCE_README = EVIDENCE / "README.md"
 DOC = ROOT / "docs" / "native-trailer-u13-20260925.md"
+ZLIB_NG = "zlib-ng" in zlib.ZLIB_RUNTIME_VERSION.lower()
 
 SPEC = importlib.util.spec_from_file_location("native_trailer_u13_20260925", SCRIPT)
 assert SPEC and SPEC.loader
@@ -49,6 +53,10 @@ def load(path: Path):
 
 
 def test_deterministic_pair_has_exact_bytes_hashes_and_parser_agreement():
+    if ZLIB_NG:
+        with pytest.raises(AssertionError, match="reference writer failed exact fixture repack"):
+            research.generation_material()
+        return
     control, candidate, control_analysis, candidate_analysis = research.generation_material()
 
     assert hashlib.sha256(control).hexdigest() == CONTROL_SHA256
@@ -110,11 +118,15 @@ def test_retained_analysis_is_a_deterministic_derivative(tmp_path):
 
     assert rebuilt == expected
     assert output.read_bytes() == research.json_bytes(expected)
-    assert research.verify_retained(EVIDENCE, NATIVE, ANALYSIS) == {
-        "status": "passed",
-        "cases": 2,
-        "phases": 6,
-    }
+    if ZLIB_NG:
+        with pytest.raises(AssertionError, match="reference writer failed exact fixture repack"):
+            research.verify_retained(EVIDENCE, NATIVE, ANALYSIS)
+    else:
+        assert research.verify_retained(EVIDENCE, NATIVE, ANALYSIS) == {
+            "status": "passed",
+            "cases": 2,
+            "phases": 6,
+        }
 
 
 def test_exact_native_phase_hashes_restart_chain_and_trailer_fate():
