@@ -11,8 +11,8 @@
   },
   {
     "path": "EVIDENCE.md",
-    "bytes": 30393,
-    "sha256": "0b8892dda94c8a23bd0daafd226103bd9f40bdd8b88a5885966843e46e86b87f"
+    "bytes": 31011,
+    "sha256": "c302e46447ef78fa17d439f2cbc8c5eadcda7f919c8d05bf1bfc2726059a4377"
   },
   {
     "path": "ITL_DATA_MODEL.md",
@@ -37,7 +37,7 @@
   {
     "path": "README.md",
     "bytes": 21610,
-    "sha256": "710e5cc08235dc14b5e04b76895076402d62df751bea03482a2c403003dd1092"
+    "sha256": "47e14758759b30a267a10d49ee31b61315df497545dce9662bad2f0e2e8ecd26"
   },
   {
     "path": "REFERENCE_PARSER/README.md",
@@ -196,8 +196,8 @@
   },
   {
     "path": "UNRESOLVED.md",
-    "bytes": 20436,
-    "sha256": "dc608118fb1b6284b17b5307e9e21a47edf47eb4d717f0fe025f54e7d42b8b10"
+    "bytes": 21285,
+    "sha256": "5eea4e90644300103224d8db8e5324cfe0a541af79f0c13f321108a841773906"
   },
   {
     "path": "VALIDATOR/README.md",
@@ -231,13 +231,13 @@
   },
   {
     "path": "completion-status.yaml",
-    "bytes": 7667,
-    "sha256": "ae73fc6931da5488762d2e37bf006bf6f56fd269447bf99820620d16763714c9"
+    "bytes": 8268,
+    "sha256": "b51f3ce30ebb7f1fa13ce5074f8270ebefc5420e829b64d40ac9f65452226f08"
   },
   {
     "path": "corpus-manifest.json",
-    "bytes": 151462,
-    "sha256": "d92d879fab95040871c7dcbb0ed7a1c714cb9fbc80b36563f912a46aa0a6113e"
+    "bytes": 151666,
+    "sha256": "c16568e2dcb077008a83e326de55d72f74f8bdbde3c7a623f792a4162fcf0718"
   },
   {
     "path": "docs/PUBLIC_PRIOR_ART_AUDIT_20260925.md",
@@ -246,8 +246,8 @@
   },
   {
     "path": "docs/PUBLIC_REPLAY_AUDIT.md",
-    "bytes": 2600,
-    "sha256": "315b8719e841980012b3b86d4949121bf07a9d2ce46b6a466f27c7d202acbbea"
+    "bytes": 4624,
+    "sha256": "fc0777d74b6fdacce539e440bf1d695f388aafddf09e7bb0ebe51825822d7bac"
   },
   {
     "path": "docs/SMART_PRIOR_ART_AUDIT_20260925.md",
@@ -10440,6 +10440,16 @@
     "sha256": "b88faafa687a43de4ff20a634c47be7302fc72ebdc3b4ad50783da404279aa46"
   },
   {
+    "path": "evidence/research/20260925/public-static-replay-bootstrap/README.md",
+    "bytes": 3157,
+    "sha256": "fbc86a2546450c7d9f3026ff21f48230a35132c74ef8da25db99dbbfdf6ba5ce"
+  },
+  {
+    "path": "evidence/research/20260925/public-static-replay-bootstrap/report.json",
+    "bytes": 3505,
+    "sha256": "51a58ed158675dd7c1e99359ca312ff32cfc22be298db0e1c71743c0e7323b06"
+  },
+  {
     "path": "evidence/research/20260925/rating-kind-corpus-audit/README.md",
     "bytes": 2527,
     "sha256": "027f9dd0ff4f427883b1274cd6103a3b9818362e1da813768b4563529f6dffd5"
@@ -10517,7 +10527,7 @@
   {
     "path": "evidence/research/20260925/sort-rank-audit/input-manifest.json",
     "bytes": 24766,
-    "sha256": "6c7a65ff908f506e4b311b675821fcd7fd4e965e0839b5e999db09a8dc0c9c32"
+    "sha256": "0c995212d5a8d3b3638ab80be04dd0b9911b8fef1030ae88ac6b4544c93408dd"
   },
   {
     "path": "evidence/research/20260925/trailer-coverage-audit/README.md",
@@ -12936,8 +12946,8 @@
   },
   {
     "path": "scripts/research/build_manifests.py",
-    "bytes": 10867,
-    "sha256": "a9877d883037900dc4241cb5183688c92c6195fa2c7b5f1099b6f06af849c625"
+    "bytes": 10948,
+    "sha256": "ddd814d66c593c231b23152091367a4eb15abca4f953bdcf7385d620e70fab52"
   },
   {
     "path": "scripts/research/generate_synthetic_library_inputs.py",
@@ -12993,6 +13003,16 @@
     "path": "scripts/static/prepare_targets.py",
     "bytes": 2678,
     "sha256": "af6083bfa8fd7f29a99e672c81fb10ed7b066a933a3cdeee4d5f51a930479b1d"
+  },
+  {
+    "path": "scripts/static/public-replay-lock.json",
+    "bytes": 20622,
+    "sha256": "c640a4fbc4450def54a8f4446dcc4fb1d316750b3a454d50e66df97994ba6d89"
+  },
+  {
+    "path": "scripts/static/public_replay_preflight.py",
+    "bytes": 21663,
+    "sha256": "8fb83602a23f5b022675563f111f2a74d1d3e4b1427654b077fa1e1cab1bfe47"
   },
   {
     "path": "scripts/static/rebuild_targets.py",
@@ -13338,6 +13358,11 @@
     "path": "tests/test_public_replay_audit_20260925.py",
     "bytes": 3750,
     "sha256": "bbc388724801da12a887d67585d77c9c9385d54296f9775228b5877b844502b8"
+  },
+  {
+    "path": "tests/test_public_static_replay_bootstrap_20260925.py",
+    "bytes": 5454,
+    "sha256": "b580df14c7d24102b83a990972098ce81815a237dfaf9c6e1f145aece6827c57"
   },
   {
     "path": "tests/test_rating_kind_corpus_20260925.py",

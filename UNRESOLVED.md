@@ -138,11 +138,13 @@ U-17 remains open. Line-transition guidance is coarse and not branch-complete, a
 
 ### U-18 — historical replay tooling
 
-Some static/research scripts retain historical root/tool-layout assumptions; private-source-dependent excerpts and full Ghidra/Unicorn runtime reproduction are not staged.
+**State:** open; deterministic public preflight added, historical execution unavailable.
 
-Closure requires a clean disposable bootstrap, pinned tool versions, synthetic/public inputs, and end-to-end replay receipts without private artifacts.
+The delivery-manifest repair remains in [`docs/PUBLIC_REPLAY_AUDIT.md`](docs/PUBLIC_REPLAY_AUDIT.md). A later bounded [public/static replay bootstrap](evidence/research/20260925/public-static-replay-bootstrap/README.md) now verifies 108 hash-locked public files from a repository-relative root, runs eight deterministic in-memory controls, and reproduces one timestamp-free receipt byte for byte from two fresh external roots. This makes the public surface fail-closed and self-describing; the repetitions are not independent binary-analysis experiments.
 
-A 2026-09-25 bounded repair removes one concrete blocker: the delivery manifest no longer lists ignored, regenerated top-level `windows_itl_research.egg-info` files, and both positive and narrow-exclusion negative tests are retained in [`docs/PUBLIC_REPLAY_AUDIT.md`](docs/PUBLIC_REPLAY_AUDIT.md). Historical private/tool-layout replay remains unstaged, so U-18 stays open.
+The receipt explicitly retains the blockers. Five historical static launch/extraction scripts remain machine-bound, two retain timing-dependent output fields, historical `capstone`/`pefile`/PyCryptodome versions are unpinned, and neither the proprietary module nor the Ghidra distribution/project cache is staged. It also records that 0/47 retained atlas C hashes match the current public C bytes even though target/summary/atlas order and all 47 assembly identity headers agree. The public lock pins those bytes but does not rewrite or authenticate the historical mismatch.
+
+Closure still requires a clean disposable bootstrap with complete dependency pins, lawful public/synthetic inputs, internally coherent provenance, and end-to-end Ghidra/Unicorn replay receipts without private artifacts. A clean preflight is not historical binary-analysis reproduction or native acceptance, so U-18 stays open.
 
 ## Completion policy
 
