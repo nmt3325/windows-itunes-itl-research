@@ -203,12 +203,11 @@ def test_audit_file_records_parse_failure_instead_of_raising(tmp_path: Path) -> 
     assert result["high_level_library"]["status"] == "not_run"
 
 
-def test_reference_fixture_distinguishes_structure_from_high_level_identity() -> None:
+def test_reference_fixture_agrees_between_structure_and_current_high_level_reader() -> None:
     root = Path(__file__).resolve().parents[1]
     path = root / "TEST_CORPUS/generated/reference-one-track-raw.itl"
     result = audit_file(path, root)
     assert result["container"]["status"] == "ok"
     assert result["structure"]["status"] == "ok"
     assert result["model"]["record_counts"]["tracks"] == 1
-    assert result["high_level_library"]["status"] == "error"
-    assert "secondary track ID" in result["high_level_library"]["error"]["message"]
+    assert result["high_level_library"]["status"] == "ok"

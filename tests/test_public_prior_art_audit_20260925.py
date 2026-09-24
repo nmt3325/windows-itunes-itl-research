@@ -9,7 +9,7 @@ assert spec.loader is not None
 spec.loader.exec_module(module)
 
 
-def test_checked_in_reference_fixture_records_mixed_parser_outcomes():
+def test_checked_in_reference_fixture_records_current_parser_outcomes():
     row = module.audit_itl(
         ROOT / "TEST_CORPUS/generated/reference-one-track-zlib.itl",
         display_path="reference-one-track-zlib.itl",
@@ -18,10 +18,19 @@ def test_checked_in_reference_fixture_records_mixed_parser_outcomes():
     assert row["container"]["exact_noop"] is True
     assert row["container"]["forced_rebuild"]["payload_equal"] is True
     assert row["container"]["forced_rebuild"]["trailer_equal"] is True
-    assert row["library"]["ok"] is False
-    assert row["library"]["error_type"] == "FormatError"
+    assert row["library"] == {
+        "ok": True,
+        "sections": 10,
+        "tracks": 1,
+        "playlists": 2,
+    }
     assert row["reference_detect"]["status"] == "recognized"
-    assert row["reference_library"]["ok"] is True
+    assert row["reference_library"] == {
+        "ok": True,
+        "sections": 10,
+        "tracks": 1,
+        "playlists": 2,
+    }
 
 
 def test_attempt_records_fail_closed_error_type_and_message():
