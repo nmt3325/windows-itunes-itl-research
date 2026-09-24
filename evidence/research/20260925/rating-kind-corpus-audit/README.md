@@ -8,10 +8,10 @@ This is a deterministic census of frozen JSON evidence. It did not launch iTunes
 
 | Rating | RatingKind | AlbumRating | AlbumRatingKind | raw occurrences | first witness |
 |---:|---:|---:|---:|---:|---|
-| 0 | 1 | 0 | 1 | 1171 | `evidence/independent/itl-rs-20260922/native-accepted/cases/itl-rs-zlib-roundtrip/cycle-1/com.json/samples/0/state/tracks/0` |
-| 60 | 1 | 60 | 0 | 21 | `evidence/native/field-matrix-20260922/cases/album-rating-explicit/expected-reload-state.json/tracks/0` |
-| 80 | 0 | 0 | 1 | 36 | `evidence/native/oracles/115-fresh-diagnostic-reload/com.json/after/tracks/0` |
-| 80 | 0 | 80 | 1 | 78 | `evidence/native/field-matrix-20260922/cases/rating-explicit/expected-reload-state.json/tracks/0` |
+| 0 | 1 | 0 | 1 | 1171 | `evidence/independent/itl-rs-20260922/native-accepted/cases/itl-rs-zlib-roundtrip/cycle-1/com.json#/samples/0/state/tracks/0` |
+| 60 | 1 | 60 | 0 | 21 | `evidence/native/field-matrix-20260922/cases/album-rating-explicit/expected-reload-state.json#/tracks/0` |
+| 80 | 0 | 0 | 1 | 36 | `evidence/native/oracles/115-fresh-diagnostic-reload/com.json#/after/tracks/0` |
+| 80 | 0 | 80 | 1 | 78 | `evidence/native/field-matrix-20260922/cases/rating-explicit/expected-reload-state.json#/tracks/0` |
 
 ## Evidence boundary
 

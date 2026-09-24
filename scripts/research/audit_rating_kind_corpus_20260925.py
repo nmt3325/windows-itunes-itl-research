@@ -227,7 +227,7 @@ def render_markdown(report: dict[str, Any]) -> str:
     for state in report["states"]:
         values = state["values"]
         witness = state["first_witness"]
-        location = f"`{witness['source']}{witness['json_pointer']}`"
+        location = f"`{witness['source']}#{witness['json_pointer']}`"
         lines.append(
             f"| {values['Rating']} | {values['RatingKind']} | {values['AlbumRating']} | "
             f"{values['AlbumRatingKind']} | {state['raw_occurrences']} | {location} |"
