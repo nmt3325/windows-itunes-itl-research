@@ -1,0 +1,384 @@
+{
+  "bounds": {
+    "actual_process_crashes": 0,
+    "case_scenarios": 21,
+    "hostile_directory_safety_claims": 0,
+    "native_itunes_operations": 0,
+    "power_loss_operations": 0,
+    "scratch_root_policy": "fresh absolute path resolving below /tmp; removed by CLI"
+  },
+  "cases": [
+    {
+      "category": "native_direct",
+      "claim_scope": "stable_directory_model",
+      "id": "new_destination_success",
+      "observed": {
+        "destination": {
+          "bytes": 684,
+          "kind": "regular",
+          "sha256": "3a137ac38566f3b9cc658ecb1c055a651b7ae06e8bd092f54650008448a88a52"
+        },
+        "returned": true,
+        "temporary_count": 0
+      }
+    },
+    {
+      "category": "native_direct",
+      "claim_scope": "stable_directory_model",
+      "id": "existing_regular_refused",
+      "observed": {
+        "error": {
+          "errno": 17,
+          "errno_name": "EEXIST",
+          "type": "FileExistsError"
+        },
+        "existing_destination_unchanged": true,
+        "returned": false,
+        "temporary_count": 0
+      }
+    },
+    {
+      "category": "native_direct",
+      "claim_scope": "stable_directory_model",
+      "id": "existing_hardlink_alias_refused",
+      "observed": {
+        "alias_unchanged": true,
+        "error": {
+          "errno": 17,
+          "errno_name": "EEXIST",
+          "type": "FileExistsError"
+        },
+        "link_count": 2,
+        "returned": false,
+        "same_inode": true,
+        "temporary_count": 0
+      }
+    },
+    {
+      "category": "native_direct",
+      "claim_scope": "stable_directory_model",
+      "id": "existing_symlink_alias_refused",
+      "observed": {
+        "error": {
+          "errno": 17,
+          "errno_name": "EEXIST",
+          "type": "FileExistsError"
+        },
+        "returned": false,
+        "symlink_unchanged": true,
+        "temporary_count": 0,
+        "victim_unchanged": true
+      }
+    },
+    {
+      "category": "native_direct",
+      "claim_scope": "stable_directory_model",
+      "id": "existing_dangling_symlink_refused",
+      "observed": {
+        "dangling_symlink_unchanged": true,
+        "error": {
+          "errno": 17,
+          "errno_name": "EEXIST",
+          "type": "FileExistsError"
+        },
+        "returned": false,
+        "temporary_count": 0
+      }
+    },
+    {
+      "category": "native_direct",
+      "claim_scope": "stable_directory_model",
+      "id": "stable_parent_symlink_success",
+      "observed": {
+        "alias_and_real_destination_same_inode": true,
+        "destination_matches_payload": true,
+        "returned": true,
+        "temporary_count": 0
+      }
+    },
+    {
+      "category": "native_direct",
+      "claim_scope": "stable_directory_model",
+      "id": "lexical_parent_alias_success",
+      "observed": {
+        "destination_matches_payload": true,
+        "lexical_and_canonical_destination_same_inode": true,
+        "returned": true,
+        "temporary_count": 0
+      }
+    },
+    {
+      "category": "native_direct",
+      "claim_scope": "stable_directory_model",
+      "id": "missing_parent_refused",
+      "observed": {
+        "destination_absent": true,
+        "error": {
+          "errno": 2,
+          "errno_name": "ENOENT",
+          "type": "FileNotFoundError"
+        },
+        "parent_not_created": true,
+        "returned": false
+      }
+    },
+    {
+      "category": "scheduler_assisted_native_syscall",
+      "claim_scope": "stable_directory_model",
+      "id": "destination_created_before_link_refused",
+      "observed": {
+        "error": {
+          "errno": 17,
+          "errno_name": "EEXIST",
+          "type": "FileExistsError"
+        },
+        "final_link_syscall_was_native": true,
+        "racing_destination_unchanged": true,
+        "returned": false,
+        "schedule_hook_only": true,
+        "temporary_count": 0
+      }
+    },
+    {
+      "category": "scheduler_assisted_native_syscall",
+      "claim_scope": "stable_directory_model",
+      "id": "two_publishers_single_winner",
+      "observed": {
+        "destination_is_merged_payload": false,
+        "destination_is_one_complete_payload": true,
+        "final_link_syscalls_were_native": true,
+        "normalized_outcomes": [
+          "exists",
+          "published"
+        ],
+        "schedule_hook_only": true,
+        "temporary_count": 0,
+        "winner_count": 1
+      }
+    },
+    {
+      "category": "fault_injection",
+      "claim_scope": "stable_directory_model",
+      "id": "partial_write_exception_refused_clean",
+      "observed": {
+        "destination_absent": true,
+        "error": {
+          "errno": 28,
+          "errno_name": "ENOSPC",
+          "type": "OSError"
+        },
+        "returned": false,
+        "temporary_count": 0
+      }
+    },
+    {
+      "category": "fault_injection",
+      "claim_scope": "stable_directory_model",
+      "id": "short_write_refused_clean",
+      "observed": {
+        "destination_absent": true,
+        "error": {
+          "errno": 5,
+          "errno_name": "EIO",
+          "type": "OSError"
+        },
+        "returned": false,
+        "temporary_count": 0
+      }
+    },
+    {
+      "category": "fault_injection",
+      "claim_scope": "stable_directory_model",
+      "id": "flush_failure_refused_clean",
+      "observed": {
+        "destination_absent": true,
+        "error": {
+          "errno": 5,
+          "errno_name": "EIO",
+          "type": "OSError"
+        },
+        "returned": false,
+        "temporary_count": 0
+      }
+    },
+    {
+      "category": "fault_injection",
+      "claim_scope": "stable_directory_model",
+      "id": "fsync_failure_refused_clean",
+      "observed": {
+        "destination_absent": true,
+        "error": {
+          "errno": 5,
+          "errno_name": "EIO",
+          "type": "OSError"
+        },
+        "returned": false,
+        "temporary_count": 0
+      }
+    },
+    {
+      "category": "fault_injection",
+      "claim_scope": "stable_directory_model",
+      "id": "close_failure_refused_clean",
+      "observed": {
+        "destination_absent": true,
+        "error": {
+          "errno": 5,
+          "errno_name": "EIO",
+          "type": "OSError"
+        },
+        "returned": false,
+        "temporary_count": 0
+      }
+    },
+    {
+      "category": "fault_injection",
+      "claim_scope": "stable_directory_model",
+      "id": "hardlink_refusal_refused_clean",
+      "observed": {
+        "destination_absent": true,
+        "error": {
+          "errno": 1,
+          "errno_name": "EPERM",
+          "type": "PermissionError"
+        },
+        "rename_fallback_observed": false,
+        "returned": false,
+        "temporary_count": 0
+      }
+    },
+    {
+      "category": "fault_injection",
+      "claim_scope": "stable_directory_model",
+      "id": "cleanup_failure_before_publish_preserves_primary_error",
+      "observed": {
+        "cleanup_failure_note_present": true,
+        "destination_absent": true,
+        "error": {
+          "errno": 28,
+          "errno_name": "ENOSPC",
+          "type": "OSError"
+        },
+        "primary_error_retained": true,
+        "retained_temporary_bytes": 13,
+        "retained_temporary_count": 1,
+        "returned": false
+      }
+    },
+    {
+      "category": "fault_injection",
+      "claim_scope": "stable_directory_model",
+      "id": "cleanup_failure_after_publish_reports_complete_destination",
+      "observed": {
+        "destination_and_temporary_same_inode": true,
+        "destination_matches_payload": true,
+        "error": {
+          "errno": null,
+          "errno_name": null,
+          "type": "OSError"
+        },
+        "link_count": 2,
+        "message_identifies_complete_publication": true,
+        "retained_temporary_count": 1,
+        "retained_temporary_matches_payload": true,
+        "returned": false
+      }
+    },
+    {
+      "category": "scheduler_assisted_native_syscall",
+      "claim_scope": "documented_out_of_model_limit",
+      "id": "parent_rename_without_replacement_leaves_temporary",
+      "observed": {
+        "destination_absent": true,
+        "displaced_complete_temporary_count": 1,
+        "displaced_temporary_matches_payload": true,
+        "error": {
+          "errno": 2,
+          "errno_name": "ENOENT",
+          "type": "FileNotFoundError"
+        },
+        "rename_and_link_syscalls_were_native": true,
+        "returned": false,
+        "schedule_hook_only": true
+      }
+    },
+    {
+      "category": "scheduler_assisted_native_syscall",
+      "claim_scope": "documented_out_of_model_limit",
+      "id": "parent_directory_swap_can_publish_spoof",
+      "observed": {
+        "destination_matches_requested_payload": false,
+        "destination_matches_spoof": true,
+        "displaced_complete_temporary_count": 1,
+        "displaced_temporary_matches_payload": true,
+        "rename_mkdir_write_and_link_syscalls_were_native": true,
+        "replacement_parent_temporary_count": 0,
+        "returned": true,
+        "schedule_hook_only": true
+      }
+    },
+    {
+      "category": "scheduler_assisted_native_syscall",
+      "claim_scope": "documented_out_of_model_limit",
+      "id": "parent_symlink_retarget_can_publish_spoof",
+      "observed": {
+        "destination_matches_requested_payload": false,
+        "destination_matches_spoof": true,
+        "original_parent_complete_temporary_count": 1,
+        "original_temporary_matches_payload": true,
+        "retargeted_parent_temporary_count": 0,
+        "returned": true,
+        "schedule_hook_only": true,
+        "symlink_write_and_link_syscalls_were_native": true
+      }
+    }
+  ],
+  "generator": {
+    "path": "scripts/research/audit_filesystem_publication_20260925.py",
+    "sha256": "3554fd155e628b4cfce13782bdd4af49c72ef78c369d7805ce4d1b72ddab8e5c"
+  },
+  "integration_recommendation": "Retain the trusted/stable parent-directory and power-loss disclaimers, keep U-17 open, and integrate this research-only audit without changing production publication code.",
+  "methodology": {
+    "case_counts_are_independent_experiments": false,
+    "fault_injection": "Python substitution at one documented I/O boundary; not a hostile-filesystem safety claim",
+    "native_direct": "unmodified production calls using the scratch filesystem",
+    "normalization": "no timestamps, host paths, runner names, kernel versions, or random temporary names",
+    "repeated_cases_and_controls_are_independent": false,
+    "scheduler_assisted_native_syscall": "Python hooks control interleaving only; reported rename, symlink, mkdir, write, and link outcomes use real Linux syscalls"
+  },
+  "observed_guarantees": [
+    "With a stable parent pathname, existing regular files, hard links, symlinks, dangling symlinks, and a destination created before link publication were not replaced.",
+    "Two synchronized publishers produced one complete winner and one EEXIST refusal; no merged destination was observed.",
+    "Injected write, short-write, flush, fsync, close, and hard-link failures occurred before publication and left no destination when ordinary cleanup succeeded.",
+    "A cleanup failure before publication retained the primary error and annotated it; a cleanup failure after publication raised an explicit complete-publication error while preserving the complete destination.",
+    "A stable parent symlink and a lexical parent alias resolved to one destination and cleaned the sibling temporary file in these bounded cases."
+  ],
+  "observed_limits": [
+    "Renaming the parent away before link publication caused ENOENT and left the complete temporary file in the displaced directory.",
+    "Replacing a parent directory or retargeting a parent symlink while spoofing the random temporary basename allowed the pathname-based link step to publish spoof bytes while the requested complete temporary remained in the original directory.",
+    "These parent replacement cases are deterministic witnesses for the existing hostile-directory disclaimer, not a claim that all adversarial schedules were explored.",
+    "The campaign did not interrupt a process, cut power, exercise network filesystems, or verify directory-entry durability; file fsync alone does not answer those questions.",
+    "A filesystem that refuses hard links remains unsupported and fails closed in the injected boundary case; no rename fallback was observed."
+  ],
+  "production_baseline_commit": "bc31fd860576b25f47ff1c3f409a9d97b04114fb",
+  "production_source": {
+    "path": "itlkit/io.py",
+    "sha256": "f042b3d98a71cfedf9cfd39fdd0d4acf5bacedd623dbc07d9d1d8bb54292a6f4"
+  },
+  "schema": "windows-itunes-itl.filesystem-publication-threat-model.v1",
+  "status": "completed_bounded_offline_linux_campaign",
+  "summary": {
+    "category_counts": {
+      "fault_injection": 8,
+      "native_direct": 8,
+      "scheduler_assisted_native_syscall": 5
+    },
+    "production_change_warranted": false,
+    "production_code_changed": false,
+    "scope_counts": {
+      "documented_out_of_model_limit": 3,
+      "stable_directory_model": 18
+    },
+    "unexpected_anomalies": 0
+  }
+}

@@ -46,7 +46,7 @@ A stronger state never automatically generalizes to another version, library lin
    - ordinary playlist rename/create/delete/member replacement;
    - same-lineage native-WAV track restoration and guarded deletion;
    - transactional JSON operations;
-   - new-file-only output publication.
+   - new-file-only output publication within the documented trusted/stable parent-directory model.
 6. Archived native evidence, static analysis, offline regression tests, bounded fuzzing, and delivery-integrity checks linked from [`EVIDENCE.md`](EVIDENCE.md).
 
 7. The evidence-graded smart-playlist `SLst` AST, lossless serializer, structural validator, and retained-corpus census in [`SMART_PLAYLIST_SPEC.md`](SMART_PLAYLIST_SPEC.md). Semantic rule editing/evaluation is excluded.

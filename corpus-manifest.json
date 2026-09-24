@@ -17,7 +17,8 @@
     "smart_playlist_note": "native nested framing observed; operand and membership gates failed",
     "native_rating_note": "20 native-saved snapshots and eight repeated baseline copies narrow Rating/RatingKind behavior for one exact build/profile; snapshot occurrences are not independent experiments",
     "native_trailer_note": "one exact 17-byte opaque-trailer candidate and its trailer-free control each passed two native cycles; the candidate trailer was stripped on first save; retained copies and repeated saves are not independent experiments",
-    "coverage_guided_note": "20,000 deterministic offline mutations completed without a retained anomaly; coarse line-transition guidance is not proof of parser safety or native acceptance"
+    "coverage_guided_note": "20,000 deterministic offline mutations completed without a retained anomaly; coarse line-transition guidance is not proof of parser safety or native acceptance",
+    "filesystem_publication_note": "21 deterministic Linux case scenarios bound stable-parent guarantees and demonstrate the existing hostile-parent exclusion; scenarios are not independent experiments, no power loss was simulated, production code was unchanged, and U-17 remains open"
   },
   "summary": {
     "itl_file_count": 390,
@@ -176,6 +177,11 @@
       "path": "evidence/research/20260925/coverage-guided-fuzz/report.json",
       "bytes": 63006,
       "sha256": "cbf33f4d8f0ea9d6ea3aae968bb081a6b59d64314f0d51dbb74caf7c51a2af37"
+    },
+    {
+      "path": "evidence/research/20260925/filesystem-threat-model/report.json",
+      "bytes": 13038,
+      "sha256": "20309694a41d6bce7b285d002b21cdd2b9c7bb51a258161e535e37ab95bd99bc"
     }
   ],
   "itl_files": [

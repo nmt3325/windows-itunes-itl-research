@@ -49,6 +49,7 @@ qualification:
   path_time: bounded_native_matrix_only
   compressed_trailer: one_fixed_seed_17_byte_candidate_stripped_on_first_native_save_u13_open
   parser_coverage_guided_campaign: bounded_offline_20000_mutations_zero_retained_anomalies_u17_open
+  filesystem_publication_threat_model: bounded_offline_linux_21_scenarios_parent_swap_limit_confirmed_u17_open
   audible_playback: not_established
   atomic_native_save_protocol: not_established
 
@@ -112,9 +113,21 @@ validation:
     retained_anomalies: 0
     native_itunes_operations: 0
     universal_parser_safety_established: false
+  filesystem_publication_threat_model:
+    status: passed_bounded_offline_linux_campaign
+    case_scenarios: 21
+    case_scenarios_are_independent_experiments: false
+    native_direct: 8
+    scheduler_assisted_native_syscall: 5
+    fault_injection: 8
+    process_crash_operations: 0
+    power_loss_operations: 0
+    hostile_directory_safety_established: false
+    production_code_changed: false
+    unresolved_item: U-17
   integrated_tests:
     status: passed
-    passed: 1121
+    passed: 1125
     skipped: 7
     skipped_missing_com_oracle: 5
     skipped_windows_only_helpers_on_linux: 2
