@@ -47,6 +47,13 @@ def classify_itl(path: Path) -> tuple[str, dict]:
         if evidence is not None:
             extra["native_acceptance_evidence"] = evidence
         return "independent_from_scratch_generated", extra
+    if rel.startswith("evidence/research/20260925/native-trailer-u13/"):
+        return "native_trailer_u13_bounded_matrix", {
+            "qualification": (
+                "two exact candidate inputs and four native saves from one control/candidate pair; "
+                "six retained occurrences are not six independent experiments"
+            ),
+        }
     if rel.startswith("evidence/research/20260925/native-rating-kind/"):
         return "native_rating_bounded_matrix", {
             "qualification": (
@@ -113,6 +120,11 @@ def build_corpus() -> dict:
         "evidence/native/media-lyrics-ceiling-20260922/lyrics-016777210-frame-analysis.json",
         "evidence/independent/itl-rs-20260922/conformance-summary.json",
         "evidence/native/smart-playlist-default-20260922/probe-series-summary.json",
+        "evidence/research/20260925/trailer-coverage-audit/report.json",
+        "evidence/research/20260925/native-trailer-u13/generation.json",
+        "evidence/research/20260925/native-trailer-u13/analysis.json",
+        "evidence/research/20260925/native-trailer-u13/native-run/summary.json",
+        "evidence/research/20260925/coverage-guided-fuzz/report.json",
     ):
         path = ROOT / name
         if path.is_file():
@@ -135,6 +147,8 @@ def build_corpus() -> dict:
             "external_interop_note": "one exact structural no-op passed native cycles; semantic reimplementation remains false",
             "smart_playlist_note": "native nested framing observed; operand and membership gates failed",
             "native_rating_note": "20 native-saved snapshots and eight repeated baseline copies narrow Rating/RatingKind behavior for one exact build/profile; snapshot occurrences are not independent experiments",
+            "native_trailer_note": "one exact 17-byte opaque-trailer candidate and its trailer-free control each passed two native cycles; the candidate trailer was stripped on first save; retained copies and repeated saves are not independent experiments",
+            "coverage_guided_note": "20,000 deterministic offline mutations completed without a retained anomaly; coarse line-transition guidance is not proof of parser safety or native acceptance",
         },
         "summary": {"itl_file_count": len(rows), "by_class": counts},
         "referenced_manifests_and_analyses": references,

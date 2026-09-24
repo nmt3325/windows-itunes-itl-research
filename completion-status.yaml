@@ -47,6 +47,8 @@ qualification:
   native_media_field_followup: seventeen_exact_lyrics_mp3_passes_plus_nine_qualified_native_nonexact_immediate_readbacks_on_one_pinned_path_and_three_exact_wav_mutation_failures
   external_independent_interop: exact_compressed_structural_roundtrip_only_semantic_gate_failed
   path_time: bounded_native_matrix_only
+  compressed_trailer: one_fixed_seed_17_byte_candidate_stripped_on_first_native_save_u13_open
+  parser_coverage_guided_campaign: bounded_offline_20000_mutations_zero_retained_anomalies_u17_open
   audible_playback: not_established
   atomic_native_save_protocol: not_established
 
@@ -92,9 +94,27 @@ validation:
     positive_semantic_passes: 0
     native_nested_wrapper_observed: true
     nonempty_string_operand_observed: false
+  native_trailer_u13:
+    status: bounded_pass_trailer_stripped_u13_open
+    exact_cases: 2
+    candidate_control_pairs: 1
+    native_save_restart_cycles: 4
+    retained_itl_occurrences: 6
+    independent_experiment_count_inferred_from_occurrences: false
+    independent_native_reproduction: false
+  coverage_guided_fuzz:
+    status: passed_bounded_offline_campaign
+    mutation_executions: 20000
+    input_plaintext_cap_bytes: 131072
+    accepted_mutations: 9090
+    refused_mutations: 10910
+    coverage_admissions: 34
+    retained_anomalies: 0
+    native_itunes_operations: 0
+    universal_parser_safety_established: false
   integrated_tests:
     status: passed
-    passed: 1110
+    passed: 1121
     skipped: 7
     skipped_missing_com_oracle: 5
     skipped_windows_only_helpers_on_linux: 2
@@ -114,7 +134,7 @@ validation:
   delivery_manifest: verified
   root_corpus_manifest:
     status: verified
-    itl_files: 384
+    itl_files: 390
   path_time_snapshots:
     parsed: 39
     errors: 0

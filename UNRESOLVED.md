@@ -130,9 +130,9 @@ Closure requires a deliberately sampled compatibility matrix, retained failures,
 
 ### U-17 — fuzzing breadth and crash/power-loss behavior
 
-The bounded fuzz corpus executed 503 deterministic cases with zero recorded anomalies. The later fixed-seed trailer/length/offset audit adds 57 expectation-checked cases and four plaintext-budget probes with no unexplained envelope differential. Neither campaign was coverage-guided, and neither performed native, parallel, crash, power-loss, symlink-race, or hostile-directory testing.
+The historical bounded fuzz corpus executed 503 deterministic cases with zero recorded anomalies. The later fixed-seed trailer/length/offset audit adds 57 expectation-checked cases and four plaintext-budget probes with no unexplained envelope differential. A separate [coverage-guided campaign](evidence/research/20260925/coverage-guided-fuzz/README.md) then executed 20,000 deterministic 128-KiB-capped mutations across four parser targets: 9,090 were accepted, 10,910 were explicitly refused, 34 candidates added a previously unseen per-target CPython line transition, and zero anomalies were retained. An independent clean checkout reproduced its pinned report byte for byte.
 
-Closure requires separate parser coverage/fault campaigns and filesystem threat-model tests. Those results still would not prove native acceptance.
+U-17 remains open. Line-transition guidance is coarse and not branch-complete; these campaigns do not prove parser safety and did not test native iTunes, alternate runtimes, concurrency, process crashes, power loss, symlink races, or hostile directories. Closure still requires broader parser coverage/fault campaigns and explicit filesystem threat-model tests. Those results still would not prove native acceptance.
 
 ### U-18 — historical replay tooling
 

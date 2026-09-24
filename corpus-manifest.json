@@ -15,17 +15,20 @@
     "lyrics_authority_note": "three exact reset-ITL probes followed the supplied MP3 ID3v2.2 ULT input; one track/build only, with hidden caches and general authority unresolved",
     "external_interop_note": "one exact structural no-op passed native cycles; semantic reimplementation remains false",
     "smart_playlist_note": "native nested framing observed; operand and membership gates failed",
-    "native_rating_note": "20 native-saved snapshots and eight repeated baseline copies narrow Rating/RatingKind behavior for one exact build/profile; snapshot occurrences are not independent experiments"
+    "native_rating_note": "20 native-saved snapshots and eight repeated baseline copies narrow Rating/RatingKind behavior for one exact build/profile; snapshot occurrences are not independent experiments",
+    "native_trailer_note": "one exact 17-byte opaque-trailer candidate and its trailer-free control each passed two native cycles; the candidate trailer was stripped on first save; retained copies and repeated saves are not independent experiments",
+    "coverage_guided_note": "20,000 deterministic offline mutations completed without a retained anomaly; coarse line-transition guidance is not proof of parser safety or native acceptance"
   },
   "summary": {
-    "itl_file_count": 384,
+    "itl_file_count": 390,
     "by_class": {
       "independent_from_scratch_generated": 4,
       "external_independent_interop_candidate": 5,
       "archived_native_or_exact_candidate": 302,
       "native_itunes_fresh_library": 6,
       "native_itunes_path_time_sequence": 39,
-      "native_rating_bounded_matrix": 28
+      "native_rating_bounded_matrix": 28,
+      "native_trailer_u13_bounded_matrix": 6
     }
   },
   "referenced_manifests_and_analyses": [
@@ -148,6 +151,31 @@
       "path": "evidence/native/smart-playlist-default-20260922/probe-series-summary.json",
       "bytes": 8320,
       "sha256": "147c401db8613b511085b324c79bb440fa97fab52d4c69b809cdd1f815d293c0"
+    },
+    {
+      "path": "evidence/research/20260925/trailer-coverage-audit/report.json",
+      "bytes": 162425,
+      "sha256": "5afaccff5cf8baa3773f9890020c5785341d29bc300fac535c7ecce435504c99"
+    },
+    {
+      "path": "evidence/research/20260925/native-trailer-u13/generation.json",
+      "bytes": 10535,
+      "sha256": "d53298756b3bc95ff599b2896169f8c145dfa2eb05d1a5b0d937927b6175d22f"
+    },
+    {
+      "path": "evidence/research/20260925/native-trailer-u13/analysis.json",
+      "bytes": 55994,
+      "sha256": "cf0fb5a7a4d659200333420ef72bc750b96cf7ada351c693efc7100116e5bae6"
+    },
+    {
+      "path": "evidence/research/20260925/native-trailer-u13/native-run/summary.json",
+      "bytes": 129712,
+      "sha256": "11e1569560648f0f12a89e68817518abebc9b488dbac4b9739743956bad5c8f5"
+    },
+    {
+      "path": "evidence/research/20260925/coverage-guided-fuzz/report.json",
+      "bytes": 63006,
+      "sha256": "cbf33f4d8f0ea9d6ea3aae968bb081a6b59d64314f0d51dbb74caf7c51a2af37"
     }
   ],
   "itl_files": [
@@ -2891,6 +2919,48 @@
       "sha256": "c6c68171d57350ceb3cf379eee13a764ea199536ef18238fe4faf80583492d74",
       "corpus_class": "native_rating_bounded_matrix",
       "qualification": "20 native-saved snapshots plus eight repeated baseline copies; see native-rating-kind report and integration addendum; occurrences are not independent runs"
+    },
+    {
+      "path": "evidence/research/20260925/native-trailer-u13/candidates/control-reference-one-track-zlib.itl",
+      "bytes": 775,
+      "sha256": "25f8aba00330caaa0ef4b529f67a203cd6da2b3d652923f7e44c7396f7bd13ad",
+      "corpus_class": "native_trailer_u13_bounded_matrix",
+      "qualification": "two exact candidate inputs and four native saves from one control/candidate pair; six retained occurrences are not six independent experiments"
+    },
+    {
+      "path": "evidence/research/20260925/native-trailer-u13/candidates/opaque-trailer-17-reference-one-track-zlib.itl",
+      "bytes": 792,
+      "sha256": "10b17fbdd783ad17e6fa3b488ee6421f43a417b9350de547754d24d4369e4e34",
+      "corpus_class": "native_trailer_u13_bounded_matrix",
+      "qualification": "two exact candidate inputs and four native saves from one control/candidate pair; six retained occurrences are not six independent experiments"
+    },
+    {
+      "path": "evidence/research/20260925/native-trailer-u13/native-run/cases/u13-control-no-trailer/cycle-1/native-saved.itl",
+      "bytes": 4103,
+      "sha256": "71ab2bb823498fda216008461591677a8e20ec5dabff7ece2d3631e31ddf58d8",
+      "corpus_class": "native_trailer_u13_bounded_matrix",
+      "qualification": "two exact candidate inputs and four native saves from one control/candidate pair; six retained occurrences are not six independent experiments"
+    },
+    {
+      "path": "evidence/research/20260925/native-trailer-u13/native-run/cases/u13-control-no-trailer/cycle-2/native-saved.itl",
+      "bytes": 4129,
+      "sha256": "04c92369c988e36daf4e7f8ea3b57ca6c2cc541ee0b19ef7783825b51ed06364",
+      "corpus_class": "native_trailer_u13_bounded_matrix",
+      "qualification": "two exact candidate inputs and four native saves from one control/candidate pair; six retained occurrences are not six independent experiments"
+    },
+    {
+      "path": "evidence/research/20260925/native-trailer-u13/native-run/cases/u13-opaque-trailer-17/cycle-1/native-saved.itl",
+      "bytes": 4114,
+      "sha256": "76155badb29a2b30ca64aeb0769dabf6bf2d928b877d236fd8bda12ca079d928",
+      "corpus_class": "native_trailer_u13_bounded_matrix",
+      "qualification": "two exact candidate inputs and four native saves from one control/candidate pair; six retained occurrences are not six independent experiments"
+    },
+    {
+      "path": "evidence/research/20260925/native-trailer-u13/native-run/cases/u13-opaque-trailer-17/cycle-2/native-saved.itl",
+      "bytes": 4150,
+      "sha256": "7bb3dc35fda5e1f04d06b6d1e4b29c459a47c71c202edff95a045634ef8a304f",
+      "corpus_class": "native_trailer_u13_bounded_matrix",
+      "qualification": "two exact candidate inputs and four native saves from one control/candidate pair; six retained occurrences are not six independent experiments"
     }
   ]
 }

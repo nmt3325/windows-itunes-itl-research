@@ -41,6 +41,10 @@ The retained [`report.json`](report.json) is 63006 bytes and has SHA-256 `cbf33f
 
 Only `ITLError` (the documented invalid-input/unsupported-operation hierarchy) counts as an expected refusal. Raw `ValueError`, `TypeError`, `UnicodeError`, assertion failures, and other ordinary exceptions are retained as anomalies. The tracer keys live frame objects and clears them after each action, preventing frame-ID reuse from joining unrelated exceptional paths.
 
+## Independent review
+
+A separate clean checkout independently reran the complete campaign, source/seed/admission arithmetic, adversarial JSON-budget matrix, exact-root test suite, and hygiene checks. See [`INDEPENDENT-REVIEW.md`](INDEPENDENT-REVIEW.md).
+
 ## Claim boundaries
 
 This run found no anomaly in the exact bounded campaign. It is not branch-complete, a proof of parser safety, or evidence of native iTunes acceptance. Line transitions are a coarse guidance signal. The campaign does not test concurrency, power loss, hostile filesystem behavior, or unbounded inputs.
