@@ -14,6 +14,7 @@ status:
 scope:
   primary_native_profile: standalone_windows_itunes_12.13.10.3_x64
   secondary_observed_profile: standalone_windows_itunes_12.13.9.1
+  adjacent_upgrade_qualification_profile: standalone_windows_itunes_12.13.11.1_x64_exact_executable_hash_only
   windows_build: 10.0.26100
   display_and_system_locale: en-US
   store_edition_supported: false
@@ -42,6 +43,7 @@ qualification:
   independent_parser_validator_diff: implemented_without_itlkit_imports
   independent_from_scratch_generation: implemented_and_native_qualified_for_four_exact_one_and_three_track_reference_fixtures
   independent_from_scratch_native_acceptance: verified_for_four_exact_hashes
+  itunes_12_13_11_1_upgrade_qualification: four_exact_12_13_10_3_input_hashes_eight_cycles_one_exact_signed_executable_u01_open
   smart_playlist: native_nested_framing_observed_but_operand_and_membership_failed
   native_field_matrix: 27_passed_2_failed_exact_cases_only
   native_media_field_followup: seventeen_exact_lyrics_mp3_passes_plus_nine_qualified_native_nonexact_immediate_readbacks_on_one_pinned_path_and_three_exact_wav_mutation_failures
@@ -49,7 +51,7 @@ qualification:
   path_time: bounded_native_matrix_only
   compressed_trailer: one_fixed_seed_17_byte_candidate_stripped_on_first_native_save_u13_open
   compressed_trailer_negative_matrix: bounded_offline_17_case_negative_matrix_u13_open
-  compressed_trailer_retained_census: all_390_manifest_itls_parsed_only_known_intentional_witness_has_trailer_u13_open
+  compressed_trailer_retained_census: all_400_manifest_itls_parsed_only_known_intentional_witness_has_trailer_u13_open
   parser_coverage_guided_campaign: bounded_offline_20000_mutations_zero_retained_anomalies_u17_open
   filesystem_publication_threat_model: bounded_linux_21_plus_windows_ntfs_25_scenarios_parent_swap_limits_2_actual_terminations_u17_open
   filesystem_process_crash: bounded_linux_4_sigkill_1_normal_control_production_unchanged_u17_open
@@ -128,12 +130,12 @@ validation:
     unresolved_item: U-13
   retained_trailer_census_20260926:
     status: completed_retained_corpus_census_u13_open
-    delivery_manifest_itl_entries: 390
-    manifest_hashes_verified: 390
-    strict_container_parses: 390
-    byte_exact_no_op_roundtrips: 390
+    delivery_manifest_itl_entries: 400
+    manifest_hashes_verified: 400
+    strict_container_parses: 400
+    byte_exact_no_op_roundtrips: 400
     files_with_compressed_trailer: 1
-    files_without_compressed_trailer: 389
+    files_without_compressed_trailer: 399
     non_known_witness_files_with_trailer: 0
     representative_sample: false
     retained_corpus_prevalence_claim_supported: false
@@ -222,6 +224,29 @@ validation:
     universal_windows_or_ntfs_behavior_established: false
     production_code_changed: false
     unresolved_item: U-17
+  itunes_12_13_11_1_upgrade_qualification:
+    status: passed_exact_hash_upgrade_qualification_u01_open
+    input_itl_version: 12.13.10.3
+    native_saved_itl_version: 12.13.11.1
+    executable_file_version: 12.13.11.1
+    executable_product_version: 12.13.11.1
+    executable_sha256: c69e719cd3f2f9374e71c954a6de87002b6988af65129943983a2f17490dd73c
+    exact_input_hashes: 4
+    passed_cases: 4
+    passed_native_cycles: 8
+    normal_quit_process_exit_zero_cycles: 8
+    identity_or_semantic_error_cycles: 0
+    forbidden_fallback_cycles: 0
+    native_saves_reporting_12_13_11_1: 8
+    setup_modal_failures_before_semantic_qualification: 2
+    setup_modal_failures_classified_as_itl_rejection: false
+    executable_identity_negative_preflights: 2
+    executable_identity_negatives_refused_before_root_or_evidence_creation: true
+    arbitrary_12_13_11_1_editing_qualified: false
+    independent_native_reproduction: false
+    universal_itl_support: false
+    full_analysis_specification_gate: false
+    unresolved_item: U-01
   integrated_tests:
     status: passed
     passed: 1163
@@ -343,7 +368,7 @@ validation:
   delivery_manifest: verified
   root_corpus_manifest:
     status: verified
-    itl_files: 390
+    itl_files: 400
   path_time_snapshots:
     parsed: 39
     errors: 0
@@ -417,7 +442,7 @@ completion:
 prohibited_conclusions:
   - complete_or_universal_itl_read_write_support
   - full_analysis_or_specification_confirmed
-  - native_acceptance_generalized_beyond_four_reference_hashes
+  - native_acceptance_generalized_beyond_pinned_primary_hashes_or_the_separate_exact_12_13_11_1_upgrade_cohort
   - support_for_all_itunes_versions_or_editions
   - arbitrary_cross_library_or_media_import_support
   - one_hundred_percent_completion

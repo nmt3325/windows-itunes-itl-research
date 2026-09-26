@@ -1,0 +1,194 @@
+{
+  "schema_version": 1,
+  "purpose": "disposable first-launch EULA setup before guarded native evidence",
+  "actions": [
+    {
+      "action": "accept_eula",
+      "window": {
+        "hwnd": 524588,
+        "pid": 688,
+        "class": "iTunesCustomModalDialog",
+        "title": "iTunes Software License Agreement",
+        "children": [
+          {
+            "hwnd": 327800,
+            "class": "Static",
+            "text": "Safety Info:",
+            "id": 107,
+            "enabled": true,
+            "visible": false
+          },
+          {
+            "hwnd": 262446,
+            "class": "Static",
+            "text": "",
+            "id": 108,
+            "enabled": true,
+            "visible": false
+          },
+          {
+            "hwnd": 262480,
+            "class": "Button",
+            "text": "&Agree",
+            "id": 1,
+            "enabled": true,
+            "visible": true
+          },
+          {
+            "hwnd": 459094,
+            "class": "Button",
+            "text": "&Decline",
+            "id": 2,
+            "enabled": true,
+            "visible": true
+          },
+          {
+            "hwnd": 197008,
+            "class": "Button",
+            "text": "&Save...",
+            "id": 103,
+            "enabled": true,
+            "visible": true
+          },
+          {
+            "hwnd": 393688,
+            "class": "RichEdit20W",
+            "text": "",
+            "id": 105,
+            "enabled": true,
+            "visible": true
+          }
+        ]
+      }
+    },
+    {
+      "action": "dismiss_known_audio_warning",
+      "window": {
+        "hwnd": 590124,
+        "pid": 688,
+        "class": "iTunesCustomModalDialog",
+        "title": "iTunes",
+        "children": [
+          {
+            "hwnd": 459224,
+            "class": "Static",
+            "text": "iTunes has detected a problem with your audio configuration.\rAudio/Video playback may not operate properly.",
+            "id": 101,
+            "enabled": true,
+            "visible": true
+          },
+          {
+            "hwnd": 262544,
+            "class": "Static",
+            "text": "",
+            "id": 103,
+            "enabled": true,
+            "visible": false
+          },
+          {
+            "hwnd": 524630,
+            "class": "Button",
+            "text": "",
+            "id": 104,
+            "enabled": true,
+            "visible": false
+          },
+          {
+            "hwnd": 328016,
+            "class": "Button",
+            "text": "OK",
+            "id": 1,
+            "enabled": true,
+            "visible": true
+          },
+          {
+            "hwnd": 327982,
+            "class": "Button",
+            "text": "More Info",
+            "id": 105,
+            "enabled": true,
+            "visible": false
+          },
+          {
+            "hwnd": 393336,
+            "class": "Static",
+            "text": "",
+            "id": 102,
+            "enabled": true,
+            "visible": true
+          }
+        ]
+      }
+    }
+  ],
+  "junction_create": {
+    "returncode": 0,
+    "output": "Junction created for C:\\Users\\runneradmin\\Music\\iTunes <<===>> D:\\a\\_temp\\itunes-first-launch-profile-20260927\n"
+  },
+  "itunes_pid": 688,
+  "main_window_stable": true,
+  "com_version": "12.13.10.3",
+  "com_quit_requested": true,
+  "com_quit_timed_out": true,
+  "itunes_exit_after_setup_kill": 1,
+  "junction_remove": {
+    "returncode": 0,
+    "output": ""
+  },
+  "setup_profile_inventory": [
+    {
+      "path": "Album Artwork",
+      "kind": "directory"
+    },
+    {
+      "path": "Album Artwork/Cache",
+      "kind": "directory"
+    },
+    {
+      "path": "Album Artwork/Custom",
+      "kind": "directory"
+    },
+    {
+      "path": "Album Artwork/Download",
+      "kind": "directory"
+    },
+    {
+      "path": "Album Artwork/Generated",
+      "kind": "directory"
+    },
+    {
+      "path": "Album Artwork/Store",
+      "kind": "directory"
+    },
+    {
+      "path": "iTunes Library Extras.itdb",
+      "kind": "file",
+      "bytes": 16384
+    },
+    {
+      "path": "iTunes Library Genius.itdb",
+      "kind": "file",
+      "bytes": 32768
+    },
+    {
+      "path": "iTunes Media",
+      "kind": "directory"
+    },
+    {
+      "path": "iTunes Media/.iTunes Preferences.plist",
+      "kind": "file",
+      "bytes": 305
+    },
+    {
+      "path": "iTunes Media/Automatically Add to iTunes",
+      "kind": "directory"
+    },
+    {
+      "path": "sentinel",
+      "kind": "file",
+      "bytes": 8
+    }
+  ],
+  "accepted_eula": true,
+  "finished": true
+}

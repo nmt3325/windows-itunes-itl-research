@@ -7,43 +7,44 @@
     "No Apple iTunes binary was read or launched; U-13 remains open and universal ITL support remains false."
   ],
   "counts": {
-    "byte_exact_no_op_roundtrips": 390,
+    "byte_exact_no_op_roundtrips": 400,
     "files_with_compressed_trailer": 1,
-    "files_without_compressed_trailer": 389,
-    "manifest_hashes_verified": 390,
+    "files_without_compressed_trailer": 399,
+    "manifest_hashes_verified": 400,
     "native_itunes_operations": 0,
     "network_operations": 0,
     "non_known_witness_files_with_trailer": 0,
     "parse_failures": 0,
     "production_code_changes": 0,
     "proprietary_binary_reads": 0,
-    "strict_container_parses": 390
+    "strict_container_parses": 400
   },
   "distributions": {
     "compression_flags": {
-      "0": 23,
-      "1": 367
+      "0": 25,
+      "1": 375
     },
     "encryption_flags": {
-      "0": 23,
-      "2": 367
+      "0": 25,
+      "2": 375
     },
     "trailer_lengths": {
       "17": 1
     },
     "versions": {
-      "12.13.10.3": 390
+      "12.13.10.3": 392,
+      "12.13.11.1": 8
     }
   },
   "generator": {
     "path": "scripts/research/audit_retained_trailer_census_20260926.py",
-    "sha256": "863b48cf990102ed60039a2b027cda92e2d23b72b7c32f62ab83cb11acc710e8"
+    "sha256": "839d88117d775bb95f21fd953e87509a3f4c8bec19c770eae02ca9921b25bcca"
   },
   "parse_failures": [],
   "schema": "windows-itl.retained-trailer-census-20260926.v1",
   "source_set": {
-    "canonical_path_size_hash_digest": "b5c9546799fec361be25c839ddf636515a1954441b4b3e73bfdbc42d864429dc",
-    "entries": 390,
+    "canonical_path_size_hash_digest": "98ad91a21dd8a6f3dd7e67ba1d79d9733c2b49e8f6ce10a77c3d48c3831a5829",
+    "entries": 400,
     "kind": "all .itl entries in DELIVERY-MANIFEST.json",
     "representative_sample": false
   },

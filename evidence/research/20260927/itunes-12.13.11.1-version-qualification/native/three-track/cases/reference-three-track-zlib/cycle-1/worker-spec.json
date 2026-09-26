@@ -1,0 +1,65 @@
+{
+  "schema_version": 2,
+  "case": "reference-three-track-zlib",
+  "cycle": 1,
+  "expected_input": {
+    "version": "12.13.10.3",
+    "library_persistent_id": "5245464552454E43",
+    "track_count": 3,
+    "tracks": [
+      {
+        "persistent_id": "A17E100000000001",
+        "name": "Compressed Alpha"
+      },
+      {
+        "persistent_id": "A17E100000000002",
+        "name": "Compressed Beta 日本語"
+      },
+      {
+        "persistent_id": "A17E100000000003",
+        "name": "Compressed Gamma 🚒"
+      }
+    ],
+    "playlists": [
+      {
+        "persistent_id": "A17E200000000001",
+        "name": "Compressed Trio",
+        "members": [
+          "A17E100000000001",
+          "A17E100000000002",
+          "A17E100000000003"
+        ]
+      }
+    ]
+  },
+  "expected": {
+    "version": "12.13.11.1",
+    "library_persistent_id": "5245464552454E43",
+    "track_count": 3,
+    "tracks": [
+      {
+        "persistent_id": "A17E100000000001",
+        "name": "Compressed Alpha"
+      },
+      {
+        "persistent_id": "A17E100000000002",
+        "name": "Compressed Beta 日本語"
+      },
+      {
+        "persistent_id": "A17E100000000003",
+        "name": "Compressed Gamma 🚒"
+      }
+    ],
+    "playlists": [
+      {
+        "persistent_id": "A17E200000000001",
+        "name": "Compressed Trio",
+        "members": [
+          "A17E100000000001",
+          "A17E100000000002",
+          "A17E100000000003"
+        ]
+      }
+    ]
+  }
+}

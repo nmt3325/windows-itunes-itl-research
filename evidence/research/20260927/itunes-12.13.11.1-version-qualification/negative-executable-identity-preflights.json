@@ -1,0 +1,28 @@
+{
+  "schema_version": 1,
+  "purpose": "fail-closed executable identity preflights",
+  "installed_executable_sha256": "c69e719cd3f2f9374e71c954a6de87002b6988af65129943983a2f17490dd73c",
+  "installed_executable_version": "12.13.11.1",
+  "runs": [
+    {
+      "name": "wrong-hash",
+      "expected_executable_version": "12.13.11.1",
+      "expected_executable_sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+      "exit_code": 1,
+      "output": "Traceback (most recent call last):\r\n  File \"D:\\a\\_temp\\gha-mcp\\win-7h5jwzza\\work\\repo\\scripts\\windows\\reference_generated_native.py\", line 699, in <module>\r\n    raise SystemExit(main())\r\n                     ^^^^^^\r\n  File \"D:\\a\\_temp\\gha-mcp\\win-7h5jwzza\\work\\repo\\scripts\\windows\\reference_generated_native.py\", line 695, in main\r\n    return run(args)\r\n           ^^^^^^^^^\r\n  File \"D:\\a\\_temp\\gha-mcp\\win-7h5jwzza\\work\\repo\\scripts\\windows\\reference_generated_native.py\", line 600, in run\r\n    itunes_identity = validate_executable_identity(\r\n                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\r\n  File \"D:\\a\\_temp\\gha-mcp\\win-7h5jwzza\\work\\repo\\scripts\\windows\\reference_generated_native.py\", line 134, in validate_executable_identity\r\n    raise RuntimeError(\"installed iTunes executable identity mismatch: \" + json.dumps(errors, ensure_ascii=True))\r\nRuntimeError: installed iTunes executable identity mismatch: [{\"property\": \"sha256\", \"expected\": \"0000000000000000000000000000000000000000000000000000000000000000\", \"actual\": \"c69e719cd3f2f9374e71c954a6de87002b6988af65129943983a2f17490dd73c\"}]\r\n",
+      "root_created": false,
+      "evidence_created": false
+    },
+    {
+      "name": "wrong-version",
+      "expected_executable_version": "12.13.11.0",
+      "expected_executable_sha256": "c69e719cd3f2f9374e71c954a6de87002b6988af65129943983a2f17490dd73c",
+      "exit_code": 1,
+      "output": "Traceback (most recent call last):\r\n  File \"D:\\a\\_temp\\gha-mcp\\win-7h5jwzza\\work\\repo\\scripts\\windows\\reference_generated_native.py\", line 699, in <module>\r\n    raise SystemExit(main())\r\n                     ^^^^^^\r\n  File \"D:\\a\\_temp\\gha-mcp\\win-7h5jwzza\\work\\repo\\scripts\\windows\\reference_generated_native.py\", line 695, in main\r\n    return run(args)\r\n           ^^^^^^^^^\r\n  File \"D:\\a\\_temp\\gha-mcp\\win-7h5jwzza\\work\\repo\\scripts\\windows\\reference_generated_native.py\", line 600, in run\r\n    itunes_identity = validate_executable_identity(\r\n                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\r\n  File \"D:\\a\\_temp\\gha-mcp\\win-7h5jwzza\\work\\repo\\scripts\\windows\\reference_generated_native.py\", line 134, in validate_executable_identity\r\n    raise RuntimeError(\"installed iTunes executable identity mismatch: \" + json.dumps(errors, ensure_ascii=True))\r\nRuntimeError: installed iTunes executable identity mismatch: [{\"property\": \"file_version\", \"expected\": \"12.13.11.0\", \"actual\": \"12.13.11.1\"}, {\"property\": \"product_version\", \"expected\": \"12.13.11.0\", \"actual\": \"12.13.11.1\"}]\r\n",
+      "root_created": false,
+      "evidence_created": false
+    }
+  ],
+  "itunes_processes_after": 0,
+  "profile_exists_after": false
+}

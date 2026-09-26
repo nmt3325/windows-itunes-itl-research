@@ -2,7 +2,7 @@
   "schema": "windows-itunes-itl.aggregate-corpus-manifest.v1",
   "hash_algorithm": "sha256",
   "manifest_self_included": false,
-  "target": "Windows Apple desktop x64 iTunes 12.13.10.3; secondary observed 12.13.9.1",
+  "target": "Windows Apple desktop x64 iTunes 12.13.10.3; secondary observed 12.13.9.1; exact-hash 12.13.11.1 upgrade cohort",
   "qualification": {
     "complete_analysis_claim": false,
     "reference_writer_from_scratch_native_acceptance": "verified_for_four_exact_hashes",
@@ -17,12 +17,13 @@
     "smart_playlist_note": "native nested framing observed; operand and membership gates failed",
     "native_rating_note": "20 native-saved snapshots and eight repeated baseline copies narrow Rating/RatingKind behavior for one exact build/profile; snapshot occurrences are not independent experiments",
     "native_trailer_note": "one exact 17-byte opaque-trailer candidate and its trailer-free control each passed two native cycles; the candidate trailer was stripped on first save; retained copies and repeated saves are not independent experiments",
+    "itunes_12_13_11_1_upgrade_note": "four exact 12.13.10.3 fixture hashes passed eight native cycles on one exact signed 12.13.11.1 executable; native saves report 12.13.11.1, but arbitrary editing and version breadth remain unqualified",
     "coverage_guided_note": "20,000 deterministic offline mutations completed without a retained anomaly; coarse line-transition guidance is not proof of parser safety or native acceptance",
     "filesystem_publication_note": "21 deterministic Linux scenarios plus 25 specifically qualified Windows Server 2025 / CPython 3.12.10 / runner-temporary NTFS scenarios bound stable-parent behavior and demonstrate the existing hostile-parent exclusion; counts are not independent experiments, the Windows campaign includes two parent-triggered/reaped TerminateProcess boundaries and zero unavailable cases, neither campaign cut power, no native-iTunes operation was added, production code was unchanged, and U-17 remains open",
     "filesystem_process_crash_note": "five selected Linux child schedules used unchanged production write_new: four actual parent-issued/reaped SIGKILL deaths and one normal control; cases, control, replays, and artifacts are not independent experiments, zero power-loss/native-iTunes operations occurred, and U-17 remains open"
   },
   "summary": {
-    "itl_file_count": 390,
+    "itl_file_count": 400,
     "by_class": {
       "independent_from_scratch_generated": 4,
       "external_independent_interop_candidate": 5,
@@ -30,7 +31,8 @@
       "native_itunes_fresh_library": 6,
       "native_itunes_path_time_sequence": 39,
       "native_rating_bounded_matrix": 28,
-      "native_trailer_u13_bounded_matrix": 6
+      "native_trailer_u13_bounded_matrix": 6,
+      "itunes_12_13_11_1_upgrade_qualification": 10
     }
   },
   "referenced_manifests_and_analyses": [
@@ -198,6 +200,11 @@
       "path": "evidence/research/20260925/windows-filesystem-publication/report.json",
       "bytes": 19396,
       "sha256": "867e68693aa74d2c1a19def1483f64a243f242d4e5b1348ee017b2a87669eda1"
+    },
+    {
+      "path": "evidence/research/20260927/itunes-12.13.11.1-version-qualification/qualification-summary.json",
+      "bytes": 14268,
+      "sha256": "02d2713f389a9de0d8e25672671ca4a7b4b61e53ab1e77b47f340024c9882e8f"
     }
   ],
   "itl_files": [
@@ -2983,6 +2990,76 @@
       "sha256": "7bb3dc35fda5e1f04d06b6d1e4b29c459a47c71c202edff95a045634ef8a304f",
       "corpus_class": "native_trailer_u13_bounded_matrix",
       "qualification": "two exact candidate inputs and four native saves from one control/candidate pair; six retained occurrences are not six independent experiments"
+    },
+    {
+      "path": "evidence/research/20260927/itunes-12.13.11.1-version-qualification/native/one-track/cases/reference-one-track-raw/cycle-1/native-saved.itl",
+      "bytes": 4112,
+      "sha256": "5795c4013faeb9fa022078623af5af13fd3aec946e8526245ae912a32afa288a",
+      "corpus_class": "itunes_12_13_11_1_upgrade_qualification",
+      "qualification": "four exact 12.13.10.3 input hashes and eight native cycles on one exact signed 12.13.11.1 executable; upgrade compatibility only, not general editing support"
+    },
+    {
+      "path": "evidence/research/20260927/itunes-12.13.11.1-version-qualification/native/one-track/cases/reference-one-track-raw/cycle-2/native-saved.itl",
+      "bytes": 4152,
+      "sha256": "744c379586231ab6e28c75d805d7ad8696e8325e83e74b1b39568f009e89bdad",
+      "corpus_class": "itunes_12_13_11_1_upgrade_qualification",
+      "qualification": "four exact 12.13.10.3 input hashes and eight native cycles on one exact signed 12.13.11.1 executable; upgrade compatibility only, not general editing support"
+    },
+    {
+      "path": "evidence/research/20260927/itunes-12.13.11.1-version-qualification/native/one-track/cases/reference-one-track-zlib/cycle-1/native-saved.itl",
+      "bytes": 4116,
+      "sha256": "96a565315471f2a18a73cd7d1c33be1c2ad6be4a77f226f6166efd5f91da0c41",
+      "corpus_class": "itunes_12_13_11_1_upgrade_qualification",
+      "qualification": "four exact 12.13.10.3 input hashes and eight native cycles on one exact signed 12.13.11.1 executable; upgrade compatibility only, not general editing support"
+    },
+    {
+      "path": "evidence/research/20260927/itunes-12.13.11.1-version-qualification/native/one-track/cases/reference-one-track-zlib/cycle-2/native-saved.itl",
+      "bytes": 4147,
+      "sha256": "04637421dfbffd2c179ee241f119ec7e4e4d4624ea99fc3d4ee0511a53a2b366",
+      "corpus_class": "itunes_12_13_11_1_upgrade_qualification",
+      "qualification": "four exact 12.13.10.3 input hashes and eight native cycles on one exact signed 12.13.11.1 executable; upgrade compatibility only, not general editing support"
+    },
+    {
+      "path": "evidence/research/20260927/itunes-12.13.11.1-version-qualification/native/three-track/cases/reference-three-track-raw/cycle-1/native-saved.itl",
+      "bytes": 4441,
+      "sha256": "be2419acd5409d703fdb5b62c458bce777c9a6aaf3cf6f362ffd86e9830d3404",
+      "corpus_class": "itunes_12_13_11_1_upgrade_qualification",
+      "qualification": "four exact 12.13.10.3 input hashes and eight native cycles on one exact signed 12.13.11.1 executable; upgrade compatibility only, not general editing support"
+    },
+    {
+      "path": "evidence/research/20260927/itunes-12.13.11.1-version-qualification/native/three-track/cases/reference-three-track-raw/cycle-2/native-saved.itl",
+      "bytes": 4466,
+      "sha256": "88760d996b5cd357e33d4b010adfd0789fb7238eb205984ac69b307efc46d61b",
+      "corpus_class": "itunes_12_13_11_1_upgrade_qualification",
+      "qualification": "four exact 12.13.10.3 input hashes and eight native cycles on one exact signed 12.13.11.1 executable; upgrade compatibility only, not general editing support"
+    },
+    {
+      "path": "evidence/research/20260927/itunes-12.13.11.1-version-qualification/native/three-track/cases/reference-three-track-zlib/cycle-1/native-saved.itl",
+      "bytes": 4466,
+      "sha256": "853ad552b37b75ae72af037db97d5e0fff7ed0f122bf6fae2ed21d1edb6503b1",
+      "corpus_class": "itunes_12_13_11_1_upgrade_qualification",
+      "qualification": "four exact 12.13.10.3 input hashes and eight native cycles on one exact signed 12.13.11.1 executable; upgrade compatibility only, not general editing support"
+    },
+    {
+      "path": "evidence/research/20260927/itunes-12.13.11.1-version-qualification/native/three-track/cases/reference-three-track-zlib/cycle-2/native-saved.itl",
+      "bytes": 4463,
+      "sha256": "215c429405f3f2c08e8c3fcb5429a63d47119cc4fb4cda3acc8ff5e2230a6b6d",
+      "corpus_class": "itunes_12_13_11_1_upgrade_qualification",
+      "qualification": "four exact 12.13.10.3 input hashes and eight native cycles on one exact signed 12.13.11.1 executable; upgrade compatibility only, not general editing support"
+    },
+    {
+      "path": "evidence/research/20260927/itunes-12.13.11.1-version-qualification/preflight/12.13.10.3-eula-modal/cases/reference-one-track-raw/cycle-1/live-at-failure.itl",
+      "bytes": 10566,
+      "sha256": "c6c68171d57350ceb3cf379eee13a764ea199536ef18238fe4faf80583492d74",
+      "corpus_class": "itunes_12_13_11_1_upgrade_qualification",
+      "qualification": "four exact 12.13.10.3 input hashes and eight native cycles on one exact signed 12.13.11.1 executable; upgrade compatibility only, not general editing support"
+    },
+    {
+      "path": "evidence/research/20260927/itunes-12.13.11.1-version-qualification/preflight/12.13.10.3-update-offer-modal/cases/reference-one-track-raw/cycle-1/live-at-failure.itl",
+      "bytes": 10566,
+      "sha256": "c6c68171d57350ceb3cf379eee13a764ea199536ef18238fe4faf80583492d74",
+      "corpus_class": "itunes_12_13_11_1_upgrade_qualification",
+      "qualification": "four exact 12.13.10.3 input hashes and eight native cycles on one exact signed 12.13.11.1 executable; upgrade compatibility only, not general editing support"
     }
   ]
 }

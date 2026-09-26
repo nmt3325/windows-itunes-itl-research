@@ -1,0 +1,323 @@
+{
+  "claim_limits": [
+    "The pass applies only to the exact signed iTunes executable hash and four pinned 12.13.10.3 input fixture hashes retained here.",
+    "The two repeated cycles per case are one controlled sequence, not independent reproductions or a population-level compatibility estimate.",
+    "Opening, COM identity checks, native saves, normal Quit, and independent parsing do not qualify arbitrary fields, counts, media, opaque records, other iTunes builds, or universal ITL support.",
+    "The two 12.13.10.3 preflight failures were unexpected setup/update modals before semantic qualification and are not ITL rejections.",
+    "U-01 remains open because version breadth still lacks a deliberately sampled multi-version positive/negative matrix and independent reproduction."
+  ],
+  "cohorts": [
+    {
+      "cases": [
+        {
+          "candidate": {
+            "bytes": 10566,
+            "input_itl_version": "12.13.10.3",
+            "path": "TEST_CORPUS/generated/reference-one-track-raw.itl",
+            "sha256": "c6c68171d57350ceb3cf379eee13a764ea199536ef18238fe4faf80583492d74"
+          },
+          "cycles": [
+            {
+              "com_version": "12.13.11.1",
+              "cycle": 1,
+              "forbidden_artifacts": 0,
+              "identity_and_semantic_errors": 0,
+              "input_sha256": "c6c68171d57350ceb3cf379eee13a764ea199536ef18238fe4faf80583492d74",
+              "itunes_exit_code": 0,
+              "normal_quit": true,
+              "saved": {
+                "bytes": 4112,
+                "path": "evidence/research/20260927/itunes-12.13.11.1-version-qualification/native/one-track/cases/reference-one-track-raw/cycle-1/native-saved.itl",
+                "sha256": "5795c4013faeb9fa022078623af5af13fd3aec946e8526245ae912a32afa288a"
+              },
+              "saved_itl_version": "12.13.11.1",
+              "worker_exit_code": 0
+            },
+            {
+              "com_version": "12.13.11.1",
+              "cycle": 2,
+              "forbidden_artifacts": 0,
+              "identity_and_semantic_errors": 0,
+              "input_sha256": "5795c4013faeb9fa022078623af5af13fd3aec946e8526245ae912a32afa288a",
+              "itunes_exit_code": 0,
+              "normal_quit": true,
+              "saved": {
+                "bytes": 4152,
+                "path": "evidence/research/20260927/itunes-12.13.11.1-version-qualification/native/one-track/cases/reference-one-track-raw/cycle-2/native-saved.itl",
+                "sha256": "744c379586231ab6e28c75d805d7ad8696e8325e83e74b1b39568f009e89bdad"
+              },
+              "saved_itl_version": "12.13.11.1",
+              "worker_exit_code": 0
+            }
+          ],
+          "name": "reference-one-track-raw",
+          "passed": true,
+          "track_count": 1
+        },
+        {
+          "candidate": {
+            "bytes": 775,
+            "input_itl_version": "12.13.10.3",
+            "path": "TEST_CORPUS/generated/reference-one-track-zlib.itl",
+            "sha256": "25f8aba00330caaa0ef4b529f67a203cd6da2b3d652923f7e44c7396f7bd13ad"
+          },
+          "cycles": [
+            {
+              "com_version": "12.13.11.1",
+              "cycle": 1,
+              "forbidden_artifacts": 0,
+              "identity_and_semantic_errors": 0,
+              "input_sha256": "25f8aba00330caaa0ef4b529f67a203cd6da2b3d652923f7e44c7396f7bd13ad",
+              "itunes_exit_code": 0,
+              "normal_quit": true,
+              "saved": {
+                "bytes": 4116,
+                "path": "evidence/research/20260927/itunes-12.13.11.1-version-qualification/native/one-track/cases/reference-one-track-zlib/cycle-1/native-saved.itl",
+                "sha256": "96a565315471f2a18a73cd7d1c33be1c2ad6be4a77f226f6166efd5f91da0c41"
+              },
+              "saved_itl_version": "12.13.11.1",
+              "worker_exit_code": 0
+            },
+            {
+              "com_version": "12.13.11.1",
+              "cycle": 2,
+              "forbidden_artifacts": 0,
+              "identity_and_semantic_errors": 0,
+              "input_sha256": "96a565315471f2a18a73cd7d1c33be1c2ad6be4a77f226f6166efd5f91da0c41",
+              "itunes_exit_code": 0,
+              "normal_quit": true,
+              "saved": {
+                "bytes": 4147,
+                "path": "evidence/research/20260927/itunes-12.13.11.1-version-qualification/native/one-track/cases/reference-one-track-zlib/cycle-2/native-saved.itl",
+                "sha256": "04637421dfbffd2c179ee241f119ec7e4e4d4624ea99fc3d4ee0511a53a2b366"
+              },
+              "saved_itl_version": "12.13.11.1",
+              "worker_exit_code": 0
+            }
+          ],
+          "name": "reference-one-track-zlib",
+          "passed": true,
+          "track_count": 1
+        }
+      ],
+      "executable": {
+        "authenticode_status": "Valid",
+        "bytes": 38952912,
+        "file_version": "12.13.11.1",
+        "path": "C:\\Program Files\\iTunes\\iTunes.exe",
+        "product_version": "12.13.11.1",
+        "sha256": "c69e719cd3f2f9374e71c954a6de87002b6988af65129943983a2f17490dd73c",
+        "signer_subject": "CN=Apple Inc., O=Apple Inc., L=Cupertino, S=California, C=US",
+        "signer_thumbprint": "5ABF5D5265D74C9EAD19246DFAB611AA5DCFE791"
+      },
+      "label": "one-track raw/zlib",
+      "manifest": {
+        "bytes": 1291,
+        "path": "evidence/research/20260927/itunes-12.13.11.1-version-qualification/native/one-track/case-manifest.json",
+        "sha256": "e28c5497726214f9d26dddf652a737c44bcaf9bbc8c865965472c8f3ba113202"
+      },
+      "passed_cases": 2,
+      "passed_cycles": 4,
+      "status": "passed"
+    },
+    {
+      "cases": [
+        {
+          "candidate": {
+            "bytes": 12564,
+            "input_itl_version": "12.13.10.3",
+            "path": "TEST_CORPUS/generated/reference-three-track-raw.itl",
+            "sha256": "7d9b274765471d2d77440049273b210138e36b998d39d4790fe750d60c32406b"
+          },
+          "cycles": [
+            {
+              "com_version": "12.13.11.1",
+              "cycle": 1,
+              "forbidden_artifacts": 0,
+              "identity_and_semantic_errors": 0,
+              "input_sha256": "7d9b274765471d2d77440049273b210138e36b998d39d4790fe750d60c32406b",
+              "itunes_exit_code": 0,
+              "normal_quit": true,
+              "saved": {
+                "bytes": 4441,
+                "path": "evidence/research/20260927/itunes-12.13.11.1-version-qualification/native/three-track/cases/reference-three-track-raw/cycle-1/native-saved.itl",
+                "sha256": "be2419acd5409d703fdb5b62c458bce777c9a6aaf3cf6f362ffd86e9830d3404"
+              },
+              "saved_itl_version": "12.13.11.1",
+              "worker_exit_code": 0
+            },
+            {
+              "com_version": "12.13.11.1",
+              "cycle": 2,
+              "forbidden_artifacts": 0,
+              "identity_and_semantic_errors": 0,
+              "input_sha256": "be2419acd5409d703fdb5b62c458bce777c9a6aaf3cf6f362ffd86e9830d3404",
+              "itunes_exit_code": 0,
+              "normal_quit": true,
+              "saved": {
+                "bytes": 4466,
+                "path": "evidence/research/20260927/itunes-12.13.11.1-version-qualification/native/three-track/cases/reference-three-track-raw/cycle-2/native-saved.itl",
+                "sha256": "88760d996b5cd357e33d4b010adfd0789fb7238eb205984ac69b307efc46d61b"
+              },
+              "saved_itl_version": "12.13.11.1",
+              "worker_exit_code": 0
+            }
+          ],
+          "name": "reference-three-track-raw",
+          "passed": true,
+          "track_count": 3
+        },
+        {
+          "candidate": {
+            "bytes": 879,
+            "input_itl_version": "12.13.10.3",
+            "path": "TEST_CORPUS/generated/reference-three-track-zlib.itl",
+            "sha256": "73dbb405fbd2b68b62d29913b697a72100f8606cdb2ee704c55908e4de389e17"
+          },
+          "cycles": [
+            {
+              "com_version": "12.13.11.1",
+              "cycle": 1,
+              "forbidden_artifacts": 0,
+              "identity_and_semantic_errors": 0,
+              "input_sha256": "73dbb405fbd2b68b62d29913b697a72100f8606cdb2ee704c55908e4de389e17",
+              "itunes_exit_code": 0,
+              "normal_quit": true,
+              "saved": {
+                "bytes": 4466,
+                "path": "evidence/research/20260927/itunes-12.13.11.1-version-qualification/native/three-track/cases/reference-three-track-zlib/cycle-1/native-saved.itl",
+                "sha256": "853ad552b37b75ae72af037db97d5e0fff7ed0f122bf6fae2ed21d1edb6503b1"
+              },
+              "saved_itl_version": "12.13.11.1",
+              "worker_exit_code": 0
+            },
+            {
+              "com_version": "12.13.11.1",
+              "cycle": 2,
+              "forbidden_artifacts": 0,
+              "identity_and_semantic_errors": 0,
+              "input_sha256": "853ad552b37b75ae72af037db97d5e0fff7ed0f122bf6fae2ed21d1edb6503b1",
+              "itunes_exit_code": 0,
+              "normal_quit": true,
+              "saved": {
+                "bytes": 4463,
+                "path": "evidence/research/20260927/itunes-12.13.11.1-version-qualification/native/three-track/cases/reference-three-track-zlib/cycle-2/native-saved.itl",
+                "sha256": "215c429405f3f2c08e8c3fcb5429a63d47119cc4fb4cda3acc8ff5e2230a6b6d"
+              },
+              "saved_itl_version": "12.13.11.1",
+              "worker_exit_code": 0
+            }
+          ],
+          "name": "reference-three-track-zlib",
+          "passed": true,
+          "track_count": 3
+        }
+      ],
+      "executable": {
+        "authenticode_status": "Valid",
+        "bytes": 38952912,
+        "file_version": "12.13.11.1",
+        "path": "C:\\Program Files\\iTunes\\iTunes.exe",
+        "product_version": "12.13.11.1",
+        "sha256": "c69e719cd3f2f9374e71c954a6de87002b6988af65129943983a2f17490dd73c",
+        "signer_subject": "CN=Apple Inc., O=Apple Inc., L=Cupertino, S=California, C=US",
+        "signer_thumbprint": "5ABF5D5265D74C9EAD19246DFAB611AA5DCFE791"
+      },
+      "label": "three-track raw/zlib",
+      "manifest": {
+        "bytes": 1981,
+        "path": "evidence/research/20260927/itunes-12.13.11.1-version-qualification/native/three-track/case-manifest.json",
+        "sha256": "61eb52d7133295b8da3db2d17f61ccd42e247a81ef5664366e4cd8dab174f569"
+      },
+      "passed_cases": 2,
+      "passed_cycles": 4,
+      "status": "passed"
+    }
+  ],
+  "executable_identity_negative_preflights": {
+    "all_refused_before_root_or_evidence_creation": true,
+    "evidence": "evidence/research/20260927/itunes-12.13.11.1-version-qualification/negative-executable-identity-preflights.json",
+    "itunes_processes_after": 0,
+    "profile_exists_after": false,
+    "runs": 2
+  },
+  "executable_sha256": "c69e719cd3f2f9374e71c954a6de87002b6988af65129943983a2f17490dd73c",
+  "first_launch_setup": {
+    "accepted_eula": true,
+    "classification": "controlled_environment_setup_not_native_candidate_qualification",
+    "com_quit_requested": true,
+    "com_version": "12.13.10.3",
+    "dismissed_known_audio_warning": true,
+    "forced_setup_kill_after_quit_timeout": true,
+    "profile_junction_removed": true
+  },
+  "generator": {
+    "path": "scripts/research/summarize_itunes_version_qualification_20260927.py",
+    "sha256": "24c6f87f87829d3eccc42f0117a0d72615021677b2cbff8670ce805edc80bd3e"
+  },
+  "harness_commit": "39a02b616e7837f37700d30de67c3cc9a9a62d0a",
+  "input_itl_version": "12.13.10.3",
+  "native_itunes_version": "12.13.11.1",
+  "platform": "Windows Server 2025 10.0.26100",
+  "preflight_failures": [
+    {
+      "candidate_sha256": "c6c68171d57350ceb3cf379eee13a764ea199536ef18238fe4faf80583492d74",
+      "candidate_unchanged": true,
+      "classification": "environment_setup_failure_not_itl_rejection",
+      "error": "RuntimeError: Unexpected modal; never auto-dismiss damaged-library or cloud prompts",
+      "evidence": "evidence/research/20260927/itunes-12.13.11.1-version-qualification/preflight/12.13.10.3-eula-modal",
+      "label": "initial EULA modal",
+      "modal_texts": [
+        "Safety Info:",
+        "&Agree",
+        "&Decline",
+        "&Save..."
+      ],
+      "native_cycles_completed": 0,
+      "native_semantic_gate_reached": false,
+      "status": "failed_with_preserved_evidence"
+    },
+    {
+      "candidate_sha256": "c6c68171d57350ceb3cf379eee13a764ea199536ef18238fe4faf80583492d74",
+      "candidate_unchanged": true,
+      "classification": "environment_setup_failure_not_itl_rejection",
+      "error": "RuntimeError: Unexpected modal during post-readiness settling",
+      "evidence": "evidence/research/20260927/itunes-12.13.11.1-version-qualification/preflight/12.13.10.3-update-offer-modal",
+      "label": "12.13.11 update-offer modal",
+      "modal_texts": [
+        "A new version of iTunes (12.13.11) is available. Would you like to download it now?",
+        "Download &iTunes",
+        "Don’&t Download",
+        "Other",
+        "&Do not ask me again",
+        "?"
+      ],
+      "native_cycles_completed": 0,
+      "native_semantic_gate_reached": false,
+      "status": "failed_with_preserved_evidence"
+    }
+  ],
+  "provenance": {
+    "chocolatey_package_script": "evidence/research/20260927/itunes-12.13.11.1-version-qualification/provenance/chocolatey-install-12.13.11.1.ps1",
+    "itunes_12_13_10_3": "evidence/research/20260927/itunes-12.13.11.1-version-qualification/provenance/itunes-12.13.10.3.json",
+    "itunes_12_13_11_1": "evidence/research/20260927/itunes-12.13.11.1-version-qualification/provenance/itunes-12.13.11.1.json"
+  },
+  "result": {
+    "exact_hash_upgrade_open_save_restart_qualified": true,
+    "full_analysis_specification_gate": false,
+    "input_version_rewritten_to_native_version": true,
+    "u01_closed": false,
+    "universal_itl_support": false
+  },
+  "schema": "windows-itl.itunes-version-qualification-20260927.v1",
+  "status": "passed_exact_hash_upgrade_qualification",
+  "totals": {
+    "exact_input_hashes": 4,
+    "failed_cases": 0,
+    "failed_native_cycles": 0,
+    "forbidden_artifact_cycles": 0,
+    "normal_quit_cycles": 8,
+    "passed_cases": 4,
+    "passed_native_cycles": 8
+  }
+}

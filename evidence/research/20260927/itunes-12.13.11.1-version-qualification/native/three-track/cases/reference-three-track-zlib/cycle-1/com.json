@@ -1,0 +1,573 @@
+{
+  "schema_version": 1,
+  "started_utc": "2026-09-26T17:03:16.279697+00:00",
+  "spec": {
+    "schema_version": 2,
+    "case": "reference-three-track-zlib",
+    "cycle": 1,
+    "expected_input": {
+      "version": "12.13.10.3",
+      "library_persistent_id": "5245464552454E43",
+      "track_count": 3,
+      "tracks": [
+        {
+          "persistent_id": "A17E100000000001",
+          "name": "Compressed Alpha"
+        },
+        {
+          "persistent_id": "A17E100000000002",
+          "name": "Compressed Beta 日本語"
+        },
+        {
+          "persistent_id": "A17E100000000003",
+          "name": "Compressed Gamma 🚒"
+        }
+      ],
+      "playlists": [
+        {
+          "persistent_id": "A17E200000000001",
+          "name": "Compressed Trio",
+          "members": [
+            "A17E100000000001",
+            "A17E100000000002",
+            "A17E100000000003"
+          ]
+        }
+      ]
+    },
+    "expected": {
+      "version": "12.13.11.1",
+      "library_persistent_id": "5245464552454E43",
+      "track_count": 3,
+      "tracks": [
+        {
+          "persistent_id": "A17E100000000001",
+          "name": "Compressed Alpha"
+        },
+        {
+          "persistent_id": "A17E100000000002",
+          "name": "Compressed Beta 日本語"
+        },
+        {
+          "persistent_id": "A17E100000000003",
+          "name": "Compressed Gamma 🚒"
+        }
+      ],
+      "playlists": [
+        {
+          "persistent_id": "A17E200000000001",
+          "name": "Compressed Trio",
+          "members": [
+            "A17E100000000001",
+            "A17E100000000002",
+            "A17E100000000003"
+          ]
+        }
+      ]
+    }
+  },
+  "samples": [
+    {
+      "index": 1,
+      "state": {
+        "version": "12.13.11.1",
+        "library_persistent_id": "5245464552454E43",
+        "tracks": [
+          {
+            "persistent_id": "A17E100000000001",
+            "Name": "Compressed Alpha",
+            "Artist": "",
+            "Album": "",
+            "AlbumArtist": "",
+            "Composer": "",
+            "Genre": "",
+            "Comment": "",
+            "Grouping": "",
+            "Lyrics": "",
+            "SortName": "",
+            "SortArtist": "",
+            "SortAlbum": "",
+            "SortAlbumArtist": "",
+            "Rating": 0,
+            "AlbumRating": 0,
+            "PlayedCount": 0,
+            "PlayedDate": "1899-12-30T00:00:00+00:00",
+            "SkippedCount": 0,
+            "SkippedDate": "1899-12-30T00:00:00+00:00",
+            "DateAdded": "2026-06-23T06:24:00+00:00",
+            "ModificationDate": "1899-12-30T00:00:00+00:00",
+            "TrackNumber": 0,
+            "TrackCount": 0,
+            "DiscNumber": 0,
+            "DiscCount": 0,
+            "Year": 0,
+            "BPM": 0,
+            "Compilation": false,
+            "Enabled": true,
+            "VolumeAdjustment": 0,
+            "Location": "",
+            "Duration": 0,
+            "SampleRate": 0,
+            "BitRate": 0,
+            "Size": 0,
+            "TrackDatabaseID": 71,
+            "TrackID": 80,
+            "PlayOrderIndex": 1,
+            "Unplayed": true,
+            "RatingKind": 1,
+            "AlbumRatingKind": 1
+          },
+          {
+            "persistent_id": "A17E100000000002",
+            "Name": "Compressed Beta 日本語",
+            "Artist": "",
+            "Album": "",
+            "AlbumArtist": "",
+            "Composer": "",
+            "Genre": "",
+            "Comment": "",
+            "Grouping": "",
+            "Lyrics": "",
+            "SortName": "",
+            "SortArtist": "",
+            "SortAlbum": "",
+            "SortAlbumArtist": "",
+            "Rating": 0,
+            "AlbumRating": 0,
+            "PlayedCount": 0,
+            "PlayedDate": "1899-12-30T00:00:00+00:00",
+            "SkippedCount": 0,
+            "SkippedDate": "1899-12-30T00:00:00+00:00",
+            "DateAdded": "2026-06-23T06:24:00+00:00",
+            "ModificationDate": "1899-12-30T00:00:00+00:00",
+            "TrackNumber": 0,
+            "TrackCount": 0,
+            "DiscNumber": 0,
+            "DiscCount": 0,
+            "Year": 0,
+            "BPM": 0,
+            "Compilation": false,
+            "Enabled": true,
+            "VolumeAdjustment": 0,
+            "Location": "",
+            "Duration": 0,
+            "SampleRate": 0,
+            "BitRate": 0,
+            "Size": 0,
+            "TrackDatabaseID": 73,
+            "TrackID": 81,
+            "PlayOrderIndex": 2,
+            "Unplayed": true,
+            "RatingKind": 1,
+            "AlbumRatingKind": 1
+          },
+          {
+            "persistent_id": "A17E100000000003",
+            "Name": "Compressed Gamma 🚒",
+            "Artist": "",
+            "Album": "",
+            "AlbumArtist": "",
+            "Composer": "",
+            "Genre": "",
+            "Comment": "",
+            "Grouping": "",
+            "Lyrics": "",
+            "SortName": "",
+            "SortArtist": "",
+            "SortAlbum": "",
+            "SortAlbumArtist": "",
+            "Rating": 0,
+            "AlbumRating": 0,
+            "PlayedCount": 0,
+            "PlayedDate": "1899-12-30T00:00:00+00:00",
+            "SkippedCount": 0,
+            "SkippedDate": "1899-12-30T00:00:00+00:00",
+            "DateAdded": "2026-06-23T06:24:00+00:00",
+            "ModificationDate": "1899-12-30T00:00:00+00:00",
+            "TrackNumber": 0,
+            "TrackCount": 0,
+            "DiscNumber": 0,
+            "DiscCount": 0,
+            "Year": 0,
+            "BPM": 0,
+            "Compilation": false,
+            "Enabled": true,
+            "VolumeAdjustment": 0,
+            "Location": "",
+            "Duration": 0,
+            "SampleRate": 0,
+            "BitRate": 0,
+            "Size": 0,
+            "TrackDatabaseID": 75,
+            "TrackID": 82,
+            "PlayOrderIndex": 3,
+            "Unplayed": true,
+            "RatingKind": 1,
+            "AlbumRatingKind": 1
+          }
+        ],
+        "playlists": [
+          {
+            "name": "Library",
+            "persistent_id": "5245464552454E43",
+            "kind": 1,
+            "members": [
+              {
+                "persistent_id": "A17E100000000001",
+                "name": "Compressed Alpha",
+                "play_order_index": 1
+              },
+              {
+                "persistent_id": "A17E100000000002",
+                "name": "Compressed Beta 日本語",
+                "play_order_index": 2
+              },
+              {
+                "persistent_id": "A17E100000000003",
+                "name": "Compressed Gamma 🚒",
+                "play_order_index": 3
+              }
+            ],
+            "special_kind": null
+          },
+          {
+            "name": "Music",
+            "persistent_id": "CD8310679E1C59B2",
+            "kind": 2,
+            "members": [
+              {
+                "persistent_id": "A17E100000000001",
+                "name": "Compressed Alpha",
+                "play_order_index": 1
+              },
+              {
+                "persistent_id": "A17E100000000002",
+                "name": "Compressed Beta 日本語",
+                "play_order_index": 2
+              },
+              {
+                "persistent_id": "A17E100000000003",
+                "name": "Compressed Gamma 🚒",
+                "play_order_index": 3
+              }
+            ],
+            "special_kind": 6
+          },
+          {
+            "name": "Movies",
+            "persistent_id": "6802B77030126DD0",
+            "kind": 2,
+            "members": [],
+            "special_kind": 7
+          },
+          {
+            "name": "TV Shows",
+            "persistent_id": "725F655DFC6B9128",
+            "kind": 2,
+            "members": [],
+            "special_kind": 8
+          },
+          {
+            "name": "Podcasts",
+            "persistent_id": "76E6E16178889DDB",
+            "kind": 2,
+            "members": [],
+            "special_kind": 3
+          },
+          {
+            "name": "Audiobooks",
+            "persistent_id": "E24B77111DF0FAAF",
+            "kind": 2,
+            "members": [],
+            "special_kind": 9
+          },
+          {
+            "name": "Genius",
+            "persistent_id": "BF8485082AE5D184",
+            "kind": 2,
+            "members": [],
+            "special_kind": 11
+          },
+          {
+            "name": "Compressed Trio",
+            "persistent_id": "A17E200000000001",
+            "kind": 2,
+            "members": [
+              {
+                "persistent_id": "A17E100000000001",
+                "name": "Compressed Alpha",
+                "play_order_index": 1
+              },
+              {
+                "persistent_id": "A17E100000000002",
+                "name": "Compressed Beta 日本語",
+                "play_order_index": 2
+              },
+              {
+                "persistent_id": "A17E100000000003",
+                "name": "Compressed Gamma 🚒",
+                "play_order_index": 3
+              }
+            ],
+            "special_kind": 0
+          }
+        ],
+        "track_count": 3
+      },
+      "errors": []
+    },
+    {
+      "index": 2,
+      "state": {
+        "version": "12.13.11.1",
+        "library_persistent_id": "5245464552454E43",
+        "tracks": [
+          {
+            "persistent_id": "A17E100000000001",
+            "Name": "Compressed Alpha",
+            "Artist": "",
+            "Album": "",
+            "AlbumArtist": "",
+            "Composer": "",
+            "Genre": "",
+            "Comment": "",
+            "Grouping": "",
+            "Lyrics": "",
+            "SortName": "",
+            "SortArtist": "",
+            "SortAlbum": "",
+            "SortAlbumArtist": "",
+            "Rating": 0,
+            "AlbumRating": 0,
+            "PlayedCount": 0,
+            "PlayedDate": "1899-12-30T00:00:00+00:00",
+            "SkippedCount": 0,
+            "SkippedDate": "1899-12-30T00:00:00+00:00",
+            "DateAdded": "2026-06-23T06:24:00+00:00",
+            "ModificationDate": "1899-12-30T00:00:00+00:00",
+            "TrackNumber": 0,
+            "TrackCount": 0,
+            "DiscNumber": 0,
+            "DiscCount": 0,
+            "Year": 0,
+            "BPM": 0,
+            "Compilation": false,
+            "Enabled": true,
+            "VolumeAdjustment": 0,
+            "Location": "",
+            "Duration": 0,
+            "SampleRate": 0,
+            "BitRate": 0,
+            "Size": 0,
+            "TrackDatabaseID": 71,
+            "TrackID": 80,
+            "PlayOrderIndex": 1,
+            "Unplayed": true,
+            "RatingKind": 1,
+            "AlbumRatingKind": 1
+          },
+          {
+            "persistent_id": "A17E100000000002",
+            "Name": "Compressed Beta 日本語",
+            "Artist": "",
+            "Album": "",
+            "AlbumArtist": "",
+            "Composer": "",
+            "Genre": "",
+            "Comment": "",
+            "Grouping": "",
+            "Lyrics": "",
+            "SortName": "",
+            "SortArtist": "",
+            "SortAlbum": "",
+            "SortAlbumArtist": "",
+            "Rating": 0,
+            "AlbumRating": 0,
+            "PlayedCount": 0,
+            "PlayedDate": "1899-12-30T00:00:00+00:00",
+            "SkippedCount": 0,
+            "SkippedDate": "1899-12-30T00:00:00+00:00",
+            "DateAdded": "2026-06-23T06:24:00+00:00",
+            "ModificationDate": "1899-12-30T00:00:00+00:00",
+            "TrackNumber": 0,
+            "TrackCount": 0,
+            "DiscNumber": 0,
+            "DiscCount": 0,
+            "Year": 0,
+            "BPM": 0,
+            "Compilation": false,
+            "Enabled": true,
+            "VolumeAdjustment": 0,
+            "Location": "",
+            "Duration": 0,
+            "SampleRate": 0,
+            "BitRate": 0,
+            "Size": 0,
+            "TrackDatabaseID": 73,
+            "TrackID": 81,
+            "PlayOrderIndex": 2,
+            "Unplayed": true,
+            "RatingKind": 1,
+            "AlbumRatingKind": 1
+          },
+          {
+            "persistent_id": "A17E100000000003",
+            "Name": "Compressed Gamma 🚒",
+            "Artist": "",
+            "Album": "",
+            "AlbumArtist": "",
+            "Composer": "",
+            "Genre": "",
+            "Comment": "",
+            "Grouping": "",
+            "Lyrics": "",
+            "SortName": "",
+            "SortArtist": "",
+            "SortAlbum": "",
+            "SortAlbumArtist": "",
+            "Rating": 0,
+            "AlbumRating": 0,
+            "PlayedCount": 0,
+            "PlayedDate": "1899-12-30T00:00:00+00:00",
+            "SkippedCount": 0,
+            "SkippedDate": "1899-12-30T00:00:00+00:00",
+            "DateAdded": "2026-06-23T06:24:00+00:00",
+            "ModificationDate": "1899-12-30T00:00:00+00:00",
+            "TrackNumber": 0,
+            "TrackCount": 0,
+            "DiscNumber": 0,
+            "DiscCount": 0,
+            "Year": 0,
+            "BPM": 0,
+            "Compilation": false,
+            "Enabled": true,
+            "VolumeAdjustment": 0,
+            "Location": "",
+            "Duration": 0,
+            "SampleRate": 0,
+            "BitRate": 0,
+            "Size": 0,
+            "TrackDatabaseID": 75,
+            "TrackID": 82,
+            "PlayOrderIndex": 3,
+            "Unplayed": true,
+            "RatingKind": 1,
+            "AlbumRatingKind": 1
+          }
+        ],
+        "playlists": [
+          {
+            "name": "Library",
+            "persistent_id": "5245464552454E43",
+            "kind": 1,
+            "members": [
+              {
+                "persistent_id": "A17E100000000001",
+                "name": "Compressed Alpha",
+                "play_order_index": 1
+              },
+              {
+                "persistent_id": "A17E100000000002",
+                "name": "Compressed Beta 日本語",
+                "play_order_index": 2
+              },
+              {
+                "persistent_id": "A17E100000000003",
+                "name": "Compressed Gamma 🚒",
+                "play_order_index": 3
+              }
+            ],
+            "special_kind": null
+          },
+          {
+            "name": "Music",
+            "persistent_id": "CD8310679E1C59B2",
+            "kind": 2,
+            "members": [
+              {
+                "persistent_id": "A17E100000000001",
+                "name": "Compressed Alpha",
+                "play_order_index": 1
+              },
+              {
+                "persistent_id": "A17E100000000002",
+                "name": "Compressed Beta 日本語",
+                "play_order_index": 2
+              },
+              {
+                "persistent_id": "A17E100000000003",
+                "name": "Compressed Gamma 🚒",
+                "play_order_index": 3
+              }
+            ],
+            "special_kind": 6
+          },
+          {
+            "name": "Movies",
+            "persistent_id": "6802B77030126DD0",
+            "kind": 2,
+            "members": [],
+            "special_kind": 7
+          },
+          {
+            "name": "TV Shows",
+            "persistent_id": "725F655DFC6B9128",
+            "kind": 2,
+            "members": [],
+            "special_kind": 8
+          },
+          {
+            "name": "Podcasts",
+            "persistent_id": "76E6E16178889DDB",
+            "kind": 2,
+            "members": [],
+            "special_kind": 3
+          },
+          {
+            "name": "Audiobooks",
+            "persistent_id": "E24B77111DF0FAAF",
+            "kind": 2,
+            "members": [],
+            "special_kind": 9
+          },
+          {
+            "name": "Genius",
+            "persistent_id": "BF8485082AE5D184",
+            "kind": 2,
+            "members": [],
+            "special_kind": 11
+          },
+          {
+            "name": "Compressed Trio",
+            "persistent_id": "A17E200000000001",
+            "kind": 2,
+            "members": [
+              {
+                "persistent_id": "A17E100000000001",
+                "name": "Compressed Alpha",
+                "play_order_index": 1
+              },
+              {
+                "persistent_id": "A17E100000000002",
+                "name": "Compressed Beta 日本語",
+                "play_order_index": 2
+              },
+              {
+                "persistent_id": "A17E100000000003",
+                "name": "Compressed Gamma 🚒",
+                "play_order_index": 3
+              }
+            ],
+            "special_kind": 0
+          }
+        ],
+        "track_count": 3
+      },
+      "errors": []
+    }
+  ],
+  "errors": [],
+  "accepted": true,
+  "quit_requested": true,
+  "finished_utc": "2026-09-26T17:03:19.142789+00:00"
+}
