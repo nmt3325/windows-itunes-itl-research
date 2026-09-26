@@ -200,6 +200,23 @@ validation:
     atlas_c_hash_matches: 0
     atlas_c_hash_mismatches: 47
     unresolved_item: U-18
+  public_replay_gap_inventory:
+    status: completed_public_gap_inventory_u18_open
+    focused_tests_passed: 4
+    focused_tests_failed: 0
+    historical_scripts_inventoried: 6
+    machine_bound_scripts: 5
+    timing_dependent_scripts: 2
+    missing_exact_python_dependency_versions: 3
+    proprietary_binary_reads: 0
+    ghidra_invocations: 0
+    unicorn_invocations: 0
+    network_operations: 0
+    native_acceptance_operations: 0
+    historical_replay_available: false
+    atlas_c_hash_matches: 0
+    atlas_c_hash_mismatches: 47
+    unresolved_item: U-18
   spec_consistency: passed
   delivery_manifest: verified
   root_corpus_manifest:

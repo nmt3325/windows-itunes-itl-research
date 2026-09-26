@@ -148,7 +148,9 @@ The delivery-manifest repair remains in [`docs/PUBLIC_REPLAY_AUDIT.md`](docs/PUB
 
 The receipt explicitly retains the blockers. Five historical static launch/extraction scripts remain machine-bound, two retain timing-dependent output fields, historical `capstone`/`pefile`/PyCryptodome versions are unpinned, and neither the proprietary module nor the Ghidra distribution/project cache is staged. It also records that 0/47 retained atlas C hashes match the current public C bytes even though target/summary/atlas order and all 47 assembly identity headers agree. The public lock pins those bytes but does not rewrite or authenticate the historical mismatch.
 
-Closure still requires a clean disposable bootstrap with complete dependency pins, lawful public/synthetic inputs, internally coherent provenance, and end-to-end Ghidra/Unicorn replay receipts without private artifacts. A clean preflight is not historical binary-analysis reproduction or native acceptance, so U-18 stays open.
+A later deterministic [public replay gap inventory](evidence/research/20260926/public-replay-gap-inventory/README.md) makes those blockers machine-checkable from repository-local public files: it records the five machine-bound scripts, two timing-dependent scripts, missing exact Python dependency versions, unstaged proprietary/Ghidra inputs, missing synthetic fixtures, and retained 0/47 atlas C-hash mismatch while performing zero network, proprietary-binary, Ghidra, Unicorn, iTunes, or native-acceptance operations.
+
+Closure still requires a clean disposable bootstrap with complete dependency pins, lawful public/synthetic inputs, internally coherent provenance, and end-to-end Ghidra/Unicorn replay receipts without private artifacts. A clean preflight or gap inventory is not historical binary-analysis reproduction or native acceptance, so U-18 stays open.
 
 ## Completion policy
 

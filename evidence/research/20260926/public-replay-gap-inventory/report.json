@@ -1,0 +1,335 @@
+{
+  "claim_boundaries": {
+    "ghidra_end_to_end_reproduced": false,
+    "historical_binary_analysis_reproduced": false,
+    "independent_reimplementation_passed": false,
+    "native_application_acceptance": false,
+    "not_independent_experiments": "This inventory is one deterministic repository-local check and does not replay historical binary analysis.",
+    "percentage_complete": null,
+    "u18_closed": false,
+    "unicorn_original_machine_code_reproduced": false,
+    "universal_itl_support": false
+  },
+  "claims": {
+    "historical_binary_analysis_reproduced": false,
+    "independent_reimplementation_passed": false,
+    "native_application_acceptance": false,
+    "percentage_complete": null,
+    "u13_closed": false,
+    "u17_closed": false,
+    "u18_closed": false,
+    "universal_itl_support": false
+  },
+  "dependency_pin_matrix": {
+    "missing_exact_version_tools": [
+      "capstone",
+      "pefile",
+      "pycryptodome"
+    ],
+    "module": {
+      "exact_hash_recorded": true,
+      "exact_version_recorded": true,
+      "name": "iTunes.exe",
+      "sha256": "30d91209b5d81c47bbad2da9d89764fcab08bf5cd9af1a9571668001376c5d7d",
+      "staged": false,
+      "version": "12.13.10.3"
+    },
+    "toolchain": {
+      "capstone": {
+        "exact_version_recorded": false,
+        "staged": false,
+        "version": null
+      },
+      "ghidra": {
+        "archive_bytes": 569445154,
+        "archive_sha256": "93a5d11a9ad510622acaaf908c556a7b9b764d338e78a7567f3689bf5081fd54",
+        "exact_version_recorded": true,
+        "source_url": "https://github.com/NationalSecurityAgency/ghidra/releases/download/Ghidra_12.1.3_build/ghidra_12.1.3_PUBLIC_20260817.zip",
+        "staged": false,
+        "version": "12.1.3"
+      },
+      "jdk": {
+        "exact_version_recorded": true,
+        "staged": false,
+        "version": "21.0.12-101.0"
+      },
+      "pefile": {
+        "exact_version_recorded": false,
+        "staged": false,
+        "version": null
+      },
+      "pycryptodome": {
+        "exact_version_recorded": false,
+        "staged": false,
+        "version": null
+      },
+      "unicorn": {
+        "exact_version_recorded": true,
+        "staged": false,
+        "version": "2.1.4"
+      }
+    },
+    "unstaged_items": [
+      "module:iTunes.exe",
+      "toolchain:capstone",
+      "toolchain:ghidra",
+      "toolchain:jdk",
+      "toolchain:pefile",
+      "toolchain:pycryptodome",
+      "toolchain:unicorn"
+    ]
+  },
+  "historical_replay": {
+    "available_from_public_clone": false,
+    "blockers": [
+      "proprietary_module_not_staged",
+      "ghidra_distribution_and_project_not_staged",
+      "python_dependency_versions_incomplete",
+      "historical_scripts_machine_bound",
+      "retained_atlas_c_hashes_incoherent"
+    ],
+    "ghidra_end_to_end_reproduced": false,
+    "status": "unavailable",
+    "unicorn_original_machine_code_reproduced": false
+  },
+  "historical_script_summary": {
+    "machine_bound_script_count": 5,
+    "machine_bound_scripts": [
+      "scripts/static/offline_aes_proof.py",
+      "scripts/static/pe_probe.py",
+      "scripts/static/prepare_targets.py",
+      "scripts/static/rebuild_targets.py",
+      "scripts/static/run-headless.ps1"
+    ],
+    "matches_retained_preflight_counts": {
+      "machine_bound": true,
+      "timing_dependent": true
+    },
+    "script_count": 6,
+    "timing_dependent_script_count": 2,
+    "timing_dependent_scripts": [
+      "scripts/static/offline_aes_proof.py",
+      "scripts/static/pe_probe.py"
+    ]
+  },
+  "historical_scripts": [
+    {
+      "bytes": 9526,
+      "has_machine_bound_windows_paths": true,
+      "has_timing_markers": true,
+      "machine_bound_windows_path_line_count": 2,
+      "machine_bound_windows_path_lines": [
+        {
+          "line": 8,
+          "text": "ROOT=Path(r'D:\\a\\_temp\\gha-mcp\\WINDOWS_RESEARCH_RUN\\work\\itl');sys.path.insert(0,str(ROOT/'tools/static/pylibs'))"
+        },
+        {
+          "line": 13,
+          "text": "BINARY=Path(r'C:\\Program Files\\iTunes\\iTunes.exe');SHA='30d91209b5d81c47bbad2da9d89764fcab08bf5cd9af1a9571668001376c5d7d'"
+        }
+      ],
+      "non_stdlib_import_roots": [
+        "Crypto",
+        "pefile",
+        "unicorn"
+      ],
+      "path": "scripts/static/offline_aes_proof.py",
+      "sha256": "646e9dd36ac55b823ac9d15d53ff0a6529335b705892c2491226dfc829203a51",
+      "statically_visible_output_references": [],
+      "timing_marker_line_count": 2,
+      "timing_marker_lines": [
+        {
+          "line": 55,
+          "text": "start=time.time();results=[];result={'kind':'offline_unicorn_original_machine_code','module':'iTunes.exe','sha256':SHA,'unicorn':unicorn.__version__,'native_iTunes_acceptance':False,'host_executable_loaded':False,'binary_patches':[],'tests':results}"
+        },
+        {
+          "line": 116,
+          "text": " result['elapsed_s']=round(time.time()-start,3);(ROOT/'reports/static/offline-emulation.json').write_text(json.dumps(result,indent=2))"
+        }
+      ]
+    },
+    {
+      "bytes": 4536,
+      "has_machine_bound_windows_paths": true,
+      "has_timing_markers": true,
+      "machine_bound_windows_path_line_count": 2,
+      "machine_bound_windows_path_lines": [
+        {
+          "line": 5,
+          "text": "ROOT=Path(r'D:\\a\\_temp\\gha-mcp\\WINDOWS_RESEARCH_RUN\\work\\itl')"
+        },
+        {
+          "line": 7,
+          "text": "p=Path(r'C:\\Program Files\\iTunes\\iTunes.exe')"
+        }
+      ],
+      "non_stdlib_import_roots": [
+        "capstone",
+        "pefile"
+      ],
+      "path": "scripts/static/pe_probe.py",
+      "sha256": "d8d970f3ddf2ba7c866be62c4eca34e861a89fe2a821f9f000d9da4ce68a209e",
+      "statically_visible_output_references": [],
+      "timing_marker_line_count": 3,
+      "timing_marker_lines": [
+        {
+          "line": 47,
+          "text": "rows=[]; n=0; t=time.time(); finds=[]"
+        },
+        {
+          "line": 67,
+          "text": " print('SCANNED',s.Name,n,'instructions',round(time.time()-t,2),'sec',flush=True)"
+        },
+        {
+          "line": 71,
+          "text": "print('DONE',n,'instructions',round(time.time()-t,2),'sec',flush=True)"
+        }
+      ]
+    },
+    {
+      "bytes": 2678,
+      "has_machine_bound_windows_paths": true,
+      "has_timing_markers": false,
+      "machine_bound_windows_path_line_count": 2,
+      "machine_bound_windows_path_lines": [
+        {
+          "line": 6,
+          "text": "ROOT=Path(r'D:\\a\\_temp\\gha-mcp\\WINDOWS_RESEARCH_RUN\\work\\itl');OUT=ROOT/'reports'/'static'"
+        },
+        {
+          "line": 7,
+          "text": "pe=pefile.PE(r'C:\\Program Files\\iTunes\\iTunes.exe');base=pe.OPTIONAL_HEADER.ImageBase"
+        }
+      ],
+      "non_stdlib_import_roots": [
+        "capstone",
+        "pefile"
+      ],
+      "path": "scripts/static/prepare_targets.py",
+      "sha256": "af6083bfa8fd7f29a99e672c81fb10ed7b066a933a3cdeee4d5f51a930479b1d",
+      "statically_visible_output_references": [],
+      "timing_marker_line_count": 0,
+      "timing_marker_lines": []
+    },
+    {
+      "bytes": 2929,
+      "has_machine_bound_windows_paths": true,
+      "has_timing_markers": false,
+      "machine_bound_windows_path_line_count": 2,
+      "machine_bound_windows_path_lines": [
+        {
+          "line": 6,
+          "text": "ROOT=Path(r'D:\\a\\_temp\\gha-mcp\\WINDOWS_RESEARCH_RUN\\work\\itl');R=ROOT/'reports/static'"
+        },
+        {
+          "line": 14,
+          "text": "binpath=Path(r'C:\\Program Files\\iTunes\\iTunes.exe');sha=hashlib.sha256(binpath.read_bytes()).hexdigest();assert sha=='30d91209b5d81c47bbad2da9d89764fcab08bf5cd9af1a9571668001376c5d7d'"
+        }
+      ],
+      "non_stdlib_import_roots": [
+        "capstone",
+        "pefile"
+      ],
+      "path": "scripts/static/rebuild_targets.py",
+      "sha256": "babe0c6378536fc877aa47ad4dc15ea3164cd61332415f11a8a5d685f91c1533",
+      "statically_visible_output_references": [],
+      "timing_marker_line_count": 0,
+      "timing_marker_lines": []
+    },
+    {
+      "bytes": 1549,
+      "has_machine_bound_windows_paths": true,
+      "has_timing_markers": false,
+      "machine_bound_windows_path_line_count": 2,
+      "machine_bound_windows_path_lines": [
+        {
+          "line": 3,
+          "text": "$root='D:\\a\\_temp\\gha-mcp\\WINDOWS_RESEARCH_RUN\\work\\itl'"
+        },
+        {
+          "line": 4,
+          "text": "$env:JAVA_HOME='C:\\hostedtoolcache\\windows\\Java_Temurin-Hotspot_jdk\\21.0.12-101.0\\x64';$env:PATH=\"$env:JAVA_HOME\\bin;\"+$env:PATH"
+        }
+      ],
+      "non_stdlib_import_roots": [],
+      "path": "scripts/static/run-headless.ps1",
+      "sha256": "ad937e4d7435ebf2c81ec59a4800af0dd967177df39461966771fb83892a00d6",
+      "statically_visible_output_references": [],
+      "timing_marker_line_count": 0,
+      "timing_marker_lines": []
+    },
+    {
+      "bytes": 4923,
+      "has_machine_bound_windows_paths": false,
+      "has_timing_markers": false,
+      "machine_bound_windows_path_line_count": 0,
+      "machine_bound_windows_path_lines": [],
+      "non_stdlib_import_roots": [],
+      "path": "scripts/ghidra/ITLSelective.java",
+      "sha256": "f6379f1c8a95f531a9b85c727dec074794a244af1b05102cc8959ca4f3469a29",
+      "statically_visible_output_references": [],
+      "timing_marker_line_count": 0,
+      "timing_marker_lines": []
+    }
+  ],
+  "missing_input_matrix": {
+    "atlas_c_hash_matches": 0,
+    "atlas_c_hash_mismatches": 47,
+    "current_public_atlas_c_hashes_coherent": false,
+    "exact_python_dependency_versions_recorded": false,
+    "ghidra_distribution_staged": false,
+    "ghidra_project_cache_staged": false,
+    "lawful_public_or_synthetic_pe_fixture_present": false,
+    "missing_exact_python_dependencies": [
+      "capstone",
+      "pefile",
+      "pycryptodome"
+    ],
+    "proprietary_module_staged": false,
+    "public_synthetic_ghidra_project_fixture_present": false
+  },
+  "operations": {
+    "ghidra_invocations": 0,
+    "itunes_launches": 0,
+    "native_acceptance_operations": 0,
+    "network_operations": 0,
+    "proprietary_binary_reads": 0,
+    "unicorn_invocations": 0
+  },
+  "public_input_matrix": {
+    "locked_public_bytes": 1429913,
+    "locked_public_file_count": 108,
+    "locked_tree_sha256": "5d6e4867e44b7cf097db62a59435f88aa649da95553a6232237f1ef0ba8e4489",
+    "offline_test_records": 41,
+    "offline_tests_passing": 41,
+    "retained_asm_identity_headers_matching": 47,
+    "retained_c_rows": 47,
+    "synthetic_controls": {
+      "case_count": 8,
+      "cases_are_independent_experiments": false,
+      "negative_cases": 6,
+      "positive_cases": 2,
+      "status": "passed"
+    }
+  },
+  "recommended_next_step": "Parameterize the five machine-bound historical scripts and normalize or exclude the two timing-dependent outputs before any future lawful replay attempt; do not claim U-18 closure until lawful inputs, exact dependencies, staged/recreated Ghidra state, coherent provenance, and end-to-end Ghidra/Unicorn receipts exist.",
+  "schema": "windows-itunes-itl.public-replay-gap-inventory.v1",
+  "scope": "public_retained_static_surface_only",
+  "sources": {
+    "lock": {
+      "path": "scripts/static/public-replay-lock.json",
+      "schema": "windows-itunes-itl.public-static-replay-lock.v1",
+      "sha256": "c640a4fbc4450def54a8f4446dcc4fb1d316750b3a454d50e66df97994ba6d89"
+    },
+    "preflight_report": {
+      "path": "evidence/research/20260925/public-static-replay-bootstrap/report.json",
+      "schema": "windows-itunes-itl.public-static-replay-report.v1",
+      "sha256": "51a58ed158675dd7c1e99359ca312ff32cfc22be298db0e1c71743c0e7323b06"
+    },
+    "preflight_script": {
+      "path": "scripts/static/public_replay_preflight.py",
+      "sha256": "8fb83602a23f5b022675563f111f2a74d1d3e4b1427654b077fa1e1cab1bfe47"
+    }
+  },
+  "status": "completed_public_gap_inventory_u18_open"
+}
