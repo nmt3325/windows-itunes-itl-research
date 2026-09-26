@@ -1,0 +1,115 @@
+{
+  "schema": "windows-itl.u01-structural-candidate-predeclaration-20260927.v1",
+  "classification": "prelaunch decision record; offline candidate retained but native launch forbidden",
+  "state_at_declaration": {
+    "native_itunes_launches_in_this_continuation": 0,
+    "candidate_outcomes_observed_in_itunes": 0,
+    "post_hoc_candidate_replacement_allowed": false,
+    "u01_open": true
+  },
+  "target_build": {
+    "version": "12.12.10.1",
+    "executable_path": "C:\\Program Files\\iTunes\\iTunes.exe",
+    "executable_bytes": 39260512,
+    "executable_sha256": "0aa1b53af915fc9e0ced4c7ecbcb1397a036d38367d894ae063ae1d127331f9b",
+    "authenticode_status": "Valid",
+    "authenticode_subject": "CN=Apple Inc., O=Apple Inc., L=Cupertino, S=California, C=US",
+    "authenticode_thumbprint": "67A9953123BD5F01B1BC0BB98A950D9CA869CD02",
+    "apple_binary_retained": false
+  },
+  "locked_inputs": {
+    "clean_12_12_positive_control": {
+      "path": "evidence/research/20260927/u01-distinct-build-12.12.10.1/positive-qualification/cases/native-authored-one-track-positive/cycle-2/native-saved.itl",
+      "bytes": 4904,
+      "sha256": "9034aa3e9e7ccc12390d0b44307d8ea10dd313fc424415050c8d5bf8ced0e772",
+      "causal_classification": "previously passed clean normal-quit native cycle"
+    },
+    "native_12_13_11_source": {
+      "path": "evidence/research/20260927/itunes-12.13.11.1-version-qualification/native/one-track/cases/reference-one-track-raw/cycle-2/native-saved.itl",
+      "bytes": 4152,
+      "sha256": "744c379586231ab6e28c75d805d7ad8696e8325e83e74b1b39568f009e89bdad",
+      "causal_classification": "previously passed clean normal-quit 12.13.11.1 native cycle"
+    },
+    "offline_derivative": {
+      "path": "evidence/research/20260927/u01-structural-candidate-inventory/candidates/native-12.13.11.1-normalized-to-12.12.10.1.itl",
+      "bytes": 3006,
+      "sha256": "e9ea49521b72e8d166ec852531927069ca6fb8dc6a37ea9e59ae3bbda8916f47",
+      "outer_pascal_version": "12.12.10.1",
+      "inner_mfdh_pascal_version": "12.12.10.1",
+      "causal_classification": "offline rebuilt derivative; never launched; not native-authored after normalization"
+    }
+  },
+  "theory_gate": {
+    "required": "A concrete retained record, feature, or layout that clean iTunes 12.12.10.1 cannot consume, independent of both Pascal version labels.",
+    "observed_candidates": [
+      {
+        "feature": "mhgh byte at +0xE5 equals 4",
+        "eligible": false,
+        "reason": "The value is present in both clean normally quit 12.12.10.1 positive cycles."
+      },
+      {
+        "feature": "two type-109 mhoh objects",
+        "eligible": false,
+        "reason": "Type 109 is XML plist playlist-view state; 12.12.10.1 itself emits type 109, and the second object is optional per-playlist UI state."
+      },
+      {
+        "feature": "section type 21",
+        "eligible": false,
+        "reason": "The clean 12.12.10.1 native positive includes section type 21 while the newer matched-lineage files do not."
+      }
+    ],
+    "passed": false
+  },
+  "decision": {
+    "candidate_selected_for_native_execution": false,
+    "launch_authorized": false,
+    "expected_product_gate": null,
+    "attempts_authorized": 0,
+    "stop_reason": "Launching the derivative now would test version-label normalization plus optional UI state, not a defensible structural incompatibility. No iTunes process may be started under this plan."
+  },
+  "future_fail_closed_matrix": {
+    "prerequisite": "Replace this no-launch decision with a new committed and pushed plan only after the theory gate passes; do not revise a candidate after seeing its native outcome.",
+    "attempts_per_positive_and_negative": 2,
+    "fresh_copy_per_attempt": true,
+    "preflight": [
+      "exact executable size, SHA-256, file/product version, and Authenticode identity",
+      "exact candidate and control SHA-256",
+      "independent-parser framing, topology, version, outer file identity, track semantics, and playlist semantics",
+      "candidate-specific feature/layout assertion",
+      "no live iTunes process and no pre-existing per-user iTunes profile"
+    ],
+    "modal_classification": {
+      "newer_version": "The file “^FILENAME” cannot be read because it was created by a newer version of iTunes.",
+      "invalid_library": "The file “^FILENAME” cannot be read because it does not appear to be a valid library file.",
+      "require_exact_predeclared_class": true,
+      "title_only_match_forbidden": true
+    },
+    "dismissal_and_exit": [
+      "capture the full product window and child-control snapshot before dismissal",
+      "require exactly one enabled visible OK/dismiss button",
+      "dismiss normally",
+      "allow product exit; otherwise issue WM_CLOSE to exactly one main iTunes window",
+      "require zero normal exit code and no force termination for a passing result"
+    ],
+    "cleanup": [
+      "remove only the owned profile junction after verifying its target",
+      "require no remaining iTunes.exe process",
+      "retain exact prelaunch, modal-time, and post-exit file facts",
+      "never classify a force-terminated timeout artifact as rejection, acceptance, or a clean native cycle"
+    ],
+    "forbidden_fallbacks": [
+      "XML library",
+      "Previous iTunes Libraries",
+      "damaged-library repair or renamed damaged artifact",
+      "backup substitution",
+      "unexpected outer-file identity",
+      "unexpected COM library identity"
+    ],
+    "postconditions": [
+      "separate outer-file persistent ID and COM LibraryPersistentID assertions",
+      "independent-parser selected semantic checks after normal exit",
+      "exact product-modal class and text assertion",
+      "honest preservation of all failures and timeouts"
+    ]
+  }
+}

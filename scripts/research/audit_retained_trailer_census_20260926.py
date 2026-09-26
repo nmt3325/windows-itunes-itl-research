@@ -123,7 +123,7 @@ def build_report() -> dict[str, Any]:
             "The absence of additional trailers in this retained corpus does not establish trailer rarity, meaning, provenance, or semantic independence.",
             "The sole retained trailer witness is an intentional U-13 candidate and cannot establish naturally occurring trailer behavior.",
             "One deliberately one-byte-truncated U-01 structural-negative input is an expected strict parse failure and is excluded from parsed-file distributions and no-op counts.",
-            "The five retained 12.12.10.1 files are one same-build native-authored input, two normally-quit positive saves, and two force-terminated timeout survivors; occurrence counts are not independent experiments or five accepted cycles.",
+            "The six retained 12.12.10.1-labelled files are one same-build native-authored input, two normally-quit positive saves, two force-terminated timeout survivors, and one never-launched offline version-normalized derivative; occurrence counts are not independent experiments or six accepted cycles.",
             "Container parse and byte-exact no-op round-trip are structural observations, not native iTunes acceptance or safe semantic editability.",
             "No Apple iTunes binary was read or launched; U-13 remains open and universal ITL support remains false.",
         ],

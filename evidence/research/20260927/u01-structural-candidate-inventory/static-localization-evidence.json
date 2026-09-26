@@ -1,0 +1,96 @@
+{
+  "schema": "windows-itl.u01-static-localization-12.12.10.1-20260927.v1",
+  "classification": "derived static metadata only; no Apple executable or resource bytes retained",
+  "executable": {
+    "path": "C:\\Program Files\\iTunes\\iTunes.exe",
+    "bytes": 39260512,
+    "sha256": "0aa1b53af915fc9e0ced4c7ecbcb1397a036d38367d894ae063ae1d127331f9b",
+    "file_version": "12.12.10.1",
+    "product_version": "12.12.10.1",
+    "authenticode": {
+      "status": "Valid",
+      "subject": "CN=Apple Inc., O=Apple Inc., L=Cupertino, S=California, C=US",
+      "thumbprint": "67A9953123BD5F01B1BC0BB98A950D9CA869CD02"
+    },
+    "binary_retained": false
+  },
+  "localization_resources": {
+    "strings_relative_path": "iTunes.Resources\\en.lproj\\Localizable.strings",
+    "map_relative_path": "iTunes.Resources\\LocalizableStringsMap.plist",
+    "map_format": "binary_plist",
+    "map_entry_count": 12241,
+    "entries": [
+      {
+        "key": "x0mp0kat6u",
+        "decimal_id": 524419075,
+        "hex_id": "0x1f420003",
+        "message": "The file “^FILENAME” cannot be read because it was created by a newer version of iTunes."
+      },
+      {
+        "key": "3mazunhhzu",
+        "decimal_id": 524419076,
+        "hex_id": "0x1f420004",
+        "message": "The file “^FILENAME” cannot be read because it does not appear to be a valid library file."
+      }
+    ],
+    "hashed_keys_present_in_executable": false
+  },
+  "numeric_resource_family": {
+    "group_id": "0x1f42",
+    "members": [
+      {
+        "role": "library_save_error_family_member",
+        "id": "0x1f420001",
+        "file_offset": "0x19fc208",
+        "rva": "0x19fd808",
+        "occurrences_in_executable": 1
+      },
+      {
+        "role": "generic_cannot_read_family_member",
+        "id": "0x1f420002",
+        "file_offset": "0x19fc1e0",
+        "rva": "0x19fd7e0",
+        "occurrences_in_executable": 1
+      },
+      {
+        "role": "newer_version_message",
+        "id": "0x1f420003",
+        "file_offset": "0x19fc1c0",
+        "rva": "0x19fd7c0",
+        "occurrences_in_executable": 1
+      },
+      {
+        "role": "invalid_library_message",
+        "id": "0x1f420004",
+        "file_offset": "0x19fc1d0",
+        "rva": "0x19fd7d0",
+        "occurrences_in_executable": 1
+      }
+    ],
+    "wrapper": {
+      "va": "0x1401fb500",
+      "rva": "0x1fb500",
+      "file_offset": "0x1fa900",
+      "descriptor_va": "0x1419fd810",
+      "descriptor_rva": "0x19fd810",
+      "descriptor_file_offset": "0x19fc210",
+      "observed_behavior": "Lazy-loads a runtime service, then passes group ID 0x1f42 and descriptor VA 0x1419fd810 to an indirect lookup path.",
+      "direct_member_entry_xrefs_found": 0,
+      "descriptor_references_found": [
+        {
+          "instruction_va": "0x1401fb52c",
+          "instruction": "lea r8, [rip + 0x18022dd]",
+          "target_va": "0x1419fd810"
+        }
+      ]
+    }
+  },
+  "bounded_conclusion": {
+    "resource_family_localized": true,
+    "newer_and_invalid_messages_are_adjacent_members": true,
+    "parser_result_or_status_comparison_identified": false,
+    "call_site_selecting_member_3_versus_4_identified": false,
+    "semantic_status_code_claimed": false,
+    "note": "The static evidence localizes the message family and its generated lookup wrapper. It does not establish the parser branch or a record-level compatibility gate."
+  }
+}

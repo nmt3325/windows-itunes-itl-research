@@ -108,15 +108,34 @@ def text_of(window: dict) -> str:
     ).strip()
 
 
-def product_modal_matches(window: dict) -> bool:
+def classify_library_modal(window: dict) -> str | None:
+    """Classify exact library-read product errors; never infer from the title."""
     normalized = " ".join(text_of(window).lower().split())
-    return (
+    newer = (
         "cannot be read because it was created by a newer version of itunes" in normalized
         or (
             "created by a newer version of itunes" in normalized
             and ("cannot be read" in normalized or "can't be read" in normalized)
         )
     )
+    invalid = (
+        "cannot be read because it does not appear to be a valid library file" in normalized
+        or (
+            "does not appear to be a valid library file" in normalized
+            and ("cannot be read" in normalized or "can't be read" in normalized)
+        )
+    )
+    if newer and invalid:
+        return "ambiguous_library_error"
+    if newer:
+        return "newer_version"
+    if invalid:
+        return "invalid_library"
+    return None
+
+
+def product_modal_matches(window: dict) -> bool:
+    return classify_library_modal(window) == "newer_version"
 
 
 def dismiss_audio_warning(window: dict, log: list[dict]) -> bool:
@@ -514,7 +533,14 @@ def run_negative_attempt(candidate: Path, root: Path, evidence: Path, attempt: i
                 if dismiss_audio_warning(window, result["ui"]):
                     acted = True
                     break
-                if product_modal_matches(window):
+                modal_class = classify_library_modal(window)
+                if modal_class is not None:
+                    result["observed_library_modal_classification"] = modal_class
+                    result["observed_library_modal"] = window
+                    if modal_class != "newer_version":
+                        raise RuntimeError(
+                            f"expected newer-version modal, observed {modal_class}"
+                        )
                     modal = window
                     break
             if modal is not None:

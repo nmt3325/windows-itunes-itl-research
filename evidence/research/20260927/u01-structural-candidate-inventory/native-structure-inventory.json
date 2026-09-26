@@ -1,0 +1,1950 @@
+{
+  "bounded_conclusion": "The exact-build resource family and structurally valid derivative are reproducible, but the available data do not support a non-label incompatibility theory. Launching the derivative would turn the experiment into a version-label probe, which is outside the declared U-01 objective; therefore no new iTunes launch was made.",
+  "candidate_decision": {
+    "candidate_path": "evidence/research/20260927/u01-structural-candidate-inventory/candidates/native-12.13.11.1-normalized-to-12.12.10.1.itl",
+    "candidate_sha256": "e9ea49521b72e8d166ec852531927069ca6fb8dc6a37ea9e59ae3bbda8916f47",
+    "eligible_for_12_12_native_negative_launch": false,
+    "future_launch_requires": [
+      "a predeclared feature/layout incompatibility independent of the Pascal labels",
+      "exact candidate and control hashes committed and pushed before launch",
+      "exact executable and Authenticode identity preflight",
+      "two fresh-copy attempts where feasible",
+      "exact newer-version versus invalid-library modal classification",
+      "normal modal dismissal and normal process exit when a modal appears",
+      "strict process cleanup and no XML/backup/damaged-library fallback",
+      "separate outer-file and COM-library identity checks",
+      "independent-parser semantic checks before and after"
+    ],
+    "launch_authorized": false,
+    "native_authored_after_normalization": false,
+    "outer_and_inner_labels_normalized_to": "12.12.10.1",
+    "reason": "No observed record, feature, or layout is both newer-only and plausibly rejection-causing. The retained differences are optional playlist-view state, while the clean 12.12 build itself emits type 109 and mhgh+0xE5=4.",
+    "record_topology_retained": true,
+    "selected_semantics_retained": true,
+    "source_path": "evidence/research/20260927/itunes-12.13.11.1-version-qualification/native/one-track/cases/reference-one-track-raw/cycle-2/native-saved.itl",
+    "source_sha256": "744c379586231ab6e28c75d805d7ad8696e8325e83e74b1b39568f009e89bdad",
+    "type_109_playlist_view_state_retained": true
+  },
+  "corrected_findings": {
+    "force_terminated_timeout_survivors_are_clean_native_cycles": false,
+    "mhgh_offset_0xe5_value_4_is_newer_only": false,
+    "mhgh_offset_0xe5_value_4_observed_on_clean_12_12": true,
+    "resource_family_localized_but_parser_status_branch_identified": false,
+    "section_21_establishes_version_incompatibility": false,
+    "two_type_109_objects_establish_version_incompatibility": false,
+    "type_109_is_unknown_binary_capability_object": false,
+    "type_109_is_xml_plist_playlist_view_state": true
+  },
+  "inventory": {
+    "native_12_12_input": {
+      "bytes": 4865,
+      "causal_classification": "clean_normal_quit_native_authored_input",
+      "expanded_payload_bytes": 106661,
+      "file_persistent_id": "C4CF98746C40D802",
+      "inner_mfdh_version": "12.12.10.1",
+      "mhgh_offset_0xe5": 4,
+      "mhoh_type_census": {
+        "100": 15,
+        "101": 12,
+        "102": 12,
+        "103": 1,
+        "105": 30,
+        "108": 15,
+        "109": 1,
+        "11": 1,
+        "13": 1,
+        "2": 1,
+        "27": 1,
+        "3": 1,
+        "300": 1,
+        "301": 1,
+        "302": 1,
+        "4": 1,
+        "400": 1,
+        "503": 1,
+        "508": 1,
+        "517": 1,
+        "6": 1,
+        "8": 1
+      },
+      "outer_version": "12.12.10.1",
+      "path": "evidence/research/20260927/u01-distinct-build-12.12.10.1/input-lock/native-authored-input.itl",
+      "playlist_count": 15,
+      "record_header_lengths": {
+        "mfdh": [
+          144
+        ],
+        "mhgh": [
+          280
+        ],
+        "mhoh": [
+          24
+        ],
+        "miah": [
+          88
+        ],
+        "miih": [
+          100
+        ],
+        "miph": [
+          3500
+        ],
+        "mith": [
+          756
+        ],
+        "mlah": [
+          92
+        ],
+        "mlih": [
+          100
+        ],
+        "mlph": [
+          92
+        ],
+        "mlsh": [
+          44
+        ],
+        "mlth": [
+          92
+        ],
+        "msph": [
+          48
+        ],
+        "mtph": [
+          84
+        ]
+      },
+      "roots": [
+        {
+          "child_count": 0,
+          "header_length": 144,
+          "section_type": 16,
+          "tag": "mfdh"
+        },
+        {
+          "child_count": 3,
+          "header_length": 280,
+          "section_type": 12,
+          "tag": "mhgh"
+        },
+        {
+          "child_count": 1,
+          "header_length": 92,
+          "section_type": 9,
+          "tag": "mlah"
+        },
+        {
+          "child_count": 1,
+          "header_length": 100,
+          "section_type": 11,
+          "tag": "mlih"
+        },
+        {
+          "child_count": 1,
+          "header_length": 92,
+          "section_type": 1,
+          "tag": "mlth"
+        },
+        {
+          "child_count": 0,
+          "header_length": 92,
+          "section_type": 13,
+          "tag": "mlth"
+        },
+        {
+          "child_count": 15,
+          "header_length": 92,
+          "section_type": 2,
+          "tag": "mlph"
+        },
+        {
+          "child_count": 0,
+          "header_length": 92,
+          "section_type": 14,
+          "tag": "mlph"
+        },
+        {
+          "child_count": 1,
+          "header_length": 44,
+          "section_type": 21,
+          "tag": "mlsh"
+        }
+      ],
+      "section_21_present": true,
+      "section_types": [
+        16,
+        12,
+        9,
+        11,
+        1,
+        13,
+        23,
+        2,
+        14,
+        21,
+        4
+      ],
+      "sha256": "154146cf6eabdd7b8dd30f74e2c7009d0a8615d38b36edd1a3abbbacfc10cddc",
+      "track_semantics": [
+        {
+          "album": "Distinct Build Album 2023",
+          "album_artist": "Distinct Album Artist β",
+          "album_id": 149,
+          "artist": "Distinct Build Artist Ω",
+          "artist_id": 150,
+          "bit_rate": 705,
+          "comment": "Predeclared native baseline — 20260927",
+          "composer": null,
+          "date_added": 3873292047,
+          "date_modified": 3873292038,
+          "disc_count": 0,
+          "disc_number": 0,
+          "file_size": 44144,
+          "genre": null,
+          "header_length": 756,
+          "kind": "WAV audio file",
+          "legacy_loved_bit": false,
+          "legacy_loved_byte_raw": 0,
+          "name": "U01 12.12.10.1 Native α",
+          "name_refresh_flag_raw": 0,
+          "path": "D:\\a\\_temp\\u01-distinct-setup-20260927\\live\\media\\u01-12.12.10.1-523hz.wav",
+          "persistent_id": "C8FB5925BC26E77C",
+          "play_count": 2,
+          "play_date": 0,
+          "purchaser_name": null,
+          "rating": 80,
+          "record_kind_raw": 1,
+          "sample_rate": 22050,
+          "skip_count": 1,
+          "skip_date": 0,
+          "sort_album": null,
+          "sort_album_artist": null,
+          "sort_artist": null,
+          "sort_name": null,
+          "total_time": 500,
+          "track_count": 0,
+          "track_id": 139,
+          "track_number": 1,
+          "unplayed": null,
+          "unplayed_raw": 1,
+          "url": "file://localhost/D:/a/_temp/u01-distinct-setup-20260927/live/media/u01-12.12.10.1-523hz.wav",
+          "year": 2023
+        }
+      ],
+      "trailer_bytes": 0,
+      "type_109_objects": [
+        {
+          "payload_format": "xml_plist",
+          "playlist_name": "Music",
+          "playlist_persistent_id": "6EB9FAEB233B6A5F",
+          "plist": {
+            "tabViewMode": 4
+          },
+          "raw_sha256": "c2d1514d3308cdc01000ebc7b1b76164474f927f2a983fea6fba7043839275cc",
+          "record_bytes": 258,
+          "record_path": "section[7]/type[2]/mlph[0]/miph[2]/mhoh[6]"
+        }
+      ]
+    },
+    "native_12_12_positive_cycle_1": {
+      "bytes": 4904,
+      "causal_classification": "clean_normal_quit_positive_cycle",
+      "expanded_payload_bytes": 106776,
+      "file_persistent_id": "C4CF98746C40D802",
+      "inner_mfdh_version": "12.12.10.1",
+      "mhgh_offset_0xe5": 4,
+      "mhoh_type_census": {
+        "100": 15,
+        "101": 12,
+        "102": 12,
+        "103": 1,
+        "105": 30,
+        "108": 15,
+        "109": 1,
+        "11": 1,
+        "13": 1,
+        "2": 1,
+        "27": 1,
+        "3": 1,
+        "300": 1,
+        "301": 1,
+        "302": 1,
+        "4": 1,
+        "400": 1,
+        "503": 1,
+        "508": 1,
+        "517": 1,
+        "6": 1,
+        "8": 1
+      },
+      "outer_version": "12.12.10.1",
+      "path": "evidence/research/20260927/u01-distinct-build-12.12.10.1/positive-qualification/cases/native-authored-one-track-positive/cycle-1/native-saved.itl",
+      "playlist_count": 15,
+      "record_header_lengths": {
+        "mfdh": [
+          144
+        ],
+        "mhgh": [
+          280
+        ],
+        "mhoh": [
+          24
+        ],
+        "miah": [
+          88
+        ],
+        "miih": [
+          100
+        ],
+        "miph": [
+          3500
+        ],
+        "mith": [
+          756
+        ],
+        "mlah": [
+          92
+        ],
+        "mlih": [
+          100
+        ],
+        "mlph": [
+          92
+        ],
+        "mlsh": [
+          44
+        ],
+        "mlth": [
+          92
+        ],
+        "msph": [
+          48
+        ],
+        "mtph": [
+          84
+        ]
+      },
+      "roots": [
+        {
+          "child_count": 0,
+          "header_length": 144,
+          "section_type": 16,
+          "tag": "mfdh"
+        },
+        {
+          "child_count": 3,
+          "header_length": 280,
+          "section_type": 12,
+          "tag": "mhgh"
+        },
+        {
+          "child_count": 1,
+          "header_length": 92,
+          "section_type": 9,
+          "tag": "mlah"
+        },
+        {
+          "child_count": 1,
+          "header_length": 100,
+          "section_type": 11,
+          "tag": "mlih"
+        },
+        {
+          "child_count": 1,
+          "header_length": 92,
+          "section_type": 1,
+          "tag": "mlth"
+        },
+        {
+          "child_count": 0,
+          "header_length": 92,
+          "section_type": 13,
+          "tag": "mlth"
+        },
+        {
+          "child_count": 15,
+          "header_length": 92,
+          "section_type": 2,
+          "tag": "mlph"
+        },
+        {
+          "child_count": 0,
+          "header_length": 92,
+          "section_type": 14,
+          "tag": "mlph"
+        },
+        {
+          "child_count": 1,
+          "header_length": 44,
+          "section_type": 21,
+          "tag": "mlsh"
+        }
+      ],
+      "section_21_present": true,
+      "section_types": [
+        16,
+        12,
+        9,
+        11,
+        1,
+        13,
+        23,
+        2,
+        14,
+        21,
+        4
+      ],
+      "sha256": "09db3d7c0425a8350e33c4f461dd465fb476947f3a76c0f1ed4f67e29a284acc",
+      "track_semantics": [
+        {
+          "album": "Distinct Build Album 2023",
+          "album_artist": "Distinct Album Artist β",
+          "album_id": 69,
+          "artist": "Distinct Build Artist Ω",
+          "artist_id": 70,
+          "bit_rate": 705,
+          "comment": "Predeclared native baseline — 20260927",
+          "composer": null,
+          "date_added": 3873292047,
+          "date_modified": 3873292038,
+          "disc_count": 0,
+          "disc_number": 0,
+          "file_size": 44144,
+          "genre": null,
+          "header_length": 756,
+          "kind": "WAV audio file",
+          "legacy_loved_bit": false,
+          "legacy_loved_byte_raw": 0,
+          "name": "U01 12.12.10.1 Native α",
+          "name_refresh_flag_raw": 0,
+          "path": "D:\\a\\_temp\\u01-distinct-setup-20260927\\live\\media\\u01-12.12.10.1-523hz.wav",
+          "persistent_id": "C8FB5925BC26E77C",
+          "play_count": 2,
+          "play_date": 0,
+          "purchaser_name": null,
+          "rating": 80,
+          "record_kind_raw": 1,
+          "sample_rate": 22050,
+          "skip_count": 1,
+          "skip_date": 0,
+          "sort_album": null,
+          "sort_album_artist": null,
+          "sort_artist": null,
+          "sort_name": null,
+          "total_time": 500,
+          "track_count": 0,
+          "track_id": 71,
+          "track_number": 1,
+          "unplayed": null,
+          "unplayed_raw": 1,
+          "url": "file://localhost/D:/a/_temp/u01-distinct-setup-20260927/live/media/u01-12.12.10.1-523hz.wav",
+          "year": 2023
+        }
+      ],
+      "trailer_bytes": 0,
+      "type_109_objects": [
+        {
+          "payload_format": "xml_plist",
+          "playlist_name": "Music",
+          "playlist_persistent_id": "6EB9FAEB233B6A5F",
+          "plist": {
+            "lastViewedPlaylist": 81,
+            "lastViewedPlaylistViewMode": 7,
+            "tabViewMode": 4
+          },
+          "raw_sha256": "d173b7611ae07c9c43e6780cf2123a53a7cda8bfcde679738b1c2000af144aa8",
+          "record_bytes": 373,
+          "record_path": "section[7]/type[2]/mlph[0]/miph[2]/mhoh[6]"
+        }
+      ]
+    },
+    "native_12_12_positive_cycle_2": {
+      "bytes": 4904,
+      "causal_classification": "clean_normal_quit_positive_cycle",
+      "expanded_payload_bytes": 106776,
+      "file_persistent_id": "C4CF98746C40D802",
+      "inner_mfdh_version": "12.12.10.1",
+      "mhgh_offset_0xe5": 4,
+      "mhoh_type_census": {
+        "100": 15,
+        "101": 12,
+        "102": 12,
+        "103": 1,
+        "105": 30,
+        "108": 15,
+        "109": 1,
+        "11": 1,
+        "13": 1,
+        "2": 1,
+        "27": 1,
+        "3": 1,
+        "300": 1,
+        "301": 1,
+        "302": 1,
+        "4": 1,
+        "400": 1,
+        "503": 1,
+        "508": 1,
+        "517": 1,
+        "6": 1,
+        "8": 1
+      },
+      "outer_version": "12.12.10.1",
+      "path": "evidence/research/20260927/u01-distinct-build-12.12.10.1/positive-qualification/cases/native-authored-one-track-positive/cycle-2/native-saved.itl",
+      "playlist_count": 15,
+      "record_header_lengths": {
+        "mfdh": [
+          144
+        ],
+        "mhgh": [
+          280
+        ],
+        "mhoh": [
+          24
+        ],
+        "miah": [
+          88
+        ],
+        "miih": [
+          100
+        ],
+        "miph": [
+          3500
+        ],
+        "mith": [
+          756
+        ],
+        "mlah": [
+          92
+        ],
+        "mlih": [
+          100
+        ],
+        "mlph": [
+          92
+        ],
+        "mlsh": [
+          44
+        ],
+        "mlth": [
+          92
+        ],
+        "msph": [
+          48
+        ],
+        "mtph": [
+          84
+        ]
+      },
+      "roots": [
+        {
+          "child_count": 0,
+          "header_length": 144,
+          "section_type": 16,
+          "tag": "mfdh"
+        },
+        {
+          "child_count": 3,
+          "header_length": 280,
+          "section_type": 12,
+          "tag": "mhgh"
+        },
+        {
+          "child_count": 1,
+          "header_length": 92,
+          "section_type": 9,
+          "tag": "mlah"
+        },
+        {
+          "child_count": 1,
+          "header_length": 100,
+          "section_type": 11,
+          "tag": "mlih"
+        },
+        {
+          "child_count": 1,
+          "header_length": 92,
+          "section_type": 1,
+          "tag": "mlth"
+        },
+        {
+          "child_count": 0,
+          "header_length": 92,
+          "section_type": 13,
+          "tag": "mlth"
+        },
+        {
+          "child_count": 15,
+          "header_length": 92,
+          "section_type": 2,
+          "tag": "mlph"
+        },
+        {
+          "child_count": 0,
+          "header_length": 92,
+          "section_type": 14,
+          "tag": "mlph"
+        },
+        {
+          "child_count": 1,
+          "header_length": 44,
+          "section_type": 21,
+          "tag": "mlsh"
+        }
+      ],
+      "section_21_present": true,
+      "section_types": [
+        16,
+        12,
+        9,
+        11,
+        1,
+        13,
+        23,
+        2,
+        14,
+        21,
+        4
+      ],
+      "sha256": "9034aa3e9e7ccc12390d0b44307d8ea10dd313fc424415050c8d5bf8ced0e772",
+      "track_semantics": [
+        {
+          "album": "Distinct Build Album 2023",
+          "album_artist": "Distinct Album Artist β",
+          "album_id": 69,
+          "artist": "Distinct Build Artist Ω",
+          "artist_id": 70,
+          "bit_rate": 705,
+          "comment": "Predeclared native baseline — 20260927",
+          "composer": null,
+          "date_added": 3873292047,
+          "date_modified": 3873292038,
+          "disc_count": 0,
+          "disc_number": 0,
+          "file_size": 44144,
+          "genre": null,
+          "header_length": 756,
+          "kind": "WAV audio file",
+          "legacy_loved_bit": false,
+          "legacy_loved_byte_raw": 0,
+          "name": "U01 12.12.10.1 Native α",
+          "name_refresh_flag_raw": 0,
+          "path": "D:\\a\\_temp\\u01-distinct-setup-20260927\\live\\media\\u01-12.12.10.1-523hz.wav",
+          "persistent_id": "C8FB5925BC26E77C",
+          "play_count": 2,
+          "play_date": 0,
+          "purchaser_name": null,
+          "rating": 80,
+          "record_kind_raw": 1,
+          "sample_rate": 22050,
+          "skip_count": 1,
+          "skip_date": 0,
+          "sort_album": null,
+          "sort_album_artist": null,
+          "sort_artist": null,
+          "sort_name": null,
+          "total_time": 500,
+          "track_count": 0,
+          "track_id": 71,
+          "track_number": 1,
+          "unplayed": null,
+          "unplayed_raw": 1,
+          "url": "file://localhost/D:/a/_temp/u01-distinct-setup-20260927/live/media/u01-12.12.10.1-523hz.wav",
+          "year": 2023
+        }
+      ],
+      "trailer_bytes": 0,
+      "type_109_objects": [
+        {
+          "payload_format": "xml_plist",
+          "playlist_name": "Music",
+          "playlist_persistent_id": "6EB9FAEB233B6A5F",
+          "plist": {
+            "lastViewedPlaylist": 81,
+            "lastViewedPlaylistViewMode": 7,
+            "tabViewMode": 4
+          },
+          "raw_sha256": "d173b7611ae07c9c43e6780cf2123a53a7cda8bfcde679738b1c2000af144aa8",
+          "record_bytes": 373,
+          "record_path": "section[7]/type[2]/mlph[0]/miph[2]/mhoh[6]"
+        }
+      ]
+    },
+    "native_12_13_11_independent_cycle_2": {
+      "bytes": 4151,
+      "causal_classification": "clean_normal_quit_separate_runtime_native_cycle",
+      "expanded_payload_bytes": 104984,
+      "file_persistent_id": "5245464552454E43",
+      "inner_mfdh_version": "12.13.11.1",
+      "mhgh_offset_0xe5": 4,
+      "mhoh_type_census": {
+        "100": 15,
+        "101": 12,
+        "102": 12,
+        "103": 1,
+        "105": 30,
+        "108": 15,
+        "109": 2,
+        "2": 1,
+        "503": 1,
+        "508": 1,
+        "517": 1
+      },
+      "outer_version": "12.13.11.1",
+      "path": "evidence/research/20260927/u01-sampled-version-matrix/12.13.11.1-independent/native/exact-one-track/cases/reference-one-track-raw/cycle-2/native-saved.itl",
+      "playlist_count": 15,
+      "record_header_lengths": {
+        "mfdh": [
+          144
+        ],
+        "mhgh": [
+          280
+        ],
+        "mhoh": [
+          24
+        ],
+        "miah": [
+          88
+        ],
+        "miih": [
+          100
+        ],
+        "miph": [
+          3500
+        ],
+        "mith": [
+          756
+        ],
+        "mlah": [
+          92
+        ],
+        "mlih": [
+          100
+        ],
+        "mlph": [
+          92
+        ],
+        "mlth": [
+          92
+        ],
+        "mtph": [
+          84
+        ]
+      },
+      "roots": [
+        {
+          "child_count": 0,
+          "header_length": 144,
+          "section_type": 16,
+          "tag": "mfdh"
+        },
+        {
+          "child_count": 3,
+          "header_length": 280,
+          "section_type": 12,
+          "tag": "mhgh"
+        },
+        {
+          "child_count": 1,
+          "header_length": 92,
+          "section_type": 9,
+          "tag": "mlah"
+        },
+        {
+          "child_count": 1,
+          "header_length": 100,
+          "section_type": 11,
+          "tag": "mlih"
+        },
+        {
+          "child_count": 1,
+          "header_length": 92,
+          "section_type": 1,
+          "tag": "mlth"
+        },
+        {
+          "child_count": 0,
+          "header_length": 92,
+          "section_type": 13,
+          "tag": "mlth"
+        },
+        {
+          "child_count": 15,
+          "header_length": 92,
+          "section_type": 2,
+          "tag": "mlph"
+        },
+        {
+          "child_count": 0,
+          "header_length": 92,
+          "section_type": 14,
+          "tag": "mlph"
+        }
+      ],
+      "section_21_present": false,
+      "section_types": [
+        16,
+        12,
+        9,
+        11,
+        1,
+        13,
+        23,
+        2,
+        14,
+        4
+      ],
+      "sha256": "34401e8c1fdde316698887d7cdc8eca446bdc550b3945e90d9cf345c239d7562",
+      "track_semantics": [
+        {
+          "album": null,
+          "album_artist": null,
+          "album_id": 69,
+          "artist": null,
+          "artist_id": 70,
+          "bit_rate": 0,
+          "comment": null,
+          "composer": null,
+          "date_added": 3865040640,
+          "date_modified": 0,
+          "disc_count": 0,
+          "disc_number": 0,
+          "file_size": 0,
+          "genre": null,
+          "header_length": 756,
+          "kind": null,
+          "legacy_loved_bit": false,
+          "legacy_loved_byte_raw": 0,
+          "name": "Reference Track",
+          "name_refresh_flag_raw": 0,
+          "path": null,
+          "persistent_id": "A17E000000000001",
+          "play_count": 0,
+          "play_date": 0,
+          "purchaser_name": null,
+          "rating": 0,
+          "record_kind_raw": 1,
+          "sample_rate": 0,
+          "skip_count": 0,
+          "skip_date": 0,
+          "sort_album": null,
+          "sort_album_artist": null,
+          "sort_artist": null,
+          "sort_name": null,
+          "total_time": 0,
+          "track_count": 0,
+          "track_id": 71,
+          "track_number": 0,
+          "unplayed": null,
+          "unplayed_raw": 0,
+          "url": null,
+          "year": 0
+        }
+      ],
+      "trailer_bytes": 0,
+      "type_109_objects": [
+        {
+          "payload_format": "xml_plist",
+          "playlist_name": "Music",
+          "playlist_persistent_id": "689A0D3866988284",
+          "plist": {
+            "lastViewedPlaylist": 81,
+            "lastViewedPlaylistViewMode": 7,
+            "tabViewMode": 4
+          },
+          "raw_sha256": "d173b7611ae07c9c43e6780cf2123a53a7cda8bfcde679738b1c2000af144aa8",
+          "record_bytes": 373,
+          "record_path": "section[7]/type[2]/mlph[0]/miph[2]/mhoh[6]"
+        },
+        {
+          "payload_format": "xml_plist",
+          "playlist_name": "Podcasts",
+          "playlist_persistent_id": "E1F01DD04704C8F0",
+          "plist": {
+            "lastViewedPlaylist": 88,
+            "lastViewedPlaylistViewMode": 7
+          },
+          "raw_sha256": "6206ca20bfd9dff06c481ad8588b36dcf67c0ac64eaa0b506e15c7ac54cf7930",
+          "record_bytes": 327,
+          "record_path": "section[7]/type[2]/mlph[0]/miph[11]/mhoh[5]"
+        }
+      ]
+    },
+    "native_12_13_11_matched_cycle_2": {
+      "bytes": 4152,
+      "causal_classification": "clean_normal_quit_native_cycle",
+      "expanded_payload_bytes": 104984,
+      "file_persistent_id": "5245464552454E43",
+      "inner_mfdh_version": "12.13.11.1",
+      "mhgh_offset_0xe5": 4,
+      "mhoh_type_census": {
+        "100": 15,
+        "101": 12,
+        "102": 12,
+        "103": 1,
+        "105": 30,
+        "108": 15,
+        "109": 2,
+        "2": 1,
+        "503": 1,
+        "508": 1,
+        "517": 1
+      },
+      "outer_version": "12.13.11.1",
+      "path": "evidence/research/20260927/itunes-12.13.11.1-version-qualification/native/one-track/cases/reference-one-track-raw/cycle-2/native-saved.itl",
+      "playlist_count": 15,
+      "record_header_lengths": {
+        "mfdh": [
+          144
+        ],
+        "mhgh": [
+          280
+        ],
+        "mhoh": [
+          24
+        ],
+        "miah": [
+          88
+        ],
+        "miih": [
+          100
+        ],
+        "miph": [
+          3500
+        ],
+        "mith": [
+          756
+        ],
+        "mlah": [
+          92
+        ],
+        "mlih": [
+          100
+        ],
+        "mlph": [
+          92
+        ],
+        "mlth": [
+          92
+        ],
+        "mtph": [
+          84
+        ]
+      },
+      "roots": [
+        {
+          "child_count": 0,
+          "header_length": 144,
+          "section_type": 16,
+          "tag": "mfdh"
+        },
+        {
+          "child_count": 3,
+          "header_length": 280,
+          "section_type": 12,
+          "tag": "mhgh"
+        },
+        {
+          "child_count": 1,
+          "header_length": 92,
+          "section_type": 9,
+          "tag": "mlah"
+        },
+        {
+          "child_count": 1,
+          "header_length": 100,
+          "section_type": 11,
+          "tag": "mlih"
+        },
+        {
+          "child_count": 1,
+          "header_length": 92,
+          "section_type": 1,
+          "tag": "mlth"
+        },
+        {
+          "child_count": 0,
+          "header_length": 92,
+          "section_type": 13,
+          "tag": "mlth"
+        },
+        {
+          "child_count": 15,
+          "header_length": 92,
+          "section_type": 2,
+          "tag": "mlph"
+        },
+        {
+          "child_count": 0,
+          "header_length": 92,
+          "section_type": 14,
+          "tag": "mlph"
+        }
+      ],
+      "section_21_present": false,
+      "section_types": [
+        16,
+        12,
+        9,
+        11,
+        1,
+        13,
+        23,
+        2,
+        14,
+        4
+      ],
+      "sha256": "744c379586231ab6e28c75d805d7ad8696e8325e83e74b1b39568f009e89bdad",
+      "track_semantics": [
+        {
+          "album": null,
+          "album_artist": null,
+          "album_id": 69,
+          "artist": null,
+          "artist_id": 70,
+          "bit_rate": 0,
+          "comment": null,
+          "composer": null,
+          "date_added": 3865040640,
+          "date_modified": 0,
+          "disc_count": 0,
+          "disc_number": 0,
+          "file_size": 0,
+          "genre": null,
+          "header_length": 756,
+          "kind": null,
+          "legacy_loved_bit": false,
+          "legacy_loved_byte_raw": 0,
+          "name": "Reference Track",
+          "name_refresh_flag_raw": 0,
+          "path": null,
+          "persistent_id": "A17E000000000001",
+          "play_count": 0,
+          "play_date": 0,
+          "purchaser_name": null,
+          "rating": 0,
+          "record_kind_raw": 1,
+          "sample_rate": 0,
+          "skip_count": 0,
+          "skip_date": 0,
+          "sort_album": null,
+          "sort_album_artist": null,
+          "sort_artist": null,
+          "sort_name": null,
+          "total_time": 0,
+          "track_count": 0,
+          "track_id": 71,
+          "track_number": 0,
+          "unplayed": null,
+          "unplayed_raw": 0,
+          "url": null,
+          "year": 0
+        }
+      ],
+      "trailer_bytes": 0,
+      "type_109_objects": [
+        {
+          "payload_format": "xml_plist",
+          "playlist_name": "Music",
+          "playlist_persistent_id": "520D9E50B0E256BD",
+          "plist": {
+            "lastViewedPlaylist": 81,
+            "lastViewedPlaylistViewMode": 7,
+            "tabViewMode": 4
+          },
+          "raw_sha256": "d173b7611ae07c9c43e6780cf2123a53a7cda8bfcde679738b1c2000af144aa8",
+          "record_bytes": 373,
+          "record_path": "section[7]/type[2]/mlph[0]/miph[2]/mhoh[6]"
+        },
+        {
+          "payload_format": "xml_plist",
+          "playlist_name": "Podcasts",
+          "playlist_persistent_id": "19A09F37539D8D48",
+          "plist": {
+            "lastViewedPlaylist": 88,
+            "lastViewedPlaylistViewMode": 7
+          },
+          "raw_sha256": "6206ca20bfd9dff06c481ad8588b36dcf67c0ac64eaa0b506e15c7ac54cf7930",
+          "record_bytes": 327,
+          "record_path": "section[7]/type[2]/mlph[0]/miph[11]/mhoh[5]"
+        }
+      ]
+    },
+    "native_12_13_9_matched_cycle_2": {
+      "bytes": 4151,
+      "causal_classification": "clean_normal_quit_native_cycle",
+      "expanded_payload_bytes": 104984,
+      "file_persistent_id": "5245464552454E43",
+      "inner_mfdh_version": "12.13.9.1",
+      "mhgh_offset_0xe5": 4,
+      "mhoh_type_census": {
+        "100": 15,
+        "101": 12,
+        "102": 12,
+        "103": 1,
+        "105": 30,
+        "108": 15,
+        "109": 2,
+        "2": 1,
+        "503": 1,
+        "508": 1,
+        "517": 1
+      },
+      "outer_version": "12.13.9.1",
+      "path": "evidence/research/20260927/u01-sampled-version-matrix/12.13.9.1/native/exact-one-track/cases/reference-one-track-raw/cycle-2/native-saved.itl",
+      "playlist_count": 15,
+      "record_header_lengths": {
+        "mfdh": [
+          144
+        ],
+        "mhgh": [
+          280
+        ],
+        "mhoh": [
+          24
+        ],
+        "miah": [
+          88
+        ],
+        "miih": [
+          100
+        ],
+        "miph": [
+          3500
+        ],
+        "mith": [
+          756
+        ],
+        "mlah": [
+          92
+        ],
+        "mlih": [
+          100
+        ],
+        "mlph": [
+          92
+        ],
+        "mlth": [
+          92
+        ],
+        "mtph": [
+          84
+        ]
+      },
+      "roots": [
+        {
+          "child_count": 0,
+          "header_length": 144,
+          "section_type": 16,
+          "tag": "mfdh"
+        },
+        {
+          "child_count": 3,
+          "header_length": 280,
+          "section_type": 12,
+          "tag": "mhgh"
+        },
+        {
+          "child_count": 1,
+          "header_length": 92,
+          "section_type": 9,
+          "tag": "mlah"
+        },
+        {
+          "child_count": 1,
+          "header_length": 100,
+          "section_type": 11,
+          "tag": "mlih"
+        },
+        {
+          "child_count": 1,
+          "header_length": 92,
+          "section_type": 1,
+          "tag": "mlth"
+        },
+        {
+          "child_count": 0,
+          "header_length": 92,
+          "section_type": 13,
+          "tag": "mlth"
+        },
+        {
+          "child_count": 15,
+          "header_length": 92,
+          "section_type": 2,
+          "tag": "mlph"
+        },
+        {
+          "child_count": 0,
+          "header_length": 92,
+          "section_type": 14,
+          "tag": "mlph"
+        }
+      ],
+      "section_21_present": false,
+      "section_types": [
+        16,
+        12,
+        9,
+        11,
+        1,
+        13,
+        23,
+        2,
+        14,
+        4
+      ],
+      "sha256": "c60e1ac92eabbb40b46c48c5c10e25310fbc03162bb6f21afc9584f3bd48d4a7",
+      "track_semantics": [
+        {
+          "album": null,
+          "album_artist": null,
+          "album_id": 69,
+          "artist": null,
+          "artist_id": 70,
+          "bit_rate": 0,
+          "comment": null,
+          "composer": null,
+          "date_added": 3865040640,
+          "date_modified": 0,
+          "disc_count": 0,
+          "disc_number": 0,
+          "file_size": 0,
+          "genre": null,
+          "header_length": 756,
+          "kind": null,
+          "legacy_loved_bit": false,
+          "legacy_loved_byte_raw": 0,
+          "name": "Reference Track",
+          "name_refresh_flag_raw": 0,
+          "path": null,
+          "persistent_id": "A17E000000000001",
+          "play_count": 0,
+          "play_date": 0,
+          "purchaser_name": null,
+          "rating": 0,
+          "record_kind_raw": 1,
+          "sample_rate": 0,
+          "skip_count": 0,
+          "skip_date": 0,
+          "sort_album": null,
+          "sort_album_artist": null,
+          "sort_artist": null,
+          "sort_name": null,
+          "total_time": 0,
+          "track_count": 0,
+          "track_id": 71,
+          "track_number": 0,
+          "unplayed": null,
+          "unplayed_raw": 0,
+          "url": null,
+          "year": 0
+        }
+      ],
+      "trailer_bytes": 0,
+      "type_109_objects": [
+        {
+          "payload_format": "xml_plist",
+          "playlist_name": "Music",
+          "playlist_persistent_id": "88E5988FBAC354A5",
+          "plist": {
+            "lastViewedPlaylist": 81,
+            "lastViewedPlaylistViewMode": 7,
+            "tabViewMode": 4
+          },
+          "raw_sha256": "d173b7611ae07c9c43e6780cf2123a53a7cda8bfcde679738b1c2000af144aa8",
+          "record_bytes": 373,
+          "record_path": "section[7]/type[2]/mlph[0]/miph[2]/mhoh[6]"
+        },
+        {
+          "payload_format": "xml_plist",
+          "playlist_name": "Podcasts",
+          "playlist_persistent_id": "A6961AAC997EF901",
+          "plist": {
+            "lastViewedPlaylist": 88,
+            "lastViewedPlaylistViewMode": 7
+          },
+          "raw_sha256": "6206ca20bfd9dff06c481ad8588b36dcf67c0ac64eaa0b506e15c7ac54cf7930",
+          "record_bytes": 327,
+          "record_path": "section[7]/type[2]/mlph[0]/miph[11]/mhoh[5]"
+        }
+      ]
+    },
+    "timeout_12_12_attempt_1": {
+      "bytes": 3866,
+      "causal_classification": "force_terminated_timeout_survivor_observation_only",
+      "expanded_payload_bytes": 104542,
+      "file_persistent_id": "5245464552454E43",
+      "inner_mfdh_version": "12.12.10.1",
+      "mhgh_offset_0xe5": 0,
+      "mhoh_type_census": {
+        "100": 15,
+        "101": 12,
+        "102": 12,
+        "103": 1,
+        "105": 30,
+        "108": 15,
+        "109": 1,
+        "2": 1,
+        "503": 1,
+        "508": 1,
+        "517": 1
+      },
+      "outer_version": "12.12.10.1",
+      "path": "evidence/research/20260927/u01-distinct-build-12.12.10.1/negative-qualification/post-timeout-capture/attempt-1/native-mutated-at-timeout.itl",
+      "playlist_count": 15,
+      "record_header_lengths": {
+        "mfdh": [
+          144
+        ],
+        "mhgh": [
+          280
+        ],
+        "mhoh": [
+          24
+        ],
+        "miah": [
+          88
+        ],
+        "miih": [
+          100
+        ],
+        "miph": [
+          3500
+        ],
+        "mith": [
+          756
+        ],
+        "mlah": [
+          92
+        ],
+        "mlih": [
+          100
+        ],
+        "mlph": [
+          92
+        ],
+        "mlth": [
+          92
+        ],
+        "mtph": [
+          84
+        ]
+      },
+      "roots": [
+        {
+          "child_count": 0,
+          "header_length": 144,
+          "section_type": 16,
+          "tag": "mfdh"
+        },
+        {
+          "child_count": 3,
+          "header_length": 280,
+          "section_type": 12,
+          "tag": "mhgh"
+        },
+        {
+          "child_count": 1,
+          "header_length": 92,
+          "section_type": 9,
+          "tag": "mlah"
+        },
+        {
+          "child_count": 1,
+          "header_length": 100,
+          "section_type": 11,
+          "tag": "mlih"
+        },
+        {
+          "child_count": 1,
+          "header_length": 92,
+          "section_type": 1,
+          "tag": "mlth"
+        },
+        {
+          "child_count": 0,
+          "header_length": 92,
+          "section_type": 13,
+          "tag": "mlth"
+        },
+        {
+          "child_count": 15,
+          "header_length": 92,
+          "section_type": 2,
+          "tag": "mlph"
+        },
+        {
+          "child_count": 0,
+          "header_length": 92,
+          "section_type": 14,
+          "tag": "mlph"
+        }
+      ],
+      "section_21_present": false,
+      "section_types": [
+        16,
+        12,
+        9,
+        11,
+        1,
+        13,
+        23,
+        2,
+        14,
+        4
+      ],
+      "sha256": "b92b3b62dd418a4010e14b2da2e4b92abe7268dcd0d54a560b1cd29a57cdef59",
+      "track_semantics": [
+        {
+          "album": null,
+          "album_artist": null,
+          "album_id": 69,
+          "artist": null,
+          "artist_id": 70,
+          "bit_rate": 0,
+          "comment": null,
+          "composer": null,
+          "date_added": 3865040640,
+          "date_modified": 0,
+          "disc_count": 0,
+          "disc_number": 0,
+          "file_size": 0,
+          "genre": null,
+          "header_length": 756,
+          "kind": null,
+          "legacy_loved_bit": false,
+          "legacy_loved_byte_raw": 0,
+          "name": "Reference Track",
+          "name_refresh_flag_raw": 0,
+          "path": null,
+          "persistent_id": "A17E000000000001",
+          "play_count": 0,
+          "play_date": 0,
+          "purchaser_name": null,
+          "rating": 0,
+          "record_kind_raw": 1,
+          "sample_rate": 0,
+          "skip_count": 0,
+          "skip_date": 0,
+          "sort_album": null,
+          "sort_album_artist": null,
+          "sort_artist": null,
+          "sort_name": null,
+          "total_time": 0,
+          "track_count": 0,
+          "track_id": 71,
+          "track_number": 0,
+          "unplayed": null,
+          "unplayed_raw": 0,
+          "url": null,
+          "year": 0
+        }
+      ],
+      "trailer_bytes": 0,
+      "type_109_objects": [
+        {
+          "payload_format": "xml_plist",
+          "playlist_name": "Music",
+          "playlist_persistent_id": "B15FDA6388B6066A",
+          "plist": {
+            "tabViewMode": 4
+          },
+          "raw_sha256": "c2d1514d3308cdc01000ebc7b1b76164474f927f2a983fea6fba7043839275cc",
+          "record_bytes": 258,
+          "record_path": "section[7]/type[2]/mlph[0]/miph[2]/mhoh[6]"
+        }
+      ]
+    },
+    "timeout_12_12_attempt_2": {
+      "bytes": 3876,
+      "causal_classification": "force_terminated_timeout_survivor_observation_only",
+      "expanded_payload_bytes": 104542,
+      "file_persistent_id": "5245464552454E43",
+      "inner_mfdh_version": "12.12.10.1",
+      "mhgh_offset_0xe5": 0,
+      "mhoh_type_census": {
+        "100": 15,
+        "101": 12,
+        "102": 12,
+        "103": 1,
+        "105": 30,
+        "108": 15,
+        "109": 1,
+        "2": 1,
+        "503": 1,
+        "508": 1,
+        "517": 1
+      },
+      "outer_version": "12.12.10.1",
+      "path": "evidence/research/20260927/u01-distinct-build-12.12.10.1/negative-qualification/post-timeout-capture/attempt-2/native-mutated-at-timeout.itl",
+      "playlist_count": 15,
+      "record_header_lengths": {
+        "mfdh": [
+          144
+        ],
+        "mhgh": [
+          280
+        ],
+        "mhoh": [
+          24
+        ],
+        "miah": [
+          88
+        ],
+        "miih": [
+          100
+        ],
+        "miph": [
+          3500
+        ],
+        "mith": [
+          756
+        ],
+        "mlah": [
+          92
+        ],
+        "mlih": [
+          100
+        ],
+        "mlph": [
+          92
+        ],
+        "mlth": [
+          92
+        ],
+        "mtph": [
+          84
+        ]
+      },
+      "roots": [
+        {
+          "child_count": 0,
+          "header_length": 144,
+          "section_type": 16,
+          "tag": "mfdh"
+        },
+        {
+          "child_count": 3,
+          "header_length": 280,
+          "section_type": 12,
+          "tag": "mhgh"
+        },
+        {
+          "child_count": 1,
+          "header_length": 92,
+          "section_type": 9,
+          "tag": "mlah"
+        },
+        {
+          "child_count": 1,
+          "header_length": 100,
+          "section_type": 11,
+          "tag": "mlih"
+        },
+        {
+          "child_count": 1,
+          "header_length": 92,
+          "section_type": 1,
+          "tag": "mlth"
+        },
+        {
+          "child_count": 0,
+          "header_length": 92,
+          "section_type": 13,
+          "tag": "mlth"
+        },
+        {
+          "child_count": 15,
+          "header_length": 92,
+          "section_type": 2,
+          "tag": "mlph"
+        },
+        {
+          "child_count": 0,
+          "header_length": 92,
+          "section_type": 14,
+          "tag": "mlph"
+        }
+      ],
+      "section_21_present": false,
+      "section_types": [
+        16,
+        12,
+        9,
+        11,
+        1,
+        13,
+        23,
+        2,
+        14,
+        4
+      ],
+      "sha256": "b852b7d439bdf03d988e3f732a076d9f67e872a8314b68eee0435e210fa111f8",
+      "track_semantics": [
+        {
+          "album": null,
+          "album_artist": null,
+          "album_id": 69,
+          "artist": null,
+          "artist_id": 70,
+          "bit_rate": 0,
+          "comment": null,
+          "composer": null,
+          "date_added": 3865040640,
+          "date_modified": 0,
+          "disc_count": 0,
+          "disc_number": 0,
+          "file_size": 0,
+          "genre": null,
+          "header_length": 756,
+          "kind": null,
+          "legacy_loved_bit": false,
+          "legacy_loved_byte_raw": 0,
+          "name": "Reference Track",
+          "name_refresh_flag_raw": 0,
+          "path": null,
+          "persistent_id": "A17E000000000001",
+          "play_count": 0,
+          "play_date": 0,
+          "purchaser_name": null,
+          "rating": 0,
+          "record_kind_raw": 1,
+          "sample_rate": 0,
+          "skip_count": 0,
+          "skip_date": 0,
+          "sort_album": null,
+          "sort_album_artist": null,
+          "sort_artist": null,
+          "sort_name": null,
+          "total_time": 0,
+          "track_count": 0,
+          "track_id": 71,
+          "track_number": 0,
+          "unplayed": null,
+          "unplayed_raw": 0,
+          "url": null,
+          "year": 0
+        }
+      ],
+      "trailer_bytes": 0,
+      "type_109_objects": [
+        {
+          "payload_format": "xml_plist",
+          "playlist_name": "Music",
+          "playlist_persistent_id": "B325116F81A862F1",
+          "plist": {
+            "tabViewMode": 4
+          },
+          "raw_sha256": "c2d1514d3308cdc01000ebc7b1b76164474f927f2a983fea6fba7043839275cc",
+          "record_bytes": 258,
+          "record_path": "section[7]/type[2]/mlph[0]/miph[2]/mhoh[6]"
+        }
+      ]
+    }
+  },
+  "offline_derivative": {
+    "bytes": 3006,
+    "causal_classification": "offline_rebuilt_derivative_never_launched",
+    "expanded_payload_bytes": 104984,
+    "file_persistent_id": "5245464552454E43",
+    "inner_mfdh_version": "12.12.10.1",
+    "mhgh_offset_0xe5": 4,
+    "mhoh_type_census": {
+      "100": 15,
+      "101": 12,
+      "102": 12,
+      "103": 1,
+      "105": 30,
+      "108": 15,
+      "109": 2,
+      "2": 1,
+      "503": 1,
+      "508": 1,
+      "517": 1
+    },
+    "outer_version": "12.12.10.1",
+    "path": "evidence/research/20260927/u01-structural-candidate-inventory/candidates/native-12.13.11.1-normalized-to-12.12.10.1.itl",
+    "playlist_count": 15,
+    "record_header_lengths": {
+      "mfdh": [
+        144
+      ],
+      "mhgh": [
+        280
+      ],
+      "mhoh": [
+        24
+      ],
+      "miah": [
+        88
+      ],
+      "miih": [
+        100
+      ],
+      "miph": [
+        3500
+      ],
+      "mith": [
+        756
+      ],
+      "mlah": [
+        92
+      ],
+      "mlih": [
+        100
+      ],
+      "mlph": [
+        92
+      ],
+      "mlth": [
+        92
+      ],
+      "mtph": [
+        84
+      ]
+    },
+    "roots": [
+      {
+        "child_count": 0,
+        "header_length": 144,
+        "section_type": 16,
+        "tag": "mfdh"
+      },
+      {
+        "child_count": 3,
+        "header_length": 280,
+        "section_type": 12,
+        "tag": "mhgh"
+      },
+      {
+        "child_count": 1,
+        "header_length": 92,
+        "section_type": 9,
+        "tag": "mlah"
+      },
+      {
+        "child_count": 1,
+        "header_length": 100,
+        "section_type": 11,
+        "tag": "mlih"
+      },
+      {
+        "child_count": 1,
+        "header_length": 92,
+        "section_type": 1,
+        "tag": "mlth"
+      },
+      {
+        "child_count": 0,
+        "header_length": 92,
+        "section_type": 13,
+        "tag": "mlth"
+      },
+      {
+        "child_count": 15,
+        "header_length": 92,
+        "section_type": 2,
+        "tag": "mlph"
+      },
+      {
+        "child_count": 0,
+        "header_length": 92,
+        "section_type": 14,
+        "tag": "mlph"
+      }
+    ],
+    "section_21_present": false,
+    "section_types": [
+      16,
+      12,
+      9,
+      11,
+      1,
+      13,
+      23,
+      2,
+      14,
+      4
+    ],
+    "sha256": "e9ea49521b72e8d166ec852531927069ca6fb8dc6a37ea9e59ae3bbda8916f47",
+    "track_semantics": [
+      {
+        "album": null,
+        "album_artist": null,
+        "album_id": 69,
+        "artist": null,
+        "artist_id": 70,
+        "bit_rate": 0,
+        "comment": null,
+        "composer": null,
+        "date_added": 3865040640,
+        "date_modified": 0,
+        "disc_count": 0,
+        "disc_number": 0,
+        "file_size": 0,
+        "genre": null,
+        "header_length": 756,
+        "kind": null,
+        "legacy_loved_bit": false,
+        "legacy_loved_byte_raw": 0,
+        "name": "Reference Track",
+        "name_refresh_flag_raw": 0,
+        "path": null,
+        "persistent_id": "A17E000000000001",
+        "play_count": 0,
+        "play_date": 0,
+        "purchaser_name": null,
+        "rating": 0,
+        "record_kind_raw": 1,
+        "sample_rate": 0,
+        "skip_count": 0,
+        "skip_date": 0,
+        "sort_album": null,
+        "sort_album_artist": null,
+        "sort_artist": null,
+        "sort_name": null,
+        "total_time": 0,
+        "track_count": 0,
+        "track_id": 71,
+        "track_number": 0,
+        "unplayed": null,
+        "unplayed_raw": 0,
+        "url": null,
+        "year": 0
+      }
+    ],
+    "trailer_bytes": 0,
+    "type_109_objects": [
+      {
+        "payload_format": "xml_plist",
+        "playlist_name": "Music",
+        "playlist_persistent_id": "520D9E50B0E256BD",
+        "plist": {
+          "lastViewedPlaylist": 81,
+          "lastViewedPlaylistViewMode": 7,
+          "tabViewMode": 4
+        },
+        "raw_sha256": "d173b7611ae07c9c43e6780cf2123a53a7cda8bfcde679738b1c2000af144aa8",
+        "record_bytes": 373,
+        "record_path": "section[7]/type[2]/mlph[0]/miph[2]/mhoh[6]"
+      },
+      {
+        "payload_format": "xml_plist",
+        "playlist_name": "Podcasts",
+        "playlist_persistent_id": "19A09F37539D8D48",
+        "plist": {
+          "lastViewedPlaylist": 88,
+          "lastViewedPlaylistViewMode": 7
+        },
+        "raw_sha256": "6206ca20bfd9dff06c481ad8588b36dcf67c0ac64eaa0b506e15c7ac54cf7930",
+        "record_bytes": 327,
+        "record_path": "section[7]/type[2]/mlph[0]/miph[11]/mhoh[5]"
+      }
+    ]
+  },
+  "schema": "windows-itl.u01-structural-candidate-inventory-20260927.v1",
+  "scope": {
+    "native_launches_performed_by_this_inventory": 0,
+    "target_build": "12.12.10.1",
+    "target_executable_sha256": "0aa1b53af915fc9e0ced4c7ecbcb1397a036d38367d894ae063ae1d127331f9b",
+    "u01_closed": false
+  },
+  "static_localization": {
+    "bounded_conclusion": {
+      "call_site_selecting_member_3_versus_4_identified": false,
+      "newer_and_invalid_messages_are_adjacent_members": true,
+      "note": "The static evidence localizes the message family and its generated lookup wrapper. It does not establish the parser branch or a record-level compatibility gate.",
+      "parser_result_or_status_comparison_identified": false,
+      "resource_family_localized": true,
+      "semantic_status_code_claimed": false
+    },
+    "classification": "derived static metadata only; no Apple executable or resource bytes retained",
+    "executable": {
+      "authenticode": {
+        "status": "Valid",
+        "subject": "CN=Apple Inc., O=Apple Inc., L=Cupertino, S=California, C=US",
+        "thumbprint": "67A9953123BD5F01B1BC0BB98A950D9CA869CD02"
+      },
+      "binary_retained": false,
+      "bytes": 39260512,
+      "file_version": "12.12.10.1",
+      "path": "C:\\Program Files\\iTunes\\iTunes.exe",
+      "product_version": "12.12.10.1",
+      "sha256": "0aa1b53af915fc9e0ced4c7ecbcb1397a036d38367d894ae063ae1d127331f9b"
+    },
+    "localization_resources": {
+      "entries": [
+        {
+          "decimal_id": 524419075,
+          "hex_id": "0x1f420003",
+          "key": "x0mp0kat6u",
+          "message": "The file “^FILENAME” cannot be read because it was created by a newer version of iTunes."
+        },
+        {
+          "decimal_id": 524419076,
+          "hex_id": "0x1f420004",
+          "key": "3mazunhhzu",
+          "message": "The file “^FILENAME” cannot be read because it does not appear to be a valid library file."
+        }
+      ],
+      "hashed_keys_present_in_executable": false,
+      "map_entry_count": 12241,
+      "map_format": "binary_plist",
+      "map_relative_path": "iTunes.Resources\\LocalizableStringsMap.plist",
+      "strings_relative_path": "iTunes.Resources\\en.lproj\\Localizable.strings"
+    },
+    "numeric_resource_family": {
+      "group_id": "0x1f42",
+      "members": [
+        {
+          "file_offset": "0x19fc208",
+          "id": "0x1f420001",
+          "occurrences_in_executable": 1,
+          "role": "library_save_error_family_member",
+          "rva": "0x19fd808"
+        },
+        {
+          "file_offset": "0x19fc1e0",
+          "id": "0x1f420002",
+          "occurrences_in_executable": 1,
+          "role": "generic_cannot_read_family_member",
+          "rva": "0x19fd7e0"
+        },
+        {
+          "file_offset": "0x19fc1c0",
+          "id": "0x1f420003",
+          "occurrences_in_executable": 1,
+          "role": "newer_version_message",
+          "rva": "0x19fd7c0"
+        },
+        {
+          "file_offset": "0x19fc1d0",
+          "id": "0x1f420004",
+          "occurrences_in_executable": 1,
+          "role": "invalid_library_message",
+          "rva": "0x19fd7d0"
+        }
+      ],
+      "wrapper": {
+        "descriptor_file_offset": "0x19fc210",
+        "descriptor_references_found": [
+          {
+            "instruction": "lea r8, [rip + 0x18022dd]",
+            "instruction_va": "0x1401fb52c",
+            "target_va": "0x1419fd810"
+          }
+        ],
+        "descriptor_rva": "0x19fd810",
+        "descriptor_va": "0x1419fd810",
+        "direct_member_entry_xrefs_found": 0,
+        "file_offset": "0x1fa900",
+        "observed_behavior": "Lazy-loads a runtime service, then passes group ID 0x1f42 and descriptor VA 0x1419fd810 to an indirect lookup path.",
+        "rva": "0x1fb500",
+        "va": "0x1401fb500"
+      }
+    },
+    "schema": "windows-itl.u01-static-localization-12.12.10.1-20260927.v1"
+  },
+  "status": "offline_inventory_complete_no_structural_candidate_eligible_no_native_launch"
+}
