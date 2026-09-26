@@ -11,3 +11,8 @@ On the same runner, MinGW built a fresh x64 PE fixture in temporary storage and 
 The pinned Ghidra 12.1.3 archive and JDK 21 were then used with a temporary Ghidra project containing the same synthetic PE under the project name `iTunes.exe`. With `-CookieRva none`, the parameterized PowerShell/Java path decompiled one synthetic target successfully and produced `summary.tsv` plus one C file. Ghidra also read nine proprietary Windows/JDK host-system libraries while resolving imports; the receipt records those reads explicitly. It read or launched no Apple iTunes binary, recreated no historical Ghidra project, performed no Unicorn emulation or native acceptance, and does not close U-18.
 
 Finally, `bootstrap-current-replay.ps1` repeated the synthetic import and one-target decompilation from a fresh project directory. This closes the current-profile project-bootstrap plumbing gap only; it does not recreate the historical project or supply lawful Apple iTunes input.
+
+
+## Clean-bootstrap fail-closed hardening
+
+A second clean synthetic bootstrap passed after the wrapper was hardened to reject a non-empty project directory, a missing Ghidra launcher, and missing staged target/group inputs before invoking Ghidra. Four negative controls were rejected before Ghidra. One earlier synthetic attempt imported successfully but then failed because `function_groups.tsv` had not been staged; that failed attempt is retained rather than hidden. All attempts used the non-Apple synthetic fixture. This improves current-profile reproducibility only and does not recover the historical project, analyze Apple iTunes, or close U-18.

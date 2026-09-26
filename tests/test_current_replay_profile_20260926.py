@@ -50,5 +50,16 @@ def test_clean_synthetic_ghidra_bootstrap_receipt():
  ghidra=report['windows_validation']['synthetic_ghidra_headless']
  assert ghidra['clean_bootstrap_script']=='scripts/static/bootstrap-current-replay.ps1'
  assert ghidra['clean_project_import_and_decompile_passed'] is True
- assert ghidra['clean_bootstrap_repetitions']==1
- assert (ROOT/ghidra['clean_bootstrap_script']).is_file()
+ assert ghidra['clean_bootstrap_repetitions']==2
+ assert ghidra['clean_bootstrap_preflight_fail_closed'] is True
+ assert ghidra['clean_bootstrap_project_directory_required_absent_or_empty'] is True
+ assert ghidra['clean_bootstrap_required_staged_inputs']==['function_groups.tsv','targets file']
+ assert [x['name'] for x in ghidra['clean_bootstrap_negative_controls']]==['filename_mismatch','nonempty_project','missing_launcher','missing_function_groups']
+ assert all(x['status']=='rejected_before_ghidra' for x in ghidra['clean_bootstrap_negative_controls'])
+ assert ghidra['clean_bootstrap_failed_attempts_due_to_missing_staged_input']==1
+ assert ghidra['clean_bootstrap_all_attempts_used_synthetic_non_apple_fixture'] is True
+ script=(ROOT/ghidra['clean_bootstrap_script'])
+ assert script.is_file()
+ text=script.read_text()
+ for marker in ('ProjectDirectory must be absent or empty','analyzeHeadless.bat was not found','Targets file was not found','function_groups.tsv was not found'):
+  assert marker in text

@@ -73,7 +73,33 @@
     },
     "synthetic_ghidra_headless": {
       "apple_itunes_binary_reads": 0,
-      "clean_bootstrap_repetitions": 1,
+      "clean_bootstrap_all_attempts_used_synthetic_non_apple_fixture": true,
+      "clean_bootstrap_failed_attempts_due_to_missing_staged_input": 1,
+      "clean_bootstrap_negative_controls": [
+        {
+          "name": "filename_mismatch",
+          "status": "rejected_before_ghidra"
+        },
+        {
+          "name": "nonempty_project",
+          "status": "rejected_before_ghidra"
+        },
+        {
+          "name": "missing_launcher",
+          "status": "rejected_before_ghidra"
+        },
+        {
+          "name": "missing_function_groups",
+          "status": "rejected_before_ghidra"
+        }
+      ],
+      "clean_bootstrap_preflight_fail_closed": true,
+      "clean_bootstrap_project_directory_required_absent_or_empty": true,
+      "clean_bootstrap_repetitions": 2,
+      "clean_bootstrap_required_staged_inputs": [
+        "function_groups.tsv",
+        "targets file"
+      ],
       "clean_bootstrap_script": "scripts/static/bootstrap-current-replay.ps1",
       "clean_project_import_and_decompile_passed": true,
       "cookie_rva_argument": "none",
