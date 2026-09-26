@@ -49,12 +49,16 @@ public class ITLSelective extends GhidraScript {
   }}
   // Verified MSVC /GS helper preserves RAX on success. Model it using Ghidra's shipped fixup,
   // otherwise the unanalysed call hides native status returns in caller decompilation.
-  Function cookie=getFunctionAt(toAddr(base+0x179b8e0L));
-  if(cookie==null)throw new IllegalStateException("Verified security cookie function missing");
-  cookie.setName("__security_check_cookie",SourceType.USER_DEFINED);
-  cookie.setReturnType(ghidra.program.model.data.VoidDataType.dataType,SourceType.USER_DEFINED);
-  cookie.setCallFixup("security_check_cookie");
-  println("Applied verified MSVC cookie fixup at iTunes.exe+0x179b8e0");
+  String cookieRvaArg=args.length>3?args[3]:"179b8e0";
+  if(!cookieRvaArg.equalsIgnoreCase("none")){
+   long cookieRva=Long.parseLong(cookieRvaArg,16);
+   Function cookie=getFunctionAt(toAddr(base+cookieRva));
+   if(cookie==null)throw new IllegalStateException("Verified security cookie function missing at RVA 0x"+cookieRvaArg);
+   cookie.setName("__security_check_cookie",SourceType.USER_DEFINED);
+   cookie.setReturnType(ghidra.program.model.data.VoidDataType.dataType,SourceType.USER_DEFINED);
+   cookie.setCallFixup("security_check_cookie");
+   println("Applied verified MSVC cookie fixup at "+currentProgram.getName()+"+0x"+cookieRvaArg);
+  }else println("Skipped iTunes-specific security cookie fixup by explicit request");
   DecompInterface di=new DecompInterface();DecompileOptions opts=new DecompileOptions();di.setOptions(opts);
   di.toggleCCode(true);di.toggleSyntaxTree(true);di.setSimplificationStyle("decompile");di.openProgram(currentProgram);
   int ok=0,failed=0;
