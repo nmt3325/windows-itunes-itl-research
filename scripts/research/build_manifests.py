@@ -186,6 +186,8 @@ def build_corpus() -> dict:
         "evidence/research/20260927/u01-structural-candidate-inventory/native-structure-inventory.json",
         "evidence/research/20260927/u01-structural-candidate-inventory/static-localization-evidence.json",
         "evidence/research/20260927/u01-structural-candidate-inventory/predeclared-no-launch-plan.json",
+        "evidence/research/20260927/u01-static-control-flow/record-layout-census.json",
+        "evidence/research/20260927/u01-static-control-flow/ghidra-localization-flow.json",
         "evidence/research/20260926/retained-trailer-census/report.json",
     ):
         path = ROOT / name
@@ -214,6 +216,7 @@ def build_corpus() -> dict:
             "u01_sampled_version_matrix_note": "six pinned 12.13.10.3 input hashes passed 12 cycles on exact signed 12.13.9.1 and 12 cycles on a separate-runner exact signed 12.13.11.1; one malformed preflight negative never launched iTunes; candidate 113 did not reproduce its historical failure; U-01 remains open",
             "u01_distinct_12_12_10_1_note": "one exact same-build native-authored input passed two sequential normally-quit 12.12.10.1 cycles; the predeclared product-negative failed twice without the expected modal, and two force-terminated timeout survivors are retained only as observations; no 12.12.10.1 profile, arbitrary editing, product-facing negative, or U-01 closure",
             "u01_structural_candidate_inventory_note": "one version-normalized 12.13.11.1 derivative is retained as a reproducible offline 12.12.10.1-labelled candidate; optional playlist-view state supplied no defensible non-label incompatibility theory, launch authorization is false, zero native attempts occurred, and U-01 remains open",
+            "u01_static_control_flow_note": "a 431-file retained-corpus layout census and exact-build Ghidra registration-path report identify no new 12.13.11.1 section, record tag/header layout, mhoh type, parser status comparison, or member-3/member-4 selector; no native launch was authorized and U-01 remains open",
             "coverage_guided_note": "20,000 deterministic offline mutations completed without a retained anomaly; coarse line-transition guidance is not proof of parser safety or native acceptance",
             "filesystem_publication_note": "21 deterministic Linux scenarios plus 25 specifically qualified Windows Server 2025 / CPython 3.12.10 / runner-temporary NTFS scenarios bound stable-parent behavior and demonstrate the existing hostile-parent exclusion; counts are not independent experiments, the Windows campaign includes two parent-triggered/reaped TerminateProcess boundaries and zero unavailable cases, neither campaign cut power, no native-iTunes operation was added, production code was unchanged, and U-17 remains open",
             "filesystem_process_crash_note": "five selected Linux child schedules used unchanged production write_new: four actual parent-issued/reaped SIGKILL deaths and one normal control; cases, control, replays, and artifacts are not independent experiments, zero power-loss/native-iTunes operations occurred, and U-17 remains open",
