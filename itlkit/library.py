@@ -8,7 +8,7 @@ from pathlib import Path
 import copy
 from datetime import datetime, timedelta, timezone
 from .binary import uint, put
-from .container import Container
+from .container import Container, DEFAULT_MAX_PLAIN_BYTES
 from .model import Node, parse_sections, serialize_sections
 from .errors import FormatError, UnsupportedError
 
@@ -407,7 +407,7 @@ class Library:
                 raise FormatError(f'library count mismatch at header +0x{offset:x}')
         self._validate_ids_and_refs()
 
-    def _validate_ids_and_refs(self) -> None:
+    def _validate_ids_and_refs(self, *, require_secondary_track_ids: bool = False) -> None:
         tracks = self.tracks
         ids = [t.track_id for t in tracks]
         pids = [t.persistent_id for t in tracks]
@@ -416,9 +416,16 @@ class Library:
         def unique_nonzero(values, label):
             if 0 in values or len(values) != len(set(values)):
                 raise FormatError(f'zero or duplicate {label}')
-        # These independent namespaces are modeled only at the observed sizes.
-        unique_nonzero([uint(t.node.header, 0x1f4) for t in tracks
-                        if len(t.node.header) == 756], 'secondary track ID')
+        # Native-accepted template-free inputs can carry zero at +0x1f4.
+        # Reads/no-op writes preserve that state, while semantic edits retain
+        # the stricter observed write gate.
+        secondary = [uint(t.node.header, 0x1f4) for t in tracks
+                     if len(t.node.header) == 756]
+        nonzero_secondary = [value for value in secondary if value]
+        if len(nonzero_secondary) != len(set(nonzero_secondary)):
+            raise FormatError('duplicate secondary track ID')
+        if require_secondary_track_ids and len(nonzero_secondary) != len(secondary):
+            raise FormatError('zero secondary track ID is outside the semantic write profile')
         known = set(ids)
         for section, tag, offset in ((9, b'miah', 0xdc), (11, b'miih', 0x1e0)):
             records = self._records(section, tag)
@@ -452,7 +459,7 @@ class Library:
 
     def _require_semantic_profile(self) -> None:
         self._require_little_endian()
-        self._validate_ids_and_refs()
+        self._validate_ids_and_refs(require_secondary_track_ids=True)
         if self.container.version not in ('12.13.9.1', '12.13.10.3') or len(self.container.header) != 144:
             raise UnsupportedError('writes require the observed Windows iTunes 12.13.9.1/12.13.10.3 profile')
         if self.container.trailer:
@@ -504,11 +511,11 @@ class Library:
                 'sections': [s.to_dict() for s in current.sections], 'operations': []}
 
     @classmethod
-    def from_dict(cls, value: dict) -> Library:
+    def from_dict(cls, value: dict, *, max_plain_bytes: int = DEFAULT_MAX_PLAIN_BYTES) -> Library:
         if not isinstance(value, dict) or value.get('schema') != 'itlkit.library.v1':
             raise FormatError('unsupported library JSON schema')
         try:
-            container = Container.from_dict(value['container'])
+            container = Container.from_dict(value['container'], max_plain_bytes=max_plain_bytes)
             if not container.unchanged:
                 raise UnsupportedError('library JSON requires an intact original baseline; raw edits belong to the low-level container API')
             lib = cls(container)

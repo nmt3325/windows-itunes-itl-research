@@ -1,0 +1,54 @@
+{
+  "schema": "windows-itl.native-trailer-environment.v1",
+  "classification": {
+    "reused_environment_facts": {
+      "source_path": "evidence/research/20260925/native-rating-kind/report.json",
+      "source_sha256": "8411d14d2ae80285c7c4ad8b3fa6f88183e3bb1feb8b3a1a82f3db2e618c08fb",
+      "official_entry_url": "https://www.apple.com/itunes/download/win64",
+      "previously_observed_resolved_url": "https://secure-appldnld.apple.com/itunes12/140-75773-20260908-6e5e0165-99cb-4b30-b541-1b615fccfc1a/iTunes64Setup.exe",
+      "note": "URL resolution and initial installation are reused facts from the immediately preceding retained native-rating run on this same runner."
+    },
+    "fresh_pre_experiment_observations": {
+      "observation_utc": "2026-09-24T17:32:06.0694658Z",
+      "runner_os": "Microsoft Windows NT 10.0.26100.0",
+      "culture": "en-US",
+      "ui_culture": "en-US",
+      "timezone": "UTC",
+      "itunes_process_ids": [],
+      "profile_present": false,
+      "profile_role": "current user Music/iTunes path"
+    }
+  },
+  "installer": {
+    "observation": "fresh hash/version/signature check of the retained installer already present on this runner",
+    "file_name": "iTunes64Setup-12.13.10.3.exe",
+    "bytes": 208064480,
+    "sha256": "cea2a74cae3f061eadc11358eeaae9b40cfdea9ec1ee037b47da54a64219e182",
+    "file_version": "12.13.10.3",
+    "product_version": "12.13.10.3",
+    "authenticode": {
+      "status": "Valid",
+      "subject": "CN=Apple Inc., O=Apple Inc., L=Cupertino, S=California, C=US",
+      "thumbprint": "5ABF5D5265D74C9EAD19246DFAB611AA5DCFE791"
+    }
+  },
+  "installed_itunes": {
+    "observation": "fresh hash/version/signature check immediately before the U-13 experiment",
+    "file_name": "iTunes.exe",
+    "bytes": 38952912,
+    "sha256": "30d91209b5d81c47bbad2da9d89764fcab08bf5cd9af1a9571668001376c5d7d",
+    "file_version": "12.13.10.3",
+    "product_version": "12.13.10.3",
+    "authenticode": {
+      "status": "Valid",
+      "subject": "CN=Apple Inc., O=Apple Inc., L=Cupertino, S=California, C=US",
+      "thumbprint": "5ABF5D5265D74C9EAD19246DFAB611AA5DCFE791"
+    }
+  },
+  "expected_pins": {
+    "installer_sha256": "cea2a74cae3f061eadc11358eeaae9b40cfdea9ec1ee037b47da54a64219e182",
+    "itunes_sha256": "30d91209b5d81c47bbad2da9d89764fcab08bf5cd9af1a9571668001376c5d7d",
+    "version": "12.13.10.3",
+    "apple_thumbprint": "5ABF5D5265D74C9EAD19246DFAB611AA5DCFE791"
+  }
+}

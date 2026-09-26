@@ -1,0 +1,44 @@
+{
+  "schema_version": 1,
+  "scope": "Windows iTunes 12.13.10.3 native Rating/RatingKind/Loved/Disliked bounded research",
+  "candidate": "TEST_CORPUS/generated/reference-one-track-raw.itl",
+  "candidate_sha256": "c6c68171d57350ceb3cf379eee13a764ea199536ef18238fe4faf80583492d74",
+  "target_track_persistent_id": "A17E000000000001",
+  "cases": [
+    {
+      "name": "interface-probe",
+      "mode": "probe",
+      "purpose": "Runtime getter/setter attempts and Loved/Disliked interaction gate"
+    },
+    {
+      "name": "rating-000",
+      "mode": "rating",
+      "rating": 0
+    },
+    {
+      "name": "rating-020",
+      "mode": "rating",
+      "rating": 20
+    },
+    {
+      "name": "rating-040",
+      "mode": "rating",
+      "rating": 40
+    },
+    {
+      "name": "rating-060",
+      "mode": "rating",
+      "rating": 60
+    },
+    {
+      "name": "rating-080",
+      "mode": "rating",
+      "rating": 80
+    },
+    {
+      "name": "rating-100",
+      "mode": "rating",
+      "rating": 100
+    }
+  ]
+}

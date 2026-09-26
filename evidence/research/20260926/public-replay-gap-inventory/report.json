@@ -1,0 +1,283 @@
+{
+  "claim_boundaries": {
+    "ghidra_end_to_end_reproduced": false,
+    "historical_binary_analysis_reproduced": false,
+    "independent_reimplementation_passed": false,
+    "native_application_acceptance": false,
+    "not_independent_experiments": "This inventory is one deterministic repository-local check and does not replay historical binary analysis.",
+    "percentage_complete": null,
+    "u18_closed": false,
+    "unicorn_original_machine_code_reproduced": false,
+    "universal_itl_support": false
+  },
+  "claims": {
+    "historical_binary_analysis_reproduced": false,
+    "independent_reimplementation_passed": false,
+    "native_application_acceptance": false,
+    "percentage_complete": null,
+    "u13_closed": false,
+    "u17_closed": false,
+    "u18_closed": false,
+    "universal_itl_support": false
+  },
+  "dependency_pin_matrix": {
+    "missing_exact_version_tools": [
+      "capstone",
+      "pefile"
+    ],
+    "module": {
+      "exact_hash_recorded": true,
+      "exact_version_recorded": true,
+      "name": "iTunes.exe",
+      "sha256": "30d91209b5d81c47bbad2da9d89764fcab08bf5cd9af1a9571668001376c5d7d",
+      "staged": false,
+      "version": "12.13.10.3"
+    },
+    "toolchain": {
+      "capstone": {
+        "exact_version_recorded": false,
+        "staged": false,
+        "version": null
+      },
+      "ghidra": {
+        "archive_bytes": 569445154,
+        "archive_sha256": "93a5d11a9ad510622acaaf908c556a7b9b764d338e78a7567f3689bf5081fd54",
+        "exact_version_recorded": true,
+        "source_url": "https://github.com/NationalSecurityAgency/ghidra/releases/download/Ghidra_12.1.3_build/ghidra_12.1.3_PUBLIC_20260817.zip",
+        "staged": false,
+        "version": "12.1.3"
+      },
+      "jdk": {
+        "exact_version_recorded": true,
+        "staged": false,
+        "version": "21.0.12-101.0"
+      },
+      "pefile": {
+        "exact_version_recorded": false,
+        "staged": false,
+        "version": null
+      },
+      "pycryptodome": {
+        "exact_version_recorded": true,
+        "historical_static_execution_linkage_proven": false,
+        "staged": false,
+        "version": "3.23.0",
+        "version_evidence": "contemporaneous_project_environment_pin"
+      },
+      "unicorn": {
+        "exact_version_recorded": true,
+        "staged": false,
+        "version": "2.1.4"
+      }
+    },
+    "unstaged_items": [
+      "module:iTunes.exe",
+      "toolchain:capstone",
+      "toolchain:ghidra",
+      "toolchain:jdk",
+      "toolchain:pefile",
+      "toolchain:pycryptodome",
+      "toolchain:unicorn"
+    ]
+  },
+  "historical_replay": {
+    "available_from_public_clone": false,
+    "blockers": [
+      "proprietary_module_not_staged",
+      "ghidra_distribution_and_project_not_staged",
+      "python_dependency_versions_incomplete",
+      "historical_scripts_portability_improved_u18_open",
+      "retained_atlas_c_hashes_incoherent"
+    ],
+    "ghidra_end_to_end_reproduced": false,
+    "status": "unavailable",
+    "unicorn_original_machine_code_reproduced": false
+  },
+  "historical_script_summary": {
+    "machine_bound_script_count": 0,
+    "machine_bound_scripts": [],
+    "portability_improvement": {
+      "current_counts_match_regenerated_preflight": {
+        "machine_bound": true,
+        "timing_dependent": true
+      },
+      "machine_bound_scripts_removed": 5,
+      "timing_dependent_scripts_removed": 2
+    },
+    "pre_parameterization_baseline": {
+      "machine_bound_script_count": 5,
+      "timing_dependent_script_count": 2
+    },
+    "script_count": 6,
+    "timing_dependent_script_count": 0,
+    "timing_dependent_scripts": []
+  },
+  "historical_scripts": [
+    {
+      "bytes": 9865,
+      "has_machine_bound_windows_paths": false,
+      "has_timing_markers": false,
+      "machine_bound_windows_path_line_count": 0,
+      "machine_bound_windows_path_lines": [],
+      "non_stdlib_import_roots": [
+        "Crypto",
+        "pefile",
+        "unicorn"
+      ],
+      "path": "scripts/static/offline_aes_proof.py",
+      "sha256": "230cba5a9c225b9a443b332c8c816cd1fb7e13bff7d6c50af0ff7693ceaa84f6",
+      "statically_visible_output_references": [],
+      "timing_marker_line_count": 0,
+      "timing_marker_lines": []
+    },
+    {
+      "bytes": 4727,
+      "has_machine_bound_windows_paths": false,
+      "has_timing_markers": false,
+      "machine_bound_windows_path_line_count": 0,
+      "machine_bound_windows_path_lines": [],
+      "non_stdlib_import_roots": [
+        "capstone",
+        "pefile"
+      ],
+      "path": "scripts/static/pe_probe.py",
+      "sha256": "97e35dcc4ab530ae0c2346d604a8b9454e315822f585a9d320904ac3e1c1e53a",
+      "statically_visible_output_references": [],
+      "timing_marker_line_count": 0,
+      "timing_marker_lines": []
+    },
+    {
+      "bytes": 2958,
+      "has_machine_bound_windows_paths": false,
+      "has_timing_markers": false,
+      "machine_bound_windows_path_line_count": 0,
+      "machine_bound_windows_path_lines": [],
+      "non_stdlib_import_roots": [
+        "capstone",
+        "pefile"
+      ],
+      "path": "scripts/static/prepare_targets.py",
+      "sha256": "dd54c4f1e4a59f3826b7af6c249a3cd5426ad44db415507cb4fc3c117fe3464d",
+      "statically_visible_output_references": [],
+      "timing_marker_line_count": 0,
+      "timing_marker_lines": []
+    },
+    {
+      "bytes": 3224,
+      "has_machine_bound_windows_paths": false,
+      "has_timing_markers": false,
+      "machine_bound_windows_path_line_count": 0,
+      "machine_bound_windows_path_lines": [],
+      "non_stdlib_import_roots": [
+        "capstone",
+        "pefile"
+      ],
+      "path": "scripts/static/rebuild_targets.py",
+      "sha256": "e92ad66c19cf2c44eed58def53e6339de137bc3129869a703c038f5d5a29acd9",
+      "statically_visible_output_references": [],
+      "timing_marker_line_count": 0,
+      "timing_marker_lines": []
+    },
+    {
+      "bytes": 2107,
+      "has_machine_bound_windows_paths": false,
+      "has_timing_markers": false,
+      "machine_bound_windows_path_line_count": 0,
+      "machine_bound_windows_path_lines": [],
+      "non_stdlib_import_roots": [],
+      "path": "scripts/static/run-headless.ps1",
+      "sha256": "15305f146b2a9a3857fd1efb431b6b0c3027cd94a0503a4c48aea00d58bf6146",
+      "statically_visible_output_references": [],
+      "timing_marker_line_count": 0,
+      "timing_marker_lines": []
+    },
+    {
+      "bytes": 5213,
+      "has_machine_bound_windows_paths": false,
+      "has_timing_markers": false,
+      "machine_bound_windows_path_line_count": 0,
+      "machine_bound_windows_path_lines": [],
+      "non_stdlib_import_roots": [],
+      "path": "scripts/ghidra/ITLSelective.java",
+      "sha256": "fc86a21d1f4084c2c9eb2a96da75fa7a3031aad90b31b45ba43c54d2207cee9d",
+      "statically_visible_output_references": [],
+      "timing_marker_line_count": 0,
+      "timing_marker_lines": []
+    }
+  ],
+  "missing_input_matrix": {
+    "atlas_c_hash_matches": 0,
+    "atlas_c_hash_mismatches": 47,
+    "current_public_atlas_c_hashes_coherent": false,
+    "exact_python_dependency_versions_recorded": false,
+    "ghidra_distribution_staged": false,
+    "ghidra_project_cache_staged": false,
+    "historical_static_execution_dependency_set_fully_proven": false,
+    "lawful_public_or_synthetic_pe_fixture_present": false,
+    "missing_exact_python_dependencies": [
+      "capstone",
+      "pefile"
+    ],
+    "proprietary_module_staged": false,
+    "public_synthetic_ghidra_project_fixture_present": false,
+    "pycryptodome_version_evidence": {
+      "basis": "contemporaneous_project_environment_pin",
+      "historical_static_execution_linkage_proven": false,
+      "sources": [
+        {
+          "path": "README.md",
+          "sha256": "69d34ed7fdc0e549b9580e51e6920cf84b3e57c6f58c7dc0f06d7975a722f16c"
+        },
+        {
+          "path": "scripts/experimental-import/requirements.txt",
+          "sha256": "8af6d5cfebc5c65614d58aee1d40b734d61d9ce4741ef03bad97749a4aa24145"
+        }
+      ],
+      "version": "3.23.0"
+    }
+  },
+  "operations": {
+    "ghidra_invocations": 0,
+    "itunes_launches": 0,
+    "native_acceptance_operations": 0,
+    "network_operations": 0,
+    "proprietary_binary_reads": 0,
+    "unicorn_invocations": 0
+  },
+  "public_input_matrix": {
+    "locked_public_bytes": 1431866,
+    "locked_public_file_count": 108,
+    "locked_tree_sha256": "d248766bef7dfafbc9f75db2a1f8c1093e119c383f248b3209be91c9067ab18c",
+    "offline_test_records": 41,
+    "offline_tests_passing": 41,
+    "retained_asm_identity_headers_matching": 47,
+    "retained_c_rows": 47,
+    "synthetic_controls": {
+      "case_count": 8,
+      "cases_are_independent_experiments": false,
+      "negative_cases": 6,
+      "positive_cases": 2,
+      "status": "passed"
+    }
+  },
+  "recommended_next_step": "Use the now-parameterized deterministic scripts only with lawfully supplied inputs; do not claim U-18 closure until exact historical dependencies, staged/recreated Ghidra state, coherent provenance, and end-to-end Ghidra/Unicorn receipts exist.",
+  "schema": "windows-itunes-itl.public-replay-gap-inventory.v1",
+  "scope": "public_retained_static_surface_only",
+  "sources": {
+    "lock": {
+      "path": "scripts/static/public-replay-lock.json",
+      "schema": "windows-itunes-itl.public-static-replay-lock.v1",
+      "sha256": "60153074c7d167466e5a5eeb7066d7c04c11deca8a4291675d11ab8faf457d7b"
+    },
+    "preflight_report": {
+      "path": "evidence/research/20260925/public-static-replay-bootstrap/report.json",
+      "schema": "windows-itunes-itl.public-static-replay-report.v1",
+      "sha256": "90f59dafe3639dd0108849efc111a2f8efa6e08c00475057942d6de825c2e403"
+    },
+    "preflight_script": {
+      "path": "scripts/static/public_replay_preflight.py",
+      "sha256": "8fb83602a23f5b022675563f111f2a74d1d3e4b1427654b077fa1e1cab1bfe47"
+    }
+  },
+  "status": "completed_public_gap_inventory_u18_open"
+}

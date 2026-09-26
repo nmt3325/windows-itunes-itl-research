@@ -307,3 +307,21 @@ A later same-value media-kind pair narrowed the Lyrics behavior without generali
 ### Smart Playlist UI/native negative
 
 [`../evidence/native/smart-playlist-default-20260922/README.md`](../evidence/native/smart-playlist-default-20260922/README.md) retains v1–v24. The canonical v24 run created a native playlist and exposed nested OR/AND wrapper framing plus an Artist/contains leaf. Despite the visible requested value, iTunes emitted the empty/conflict warning, serialized an empty operand, and returned no members. The process exited normally and cleanup completed, but positive semantic gates failed; no restart-positive editing claim is made.
+
+## 2026-09-25 RatingKind/Loved/Disliked bounded replacement
+
+The immutable [native evidence bundle](../evidence/research/20260925/native-rating-kind/README.md) records seven fresh-profile cases and 20 native sessions on signed standalone Windows iTunes 12.13.10.3. It used only the pinned one-track baseline (SHA-256 `c6c68171d57350ceb3cf379eee13a764ea199536ef18238fe4faf80583492d74`) under a disposable junction. All workers and iTunes processes exited 0 via normal Quit; stable-before/after, identity, unexpected-modal, and fallback gates passed, and user data was not touched. The complete machine-readable provenance, operations, readbacks, saved hashes, byte ranges, and gates are retained in `report.json`; `oracle.json` is a deterministic compact derivative.
+
+### Static declarations and runtime capability are separate
+
+Installed `IITFileOrCDTrack` typelib entries declare get/put for `Rating` and `AlbumRating`, get-only for `RatingKind` and `AlbumRatingKind`, and no `Loved` or `Disliked`. Runtime same-value probes matched those declarations: `Rating`/`AlbumRating` were writable; `RatingKind`/`AlbumRatingKind` getters returned 1 on the unrated baseline but setters raised `AttributeError`; and both get/put attempts for `Loved` and `Disliked` raised `AttributeError`. The Loved/Disliked interaction sequence was therefore **blocked**, not observed, because both members were not readable and writable.
+
+### Rating persistence and targeted bytes
+
+Each value 0/20/40/60/80/100 began from the exact baseline. A mutation save, restarted same-value setter/save, and second restart verification all returned the requested value (18/18 rating sessions). For values 20–100, immediate COM projection changed `Rating/RatingKind/AlbumRating/AlbumRatingKind` from `0/1/0/1` to `value/0/value/1` and preserved it through both restarts; value 0 remained `0/1/0/1`. Thus RatingKind is a read-only projection that changed under the writable Rating setter in this profile. AlbumRating's matching one-track projection and unchanged AlbumRatingKind=1 are bounded observations, not general album semantics.
+
+At `mith+0x6c`, the five nonzero mutations changed `00` to `14`, `28`, `3c`, `50`, and `64`. The adjacent `mith+0x6d` value and bounded legacy `mith+0x2bf & 0x02` sentinel remained clear. Mutation-to-repeat and repeat-to-verification changed zero bytes in the targeted 756-byte `mith` header for all six values. Whole encrypted/container files still changed by thousands of byte positions and had distinct SHA-256 values at every save, so the result is semantic/target-record stability, not raw-file idempotence.
+
+### Validation and claim boundary
+
+Twenty-seven targeted analyses covered 21 unique snapshot hashes; primary low-level parsing, the independent reference parser, and VALIDATOR passed all 27. The frozen `e1392568` execution-time report, produced before the zero-secondary-ID read/no-op integration, recorded the repeated raw baseline as blocked and the 20 native-saved snapshots as observed. The deterministic [integrated reanalysis](../evidence/research/20260925/native-rating-kind/INTEGRATION.md) pins both parser trees and now observes all 27 occurrences; its seven changed outcomes are copies of one baseline hash, not independent native runs. Neither result promotes structural or parser success to universal native acceptance. The evidence narrows U-14 but does not close UI Loved/Disliked transitions, album-derived factorials, other media/track shapes or versions, or independent reproduction.

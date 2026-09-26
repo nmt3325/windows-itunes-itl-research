@@ -1,0 +1,1230 @@
+{
+  "claim_boundary": "Public-source parsing, source tests, and structural envelope replay do not establish Windows iTunes native acceptance, semantic compatibility, or U-01/U-02 closure.",
+  "native_actions": false,
+  "schema": "windows-itunes-itl.public-prior-art-audit.20260925.v1",
+  "sources": [
+    {
+      "checkout": "AppMusicLibParser",
+      "commit": "423b0a87dce9bda8950ba8fe48cc8e75396fad36",
+      "license_files": [
+        "LICENSE"
+      ],
+      "observed_commit": "423b0a87dce9bda8950ba8fe48cc8e75396fad36",
+      "observed_remote": "https://github.com/pitetb/AppMusicLibParser.git",
+      "pinned_commit_match": true,
+      "repository": "https://github.com/pitetb/AppMusicLibParser",
+      "scope": "macOS Apple Music Library.musicdb reader; not Windows iTunes ITL qualification",
+      "tracked_files": 41,
+      "tracked_worktree_clean": true
+    },
+    {
+      "checkout": "titl",
+      "commit": "e7060370973d624d5c7b18f82303407b76421501",
+      "license_files": [
+        "GPL-3",
+        "LGPL-3"
+      ],
+      "observed_commit": "e7060370973d624d5c7b18f82303407b76421501",
+      "observed_remote": "https://github.com/josephw/titl.git",
+      "pinned_commit_match": true,
+      "repository": "https://github.com/josephw/titl",
+      "scope": "historical Java ITL reader and iTunes 8.0 through 11.1.5 test fixtures",
+      "tracked_files": 67,
+      "tracked_worktree_clean": true
+    },
+    {
+      "checkout": "libitlp",
+      "commit": "55174a0064fc299a5771b92ed6abcb746964cf7d",
+      "license_files": [],
+      "observed_commit": "55174a0064fc299a5771b92ed6abcb746964cf7d",
+      "observed_remote": "https://github.com/jeanthom/libitlp.git",
+      "pinned_commit_match": true,
+      "repository": "https://github.com/jeanthom/libitlp",
+      "scope": "incomplete read-only C ITL parser; explicitly not big-endian-host portable",
+      "tracked_files": 23,
+      "tracked_worktree_clean": true
+    },
+    {
+      "checkout": "smart-playlist-io",
+      "commit": "31acf7f058278f120b9d054459134416e76d1d8e",
+      "license_files": [
+        "LICENSE"
+      ],
+      "observed_commit": "31acf7f058278f120b9d054459134416e76d1d8e",
+      "observed_remote": "https://github.com/kynoptic/smart-playlist-io.git",
+      "pinned_commit_match": true,
+      "repository": "https://github.com/kynoptic/smart-playlist-io",
+      "scope": "2021 macOS Music.app XML Smart Criteria encoder/decoder; cross-format prior art",
+      "tracked_files": 47,
+      "tracked_worktree_clean": true
+    },
+    {
+      "checkout": "itunes_smartplaylist",
+      "commit": "9a36e82d5bfaad9154b50166fee0489f5d9306e2",
+      "license_files": [
+        "LICENSE"
+      ],
+      "observed_commit": "9a36e82d5bfaad9154b50166fee0489f5d9306e2",
+      "observed_remote": "https://github.com/cvzi/itunes_smartplaylist.git",
+      "pinned_commit_match": true,
+      "repository": "https://github.com/cvzi/itunes_smartplaylist",
+      "scope": "iTunes XML Smart Info/Criteria parser; cross-format prior art",
+      "tracked_files": 29,
+      "tracked_worktree_clean": true
+    },
+    {
+      "checkout": "itl-rs",
+      "commit": "49f3ad3beaf2cdd4af2b16ee2297ec22e939dbab",
+      "license_files": [
+        "LICENSE"
+      ],
+      "observed_commit": "49f3ad3beaf2cdd4af2b16ee2297ec22e939dbab",
+      "observed_remote": "https://github.com/quinnjr/itl-rs.git",
+      "pinned_commit_match": true,
+      "repository": "https://github.com/quinnjr/itl-rs",
+      "scope": "external Rust ITL implementation already subjected to repository native gates",
+      "tracked_files": 15,
+      "tracked_worktree_clean": true
+    }
+  ],
+  "summary": {
+    "big_endian_payloads": 13,
+    "container_decoded": 14,
+    "container_exact_noop": 14,
+    "forced_rebuild_payload_equal": 14,
+    "forced_rebuild_trailer_equal": 14,
+    "little_endian_payloads": 1,
+    "reference_library_parsed": 1,
+    "reference_recognized": 0,
+    "reference_unsupported": 14,
+    "semantic_library_parsed": 0,
+    "source_checkouts": 6,
+    "titl_fixtures": 14
+  },
+  "third_party_fixture_bytes_copied": false,
+  "titl_fixture_audit": [
+    {
+      "bytes": 13142,
+      "container": {
+        "compression_flag": 1,
+        "encryption_flag": 2,
+        "exact_noop": true,
+        "forced_rebuild": {
+          "bytes": 10939,
+          "ok": true,
+          "payload_equal": true,
+          "same_bytes": false,
+          "sha256": "3224efef17ffb67bccd60fa80bc5abe5b6c69755676f0d9aa973427b93272f93",
+          "trailer_equal": true
+        },
+        "header_bytes": 144,
+        "max_crypt_size": 102400,
+        "ok": true,
+        "payload_byteorder": "little",
+        "payload_bytes": 165690,
+        "trailer_bytes": 0,
+        "version": "11.1.5"
+      },
+      "library": {
+        "error": "mfdh logical size differs from payload + outer header at 0x60",
+        "error_type": "FormatError",
+        "ok": false
+      },
+      "path": "titl-core/src/test/resources/Empty OS X iTunes 11.1.5 Library.itl",
+      "reference_detect": {
+        "evidence": [
+          {
+            "check": "magic",
+            "ok": true,
+            "value": "hdfm"
+          },
+          {
+            "check": "header_length",
+            "ok": true,
+            "value": 144
+          },
+          {
+            "check": "declared_size",
+            "ok": true,
+            "value": 13142
+          },
+          {
+            "check": "pascal_version",
+            "ok": true,
+            "value": "11.1.5"
+          },
+          {
+            "check": "payload_byteorder",
+            "ok": true,
+            "value": "little"
+          },
+          {
+            "check": "encryption_flag",
+            "ok": true,
+            "value": 2
+          },
+          {
+            "check": "section_boundaries",
+            "ok": true,
+            "value": [
+              16,
+              12,
+              9,
+              11,
+              1,
+              13,
+              2,
+              14,
+              21,
+              4
+            ]
+          }
+        ],
+        "limitations": [
+          "The Pascal version label is authoritative only for the observed envelope.",
+          "No native iTunes acceptance is implied by structural detection."
+        ],
+        "profile": null,
+        "reason": "version label is not in the observed profile allowlist",
+        "schema": "reference-itl.version-detection.v1",
+        "sha256": "a900ef2e0d7e2e8492e2539ab5441571c6808aa6b65d82cb44357ce6982db916",
+        "status": "unsupported",
+        "version": "11.1.5"
+      },
+      "reference_library": {
+        "ok": true,
+        "playlists": 19,
+        "sections": 10,
+        "tracks": 0
+      },
+      "sha256": "a900ef2e0d7e2e8492e2539ab5441571c6808aa6b65d82cb44357ce6982db916"
+    },
+    {
+      "bytes": 3677,
+      "container": {
+        "compression_flag": 1,
+        "encryption_flag": 2,
+        "exact_noop": true,
+        "forced_rebuild": {
+          "bytes": 2591,
+          "ok": true,
+          "payload_equal": true,
+          "same_bytes": false,
+          "sha256": "100d19ca6ef5f32b8d945693c7eccaed3b93d1054de293edbaf3a44ea8d727e2",
+          "trailer_equal": true
+        },
+        "header_bytes": 144,
+        "max_crypt_size": 102400,
+        "ok": true,
+        "payload_byteorder": "big",
+        "payload_bytes": 97932,
+        "trailer_bytes": 0,
+        "version": "10.0"
+      },
+      "library": {
+        "error": "Library supports little-endian payloads only; use Container for opaque big-endian preservation",
+        "error_type": "UnsupportedError",
+        "ok": false
+      },
+      "path": "titl-core/src/test/resources/Empty iTunes 10.0 Library.itl",
+      "reference_detect": {
+        "evidence": [
+          {
+            "check": "magic",
+            "ok": true,
+            "value": "hdfm"
+          },
+          {
+            "check": "header_length",
+            "ok": true,
+            "value": 144
+          },
+          {
+            "check": "declared_size",
+            "ok": true,
+            "value": 3677
+          },
+          {
+            "check": "pascal_version",
+            "ok": true,
+            "value": "10.0"
+          },
+          {
+            "check": "payload_byteorder",
+            "ok": false,
+            "value": "big"
+          },
+          {
+            "check": "encryption_flag",
+            "ok": true,
+            "value": 2
+          }
+        ],
+        "limitations": [
+          "The Pascal version label is authoritative only for the observed envelope.",
+          "No native iTunes acceptance is implied by structural detection."
+        ],
+        "profile": null,
+        "reason": "big-endian payload semantics are not implemented",
+        "schema": "reference-itl.version-detection.v1",
+        "sha256": "1eb0c490c94cc3f9879f1acdaee6d64a90b7b03495de79ae3ac366734e9aa9f8",
+        "status": "unsupported",
+        "version": "10.0"
+      },
+      "reference_library": {
+        "error": "semantic parser supports little-endian payloads only",
+        "error_type": "UnsupportedError",
+        "ok": false
+      },
+      "sha256": "1eb0c490c94cc3f9879f1acdaee6d64a90b7b03495de79ae3ac366734e9aa9f8"
+    },
+    {
+      "bytes": 3676,
+      "container": {
+        "compression_flag": 1,
+        "encryption_flag": 2,
+        "exact_noop": true,
+        "forced_rebuild": {
+          "bytes": 2602,
+          "ok": true,
+          "payload_equal": true,
+          "same_bytes": false,
+          "sha256": "cf19f9e35fd539cd06ab2a4484a99135521182c339a48be4528f386c85d7fc6c",
+          "trailer_equal": true
+        },
+        "header_bytes": 144,
+        "max_crypt_size": 102400,
+        "ok": true,
+        "payload_byteorder": "big",
+        "payload_bytes": 97932,
+        "trailer_bytes": 0,
+        "version": "10.0.1"
+      },
+      "library": {
+        "error": "Library supports little-endian payloads only; use Container for opaque big-endian preservation",
+        "error_type": "UnsupportedError",
+        "ok": false
+      },
+      "path": "titl-core/src/test/resources/Empty iTunes 10.0.1 Library.itl",
+      "reference_detect": {
+        "evidence": [
+          {
+            "check": "magic",
+            "ok": true,
+            "value": "hdfm"
+          },
+          {
+            "check": "header_length",
+            "ok": true,
+            "value": 144
+          },
+          {
+            "check": "declared_size",
+            "ok": true,
+            "value": 3676
+          },
+          {
+            "check": "pascal_version",
+            "ok": true,
+            "value": "10.0.1"
+          },
+          {
+            "check": "payload_byteorder",
+            "ok": false,
+            "value": "big"
+          },
+          {
+            "check": "encryption_flag",
+            "ok": true,
+            "value": 2
+          }
+        ],
+        "limitations": [
+          "The Pascal version label is authoritative only for the observed envelope.",
+          "No native iTunes acceptance is implied by structural detection."
+        ],
+        "profile": null,
+        "reason": "big-endian payload semantics are not implemented",
+        "schema": "reference-itl.version-detection.v1",
+        "sha256": "e847e2337cdaecbff062559f2d9b5d3a5a037a59b75e534c4d2891692cff4fc9",
+        "status": "unsupported",
+        "version": "10.0.1"
+      },
+      "reference_library": {
+        "error": "semantic parser supports little-endian payloads only",
+        "error_type": "UnsupportedError",
+        "ok": false
+      },
+      "sha256": "e847e2337cdaecbff062559f2d9b5d3a5a037a59b75e534c4d2891692cff4fc9"
+    },
+    {
+      "bytes": 3666,
+      "container": {
+        "compression_flag": 1,
+        "encryption_flag": 2,
+        "exact_noop": true,
+        "forced_rebuild": {
+          "bytes": 2594,
+          "ok": true,
+          "payload_equal": true,
+          "same_bytes": false,
+          "sha256": "e68a4ecd26216aaed559b94fb4420872604f4837c773e6b09592b9ee72eeb2f7",
+          "trailer_equal": true
+        },
+        "header_bytes": 144,
+        "max_crypt_size": 102400,
+        "ok": true,
+        "payload_byteorder": "big",
+        "payload_bytes": 97932,
+        "trailer_bytes": 0,
+        "version": "10.1"
+      },
+      "library": {
+        "error": "Library supports little-endian payloads only; use Container for opaque big-endian preservation",
+        "error_type": "UnsupportedError",
+        "ok": false
+      },
+      "path": "titl-core/src/test/resources/Empty iTunes 10.1 Library.itl",
+      "reference_detect": {
+        "evidence": [
+          {
+            "check": "magic",
+            "ok": true,
+            "value": "hdfm"
+          },
+          {
+            "check": "header_length",
+            "ok": true,
+            "value": 144
+          },
+          {
+            "check": "declared_size",
+            "ok": true,
+            "value": 3666
+          },
+          {
+            "check": "pascal_version",
+            "ok": true,
+            "value": "10.1"
+          },
+          {
+            "check": "payload_byteorder",
+            "ok": false,
+            "value": "big"
+          },
+          {
+            "check": "encryption_flag",
+            "ok": true,
+            "value": 2
+          }
+        ],
+        "limitations": [
+          "The Pascal version label is authoritative only for the observed envelope.",
+          "No native iTunes acceptance is implied by structural detection."
+        ],
+        "profile": null,
+        "reason": "big-endian payload semantics are not implemented",
+        "schema": "reference-itl.version-detection.v1",
+        "sha256": "3515cc98c010cafc64e5e90819258273fbe43a0b93981b94e5855ede55cf67fa",
+        "status": "unsupported",
+        "version": "10.1"
+      },
+      "reference_library": {
+        "error": "semantic parser supports little-endian payloads only",
+        "error_type": "UnsupportedError",
+        "ok": false
+      },
+      "sha256": "3515cc98c010cafc64e5e90819258273fbe43a0b93981b94e5855ede55cf67fa"
+    },
+    {
+      "bytes": 3683,
+      "container": {
+        "compression_flag": 1,
+        "encryption_flag": 2,
+        "exact_noop": true,
+        "forced_rebuild": {
+          "bytes": 2605,
+          "ok": true,
+          "payload_equal": true,
+          "same_bytes": false,
+          "sha256": "31c6dc96563b044d491631fb95fa6e671f3201c7030a69a846d2f9ffbeba49ea",
+          "trailer_equal": true
+        },
+        "header_bytes": 144,
+        "max_crypt_size": 102400,
+        "ok": true,
+        "payload_byteorder": "big",
+        "payload_bytes": 97932,
+        "trailer_bytes": 0,
+        "version": "10.2.2"
+      },
+      "library": {
+        "error": "Library supports little-endian payloads only; use Container for opaque big-endian preservation",
+        "error_type": "UnsupportedError",
+        "ok": false
+      },
+      "path": "titl-core/src/test/resources/Empty iTunes 10.2 Library.itl",
+      "reference_detect": {
+        "evidence": [
+          {
+            "check": "magic",
+            "ok": true,
+            "value": "hdfm"
+          },
+          {
+            "check": "header_length",
+            "ok": true,
+            "value": 144
+          },
+          {
+            "check": "declared_size",
+            "ok": true,
+            "value": 3683
+          },
+          {
+            "check": "pascal_version",
+            "ok": true,
+            "value": "10.2.2"
+          },
+          {
+            "check": "payload_byteorder",
+            "ok": false,
+            "value": "big"
+          },
+          {
+            "check": "encryption_flag",
+            "ok": true,
+            "value": 2
+          }
+        ],
+        "limitations": [
+          "The Pascal version label is authoritative only for the observed envelope.",
+          "No native iTunes acceptance is implied by structural detection."
+        ],
+        "profile": null,
+        "reason": "big-endian payload semantics are not implemented",
+        "schema": "reference-itl.version-detection.v1",
+        "sha256": "bc0a0dce272a66e93dfb835ea84e9fc99d19de6dc016770f03f0c02725c34cec",
+        "status": "unsupported",
+        "version": "10.2.2"
+      },
+      "reference_library": {
+        "error": "semantic parser supports little-endian payloads only",
+        "error_type": "UnsupportedError",
+        "ok": false
+      },
+      "sha256": "bc0a0dce272a66e93dfb835ea84e9fc99d19de6dc016770f03f0c02725c34cec"
+    },
+    {
+      "bytes": 60699,
+      "container": {
+        "compression_flag": 0,
+        "encryption_flag": 1,
+        "exact_noop": true,
+        "forced_rebuild": {
+          "bytes": 60699,
+          "ok": true,
+          "payload_equal": true,
+          "same_bytes": true,
+          "sha256": "f613cc306d2466809f8bbebdc5b3c90eeb6ed1f2154dee4b80b46bb74fef8f01",
+          "trailer_equal": true
+        },
+        "header_bytes": 132,
+        "max_crypt_size": 0,
+        "ok": true,
+        "payload_byteorder": "big",
+        "payload_bytes": 60567,
+        "trailer_bytes": 0,
+        "version": "8.0"
+      },
+      "library": {
+        "error": "Library supports little-endian payloads only; use Container for opaque big-endian preservation",
+        "error_type": "UnsupportedError",
+        "ok": false
+      },
+      "path": "titl-core/src/test/resources/Empty iTunes 8.0 Library.itl",
+      "reference_detect": {
+        "evidence": [
+          {
+            "check": "magic",
+            "ok": true,
+            "value": "hdfm"
+          },
+          {
+            "check": "header_length",
+            "ok": true,
+            "value": 132
+          },
+          {
+            "check": "declared_size",
+            "ok": true,
+            "value": 60699
+          },
+          {
+            "check": "pascal_version",
+            "ok": true,
+            "value": "8.0"
+          },
+          {
+            "check": "payload_byteorder",
+            "ok": false,
+            "value": "big"
+          },
+          {
+            "check": "encryption_flag",
+            "ok": true,
+            "value": 1
+          }
+        ],
+        "limitations": [
+          "The Pascal version label is authoritative only for the observed envelope.",
+          "No native iTunes acceptance is implied by structural detection."
+        ],
+        "profile": null,
+        "reason": "big-endian payload semantics are not implemented",
+        "schema": "reference-itl.version-detection.v1",
+        "sha256": "f613cc306d2466809f8bbebdc5b3c90eeb6ed1f2154dee4b80b46bb74fef8f01",
+        "status": "unsupported",
+        "version": "8.0"
+      },
+      "reference_library": {
+        "error": "semantic parser supports little-endian payloads only",
+        "error_type": "UnsupportedError",
+        "ok": false
+      },
+      "sha256": "f613cc306d2466809f8bbebdc5b3c90eeb6ed1f2154dee4b80b46bb74fef8f01"
+    },
+    {
+      "bytes": 59643,
+      "container": {
+        "compression_flag": 0,
+        "encryption_flag": 1,
+        "exact_noop": true,
+        "forced_rebuild": {
+          "bytes": 59643,
+          "ok": true,
+          "payload_equal": true,
+          "same_bytes": true,
+          "sha256": "27b1a68d666be1a6fffddfb88f39a8bb2ffb3dc74608ea8e254402899340c8d9",
+          "trailer_equal": true
+        },
+        "header_bytes": 132,
+        "max_crypt_size": 0,
+        "ok": true,
+        "payload_byteorder": "big",
+        "payload_bytes": 59511,
+        "trailer_bytes": 0,
+        "version": "8.0.1"
+      },
+      "library": {
+        "error": "Library supports little-endian payloads only; use Container for opaque big-endian preservation",
+        "error_type": "UnsupportedError",
+        "ok": false
+      },
+      "path": "titl-core/src/test/resources/Empty iTunes 8.0.1 Library.itl",
+      "reference_detect": {
+        "evidence": [
+          {
+            "check": "magic",
+            "ok": true,
+            "value": "hdfm"
+          },
+          {
+            "check": "header_length",
+            "ok": true,
+            "value": 132
+          },
+          {
+            "check": "declared_size",
+            "ok": true,
+            "value": 59643
+          },
+          {
+            "check": "pascal_version",
+            "ok": true,
+            "value": "8.0.1"
+          },
+          {
+            "check": "payload_byteorder",
+            "ok": false,
+            "value": "big"
+          },
+          {
+            "check": "encryption_flag",
+            "ok": true,
+            "value": 1
+          }
+        ],
+        "limitations": [
+          "The Pascal version label is authoritative only for the observed envelope.",
+          "No native iTunes acceptance is implied by structural detection."
+        ],
+        "profile": null,
+        "reason": "big-endian payload semantics are not implemented",
+        "schema": "reference-itl.version-detection.v1",
+        "sha256": "27b1a68d666be1a6fffddfb88f39a8bb2ffb3dc74608ea8e254402899340c8d9",
+        "status": "unsupported",
+        "version": "8.0.1"
+      },
+      "reference_library": {
+        "error": "semantic parser supports little-endian payloads only",
+        "error_type": "UnsupportedError",
+        "ok": false
+      },
+      "sha256": "27b1a68d666be1a6fffddfb88f39a8bb2ffb3dc74608ea8e254402899340c8d9"
+    },
+    {
+      "bytes": 3211,
+      "container": {
+        "compression_flag": 1,
+        "encryption_flag": 1,
+        "exact_noop": true,
+        "forced_rebuild": {
+          "bytes": 2334,
+          "ok": true,
+          "payload_equal": true,
+          "same_bytes": false,
+          "sha256": "fc57ecea26bbe7ac710a63d837636dda50824a258c5654f5640434454788ebb4",
+          "trailer_equal": true
+        },
+        "header_bytes": 144,
+        "max_crypt_size": 0,
+        "ok": true,
+        "payload_byteorder": "big",
+        "payload_bytes": 74822,
+        "trailer_bytes": 0,
+        "version": "9.0.3"
+      },
+      "library": {
+        "error": "Library supports little-endian payloads only; use Container for opaque big-endian preservation",
+        "error_type": "UnsupportedError",
+        "ok": false
+      },
+      "path": "titl-core/src/test/resources/Empty iTunes 9.0.3 Library.itl",
+      "reference_detect": {
+        "evidence": [
+          {
+            "check": "magic",
+            "ok": true,
+            "value": "hdfm"
+          },
+          {
+            "check": "header_length",
+            "ok": true,
+            "value": 144
+          },
+          {
+            "check": "declared_size",
+            "ok": true,
+            "value": 3211
+          },
+          {
+            "check": "pascal_version",
+            "ok": true,
+            "value": "9.0.3"
+          },
+          {
+            "check": "payload_byteorder",
+            "ok": false,
+            "value": "big"
+          },
+          {
+            "check": "encryption_flag",
+            "ok": true,
+            "value": 1
+          }
+        ],
+        "limitations": [
+          "The Pascal version label is authoritative only for the observed envelope.",
+          "No native iTunes acceptance is implied by structural detection."
+        ],
+        "profile": null,
+        "reason": "big-endian payload semantics are not implemented",
+        "schema": "reference-itl.version-detection.v1",
+        "sha256": "d03835c9c62095009459bf8ad83e84af307d30d995f225b7028f33e287b79df6",
+        "status": "unsupported",
+        "version": "9.0.3"
+      },
+      "reference_library": {
+        "error": "semantic parser supports little-endian payloads only",
+        "error_type": "UnsupportedError",
+        "ok": false
+      },
+      "sha256": "d03835c9c62095009459bf8ad83e84af307d30d995f225b7028f33e287b79df6"
+    },
+    {
+      "bytes": 3239,
+      "container": {
+        "compression_flag": 1,
+        "encryption_flag": 1,
+        "exact_noop": true,
+        "forced_rebuild": {
+          "bytes": 2308,
+          "ok": true,
+          "payload_equal": true,
+          "same_bytes": false,
+          "sha256": "5a59e044dc0072e571501e8215ab4034c53eab39b24aad7f2831c1a893469084",
+          "trailer_equal": true
+        },
+        "header_bytes": 144,
+        "max_crypt_size": 0,
+        "ok": true,
+        "payload_byteorder": "big",
+        "payload_bytes": 75181,
+        "trailer_bytes": 0,
+        "version": "9.2"
+      },
+      "library": {
+        "error": "Library supports little-endian payloads only; use Container for opaque big-endian preservation",
+        "error_type": "UnsupportedError",
+        "ok": false
+      },
+      "path": "titl-core/src/test/resources/Empty iTunes 9.2.0 Library.itl",
+      "reference_detect": {
+        "evidence": [
+          {
+            "check": "magic",
+            "ok": true,
+            "value": "hdfm"
+          },
+          {
+            "check": "header_length",
+            "ok": true,
+            "value": 144
+          },
+          {
+            "check": "declared_size",
+            "ok": true,
+            "value": 3239
+          },
+          {
+            "check": "pascal_version",
+            "ok": true,
+            "value": "9.2"
+          },
+          {
+            "check": "payload_byteorder",
+            "ok": false,
+            "value": "big"
+          },
+          {
+            "check": "encryption_flag",
+            "ok": true,
+            "value": 1
+          }
+        ],
+        "limitations": [
+          "The Pascal version label is authoritative only for the observed envelope.",
+          "No native iTunes acceptance is implied by structural detection."
+        ],
+        "profile": null,
+        "reason": "big-endian payload semantics are not implemented",
+        "schema": "reference-itl.version-detection.v1",
+        "sha256": "32ff0d9e51e519916d628b0df3886e447e3c646dffc41cfcc905608685e6bda0",
+        "status": "unsupported",
+        "version": "9.2"
+      },
+      "reference_library": {
+        "error": "semantic parser supports little-endian payloads only",
+        "error_type": "UnsupportedError",
+        "ok": false
+      },
+      "sha256": "32ff0d9e51e519916d628b0df3886e447e3c646dffc41cfcc905608685e6bda0"
+    },
+    {
+      "bytes": 80556,
+      "container": {
+        "compression_flag": 0,
+        "encryption_flag": 1,
+        "exact_noop": true,
+        "forced_rebuild": {
+          "bytes": 80556,
+          "ok": true,
+          "payload_equal": true,
+          "same_bytes": true,
+          "sha256": "5491a860124cde2a345bff6af26c9f5dcaa9c643d90411204f9b2ded297eaed2",
+          "trailer_equal": true
+        },
+        "header_bytes": 132,
+        "max_crypt_size": 0,
+        "ok": true,
+        "payload_byteorder": "big",
+        "payload_bytes": 80424,
+        "trailer_bytes": 0,
+        "version": "8.0.1"
+      },
+      "library": {
+        "error": "Library supports little-endian payloads only; use Container for opaque big-endian preservation",
+        "error_type": "UnsupportedError",
+        "ok": false
+      },
+      "path": "titl-core/src/test/resources/Minimal iTunes 8.0.1 Library.itl",
+      "reference_detect": {
+        "evidence": [
+          {
+            "check": "magic",
+            "ok": true,
+            "value": "hdfm"
+          },
+          {
+            "check": "header_length",
+            "ok": true,
+            "value": 132
+          },
+          {
+            "check": "declared_size",
+            "ok": true,
+            "value": 80556
+          },
+          {
+            "check": "pascal_version",
+            "ok": true,
+            "value": "8.0.1"
+          },
+          {
+            "check": "payload_byteorder",
+            "ok": false,
+            "value": "big"
+          },
+          {
+            "check": "encryption_flag",
+            "ok": true,
+            "value": 1
+          }
+        ],
+        "limitations": [
+          "The Pascal version label is authoritative only for the observed envelope.",
+          "No native iTunes acceptance is implied by structural detection."
+        ],
+        "profile": null,
+        "reason": "big-endian payload semantics are not implemented",
+        "schema": "reference-itl.version-detection.v1",
+        "sha256": "5491a860124cde2a345bff6af26c9f5dcaa9c643d90411204f9b2ded297eaed2",
+        "status": "unsupported",
+        "version": "8.0.1"
+      },
+      "reference_library": {
+        "error": "semantic parser supports little-endian payloads only",
+        "error_type": "UnsupportedError",
+        "ok": false
+      },
+      "sha256": "5491a860124cde2a345bff6af26c9f5dcaa9c643d90411204f9b2ded297eaed2"
+    },
+    {
+      "bytes": 4656,
+      "container": {
+        "compression_flag": 1,
+        "encryption_flag": 2,
+        "exact_noop": true,
+        "forced_rebuild": {
+          "bytes": 3359,
+          "ok": true,
+          "payload_equal": true,
+          "same_bytes": false,
+          "sha256": "52d4481e89793c2c5ddb03dafd56c5e6d277059327eadf5066b6ca1d3c148572",
+          "trailer_equal": true
+        },
+        "header_bytes": 144,
+        "max_crypt_size": 102400,
+        "ok": true,
+        "payload_byteorder": "big",
+        "payload_bytes": 100857,
+        "trailer_bytes": 0,
+        "version": "10.2.2"
+      },
+      "library": {
+        "error": "Library supports little-endian payloads only; use Container for opaque big-endian preservation",
+        "error_type": "UnsupportedError",
+        "ok": false
+      },
+      "path": "titl-core/src/test/resources/iTunes 10.2.2 Library with single track with artwork.itl",
+      "reference_detect": {
+        "evidence": [
+          {
+            "check": "magic",
+            "ok": true,
+            "value": "hdfm"
+          },
+          {
+            "check": "header_length",
+            "ok": true,
+            "value": 144
+          },
+          {
+            "check": "declared_size",
+            "ok": true,
+            "value": 4656
+          },
+          {
+            "check": "pascal_version",
+            "ok": true,
+            "value": "10.2.2"
+          },
+          {
+            "check": "payload_byteorder",
+            "ok": false,
+            "value": "big"
+          },
+          {
+            "check": "encryption_flag",
+            "ok": true,
+            "value": 2
+          }
+        ],
+        "limitations": [
+          "The Pascal version label is authoritative only for the observed envelope.",
+          "No native iTunes acceptance is implied by structural detection."
+        ],
+        "profile": null,
+        "reason": "big-endian payload semantics are not implemented",
+        "schema": "reference-itl.version-detection.v1",
+        "sha256": "3c084df1c71236f4ae57797bf59b2c60d081666055007c4ef7bc18088f084e44",
+        "status": "unsupported",
+        "version": "10.2.2"
+      },
+      "reference_library": {
+        "error": "semantic parser supports little-endian payloads only",
+        "error_type": "UnsupportedError",
+        "ok": false
+      },
+      "sha256": "3c084df1c71236f4ae57797bf59b2c60d081666055007c4ef7bc18088f084e44"
+    },
+    {
+      "bytes": 4588,
+      "container": {
+        "compression_flag": 1,
+        "encryption_flag": 2,
+        "exact_noop": true,
+        "forced_rebuild": {
+          "bytes": 3354,
+          "ok": true,
+          "payload_equal": true,
+          "same_bytes": false,
+          "sha256": "0b8841573d0eebcfebdbb354266987b1ebf7aff2d8144df6ad77ce3504dc7885",
+          "trailer_equal": true
+        },
+        "header_bytes": 144,
+        "max_crypt_size": 102400,
+        "ok": true,
+        "payload_byteorder": "big",
+        "payload_bytes": 100857,
+        "trailer_bytes": 0,
+        "version": "10.2.2"
+      },
+      "library": {
+        "error": "Library supports little-endian payloads only; use Container for opaque big-endian preservation",
+        "error_type": "UnsupportedError",
+        "ok": false
+      },
+      "path": "titl-core/src/test/resources/iTunes 10.2.2 Library with single track.itl",
+      "reference_detect": {
+        "evidence": [
+          {
+            "check": "magic",
+            "ok": true,
+            "value": "hdfm"
+          },
+          {
+            "check": "header_length",
+            "ok": true,
+            "value": 144
+          },
+          {
+            "check": "declared_size",
+            "ok": true,
+            "value": 4588
+          },
+          {
+            "check": "pascal_version",
+            "ok": true,
+            "value": "10.2.2"
+          },
+          {
+            "check": "payload_byteorder",
+            "ok": false,
+            "value": "big"
+          },
+          {
+            "check": "encryption_flag",
+            "ok": true,
+            "value": 2
+          }
+        ],
+        "limitations": [
+          "The Pascal version label is authoritative only for the observed envelope.",
+          "No native iTunes acceptance is implied by structural detection."
+        ],
+        "profile": null,
+        "reason": "big-endian payload semantics are not implemented",
+        "schema": "reference-itl.version-detection.v1",
+        "sha256": "9ca3e58d42da5dfccdeb20b77959519a59f2fbe4bd5f46078a292d791e728896",
+        "status": "unsupported",
+        "version": "10.2.2"
+      },
+      "reference_library": {
+        "error": "semantic parser supports little-endian payloads only",
+        "error_type": "UnsupportedError",
+        "ok": false
+      },
+      "sha256": "9ca3e58d42da5dfccdeb20b77959519a59f2fbe4bd5f46078a292d791e728896"
+    },
+    {
+      "bytes": 69105,
+      "container": {
+        "compression_flag": 0,
+        "encryption_flag": 1,
+        "exact_noop": true,
+        "forced_rebuild": {
+          "bytes": 69105,
+          "ok": true,
+          "payload_equal": true,
+          "same_bytes": true,
+          "sha256": "d0517dc144fd446da01e4fdce4901c05e54ad9c23c347e922331b5e6a1043c82",
+          "trailer_equal": true
+        },
+        "header_bytes": 132,
+        "max_crypt_size": 0,
+        "ok": true,
+        "payload_byteorder": "big",
+        "payload_bytes": 68973,
+        "trailer_bytes": 0,
+        "version": "8.0.1"
+      },
+      "library": {
+        "error": "Library supports little-endian payloads only; use Container for opaque big-endian preservation",
+        "error_type": "UnsupportedError",
+        "ok": false
+      },
+      "path": "titl-core/src/test/resources/iTunes 8.0.1 Library TMBG.itl",
+      "reference_detect": {
+        "evidence": [
+          {
+            "check": "magic",
+            "ok": true,
+            "value": "hdfm"
+          },
+          {
+            "check": "header_length",
+            "ok": true,
+            "value": 132
+          },
+          {
+            "check": "declared_size",
+            "ok": true,
+            "value": 69105
+          },
+          {
+            "check": "pascal_version",
+            "ok": true,
+            "value": "8.0.1"
+          },
+          {
+            "check": "payload_byteorder",
+            "ok": false,
+            "value": "big"
+          },
+          {
+            "check": "encryption_flag",
+            "ok": true,
+            "value": 1
+          }
+        ],
+        "limitations": [
+          "The Pascal version label is authoritative only for the observed envelope.",
+          "No native iTunes acceptance is implied by structural detection."
+        ],
+        "profile": null,
+        "reason": "big-endian payload semantics are not implemented",
+        "schema": "reference-itl.version-detection.v1",
+        "sha256": "d0517dc144fd446da01e4fdce4901c05e54ad9c23c347e922331b5e6a1043c82",
+        "status": "unsupported",
+        "version": "8.0.1"
+      },
+      "reference_library": {
+        "error": "semantic parser supports little-endian payloads only",
+        "error_type": "UnsupportedError",
+        "ok": false
+      },
+      "sha256": "d0517dc144fd446da01e4fdce4901c05e54ad9c23c347e922331b5e6a1043c82"
+    },
+    {
+      "bytes": 67102,
+      "container": {
+        "compression_flag": 0,
+        "encryption_flag": 1,
+        "exact_noop": true,
+        "forced_rebuild": {
+          "bytes": 67102,
+          "ok": true,
+          "payload_equal": true,
+          "same_bytes": true,
+          "sha256": "987100ec9a2b9142a8ac1b497a96b10b3266e486021078035f10c143d7393691",
+          "trailer_equal": true
+        },
+        "header_bytes": 132,
+        "max_crypt_size": 0,
+        "ok": true,
+        "payload_byteorder": "big",
+        "payload_bytes": 66970,
+        "trailer_bytes": 0,
+        "version": "8.0.2"
+      },
+      "library": {
+        "error": "Library supports little-endian payloads only; use Container for opaque big-endian preservation",
+        "error_type": "UnsupportedError",
+        "ok": false
+      },
+      "path": "titl-core/src/test/resources/iTunes 8.0.1 Library with TV show.itl",
+      "reference_detect": {
+        "evidence": [
+          {
+            "check": "magic",
+            "ok": true,
+            "value": "hdfm"
+          },
+          {
+            "check": "header_length",
+            "ok": true,
+            "value": 132
+          },
+          {
+            "check": "declared_size",
+            "ok": true,
+            "value": 67102
+          },
+          {
+            "check": "pascal_version",
+            "ok": true,
+            "value": "8.0.2"
+          },
+          {
+            "check": "payload_byteorder",
+            "ok": false,
+            "value": "big"
+          },
+          {
+            "check": "encryption_flag",
+            "ok": true,
+            "value": 1
+          }
+        ],
+        "limitations": [
+          "The Pascal version label is authoritative only for the observed envelope.",
+          "No native iTunes acceptance is implied by structural detection."
+        ],
+        "profile": null,
+        "reason": "big-endian payload semantics are not implemented",
+        "schema": "reference-itl.version-detection.v1",
+        "sha256": "987100ec9a2b9142a8ac1b497a96b10b3266e486021078035f10c143d7393691",
+        "status": "unsupported",
+        "version": "8.0.2"
+      },
+      "reference_library": {
+        "error": "semantic parser supports little-endian payloads only",
+        "error_type": "UnsupportedError",
+        "ok": false
+      },
+      "sha256": "987100ec9a2b9142a8ac1b497a96b10b3266e486021078035f10c143d7393691"
+    }
+  ]
+}

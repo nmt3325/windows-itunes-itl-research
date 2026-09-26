@@ -1,0 +1,1477 @@
+{
+  "cases": [
+    {
+      "case_result": {
+        "path": "evidence/research/20260925/native-trailer-u13/native-run/cases/u13-control-no-trailer/result.json",
+        "sha256": "1138d7e4e7edb77ce5729f950d2f7e340f08e1584b45031523ab0a2129550dc9"
+      },
+      "cycles": [
+        {
+          "artifact": {
+            "analysis": {
+              "file": {
+                "bytes": 4103,
+                "sha256": "71ab2bb823498fda216008461591677a8e20ec5dabff7ece2d3631e31ddf58d8"
+              },
+              "primary": {
+                "compression_flag": 1,
+                "encryption_flag": 2,
+                "max_crypt_size": 102400,
+                "no_op_exact": true,
+                "payload_bytes": 104879,
+                "payload_sha256": "581d53bd16113e2a7c2ac31da410b511c3f7047cf196886e8faf3bc9e375faf1",
+                "trailer_bytes": 0,
+                "trailer_hex": "",
+                "trailer_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+                "version": "12.13.10.3"
+              },
+              "reference": {
+                "detection": {
+                  "evidence": [
+                    {
+                      "check": "magic",
+                      "ok": true,
+                      "value": "hdfm"
+                    },
+                    {
+                      "check": "header_length",
+                      "ok": true,
+                      "value": 144
+                    },
+                    {
+                      "check": "declared_size",
+                      "ok": true,
+                      "value": 4103
+                    },
+                    {
+                      "check": "pascal_version",
+                      "ok": true,
+                      "value": "12.13.10.3"
+                    },
+                    {
+                      "check": "payload_byteorder",
+                      "ok": true,
+                      "value": "little"
+                    },
+                    {
+                      "check": "encryption_flag",
+                      "ok": true,
+                      "value": 2
+                    },
+                    {
+                      "check": "section_boundaries",
+                      "ok": true,
+                      "value": [
+                        16,
+                        12,
+                        9,
+                        11,
+                        1,
+                        13,
+                        23,
+                        2,
+                        14,
+                        4
+                      ]
+                    }
+                  ],
+                  "limitations": [
+                    "The Pascal version label is authoritative only for the observed envelope.",
+                    "No native iTunes acceptance is implied by structural detection."
+                  ],
+                  "profile": {
+                    "cross_version_write": false,
+                    "identity_write": true,
+                    "playlist_header_lengths": [
+                      3500
+                    ],
+                    "semantic_read": true,
+                    "track_header_lengths": [
+                      756
+                    ]
+                  },
+                  "reason": "observed version label and bounded section framing agree",
+                  "schema": "reference-itl.version-detection.v1",
+                  "sha256": "71ab2bb823498fda216008461591677a8e20ec5dabff7ece2d3631e31ddf58d8",
+                  "status": "recognized",
+                  "version": "12.13.10.3"
+                },
+                "payload_bytes": 104879,
+                "payload_sha256": "581d53bd16113e2a7c2ac31da410b511c3f7047cf196886e8faf3bc9e375faf1",
+                "playlists": 15,
+                "sections": 10,
+                "tracks": 1,
+                "trailer_bytes": 0,
+                "trailer_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+                "version": "12.13.10.3"
+              },
+              "validator": {
+                "coverage": {
+                  "compressed_trailer": {
+                    "bytes": 0,
+                    "present": false,
+                    "semantically_validated": false
+                  },
+                  "envelope_and_record_boundaries": true,
+                  "known_reference_namespaces": [
+                    "track local/Persistent IDs",
+                    "playlist local/Persistent IDs",
+                    "playlist item IDs and track references",
+                    "track album and artist local references"
+                  ],
+                  "opaque_bytes_semantically_validated": false,
+                  "opaque_reference_scan": false
+                },
+                "issue_codes": [
+                  "scope.opaque_section",
+                  "scope.opaque_section"
+                ],
+                "valid": true
+              }
+            },
+            "label": "cycle-1-native-saved",
+            "path": "evidence/research/20260925/native-trailer-u13/native-run/cases/u13-control-no-trailer/cycle-1/native-saved.itl"
+          },
+          "com_json": {
+            "path": "evidence/research/20260925/native-trailer-u13/native-run/cases/u13-control-no-trailer/cycle-1/com.json",
+            "sha256": "bd83692b9f46571bf263651a2f997ad06dc1c702a11c119eee6975786de48336"
+          },
+          "cycle": 1,
+          "forbidden_after": [],
+          "forbidden_before": [],
+          "itunes_exit_code": 0,
+          "prelaunch": {
+            "bytes": 775,
+            "mtime_ns": 1790271101004254200,
+            "path": "<NATIVE_ROOT>\\u13-control-no-trailer\\live\\iTunes Library.itl",
+            "sha256": "25f8aba00330caaa0ef4b529f67a203cd6da2b3d652923f7e44c7396f7bd13ad"
+          },
+          "quit_requested": true,
+          "reference_summary_errors": [],
+          "result_json": {
+            "path": "evidence/research/20260925/native-trailer-u13/native-run/cases/u13-control-no-trailer/cycle-1/result.json",
+            "sha256": "f166a1851a67425611a5ce83e81f90b87afa0eb69cd0a787c695fa2a34a4325d"
+          },
+          "status": "passed",
+          "ui_actions": [
+            "dismiss_audio_warning"
+          ],
+          "worker_accepted": true,
+          "worker_errors": [],
+          "worker_exit_code": 0
+        },
+        {
+          "artifact": {
+            "analysis": {
+              "file": {
+                "bytes": 4129,
+                "sha256": "04c92369c988e36daf4e7f8ea3b57ca6c2cc541ee0b19ef7783825b51ed06364"
+              },
+              "primary": {
+                "compression_flag": 1,
+                "encryption_flag": 2,
+                "max_crypt_size": 102400,
+                "no_op_exact": true,
+                "payload_bytes": 104994,
+                "payload_sha256": "d56a4666fb6994bf4e66c2de7bff857851ca177be6852e00d12cb41e41dbad9f",
+                "trailer_bytes": 0,
+                "trailer_hex": "",
+                "trailer_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+                "version": "12.13.10.3"
+              },
+              "reference": {
+                "detection": {
+                  "evidence": [
+                    {
+                      "check": "magic",
+                      "ok": true,
+                      "value": "hdfm"
+                    },
+                    {
+                      "check": "header_length",
+                      "ok": true,
+                      "value": 144
+                    },
+                    {
+                      "check": "declared_size",
+                      "ok": true,
+                      "value": 4129
+                    },
+                    {
+                      "check": "pascal_version",
+                      "ok": true,
+                      "value": "12.13.10.3"
+                    },
+                    {
+                      "check": "payload_byteorder",
+                      "ok": true,
+                      "value": "little"
+                    },
+                    {
+                      "check": "encryption_flag",
+                      "ok": true,
+                      "value": 2
+                    },
+                    {
+                      "check": "section_boundaries",
+                      "ok": true,
+                      "value": [
+                        16,
+                        12,
+                        9,
+                        11,
+                        1,
+                        13,
+                        23,
+                        2,
+                        14,
+                        4
+                      ]
+                    }
+                  ],
+                  "limitations": [
+                    "The Pascal version label is authoritative only for the observed envelope.",
+                    "No native iTunes acceptance is implied by structural detection."
+                  ],
+                  "profile": {
+                    "cross_version_write": false,
+                    "identity_write": true,
+                    "playlist_header_lengths": [
+                      3500
+                    ],
+                    "semantic_read": true,
+                    "track_header_lengths": [
+                      756
+                    ]
+                  },
+                  "reason": "observed version label and bounded section framing agree",
+                  "schema": "reference-itl.version-detection.v1",
+                  "sha256": "04c92369c988e36daf4e7f8ea3b57ca6c2cc541ee0b19ef7783825b51ed06364",
+                  "status": "recognized",
+                  "version": "12.13.10.3"
+                },
+                "payload_bytes": 104994,
+                "payload_sha256": "d56a4666fb6994bf4e66c2de7bff857851ca177be6852e00d12cb41e41dbad9f",
+                "playlists": 15,
+                "sections": 10,
+                "tracks": 1,
+                "trailer_bytes": 0,
+                "trailer_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+                "version": "12.13.10.3"
+              },
+              "validator": {
+                "coverage": {
+                  "compressed_trailer": {
+                    "bytes": 0,
+                    "present": false,
+                    "semantically_validated": false
+                  },
+                  "envelope_and_record_boundaries": true,
+                  "known_reference_namespaces": [
+                    "track local/Persistent IDs",
+                    "playlist local/Persistent IDs",
+                    "playlist item IDs and track references",
+                    "track album and artist local references"
+                  ],
+                  "opaque_bytes_semantically_validated": false,
+                  "opaque_reference_scan": false
+                },
+                "issue_codes": [
+                  "scope.opaque_section",
+                  "scope.opaque_section"
+                ],
+                "valid": true
+              }
+            },
+            "label": "cycle-2-native-saved",
+            "path": "evidence/research/20260925/native-trailer-u13/native-run/cases/u13-control-no-trailer/cycle-2/native-saved.itl"
+          },
+          "com_json": {
+            "path": "evidence/research/20260925/native-trailer-u13/native-run/cases/u13-control-no-trailer/cycle-2/com.json",
+            "sha256": "dc24483723cf7c8a80b9bf72ced3f3efe335e68a7e7a160df222663f8aaeba71"
+          },
+          "cycle": 2,
+          "forbidden_after": [],
+          "forbidden_before": [],
+          "itunes_exit_code": 0,
+          "prelaunch": {
+            "bytes": 4103,
+            "mtime_ns": 1790271180831734600,
+            "path": "<NATIVE_ROOT>\\u13-control-no-trailer\\live\\iTunes Library.itl",
+            "sha256": "71ab2bb823498fda216008461591677a8e20ec5dabff7ece2d3631e31ddf58d8"
+          },
+          "quit_requested": true,
+          "reference_summary_errors": [],
+          "result_json": {
+            "path": "evidence/research/20260925/native-trailer-u13/native-run/cases/u13-control-no-trailer/cycle-2/result.json",
+            "sha256": "e8b07f52be0924dd55acd005909d803b29ecfced6d7148f9bd69b09389290678"
+          },
+          "status": "passed",
+          "ui_actions": [
+            "dismiss_audio_warning"
+          ],
+          "worker_accepted": true,
+          "worker_errors": [],
+          "worker_exit_code": 0
+        }
+      ],
+      "final_forbidden_artifacts": [],
+      "name": "u13-control-no-trailer",
+      "native_passed": true,
+      "native_status": "passed",
+      "phase_chain": [
+        {
+          "file_changed": true,
+          "from": "candidate-input",
+          "payload_changed": true,
+          "to": "cycle-1-native-saved",
+          "trailer_fate": "remained_absent"
+        },
+        {
+          "file_changed": true,
+          "from": "cycle-1-native-saved",
+          "payload_changed": true,
+          "to": "cycle-2-native-saved",
+          "trailer_fate": "remained_absent"
+        }
+      ],
+      "phases": [
+        {
+          "analysis": {
+            "file": {
+              "bytes": 775,
+              "sha256": "25f8aba00330caaa0ef4b529f67a203cd6da2b3d652923f7e44c7396f7bd13ad"
+            },
+            "primary": {
+              "compression_flag": 1,
+              "encryption_flag": 2,
+              "max_crypt_size": 102400,
+              "no_op_exact": true,
+              "payload_bytes": 10442,
+              "payload_sha256": "666c74d34556f413a76a31691be9b20f1eec8f2a9459f15b7b98f2ea0dcfa797",
+              "trailer_bytes": 0,
+              "trailer_hex": "",
+              "trailer_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              "version": "12.13.10.3"
+            },
+            "reference": {
+              "detection": {
+                "evidence": [
+                  {
+                    "check": "magic",
+                    "ok": true,
+                    "value": "hdfm"
+                  },
+                  {
+                    "check": "header_length",
+                    "ok": true,
+                    "value": 144
+                  },
+                  {
+                    "check": "declared_size",
+                    "ok": true,
+                    "value": 775
+                  },
+                  {
+                    "check": "pascal_version",
+                    "ok": true,
+                    "value": "12.13.10.3"
+                  },
+                  {
+                    "check": "payload_byteorder",
+                    "ok": true,
+                    "value": "little"
+                  },
+                  {
+                    "check": "encryption_flag",
+                    "ok": true,
+                    "value": 2
+                  },
+                  {
+                    "check": "section_boundaries",
+                    "ok": true,
+                    "value": [
+                      16,
+                      12,
+                      9,
+                      11,
+                      1,
+                      13,
+                      23,
+                      2,
+                      14,
+                      4
+                    ]
+                  }
+                ],
+                "limitations": [
+                  "The Pascal version label is authoritative only for the observed envelope.",
+                  "No native iTunes acceptance is implied by structural detection."
+                ],
+                "profile": {
+                  "cross_version_write": false,
+                  "identity_write": true,
+                  "playlist_header_lengths": [
+                    3500
+                  ],
+                  "semantic_read": true,
+                  "track_header_lengths": [
+                    756
+                  ]
+                },
+                "reason": "observed version label and bounded section framing agree",
+                "schema": "reference-itl.version-detection.v1",
+                "sha256": "25f8aba00330caaa0ef4b529f67a203cd6da2b3d652923f7e44c7396f7bd13ad",
+                "status": "recognized",
+                "version": "12.13.10.3"
+              },
+              "payload_bytes": 10442,
+              "payload_sha256": "666c74d34556f413a76a31691be9b20f1eec8f2a9459f15b7b98f2ea0dcfa797",
+              "playlists": 2,
+              "sections": 10,
+              "tracks": 1,
+              "trailer_bytes": 0,
+              "trailer_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              "version": "12.13.10.3"
+            },
+            "validator": {
+              "coverage": {
+                "compressed_trailer": {
+                  "bytes": 0,
+                  "present": false,
+                  "semantically_validated": false
+                },
+                "envelope_and_record_boundaries": true,
+                "known_reference_namespaces": [
+                  "track local/Persistent IDs",
+                  "playlist local/Persistent IDs",
+                  "playlist item IDs and track references",
+                  "track album and artist local references"
+                ],
+                "opaque_bytes_semantically_validated": false,
+                "opaque_reference_scan": false
+              },
+              "issue_codes": [
+                "scope.opaque_section",
+                "scope.opaque_section"
+              ],
+              "valid": true
+            }
+          },
+          "label": "candidate-input",
+          "path": "evidence/research/20260925/native-trailer-u13/candidates/control-reference-one-track-zlib.itl"
+        },
+        {
+          "analysis": {
+            "file": {
+              "bytes": 4103,
+              "sha256": "71ab2bb823498fda216008461591677a8e20ec5dabff7ece2d3631e31ddf58d8"
+            },
+            "primary": {
+              "compression_flag": 1,
+              "encryption_flag": 2,
+              "max_crypt_size": 102400,
+              "no_op_exact": true,
+              "payload_bytes": 104879,
+              "payload_sha256": "581d53bd16113e2a7c2ac31da410b511c3f7047cf196886e8faf3bc9e375faf1",
+              "trailer_bytes": 0,
+              "trailer_hex": "",
+              "trailer_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              "version": "12.13.10.3"
+            },
+            "reference": {
+              "detection": {
+                "evidence": [
+                  {
+                    "check": "magic",
+                    "ok": true,
+                    "value": "hdfm"
+                  },
+                  {
+                    "check": "header_length",
+                    "ok": true,
+                    "value": 144
+                  },
+                  {
+                    "check": "declared_size",
+                    "ok": true,
+                    "value": 4103
+                  },
+                  {
+                    "check": "pascal_version",
+                    "ok": true,
+                    "value": "12.13.10.3"
+                  },
+                  {
+                    "check": "payload_byteorder",
+                    "ok": true,
+                    "value": "little"
+                  },
+                  {
+                    "check": "encryption_flag",
+                    "ok": true,
+                    "value": 2
+                  },
+                  {
+                    "check": "section_boundaries",
+                    "ok": true,
+                    "value": [
+                      16,
+                      12,
+                      9,
+                      11,
+                      1,
+                      13,
+                      23,
+                      2,
+                      14,
+                      4
+                    ]
+                  }
+                ],
+                "limitations": [
+                  "The Pascal version label is authoritative only for the observed envelope.",
+                  "No native iTunes acceptance is implied by structural detection."
+                ],
+                "profile": {
+                  "cross_version_write": false,
+                  "identity_write": true,
+                  "playlist_header_lengths": [
+                    3500
+                  ],
+                  "semantic_read": true,
+                  "track_header_lengths": [
+                    756
+                  ]
+                },
+                "reason": "observed version label and bounded section framing agree",
+                "schema": "reference-itl.version-detection.v1",
+                "sha256": "71ab2bb823498fda216008461591677a8e20ec5dabff7ece2d3631e31ddf58d8",
+                "status": "recognized",
+                "version": "12.13.10.3"
+              },
+              "payload_bytes": 104879,
+              "payload_sha256": "581d53bd16113e2a7c2ac31da410b511c3f7047cf196886e8faf3bc9e375faf1",
+              "playlists": 15,
+              "sections": 10,
+              "tracks": 1,
+              "trailer_bytes": 0,
+              "trailer_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              "version": "12.13.10.3"
+            },
+            "validator": {
+              "coverage": {
+                "compressed_trailer": {
+                  "bytes": 0,
+                  "present": false,
+                  "semantically_validated": false
+                },
+                "envelope_and_record_boundaries": true,
+                "known_reference_namespaces": [
+                  "track local/Persistent IDs",
+                  "playlist local/Persistent IDs",
+                  "playlist item IDs and track references",
+                  "track album and artist local references"
+                ],
+                "opaque_bytes_semantically_validated": false,
+                "opaque_reference_scan": false
+              },
+              "issue_codes": [
+                "scope.opaque_section",
+                "scope.opaque_section"
+              ],
+              "valid": true
+            }
+          },
+          "label": "cycle-1-native-saved",
+          "path": "evidence/research/20260925/native-trailer-u13/native-run/cases/u13-control-no-trailer/cycle-1/native-saved.itl"
+        },
+        {
+          "analysis": {
+            "file": {
+              "bytes": 4129,
+              "sha256": "04c92369c988e36daf4e7f8ea3b57ca6c2cc541ee0b19ef7783825b51ed06364"
+            },
+            "primary": {
+              "compression_flag": 1,
+              "encryption_flag": 2,
+              "max_crypt_size": 102400,
+              "no_op_exact": true,
+              "payload_bytes": 104994,
+              "payload_sha256": "d56a4666fb6994bf4e66c2de7bff857851ca177be6852e00d12cb41e41dbad9f",
+              "trailer_bytes": 0,
+              "trailer_hex": "",
+              "trailer_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              "version": "12.13.10.3"
+            },
+            "reference": {
+              "detection": {
+                "evidence": [
+                  {
+                    "check": "magic",
+                    "ok": true,
+                    "value": "hdfm"
+                  },
+                  {
+                    "check": "header_length",
+                    "ok": true,
+                    "value": 144
+                  },
+                  {
+                    "check": "declared_size",
+                    "ok": true,
+                    "value": 4129
+                  },
+                  {
+                    "check": "pascal_version",
+                    "ok": true,
+                    "value": "12.13.10.3"
+                  },
+                  {
+                    "check": "payload_byteorder",
+                    "ok": true,
+                    "value": "little"
+                  },
+                  {
+                    "check": "encryption_flag",
+                    "ok": true,
+                    "value": 2
+                  },
+                  {
+                    "check": "section_boundaries",
+                    "ok": true,
+                    "value": [
+                      16,
+                      12,
+                      9,
+                      11,
+                      1,
+                      13,
+                      23,
+                      2,
+                      14,
+                      4
+                    ]
+                  }
+                ],
+                "limitations": [
+                  "The Pascal version label is authoritative only for the observed envelope.",
+                  "No native iTunes acceptance is implied by structural detection."
+                ],
+                "profile": {
+                  "cross_version_write": false,
+                  "identity_write": true,
+                  "playlist_header_lengths": [
+                    3500
+                  ],
+                  "semantic_read": true,
+                  "track_header_lengths": [
+                    756
+                  ]
+                },
+                "reason": "observed version label and bounded section framing agree",
+                "schema": "reference-itl.version-detection.v1",
+                "sha256": "04c92369c988e36daf4e7f8ea3b57ca6c2cc541ee0b19ef7783825b51ed06364",
+                "status": "recognized",
+                "version": "12.13.10.3"
+              },
+              "payload_bytes": 104994,
+              "payload_sha256": "d56a4666fb6994bf4e66c2de7bff857851ca177be6852e00d12cb41e41dbad9f",
+              "playlists": 15,
+              "sections": 10,
+              "tracks": 1,
+              "trailer_bytes": 0,
+              "trailer_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              "version": "12.13.10.3"
+            },
+            "validator": {
+              "coverage": {
+                "compressed_trailer": {
+                  "bytes": 0,
+                  "present": false,
+                  "semantically_validated": false
+                },
+                "envelope_and_record_boundaries": true,
+                "known_reference_namespaces": [
+                  "track local/Persistent IDs",
+                  "playlist local/Persistent IDs",
+                  "playlist item IDs and track references",
+                  "track album and artist local references"
+                ],
+                "opaque_bytes_semantically_validated": false,
+                "opaque_reference_scan": false
+              },
+              "issue_codes": [
+                "scope.opaque_section",
+                "scope.opaque_section"
+              ],
+              "valid": true
+            }
+          },
+          "label": "cycle-2-native-saved",
+          "path": "evidence/research/20260925/native-trailer-u13/native-run/cases/u13-control-no-trailer/cycle-2/native-saved.itl"
+        }
+      ],
+      "profile_cleanup_error": null,
+      "restart_chain_exact": true,
+      "role": "exact_trailer_free_control",
+      "stopped_gate_error": null
+    },
+    {
+      "case_result": {
+        "path": "evidence/research/20260925/native-trailer-u13/native-run/cases/u13-opaque-trailer-17/result.json",
+        "sha256": "aaccb1669ea624983095f30487eea51c67ec6c03a305d9f97c796a72250e36a8"
+      },
+      "cycles": [
+        {
+          "artifact": {
+            "analysis": {
+              "file": {
+                "bytes": 4114,
+                "sha256": "76155badb29a2b30ca64aeb0769dabf6bf2d928b877d236fd8bda12ca079d928"
+              },
+              "primary": {
+                "compression_flag": 1,
+                "encryption_flag": 2,
+                "max_crypt_size": 102400,
+                "no_op_exact": true,
+                "payload_bytes": 104879,
+                "payload_sha256": "e9934cb14dcd83a99943ec02c9905f7b5b1676d9a1f9b11542addff1b3d8b6b4",
+                "trailer_bytes": 0,
+                "trailer_hex": "",
+                "trailer_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+                "version": "12.13.10.3"
+              },
+              "reference": {
+                "detection": {
+                  "evidence": [
+                    {
+                      "check": "magic",
+                      "ok": true,
+                      "value": "hdfm"
+                    },
+                    {
+                      "check": "header_length",
+                      "ok": true,
+                      "value": 144
+                    },
+                    {
+                      "check": "declared_size",
+                      "ok": true,
+                      "value": 4114
+                    },
+                    {
+                      "check": "pascal_version",
+                      "ok": true,
+                      "value": "12.13.10.3"
+                    },
+                    {
+                      "check": "payload_byteorder",
+                      "ok": true,
+                      "value": "little"
+                    },
+                    {
+                      "check": "encryption_flag",
+                      "ok": true,
+                      "value": 2
+                    },
+                    {
+                      "check": "section_boundaries",
+                      "ok": true,
+                      "value": [
+                        16,
+                        12,
+                        9,
+                        11,
+                        1,
+                        13,
+                        23,
+                        2,
+                        14,
+                        4
+                      ]
+                    }
+                  ],
+                  "limitations": [
+                    "The Pascal version label is authoritative only for the observed envelope.",
+                    "No native iTunes acceptance is implied by structural detection."
+                  ],
+                  "profile": {
+                    "cross_version_write": false,
+                    "identity_write": true,
+                    "playlist_header_lengths": [
+                      3500
+                    ],
+                    "semantic_read": true,
+                    "track_header_lengths": [
+                      756
+                    ]
+                  },
+                  "reason": "observed version label and bounded section framing agree",
+                  "schema": "reference-itl.version-detection.v1",
+                  "sha256": "76155badb29a2b30ca64aeb0769dabf6bf2d928b877d236fd8bda12ca079d928",
+                  "status": "recognized",
+                  "version": "12.13.10.3"
+                },
+                "payload_bytes": 104879,
+                "payload_sha256": "e9934cb14dcd83a99943ec02c9905f7b5b1676d9a1f9b11542addff1b3d8b6b4",
+                "playlists": 15,
+                "sections": 10,
+                "tracks": 1,
+                "trailer_bytes": 0,
+                "trailer_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+                "version": "12.13.10.3"
+              },
+              "validator": {
+                "coverage": {
+                  "compressed_trailer": {
+                    "bytes": 0,
+                    "present": false,
+                    "semantically_validated": false
+                  },
+                  "envelope_and_record_boundaries": true,
+                  "known_reference_namespaces": [
+                    "track local/Persistent IDs",
+                    "playlist local/Persistent IDs",
+                    "playlist item IDs and track references",
+                    "track album and artist local references"
+                  ],
+                  "opaque_bytes_semantically_validated": false,
+                  "opaque_reference_scan": false
+                },
+                "issue_codes": [
+                  "scope.opaque_section",
+                  "scope.opaque_section"
+                ],
+                "valid": true
+              }
+            },
+            "label": "cycle-1-native-saved",
+            "path": "evidence/research/20260925/native-trailer-u13/native-run/cases/u13-opaque-trailer-17/cycle-1/native-saved.itl"
+          },
+          "com_json": {
+            "path": "evidence/research/20260925/native-trailer-u13/native-run/cases/u13-opaque-trailer-17/cycle-1/com.json",
+            "sha256": "413a86261d851f8bb80653194cf53917cb3750ecbb8e1b945a26511d1080c8a6"
+          },
+          "cycle": 1,
+          "forbidden_after": [],
+          "forbidden_before": [],
+          "itunes_exit_code": 0,
+          "prelaunch": {
+            "bytes": 792,
+            "mtime_ns": 1790271101004254200,
+            "path": "<NATIVE_ROOT>\\u13-opaque-trailer-17\\live\\iTunes Library.itl",
+            "sha256": "10b17fbdd783ad17e6fa3b488ee6421f43a417b9350de547754d24d4369e4e34"
+          },
+          "quit_requested": true,
+          "reference_summary_errors": [],
+          "result_json": {
+            "path": "evidence/research/20260925/native-trailer-u13/native-run/cases/u13-opaque-trailer-17/cycle-1/result.json",
+            "sha256": "30eaaeca46ccdb80024097fadfc1e7a1365372263f2a9b8d84125428c00b23d6"
+          },
+          "status": "passed",
+          "ui_actions": [
+            "dismiss_audio_warning"
+          ],
+          "worker_accepted": true,
+          "worker_errors": [],
+          "worker_exit_code": 0
+        },
+        {
+          "artifact": {
+            "analysis": {
+              "file": {
+                "bytes": 4150,
+                "sha256": "7bb3dc35fda5e1f04d06b6d1e4b29c459a47c71c202edff95a045634ef8a304f"
+              },
+              "primary": {
+                "compression_flag": 1,
+                "encryption_flag": 2,
+                "max_crypt_size": 102400,
+                "no_op_exact": true,
+                "payload_bytes": 104994,
+                "payload_sha256": "dd4aaf1ea313be636d1b3f3f089348038c259d930c2316f167fd11e94fbc35be",
+                "trailer_bytes": 0,
+                "trailer_hex": "",
+                "trailer_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+                "version": "12.13.10.3"
+              },
+              "reference": {
+                "detection": {
+                  "evidence": [
+                    {
+                      "check": "magic",
+                      "ok": true,
+                      "value": "hdfm"
+                    },
+                    {
+                      "check": "header_length",
+                      "ok": true,
+                      "value": 144
+                    },
+                    {
+                      "check": "declared_size",
+                      "ok": true,
+                      "value": 4150
+                    },
+                    {
+                      "check": "pascal_version",
+                      "ok": true,
+                      "value": "12.13.10.3"
+                    },
+                    {
+                      "check": "payload_byteorder",
+                      "ok": true,
+                      "value": "little"
+                    },
+                    {
+                      "check": "encryption_flag",
+                      "ok": true,
+                      "value": 2
+                    },
+                    {
+                      "check": "section_boundaries",
+                      "ok": true,
+                      "value": [
+                        16,
+                        12,
+                        9,
+                        11,
+                        1,
+                        13,
+                        23,
+                        2,
+                        14,
+                        4
+                      ]
+                    }
+                  ],
+                  "limitations": [
+                    "The Pascal version label is authoritative only for the observed envelope.",
+                    "No native iTunes acceptance is implied by structural detection."
+                  ],
+                  "profile": {
+                    "cross_version_write": false,
+                    "identity_write": true,
+                    "playlist_header_lengths": [
+                      3500
+                    ],
+                    "semantic_read": true,
+                    "track_header_lengths": [
+                      756
+                    ]
+                  },
+                  "reason": "observed version label and bounded section framing agree",
+                  "schema": "reference-itl.version-detection.v1",
+                  "sha256": "7bb3dc35fda5e1f04d06b6d1e4b29c459a47c71c202edff95a045634ef8a304f",
+                  "status": "recognized",
+                  "version": "12.13.10.3"
+                },
+                "payload_bytes": 104994,
+                "payload_sha256": "dd4aaf1ea313be636d1b3f3f089348038c259d930c2316f167fd11e94fbc35be",
+                "playlists": 15,
+                "sections": 10,
+                "tracks": 1,
+                "trailer_bytes": 0,
+                "trailer_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+                "version": "12.13.10.3"
+              },
+              "validator": {
+                "coverage": {
+                  "compressed_trailer": {
+                    "bytes": 0,
+                    "present": false,
+                    "semantically_validated": false
+                  },
+                  "envelope_and_record_boundaries": true,
+                  "known_reference_namespaces": [
+                    "track local/Persistent IDs",
+                    "playlist local/Persistent IDs",
+                    "playlist item IDs and track references",
+                    "track album and artist local references"
+                  ],
+                  "opaque_bytes_semantically_validated": false,
+                  "opaque_reference_scan": false
+                },
+                "issue_codes": [
+                  "scope.opaque_section",
+                  "scope.opaque_section"
+                ],
+                "valid": true
+              }
+            },
+            "label": "cycle-2-native-saved",
+            "path": "evidence/research/20260925/native-trailer-u13/native-run/cases/u13-opaque-trailer-17/cycle-2/native-saved.itl"
+          },
+          "com_json": {
+            "path": "evidence/research/20260925/native-trailer-u13/native-run/cases/u13-opaque-trailer-17/cycle-2/com.json",
+            "sha256": "c7c1000090b7f963a5dfec32efdfab589c76d77d07f2f1b17655a9f1eda0253e"
+          },
+          "cycle": 2,
+          "forbidden_after": [],
+          "forbidden_before": [],
+          "itunes_exit_code": 0,
+          "prelaunch": {
+            "bytes": 4114,
+            "mtime_ns": 1790271215651428500,
+            "path": "<NATIVE_ROOT>\\u13-opaque-trailer-17\\live\\iTunes Library.itl",
+            "sha256": "76155badb29a2b30ca64aeb0769dabf6bf2d928b877d236fd8bda12ca079d928"
+          },
+          "quit_requested": true,
+          "reference_summary_errors": [],
+          "result_json": {
+            "path": "evidence/research/20260925/native-trailer-u13/native-run/cases/u13-opaque-trailer-17/cycle-2/result.json",
+            "sha256": "004cc961d03e7f2af638db2c6df774d2d7b6f62f4597f0343fe17acedeb94538"
+          },
+          "status": "passed",
+          "ui_actions": [
+            "dismiss_audio_warning"
+          ],
+          "worker_accepted": true,
+          "worker_errors": [],
+          "worker_exit_code": 0
+        }
+      ],
+      "final_forbidden_artifacts": [],
+      "name": "u13-opaque-trailer-17",
+      "native_passed": true,
+      "native_status": "passed",
+      "phase_chain": [
+        {
+          "file_changed": true,
+          "from": "candidate-input",
+          "payload_changed": true,
+          "to": "cycle-1-native-saved",
+          "trailer_fate": "stripped"
+        },
+        {
+          "file_changed": true,
+          "from": "cycle-1-native-saved",
+          "payload_changed": true,
+          "to": "cycle-2-native-saved",
+          "trailer_fate": "remained_absent"
+        }
+      ],
+      "phases": [
+        {
+          "analysis": {
+            "file": {
+              "bytes": 792,
+              "sha256": "10b17fbdd783ad17e6fa3b488ee6421f43a417b9350de547754d24d4369e4e34"
+            },
+            "primary": {
+              "compression_flag": 1,
+              "encryption_flag": 2,
+              "max_crypt_size": 102400,
+              "no_op_exact": true,
+              "payload_bytes": 10442,
+              "payload_sha256": "666c74d34556f413a76a31691be9b20f1eec8f2a9459f15b7b98f2ea0dcfa797",
+              "trailer_bytes": 17,
+              "trailer_hex": "ab9a7d82ac4119e858b335bd75ec56ec7c",
+              "trailer_sha256": "103ea80001690bf2fccc5b4fb924760bf817e9c0b798c085e5359f68b10616ab",
+              "version": "12.13.10.3"
+            },
+            "reference": {
+              "detection": {
+                "evidence": [
+                  {
+                    "check": "magic",
+                    "ok": true,
+                    "value": "hdfm"
+                  },
+                  {
+                    "check": "header_length",
+                    "ok": true,
+                    "value": 144
+                  },
+                  {
+                    "check": "declared_size",
+                    "ok": true,
+                    "value": 792
+                  },
+                  {
+                    "check": "pascal_version",
+                    "ok": true,
+                    "value": "12.13.10.3"
+                  },
+                  {
+                    "check": "payload_byteorder",
+                    "ok": true,
+                    "value": "little"
+                  },
+                  {
+                    "check": "encryption_flag",
+                    "ok": true,
+                    "value": 2
+                  },
+                  {
+                    "check": "section_boundaries",
+                    "ok": true,
+                    "value": [
+                      16,
+                      12,
+                      9,
+                      11,
+                      1,
+                      13,
+                      23,
+                      2,
+                      14,
+                      4
+                    ]
+                  }
+                ],
+                "limitations": [
+                  "The Pascal version label is authoritative only for the observed envelope.",
+                  "No native iTunes acceptance is implied by structural detection."
+                ],
+                "profile": {
+                  "cross_version_write": false,
+                  "identity_write": true,
+                  "playlist_header_lengths": [
+                    3500
+                  ],
+                  "semantic_read": true,
+                  "track_header_lengths": [
+                    756
+                  ]
+                },
+                "reason": "observed version label and bounded section framing agree",
+                "schema": "reference-itl.version-detection.v1",
+                "sha256": "10b17fbdd783ad17e6fa3b488ee6421f43a417b9350de547754d24d4369e4e34",
+                "status": "recognized",
+                "version": "12.13.10.3"
+              },
+              "payload_bytes": 10442,
+              "payload_sha256": "666c74d34556f413a76a31691be9b20f1eec8f2a9459f15b7b98f2ea0dcfa797",
+              "playlists": 2,
+              "sections": 10,
+              "tracks": 1,
+              "trailer_bytes": 17,
+              "trailer_sha256": "103ea80001690bf2fccc5b4fb924760bf817e9c0b798c085e5359f68b10616ab",
+              "version": "12.13.10.3"
+            },
+            "validator": {
+              "coverage": {
+                "compressed_trailer": {
+                  "bytes": 17,
+                  "present": true,
+                  "semantically_validated": false
+                },
+                "envelope_and_record_boundaries": true,
+                "known_reference_namespaces": [
+                  "track local/Persistent IDs",
+                  "playlist local/Persistent IDs",
+                  "playlist item IDs and track references",
+                  "track album and artist local references"
+                ],
+                "opaque_bytes_semantically_validated": false,
+                "opaque_reference_scan": false
+              },
+              "issue_codes": [
+                "scope.compressed_trailer",
+                "scope.opaque_section",
+                "scope.opaque_section"
+              ],
+              "valid": true
+            }
+          },
+          "label": "candidate-input",
+          "path": "evidence/research/20260925/native-trailer-u13/candidates/opaque-trailer-17-reference-one-track-zlib.itl"
+        },
+        {
+          "analysis": {
+            "file": {
+              "bytes": 4114,
+              "sha256": "76155badb29a2b30ca64aeb0769dabf6bf2d928b877d236fd8bda12ca079d928"
+            },
+            "primary": {
+              "compression_flag": 1,
+              "encryption_flag": 2,
+              "max_crypt_size": 102400,
+              "no_op_exact": true,
+              "payload_bytes": 104879,
+              "payload_sha256": "e9934cb14dcd83a99943ec02c9905f7b5b1676d9a1f9b11542addff1b3d8b6b4",
+              "trailer_bytes": 0,
+              "trailer_hex": "",
+              "trailer_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              "version": "12.13.10.3"
+            },
+            "reference": {
+              "detection": {
+                "evidence": [
+                  {
+                    "check": "magic",
+                    "ok": true,
+                    "value": "hdfm"
+                  },
+                  {
+                    "check": "header_length",
+                    "ok": true,
+                    "value": 144
+                  },
+                  {
+                    "check": "declared_size",
+                    "ok": true,
+                    "value": 4114
+                  },
+                  {
+                    "check": "pascal_version",
+                    "ok": true,
+                    "value": "12.13.10.3"
+                  },
+                  {
+                    "check": "payload_byteorder",
+                    "ok": true,
+                    "value": "little"
+                  },
+                  {
+                    "check": "encryption_flag",
+                    "ok": true,
+                    "value": 2
+                  },
+                  {
+                    "check": "section_boundaries",
+                    "ok": true,
+                    "value": [
+                      16,
+                      12,
+                      9,
+                      11,
+                      1,
+                      13,
+                      23,
+                      2,
+                      14,
+                      4
+                    ]
+                  }
+                ],
+                "limitations": [
+                  "The Pascal version label is authoritative only for the observed envelope.",
+                  "No native iTunes acceptance is implied by structural detection."
+                ],
+                "profile": {
+                  "cross_version_write": false,
+                  "identity_write": true,
+                  "playlist_header_lengths": [
+                    3500
+                  ],
+                  "semantic_read": true,
+                  "track_header_lengths": [
+                    756
+                  ]
+                },
+                "reason": "observed version label and bounded section framing agree",
+                "schema": "reference-itl.version-detection.v1",
+                "sha256": "76155badb29a2b30ca64aeb0769dabf6bf2d928b877d236fd8bda12ca079d928",
+                "status": "recognized",
+                "version": "12.13.10.3"
+              },
+              "payload_bytes": 104879,
+              "payload_sha256": "e9934cb14dcd83a99943ec02c9905f7b5b1676d9a1f9b11542addff1b3d8b6b4",
+              "playlists": 15,
+              "sections": 10,
+              "tracks": 1,
+              "trailer_bytes": 0,
+              "trailer_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              "version": "12.13.10.3"
+            },
+            "validator": {
+              "coverage": {
+                "compressed_trailer": {
+                  "bytes": 0,
+                  "present": false,
+                  "semantically_validated": false
+                },
+                "envelope_and_record_boundaries": true,
+                "known_reference_namespaces": [
+                  "track local/Persistent IDs",
+                  "playlist local/Persistent IDs",
+                  "playlist item IDs and track references",
+                  "track album and artist local references"
+                ],
+                "opaque_bytes_semantically_validated": false,
+                "opaque_reference_scan": false
+              },
+              "issue_codes": [
+                "scope.opaque_section",
+                "scope.opaque_section"
+              ],
+              "valid": true
+            }
+          },
+          "label": "cycle-1-native-saved",
+          "path": "evidence/research/20260925/native-trailer-u13/native-run/cases/u13-opaque-trailer-17/cycle-1/native-saved.itl"
+        },
+        {
+          "analysis": {
+            "file": {
+              "bytes": 4150,
+              "sha256": "7bb3dc35fda5e1f04d06b6d1e4b29c459a47c71c202edff95a045634ef8a304f"
+            },
+            "primary": {
+              "compression_flag": 1,
+              "encryption_flag": 2,
+              "max_crypt_size": 102400,
+              "no_op_exact": true,
+              "payload_bytes": 104994,
+              "payload_sha256": "dd4aaf1ea313be636d1b3f3f089348038c259d930c2316f167fd11e94fbc35be",
+              "trailer_bytes": 0,
+              "trailer_hex": "",
+              "trailer_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              "version": "12.13.10.3"
+            },
+            "reference": {
+              "detection": {
+                "evidence": [
+                  {
+                    "check": "magic",
+                    "ok": true,
+                    "value": "hdfm"
+                  },
+                  {
+                    "check": "header_length",
+                    "ok": true,
+                    "value": 144
+                  },
+                  {
+                    "check": "declared_size",
+                    "ok": true,
+                    "value": 4150
+                  },
+                  {
+                    "check": "pascal_version",
+                    "ok": true,
+                    "value": "12.13.10.3"
+                  },
+                  {
+                    "check": "payload_byteorder",
+                    "ok": true,
+                    "value": "little"
+                  },
+                  {
+                    "check": "encryption_flag",
+                    "ok": true,
+                    "value": 2
+                  },
+                  {
+                    "check": "section_boundaries",
+                    "ok": true,
+                    "value": [
+                      16,
+                      12,
+                      9,
+                      11,
+                      1,
+                      13,
+                      23,
+                      2,
+                      14,
+                      4
+                    ]
+                  }
+                ],
+                "limitations": [
+                  "The Pascal version label is authoritative only for the observed envelope.",
+                  "No native iTunes acceptance is implied by structural detection."
+                ],
+                "profile": {
+                  "cross_version_write": false,
+                  "identity_write": true,
+                  "playlist_header_lengths": [
+                    3500
+                  ],
+                  "semantic_read": true,
+                  "track_header_lengths": [
+                    756
+                  ]
+                },
+                "reason": "observed version label and bounded section framing agree",
+                "schema": "reference-itl.version-detection.v1",
+                "sha256": "7bb3dc35fda5e1f04d06b6d1e4b29c459a47c71c202edff95a045634ef8a304f",
+                "status": "recognized",
+                "version": "12.13.10.3"
+              },
+              "payload_bytes": 104994,
+              "payload_sha256": "dd4aaf1ea313be636d1b3f3f089348038c259d930c2316f167fd11e94fbc35be",
+              "playlists": 15,
+              "sections": 10,
+              "tracks": 1,
+              "trailer_bytes": 0,
+              "trailer_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              "version": "12.13.10.3"
+            },
+            "validator": {
+              "coverage": {
+                "compressed_trailer": {
+                  "bytes": 0,
+                  "present": false,
+                  "semantically_validated": false
+                },
+                "envelope_and_record_boundaries": true,
+                "known_reference_namespaces": [
+                  "track local/Persistent IDs",
+                  "playlist local/Persistent IDs",
+                  "playlist item IDs and track references",
+                  "track album and artist local references"
+                ],
+                "opaque_bytes_semantically_validated": false,
+                "opaque_reference_scan": false
+              },
+              "issue_codes": [
+                "scope.opaque_section",
+                "scope.opaque_section"
+              ],
+              "valid": true
+            }
+          },
+          "label": "cycle-2-native-saved",
+          "path": "evidence/research/20260925/native-trailer-u13/native-run/cases/u13-opaque-trailer-17/cycle-2/native-saved.itl"
+        }
+      ],
+      "profile_cleanup_error": null,
+      "restart_chain_exact": true,
+      "role": "fixed_seed_opaque_trailer_candidate",
+      "stopped_gate_error": null
+    }
+  ],
+  "claim_boundaries": [
+    "Exact-candidate evidence only: one 17-byte fixed-seed opaque trailer and its exact trailer-free control.",
+    "Native acceptance, if observed, does not establish trailer meaning, provenance, safe semantic editability, or universal ITL support.",
+    "Parser, validator, no-op, and envelope agreement are structural evidence and are not substitutes for native acceptance.",
+    "Repeated saves and the copied control are phase-chain observations, not independent experiments.",
+    "Results are bounded to the signed standalone Windows iTunes 12.13.10.3 executable and the retained one-track semantic profile."
+  ],
+  "environment_provenance": {
+    "path": "evidence/research/20260925/native-trailer-u13/environment-provenance.json",
+    "sha256": "131302c15997ba2b0b7d5397c8a9dc09cbb7b8cccbd38bc137214971f1ed34f7"
+  },
+  "generation": {
+    "path": "evidence/research/20260925/native-trailer-u13/generation.json",
+    "sha256": "d53298756b3bc95ff599b2896169f8c145dfa2eb05d1a5b0d937927b6175d22f"
+  },
+  "matrix_status": "passed",
+  "native_harness_summary": {
+    "path": "evidence/research/20260925/native-trailer-u13/native-run/summary.json",
+    "sha256": "11e1569560648f0f12a89e68817518abebc9b488dbac4b9739743956bad5c8f5"
+  },
+  "operation": "retained_native_analysis",
+  "pair_result": {
+    "candidate_native_passed": true,
+    "candidate_phase_fates": [
+      "stripped",
+      "remained_absent"
+    ],
+    "control_native_passed": true,
+    "copied_control_is_not_independent_experiment": true,
+    "fresh_isolated_profiles": true,
+    "two_cycles_requested_per_case": true
+  },
+  "schema": "windows-itl.native-trailer-u13.v1",
+  "unresolved": [
+    "Trailer bytes still lack provenance, a decoder, and a safe independence proof.",
+    "This pair cannot establish safe semantic edits, arbitrary trailer handling, other profile shapes, or other iTunes builds.",
+    "U-13 remains open regardless of this bounded candidate outcome."
+  ]
+}

@@ -1,4 +1,4 @@
-"""Bounded offline tests for the strict delivery verifier; no native application imports."""
+"""Bounded offline tests for delivery verifier contracts; no native application imports."""
 from pathlib import Path
 import copy
 import hashlib
@@ -24,17 +24,32 @@ def main():
         rows = [{'path': 'sample.txt', 'bytes': len(content), 'sha256': hashlib.sha256(content).hexdigest()}]
         change(root, rows)
         (root / module.MANIFEST).write_text(json.dumps(rows), encoding='utf-8')
+        verdict = None
         error = None
         try:
-            module.verify(root)
+            verdict = module.verify(root)
         except (OSError, ValueError, TypeError, KeyError) as exc:
             error = str(exc)
-        if (error is None) != expect_ok:
-            raise AssertionError((name, expect_ok, error))
-        results.append({'name': name, 'passed': True, 'refused': error is not None, 'reason': error})
+            ok = False
+        else:
+            if isinstance(verdict, dict):
+                if not isinstance(verdict.get('ok'), bool):
+                    raise AssertionError((name, 'verifier returned no boolean ok', verdict))
+                ok = verdict['ok']
+                if not ok:
+                    error = json.dumps(verdict.get('issues', []), sort_keys=True)
+            elif type(verdict) is int and verdict >= 0:
+                # The production verifier returns the verified manifest-entry count.
+                ok = True
+            else:
+                raise AssertionError((name, 'unsupported verifier result', verdict))
+        if ok != expect_ok:
+            raise AssertionError((name, expect_ok, ok, error, verdict))
+        results.append({'name': name, 'passed': True, 'refused': not ok, 'reason': error})
     test('valid', lambda r, x: None, True)
     test('git-directory-excluded', lambda r, x: ((r / '.git').mkdir(), (r / '.git/config').write_text('test')), True)
     test('git-pointer-excluded', lambda r, x: (r / '.git').write_text('gitdir: elsewhere'), True)
+    test('generated-metadata-directory-excluded', lambda r, x: ((r / module.GENERATED_METADATA_DIR).mkdir(), (r / module.GENERATED_METADATA_DIR / 'PKG-INFO').write_text('generated')), True)
     test('unlisted-extra', lambda r, x: (r / 'extra.txt').write_text('extra'))
     test('missing-file', lambda r, x: (r / 'sample.txt').unlink())
     test('size-mismatch', lambda r, x: (r / 'sample.txt').write_text('short'))
@@ -55,6 +70,9 @@ def main():
     test('bad-digest', lambda r, x: x[0].update(sha256='z' * 64))
     test('self-entry', lambda r, x: x[0].update(path=module.MANIFEST))
     test('git-entry', lambda r, x: x[0].update(path='.git/config'))
+    test('generated-metadata-entry', lambda r, x: x[0].update(path=module.GENERATED_METADATA_DIR + '/PKG-INFO'))
+    test('other-egg-info-not-excluded', lambda r, x: ((r / 'other.egg-info').mkdir(), (r / 'other.egg-info/PKG-INFO').write_text('extra')))
+    test('nested-generated-name-not-excluded', lambda r, x: ((r / 'nested' / module.GENERATED_METADATA_DIR).mkdir(parents=True), (r / 'nested' / module.GENERATED_METADATA_DIR / 'PKG-INFO').write_text('extra')))
     result = {'status': 'passed', 'checks': len(results), 'cases': results, 'native_actions': False, 'verifier_sha256': hashlib.sha256(verifier.read_bytes()).hexdigest()}
     (scratch / 'report.json').write_text(json.dumps(result, indent=2), encoding='utf-8')
     print(json.dumps({'status': result['status'], 'checks': result['checks'], 'native_actions': False}))

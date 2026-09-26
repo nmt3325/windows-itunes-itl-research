@@ -46,8 +46,8 @@ A stronger state never automatically generalizes to another version, library lin
    - ordinary playlist rename/create/delete/member replacement;
    - same-lineage native-WAV track restoration and guarded deletion;
    - transactional JSON operations;
-   - new-file-only output publication.
-6. Archived native evidence, static analysis, offline regression tests, bounded fuzzing, and delivery-integrity checks linked from [`EVIDENCE.md`](EVIDENCE.md).
+   - new-file-only output publication within the documented trusted/stable parent-directory model.
+6. Archived native evidence, static analysis, offline regression tests, bounded fuzzing, bounded Linux filesystem publication/process-termination research, and delivery-integrity checks linked from [`EVIDENCE.md`](EVIDENCE.md).
 
 7. The evidence-graded smart-playlist `SLst` AST, lossless serializer, structural validator, and retained-corpus census in [`SMART_PLAYLIST_SPEC.md`](SMART_PLAYLIST_SPEC.md). Semantic rule editing/evaluation is excluded.
 8. The bounded Windows path/time native matrix in [`PATH_AND_TIME_SPEC.md`](PATH_AND_TIME_SPEC.md), with offline, Windows-only, native COM/UI, and serialized-ITL evidence kept distinct.
@@ -63,6 +63,7 @@ A stronger state never automatically generalizes to another version, library lin
 - Recursive/grouped playlist items, arbitrary smart-playlist rule evaluation, or editing arbitrary system/master playlists.
 - General timezone/DST/fold reconstruction from HFS wall-time values.
 - Audible playback. The retained silent-playback control did not establish playback success.
+- Power-loss behavior, directory-entry durability, hostile-directory safety, network/unusual-filesystem behavior, Windows process-crash parity, or universal atomicity. The selected Linux `SIGKILL` schedules are research evidence only.
 - Treating raw research builders or one-off accepted candidates as a supported production API.
 
 ## Claim gates
@@ -98,7 +99,7 @@ Native qualification attaches to the exact candidate and stated operation, not t
 
 ### Gate E — delivery integrity
 
-The exact file set, sizes, and SHA-256 values must match [`DELIVERY-MANIFEST.json`](DELIVERY-MANIFEST.json); tests must write outside the repository. The manifest excludes only itself and `.git`.
+The exact file set, sizes, and SHA-256 values must match [`DELIVERY-MANIFEST.json`](DELIVERY-MANIFEST.json); tests must write outside the repository. The manifest excludes itself, `.git`, and only the exact top-level generated packaging directory `windows_itl_research.egg-info`. Other or nested `*.egg-info` directories remain in the exact file set.
 
 Implementation: [`scripts/research/verify_delivery.py`](scripts/research/verify_delivery.py).
 Tests: [`proposals/test_verify_delivery_strict.py`](proposals/test_verify_delivery_strict.py).

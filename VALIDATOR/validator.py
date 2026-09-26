@@ -66,11 +66,27 @@ def validate_bytes(data: bytes) -> dict:
                 "envelope_and_record_boundaries": False,
                 "known_reference_namespaces": [],
                 "opaque_bytes_semantically_validated": False,
+                "compressed_trailer": {
+                    "present": None,
+                    "bytes": None,
+                    "semantically_validated": False,
+                },
             },
             "native_acceptance": "unverified",
         }
 
     envelope = library.envelope
+    if envelope.trailer:
+        issues.append(
+            _issue(
+                "warning",
+                "scope.compressed_trailer",
+                "envelope/trailer",
+                "bytes after the first completed zlib stream are retained but not semantically validated",
+                bytes=len(envelope.trailer),
+                sha256=hashlib.sha256(envelope.trailer).hexdigest(),
+            )
+        )
     profile = SUPPORTED_PROFILES.get(envelope.version, {})
     declared = envelope.declared_counts
     actual = {
@@ -360,6 +376,11 @@ def validate_bytes(data: bytes) -> dict:
             ],
             "opaque_bytes_semantically_validated": False,
             "opaque_reference_scan": False,
+            "compressed_trailer": {
+                "present": bool(envelope.trailer),
+                "bytes": len(envelope.trailer),
+                "semantically_validated": False,
+            },
         },
         "native_acceptance": "unverified",
     }

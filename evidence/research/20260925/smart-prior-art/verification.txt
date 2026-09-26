@@ -1,0 +1,17 @@
+Smart Playlist prior-art audit verification (2026-09-25)
+
+PASS  python -m py_compile scripts/research/audit_smart_prior_art_20260925.py tests/test_smart_prior_art_20260925.py
+PASS  python -m pytest -q tests/test_smart_prior_art_20260925.py tests/test_smart_playlists.py
+      24 passed
+PASS  python -m pytest -q
+      950 passed, 4 skipped
+PASS  PYTHONPATH=src python -m pytest -q -o addopts= tests/test_encode.py tests/test_decode.py
+      smart-playlist-io: 144 passed
+PASS  PYTHONPATH=. python -m pytest -q
+      itunes_smartplaylist: 18 passed
+PASS  generator executed twice with identical stdout and identical output SHA-256 set
+PASS  git diff --check
+
+NOTE  smart-playlist-io's default addopts require pytest-cov, absent in this environment;
+      -o addopts= disabled coverage arguments only. No test was deselected.
+NOTE  No Windows-native write was performed.

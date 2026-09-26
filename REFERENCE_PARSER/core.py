@@ -617,6 +617,9 @@ class ReferenceLibrary:
                 "disc_count": _safe_int(record.header, 0x6A, 2),
                 "rating": _safe_int(record.header, 0x6C, 1),
                 "name_refresh_flag_raw": _safe_int(record.header, 0x6D, 1),
+                # Bounded legacy bit; this does not claim current UI or
+                # disliked semantics, which native COM does not expose.
+                "legacy_loved_byte_raw": _safe_int(record.header, 0x2BF, 1),
                 "date_added": _safe_int(record.header, 0x78, 4),
                 "skip_count": _safe_int(record.header, 0xD8, 4),
                 "album_id": _safe_int(record.header, 0xDC, 4),
@@ -631,6 +634,11 @@ class ReferenceLibrary:
                 item["unplayed"] = not bool(item["unplayed_raw"] & 1)
             else:
                 item["unplayed"] = None
+            item["legacy_loved_bit"] = (
+                bool(item["legacy_loved_byte_raw"] & 0x02)
+                if item["legacy_loved_byte_raw"] is not None
+                else None
+            )
             if problems:
                 item["text_decode_problems"] = problems
             result.append(item)

@@ -142,6 +142,7 @@ python -u scripts/windows/path_time_matrix.py native `
 ## 7. Evidence and tests
 
 - Aggregate: `evidence/path-time/native/native-summary.json`
+- Retained second-parser audit: `evidence/research/20260925/path-time-retained-audit/` (cases 030–038 parsed with `REFERENCE_PARSER`; no new native action)
 - Per-case input/COM/result: `evidence/path-time/native/runs/001-drive-absolute/`
 - Native sequence: `evidence/path-time/native/snapshots/`
 - Media inventory: `evidence/path-time/native/input-manifest-final.json`

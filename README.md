@@ -8,7 +8,7 @@ Windows版の**Apple公式スタンドアロンEXE版 iTunes 12.13.10.3**を対�
 
 ## 今回確認したこと
 
-- 回帰テスト：**1069 passed / 5 skipped**（独立リファレンスツール27件を含む）。合成テストに加え、固定55個のネイティブITL構造と50個の対応COM記録を検査しました。5件はCOM記録がない明示的スキップで、ネイティブ操作の回数ではありません。
+- 回帰テスト：**1137 passed / 9 skipped**（独立リファレンスツール27件を含む）。合成テストに加え、固定55個のネイティブITL構造と50個の対応COM記録を検査しました。スキップはCOM記録がない5件、Linux検証環境に `win32gui` がないWindows専用helper 2件、Windows専用ファイルシステム監査2件です。テスト件数やスキップ件数はネイティブ操作の回数ではありません。
 - 日時の負の端数が1904年エポックの0へ化ける問題を修正。保持される入れ子・未知のプレイリスト項目、復元元と不一致のシステム定義は変更前に拒否します。
 - テンプレートを使わず構築した1曲／3曲・raw/zlibの4つの参照ITLは、隔離したiTunesで各2回のopen/save/restartに合格しました。合格は4つの正確なSHA-256だけに限定され、任意件数・任意入力や完全仕様を意味しません。
 - 下記6候補を**実iTunesで選択して開き、各2回保存・終了・再起動**。最初45秒、次30秒の観察後にも期待値を確認しました。
@@ -58,7 +58,17 @@ python -B -m TEST_CORPUS manifest --check
 - [`PATH_AND_TIME_SPEC.md`](PATH_AND_TIME_SPEC.md) records 30 path cases and 8 `PlayedDate` mutations on isolated Windows iTunes 12.13.10.3. It retains 39 native-saved snapshots, all parseable; physical external media, remote SMB, drive reassignment, and a direct Japanese filesystem path remain unresolved.
 - [`evidence/native/fresh-20260921/`](evidence/native/fresh-20260921/) records a genuinely fresh iTunes-created library through empty/one/three-track, traced edit, and repeated saves. Because iTunes created it, this cohort alone is not reference-writer evidence.
 - [`evidence/native/reference-generated-20260922-passed/`](evidence/native/reference-generated-20260922-passed/) records the two exact one-track hashes; [`evidence/native/reference-multi-track-20260922-v2/`](evidence/native/reference-multi-track-20260922-v2/) records two exact three-track hashes with Japanese, emoji, and decomposed Unicode names. All four passed two strict cycles with exact identities and ordered membership, no XML/backup fallback, normal quit, and independent validation after each save. The preceding [`reference-multi-track-20260922/`](evidence/native/reference-multi-track-20260922/) attempt failed in UTF-8 preflight before iTunes launch and is retained as harness evidence, not native rejection.
-- [`corpus-manifest.json`](corpus-manifest.json) hashes all 356 retained ITLs and links the nested reference, fresh-native, path/time, smart-playlist, reference-generation, media-field, Lyrics-authority, boundary, and frame-size-ceiling analyses. The four checked-in one-track/three-track reference fixtures are `verified` only for their pinned hashes.
+- [`corpus-manifest.json`](corpus-manifest.json) hashes all 390 retained ITLs and links the nested reference, fresh-native, path/time, smart-playlist, reference-generation, media-field, Lyrics-authority, boundary, trailer, and coverage-guided analyses. Its six-file native-trailer class is two exact inputs plus four native saves from one control/candidate pair, not six independent experiments. Its 28-file native-rating class is 20 native-saved snapshots plus eight repeated baseline copies (21 unique hashes), not 28 independent experiments. The four checked-in one-track/three-track reference fixtures are `verified` only for their pinned hashes.
+
+## 2026-09-25 bounded integration checkpoint
+
+- The [native Rating/RatingKind bundle](evidence/research/20260925/native-rating-kind/README.md) records 20/20 isolated native sessions across Rating `0/20/40/60/80/100`. On this exact one-track iTunes 12.13.10.3 interface, `RatingKind`/`AlbumRatingKind` were read-only projections and `Loved`/`Disliked` were unavailable; [integrated offline reanalysis](evidence/research/20260925/native-rating-kind/INTEGRATION.md) separates later parser behavior from the immutable execution-time report. U-14 remains open.
+- The [pinned big-endian prior-art audit](evidence/research/20260925/big-endian-prior-art/README.md) structurally bounded 14 public historical fixtures (13 big-endian), while the [57-case trailer/coverage audit](evidence/research/20260925/trailer-coverage-audit/README.md) made opaque compressed-trailer coverage explicit. Parser return, exact no-op, and envelope reconstruction do not establish native acceptance or complete semantics; U-02, U-13, and U-17 remain open.
+- The [bounded coverage-guided campaign](evidence/research/20260925/coverage-guided-fuzz/README.md) ran 20,000 deterministic offline mutations across container, model, smart-rule, and smart-preference targets with 9,090 accepts, 10,910 explicit refusals, 34 coarse line-transition admissions, and zero retained anomalies. Its generator, runtime, production sources, and eight ITL seeds are pinned, and an [independent clean replay](evidence/research/20260925/coverage-guided-fuzz/INDEPENDENT-REVIEW.md) reproduced the report byte for byte. This is not branch completeness, universal parser safety, hostile-filesystem testing, or native evidence; U-17 remains open.
+- The [bounded Linux filesystem publication audit](evidence/research/20260925/filesystem-threat-model/README.md) adds 21 deterministic case scenarios covering destination races/aliases, hard-link refusal, write/flush/fsync/close and cleanup failures, stable parent aliases, and parent rename/swap/retarget boundaries. Stable-parent cases behaved as documented; parent replacement witnesses confirmed the existing hostile-directory exclusion. The audit changed no production code, simulated no power loss, and does not count repeated cases or controls as independent experiments; U-17 remains open.
+- The [bounded Linux process-termination follow-on](evidence/research/20260925/filesystem-process-crash/README.md) uses production `write_new` unchanged across five selected child schedules: four parent-issued `SIGKILL` terminations reaped as `-9` and one unhooked normal control reaped as `0`. Exact temporary sizes/hashes, destination presence, open-descriptor counts, hard-link inode/link counts, and cleanup are retained from fresh disposable `/tmp` roots. It performed zero power-loss and zero native-iTunes operations, and cases, controls, replays, and artifacts are not independent experiments; U-17 remains open.
+- The [bounded Windows/NTFS publication audit](evidence/research/20260925/windows-filesystem-publication/README.md) adds 25 normalized scenarios on one Windows Server 2025 / CPython 3.12.10 / runner-temporary NTFS qualification: 9 direct, 6 scheduler-assisted real-operation, 8 fault-injection, and 2 parent-triggered/reaped Win32 `TerminateProcess` cases, with 0 unavailable. A second fresh Windows root reproduced the report byte for byte. Stable-parent cases corroborated the documented protocol; parent directory/symlink/junction replacement remained outside it. This is not universal Windows/NTFS, hostile-directory, network-filesystem, power-loss, directory-entry-durability, or native-iTunes evidence; U-17 remains open.
+- The [retained path/time](evidence/research/20260925/path-time-retained-audit/README.md) and [sort/rank](evidence/research/20260925/sort-rank-audit/README.md) audits are deterministic offline reanalyses of archived evidence, not new native runs. Repeated snapshots, summary rows, and parser-agreement counts are not independent experiments; U-10 and U-11 remain open.
 
 ## 2026-09-22 retained closure probes
 
@@ -70,11 +80,14 @@ python -B -m TEST_CORPUS manifest --check
 - In three reset-ITL probes on the retained track, COM Lyrics followed the exact MP3 tag input: original `ULT`, stripped tag, and equal-length conflicting `ULT`. This is bounded precedence evidence and does not exclude hidden caches or establish generic storage authority. See [`evidence/native/lyrics-authority-20260922/README.md`](evidence/native/lyrics-authority-20260922/README.md).
 - External `quinnjr/itl-rs` at pinned commit `49f3ad3…` preserved the exact expanded payload of the zlib/AES reference and its 755-byte output passed two strict native cycles. The same implementation rejected raw input, reported the track PID as zero, and emitted mutation candidates that failed mandatory conformance checks. This is exact-hash structural interoperability, not a correct independent semantic implementation. See [`evidence/independent/itl-rs-20260922/README.md`](evidence/independent/itl-rs-20260922/README.md).
 - Twenty-four native Smart Playlist attempts are retained. v24 created native nested wrapper framing and an Artist/contains string-family leaf, but the operand serialized empty and membership remained empty. The series is negative evidence, not semantic editing support. See [`evidence/native/smart-playlist-default-20260922/README.md`](evidence/native/smart-playlist-default-20260922/README.md).
+- A 2026-09-25 U-13 pair tested one exact fixed-seed 17-byte opaque compressed trailer against its exact trailer-free control on signed standalone iTunes 12.13.10.3. Both passed two strict isolated cycles; the first native save stripped the candidate trailer and the restart kept it absent. This is exact-candidate load/save evidence, not trailer semantics or safe editability, and U-13 remains open. See [`evidence/research/20260925/native-trailer-u13/README.md`](evidence/research/20260925/native-trailer-u13/README.md) and [`docs/native-trailer-u13-20260925.md`](docs/native-trailer-u13-20260925.md).
 - The strict complete-analysis/specification gate remains **false**. U-01 through U-18 remain blockers; successful parsing, refusal, structural preservation, finite native-accepted cases, or a measured lower bound are not counted as complete interoperability.
 
 ## 基本的な実行
 
 Python 3.12以降を使用します。確認した環境は Python 3.12.10 / PyCryptodome 3.23.0 / pytest 9.1.1 です。
+
+圧縮出力のバイト列は zlib バックエンドにも依存します。Windows 版 CPython 3.14 の zlib-ng 出力は、同じ入力に対して決定的かつ構造検証可能ですが、保持済みの classic-zlib ハッシュとは一致せず、実機 iTunes 受入れは `unverified` です。したがって、classic-zlib の実機受入れ証拠やバイト完全再現性を zlib-ng 出力へ移転しません。非圧縮出力、解析、無変更バイト保持はこの圧縮バックエンド境界とは別です。
 
 ```powershell
 python -m pip install pycryptodome==3.23.0 pytest==9.1.1 tzdata==2026.4
@@ -96,10 +109,14 @@ $env:PYTHONDONTWRITEBYTECODE='1'
 $env:PYTHONIOENCODING='utf-8'
 $env:ITLKIT_NATIVE_ROOT=(Resolve-Path '.\evidence\native\snapshots').Path
 $env:ITLKIT_NATIVE_REPORTS=(Resolve-Path '.\evidence\native\oracles').Path
+$titl=Join-Path $env:TEMP 'titl-e706037'
+if (-not (Test-Path $titl)) { git clone https://github.com/josephw/titl.git $titl }
+git -C $titl checkout --detach e7060370973d624d5c7b18f82303407b76421501
+$env:TITL_REPO=(Resolve-Path $titl).Path
 python -B -m pytest tests -q -rs -p no:cacheprovider --basetemp "$env:TEMP\itl-research-tests-new"
 ```
 
-このテストは保存済みの合成ITL・COM記録を使うオフライン回帰です。iTunesを新規起動する実機受入試験の代わりではありません。試験用一時ディレクトリは新しいものを指定してください。
+このテストは保存済みの合成ITL・COM記録を使うオフライン回帰です。iTunesを新規起動する実機受入試験の代わりではありません。試験用一時ディレクトリは新しいものを指定してください。 `TITL_REPO` を使う2件の公開prior-art統合テストにはJDKが必要で、変数を指定しない場合は明示的にスキップされます。
 
 ### 配送ファイルの整合性
 
@@ -107,7 +124,7 @@ python -B -m pytest tests -q -rs -p no:cacheprovider --basetemp "$env:TEMP\itl-r
 python -B scripts/research/verify_delivery.py
 ```
 
-SHA-256、サイズ、ファイル集合の一致を検証し、余分なファイルやパスの大文字小文字による衝突等を拒否します。除外はルートの `.git` とマニフェスト自身のみです。テストの生成物はリポジトリ外へ保存してください。
+SHA-256、サイズ、ファイル集合の一致を検証し、余分なファイルやパスの大文字小文字による衝突等を拒否します。除外はルートの `.git`、マニフェスト自身、および editable install が生成するトップレベルの `windows_itl_research.egg-info` だけです。その他または入れ子の `*.egg-info` は除外しません。テストの生成物はリポジトリ外へ保存してください。
 
 ## 証拠と再現上の注意
 

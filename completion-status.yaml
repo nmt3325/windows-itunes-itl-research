@@ -47,6 +47,13 @@ qualification:
   native_media_field_followup: seventeen_exact_lyrics_mp3_passes_plus_nine_qualified_native_nonexact_immediate_readbacks_on_one_pinned_path_and_three_exact_wav_mutation_failures
   external_independent_interop: exact_compressed_structural_roundtrip_only_semantic_gate_failed
   path_time: bounded_native_matrix_only
+  compressed_trailer: one_fixed_seed_17_byte_candidate_stripped_on_first_native_save_u13_open
+  compressed_trailer_negative_matrix: bounded_offline_17_case_negative_matrix_u13_open
+  compressed_trailer_retained_census: all_390_manifest_itls_parsed_only_known_intentional_witness_has_trailer_u13_open
+  parser_coverage_guided_campaign: bounded_offline_20000_mutations_zero_retained_anomalies_u17_open
+  filesystem_publication_threat_model: bounded_linux_21_plus_windows_ntfs_25_scenarios_parent_swap_limits_2_actual_terminations_u17_open
+  filesystem_process_crash: bounded_linux_4_sigkill_1_normal_control_production_unchanged_u17_open
+  filesystem_process_crash_contrast: bounded_linux_ext4_tmpfs_8_sigkill_2_controls_production_unchanged_u17_open
   audible_playback: not_established
   atomic_native_save_protocol: not_established
 
@@ -92,21 +99,251 @@ validation:
     positive_semantic_passes: 0
     native_nested_wrapper_observed: true
     nonempty_string_operand_observed: false
+  native_trailer_u13:
+    status: bounded_pass_trailer_stripped_u13_open
+    exact_cases: 2
+    candidate_control_pairs: 1
+    native_save_restart_cycles: 4
+    retained_itl_occurrences: 6
+    independent_experiment_count_inferred_from_occurrences: false
+    independent_native_reproduction: false
+  trailer_negative_matrix_20260926:
+    status: passed_bounded_offline_u13_negative_matrix_u13_open
+    case_scenarios: 17
+    trailer_valid_cases: 14
+    outer_size_collision_cases: 3
+    semantic_write_refusal_checks: 14
+    multi_member_zlib_cases: 3
+    reference_looking_tail_cases: 4
+    trailer_outer_size_collision_cases: 3
+    aes_cap_unused_data_intersection_cases: 4
+    public_prior_art_analogue_tail_cases: 3
+    native_itunes_operations: 0
+    proprietary_binary_reads: 0
+    network_operations: 0
+    power_loss_operations: 0
+    production_code_changed: false
+    universal_itl_support: false
+    independent_reimplementation_passed: false
+    unresolved_item: U-13
+  retained_trailer_census_20260926:
+    status: completed_retained_corpus_census_u13_open
+    delivery_manifest_itl_entries: 390
+    manifest_hashes_verified: 390
+    strict_container_parses: 390
+    byte_exact_no_op_roundtrips: 390
+    files_with_compressed_trailer: 1
+    files_without_compressed_trailer: 389
+    non_known_witness_files_with_trailer: 0
+    representative_sample: false
+    retained_corpus_prevalence_claim_supported: false
+    trailer_semantics_recovered: false
+    native_itunes_operations: 0
+    proprietary_binary_reads: 0
+    network_operations: 0
+    production_code_changed: false
+    universal_itl_support: false
+    independent_reimplementation_passed: false
+    unresolved_item: U-13
+  coverage_guided_fuzz:
+    status: passed_bounded_offline_campaign
+    mutation_executions: 20000
+    input_plaintext_cap_bytes: 131072
+    accepted_mutations: 9090
+    refused_mutations: 10910
+    coverage_admissions: 34
+    retained_anomalies: 0
+    native_itunes_operations: 0
+    universal_parser_safety_established: false
+  filesystem_publication_threat_model:
+    status: passed_bounded_offline_linux_campaign
+    case_scenarios: 21
+    case_scenarios_are_independent_experiments: false
+    native_direct: 8
+    scheduler_assisted_native_syscall: 5
+    fault_injection: 8
+    process_crash_operations: 0
+    power_loss_operations: 0
+    hostile_directory_safety_established: false
+    production_code_changed: false
+    unresolved_item: U-17
+  hostile_directory_process_race:
+    status: bounded_independent_process_witnesses_u17_open
+    focused_tests_passed: 2
+    focused_tests_failed: 0
+    case_scenarios: 3
+    independent_experiments: false
+    writer_child_processes: 3
+    stable_parent_controls: 1
+    spoof_publication_witnesses: 2
+    deterministic_fresh_root_replays: 2
+    uncontrolled_scheduler_races: 0
+    power_loss_operations: 0
+    network_filesystem_operations: 0
+    native_itunes_operations: 0
+    hostile_directory_safety_established: false
+    universal_atomicity_established: false
+    production_code_changed: false
+    unresolved_item: U-17
+  filesystem_process_crash:
+    status: passed_bounded_linux_process_termination_campaign
+    case_scenarios: 5
+    process_crash_case_scenarios: 4
+    normal_completion_control_case_scenarios: 1
+    case_scenarios_are_independent_experiments: false
+    child_processes_spawned: 5
+    actual_sigkill_operations: 4
+    sigkill_child_returncode: -9
+    parent_reaped_children: 5
+    linux_mkstemp_creations_completed: 5
+    partial_prefix_flushes_completed: 1
+    complete_payload_file_fsyncs_completed: 3
+    linux_hard_link_commits_completed: 2
+    production_cleanup_unlinks_completed: 1
+    power_loss_operations: 0
+    native_itunes_operations: 0
+    production_code_changed: false
+    unresolved_item: U-17
+  windows_filesystem_publication:
+    status: passed_bounded_windows_ntfs_campaign
+    platform: Windows_Server_2025_10.0.26100_AMD64
+    runtime: CPython_3.12.10
+    filesystem: runner_temporary_NTFS
+    case_scenarios: 25
+    case_scenarios_are_independent_experiments: false
+    native_direct: 9
+    scheduler_assisted_native_syscall: 6
+    fault_injection: 8
+    actual_process_termination: 2
+    unavailable: 0
+    power_loss_operations: 0
+    native_itunes_operations: 0
+    hostile_directory_safety_established: false
+    universal_windows_or_ntfs_behavior_established: false
+    production_code_changed: false
+    unresolved_item: U-17
   integrated_tests:
     status: passed
-    passed: 1081
-    skipped: 5
+    passed: 1163
+    skipped: 9
+    skipped_missing_com_oracle: 5
+    skipped_windows_only_helpers_on_linux: 2
+    skipped_windows_filesystem_cases_on_linux: 2
     failed: 0
-    command: python -B -m pytest tests -q -rs -p no:cacheprovider
+    command: ITLKIT_NATIVE_ROOT=evidence/native/snapshots ITLKIT_NATIVE_REPORTS=evidence/native/oracles TITL_REPO=josephw/titl@e7060370973d624d5c7b18f82303407b76421501 python -B -m pytest tests -q -rs -p no:cacheprovider --basetemp=<repository-external-path>
   strict_delivery_verifier_tests:
     status: passed
-    passed: 23
+    passed: 40
+    proposal_unittest_cases: 13
+    production_qa_checks: 27
     failed: 0
+  public_replay_audit_tests:
+    status: passed
+    passed: 6
+    failed: 0
+  public_static_replay_bootstrap:
+    status: preflight_completed_with_expected_blockers
+    focused_tests_passed: 6
+    focused_tests_failed: 0
+    locked_public_files: 108
+    deterministic_external_root_repetitions: 2
+    independent_experiments: 0
+    synthetic_positive_cases: 2
+    synthetic_negative_cases: 6
+    proprietary_binary_reads: 0
+    ghidra_invocations: 0
+    unicorn_invocations: 0
+    network_operations_by_preflight: 0
+    native_acceptance_operations: 0
+    historical_replay_available: false
+    atlas_c_hash_matches: 0
+    atlas_c_hash_mismatches: 47
+    unresolved_item: U-18
+  public_replay_gap_inventory:
+    status: completed_public_gap_inventory_u18_open
+    focused_tests_passed: 5
+    focused_tests_failed: 0
+    historical_scripts_inventoried: 6
+    pre_parameterization_machine_bound_scripts: 5
+    pre_parameterization_timing_dependent_scripts: 2
+    machine_bound_scripts: 0
+    timing_dependent_scripts: 0
+    missing_exact_python_dependency_versions: 2
+    contemporaneous_pycryptodome_version: 3.23.0
+    pycryptodome_historical_static_execution_linkage_proven: false
+    proprietary_binary_reads: 0
+    ghidra_invocations: 0
+    unicorn_invocations: 0
+    network_operations: 0
+    native_acceptance_operations: 0
+    historical_replay_available: false
+    atlas_c_hash_matches: 0
+    atlas_c_hash_mismatches: 47
+    unresolved_item: U-18
+  atlas_c_hash_history_audit:
+    status: completed_negative_provenance_audit_u18_open
+    focused_tests_passed: 2
+    focused_tests_failed: 0
+    current_hash_matches: 0
+    introduction_commit_hash_matches: 0
+    atlas_hashes_matching_any_reachable_decompiled_c_blob: 0
+    historical_c_bytes_recovered: false
+    proprietary_binary_reads: 0
+    ghidra_invocations: 0
+    unicorn_invocations: 0
+    native_acceptance_operations: 0
+    unresolved_item: U-18
+  current_replay_profile:
+    status: current_profile_locked_u18_open
+    focused_tests_passed: 5
+    focused_tests_failed: 0
+    target_platform: win_amd64
+    target_python: CPython 3.12
+    pinned_packages: 4
+    wheel_hashes_recorded: 4
+    windows_hash_checked_install: passed
+    python_entrypoint_help_checks_passed: 4
+    powershell_parse: passed
+    synthetic_pe_probe: passed
+    synthetic_pe_probe_instructions_scanned: 2008
+    synthetic_pe_probe_itunes_binary_used: false
+    synthetic_ghidra_headless: passed
+    synthetic_ghidra_targets_completed: 1
+    synthetic_ghidra_clean_bootstrap: passed
+    synthetic_ghidra_clean_bootstrap_repetitions: 2
+    synthetic_ghidra_preflight_negative_controls: 4
+    synthetic_ghidra_preflight_fail_closed: true
+    synthetic_ghidra_failed_missing_input_attempts_retained: 1
+    synthetic_ghidra_host_system_library_reads: 9
+    apple_itunes_binary_reads: 0
+    historical_ghidra_project_recreated: false
+    capstone_distribution_version: 5.0.9
+    capstone_runtime_module_version: 5.0.7
+    historical_dependency_versions_recovered: false
+    historical_replay_available: false
+    unresolved_item: U-18
+  historical_dependency_chronology:
+    status: chronology_bounded_exact_versions_unknown_u18_open
+    focused_tests_passed: 2
+    focused_tests_failed: 0
+    introduction_commit: bd6944ec85a3993d731d65bcea530fa73320276e
+    introduction_tree_exact_capstone_pefile_pins: 0
+    capstone_releases_available_by_cutoff: 36
+    pefile_releases_available_by_cutoff: 14
+    latest_stable_capstone_by_cutoff: 5.0.9
+    latest_pefile_by_cutoff: 2024.8.26
+    historical_dependency_versions_recovered: false
+    availability_proves_historical_installation: false
+    proprietary_binary_reads: 0
+    ghidra_invocations: 0
+    unicorn_invocations: 0
+    native_acceptance_operations: 0
+    unresolved_item: U-18
   spec_consistency: passed
   delivery_manifest: verified
   root_corpus_manifest:
     status: verified
-    itl_files: 356
+    itl_files: 390
   path_time_snapshots:
     parsed: 39
     errors: 0
@@ -117,6 +354,31 @@ validation:
     files_parsed: 95
     files_failed: 0
     instances: 1235
+  filesystem_process_crash_tmpfs_ext4:
+    status: passed_bounded_linux_ext4_tmpfs_process_termination_contrast
+    filesystems_observed: 2
+    case_scenarios: 10
+    process_crash_case_scenarios: 8
+    normal_completion_control_case_scenarios: 2
+    case_scenarios_are_independent_experiments: false
+    child_processes_spawned: 10
+    actual_sigkill_operations: 8
+    sigkill_child_returncode: -9
+    parent_reaped_children: 10
+    linux_mkstemp_creations_completed: 10
+    partial_prefix_flushes_completed: 2
+    complete_payload_file_fsyncs_completed: 6
+    linux_hard_link_commits_completed: 4
+    production_cleanup_unlinks_completed: 2
+    ext4_mount_filesystem_type: ext4
+    tmpfs_mount_filesystem_type: tmpfs
+    normalized_case_sequences_match_between_ext4_and_tmpfs: true
+    normalized_outcome_fingerprints_match_between_ext4_and_tmpfs: true
+    power_loss_operations: 0
+    native_itunes_operations: 0
+    network_filesystem_operations: 0
+    production_code_changed: false
+    unresolved_item: U-17
 
 completion:
   gate_passed: false

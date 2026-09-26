@@ -97,7 +97,7 @@ All offsets are relative to the observed 756-byte `mith` header and are little-e
 | auxiliary skip counter | `0x118` / 4 | Raw/read-only; not a forced mirror. |
 | skip date | `0x11c` / 4 | Raw HFS wall-time value. |
 | artist local reference | `0x1e0` / 4 | Dependency-managed; not directly writable. |
-| secondary track ID | `0x1f4` / 4 | Identity namespace in the observed profile. |
+| secondary track ID | `0x1f4` / 4 | Nonzero values form an identity namespace; exact native-qualified template-free inputs may be zero on read/no-op, while semantic writes require nonzero. |
 | bounded legacy `loved` bit | `0x2bf`, mask `0x02` | Bit-preserving API label; full UI semantics not certified. |
 
 ## `mhoh` type-code catalog

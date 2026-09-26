@@ -82,6 +82,41 @@ def test_container_json_roundtrip_and_digest_guard():
     with pytest.raises(FormatError):Container.from_dict(doc)
 
 
+def test_container_json_honors_plaintext_budget_before_reconstruction():
+    source = pack(b'x' * 4096)
+    doc = Container.from_bytes(source).to_dict()
+    with pytest.raises(FormatError, match='exceeds'):
+        Container.from_dict(doc, max_plain_bytes=128)
+
+    # Isolate the original-file path: the projected payload itself is tiny, but
+    # the retained baseline still expands beyond the same caller budget.
+    doc['payload_hex'] = ''
+    with pytest.raises(FormatError, match='exceeds'):
+        Container.from_dict(doc, max_plain_bytes=128)
+
+    direct = Container.from_bytes(pack(b'ab')).to_dict()
+    direct['original_file_b64'] = None
+    direct['original_sha256'] = None
+    direct['payload_hex'] = '61 \n 62\t'
+    assert Container.from_dict(direct, max_plain_bytes=2).payload == b'ab'
+
+    direct['payload_hex'] = '00 ' * 129 + 'not-hex'
+    with pytest.raises(FormatError, match='exceeds'):
+        Container.from_dict(direct, max_plain_bytes=128)
+    direct['payload_hex'] = '0'
+    with pytest.raises(FormatError, match='invalid container JSON'):
+        Container.from_dict(direct, max_plain_bytes=1)
+    direct['payload_hex'] = '00\u2003'
+    with pytest.raises(FormatError, match='invalid container JSON'):
+        Container.from_dict(direct, max_plain_bytes=1)
+
+    exact = Container.from_bytes(pack(b'xyz')).to_dict()
+    assert Container.from_dict(exact, max_plain_bytes=3).to_bytes() == pack(b'xyz')
+    for invalid in (False, 0, -1, 1.0, '1'):
+        with pytest.raises(ValueError, match='positive'):
+            Container.from_dict(exact, max_plain_bytes=invalid)
+
+
 def test_changed_payload_never_reuses_original_ciphertext():
     c=Container.from_bytes(pack(b'first'))
     c.payload=b'second'

@@ -1,0 +1,1254 @@
+{
+  "byte_comparison": {
+    "native_prefix_579_equals_golden_boilerplate": true,
+    "native_prefix_579_sha256": "9f8c5d73cb6b7237caae9ec477b48037703c70eacb1a0bb77ccae9ee321ca05f",
+    "native_v24_vs_smart_playlist_io_golden": {
+      "common_prefix_bytes": 630,
+      "common_prefix_sha256": "af80830aaee574ff5cb19a53100a102c66ac22b2e4f035f9a27e740a03102468",
+      "difference_count_in_overlap": 7,
+      "first_difference_offset": 630,
+      "first_differences": [
+        {
+          "left_hex": "00",
+          "offset": 630,
+          "right_hex": "03"
+        },
+        {
+          "left_hex": "c0",
+          "offset": 631,
+          "right_hex": "3f"
+        },
+        {
+          "left_hex": "01",
+          "offset": 643,
+          "right_hex": "04"
+        },
+        {
+          "left_hex": "04",
+          "offset": 771,
+          "right_hex": "19"
+        },
+        {
+          "left_hex": "01",
+          "offset": 772,
+          "right_hex": "00"
+        },
+        {
+          "left_hex": "02",
+          "offset": 775,
+          "right_hex": "10"
+        },
+        {
+          "left_hex": "00",
+          "offset": 823,
+          "right_hex": "44"
+        }
+      ],
+      "left_bytes": 824,
+      "overlap_bytes": 824,
+      "right_bytes": 1463,
+      "spans": [
+        {
+          "bytes": 630,
+          "end": 630,
+          "equal": true,
+          "start": 0
+        },
+        {
+          "bytes": 2,
+          "end": 632,
+          "equal": false,
+          "start": 630
+        },
+        {
+          "bytes": 11,
+          "end": 643,
+          "equal": true,
+          "start": 632
+        },
+        {
+          "bytes": 1,
+          "end": 644,
+          "equal": false,
+          "start": 643
+        },
+        {
+          "bytes": 127,
+          "end": 771,
+          "equal": true,
+          "start": 644
+        },
+        {
+          "bytes": 2,
+          "end": 773,
+          "equal": false,
+          "start": 771
+        },
+        {
+          "bytes": 2,
+          "end": 775,
+          "equal": true,
+          "start": 773
+        },
+        {
+          "bytes": 1,
+          "end": 776,
+          "equal": false,
+          "start": 775
+        },
+        {
+          "bytes": 47,
+          "end": 823,
+          "equal": true,
+          "start": 776
+        },
+        {
+          "bytes": 1,
+          "end": 824,
+          "equal": false,
+          "start": 823
+        }
+      ]
+    },
+    "shared_slst_offsets_through_632": true,
+    "string_phase_witness": {
+      "data_offset_delta_music_minus_windows": 1,
+      "interpretation": "The same ASCII text appears in opposite byte orders because the Music view starts the rule three bytes later and the value one byte later. This is not a native Windows string-encoding observation.",
+      "music_xml_view": {
+        "data_hex": "52006f0063006b00",
+        "data_offset": 949,
+        "decode": "utf-16-le",
+        "decoded": "Rock",
+        "evidence": "pinned-Music-XML-prior-art",
+        "rule_offset": 895
+      },
+      "rule_offset_delta_music_minus_windows": 3,
+      "text": "Rock",
+      "windows_view": {
+        "data_hex": "0052006f0063006b",
+        "data_offset": 948,
+        "decode": "utf-16-be",
+        "decoded": "Rock",
+        "evidence": "cross-format-prior-art-overlay-only",
+        "rule_offset": 892
+      }
+    }
+  },
+  "constants": {
+    "music_fixed_rule_size": 124,
+    "music_nested_slst_region_before_children": 139,
+    "music_nested_slst_relative_offset": 53,
+    "music_root_header_size": 139,
+    "music_string_header_size": 54,
+    "music_subexpression_header_size": 192,
+    "smart_playlist_io_boilerplate_size": 579,
+    "windows_rule_wrapper_size": 56,
+    "windows_slst_header_size": 136
+  },
+  "existing_windows_corpus": {
+    "action_occurrence_counts": {
+      "0x00000001": 95,
+      "0x00000400": 1330,
+      "0x00000800": 95,
+      "0x02000400": 950
+    },
+    "field_occurrence_counts": {
+      "0x0000003C": 2090,
+      "0x00000085": 285,
+      "0x000000A4": 95
+    },
+    "file_count": 95,
+    "observed_action_ids": [
+      "0x00000001",
+      "0x00000400",
+      "0x00000800",
+      "0x02000400"
+    ],
+    "observed_field_ids": [
+      "0x0000003C",
+      "0x00000085",
+      "0x000000A4"
+    ],
+    "observed_rule_data_lengths": [
+      68
+    ],
+    "occurrence_count": 1235,
+    "string_candidate_rules": 0
+  },
+  "findings": [
+    {
+      "evidence": "Windows-native-v24",
+      "id": "F-01-native-v24-framing",
+      "result": "The retained type-101 payload is 824 bytes; Windows children begin at 136, group wrappers are 56 bytes, and nested SLst values begin at absolute offsets 192 and 632."
+    },
+    {
+      "evidence": "byte-comparison",
+      "id": "F-02-exact-common-prefix",
+      "limit": "Identity proves shared bytes, not shared provenance or semantics.",
+      "result": "Native v24 and the pinned smart-playlist-io golden are identical for bytes [0,630); their first difference is at 630."
+    },
+    {
+      "evidence": "mechanical-two-parser-comparison",
+      "id": "F-03-dual-offset-overlay",
+      "result": "The same nested SLst at 192 is Windows wrapper 136+56 and Music subexpression 139+53. The 192-byte totals coincide while the component boundaries differ by three bytes."
+    },
+    {
+      "evidence": "pinned-smart-playlist-io-golden",
+      "id": "F-04-mixed-skip-base",
+      "result": "The fixed MediaKind subexpression at 139 has observed skip base 136, while generated user/nested subexpressions have observed base 139. Therefore 139 is not a uniform invariant of all subexpressions inside the checked-in golden."
+    },
+    {
+      "evidence": "mechanical-two-parser-comparison",
+      "id": "F-05-field-width-overlay",
+      "result": "A Music one-byte field at offset x+3 overlays the low byte of the Windows big-endian uint32 field at x; this explains numeric-ID agreement without proving semantic equivalence."
+    },
+    {
+      "evidence": "pinned-Music-XML-golden-overlay",
+      "id": "F-06-string-byte-phase",
+      "limit": "The retained native v24 Artist rule has zero operand bytes; it does not establish either Windows string byte order.",
+      "result": "Rock is UTF-16LE from Music offset 949 and UTF-16BE from the Windows-overlay offset 948. The one-byte phase shift produces both readings from the same bytes."
+    },
+    {
+      "evidence": "pinned-source-plus-native-census",
+      "id": "F-07-field-name-boundary",
+      "result": "Pinned sources map 0x9A/0x86/0x85/0x3C to Love/iCloudStatus/Location/MediaKind. Native corpus bytes contain 0x3C and 0x85 but not 0x9A or 0x86; all names remain cross-format prior art."
+    }
+  ],
+  "generated_by": "scripts/research/audit_smart_prior_art_20260925.py",
+  "inputs": {
+    "native_census": {
+      "bytes": 539820,
+      "corpus_commit": "82c10a7ada3e4ee829f222e22d0c2848d9179d79",
+      "evidence_class": "native-corpus-observed",
+      "path": "evidence/smart-playlist/corpus-census.json",
+      "sha256": "b59a2b439c25cd0a557575e6300b4a1ec881571119bd9ed42dbd76cd32601510"
+    },
+    "native_itl": {
+      "bytes": 4402,
+      "path": "evidence/native/smart-playlist-default-20260922-v24/native-created.itl",
+      "sha256": "58ad4d6fedc65f43e627b35075218c6c19b16d767570c41d6f8c2f2fe7376696"
+    },
+    "retained_prior_art": {
+      "golden_criteria": {
+        "bytes": 1463,
+        "path": "evidence/research/20260925/smart-prior-art/smart-playlist-io-golden-criteria.bin",
+        "sha256": "884ec390daabf84aae0ed19983f1c27b8d244b3b481476b46c36771b3a0f9b1e"
+      },
+      "golden_info": {
+        "bytes": 112,
+        "path": "evidence/research/20260925/smart-prior-art/smart-playlist-io-golden-info.bin",
+        "sha256": "101dde6edd686b478b3f6c036c413018dd229ca96c18789d971ceda8d6fd252f"
+      },
+      "minimal_criteria": {
+        "bytes": 862,
+        "path": "evidence/research/20260925/smart-prior-art/itunes-smartplaylist-minimal-criteria.bin",
+        "sha256": "db4f8d35373abf79e68091fa435c71b81dbbbfe7e855bd7a70ee1a63154ca01c"
+      },
+      "minimal_info": {
+        "bytes": 112,
+        "path": "evidence/research/20260925/smart-prior-art/itunes-smartplaylist-minimal-info.bin",
+        "sha256": "15f5b9c419659b06901509ff8d61d9f068f4e41eceb384b4860b9158ad4f51ab"
+      }
+    }
+  },
+  "music_xml_prior_art": {
+    "field_name_correspondence": [
+      {
+        "classification": "cross-format-correspondence-only",
+        "field_id": 154,
+        "field_id_hex": "0x9A",
+        "prior_art_name": "Love",
+        "seen_in_existing_windows_corpus": false
+      },
+      {
+        "classification": "cross-format-correspondence-only",
+        "field_id": 134,
+        "field_id_hex": "0x86",
+        "prior_art_name": "iCloudStatus",
+        "seen_in_existing_windows_corpus": false
+      },
+      {
+        "classification": "cross-format-correspondence-only",
+        "field_id": 133,
+        "field_id_hex": "0x85",
+        "prior_art_name": "Location",
+        "seen_in_existing_windows_corpus": true
+      },
+      {
+        "classification": "cross-format-correspondence-only",
+        "field_id": 60,
+        "field_id_hex": "0x3C",
+        "prior_art_name": "MediaKind",
+        "seen_in_existing_windows_corpus": true
+      }
+    ],
+    "itunes_smartplaylist_minimal": {
+      "classification": "pinned-XML-fixture-prior-art",
+      "criteria": {
+        "bytes": 862,
+        "path": "evidence/research/20260925/smart-prior-art/itunes-smartplaylist-minimal-criteria.bin",
+        "sha256": "db4f8d35373abf79e68091fa435c71b81dbbbfe7e855bd7a70ee1a63154ca01c"
+      },
+      "info": {
+        "bytes": 112,
+        "path": "evidence/research/20260925/smart-prior-art/itunes-smartplaylist-minimal-info.bin",
+        "sha256": "15f5b9c419659b06901509ff8d61d9f068f4e41eceb384b4860b9158ad4f51ab"
+      },
+      "music_view": {
+        "children": [
+          {
+            "children": [
+              {
+                "end_offset": 455,
+                "field_id": 60,
+                "field_id_hex": "0x3C",
+                "field_width_bytes": 1,
+                "kind": "leaf",
+                "offset": 331,
+                "operator_byte": 1,
+                "path": "root.0.0",
+                "sign_or_modifier_byte": 0,
+                "size": 124,
+                "storage": "fixed",
+                "total_size": 124,
+                "value_a_offset": 388,
+                "value_a_u32be": 1,
+                "value_b_offset": 412,
+                "value_b_u32be": 1
+              },
+              {
+                "end_offset": 579,
+                "field_id": 60,
+                "field_id_hex": "0x3C",
+                "field_width_bytes": 1,
+                "kind": "leaf",
+                "offset": 455,
+                "operator_byte": 1,
+                "path": "root.0.1",
+                "sign_or_modifier_byte": 0,
+                "size": 124,
+                "storage": "fixed",
+                "total_size": 124,
+                "value_a_offset": 512,
+                "value_a_u32be": 32,
+                "value_b_offset": 536,
+                "value_b_u32be": 32
+              }
+            ],
+            "children_bytes": 248,
+            "children_offset": 331,
+            "declared_target_by_skip_plus_56": 579,
+            "declared_target_minus_parsed_end": 0,
+            "embedded_slst_offset": 192,
+            "embedded_slst_region_before_children": 139,
+            "header_size_to_children": 192,
+            "kind": "subexpression",
+            "logic_byte": 1,
+            "observed_skip_base": 136,
+            "offset": 139,
+            "parsed_end_offset": 579,
+            "path": "root.0",
+            "prefix_size": 53,
+            "rule_count": 2,
+            "skip_field_offset": 190,
+            "skip_length_u16be": 384,
+            "total_size": 440
+          },
+          {
+            "children": [
+              {
+                "available_value_bytes": 37,
+                "byte_length": 38,
+                "end_offset": 862,
+                "field_id": 3,
+                "field_id_hex": "0x03",
+                "field_width_bytes": 1,
+                "header_size": 54,
+                "kind": "leaf",
+                "length_offset": 823,
+                "low_byte_projection": "League of My Own II",
+                "offset": 771,
+                "operator_byte": 1,
+                "path": "root.1.0",
+                "sign_or_modifier_byte": 1,
+                "storage": "string",
+                "terminator_bytes": 0,
+                "total_size": 91,
+                "truncated_final_high_byte": true,
+                "utf16le_decode_error": "pinned fixture omits the final UTF-16LE high byte",
+                "utf16le_value": null,
+                "value_hex": "4c006500610067007500650020006f00660020004d00790020004f0077006e002000490049",
+                "value_offset": 825
+              }
+            ],
+            "children_bytes": 91,
+            "children_offset": 771,
+            "declared_target_by_skip_plus_56": 865,
+            "declared_target_minus_parsed_end": 3,
+            "embedded_slst_offset": 632,
+            "embedded_slst_region_before_children": 139,
+            "header_size_to_children": 192,
+            "kind": "subexpression",
+            "logic_byte": 0,
+            "observed_skip_base": 139,
+            "offset": 579,
+            "parsed_end_offset": 862,
+            "path": "root.1",
+            "prefix_size": 53,
+            "rule_count": 1,
+            "skip_field_offset": 630,
+            "skip_length_u16be": 230,
+            "total_size": 283
+          }
+        ],
+        "children_offset": 139,
+        "header_size_to_children": 139,
+        "input_bytes": 862,
+        "logic_byte": 0,
+        "magic": "SLst",
+        "magic_offsets": [
+          0,
+          192,
+          632
+        ],
+        "parsed_end_offset": 862,
+        "rule_count": 2,
+        "trailing_bytes": 0,
+        "version_word_u32be": 65537
+      }
+    },
+    "smart_playlist_io_golden": {
+      "boilerplate": {
+        "bytes": 579,
+        "classification": "fixed-Music-XML-prior-art-prefix",
+        "first_child_end": 579,
+        "first_child_offset": 139,
+        "outer_rule_count": 2,
+        "second_child_offset": 579,
+        "sha256": "9f8c5d73cb6b7237caae9ec477b48037703c70eacb1a0bb77ccae9ee321ca05f"
+      },
+      "criteria": {
+        "bytes": 1463,
+        "path": "evidence/research/20260925/smart-prior-art/smart-playlist-io-golden-criteria.bin",
+        "sha256": "884ec390daabf84aae0ed19983f1c27b8d244b3b481476b46c36771b3a0f9b1e"
+      },
+      "info": {
+        "bytes": 112,
+        "path": "evidence/research/20260925/smart-prior-art/smart-playlist-io-golden-info.bin",
+        "sha256": "101dde6edd686b478b3f6c036c413018dd229ca96c18789d971ceda8d6fd252f"
+      },
+      "music_view": {
+        "children": [
+          {
+            "children": [
+              {
+                "end_offset": 455,
+                "field_id": 60,
+                "field_id_hex": "0x3C",
+                "field_width_bytes": 1,
+                "kind": "leaf",
+                "offset": 331,
+                "operator_byte": 1,
+                "path": "root.0.0",
+                "sign_or_modifier_byte": 0,
+                "size": 124,
+                "storage": "fixed",
+                "total_size": 124,
+                "value_a_offset": 388,
+                "value_a_u32be": 1,
+                "value_b_offset": 412,
+                "value_b_u32be": 1
+              },
+              {
+                "end_offset": 579,
+                "field_id": 60,
+                "field_id_hex": "0x3C",
+                "field_width_bytes": 1,
+                "kind": "leaf",
+                "offset": 455,
+                "operator_byte": 1,
+                "path": "root.0.1",
+                "sign_or_modifier_byte": 0,
+                "size": 124,
+                "storage": "fixed",
+                "total_size": 124,
+                "value_a_offset": 512,
+                "value_a_u32be": 32,
+                "value_b_offset": 536,
+                "value_b_u32be": 32
+              }
+            ],
+            "children_bytes": 248,
+            "children_offset": 331,
+            "declared_target_by_skip_plus_56": 579,
+            "declared_target_minus_parsed_end": 0,
+            "embedded_slst_offset": 192,
+            "embedded_slst_region_before_children": 139,
+            "header_size_to_children": 192,
+            "kind": "subexpression",
+            "logic_byte": 1,
+            "observed_skip_base": 136,
+            "offset": 139,
+            "parsed_end_offset": 579,
+            "path": "root.0",
+            "prefix_size": 53,
+            "rule_count": 2,
+            "skip_field_offset": 190,
+            "skip_length_u16be": 384,
+            "total_size": 440
+          },
+          {
+            "children": [
+              {
+                "end_offset": 895,
+                "field_id": 25,
+                "field_id_hex": "0x19",
+                "field_width_bytes": 1,
+                "kind": "leaf",
+                "offset": 771,
+                "operator_byte": 16,
+                "path": "root.1.0",
+                "sign_or_modifier_byte": 0,
+                "size": 124,
+                "storage": "fixed",
+                "total_size": 124,
+                "value_a_offset": 828,
+                "value_a_u32be": 60,
+                "value_b_offset": 852,
+                "value_b_u32be": 60
+              },
+              {
+                "available_value_bytes": 8,
+                "byte_length": 8,
+                "end_offset": 959,
+                "field_id": 4,
+                "field_id_hex": "0x04",
+                "field_width_bytes": 1,
+                "header_size": 54,
+                "kind": "leaf",
+                "length_offset": 947,
+                "low_byte_projection": "Rock",
+                "offset": 895,
+                "operator_byte": 2,
+                "path": "root.1.1",
+                "sign_or_modifier_byte": 1,
+                "storage": "string",
+                "terminator_bytes": 2,
+                "total_size": 64,
+                "truncated_final_high_byte": false,
+                "utf16le_decode_error": null,
+                "utf16le_value": "Rock",
+                "value_hex": "52006f0063006b00",
+                "value_offset": 949
+              },
+              {
+                "end_offset": 1083,
+                "field_id": 29,
+                "field_id_hex": "0x1D",
+                "field_width_bytes": 1,
+                "kind": "leaf",
+                "offset": 959,
+                "operator_byte": 1,
+                "path": "root.1.2",
+                "sign_or_modifier_byte": 2,
+                "size": 124,
+                "storage": "fixed",
+                "total_size": 124,
+                "value_a_offset": 1016,
+                "value_a_u32be": 0,
+                "value_b_offset": 1040,
+                "value_b_u32be": 0
+              },
+              {
+                "children": [
+                  {
+                    "available_value_bytes": 8,
+                    "byte_length": 8,
+                    "end_offset": 1339,
+                    "field_id": 8,
+                    "field_id_hex": "0x08",
+                    "field_width_bytes": 1,
+                    "header_size": 54,
+                    "kind": "leaf",
+                    "length_offset": 1327,
+                    "low_byte_projection": "Jazz",
+                    "offset": 1275,
+                    "operator_byte": 1,
+                    "path": "root.1.3.0",
+                    "sign_or_modifier_byte": 1,
+                    "storage": "string",
+                    "terminator_bytes": 2,
+                    "total_size": 64,
+                    "truncated_final_high_byte": false,
+                    "utf16le_decode_error": null,
+                    "utf16le_value": "Jazz",
+                    "value_hex": "4a0061007a007a00",
+                    "value_offset": 1329
+                  },
+                  {
+                    "end_offset": 1463,
+                    "field_id": 22,
+                    "field_id_hex": "0x16",
+                    "field_width_bytes": 1,
+                    "kind": "leaf",
+                    "offset": 1339,
+                    "operator_byte": 16,
+                    "path": "root.1.3.1",
+                    "sign_or_modifier_byte": 0,
+                    "size": 124,
+                    "storage": "fixed",
+                    "total_size": 124,
+                    "value_a_offset": 1396,
+                    "value_a_u32be": 10,
+                    "value_b_offset": 1420,
+                    "value_b_u32be": 10
+                  }
+                ],
+                "children_bytes": 188,
+                "children_offset": 1275,
+                "declared_target_by_skip_plus_56": 1466,
+                "declared_target_minus_parsed_end": 3,
+                "embedded_slst_offset": 1136,
+                "embedded_slst_region_before_children": 139,
+                "header_size_to_children": 192,
+                "kind": "subexpression",
+                "logic_byte": 1,
+                "observed_skip_base": 139,
+                "offset": 1083,
+                "parsed_end_offset": 1463,
+                "path": "root.1.3",
+                "prefix_size": 53,
+                "rule_count": 2,
+                "skip_field_offset": 1134,
+                "skip_length_u16be": 327,
+                "total_size": 380
+              }
+            ],
+            "children_bytes": 692,
+            "children_offset": 771,
+            "declared_target_by_skip_plus_56": 1466,
+            "declared_target_minus_parsed_end": 3,
+            "embedded_slst_offset": 632,
+            "embedded_slst_region_before_children": 139,
+            "header_size_to_children": 192,
+            "kind": "subexpression",
+            "logic_byte": 0,
+            "observed_skip_base": 139,
+            "offset": 579,
+            "parsed_end_offset": 1463,
+            "path": "root.1",
+            "prefix_size": 53,
+            "rule_count": 4,
+            "skip_field_offset": 630,
+            "skip_length_u16be": 831,
+            "total_size": 884
+          }
+        ],
+        "children_offset": 139,
+        "header_size_to_children": 139,
+        "input_bytes": 1463,
+        "logic_byte": 0,
+        "magic": "SLst",
+        "magic_offsets": [
+          0,
+          192,
+          632,
+          1136
+        ],
+        "parsed_end_offset": 1463,
+        "rule_count": 2,
+        "trailing_bytes": 0,
+        "version_word_u32be": 65537
+      },
+      "observed_subexpression_skip_bases": [
+        {
+          "children_bytes": 248,
+          "declared_target_minus_parsed_end": 0,
+          "observed_skip_base": 136,
+          "offset": 139,
+          "path": "root.0",
+          "skip_length": 384
+        },
+        {
+          "children_bytes": 692,
+          "declared_target_minus_parsed_end": 3,
+          "observed_skip_base": 139,
+          "offset": 579,
+          "path": "root.1",
+          "skip_length": 831
+        },
+        {
+          "children_bytes": 188,
+          "declared_target_minus_parsed_end": 3,
+          "observed_skip_base": 139,
+          "offset": 1083,
+          "path": "root.1.3",
+          "skip_length": 327
+        }
+      ],
+      "windows_overlay_view": {
+        "classification": "cross-format-overlay-not-native-evidence",
+        "round_trip_equal": true,
+        "tree": {
+          "byte_length": 1463,
+          "children_offset": 136,
+          "conjunction_raw": 0,
+          "header_size": 136,
+          "path": "root",
+          "rule_count": 2,
+          "rules": [
+            {
+              "action_id_hex": "0x00000001",
+              "action_id_u32be": 1,
+              "action_offset": 140,
+              "data_length_offset": 188,
+              "data_length_u32be": 384,
+              "data_offset": 192,
+              "data_sha256": "a5e78f5fb0869cfd4bab042e3bdee3c31cbbd19c51c1dc49627f23911c982197",
+              "field_id_hex": "0x00000000",
+              "field_id_u32be": 0,
+              "field_offset": 136,
+              "field_width_bytes": 4,
+              "marker_hex": "0x01000000",
+              "marker_u32be": 16777216,
+              "nested": {
+                "byte_length": 384,
+                "children_offset": 328,
+                "conjunction_raw": 1,
+                "header_size": 136,
+                "path": "root.0",
+                "rule_count": 2,
+                "rules": [
+                  {
+                    "action_id_hex": "0x00000001",
+                    "action_id_u32be": 1,
+                    "action_offset": 332,
+                    "data_length_offset": 380,
+                    "data_length_u32be": 68,
+                    "data_offset": 384,
+                    "data_sha256": "5e0b77ca2397af3a9af3bde45e028294e99f70570c15627fd12cca94e8d5f2db",
+                    "field_id_hex": "0x0000003C",
+                    "field_id_u32be": 60,
+                    "field_offset": 328,
+                    "field_width_bytes": 4,
+                    "marker_hex": "0x00000000",
+                    "marker_u32be": 0,
+                    "numeric": {
+                      "from_units": 1,
+                      "from_value": 1,
+                      "to_units": 1,
+                      "to_value": 1
+                    },
+                    "path": "root.0.0",
+                    "total_size": 124,
+                    "wrapper_offset": 328,
+                    "wrapper_size": 56
+                  },
+                  {
+                    "action_id_hex": "0x00000001",
+                    "action_id_u32be": 1,
+                    "action_offset": 456,
+                    "data_length_offset": 504,
+                    "data_length_u32be": 68,
+                    "data_offset": 508,
+                    "data_sha256": "fd1c4c190c8f382119ee0fb79e14dc0377ba05dfbbcd8a7e54834e44a681827f",
+                    "field_id_hex": "0x0000003C",
+                    "field_id_u32be": 60,
+                    "field_offset": 452,
+                    "field_width_bytes": 4,
+                    "marker_hex": "0x00000000",
+                    "marker_u32be": 0,
+                    "numeric": {
+                      "from_units": 1,
+                      "from_value": 32,
+                      "to_units": 1,
+                      "to_value": 32
+                    },
+                    "path": "root.0.1",
+                    "total_size": 124,
+                    "wrapper_offset": 452,
+                    "wrapper_size": 56
+                  }
+                ],
+                "slst_offset": 192,
+                "trailing_bytes": 0,
+                "trailing_hex": "",
+                "version_word": 65537
+              },
+              "nested_slst_relative_offset": 56,
+              "path": "root.0",
+              "total_size": 440,
+              "wrapper_offset": 136,
+              "wrapper_size": 56
+            },
+            {
+              "action_id_hex": "0x00000001",
+              "action_id_u32be": 1,
+              "action_offset": 580,
+              "data_length_offset": 628,
+              "data_length_u32be": 831,
+              "data_offset": 632,
+              "data_sha256": "ff6d0ce7a4db37e1080a437fb248c71d54e846bccb4e9b854bace1d1e5704fb8",
+              "field_id_hex": "0x00000000",
+              "field_id_u32be": 0,
+              "field_offset": 576,
+              "field_width_bytes": 4,
+              "marker_hex": "0x01000000",
+              "marker_u32be": 16777216,
+              "nested": {
+                "byte_length": 831,
+                "children_offset": 768,
+                "conjunction_raw": 0,
+                "header_size": 136,
+                "path": "root.1",
+                "rule_count": 4,
+                "rules": [
+                  {
+                    "action_id_hex": "0x00000010",
+                    "action_id_u32be": 16,
+                    "action_offset": 772,
+                    "data_length_offset": 820,
+                    "data_length_u32be": 68,
+                    "data_offset": 824,
+                    "data_sha256": "87c1be91f69c53ca9719eea2f5014bd6658cba033b5d58435b179cf4c59fa129",
+                    "field_id_hex": "0x00000019",
+                    "field_id_u32be": 25,
+                    "field_offset": 768,
+                    "field_width_bytes": 4,
+                    "marker_hex": "0x00000000",
+                    "marker_u32be": 0,
+                    "numeric": {
+                      "from_units": 1,
+                      "from_value": 60,
+                      "to_units": 1,
+                      "to_value": 60
+                    },
+                    "path": "root.1.0",
+                    "total_size": 124,
+                    "wrapper_offset": 768,
+                    "wrapper_size": 56
+                  },
+                  {
+                    "action_id_hex": "0x01000002",
+                    "action_id_u32be": 16777218,
+                    "action_offset": 896,
+                    "data_length_offset": 944,
+                    "data_length_u32be": 8,
+                    "data_offset": 948,
+                    "data_sha256": "de4368fb54732406478d32612380a687ddd679f2c90c05e165ab2d727feb79b1",
+                    "field_id_hex": "0x00000004",
+                    "field_id_u32be": 4,
+                    "field_offset": 892,
+                    "field_width_bytes": 4,
+                    "marker_hex": "0x00000000",
+                    "marker_u32be": 0,
+                    "path": "root.1.1",
+                    "string_candidate": {
+                      "byte_length": 8,
+                      "data_hex": "0052006f0063006b",
+                      "evidence": "cross-format-prior-art",
+                      "utf16be_value_prior_art": "Rock"
+                    },
+                    "total_size": 64,
+                    "wrapper_offset": 892,
+                    "wrapper_size": 56
+                  },
+                  {
+                    "action_id_hex": "0x02000001",
+                    "action_id_u32be": 33554433,
+                    "action_offset": 960,
+                    "data_length_offset": 1008,
+                    "data_length_u32be": 68,
+                    "data_offset": 1012,
+                    "data_sha256": "4de05a4f33200e9092dce6af55111043fd54e17a160670c48da7468541f25d32",
+                    "field_id_hex": "0x0000001D",
+                    "field_id_u32be": 29,
+                    "field_offset": 956,
+                    "field_width_bytes": 4,
+                    "marker_hex": "0x00000000",
+                    "marker_u32be": 0,
+                    "numeric": {
+                      "from_units": 1,
+                      "from_value": 0,
+                      "to_units": 1,
+                      "to_value": 0
+                    },
+                    "path": "root.1.2",
+                    "total_size": 124,
+                    "wrapper_offset": 956,
+                    "wrapper_size": 56
+                  },
+                  {
+                    "action_id_hex": "0x00000001",
+                    "action_id_u32be": 1,
+                    "action_offset": 1084,
+                    "data_length_offset": 1132,
+                    "data_length_u32be": 327,
+                    "data_offset": 1136,
+                    "data_sha256": "a54e0381c1700c23d1aac499d798c8eb314e8413af18d8ce58db5ac3f51178de",
+                    "field_id_hex": "0x00000000",
+                    "field_id_u32be": 0,
+                    "field_offset": 1080,
+                    "field_width_bytes": 4,
+                    "marker_hex": "0x01000000",
+                    "marker_u32be": 16777216,
+                    "nested": {
+                      "byte_length": 327,
+                      "children_offset": 1272,
+                      "conjunction_raw": 1,
+                      "header_size": 136,
+                      "path": "root.1.3",
+                      "rule_count": 2,
+                      "rules": [
+                        {
+                          "action_id_hex": "0x01000001",
+                          "action_id_u32be": 16777217,
+                          "action_offset": 1276,
+                          "data_length_offset": 1324,
+                          "data_length_u32be": 8,
+                          "data_offset": 1328,
+                          "data_sha256": "96adefd7843004c9cc9a9f6a9771c45f6fce43982024ebccaea6cd0a120fdcea",
+                          "field_id_hex": "0x00000008",
+                          "field_id_u32be": 8,
+                          "field_offset": 1272,
+                          "field_width_bytes": 4,
+                          "marker_hex": "0x00000000",
+                          "marker_u32be": 0,
+                          "path": "root.1.3.0",
+                          "string_candidate": {
+                            "byte_length": 8,
+                            "data_hex": "004a0061007a007a",
+                            "evidence": "cross-format-prior-art",
+                            "utf16be_value_prior_art": "Jazz"
+                          },
+                          "total_size": 64,
+                          "wrapper_offset": 1272,
+                          "wrapper_size": 56
+                        },
+                        {
+                          "action_id_hex": "0x00000010",
+                          "action_id_u32be": 16,
+                          "action_offset": 1340,
+                          "data_length_offset": 1388,
+                          "data_length_u32be": 68,
+                          "data_offset": 1392,
+                          "data_sha256": "3dcda098b1a25285beffabd77d529a842b1621821da8c1c39771d8ecd43407aa",
+                          "field_id_hex": "0x00000016",
+                          "field_id_u32be": 22,
+                          "field_offset": 1336,
+                          "field_width_bytes": 4,
+                          "marker_hex": "0x00000000",
+                          "marker_u32be": 0,
+                          "numeric": {
+                            "from_units": 1,
+                            "from_value": 10,
+                            "to_units": 1,
+                            "to_value": 10
+                          },
+                          "path": "root.1.3.1",
+                          "total_size": 124,
+                          "wrapper_offset": 1336,
+                          "wrapper_size": 56
+                        }
+                      ],
+                      "slst_offset": 1136,
+                      "trailing_bytes": 3,
+                      "trailing_hex": "000000",
+                      "version_word": 65537
+                    },
+                    "nested_slst_relative_offset": 56,
+                    "path": "root.1.3",
+                    "total_size": 383,
+                    "wrapper_offset": 1080,
+                    "wrapper_size": 56
+                  }
+                ],
+                "slst_offset": 632,
+                "trailing_bytes": 0,
+                "trailing_hex": "",
+                "version_word": 65537
+              },
+              "nested_slst_relative_offset": 56,
+              "path": "root.1",
+              "total_size": 887,
+              "wrapper_offset": 576,
+              "wrapper_size": 56
+            }
+          ],
+          "slst_offset": 0,
+          "trailing_bytes": 0,
+          "trailing_hex": "",
+          "version_word": 65537
+        },
+        "validation_issues": [
+          {
+            "code": "unknown_field_id",
+            "evidence": "cross-format-prior-art",
+            "message": "rule 0 field 0x00000000 has no prior-art name; preserved",
+            "offset": 136,
+            "severity": "info"
+          },
+          {
+            "code": "unknown_field_id",
+            "evidence": "cross-format-prior-art",
+            "message": "rule 1 field 0x00000000 has no prior-art name; preserved",
+            "offset": 576,
+            "severity": "info"
+          },
+          {
+            "code": "unknown_field_id",
+            "evidence": "cross-format-prior-art",
+            "message": "rule 2 field 0x0000001D has no prior-art name; preserved",
+            "offset": 956,
+            "severity": "info"
+          },
+          {
+            "code": "unknown_field_id",
+            "evidence": "cross-format-prior-art",
+            "message": "rule 3 field 0x00000000 has no prior-art name; preserved",
+            "offset": 1080,
+            "severity": "info"
+          },
+          {
+            "code": "trailing_slst_bytes",
+            "evidence": "native-corpus-observed",
+            "message": "3 byte(s) follow the declared rules",
+            "offset": 1460,
+            "severity": "warning"
+          }
+        ]
+      }
+    }
+  },
+  "next_native_experiments": [
+    {
+      "acceptance": "A non-empty type-101 operand is isolated, its length and exact byte window are stable across two saves, and only then is Windows string endianness classified.",
+      "id": "N-01-string-endianness",
+      "proposal": "On an isolated Windows profile, create exactly one Artist-contains rule with an asymmetric Unicode sentinel such as A\\u1234éZ; capture pre-save, first-save, reopen, and second-save ITLs."
+    },
+    {
+      "acceptance": "The next-sibling offset resolves whether native length/skip accounting contains any three-byte adjustment.",
+      "id": "N-02-group-boundary",
+      "proposal": "Create a nested OR group followed by a non-group sibling so the group is not final; vary one child at a time."
+    },
+    {
+      "acceptance": "Each claimed field/operator mapping has an isolated byte differential and a track-membership oracle; prior-art names are not used as proof.",
+      "id": "N-03-field-operators",
+      "proposal": "Create isolated one-rule playlists for fields corresponding to 0x9A, 0x86, 0x85, and 0x3C and toggle one operator/value per save."
+    },
+    {
+      "acceptance": "The semantic AST and exact relevant payload bytes survive two cycles.",
+      "id": "N-04-two-cycle-persistence",
+      "proposal": "For every candidate above, reopen iTunes and perform a no-op second save before declaring persistence."
+    }
+  ],
+  "schema": "windows-itl.smart-prior-art-audit.v1",
+  "scope": {
+    "policy": "Cross-format source code and Music XML bytes may establish prior-art correspondence only. Only retained Windows ITL bytes establish native facts.",
+    "unresolved": "U-06",
+    "windows_writes_performed": false
+  },
+  "source_manifest_sha256": "92edfff41b9515c266c47d3b7e1719ecd8e4ec6e27168c5485a2492908af570e",
+  "unresolved_boundaries": [
+    "No retained Windows-native non-empty string operand establishes UTF-16 byte order.",
+    "No controlled Windows differentials establish field/operator meanings for the custom rule.",
+    "No semantic oracle establishes membership behavior for nested custom conditions.",
+    "No two-cycle Windows persistence run exists for a non-default custom Smart Playlist.",
+    "The meaning of the three-byte Music/Windows boundary shift remains structural, not semantic.",
+    "smart-playlist-io golden bytes are encoder-generated regression data, not a fresh native export."
+  ],
+  "windows_native_v24": {
+    "itl": {
+      "bytes": 4402,
+      "path": "evidence/native/smart-playlist-default-20260922-v24/native-created.itl",
+      "sha256": "58ad4d6fedc65f43e627b35075218c6c19b16d767570c41d6f8c2f2fe7376696"
+    },
+    "playlist": {
+      "name": "Playlist",
+      "persistent_id": "9081AD2B1ABE848F"
+    },
+    "type101": {
+      "bytes": 824,
+      "magic_offsets": [
+        0,
+        192,
+        632
+      ],
+      "round_trip_equal": true,
+      "sha256": "cd1fb6489e3ba11c1022512b0ecd99a7e3d45477fe6301f4de6d095b6f769862",
+      "tree": {
+        "byte_length": 824,
+        "children_offset": 136,
+        "conjunction_raw": 0,
+        "header_size": 136,
+        "path": "root",
+        "rule_count": 2,
+        "rules": [
+          {
+            "action_id_hex": "0x00000001",
+            "action_id_u32be": 1,
+            "action_offset": 140,
+            "data_length_offset": 188,
+            "data_length_u32be": 384,
+            "data_offset": 192,
+            "data_sha256": "a5e78f5fb0869cfd4bab042e3bdee3c31cbbd19c51c1dc49627f23911c982197",
+            "field_id_hex": "0x00000000",
+            "field_id_u32be": 0,
+            "field_offset": 136,
+            "field_width_bytes": 4,
+            "marker_hex": "0x01000000",
+            "marker_u32be": 16777216,
+            "nested": {
+              "byte_length": 384,
+              "children_offset": 328,
+              "conjunction_raw": 1,
+              "header_size": 136,
+              "path": "root.0",
+              "rule_count": 2,
+              "rules": [
+                {
+                  "action_id_hex": "0x00000001",
+                  "action_id_u32be": 1,
+                  "action_offset": 332,
+                  "data_length_offset": 380,
+                  "data_length_u32be": 68,
+                  "data_offset": 384,
+                  "data_sha256": "5e0b77ca2397af3a9af3bde45e028294e99f70570c15627fd12cca94e8d5f2db",
+                  "field_id_hex": "0x0000003C",
+                  "field_id_u32be": 60,
+                  "field_offset": 328,
+                  "field_width_bytes": 4,
+                  "marker_hex": "0x00000000",
+                  "marker_u32be": 0,
+                  "numeric": {
+                    "from_units": 1,
+                    "from_value": 1,
+                    "to_units": 1,
+                    "to_value": 1
+                  },
+                  "path": "root.0.0",
+                  "total_size": 124,
+                  "wrapper_offset": 328,
+                  "wrapper_size": 56
+                },
+                {
+                  "action_id_hex": "0x00000001",
+                  "action_id_u32be": 1,
+                  "action_offset": 456,
+                  "data_length_offset": 504,
+                  "data_length_u32be": 68,
+                  "data_offset": 508,
+                  "data_sha256": "fd1c4c190c8f382119ee0fb79e14dc0377ba05dfbbcd8a7e54834e44a681827f",
+                  "field_id_hex": "0x0000003C",
+                  "field_id_u32be": 60,
+                  "field_offset": 452,
+                  "field_width_bytes": 4,
+                  "marker_hex": "0x00000000",
+                  "marker_u32be": 0,
+                  "numeric": {
+                    "from_units": 1,
+                    "from_value": 32,
+                    "to_units": 1,
+                    "to_value": 32
+                  },
+                  "path": "root.0.1",
+                  "total_size": 124,
+                  "wrapper_offset": 452,
+                  "wrapper_size": 56
+                }
+              ],
+              "slst_offset": 192,
+              "trailing_bytes": 0,
+              "trailing_hex": "",
+              "version_word": 65537
+            },
+            "nested_slst_relative_offset": 56,
+            "path": "root.0",
+            "total_size": 440,
+            "wrapper_offset": 136,
+            "wrapper_size": 56
+          },
+          {
+            "action_id_hex": "0x00000001",
+            "action_id_u32be": 1,
+            "action_offset": 580,
+            "data_length_offset": 628,
+            "data_length_u32be": 192,
+            "data_offset": 632,
+            "data_sha256": "54cb89e936adce6e9b67277d55530793b5cf09fb9f4d09108fd73eede35fdef5",
+            "field_id_hex": "0x00000000",
+            "field_id_u32be": 0,
+            "field_offset": 576,
+            "field_width_bytes": 4,
+            "marker_hex": "0x01000000",
+            "marker_u32be": 16777216,
+            "nested": {
+              "byte_length": 192,
+              "children_offset": 768,
+              "conjunction_raw": 0,
+              "header_size": 136,
+              "path": "root.1",
+              "rule_count": 1,
+              "rules": [
+                {
+                  "action_id_hex": "0x01000002",
+                  "action_id_u32be": 16777218,
+                  "action_offset": 772,
+                  "data_length_offset": 820,
+                  "data_length_u32be": 0,
+                  "data_offset": 824,
+                  "data_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+                  "field_id_hex": "0x00000004",
+                  "field_id_u32be": 4,
+                  "field_offset": 768,
+                  "field_width_bytes": 4,
+                  "marker_hex": "0x00000000",
+                  "marker_u32be": 0,
+                  "path": "root.1.0",
+                  "string_candidate": {
+                    "byte_length": 0,
+                    "data_hex": "",
+                    "evidence": "cross-format-prior-art",
+                    "utf16be_value_prior_art": ""
+                  },
+                  "total_size": 56,
+                  "wrapper_offset": 768,
+                  "wrapper_size": 56
+                }
+              ],
+              "slst_offset": 632,
+              "trailing_bytes": 0,
+              "trailing_hex": "",
+              "version_word": 65537
+            },
+            "nested_slst_relative_offset": 56,
+            "path": "root.1",
+            "total_size": 248,
+            "wrapper_offset": 576,
+            "wrapper_size": 56
+          }
+        ],
+        "slst_offset": 0,
+        "trailing_bytes": 0,
+        "trailing_hex": "",
+        "version_word": 65537
+      },
+      "validation_issues": [
+        {
+          "code": "unknown_field_id",
+          "evidence": "cross-format-prior-art",
+          "message": "rule 0 field 0x00000000 has no prior-art name; preserved",
+          "offset": 136,
+          "severity": "info"
+        },
+        {
+          "code": "unknown_field_id",
+          "evidence": "cross-format-prior-art",
+          "message": "rule 1 field 0x00000000 has no prior-art name; preserved",
+          "offset": 576,
+          "severity": "info"
+        }
+      ]
+    }
+  }
+}
