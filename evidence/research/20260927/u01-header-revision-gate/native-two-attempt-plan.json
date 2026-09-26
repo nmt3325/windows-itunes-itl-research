@@ -1,0 +1,121 @@
+{
+  "schema": "windows-itl.u01-header-revision-two-attempt-plan-20260927.v1",
+  "declared_utc": "2026-09-26T22:11:52.479546+00:00",
+  "state_at_declaration": {
+    "native_launches_for_this_candidate": 0,
+    "native_outcomes_observed_for_this_candidate": 0,
+    "candidate_selected_before_native_outcome": true,
+    "post_hoc_candidate_substitution_allowed": false
+  },
+  "candidate_theory": {
+    "statement": "A clean native 12.12.10.1 cycle-2 save with only raw outer-header byte 0x0d changed from 0x43 to 0x44 normalizes from revision tuple (67,1) to (68,1), fails the exact parser unsigned major ceiling 67, returns -876, and traverses the already bounded group/resource path to the newer-version message.",
+    "non_version_label_gate": true,
+    "exact_parser_rva": "0x10ad0b0",
+    "reader_rva": "0x10ace80",
+    "normalizer_rva": "0x108de90",
+    "gate_compare_rva": "0x10ad25c",
+    "status_assignment_rva": "0x10ad262",
+    "caller_status_compare_rva": "0x53db8d",
+    "status": -876,
+    "group": "0x1f43",
+    "resource_id": "0x1f420003",
+    "expected_resource_role": "newer_version_message"
+  },
+  "artifact_lock": {
+    "candidate": {
+      "path": "evidence/research/20260927/u01-header-revision-gate/candidate/native-12.12.10.1-header-major-68.itl",
+      "bytes": 4904,
+      "sha256": "287a9b91315be1a4917cc1a2530013c076bab824e2099885ac89d8e7ccebe59a",
+      "raw_revision_tuple_hex": "00440001",
+      "normalized_revision_tuple": [
+        68,
+        1
+      ]
+    },
+    "source": {
+      "path": "evidence/research/20260927/u01-distinct-build-12.12.10.1/positive-qualification/cases/native-authored-one-track-positive/cycle-2/native-saved.itl",
+      "bytes": 4904,
+      "sha256": "9034aa3e9e7ccc12390d0b44307d8ea10dd313fc424415050c8d5bf8ced0e772"
+    },
+    "manifest_sha256": "2a9a0b7719e1f4e17d3ff6b71d934d881fb69771d3d49b9ee1fc8332ba59b315",
+    "preflight_report_sha256": "843adae57d24f22a9081493642b213c519c45bdd33c3f21c1631333ead975163",
+    "ghidra_report_sha256": "2242e7fe1db95d95bb412df594143c2783eb84683e56188fd361b2e3276923c2",
+    "ghidra_script_sha256": "c23f9b48ecd6b5c5121d8c5c0b166c0a2bbf41055b84fc84ae23de7b84b8b5dc",
+    "native_harness_sha256": "fd43735bd0cebdd58ad1729f2fe4973d3165df5727b294714e0b4131486e3464"
+  },
+  "executable_lock": {
+    "path": "C:\\Program Files\\iTunes\\iTunes.exe",
+    "edition": "Apple standalone Windows x64 iTunes",
+    "file_version": "12.12.10.1",
+    "product_version": "12.12.10.1",
+    "bytes": 39260512,
+    "sha256": "0aa1b53af915fc9e0ced4c7ecbcb1397a036d38367d894ae063ae1d127331f9b",
+    "authenticode_status": "Valid",
+    "signer_subject_contains": "Apple Inc.",
+    "signer_certificate_thumbprint": "67A9953123BD5F01B1BC0BB98A950D9CA869CD02"
+  },
+  "mandatory_prelaunch_gate": {
+    "all_must_pass": [
+      "candidate, manifest, preflight, static report, harness, and this plan are committed and pushed",
+      "local HEAD equals origin tracking equals git ls-remote for research/20260926-autonomous-resume",
+      "candidate bytes read from the pushed tree hash to 287a9b91315be1a4917cc1a2530013c076bab824e2099885ac89d8e7ccebe59a",
+      "installed executable size, SHA-256, file/product version, Authenticode status, signer, and zero-process state match the lock",
+      "deterministic generator --check succeeds",
+      "ReferenceLibrary structural and full normalized semantic preflight succeeds with mode 2, compression 1, label 12.12.10.1, PID C4CF98746C40D802, one track, and fifteen playlists",
+      "per-user iTunes profile path is absent and the disposable native root/evidence paths are new"
+    ],
+    "failure_policy": "Abort before the first launch; retain zero launches; do not weaken a gate."
+  },
+  "attempt_protocol": {
+    "attempts": 2,
+    "sequence": "sequential attempts 1 then 2; never reuse attempt output as later input",
+    "fresh_copy": "Copy the same exact committed candidate into a new RUNNER_TEMP attempt-N/live/iTunes Library.itl for each attempt.",
+    "isolated_profile": "Create a temporary junction at the per-user Music/iTunes profile path to only that attempt live root; remove it after the process ends and require it absent before the next attempt.",
+    "observation_timeout_seconds_per_attempt": 90,
+    "permitted_pre_target_ui": "Only the exact known audio-configuration warning may be dismissed; every other non-target modal fails closed.",
+    "expected_modal": {
+      "accepted_window_classes": [
+        "iTunesCustomModalDialog",
+        "#32770"
+      ],
+      "classification": "newer_version",
+      "required_text_meaning": "The iTunes Library.itl file cannot be read because it was created by a newer version of iTunes.",
+      "title_alone_is_never_sufficient": true,
+      "static_resource_id": "0x1f420003",
+      "static_chain_is_not_itself_modal_observation": true
+    },
+    "normal_dismissal_and_exit": [
+      "Require exactly one visible enabled OK/default dismiss control in the target modal and issue BM_CLICK.",
+      "Wait up to 12 seconds for product exit; if still running require exactly one main iTunes window, issue WM_CLOSE, and wait up to 30 seconds.",
+      "Require exit code 0, zero remaining iTunes processes, no forced termination, and a removed profile junction."
+    ],
+    "capture_policy": {
+      "window_metadata": "Retain bounded top-level and child HWND, class, text, control ID, enabled/visible state, PID, and timestamps in JSON.",
+      "screenshots": "Do not capture desktop or window bitmaps; metadata is sufficient and minimizes unrelated desktop capture. Missing/ambiguous metadata is a failure, not permission for an ad-hoc screenshot.",
+      "file_evidence": "Retain prelaunch, modal-time, and post-exit file facts plus bounded independent semantic summaries; retain no Apple executable, DLL, MUI, resource, Ghidra project, or raw decompiler dump."
+    },
+    "fallback_and_cleanup": {
+      "forbidden_artifacts": [
+        "iTunes Music Library.xml",
+        "Previous iTunes Libraries",
+        "damaged-library replacement",
+        "alternate/fallback ITL identity"
+      ],
+      "timeout_or_unexpected_modal": "Classify the attempt failed, capture bounded metadata, force cleanup only if needed, and explicitly record that forced termination is not modal success.",
+      "cleanup_failure": "Abort before any remaining attempt; do not launch again until zero processes and profile removal are proven."
+    }
+  },
+  "predeclared_outcome_classes": {
+    "two_attempt_success": "Both fresh-copy attempts observe the exact newer-version modal, normally dismiss/exit zero, preserve the exact candidate and semantics, create no fallback artifacts, and require no forced termination.",
+    "partial_or_single_modal": "Failed bounded reproduction; retain both declared outcomes where cleanup permits; do not substitute a candidate.",
+    "timeout_or_main_window_only": "Failed predeclared outcome; any forced cleanup is not a modal success.",
+    "invalid_library_or_other_modal": "Different native outcome; preserve metadata and fail without reclassification as newer-version.",
+    "input_changed_or_native_save": "Failed causal gate because the candidate did not remain the pinned input.",
+    "prelaunch_gate_failure": "Zero launches and no attempts authorized."
+  },
+  "claim_limits": [
+    "A two-attempt result is repeated observation of one exact candidate on one exact executable, not independent experiments or universal compatibility.",
+    "A product modal does not admit a 12.12.10.1 writer profile, arbitrary editing, or close U-01.",
+    "No timeout, forced termination, static resource mapping, or post-hoc candidate can be counted as modal success."
+  ]
+}

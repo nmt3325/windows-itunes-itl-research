@@ -1,0 +1,82 @@
+{
+  "schema": "windows-itl.u01-header-revision-preflight-20260927.v1",
+  "classification": "deterministic offline structural and semantic preflight",
+  "candidate_manifest_sha256": "2a9a0b7719e1f4e17d3ff6b71d934d881fb69771d3d49b9ee1fc8332ba59b315",
+  "independent_parser": {
+    "implementation": "REFERENCE_PARSER/core.py::ReferenceLibrary.from_bytes",
+    "source_parse_succeeded": true,
+    "candidate_parse_succeeded": true,
+    "source_and_candidate_normalized_semantics_equal": true,
+    "normalization_excludes_only_top_level_file_sha256": true,
+    "normalized_semantic_summary_sha256": "4b6264d499b8b3380ec53008cdf2e5144f17852f2e79e1743c343b2d36026e57",
+    "version": "12.12.10.1",
+    "file_persistent_id": "C4CF98746C40D802",
+    "header_length": 144,
+    "actual_file_size": 4904,
+    "declared_file_size": 4904,
+    "declared_size_matches_actual": true,
+    "encryption_mode": 2,
+    "compression_mode": 1,
+    "payload_byteorder": "little",
+    "trailer_length": 0,
+    "declared_counts": {
+      "sections": 11,
+      "tracks": 1,
+      "playlists": 15,
+      "albums": 1,
+      "artists": 1
+    },
+    "track_count": 1,
+    "playlist_count": 15
+  },
+  "decoded_payload": {
+    "source_length": 106776,
+    "candidate_length": 106776,
+    "source_sha256": "826863edfd2c6f44c7835b0cfebf7aa821e364490090bcdf49d82f29f458e4e9",
+    "candidate_sha256": "826863edfd2c6f44c7835b0cfebf7aa821e364490090bcdf49d82f29f458e4e9",
+    "byte_identical": true
+  },
+  "version_label": {
+    "source": "12.12.10.1",
+    "candidate": "12.12.10.1",
+    "equal": true
+  },
+  "identity_and_semantics": {
+    "file_persistent_id_equal": true,
+    "declared_counts_equal": true,
+    "normalized_semantic_summary_equal": true
+  },
+  "baseline_corpus_revision_census": {
+    "git_commit": "e0e715c7ce994beae25e023f7600bdeaef46b576",
+    "tracked_itl_count": 431,
+    "short_file_count": 0,
+    "raw_offsets_0x0c_through_0x0f_counts": {
+      "00430001": 431
+    },
+    "all_have_current_raw_tuple_00430001": true,
+    "representative_sample": false,
+    "claim": "exhaustive census of ITLs tracked by the pinned baseline tree only"
+  },
+  "static_gate_prediction": {
+    "raw_candidate_tuple_hex": "00440001",
+    "normalized_candidate_tuple": [
+      68,
+      1
+    ],
+    "exact_parser_rva": "0x10ad0b0",
+    "gate_instruction_rva": "0x10ad25c",
+    "condition": "unsigned parsed-header u16 at +0x0c > 0x43",
+    "status": -876,
+    "caller_explicit_status_compare_rva": "0x53db8d",
+    "error_group": "0x1f43",
+    "primary_resource_id": "0x1f420003",
+    "expected_resource_role": "newer_version_message",
+    "version_label_used_by_gate": false
+  },
+  "all_offline_gates_passed": true,
+  "native_execution_boundary": {
+    "launches_during_generation": 0,
+    "eligible_only_after_plan_candidate_commit_push_and_remote_verification": true,
+    "post_hoc_candidate_substitution_allowed": false
+  }
+}

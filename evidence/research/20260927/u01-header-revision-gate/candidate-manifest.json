@@ -1,0 +1,47 @@
+{
+  "schema": "windows-itl.u01-header-revision-candidate-manifest-20260927.v1",
+  "classification": "exact one-byte ITL candidate identity; no Apple executable or resource bytes",
+  "source": {
+    "path": "evidence/research/20260927/u01-distinct-build-12.12.10.1/positive-qualification/cases/native-authored-one-track-positive/cycle-2/native-saved.itl",
+    "bytes": 4904,
+    "sha256": "9034aa3e9e7ccc12390d0b44307d8ea10dd313fc424415050c8d5bf8ced0e772",
+    "raw_revision_bytes_hex": "00430001",
+    "normalized_revision_tuple": [
+      67,
+      1
+    ]
+  },
+  "candidate": {
+    "path": "evidence/research/20260927/u01-header-revision-gate/candidate/native-12.12.10.1-header-major-68.itl",
+    "bytes": 4904,
+    "sha256": "287a9b91315be1a4917cc1a2530013c076bab824e2099885ac89d8e7ccebe59a",
+    "raw_revision_bytes_hex": "00440001",
+    "normalized_revision_tuple": [
+      68,
+      1
+    ]
+  },
+  "mutation": {
+    "difference_count": 1,
+    "differences": [
+      {
+        "offset": 13,
+        "before": 67,
+        "after": 68
+      }
+    ],
+    "description": "raw file offset 0x0d: 0x43 -> 0x44",
+    "version_label_mutated": false,
+    "payload_mutated": false
+  },
+  "native_executable_lock": {
+    "edition": "Apple standalone Windows x64 iTunes",
+    "file_version": "12.12.10.1",
+    "product_version": "12.12.10.1",
+    "bytes": 39260512,
+    "sha256": "0aa1b53af915fc9e0ced4c7ecbcb1397a036d38367d894ae063ae1d127331f9b",
+    "authenticode_status": "Valid",
+    "signer_subject": "Apple Inc.",
+    "signer_certificate_thumbprint": "67A9953123BD5F01B1BC0BB98A950D9CA869CD02"
+  }
+}
