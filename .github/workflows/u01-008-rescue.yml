@@ -1,0 +1,40 @@
+name: U01 008 rescue
+on:
+  push:
+    branches:
+      - ops/u01-008-rescue-20260927
+permissions:
+  contents: write
+jobs:
+  diagnostic:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 330
+    steps:
+      - uses: actions/checkout@v4
+      - name: Prepare exact static inputs
+        shell: bash
+        run: |
+          set -euo pipefail
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq msitools p7zip-full
+          python -m pip install --disable-pip-version-check pycryptodome==3.23.0 pefile==2024.8.26 capstone==5.0.6
+          git clone --depth 1 --branch research/20260926-autonomous-resume https://github.com/nmt3325/windows-itunes-itl-research.git /tmp/target
+          mkdir -p /tmp/u01/setup /tmp/u01/msi
+          curl --fail --location --retry 3 --output /tmp/u01/iTunes64Setup.exe 'https://secure-appldnld.apple.com/itunes12/042-32480-20230911-CC326CC1-E6C1-4F7C-A717-18493F59FE2E/iTunes64Setup.exe'
+          test "$(sha256sum /tmp/u01/iTunes64Setup.exe | cut -d' ' -f1)" = '31465167704b2fd795aafc14cf5c04261d7c3ae663d087f63842e431aa204abc'
+          7z x -y /tmp/u01/iTunes64Setup.exe -o/tmp/u01/setup >/tmp/u01/7z.log
+          MSI="$(find /tmp/u01/setup -type f -iname 'iTunes64.msi' -print -quit)"
+          test -n "$MSI"
+          msiextract -C /tmp/u01/msi "$MSI" >/tmp/u01/msiextract.log
+          EXE="$(find /tmp/u01/msi -type f -iname 'iTunes.exe' -print -quit)"
+          test -n "$EXE"
+          test "$(stat -c %s "$EXE")" = '39260512'
+          test "$(sha256sum "$EXE" | cut -d' ' -f1)" = '0aa1b53af915fc9e0ced4c7ecbcb1397a036d38367d894ae063ae1d127331f9b'
+          python ops/u01_008_diagnostic.py /tmp/target "$EXE" | tee /tmp/u01/diagnostic.json
+      - name: Upload bounded diagnostic
+        uses: actions/upload-artifact@v4
+        with:
+          name: u01-008-bounded-diagnostic
+          path: /tmp/u01/diagnostic.json
+          if-no-files-found: error
+          retention-days: 1
