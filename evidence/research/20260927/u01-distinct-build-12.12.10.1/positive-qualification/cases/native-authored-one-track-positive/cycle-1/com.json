@@ -1,0 +1,337 @@
+{
+  "schema_version": 1,
+  "started_utc": "2026-09-26T18:28:37.111468+00:00",
+  "spec": {
+    "schema_version": 2,
+    "case": "native-authored-one-track-positive",
+    "cycle": 1,
+    "expected_input": {
+      "version": "12.12.10.1",
+      "file_persistent_id": "C4CF98746C40D802",
+      "library_persistent_id": "6002C2960B55A3CB",
+      "track_count": 1,
+      "tracks": [
+        {
+          "persistent_id": "C8FB5925BC26E77C",
+          "name": "U01 12.12.10.1 Native α",
+          "artist": "Distinct Build Artist Ω",
+          "album": "Distinct Build Album 2023",
+          "album_artist": "Distinct Album Artist β",
+          "comment": "Predeclared native baseline — 20260927",
+          "rating": 80,
+          "play_count": 2,
+          "skip_count": 1,
+          "track_number": 1,
+          "year": 2023
+        }
+      ],
+      "playlists": [
+        {
+          "persistent_id": "5FA9D851819CFC35",
+          "name": "Synthetic U01 12.12.10.1",
+          "members": [
+            "C8FB5925BC26E77C"
+          ]
+        }
+      ]
+    },
+    "expected": {
+      "version": "12.12.10.1",
+      "file_persistent_id": "C4CF98746C40D802",
+      "library_persistent_id": "6002C2960B55A3CB",
+      "track_count": 1,
+      "tracks": [
+        {
+          "persistent_id": "C8FB5925BC26E77C",
+          "name": "U01 12.12.10.1 Native α",
+          "artist": "Distinct Build Artist Ω",
+          "album": "Distinct Build Album 2023",
+          "album_artist": "Distinct Album Artist β",
+          "comment": "Predeclared native baseline — 20260927",
+          "rating": 80,
+          "play_count": 2,
+          "skip_count": 1,
+          "track_number": 1,
+          "year": 2023
+        }
+      ],
+      "playlists": [
+        {
+          "persistent_id": "5FA9D851819CFC35",
+          "name": "Synthetic U01 12.12.10.1",
+          "members": [
+            "C8FB5925BC26E77C"
+          ]
+        }
+      ]
+    }
+  },
+  "samples": [
+    {
+      "index": 1,
+      "state": {
+        "version": "12.12.10.1",
+        "library_persistent_id": "6002C2960B55A3CB",
+        "tracks": [
+          {
+            "persistent_id": "C8FB5925BC26E77C",
+            "Name": "U01 12.12.10.1 Native α",
+            "Artist": "Distinct Build Artist Ω",
+            "Album": "Distinct Build Album 2023",
+            "AlbumArtist": "Distinct Album Artist β",
+            "Composer": "",
+            "Genre": "",
+            "Comment": "Predeclared native baseline — 20260927",
+            "Grouping": "",
+            "Lyrics": "",
+            "SortName": "",
+            "SortArtist": "",
+            "SortAlbum": "",
+            "SortAlbumArtist": "",
+            "Rating": 80,
+            "AlbumRating": 80,
+            "PlayedCount": 2,
+            "PlayedDate": "1899-12-30T00:00:00+00:00",
+            "SkippedCount": 1,
+            "SkippedDate": "1899-12-30T00:00:00+00:00",
+            "DateAdded": "2026-09-26T18:27:27+00:00",
+            "ModificationDate": "2026-09-26T18:27:18+00:00",
+            "TrackNumber": 1,
+            "TrackCount": 0,
+            "DiscNumber": 0,
+            "DiscCount": 0,
+            "Year": 2023,
+            "BPM": 0,
+            "Compilation": false,
+            "Enabled": true,
+            "VolumeAdjustment": 0,
+            "Location": "D:\\a\\_temp\\u01-distinct-setup-20260927\\live\\media\\u01-12.12.10.1-523hz.wav",
+            "Duration": 0,
+            "SampleRate": 44100,
+            "BitRate": 705,
+            "Size": 44144,
+            "TrackDatabaseID": 71,
+            "TrackID": 76,
+            "PlayOrderIndex": 1,
+            "Unplayed": false,
+            "RatingKind": 0,
+            "AlbumRatingKind": 1
+          }
+        ],
+        "playlists": [
+          {
+            "name": "Library",
+            "persistent_id": "6002C2960B55A3CB",
+            "kind": 1,
+            "members": [
+              {
+                "persistent_id": "C8FB5925BC26E77C",
+                "name": "U01 12.12.10.1 Native α",
+                "play_order_index": 1
+              }
+            ],
+            "special_kind": null
+          },
+          {
+            "name": "Music",
+            "persistent_id": "6EB9FAEB233B6A5F",
+            "kind": 2,
+            "members": [
+              {
+                "persistent_id": "C8FB5925BC26E77C",
+                "name": "U01 12.12.10.1 Native α",
+                "play_order_index": 1
+              }
+            ],
+            "special_kind": 6
+          },
+          {
+            "name": "Movies",
+            "persistent_id": "385F84CCEE0C4B9D",
+            "kind": 2,
+            "members": [],
+            "special_kind": 7
+          },
+          {
+            "name": "TV Shows",
+            "persistent_id": "152D88ED465C0271",
+            "kind": 2,
+            "members": [],
+            "special_kind": 8
+          },
+          {
+            "name": "Podcasts",
+            "persistent_id": "6EF5B1C75354B29C",
+            "kind": 2,
+            "members": [],
+            "special_kind": 3
+          },
+          {
+            "name": "Audiobooks",
+            "persistent_id": "99BC13546DEC81A0",
+            "kind": 2,
+            "members": [],
+            "special_kind": 9
+          },
+          {
+            "name": "Genius",
+            "persistent_id": "E6F5EB913D35B174",
+            "kind": 2,
+            "members": [],
+            "special_kind": 11
+          },
+          {
+            "name": "Synthetic U01 12.12.10.1",
+            "persistent_id": "5FA9D851819CFC35",
+            "kind": 2,
+            "members": [
+              {
+                "persistent_id": "C8FB5925BC26E77C",
+                "name": "U01 12.12.10.1 Native α",
+                "play_order_index": 1
+              }
+            ],
+            "special_kind": 0
+          }
+        ],
+        "track_count": 1
+      },
+      "errors": []
+    },
+    {
+      "index": 2,
+      "state": {
+        "version": "12.12.10.1",
+        "library_persistent_id": "6002C2960B55A3CB",
+        "tracks": [
+          {
+            "persistent_id": "C8FB5925BC26E77C",
+            "Name": "U01 12.12.10.1 Native α",
+            "Artist": "Distinct Build Artist Ω",
+            "Album": "Distinct Build Album 2023",
+            "AlbumArtist": "Distinct Album Artist β",
+            "Composer": "",
+            "Genre": "",
+            "Comment": "Predeclared native baseline — 20260927",
+            "Grouping": "",
+            "Lyrics": "",
+            "SortName": "",
+            "SortArtist": "",
+            "SortAlbum": "",
+            "SortAlbumArtist": "",
+            "Rating": 80,
+            "AlbumRating": 80,
+            "PlayedCount": 2,
+            "PlayedDate": "1899-12-30T00:00:00+00:00",
+            "SkippedCount": 1,
+            "SkippedDate": "1899-12-30T00:00:00+00:00",
+            "DateAdded": "2026-09-26T18:27:27+00:00",
+            "ModificationDate": "2026-09-26T18:27:18+00:00",
+            "TrackNumber": 1,
+            "TrackCount": 0,
+            "DiscNumber": 0,
+            "DiscCount": 0,
+            "Year": 2023,
+            "BPM": 0,
+            "Compilation": false,
+            "Enabled": true,
+            "VolumeAdjustment": 0,
+            "Location": "D:\\a\\_temp\\u01-distinct-setup-20260927\\live\\media\\u01-12.12.10.1-523hz.wav",
+            "Duration": 0,
+            "SampleRate": 44100,
+            "BitRate": 705,
+            "Size": 44144,
+            "TrackDatabaseID": 71,
+            "TrackID": 76,
+            "PlayOrderIndex": 1,
+            "Unplayed": false,
+            "RatingKind": 0,
+            "AlbumRatingKind": 1
+          }
+        ],
+        "playlists": [
+          {
+            "name": "Library",
+            "persistent_id": "6002C2960B55A3CB",
+            "kind": 1,
+            "members": [
+              {
+                "persistent_id": "C8FB5925BC26E77C",
+                "name": "U01 12.12.10.1 Native α",
+                "play_order_index": 1
+              }
+            ],
+            "special_kind": null
+          },
+          {
+            "name": "Music",
+            "persistent_id": "6EB9FAEB233B6A5F",
+            "kind": 2,
+            "members": [
+              {
+                "persistent_id": "C8FB5925BC26E77C",
+                "name": "U01 12.12.10.1 Native α",
+                "play_order_index": 1
+              }
+            ],
+            "special_kind": 6
+          },
+          {
+            "name": "Movies",
+            "persistent_id": "385F84CCEE0C4B9D",
+            "kind": 2,
+            "members": [],
+            "special_kind": 7
+          },
+          {
+            "name": "TV Shows",
+            "persistent_id": "152D88ED465C0271",
+            "kind": 2,
+            "members": [],
+            "special_kind": 8
+          },
+          {
+            "name": "Podcasts",
+            "persistent_id": "6EF5B1C75354B29C",
+            "kind": 2,
+            "members": [],
+            "special_kind": 3
+          },
+          {
+            "name": "Audiobooks",
+            "persistent_id": "99BC13546DEC81A0",
+            "kind": 2,
+            "members": [],
+            "special_kind": 9
+          },
+          {
+            "name": "Genius",
+            "persistent_id": "E6F5EB913D35B174",
+            "kind": 2,
+            "members": [],
+            "special_kind": 11
+          },
+          {
+            "name": "Synthetic U01 12.12.10.1",
+            "persistent_id": "5FA9D851819CFC35",
+            "kind": 2,
+            "members": [
+              {
+                "persistent_id": "C8FB5925BC26E77C",
+                "name": "U01 12.12.10.1 Native α",
+                "play_order_index": 1
+              }
+            ],
+            "special_kind": 0
+          }
+        ],
+        "track_count": 1
+      },
+      "errors": []
+    }
+  ],
+  "errors": [],
+  "accepted": true,
+  "quit_requested": true,
+  "finished_utc": "2026-09-26T18:28:39.612971+00:00"
+}

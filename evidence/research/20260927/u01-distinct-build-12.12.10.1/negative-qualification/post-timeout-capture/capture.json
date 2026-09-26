@@ -1,0 +1,179 @@
+{
+  "schema_version": 1,
+  "captured_utc": "2026-09-26T18:32:59.203506+00:00",
+  "purpose": "preserve the exact live files left by the two completed predeclared-negative attempts before runner loss",
+  "causal_order": [
+    "fresh exact 12.13.10.3 input copied",
+    "iTunes 12.12.10.1 launched",
+    "no target product modal appeared within 90 seconds",
+    "harness force-killed iTunes after timeout",
+    "this supplemental capture copied and independently parsed the surviving live ITL"
+  ],
+  "claim_boundary": "These are failed-negative timeout survivors, not normally-quit qualification cycles. Their mutation disproves the predeclared unchanged-input/rejection gate but does not itself establish a clean native acceptance cycle.",
+  "attempts": [
+    {
+      "attempt": 1,
+      "capture_after_harness_force_kill": true,
+      "original_input_sha256": "c6c68171d57350ceb3cf379eee13a764ea199536ef18238fe4faf80583492d74",
+      "captured_output": {
+        "path": "D:\\a\\_temp\\windows-itunes-itl-research-distinct\\evidence\\research\\20260927\\u01-distinct-build-12.12.10.1\\negative-qualification\\post-timeout-capture\\attempt-1\\native-mutated-at-timeout.itl",
+        "bytes": 3866,
+        "mtime_ns": 1790447384433027600,
+        "sha256": "b92b3b62dd418a4010e14b2da2e4b92abe7268dcd0d54a560b1cd29a57cdef59"
+      },
+      "hash_changed": true,
+      "serialized_version_before": "12.13.10.3",
+      "serialized_version_after": "12.12.10.1",
+      "outer_file_persistent_id_after": "5245464552454E43",
+      "semantic_preservation_errors_ignoring_version": [],
+      "inventory_after_force_kill": [
+        {
+          "path": "Album Artwork",
+          "kind": "directory"
+        },
+        {
+          "path": "Album Artwork/Cache",
+          "kind": "directory"
+        },
+        {
+          "path": "Album Artwork/Custom",
+          "kind": "directory"
+        },
+        {
+          "path": "Album Artwork/Download",
+          "kind": "directory"
+        },
+        {
+          "path": "Album Artwork/Generated",
+          "kind": "directory"
+        },
+        {
+          "path": "Album Artwork/Store",
+          "kind": "directory"
+        },
+        {
+          "path": "iTunes Library Extras.itdb",
+          "kind": "file",
+          "bytes": 16384,
+          "sha256": "e1937a7a396264a1d85599295ce5d66fe16e5771e91be496987a16b26d406553"
+        },
+        {
+          "path": "iTunes Library Genius.itdb",
+          "kind": "file",
+          "bytes": 32768,
+          "sha256": "b55a709809b044e755b0d9114788c7bedad9e1a50a48aa2bb174df74ed29b617"
+        },
+        {
+          "path": "iTunes Library.itl",
+          "kind": "file",
+          "bytes": 3866,
+          "sha256": "b92b3b62dd418a4010e14b2da2e4b92abe7268dcd0d54a560b1cd29a57cdef59"
+        },
+        {
+          "path": "iTunes Media",
+          "kind": "directory"
+        },
+        {
+          "path": "iTunes Media/.iTunes Preferences.plist",
+          "kind": "file",
+          "bytes": 305,
+          "sha256": "7ca99191555d58b4d44c8c4b6badb56cc1be6149984f0fb7e9f5a5c4a96e107b"
+        },
+        {
+          "path": "iTunes Media/Automatically Add to iTunes",
+          "kind": "directory"
+        },
+        {
+          "path": "sentinel",
+          "kind": "file",
+          "bytes": 8,
+          "sha256": "af5570f5a1810b7af78caf4bc70a660f0df51e42baf91d4de5b2328de0e83dfc"
+        }
+      ],
+      "forbidden_artifacts_after_force_kill": [],
+      "parser_summary_relative": "evidence/research/20260927/u01-distinct-build-12.12.10.1/negative-qualification/post-timeout-capture/attempt-1/parser-summary.json"
+    },
+    {
+      "attempt": 2,
+      "capture_after_harness_force_kill": true,
+      "original_input_sha256": "c6c68171d57350ceb3cf379eee13a764ea199536ef18238fe4faf80583492d74",
+      "captured_output": {
+        "path": "D:\\a\\_temp\\windows-itunes-itl-research-distinct\\evidence\\research\\20260927\\u01-distinct-build-12.12.10.1\\negative-qualification\\post-timeout-capture\\attempt-2\\native-mutated-at-timeout.itl",
+        "bytes": 3876,
+        "mtime_ns": 1790447474712332000,
+        "sha256": "b852b7d439bdf03d988e3f732a076d9f67e872a8314b68eee0435e210fa111f8"
+      },
+      "hash_changed": true,
+      "serialized_version_before": "12.13.10.3",
+      "serialized_version_after": "12.12.10.1",
+      "outer_file_persistent_id_after": "5245464552454E43",
+      "semantic_preservation_errors_ignoring_version": [],
+      "inventory_after_force_kill": [
+        {
+          "path": "Album Artwork",
+          "kind": "directory"
+        },
+        {
+          "path": "Album Artwork/Cache",
+          "kind": "directory"
+        },
+        {
+          "path": "Album Artwork/Custom",
+          "kind": "directory"
+        },
+        {
+          "path": "Album Artwork/Download",
+          "kind": "directory"
+        },
+        {
+          "path": "Album Artwork/Generated",
+          "kind": "directory"
+        },
+        {
+          "path": "Album Artwork/Store",
+          "kind": "directory"
+        },
+        {
+          "path": "iTunes Library Extras.itdb",
+          "kind": "file",
+          "bytes": 16384,
+          "sha256": "e1937a7a396264a1d85599295ce5d66fe16e5771e91be496987a16b26d406553"
+        },
+        {
+          "path": "iTunes Library Genius.itdb",
+          "kind": "file",
+          "bytes": 32768,
+          "sha256": "afd554b874785e0f46eff7be72a77cef54248d4d4caeaefb47dc43499b1f6c7e"
+        },
+        {
+          "path": "iTunes Library.itl",
+          "kind": "file",
+          "bytes": 3876,
+          "sha256": "b852b7d439bdf03d988e3f732a076d9f67e872a8314b68eee0435e210fa111f8"
+        },
+        {
+          "path": "iTunes Media",
+          "kind": "directory"
+        },
+        {
+          "path": "iTunes Media/.iTunes Preferences.plist",
+          "kind": "file",
+          "bytes": 305,
+          "sha256": "fca82bb5ce7061702a740b7328a0982f8e5d6c1e99631daa47beb98a78e0c8c3"
+        },
+        {
+          "path": "iTunes Media/Automatically Add to iTunes",
+          "kind": "directory"
+        },
+        {
+          "path": "sentinel",
+          "kind": "file",
+          "bytes": 8,
+          "sha256": "af5570f5a1810b7af78caf4bc70a660f0df51e42baf91d4de5b2328de0e83dfc"
+        }
+      ],
+      "forbidden_artifacts_after_force_kill": [],
+      "parser_summary_relative": "evidence/research/20260927/u01-distinct-build-12.12.10.1/negative-qualification/post-timeout-capture/attempt-2/parser-summary.json"
+    }
+  ]
+}

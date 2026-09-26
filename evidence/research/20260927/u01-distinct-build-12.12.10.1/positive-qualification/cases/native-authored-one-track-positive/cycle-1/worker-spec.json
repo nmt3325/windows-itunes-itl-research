@@ -1,0 +1,65 @@
+{
+  "schema_version": 2,
+  "case": "native-authored-one-track-positive",
+  "cycle": 1,
+  "expected_input": {
+    "version": "12.12.10.1",
+    "file_persistent_id": "C4CF98746C40D802",
+    "library_persistent_id": "6002C2960B55A3CB",
+    "track_count": 1,
+    "tracks": [
+      {
+        "persistent_id": "C8FB5925BC26E77C",
+        "name": "U01 12.12.10.1 Native α",
+        "artist": "Distinct Build Artist Ω",
+        "album": "Distinct Build Album 2023",
+        "album_artist": "Distinct Album Artist β",
+        "comment": "Predeclared native baseline — 20260927",
+        "rating": 80,
+        "play_count": 2,
+        "skip_count": 1,
+        "track_number": 1,
+        "year": 2023
+      }
+    ],
+    "playlists": [
+      {
+        "persistent_id": "5FA9D851819CFC35",
+        "name": "Synthetic U01 12.12.10.1",
+        "members": [
+          "C8FB5925BC26E77C"
+        ]
+      }
+    ]
+  },
+  "expected": {
+    "version": "12.12.10.1",
+    "file_persistent_id": "C4CF98746C40D802",
+    "library_persistent_id": "6002C2960B55A3CB",
+    "track_count": 1,
+    "tracks": [
+      {
+        "persistent_id": "C8FB5925BC26E77C",
+        "name": "U01 12.12.10.1 Native α",
+        "artist": "Distinct Build Artist Ω",
+        "album": "Distinct Build Album 2023",
+        "album_artist": "Distinct Album Artist β",
+        "comment": "Predeclared native baseline — 20260927",
+        "rating": 80,
+        "play_count": 2,
+        "skip_count": 1,
+        "track_number": 1,
+        "year": 2023
+      }
+    ],
+    "playlists": [
+      {
+        "persistent_id": "5FA9D851819CFC35",
+        "name": "Synthetic U01 12.12.10.1",
+        "members": [
+          "C8FB5925BC26E77C"
+        ]
+      }
+    ]
+  }
+}

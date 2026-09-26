@@ -1,0 +1,1132 @@
+{
+  "schema_version": 1,
+  "started_utc": "2026-09-26T18:29:03.720426+00:00",
+  "status": "failed_with_preserved_evidence",
+  "classification": "predeclared exact-input product-facing negative qualification",
+  "candidate": {
+    "path": "D:\\a\\_temp\\windows-itunes-itl-research-distinct\\TEST_CORPUS\\generated\\reference-one-track-raw.itl",
+    "bytes": 10566,
+    "mtime_ns": 1790446489776682900,
+    "sha256": "c6c68171d57350ceb3cf379eee13a764ea199536ef18238fe4faf80583492d74"
+  },
+  "candidate_relative_path": "TEST_CORPUS/generated/reference-one-track-raw.itl",
+  "reference_summary_before": {
+    "envelope": {
+      "compression_flag": 0,
+      "declared_counts": {
+        "albums": 1,
+        "artists": 1,
+        "playlists": 2,
+        "sections": 10,
+        "tracks": 1
+      },
+      "encryption_flag": 0,
+      "header_length": 144,
+      "payload_byteorder": "little",
+      "trailer_length": 0
+    },
+    "file_persistent_id": "5245464552454E43",
+    "playlists": [
+      {
+        "header_length": 3500,
+        "members": [
+          {
+            "item_id": 1,
+            "item_persistent_id": "A17E000000000006",
+            "order_token": 1,
+            "track_id": 1,
+            "track_persistent_id": "A17E000000000001"
+          }
+        ],
+        "name": "####!####",
+        "persistent_id": "5245464552454E43",
+        "playlist_id": 5,
+        "smart_rule_objects": 0,
+        "special_object": false
+      },
+      {
+        "header_length": 3500,
+        "members": [
+          {
+            "item_id": 1,
+            "item_persistent_id": "A17E000000000003",
+            "order_token": 1,
+            "track_id": 1,
+            "track_persistent_id": "A17E000000000001"
+          }
+        ],
+        "name": "Reference Playlist",
+        "persistent_id": "A17E000000000002",
+        "playlist_id": 6,
+        "smart_rule_objects": 0,
+        "special_object": false
+      }
+    ],
+    "schema": "reference-itl.semantic.v1",
+    "sections": [
+      {
+        "offset": 0,
+        "opaque": false,
+        "size": 240,
+        "type": 16
+      },
+      {
+        "offset": 240,
+        "opaque": false,
+        "size": 376,
+        "type": 12
+      },
+      {
+        "offset": 616,
+        "opaque": false,
+        "size": 276,
+        "type": 9
+      },
+      {
+        "offset": 892,
+        "opaque": false,
+        "size": 296,
+        "type": 11
+      },
+      {
+        "offset": 1188,
+        "opaque": false,
+        "size": 1014,
+        "type": 1
+      },
+      {
+        "offset": 2202,
+        "opaque": false,
+        "size": 188,
+        "type": 13
+      },
+      {
+        "offset": 2390,
+        "opaque": true,
+        "size": 192,
+        "type": 23
+      },
+      {
+        "offset": 2582,
+        "opaque": false,
+        "size": 7490,
+        "type": 2
+      },
+      {
+        "offset": 10072,
+        "opaque": false,
+        "size": 188,
+        "type": 14
+      },
+      {
+        "offset": 10260,
+        "opaque": true,
+        "size": 162,
+        "type": 4
+      }
+    ],
+    "sha256": "c6c68171d57350ceb3cf379eee13a764ea199536ef18238fe4faf80583492d74",
+    "tracks": [
+      {
+        "album": null,
+        "album_artist": null,
+        "album_id": 3,
+        "artist": null,
+        "artist_id": 4,
+        "bit_rate": 0,
+        "comment": null,
+        "composer": null,
+        "date_added": 3865040640,
+        "date_modified": 0,
+        "disc_count": 0,
+        "disc_number": 0,
+        "file_size": 0,
+        "genre": null,
+        "header_length": 756,
+        "kind": null,
+        "legacy_loved_bit": false,
+        "legacy_loved_byte_raw": 0,
+        "name": "Reference Track",
+        "name_refresh_flag_raw": 0,
+        "path": null,
+        "persistent_id": "A17E000000000001",
+        "play_count": 0,
+        "play_date": 0,
+        "purchaser_name": null,
+        "rating": 0,
+        "record_kind_raw": 1,
+        "sample_rate": 0,
+        "skip_count": 0,
+        "skip_date": 0,
+        "sort_album": null,
+        "sort_album_artist": null,
+        "sort_artist": null,
+        "sort_name": null,
+        "total_time": 0,
+        "track_count": 0,
+        "track_id": 1,
+        "track_number": 0,
+        "unplayed": true,
+        "unplayed_raw": 0,
+        "url": null,
+        "year": 0
+      }
+    ],
+    "version": "12.13.10.3"
+  },
+  "reference_summary_before_errors": [],
+  "executable": {
+    "path": "C:\\Program Files\\iTunes\\iTunes.exe",
+    "sha256": "0aa1b53af915fc9e0ced4c7ecbcb1397a036d38367d894ae063ae1d127331f9b",
+    "file_version": "12.12.10.1",
+    "product_version": "12.12.10.1",
+    "expected_sha256": "0aa1b53af915fc9e0ced4c7ecbcb1397a036d38367d894ae063ae1d127331f9b",
+    "expected_version": "12.12.10.1",
+    "version_probe": {
+      "argv": [
+        "pwsh",
+        "-NoLogo",
+        "-NoProfile",
+        "-Command",
+        "$v=(Get-Item -LiteralPath 'C:\\Program Files\\iTunes\\iTunes.exe').VersionInfo; [pscustomobject]@{FileVersion=[string]$v.FileVersion;ProductVersion=[string]$v.ProductVersion}|ConvertTo-Json -Compress"
+      ],
+      "returncode": 0,
+      "output": "{\"FileVersion\":\"12.12.10.1\",\"ProductVersion\":\"12.12.10.1\"}\n"
+    },
+    "errors": [],
+    "authenticode": {
+      "argv": [
+        "pwsh",
+        "-NoLogo",
+        "-NoProfile",
+        "-Command",
+        "$s=Get-AuthenticodeSignature -LiteralPath 'C:\\Program Files\\iTunes\\iTunes.exe'; [pscustomobject]@{Status=[string]$s.Status;Subject=$s.SignerCertificate.Subject;Thumbprint=$s.SignerCertificate.Thumbprint}|ConvertTo-Json -Compress"
+      ],
+      "returncode": 0,
+      "output": "{\"Status\":\"Valid\",\"Subject\":\"CN=Apple Inc., O=Apple Inc., L=Cupertino, S=California, C=US\",\"Thumbprint\":\"67A9953123BD5F01B1BC0BB98A950D9CA869CD02\"}\n"
+    }
+  },
+  "platform": "Windows-2025Server-10.0.26100-SP0",
+  "attempts_required": 2,
+  "attempts": [
+    {
+      "attempt": 1,
+      "started_utc": "2026-09-26T18:29:05.653975+00:00",
+      "status": "failed_with_preserved_evidence",
+      "input_before": {
+        "path": "D:\\a\\_temp\\u01-distinct-negative-20260927\\attempt-1\\live\\iTunes Library.itl",
+        "bytes": 10566,
+        "mtime_ns": 1790446489776682900,
+        "sha256": "c6c68171d57350ceb3cf379eee13a764ea199536ef18238fe4faf80583492d74"
+      },
+      "inventory_before": [
+        {
+          "path": "iTunes Library.itl",
+          "kind": "file",
+          "bytes": 10566,
+          "sha256": "c6c68171d57350ceb3cf379eee13a764ea199536ef18238fe4faf80583492d74"
+        }
+      ],
+      "ui": [
+        {
+          "action": "dismiss_known_audio_warning",
+          "window": {
+            "hwnd": 524832,
+            "pid": 5880,
+            "class": "iTunesCustomModalDialog",
+            "title": "iTunes",
+            "children": [
+              {
+                "hwnd": 393710,
+                "class": "Static",
+                "text": "iTunes has detected a problem with your audio configuration.\rAudio/Video playback may not operate properly.",
+                "id": 101,
+                "enabled": true,
+                "visible": true
+              },
+              {
+                "hwnd": 328184,
+                "class": "Static",
+                "text": "",
+                "id": 103,
+                "enabled": true,
+                "visible": false
+              },
+              {
+                "hwnd": 262676,
+                "class": "Button",
+                "text": "",
+                "id": 104,
+                "enabled": true,
+                "visible": false
+              },
+              {
+                "hwnd": 328242,
+                "class": "Button",
+                "text": "OK",
+                "id": 1,
+                "enabled": true,
+                "visible": true
+              },
+              {
+                "hwnd": 393782,
+                "class": "Button",
+                "text": "More Info",
+                "id": 105,
+                "enabled": true,
+                "visible": false
+              },
+              {
+                "hwnd": 393334,
+                "class": "Static",
+                "text": "",
+                "id": 102,
+                "enabled": true,
+                "visible": true
+              }
+            ]
+          }
+        }
+      ],
+      "target_modal_observed": false,
+      "target_modal_dismissed": false,
+      "forced_termination": true,
+      "profile_junction_create": {
+        "argv": [
+          "cmd.exe",
+          "/d",
+          "/c",
+          "mklink",
+          "/J",
+          "C:\\Users\\runneradmin\\Music\\iTunes",
+          "D:\\a\\_temp\\u01-distinct-negative-20260927\\attempt-1\\live"
+        ],
+        "returncode": 0,
+        "output": "Junction created for C:\\Users\\runneradmin\\Music\\iTunes <<===>> D:\\a\\_temp\\u01-distinct-negative-20260927\\attempt-1\\live\n"
+      },
+      "itunes_pid": 5880,
+      "windows_without_target": [
+        {
+          "hwnd": 524784,
+          "pid": 5880,
+          "class": "iTunes",
+          "title": "iTunes",
+          "children": [
+            {
+              "hwnd": 590294,
+              "class": "Button",
+              "text": "",
+              "id": -782159824,
+              "enabled": true,
+              "visible": true
+            },
+            {
+              "hwnd": 917958,
+              "class": "Static",
+              "text": "",
+              "id": -780386416,
+              "enabled": true,
+              "visible": false
+            },
+            {
+              "hwnd": 393698,
+              "class": "Button",
+              "text": "",
+              "id": -780451024,
+              "enabled": true,
+              "visible": false
+            },
+            {
+              "hwnd": 393644,
+              "class": "Button",
+              "text": "Search",
+              "id": -780796464,
+              "enabled": true,
+              "visible": true
+            },
+            {
+              "hwnd": 262686,
+              "class": "Edit",
+              "text": "",
+              "id": 101,
+              "enabled": true,
+              "visible": false
+            },
+            {
+              "hwnd": 655444,
+              "class": "Static",
+              "text": "LCD section",
+              "id": -781069456,
+              "enabled": true,
+              "visible": true
+            },
+            {
+              "hwnd": 262684,
+              "class": "Button",
+              "text": "switch to miniplayer",
+              "id": -780812384,
+              "enabled": true,
+              "visible": false
+            },
+            {
+              "hwnd": 262682,
+              "class": "Button",
+              "text": "show next view",
+              "id": -780840256,
+              "enabled": true,
+              "visible": false
+            },
+            {
+              "hwnd": 590388,
+              "class": "Button",
+              "text": "show previous view",
+              "id": -780851536,
+              "enabled": true,
+              "visible": false
+            },
+            {
+              "hwnd": 459268,
+              "class": "Button",
+              "text": "",
+              "id": -780855776,
+              "enabled": true,
+              "visible": false
+            },
+            {
+              "hwnd": 851992,
+              "class": "Button",
+              "text": "airplay",
+              "id": -781077296,
+              "enabled": false,
+              "visible": false
+            },
+            {
+              "hwnd": 1835078,
+              "class": "Button",
+              "text": "genius shuffle",
+              "id": -780911744,
+              "enabled": false,
+              "visible": false
+            },
+            {
+              "hwnd": 262696,
+              "class": "Static",
+              "text": "Application",
+              "id": -781566448,
+              "enabled": true,
+              "visible": true
+            },
+            {
+              "hwnd": 262680,
+              "class": "Static",
+              "text": "Song",
+              "id": -780239312,
+              "enabled": true,
+              "visible": true
+            },
+            {
+              "hwnd": 918028,
+              "class": "Static",
+              "text": "Help",
+              "id": -781331696,
+              "enabled": true,
+              "visible": true
+            },
+            {
+              "hwnd": 262704,
+              "class": "Static",
+              "text": "Account",
+              "id": -781335552,
+              "enabled": true,
+              "visible": true
+            },
+            {
+              "hwnd": 459142,
+              "class": "Static",
+              "text": "Controls",
+              "id": -781339408,
+              "enabled": true,
+              "visible": true
+            },
+            {
+              "hwnd": 721380,
+              "class": "Static",
+              "text": "View",
+              "id": -781343264,
+              "enabled": true,
+              "visible": true
+            },
+            {
+              "hwnd": 393786,
+              "class": "Static",
+              "text": "Edit",
+              "id": -781347120,
+              "enabled": true,
+              "visible": true
+            },
+            {
+              "hwnd": 721038,
+              "class": "Static",
+              "text": "File",
+              "id": -781350976,
+              "enabled": true,
+              "visible": true
+            }
+          ]
+        }
+      ],
+      "classification": "predeclared negative did not reproduce; no post-hoc substitution",
+      "error": "TimeoutError: predeclared newer-version product modal was not observed",
+      "traceback": "Traceback (most recent call last):\n  File \"D:\\a\\_temp\\windows-itunes-itl-research-distinct\\scripts\\windows\\u01_distinct_build_20260927.py\", line 527, in run_negative_attempt\n    raise TimeoutError(\"predeclared newer-version product modal was not observed\")\nTimeoutError: predeclared newer-version product modal was not observed\n",
+      "windows_at_failure": [
+        {
+          "hwnd": 524784,
+          "pid": 5880,
+          "class": "iTunes",
+          "title": "iTunes",
+          "children": [
+            {
+              "hwnd": 590294,
+              "class": "Button",
+              "text": "",
+              "id": -782159824,
+              "enabled": true,
+              "visible": true
+            },
+            {
+              "hwnd": 917958,
+              "class": "Static",
+              "text": "",
+              "id": -780386416,
+              "enabled": true,
+              "visible": false
+            },
+            {
+              "hwnd": 393698,
+              "class": "Button",
+              "text": "",
+              "id": -780451024,
+              "enabled": true,
+              "visible": false
+            },
+            {
+              "hwnd": 393644,
+              "class": "Button",
+              "text": "Search",
+              "id": -780796464,
+              "enabled": true,
+              "visible": true
+            },
+            {
+              "hwnd": 262686,
+              "class": "Edit",
+              "text": "",
+              "id": 101,
+              "enabled": true,
+              "visible": false
+            },
+            {
+              "hwnd": 655444,
+              "class": "Static",
+              "text": "LCD section",
+              "id": -781069456,
+              "enabled": true,
+              "visible": true
+            },
+            {
+              "hwnd": 262684,
+              "class": "Button",
+              "text": "switch to miniplayer",
+              "id": -780812384,
+              "enabled": true,
+              "visible": false
+            },
+            {
+              "hwnd": 262682,
+              "class": "Button",
+              "text": "show next view",
+              "id": -780840256,
+              "enabled": true,
+              "visible": false
+            },
+            {
+              "hwnd": 590388,
+              "class": "Button",
+              "text": "show previous view",
+              "id": -780851536,
+              "enabled": true,
+              "visible": false
+            },
+            {
+              "hwnd": 459268,
+              "class": "Button",
+              "text": "",
+              "id": -780855776,
+              "enabled": true,
+              "visible": false
+            },
+            {
+              "hwnd": 851992,
+              "class": "Button",
+              "text": "airplay",
+              "id": -781077296,
+              "enabled": false,
+              "visible": false
+            },
+            {
+              "hwnd": 1835078,
+              "class": "Button",
+              "text": "genius shuffle",
+              "id": -780911744,
+              "enabled": false,
+              "visible": false
+            },
+            {
+              "hwnd": 262696,
+              "class": "Static",
+              "text": "Application",
+              "id": -781566448,
+              "enabled": true,
+              "visible": true
+            },
+            {
+              "hwnd": 262680,
+              "class": "Static",
+              "text": "Song",
+              "id": -780239312,
+              "enabled": true,
+              "visible": true
+            },
+            {
+              "hwnd": 918028,
+              "class": "Static",
+              "text": "Help",
+              "id": -781331696,
+              "enabled": true,
+              "visible": true
+            },
+            {
+              "hwnd": 262704,
+              "class": "Static",
+              "text": "Account",
+              "id": -781335552,
+              "enabled": true,
+              "visible": true
+            },
+            {
+              "hwnd": 459142,
+              "class": "Static",
+              "text": "Controls",
+              "id": -781339408,
+              "enabled": true,
+              "visible": true
+            },
+            {
+              "hwnd": 721380,
+              "class": "Static",
+              "text": "View",
+              "id": -781343264,
+              "enabled": true,
+              "visible": true
+            },
+            {
+              "hwnd": 393786,
+              "class": "Static",
+              "text": "Edit",
+              "id": -781347120,
+              "enabled": true,
+              "visible": true
+            },
+            {
+              "hwnd": 721038,
+              "class": "Static",
+              "text": "File",
+              "id": -781350976,
+              "enabled": true,
+              "visible": true
+            }
+          ]
+        }
+      ],
+      "itunes_exit_after_kill": 1,
+      "profile_junction_remove": {
+        "removed": true,
+        "command": {
+          "argv": [
+            "cmd.exe",
+            "/d",
+            "/c",
+            "rmdir",
+            "C:\\Users\\runneradmin\\Music\\iTunes"
+          ],
+          "returncode": 0,
+          "output": ""
+        }
+      },
+      "profile_exists_after": false,
+      "process_cleanup_passed": true,
+      "finished_utc": "2026-09-26T18:30:35.870674+00:00"
+    },
+    {
+      "attempt": 2,
+      "started_utc": "2026-09-26T18:30:35.874706+00:00",
+      "status": "failed_with_preserved_evidence",
+      "input_before": {
+        "path": "D:\\a\\_temp\\u01-distinct-negative-20260927\\attempt-2\\live\\iTunes Library.itl",
+        "bytes": 10566,
+        "mtime_ns": 1790446489776682900,
+        "sha256": "c6c68171d57350ceb3cf379eee13a764ea199536ef18238fe4faf80583492d74"
+      },
+      "inventory_before": [
+        {
+          "path": "iTunes Library.itl",
+          "kind": "file",
+          "bytes": 10566,
+          "sha256": "c6c68171d57350ceb3cf379eee13a764ea199536ef18238fe4faf80583492d74"
+        }
+      ],
+      "ui": [
+        {
+          "action": "dismiss_known_audio_warning",
+          "window": {
+            "hwnd": 524686,
+            "pid": 4448,
+            "class": "iTunesCustomModalDialog",
+            "title": "iTunes",
+            "children": [
+              {
+                "hwnd": 393682,
+                "class": "Static",
+                "text": "iTunes has detected a problem with your audio configuration.\rAudio/Video playback may not operate properly.",
+                "id": 101,
+                "enabled": true,
+                "visible": true
+              },
+              {
+                "hwnd": 590320,
+                "class": "Static",
+                "text": "",
+                "id": 103,
+                "enabled": true,
+                "visible": false
+              },
+              {
+                "hwnd": 721416,
+                "class": "Button",
+                "text": "",
+                "id": 104,
+                "enabled": true,
+                "visible": false
+              },
+              {
+                "hwnd": 1900614,
+                "class": "Button",
+                "text": "OK",
+                "id": 1,
+                "enabled": true,
+                "visible": true
+              },
+              {
+                "hwnd": 917528,
+                "class": "Button",
+                "text": "More Info",
+                "id": 105,
+                "enabled": true,
+                "visible": false
+              },
+              {
+                "hwnd": 720980,
+                "class": "Static",
+                "text": "",
+                "id": 102,
+                "enabled": true,
+                "visible": true
+              }
+            ]
+          }
+        }
+      ],
+      "target_modal_observed": false,
+      "target_modal_dismissed": false,
+      "forced_termination": true,
+      "profile_junction_create": {
+        "argv": [
+          "cmd.exe",
+          "/d",
+          "/c",
+          "mklink",
+          "/J",
+          "C:\\Users\\runneradmin\\Music\\iTunes",
+          "D:\\a\\_temp\\u01-distinct-negative-20260927\\attempt-2\\live"
+        ],
+        "returncode": 0,
+        "output": "Junction created for C:\\Users\\runneradmin\\Music\\iTunes <<===>> D:\\a\\_temp\\u01-distinct-negative-20260927\\attempt-2\\live\n"
+      },
+      "itunes_pid": 4448,
+      "windows_without_target": [
+        {
+          "hwnd": 328222,
+          "pid": 4448,
+          "class": "iTunes",
+          "title": "iTunes",
+          "children": [
+            {
+              "hwnd": 196944,
+              "class": "Button",
+              "text": "",
+              "id": -1496238192,
+              "enabled": true,
+              "visible": true
+            },
+            {
+              "hwnd": 655904,
+              "class": "Static",
+              "text": "",
+              "id": -1497089744,
+              "enabled": true,
+              "visible": false
+            },
+            {
+              "hwnd": 590212,
+              "class": "Button",
+              "text": "",
+              "id": -1497093984,
+              "enabled": true,
+              "visible": false
+            },
+            {
+              "hwnd": 590282,
+              "class": "Button",
+              "text": "Search",
+              "id": -1497492976,
+              "enabled": true,
+              "visible": true
+            },
+            {
+              "hwnd": 459322,
+              "class": "Edit",
+              "text": "",
+              "id": 101,
+              "enabled": true,
+              "visible": false
+            },
+            {
+              "hwnd": 328216,
+              "class": "Static",
+              "text": "LCD section",
+              "id": -1497591008,
+              "enabled": true,
+              "visible": true
+            },
+            {
+              "hwnd": 655924,
+              "class": "Button",
+              "text": "switch to miniplayer",
+              "id": -1497549888,
+              "enabled": true,
+              "visible": false
+            },
+            {
+              "hwnd": 328240,
+              "class": "Button",
+              "text": "show next view",
+              "id": -1497561360,
+              "enabled": true,
+              "visible": false
+            },
+            {
+              "hwnd": 524846,
+              "class": "Button",
+              "text": "show previous view",
+              "id": -1497565600,
+              "enabled": true,
+              "visible": false
+            },
+            {
+              "hwnd": 786988,
+              "class": "Button",
+              "text": "",
+              "id": -1497569840,
+              "enabled": true,
+              "visible": false
+            },
+            {
+              "hwnd": 524870,
+              "class": "Button",
+              "text": "airplay",
+              "id": -1497639184,
+              "enabled": false,
+              "visible": false
+            },
+            {
+              "hwnd": 393796,
+              "class": "Button",
+              "text": "genius shuffle",
+              "id": -1497706896,
+              "enabled": false,
+              "visible": false
+            },
+            {
+              "hwnd": 393610,
+              "class": "Static",
+              "text": "Application",
+              "id": -1498609040,
+              "enabled": true,
+              "visible": true
+            },
+            {
+              "hwnd": 524834,
+              "class": "Static",
+              "text": "Song",
+              "id": -1496879328,
+              "enabled": true,
+              "visible": true
+            },
+            {
+              "hwnd": 328220,
+              "class": "Static",
+              "text": "Help",
+              "id": -1498576832,
+              "enabled": true,
+              "visible": true
+            },
+            {
+              "hwnd": 328218,
+              "class": "Static",
+              "text": "Account",
+              "id": -1498580688,
+              "enabled": true,
+              "visible": true
+            },
+            {
+              "hwnd": 393748,
+              "class": "Static",
+              "text": "Controls",
+              "id": -1498584544,
+              "enabled": true,
+              "visible": true
+            },
+            {
+              "hwnd": 524804,
+              "class": "Static",
+              "text": "View",
+              "id": -1498588400,
+              "enabled": true,
+              "visible": true
+            },
+            {
+              "hwnd": 590330,
+              "class": "Static",
+              "text": "Edit",
+              "id": -1498592256,
+              "enabled": true,
+              "visible": true
+            },
+            {
+              "hwnd": 1769586,
+              "class": "Static",
+              "text": "File",
+              "id": -1498596112,
+              "enabled": true,
+              "visible": true
+            }
+          ]
+        }
+      ],
+      "classification": "predeclared negative did not reproduce; no post-hoc substitution",
+      "error": "TimeoutError: predeclared newer-version product modal was not observed",
+      "traceback": "Traceback (most recent call last):\n  File \"D:\\a\\_temp\\windows-itunes-itl-research-distinct\\scripts\\windows\\u01_distinct_build_20260927.py\", line 527, in run_negative_attempt\n    raise TimeoutError(\"predeclared newer-version product modal was not observed\")\nTimeoutError: predeclared newer-version product modal was not observed\n",
+      "windows_at_failure": [
+        {
+          "hwnd": 328222,
+          "pid": 4448,
+          "class": "iTunes",
+          "title": "iTunes",
+          "children": [
+            {
+              "hwnd": 196944,
+              "class": "Button",
+              "text": "",
+              "id": -1496238192,
+              "enabled": true,
+              "visible": true
+            },
+            {
+              "hwnd": 655904,
+              "class": "Static",
+              "text": "",
+              "id": -1497089744,
+              "enabled": true,
+              "visible": false
+            },
+            {
+              "hwnd": 590212,
+              "class": "Button",
+              "text": "",
+              "id": -1497093984,
+              "enabled": true,
+              "visible": false
+            },
+            {
+              "hwnd": 590282,
+              "class": "Button",
+              "text": "Search",
+              "id": -1497492976,
+              "enabled": true,
+              "visible": true
+            },
+            {
+              "hwnd": 459322,
+              "class": "Edit",
+              "text": "",
+              "id": 101,
+              "enabled": true,
+              "visible": false
+            },
+            {
+              "hwnd": 328216,
+              "class": "Static",
+              "text": "LCD section",
+              "id": -1497591008,
+              "enabled": true,
+              "visible": true
+            },
+            {
+              "hwnd": 655924,
+              "class": "Button",
+              "text": "switch to miniplayer",
+              "id": -1497549888,
+              "enabled": true,
+              "visible": false
+            },
+            {
+              "hwnd": 328240,
+              "class": "Button",
+              "text": "show next view",
+              "id": -1497561360,
+              "enabled": true,
+              "visible": false
+            },
+            {
+              "hwnd": 524846,
+              "class": "Button",
+              "text": "show previous view",
+              "id": -1497565600,
+              "enabled": true,
+              "visible": false
+            },
+            {
+              "hwnd": 786988,
+              "class": "Button",
+              "text": "",
+              "id": -1497569840,
+              "enabled": true,
+              "visible": false
+            },
+            {
+              "hwnd": 524870,
+              "class": "Button",
+              "text": "airplay",
+              "id": -1497639184,
+              "enabled": false,
+              "visible": false
+            },
+            {
+              "hwnd": 393796,
+              "class": "Button",
+              "text": "genius shuffle",
+              "id": -1497706896,
+              "enabled": false,
+              "visible": false
+            },
+            {
+              "hwnd": 393610,
+              "class": "Static",
+              "text": "Application",
+              "id": -1498609040,
+              "enabled": true,
+              "visible": true
+            },
+            {
+              "hwnd": 524834,
+              "class": "Static",
+              "text": "Song",
+              "id": -1496879328,
+              "enabled": true,
+              "visible": true
+            },
+            {
+              "hwnd": 328220,
+              "class": "Static",
+              "text": "Help",
+              "id": -1498576832,
+              "enabled": true,
+              "visible": true
+            },
+            {
+              "hwnd": 328218,
+              "class": "Static",
+              "text": "Account",
+              "id": -1498580688,
+              "enabled": true,
+              "visible": true
+            },
+            {
+              "hwnd": 393748,
+              "class": "Static",
+              "text": "Controls",
+              "id": -1498584544,
+              "enabled": true,
+              "visible": true
+            },
+            {
+              "hwnd": 524804,
+              "class": "Static",
+              "text": "View",
+              "id": -1498588400,
+              "enabled": true,
+              "visible": true
+            },
+            {
+              "hwnd": 590330,
+              "class": "Static",
+              "text": "Edit",
+              "id": -1498592256,
+              "enabled": true,
+              "visible": true
+            },
+            {
+              "hwnd": 1769586,
+              "class": "Static",
+              "text": "File",
+              "id": -1498596112,
+              "enabled": true,
+              "visible": true
+            }
+          ]
+        }
+      ],
+      "itunes_exit_after_kill": 1,
+      "profile_junction_remove": {
+        "removed": true,
+        "command": {
+          "argv": [
+            "cmd.exe",
+            "/d",
+            "/c",
+            "rmdir",
+            "C:\\Users\\runneradmin\\Music\\iTunes"
+          ],
+          "returncode": 0,
+          "output": ""
+        }
+      },
+      "profile_exists_after": false,
+      "process_cleanup_passed": true,
+      "finished_utc": "2026-09-26T18:32:05.968131+00:00"
+    }
+  ],
+  "all_passed": false,
+  "passed_attempts": 0,
+  "finished_utc": "2026-09-26T18:32:05.972174+00:00"
+}
