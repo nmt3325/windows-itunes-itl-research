@@ -206,7 +206,7 @@ validation:
     unresolved_item: U-17
   integrated_tests:
     status: passed
-    passed: 1159
+    passed: 1161
     skipped: 9
     skipped_missing_com_oracle: 5
     skipped_windows_only_helpers_on_linux: 2
@@ -303,6 +303,23 @@ validation:
     capstone_runtime_module_version: 5.0.7
     historical_dependency_versions_recovered: false
     historical_replay_available: false
+    unresolved_item: U-18
+  historical_dependency_chronology:
+    status: chronology_bounded_exact_versions_unknown_u18_open
+    focused_tests_passed: 2
+    focused_tests_failed: 0
+    introduction_commit: bd6944ec85a3993d731d65bcea530fa73320276e
+    introduction_tree_exact_capstone_pefile_pins: 0
+    capstone_releases_available_by_cutoff: 36
+    pefile_releases_available_by_cutoff: 14
+    latest_stable_capstone_by_cutoff: 5.0.9
+    latest_pefile_by_cutoff: 2024.8.26
+    historical_dependency_versions_recovered: false
+    availability_proves_historical_installation: false
+    proprietary_binary_reads: 0
+    ghidra_invocations: 0
+    unicorn_invocations: 0
+    native_acceptance_operations: 0
     unresolved_item: U-18
   spec_consistency: passed
   delivery_manifest: verified
