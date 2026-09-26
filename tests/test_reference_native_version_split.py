@@ -2,6 +2,7 @@
 from __future__ import annotations
 
 from scripts.windows import reference_generated_native as native
+from scripts.windows import u01_distinct_build_20260927 as distinct
 
 
 def expected(version: str = "12.13.10.3") -> dict:
@@ -113,3 +114,117 @@ def test_executable_identity_refuses_file_or_product_version_mismatch() -> None:
         observed_product_version="12.13.11.0",
     )
     assert [error["property"] for error in errors] == ["file_version", "product_version"]
+
+
+
+def semantic_expected() -> dict:
+    return {
+        "version": "12.12.10.1",
+        "file_persistent_id": "1111111111111111",
+        "library_persistent_id": "2222222222222222",
+        "track_count": 1,
+        "tracks": [{
+            "persistent_id": "3333333333333333",
+            "name": "n",
+            "artist": "a",
+            "album": "b",
+            "album_artist": "aa",
+            "comment": "c",
+            "rating": 80,
+            "play_count": 2,
+            "skip_count": 1,
+            "track_number": 1,
+            "year": 2023,
+        }],
+        "playlists": [],
+    }
+
+
+def test_optional_selected_semantics_gate_com_and_parser() -> None:
+    wanted = semantic_expected()
+    track = wanted["tracks"][0]
+    com = {
+        "version": wanted["version"],
+        "library_persistent_id": wanted["library_persistent_id"],
+        "track_count": 1,
+        "tracks": [{
+            "persistent_id": track["persistent_id"],
+            "Name": track["name"],
+            "Artist": track["artist"],
+            "Album": track["album"],
+            "AlbumArtist": track["album_artist"],
+            "Comment": track["comment"],
+            "Rating": track["rating"],
+            "PlayedCount": track["play_count"],
+            "SkippedCount": track["skip_count"],
+            "TrackNumber": track["track_number"],
+            "Year": track["year"],
+        }],
+        "playlists": [],
+    }
+    summary = {
+        "version": wanted["version"],
+        "file_persistent_id": wanted["file_persistent_id"],
+        "tracks": [dict(track)],
+        "playlists": [],
+    }
+    assert native.expected_state_errors(wanted, com) == []
+    assert native.reference_summary_errors(wanted, summary) == []
+    com["tracks"][0]["PlayedCount"] = 3
+    summary["tracks"][0]["album_artist"] = "wrong"
+    assert [row["property"] for row in native.expected_state_errors(wanted, com)] == [
+        "track[3333333333333333].PlayedCount"
+    ]
+    assert [row["property"] for row in native.reference_summary_errors(wanted, summary)] == [
+        "track[3333333333333333].album_artist"
+    ]
+
+
+def test_legacy_name_only_manifest_remains_supported() -> None:
+    wanted = semantic_expected()
+    wanted["tracks"] = [{"persistent_id": "3333333333333333", "name": "n"}]
+    com = {
+        "version": wanted["version"],
+        "library_persistent_id": wanted["library_persistent_id"],
+        "track_count": 1,
+        "tracks": [{"persistent_id": "3333333333333333", "Name": "n"}],
+        "playlists": [],
+    }
+    summary = {
+        "version": wanted["version"],
+        "file_persistent_id": wanted["file_persistent_id"],
+        "tracks": [{"persistent_id": "3333333333333333", "name": "n"}],
+        "playlists": [],
+    }
+    assert native.expected_state_errors(wanted, com) == []
+    assert native.reference_summary_errors(wanted, summary) == []
+
+
+
+def test_predeclared_product_modal_match_is_semantic_not_title_only() -> None:
+    modal = {
+        "title": "iTunes",
+        "children": [{
+            "text": "The file “iTunes Library.itl” cannot be read because it was created by a newer version of iTunes."
+        }],
+    }
+    assert distinct.product_modal_matches(modal)
+    assert not distinct.product_modal_matches({
+        "title": "iTunes",
+        "children": [{"text": "The iTunes Library.itl file is locked."}],
+    })
+
+
+def test_negative_preflight_is_exact_and_fail_closed() -> None:
+    summary = {
+        "version": "12.13.10.3",
+        "file_persistent_id": distinct.NEGATIVE_FILE_PID,
+        "tracks": [{"persistent_id": distinct.NEGATIVE_TRACK_PID, "name": "Reference Track"}],
+        "playlists": [{
+            "persistent_id": distinct.NEGATIVE_PLAYLIST_PID,
+            "name": "Reference Playlist",
+        }],
+    }
+    assert distinct.negative_preflight_errors(summary) == []
+    summary["tracks"][0]["name"] = "post-hoc replacement"
+    assert [row["property"] for row in distinct.negative_preflight_errors(summary)] == ["track_name"]

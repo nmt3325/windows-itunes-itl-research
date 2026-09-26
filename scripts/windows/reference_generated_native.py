@@ -237,11 +237,29 @@ def expected_state_errors(expected: dict, actual: dict) -> list[dict]:
     actual_tracks = {row.get("persistent_id"): row for row in actual.get("tracks", [])}
     expected_track_ids = [row["persistent_id"] for row in expected["tracks"]]
     mismatch("track_persistent_ids", sorted(expected_track_ids), sorted(key for key in actual_tracks if key))
+    com_fields = {
+        "name": "Name",
+        "artist": "Artist",
+        "album": "Album",
+        "album_artist": "AlbumArtist",
+        "comment": "Comment",
+        "rating": "Rating",
+        "play_count": "PlayedCount",
+        "skip_count": "SkippedCount",
+        "track_number": "TrackNumber",
+        "year": "Year",
+    }
     for row in expected["tracks"]:
         observed = actual_tracks.get(row["persistent_id"])
         if observed is None:
             continue
-        mismatch(f"track[{row['persistent_id']}].Name", row["name"], observed.get("Name"))
+        for expected_name, com_name in com_fields.items():
+            if expected_name in row:
+                mismatch(
+                    f"track[{row['persistent_id']}].{com_name}",
+                    row[expected_name],
+                    observed.get(com_name),
+                )
     actual_playlists = {row.get("persistent_id"): row for row in actual.get("playlists", [])}
     for row in expected["playlists"]:
         observed = actual_playlists.get(row["persistent_id"])
@@ -290,10 +308,28 @@ def reference_summary_errors(expected: dict, actual: dict) -> list[dict]:
     mismatch("file_persistent_id", expected_file_persistent_id, actual.get("file_persistent_id"))
     tracks = {row.get("persistent_id"): row for row in actual.get("tracks", [])}
     mismatch("track_persistent_ids", sorted(row["persistent_id"] for row in expected["tracks"]), sorted(key for key in tracks if key))
+    parser_fields = (
+        "name",
+        "artist",
+        "album",
+        "album_artist",
+        "comment",
+        "rating",
+        "play_count",
+        "skip_count",
+        "track_number",
+        "year",
+    )
     for row in expected["tracks"]:
         observed = tracks.get(row["persistent_id"])
         if observed is not None:
-            mismatch(f"track[{row['persistent_id']}].name", row["name"], observed.get("name"))
+            for field in parser_fields:
+                if field in row:
+                    mismatch(
+                        f"track[{row['persistent_id']}].{field}",
+                        row[field],
+                        observed.get(field),
+                    )
     playlists = {row.get("persistent_id"): row for row in actual.get("playlists", [])}
     for row in expected["playlists"]:
         observed = playlists.get(row["persistent_id"])
