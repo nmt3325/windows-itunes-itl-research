@@ -1,0 +1,266 @@
+{
+  "schema": "windows-itl.u01-header-revision-native-outcome-normalized-20260927.v1",
+  "classification": "deterministic normalized derivative of preserved raw native evidence",
+  "source_boundary": {
+    "preoutcome_repository_commit": "5987155aeb4702f751afe827f0f2fda8c337f298",
+    "candidate_selected_before_native_outcome": true,
+    "post_hoc_candidate_substitution_allowed": false,
+    "prelaunch_wrapper_refusals_before_product_start": 1,
+    "product_processes_started_by_prelaunch_refusal": 0,
+    "native_launches_after_corrected_bundle_was_committed_pushed_and_verified": 2,
+    "additional_native_launch_authorized": false
+  },
+  "inputs": {
+    "candidate_manifest": {
+      "path": "evidence/research/20260927/u01-header-revision-gate/candidate-manifest.json",
+      "bytes": 1597,
+      "sha256": "2a9a0b7719e1f4e17d3ff6b71d934d881fb69771d3d49b9ee1fc8332ba59b315"
+    },
+    "independent_preflight": {
+      "path": "evidence/research/20260927/u01-header-revision-gate/preflight-report.json",
+      "bytes": 2894,
+      "sha256": "843adae57d24f22a9081493642b213c519c45bdd33c3f21c1631333ead975163"
+    },
+    "predeclared_two_attempt_plan": {
+      "path": "evidence/research/20260927/u01-header-revision-gate/native-two-attempt-plan.json",
+      "bytes": 8314,
+      "sha256": "2a1cfbaa02d97d4b34d0356bfe1db58be62af4fc9eed53782216c119af0954c7"
+    },
+    "raw_native_summary": {
+      "path": "evidence/research/20260927/u01-header-revision-gate/native-outcome/summary.json",
+      "bytes": 54091,
+      "sha256": "609a4a9dd2cdac1158b1c10f4735912856c2e68eddb5e253ef5256bb72b80942"
+    }
+  },
+  "executable": {
+    "edition": "Apple standalone Windows x64 iTunes",
+    "file_version": "12.12.10.1",
+    "product_version": "12.12.10.1",
+    "bytes": 39260512,
+    "sha256": "0aa1b53af915fc9e0ced4c7ecbcb1397a036d38367d894ae063ae1d127331f9b",
+    "authenticode_status": "Valid",
+    "signer_subject": "CN=Apple Inc., O=Apple Inc., L=Cupertino, S=California, C=US",
+    "signer_certificate_thumbprint": "67A9953123BD5F01B1BC0BB98A950D9CA869CD02",
+    "binary_retained": false
+  },
+  "candidate": {
+    "path": "evidence/research/20260927/u01-header-revision-gate/candidate/native-12.12.10.1-header-major-68.itl",
+    "bytes": 4904,
+    "sha256": "287a9b91315be1a4917cc1a2530013c076bab824e2099885ac89d8e7ccebe59a",
+    "source_sha256": "9034aa3e9e7ccc12390d0b44307d8ea10dd313fc424415050c8d5bf8ced0e772",
+    "difference_count": 1,
+    "difference": {
+      "offset": 13,
+      "before": 67,
+      "after": 68
+    },
+    "raw_revision_tuple_hex": "00440001",
+    "normalized_revision_tuple": [
+      68,
+      1
+    ],
+    "version_label": "12.12.10.1",
+    "encryption_mode": 2,
+    "compression_mode": 1,
+    "normalized_semantic_summary_sha256": "4b6264d499b8b3380ec53008cdf2e5144f17852f2e79e1743c343b2d36026e57",
+    "independent_structural_and_semantic_preflight_passed": true
+  },
+  "static_prediction": {
+    "raw_candidate_tuple_hex": "00440001",
+    "normalized_candidate_tuple": [
+      68,
+      1
+    ],
+    "exact_parser_rva": "0x10ad0b0",
+    "gate_instruction_rva": "0x10ad25c",
+    "condition": "unsigned parsed-header u16 at +0x0c > 0x43",
+    "status": -876,
+    "caller_explicit_status_compare_rva": "0x53db8d",
+    "error_group": "0x1f43",
+    "primary_resource_id": "0x1f420003",
+    "expected_resource_role": "newer_version_message",
+    "version_label_used_by_gate": false
+  },
+  "attempts": [
+    {
+      "attempt": 1,
+      "raw_evidence": {
+        "result": {
+          "path": "evidence/research/20260927/u01-header-revision-gate/native-outcome/attempt-1/result.json",
+          "bytes": 18024,
+          "sha256": "c691568475cae4a302402825555e41652e2a25572113a98a540624b78748df93"
+        },
+        "retained_semantic_summary": {
+          "path": "evidence/research/20260927/u01-header-revision-gate/native-outcome/attempt-1/live-after-attempt-summary.json",
+          "bytes": 7121,
+          "sha256": "cb3e3f263476fddcbfd699a29022ca128c5708d05dcc0152882fd448ebe7677d"
+        },
+        "retained_itl": {
+          "path": "evidence/research/20260927/u01-header-revision-gate/native-outcome/attempt-1/live-after-attempt.itl",
+          "bytes": 4904,
+          "sha256": "287a9b91315be1a4917cc1a2530013c076bab824e2099885ac89d8e7ccebe59a"
+        }
+      },
+      "modal": {
+        "observed": true,
+        "classification": "newer_version",
+        "window_class": "iTunesCustomModalDialog",
+        "message_text": "The file “iTunes Library.itl” cannot be read because it was created by a newer version of iTunes.",
+        "visible_enabled_ok_controls": 1,
+        "dismissed": true
+      },
+      "process": {
+        "normal_close_method": "target_modal_ok_process_exit",
+        "exit_code": 1,
+        "forced_termination": false,
+        "process_cleanup_passed": true
+      },
+      "candidate_preservation": {
+        "identity_sha256_at_all_observation_points": "287a9b91315be1a4917cc1a2530013c076bab824e2099885ac89d8e7ccebe59a",
+        "identity_points": {
+          "before_launch": "287a9b91315be1a4917cc1a2530013c076bab824e2099885ac89d8e7ccebe59a",
+          "while_modal_visible": "287a9b91315be1a4917cc1a2530013c076bab824e2099885ac89d8e7ccebe59a",
+          "after_process_exit": "287a9b91315be1a4917cc1a2530013c076bab824e2099885ac89d8e7ccebe59a",
+          "retained_copy": "287a9b91315be1a4917cc1a2530013c076bab824e2099885ac89d8e7ccebe59a",
+          "retained_file": "287a9b91315be1a4917cc1a2530013c076bab824e2099885ac89d8e7ccebe59a"
+        },
+        "raw_revision_tuple_hex": "00440001",
+        "normalized_semantic_summary_sha256": "4b6264d499b8b3380ec53008cdf2e5144f17852f2e79e1743c343b2d36026e57",
+        "independent_parser_rebuild_matches_retained_summary": true,
+        "forbidden_fallback_artifacts": []
+      },
+      "profile_cleanup": {
+        "junction_removed": true,
+        "profile_exists_after": false
+      },
+      "strict_predeclared_attempt_gate": {
+        "passed": false,
+        "passed_non_exit_gates": {
+          "exact_newer_version_modal_observed": true,
+          "exact_newer_version_modal_dismissed": true,
+          "exact_visible_enabled_ok_control": true,
+          "product_exited_after_modal_dismissal_without_forced_termination": true,
+          "candidate_identity_unchanged": true,
+          "normalized_semantics_unchanged": true,
+          "forbidden_fallback_absent": true,
+          "profile_junction_removed": true,
+          "process_cleanup_passed": true
+        },
+        "failed_gates": [
+          "itunes_exit_code_zero"
+        ],
+        "observed_exit_code": 1,
+        "required_exit_code": 0,
+        "raw_status": "failed_with_preserved_evidence",
+        "raw_error": "RuntimeError: iTunes exited nonzero after normal product-modal dismissal/close"
+      }
+    },
+    {
+      "attempt": 2,
+      "raw_evidence": {
+        "result": {
+          "path": "evidence/research/20260927/u01-header-revision-gate/native-outcome/attempt-2/result.json",
+          "bytes": 18027,
+          "sha256": "066a43256c163b4948e862d7bb29c01864df91f26493739766ffc7028838e828"
+        },
+        "retained_semantic_summary": {
+          "path": "evidence/research/20260927/u01-header-revision-gate/native-outcome/attempt-2/live-after-attempt-summary.json",
+          "bytes": 7121,
+          "sha256": "cb3e3f263476fddcbfd699a29022ca128c5708d05dcc0152882fd448ebe7677d"
+        },
+        "retained_itl": {
+          "path": "evidence/research/20260927/u01-header-revision-gate/native-outcome/attempt-2/live-after-attempt.itl",
+          "bytes": 4904,
+          "sha256": "287a9b91315be1a4917cc1a2530013c076bab824e2099885ac89d8e7ccebe59a"
+        }
+      },
+      "modal": {
+        "observed": true,
+        "classification": "newer_version",
+        "window_class": "iTunesCustomModalDialog",
+        "message_text": "The file “iTunes Library.itl” cannot be read because it was created by a newer version of iTunes.",
+        "visible_enabled_ok_controls": 1,
+        "dismissed": true
+      },
+      "process": {
+        "normal_close_method": "target_modal_ok_process_exit",
+        "exit_code": 1,
+        "forced_termination": false,
+        "process_cleanup_passed": true
+      },
+      "candidate_preservation": {
+        "identity_sha256_at_all_observation_points": "287a9b91315be1a4917cc1a2530013c076bab824e2099885ac89d8e7ccebe59a",
+        "identity_points": {
+          "before_launch": "287a9b91315be1a4917cc1a2530013c076bab824e2099885ac89d8e7ccebe59a",
+          "while_modal_visible": "287a9b91315be1a4917cc1a2530013c076bab824e2099885ac89d8e7ccebe59a",
+          "after_process_exit": "287a9b91315be1a4917cc1a2530013c076bab824e2099885ac89d8e7ccebe59a",
+          "retained_copy": "287a9b91315be1a4917cc1a2530013c076bab824e2099885ac89d8e7ccebe59a",
+          "retained_file": "287a9b91315be1a4917cc1a2530013c076bab824e2099885ac89d8e7ccebe59a"
+        },
+        "raw_revision_tuple_hex": "00440001",
+        "normalized_semantic_summary_sha256": "4b6264d499b8b3380ec53008cdf2e5144f17852f2e79e1743c343b2d36026e57",
+        "independent_parser_rebuild_matches_retained_summary": true,
+        "forbidden_fallback_artifacts": []
+      },
+      "profile_cleanup": {
+        "junction_removed": true,
+        "profile_exists_after": false
+      },
+      "strict_predeclared_attempt_gate": {
+        "passed": false,
+        "passed_non_exit_gates": {
+          "exact_newer_version_modal_observed": true,
+          "exact_newer_version_modal_dismissed": true,
+          "exact_visible_enabled_ok_control": true,
+          "product_exited_after_modal_dismissal_without_forced_termination": true,
+          "candidate_identity_unchanged": true,
+          "normalized_semantics_unchanged": true,
+          "forbidden_fallback_absent": true,
+          "profile_junction_removed": true,
+          "process_cleanup_passed": true
+        },
+        "failed_gates": [
+          "itunes_exit_code_zero"
+        ],
+        "observed_exit_code": 1,
+        "required_exit_code": 0,
+        "raw_status": "failed_with_preserved_evidence",
+        "raw_error": "RuntimeError: iTunes exited nonzero after normal product-modal dismissal/close"
+      }
+    }
+  ],
+  "aggregate_result": {
+    "native_launches": 2,
+    "attempts_required": 2,
+    "exact_newer_version_product_modal_observations": 2,
+    "exact_newer_version_product_modal_dismissals": 2,
+    "exit_codes": [
+      1,
+      1
+    ],
+    "forced_terminations": 0,
+    "candidate_identity_and_semantics_unchanged_attempts": 2,
+    "forbidden_fallback_attempts": 0,
+    "profile_and_process_cleanup_passed_attempts": 2,
+    "strict_predeclared_passed_attempts": 0,
+    "strict_two_attempt_plan_passed": false,
+    "only_strict_attempt_gate_failure": "itunes_exit_code_zero",
+    "bounded_static_gate_to_product_modal_causal_confirmation": true,
+    "status": "bounded_causal_confirmation_with_strict_exit_code_gate_failure"
+  },
+  "claim_boundaries": {
+    "exact_product_modal_observed": true,
+    "repeated_exact_candidate_modal_observation": true,
+    "bounded_product_facing_native_negative_observation": true,
+    "strict_product_negative_qualification_passed": false,
+    "full_predeclared_success": false,
+    "u01_closed": false,
+    "reference_parser_profile_admitted": false,
+    "writer_profile_admitted": false,
+    "arbitrary_12_12_10_1_editing_qualified": false,
+    "universal_itl_support": false,
+    "independent_native_reproduction": false,
+    "full_analysis_specification_gate": false,
+    "unresolved_item": "U-01"
+  }
+}

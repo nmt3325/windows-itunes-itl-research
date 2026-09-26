@@ -2,7 +2,6 @@
 from __future__ import annotations
 
 import hashlib
-import importlib.util
 import json
 from pathlib import Path
 
@@ -10,14 +9,6 @@ ROOT = Path(__file__).resolve().parents[1]
 SCRIPT = ROOT / "scripts/research/audit_retained_trailer_census_20260926.py"
 REPORT = ROOT / "evidence/research/20260926/retained-trailer-census/report.json"
 KNOWN = "evidence/research/20260925/native-trailer-u13/candidates/opaque-trailer-17-reference-one-track-zlib.itl"
-
-
-def load_module():
-    spec = importlib.util.spec_from_file_location("retained_trailer_census", SCRIPT)
-    assert spec and spec.loader
-    module = importlib.util.module_from_spec(spec)
-    spec.loader.exec_module(module)
-    return module
 
 
 def test_retained_trailer_census_is_complete_bounded_and_claim_limited():
@@ -73,7 +64,13 @@ def test_retained_trailer_census_is_complete_bounded_and_claim_limited():
     assert summary["independent_reimplementation_passed"] is False
 
 
-def test_retained_report_rebuilds_byte_exactly():
-    module = load_module()
-    rebuilt = (json.dumps(module.build_report(), indent=2, sort_keys=True) + "\n").encode()
-    assert rebuilt == REPORT.read_bytes()
+def test_retained_report_historical_431_snapshot_is_locked():
+    # The 2026-09-26 report is evidence for the then-current 431-entry
+    # manifest.  Do not rebuild it from the growing live delivery manifest.
+    retained = REPORT.read_bytes()
+    assert hashlib.sha256(retained).hexdigest() == (
+        "b25542d03210a2b50dd7138258d254e98d6f4ce74c4b747c9220dfd45d9608c9"
+    )
+    report = json.loads(retained)
+    assert report["source_set"]["entries"] == 431
+    assert report["counts"]["manifest_hashes_verified"] == 431

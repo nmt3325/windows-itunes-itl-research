@@ -2,7 +2,6 @@
 from __future__ import annotations
 
 import hashlib
-import importlib.util
 import json
 from collections import Counter
 from pathlib import Path
@@ -14,20 +13,17 @@ CENSUS = EVIDENCE / "record-layout-census.json"
 GHIDRA = EVIDENCE / "ghidra-localization-flow.json"
 
 
-def load_module():
-    spec = importlib.util.spec_from_file_location("u01_record_layouts", SCRIPT)
-    assert spec and spec.loader
-    module = importlib.util.module_from_spec(spec)
-    spec.loader.exec_module(module)
-    return module
-
-
-def test_record_layout_census_rebuilds_byte_exactly() -> None:
-    module = load_module()
-    rebuilt = json.dumps(
-        module.build_report(), ensure_ascii=False, indent=2, sort_keys=True
-    ).encode() + b"\n"
-    assert CENSUS.read_bytes() == rebuilt
+def test_record_layout_census_historical_431_snapshot_is_locked() -> None:
+    # This report records the 431-entry delivery manifest that existed when the
+    # 2026-09-27 census ran.  The live manifest is allowed to grow; silently
+    # rebuilding this historical evidence from it would rewrite the experiment.
+    retained = CENSUS.read_bytes()
+    assert hashlib.sha256(retained).hexdigest() == (
+        "082d258fe08719255c951a10597c003a1b5ce22f3cd2580ba89b63e8379bb745"
+    )
+    report = json.loads(retained)
+    assert report["source_set"]["entries"] == 431
+    assert report["counts"]["manifest_hashes_verified"] == 431
 
 
 def test_record_layout_census_is_bounded_and_fail_closed() -> None:

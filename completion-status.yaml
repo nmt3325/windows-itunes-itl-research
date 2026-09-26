@@ -21,6 +21,7 @@ scope:
   u01_structural_candidate_inventory_scope: offline_exact_hash_census_one_version_normalized_derivative_zero_authorized_attempts_zero_native_launches_u01_open
   u01_static_control_flow_scope: exact_build_full_headless_static_registration_path_plus_all_431_delivery_manifest_itls_zero_native_launches_u01_open
   u01_parser_status_bridge_scope: exact_build_parser_encryption_mode_gate_to_status_group_and_resource_mapping_independent_mode3_preflight_failed_zero_native_launches_u01_open
+  u01_header_revision_gate_scope: exact_build_outer_header_revision_gate_one_independently_preflighted_one_byte_candidate_two_product_modal_observations_strict_exit_zero_gate_failed_u01_open
   windows_build: 10.0.26100
   display_and_system_locale: en-US
   store_edition_supported: false
@@ -56,6 +57,7 @@ qualification:
   u01_structural_candidate_inventory: corrected_exact_hash_census_one_reproducible_offline_derivative_theory_gate_failed_zero_launches_u01_open
   u01_static_control_flow: deterministic_exact_build_ghidra_registration_metadata_plus_exhaustive_retained_corpus_layout_census_theory_gate_failed_zero_launches_u01_open
   u01_parser_status_bridge: deterministic_exact_build_parser_status_descriptor_resource_bridge_concrete_nonlabel_feature_identified_independent_preflight_failed_zero_launches_u01_open
+  u01_header_revision_gate: deterministic_exact_build_revision_gate_and_one_byte_supported_domain_candidate_two_bounded_modal_observations_zero_of_two_strict_passes_u01_open
   smart_playlist: native_nested_framing_observed_but_operand_and_membership_failed
   native_field_matrix: 27_passed_2_failed_exact_cases_only
   native_media_field_followup: seventeen_exact_lyrics_mp3_passes_plus_nine_qualified_native_nonexact_immediate_readbacks_on_one_pinned_path_and_three_exact_wav_mutation_failures
@@ -144,6 +146,8 @@ validation:
     status: completed_retained_corpus_census_u13_open
     delivery_manifest_itl_entries: 431
     manifest_hashes_verified: 431
+    historical_snapshot_sha256: b25542d03210a2b50dd7138258d254e98d6f4ce74c4b747c9220dfd45d9608c9
+    historical_snapshot_locked_against_live_manifest_growth: true
     strict_container_parses: 430
     expected_parse_failures: 1
     unexpected_parse_failures: 0
@@ -436,6 +440,8 @@ validation:
     semantic_status_code_claimed: false
     delivery_manifest_itl_entries: 431
     manifest_hashes_verified: 431
+    record_layout_census_sha256: 082d258fe08719255c951a10597c003a1b5ce22f3cd2580ba89b63e8379bb745
+    historical_snapshot_locked_against_live_manifest_growth: true
     strict_reference_parses: 430
     expected_parse_failures: 1
     unexpected_parse_failures: 0
@@ -525,6 +531,87 @@ validation:
     universal_itl_support: false
     full_analysis_specification_gate: false
     unresolved_item: U-01
+  u01_header_revision_gate_20260927:
+    status: bounded_causal_confirmation_with_strict_exit_code_gate_failure_u01_open
+    target_version: 12.12.10.1
+    target_executable_sha256: 0aa1b53af915fc9e0ced4c7ecbcb1397a036d38367d894ae063ae1d127331f9b
+    target_executable_bytes: 39260512
+    target_authenticode_status: Valid
+    target_signer: Apple_Inc
+    target_signer_thumbprint: 67A9953123BD5F01B1BC0BB98A950D9CA869CD02
+    executable_binary_retained: false
+    ghidra_version: 12.1.3
+    recovered_function_count: 62218
+    ghidra_report_bytes: 83065
+    ghidra_report_sha256: 2242e7fe1db95d95bb412df594143c2783eb84683e56188fd361b2e3276923c2
+    ghidra_report_byte_identical_runs: 2
+    ghidra_script_sha256: c23f9b48ecd6b5c5121d8c5c0b166c0a2bbf41055b84fc84ae23de7b84b8b5dc
+    exact_parser_rva: 0x10ad0b0
+    alternate_parser_rva: 0x10f4b90
+    header_reader_rva: 0x10ace80
+    header_endian_helper_rva: 0x108de90
+    writer_constructor_rva: 0x10917e0
+    writer_serializer_rva: 0x1094c80
+    writer_pipeline_rva: 0x109eaf0
+    revision_major_gate: parsed_header_u16_at_0x0c_unsigned_greater_than_0x43
+    produced_status_signed: -876
+    error_group: 0x1f43
+    primary_resource_id: 0x1f420003
+    native_field_name_authoritatively_recovered: false
+    source_sha256: 9034aa3e9e7ccc12390d0b44307d8ea10dd313fc424415050c8d5bf8ced0e772
+    candidate_sha256: 287a9b91315be1a4917cc1a2530013c076bab824e2099885ac89d8e7ccebe59a
+    candidate_bytes: 4904
+    candidate_difference_count: 1
+    candidate_difference_offset_decimal: 13
+    candidate_difference_offset_hex: 0x0d
+    candidate_difference_before: 0x43
+    candidate_difference_after: 0x44
+    candidate_raw_revision_tuple_hex: '00440001'
+    candidate_normalized_revision_tuple: [68, 1]
+    candidate_version_label: 12.12.10.1
+    candidate_encryption_mode: 2
+    candidate_compression_mode: 1
+    candidate_normalized_semantic_summary_sha256: 4b6264d499b8b3380ec53008cdf2e5144f17852f2e79e1743c343b2d36026e57
+    independent_structural_and_semantic_preflight_passed: true
+    preoutcome_repository_commit: 5987155aeb4702f751afe827f0f2fda8c337f298
+    prelaunch_wrapper_refusals_before_product_start: 1
+    product_processes_started_by_prelaunch_refusal: 0
+    native_launches: 2
+    exact_newer_version_modal_observations: 2
+    exact_newer_version_modal_dismissals: 2
+    modal_window_class: iTunesCustomModalDialog
+    visible_enabled_ok_controls_per_attempt: 1
+    modal_close_method: target_modal_ok_process_exit
+    exit_codes: [1, 1]
+    forced_terminations: 0
+    candidate_identity_and_semantics_unchanged_attempts: 2
+    forbidden_fallback_attempts: 0
+    profile_and_process_cleanup_passed_attempts: 2
+    strict_predeclared_passed_attempts: 0
+    strict_two_attempt_plan_passed: false
+    only_strict_attempt_gate_failure: itunes_exit_code_zero
+    bounded_product_facing_native_negative_observation: true
+    bounded_static_gate_to_product_modal_causal_confirmation: true
+    strict_product_negative_qualification_passed: false
+    full_predeclared_success: false
+    additional_native_launch_authorized: false
+    normalized_outcome_sha256: 6e4c67c3bca6dbb32cdfe68715c2f1eb17282a4d214e94244f4290ec9c3b4056
+    reference_parser_profile_admitted: false
+    writer_profile_admitted: false
+    arbitrary_12_12_10_1_editing_qualified: false
+    independent_native_reproduction: false
+    universal_itl_support: false
+    full_analysis_specification_gate: false
+    u01_closed: false
+    unresolved_item: U-01
+  focused_u01_header_revision_gate_tests:
+    status: passed
+    passed: 7
+    failed: 0
+    candidate_generator_check: passed_byte_exact
+    normalized_outcome_check: passed_byte_exact
+    ghidra_report_sha256_locked: true
+    raw_native_evidence_hashes_locked: true
   focused_u01_parser_status_bridge_tests:
     status: passed
     passed: 6
@@ -535,7 +622,7 @@ validation:
     status: passed
     passed: 4
     failed: 0
-    record_layout_census_check: passed_byte_exact
+    record_layout_census_check: historical_431_snapshot_sha256_locked
     ghidra_report_sha256_locked: true
   focused_u01_structural_inventory_tests:
     status: passed
@@ -548,16 +635,18 @@ validation:
     failed: 0
   integrated_tests:
     status: passed
-    passed: 1197
+    passed: 1204
     skipped: 9
     skipped_missing_com_oracle: 5
     skipped_windows_only_helpers_on_linux: 2
     skipped_windows_filesystem_cases_on_linux: 2
     failed: 0
-    command: ITLKIT_NATIVE_ROOT=evidence/native/snapshots ITLKIT_NATIVE_REPORTS=evidence/native/oracles TITL_REPO=josephw/titl@e7060370973d624d5c7b18f82303407b76421501 python -B -m pytest tests -q -rs -p no:cacheprovider --basetemp=/tmp/<fresh-path>
+    titl_repo_commit: e7060370973d624d5c7b18f82303407b76421501
+    titl_repo_path_requirement: absolute_path_checked_out_at_pinned_commit
+    command: ITLKIT_NATIVE_ROOT=evidence/native/snapshots ITLKIT_NATIVE_REPORTS=evidence/native/oracles TITL_REPO=/tmp/titl-pinned python -B -m pytest tests -q -rs -p no:cacheprovider --basetemp=/tmp/<fresh-path>
   strict_delivery_verifier_tests:
     status: passed
-    manifest_files: 3027
+    manifest_files: 3047
     passed: 40
     proposal_unittest_cases: 13
     production_qa_checks: 27
@@ -668,7 +757,7 @@ validation:
   delivery_manifest: verified
   root_corpus_manifest:
     status: verified
-    itl_files: 431
+    itl_files: 434
   path_time_snapshots:
     parsed: 39
     errors: 0

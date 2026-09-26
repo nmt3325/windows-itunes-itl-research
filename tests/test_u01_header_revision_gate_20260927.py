@@ -1,4 +1,4 @@
-"""Regressions for the predeclared U-01 outer-header revision gate."""
+"""Regressions for the U-01 outer-header revision gate and native outcome."""
 from __future__ import annotations
 
 import hashlib
@@ -24,6 +24,15 @@ GHIDRA_SCRIPT = ROOT / "scripts/ghidra/U01HeaderRevisionGate.java"
 NATIVE_WRAPPER = ROOT / "scripts/windows/u01_header_revision_gate_20260927.py"
 NATIVE_HARNESS = ROOT / "scripts/windows/u01_distinct_build_20260927.py"
 NATIVE_COMMON = ROOT / "scripts/windows/reference_generated_native.py"
+SUMMARIZER = ROOT / "scripts/research/summarize_u01_header_revision_gate_20260927.py"
+OUTCOME_SUMMARY = EVIDENCE / "native-outcome-summary.json"
+RAW_OUTCOME = EVIDENCE / "native-outcome"
+RAW_NATIVE_SUMMARY = RAW_OUTCOME / "summary.json"
+ATTEMPT_RESULTS = tuple(RAW_OUTCOME / f"attempt-{index}/result.json" for index in (1, 2))
+ATTEMPT_SEMANTIC_SUMMARIES = tuple(
+    RAW_OUTCOME / f"attempt-{index}/live-after-attempt-summary.json" for index in (1, 2)
+)
+ATTEMPT_ITLS = tuple(RAW_OUTCOME / f"attempt-{index}/live-after-attempt.itl" for index in (1, 2))
 
 EXPECTED_HASHES = {
     REPORT: "2242e7fe1db95d95bb412df594143c2783eb84683e56188fd361b2e3276923c2",
@@ -37,6 +46,15 @@ EXPECTED_HASHES = {
     PLAN: "2a1cfbaa02d97d4b34d0356bfe1db58be62af4fc9eed53782216c119af0954c7",
     SOURCE: "9034aa3e9e7ccc12390d0b44307d8ea10dd313fc424415050c8d5bf8ced0e772",
     CANDIDATE: "287a9b91315be1a4917cc1a2530013c076bab824e2099885ac89d8e7ccebe59a",
+    SUMMARIZER: "ea624d2b7c5b0bd22319fe5afbfa8f57dce95033c35697b229d98f679b9b1848",
+    OUTCOME_SUMMARY: "6e4c67c3bca6dbb32cdfe68715c2f1eb17282a4d214e94244f4290ec9c3b4056",
+    RAW_NATIVE_SUMMARY: "609a4a9dd2cdac1158b1c10f4735912856c2e68eddb5e253ef5256bb72b80942",
+    ATTEMPT_RESULTS[0]: "c691568475cae4a302402825555e41652e2a25572113a98a540624b78748df93",
+    ATTEMPT_RESULTS[1]: "066a43256c163b4948e862d7bb29c01864df91f26493739766ffc7028838e828",
+    ATTEMPT_SEMANTIC_SUMMARIES[0]: "cb3e3f263476fddcbfd699a29022ca128c5708d05dcc0152882fd448ebe7677d",
+    ATTEMPT_SEMANTIC_SUMMARIES[1]: "cb3e3f263476fddcbfd699a29022ca128c5708d05dcc0152882fd448ebe7677d",
+    ATTEMPT_ITLS[0]: "287a9b91315be1a4917cc1a2530013c076bab824e2099885ac89d8e7ccebe59a",
+    ATTEMPT_ITLS[1]: "287a9b91315be1a4917cc1a2530013c076bab824e2099885ac89d8e7ccebe59a",
 }
 
 
@@ -321,3 +339,100 @@ def test_modal_classifier_distinguishes_newer_invalid_ambiguous_and_title_only()
     assert harness.product_modal_matches(newer) is True
     assert harness.product_modal_matches(invalid) is False
     assert harness.product_modal_matches(ambiguous) is False
+
+
+def test_actual_native_outcome_is_normalized_without_overclaim() -> None:
+    outcome = json.loads(OUTCOME_SUMMARY.read_text(encoding="utf-8"))
+    assert outcome["schema"] == "windows-itl.u01-header-revision-native-outcome-normalized-20260927.v1"
+    assert outcome["source_boundary"] == {
+        "preoutcome_repository_commit": "5987155aeb4702f751afe827f0f2fda8c337f298",
+        "candidate_selected_before_native_outcome": True,
+        "post_hoc_candidate_substitution_allowed": False,
+        "prelaunch_wrapper_refusals_before_product_start": 1,
+        "product_processes_started_by_prelaunch_refusal": 0,
+        "native_launches_after_corrected_bundle_was_committed_pushed_and_verified": 2,
+        "additional_native_launch_authorized": False,
+    }
+    assert outcome["candidate"]["sha256"] == EXPECTED_HASHES[CANDIDATE]
+    assert outcome["candidate"]["raw_revision_tuple_hex"] == "00440001"
+    assert outcome["candidate"]["normalized_revision_tuple"] == [68, 1]
+    assert outcome["candidate"]["normalized_semantic_summary_sha256"] == (
+        "4b6264d499b8b3380ec53008cdf2e5144f17852f2e79e1743c343b2d36026e57"
+    )
+    assert outcome["candidate"]["independent_structural_and_semantic_preflight_passed"] is True
+
+    aggregate = outcome["aggregate_result"]
+    assert aggregate == {
+        "native_launches": 2,
+        "attempts_required": 2,
+        "exact_newer_version_product_modal_observations": 2,
+        "exact_newer_version_product_modal_dismissals": 2,
+        "exit_codes": [1, 1],
+        "forced_terminations": 0,
+        "candidate_identity_and_semantics_unchanged_attempts": 2,
+        "forbidden_fallback_attempts": 0,
+        "profile_and_process_cleanup_passed_attempts": 2,
+        "strict_predeclared_passed_attempts": 0,
+        "strict_two_attempt_plan_passed": False,
+        "only_strict_attempt_gate_failure": "itunes_exit_code_zero",
+        "bounded_static_gate_to_product_modal_causal_confirmation": True,
+        "status": "bounded_causal_confirmation_with_strict_exit_code_gate_failure",
+    }
+    assert outcome["claim_boundaries"] == {
+        "exact_product_modal_observed": True,
+        "repeated_exact_candidate_modal_observation": True,
+        "bounded_product_facing_native_negative_observation": True,
+        "strict_product_negative_qualification_passed": False,
+        "full_predeclared_success": False,
+        "u01_closed": False,
+        "reference_parser_profile_admitted": False,
+        "writer_profile_admitted": False,
+        "arbitrary_12_12_10_1_editing_qualified": False,
+        "universal_itl_support": False,
+        "independent_native_reproduction": False,
+        "full_analysis_specification_gate": False,
+        "unresolved_item": "U-01",
+    }
+
+    for index, attempt in enumerate(outcome["attempts"], start=1):
+        assert attempt["attempt"] == index
+        assert attempt["modal"]["observed"] is True
+        assert attempt["modal"]["classification"] == "newer_version"
+        assert attempt["modal"]["window_class"] == "iTunesCustomModalDialog"
+        assert "cannot be read because it was created by a newer version of iTunes" in attempt["modal"]["message_text"]
+        assert attempt["modal"]["visible_enabled_ok_controls"] == 1
+        assert attempt["modal"]["dismissed"] is True
+        assert attempt["process"] == {
+            "normal_close_method": "target_modal_ok_process_exit",
+            "exit_code": 1,
+            "forced_termination": False,
+            "process_cleanup_passed": True,
+        }
+        assert set(attempt["candidate_preservation"]["identity_points"].values()) == {
+            EXPECTED_HASHES[CANDIDATE]
+        }
+        assert attempt["candidate_preservation"]["normalized_semantic_summary_sha256"] == (
+            "4b6264d499b8b3380ec53008cdf2e5144f17852f2e79e1743c343b2d36026e57"
+        )
+        assert attempt["candidate_preservation"]["forbidden_fallback_artifacts"] == []
+        assert attempt["profile_cleanup"] == {
+            "junction_removed": True,
+            "profile_exists_after": False,
+        }
+        strict = attempt["strict_predeclared_attempt_gate"]
+        assert strict["passed"] is False
+        assert strict["failed_gates"] == ["itunes_exit_code_zero"]
+        assert strict["observed_exit_code"] == 1
+        assert strict["required_exit_code"] == 0
+        assert all(strict["passed_non_exit_gates"].values())
+
+    raw = json.loads(RAW_NATIVE_SUMMARY.read_text(encoding="utf-8"))
+    assert raw["native_launches"] == 2
+    assert raw["passed_attempts"] == 0
+    assert raw["all_passed"] is False
+    assert [attempt["itunes_exit_code"] for attempt in raw["attempts"]] == [1, 1]
+    assert [attempt["target_modal_observed"] for attempt in raw["attempts"]] == [True, True]
+    assert [attempt["forced_termination"] for attempt in raw["attempts"]] == [False, False]
+
+    summarizer = load_module(SUMMARIZER, "u01_header_revision_outcome_summarizer")
+    assert summarizer.generate() == OUTCOME_SUMMARY.read_bytes()

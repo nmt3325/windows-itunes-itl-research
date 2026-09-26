@@ -2,7 +2,7 @@
   "schema": "windows-itunes-itl.aggregate-corpus-manifest.v1",
   "hash_algorithm": "sha256",
   "manifest_self_included": false,
-  "target": "Windows Apple desktop x64 iTunes 12.13.10.3; exact-hash sampled 12.13.9.1/12.13.11.1 cohorts; bounded native-authored 12.12.10.1 observation",
+  "target": "Windows Apple desktop x64 iTunes 12.13.10.3; exact-hash sampled 12.13.9.1/12.13.11.1 cohorts; bounded exact-hash 12.12.10.1 positive and header-revision modal observations",
   "qualification": {
     "complete_analysis_claim": false,
     "reference_writer_from_scratch_native_acceptance": "verified_for_four_exact_hashes",
@@ -22,12 +22,14 @@
     "u01_distinct_12_12_10_1_note": "one exact same-build native-authored input passed two sequential normally-quit 12.12.10.1 cycles; the predeclared product-negative failed twice without the expected modal, and two force-terminated timeout survivors are retained only as observations; no 12.12.10.1 profile, arbitrary editing, product-facing negative, or U-01 closure",
     "u01_structural_candidate_inventory_note": "one version-normalized 12.13.11.1 derivative is retained as a reproducible offline 12.12.10.1-labelled candidate; optional playlist-view state supplied no defensible non-label incompatibility theory, launch authorization is false, zero native attempts occurred, and U-01 remains open",
     "u01_static_control_flow_note": "a 431-file retained-corpus layout census and exact-build Ghidra registration-path report identify no new 12.13.11.1 section, record tag/header layout, mhoh type, parser status comparison, or member-3/member-4 selector; no native launch was authorized and U-01 remains open",
+    "u01_parser_status_bridge_note": "the exact parser maps outer-header encryption mode >=3 through status -876 to the newer-version resource, but the independent parser refuses mode 3, so zero native launches were authorized for that feature class",
+    "u01_header_revision_gate_note": "a one-byte independently parseable revision-major-68 candidate reproduced the exact newer-version product modal twice and remained byte/semantic identical; both dismissals self-exited with code 1, so the predeclared exit-zero gate yielded zero strict passes and U-01 remains open",
     "coverage_guided_note": "20,000 deterministic offline mutations completed without a retained anomaly; coarse line-transition guidance is not proof of parser safety or native acceptance",
     "filesystem_publication_note": "21 deterministic Linux scenarios plus 25 specifically qualified Windows Server 2025 / CPython 3.12.10 / runner-temporary NTFS scenarios bound stable-parent behavior and demonstrate the existing hostile-parent exclusion; counts are not independent experiments, the Windows campaign includes two parent-triggered/reaped TerminateProcess boundaries and zero unavailable cases, neither campaign cut power, no native-iTunes operation was added, production code was unchanged, and U-17 remains open",
     "filesystem_process_crash_note": "five selected Linux child schedules used unchanged production write_new: four actual parent-issued/reaped SIGKILL deaths and one normal control; cases, control, replays, and artifacts are not independent experiments, zero power-loss/native-iTunes operations occurred, and U-17 remains open"
   },
   "summary": {
-    "itl_file_count": 431,
+    "itl_file_count": 434,
     "by_class": {
       "independent_from_scratch_generated": 4,
       "external_independent_interop_candidate": 5,
@@ -40,6 +42,8 @@
       "u01_distinct_12_12_10_1_native_authored_input": 1,
       "u01_distinct_12_12_10_1_failed_negative_timeout_survivor": 2,
       "u01_distinct_12_12_10_1_positive_native_save": 2,
+      "u01_header_revision_gate_predeclared_candidate": 1,
+      "u01_header_revision_gate_native_modal_outcome": 2,
       "u01_sampled_version_matrix_native_save": 24,
       "u01_structural_preflight_negative": 1,
       "u01_structural_candidate_inventory_offline_derivative": 1
@@ -250,6 +254,31 @@
       "path": "evidence/research/20260927/u01-static-control-flow/ghidra-localization-flow.json",
       "bytes": 746438,
       "sha256": "79bb1af0dbe21722e53ec0a8d26831c2f6e88f909a473fb769e5c7858bd2c887"
+    },
+    {
+      "path": "evidence/research/20260927/u01-parser-status-bridge/ghidra-parser-status-flow.json",
+      "bytes": 49898,
+      "sha256": "40dd9a15a6b8a5b5e4974952b73085bd75a5ab2e3b9006c1a9cfd5293e613e35"
+    },
+    {
+      "path": "evidence/research/20260927/u01-header-revision-gate/ghidra-header-revision-gate.json",
+      "bytes": 83065,
+      "sha256": "2242e7fe1db95d95bb412df594143c2783eb84683e56188fd361b2e3276923c2"
+    },
+    {
+      "path": "evidence/research/20260927/u01-header-revision-gate/candidate-manifest.json",
+      "bytes": 1597,
+      "sha256": "2a9a0b7719e1f4e17d3ff6b71d934d881fb69771d3d49b9ee1fc8332ba59b315"
+    },
+    {
+      "path": "evidence/research/20260927/u01-header-revision-gate/preflight-report.json",
+      "bytes": 2894,
+      "sha256": "843adae57d24f22a9081493642b213c519c45bdd33c3f21c1631333ead975163"
+    },
+    {
+      "path": "evidence/research/20260927/u01-header-revision-gate/native-outcome-summary.json",
+      "bytes": 11518,
+      "sha256": "6e4c67c3bca6dbb32cdfe68715c2f1eb17282a4d214e94244f4290ec9c3b4056"
     },
     {
       "path": "evidence/research/20260926/retained-trailer-census/report.json",
@@ -3145,6 +3174,27 @@
       "sha256": "9034aa3e9e7ccc12390d0b44307d8ea10dd313fc424415050c8d5bf8ced0e772",
       "corpus_class": "u01_distinct_12_12_10_1_positive_native_save",
       "qualification": "two sequential normally-quit saves from one exact same-build native-authored input; selected semantics passed, but arbitrary editing and profile admission remain unqualified"
+    },
+    {
+      "path": "evidence/research/20260927/u01-header-revision-gate/candidate/native-12.12.10.1-header-major-68.itl",
+      "bytes": 4904,
+      "sha256": "287a9b91315be1a4917cc1a2530013c076bab824e2099885ac89d8e7ccebe59a",
+      "corpus_class": "u01_header_revision_gate_predeclared_candidate",
+      "qualification": "one-byte outer-header revision-major derivative selected and independently parsed before native outcome; exact candidate only, not a writer profile or arbitrary editing support"
+    },
+    {
+      "path": "evidence/research/20260927/u01-header-revision-gate/native-outcome/attempt-1/live-after-attempt.itl",
+      "bytes": 4904,
+      "sha256": "287a9b91315be1a4917cc1a2530013c076bab824e2099885ac89d8e7ccebe59a",
+      "corpus_class": "u01_header_revision_gate_native_modal_outcome",
+      "qualification": "unchanged exact candidate retained after one of two repeated newer-version modal observations; the strict predeclared exit-zero gate failed, and the two copies are not independent experiments"
+    },
+    {
+      "path": "evidence/research/20260927/u01-header-revision-gate/native-outcome/attempt-2/live-after-attempt.itl",
+      "bytes": 4904,
+      "sha256": "287a9b91315be1a4917cc1a2530013c076bab824e2099885ac89d8e7ccebe59a",
+      "corpus_class": "u01_header_revision_gate_native_modal_outcome",
+      "qualification": "unchanged exact candidate retained after one of two repeated newer-version modal observations; the strict predeclared exit-zero gate failed, and the two copies are not independent experiments"
     },
     {
       "path": "evidence/research/20260927/u01-sampled-version-matrix/12.13.11.1-independent/native/exact-one-track/cases/reference-one-track-raw/cycle-1/native-saved.itl",
