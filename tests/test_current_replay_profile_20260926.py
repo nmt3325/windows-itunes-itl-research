@@ -22,3 +22,13 @@ def test_windows_validation_receipt_is_explicit_about_capstone_version_mismatch(
  assert validation['runtime_module_versions']['capstone']=='5.0.7'
  assert validation['capstone_distribution_module_version_mismatch_observed'] is True
  assert validation['proprietary_binary_reads']==validation['itunes_launches']==validation['native_acceptance_operations']==0
+
+def test_windows_synthetic_pe_probe_validates_portable_path_without_itunes_claim():
+ report=json.loads((ROOT/'evidence/research/20260926/current-replay-profile/report.json').read_text())
+ probe=report['windows_validation']['synthetic_pe_probe']
+ assert probe['status']=='passed' and probe['fixture']=='fresh_minimal_mingw_x64_pe_not_retained'
+ assert probe['sections']==16 and probe['exception_functions']==47 and probe['instructions_scanned']==2008
+ assert probe['output_files']==['important_xrefs.json','pdata.json','pe_inventory.json','xrefs.sqlite']
+ assert probe['itunes_binary_used'] is False
+ assert probe['historical_analysis_reproduced'] is False
+ assert probe['native_acceptance'] is False

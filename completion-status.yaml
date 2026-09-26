@@ -257,7 +257,7 @@ validation:
     unresolved_item: U-18
   current_replay_profile:
     status: current_profile_locked_u18_open
-    focused_tests_passed: 2
+    focused_tests_passed: 3
     focused_tests_failed: 0
     target_platform: win_amd64
     target_python: CPython 3.12
@@ -266,6 +266,9 @@ validation:
     windows_hash_checked_install: passed
     python_entrypoint_help_checks_passed: 4
     powershell_parse: passed
+    synthetic_pe_probe: passed
+    synthetic_pe_probe_instructions_scanned: 2008
+    synthetic_pe_probe_itunes_binary_used: false
     capstone_distribution_version: 5.0.9
     capstone_runtime_module_version: 5.0.7
     historical_dependency_versions_recovered: false
