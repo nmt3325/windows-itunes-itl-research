@@ -1,0 +1,48 @@
+{
+  "schema_version": 1,
+  "captured_utc": "2026-09-26T17:52:32.7178760Z",
+  "gha_mcp": {
+    "env_id": "win-p0qfbqby",
+    "label": "windows-itunes-itl-u01-reproduction-20260927",
+    "run_id": "36258961725",
+    "run_attempt": "1",
+    "run_url": "https://github.com/1108numatakaichi-wq/gha-mcp-runner/actions/runs/36258961725"
+  },
+  "runner": {
+    "name": "GitHub Actions 1000000015",
+    "os": "Windows",
+    "arch": "X64",
+    "image_os": "win25-vs2026",
+    "image_version": "20260922.246.2"
+  },
+  "checkout": {
+    "repository": "https://github.com/nmt3325/windows-itunes-itl-research",
+    "branch": "research/20260926-autonomous-resume",
+    "head": "734e3f0bf0c2d99751f8aed314c9194efb58066b",
+    "origin": "https://github.com/nmt3325/windows-itunes-itl-research.git",
+    "working_tree_clean_before_retention": true
+  },
+  "lineage": {
+    "same_runner_prior_native_build": {
+      "version": "12.13.9.1",
+      "executable_sha256": "6805f52ca3a3a55b31418e302acd8862023078e2f726e44880ab53df48ad2bc5",
+      "evidence": "evidence/research/20260927/u01-sampled-version-matrix/12.13.9.1/"
+    },
+    "upgrade_target": {
+      "version": "12.13.11.1",
+      "executable_sha256": "c69e719cd3f2f9374e71c954a6de87002b6988af65129943983a2f17490dd73c"
+    }
+  },
+  "independence_scope": {
+    "separate_runtime_from_prior_12_13_11_1_experiment": true,
+    "prior_comparison_env_id": "win-7h5jwzza",
+    "prior_comparison_run_id": "36256735138",
+    "prior_comparison_run_url": "https://github.com/1108numatakaichi-wq/gha-mcp-runner/actions/runs/36256735138",
+    "shared_inputs": [
+      "fixture hashes",
+      "native harness and repository code",
+      "exact 12.13.11.1 executable hash"
+    ],
+    "limitations": "This reproduction used a separate GHA runner/runtime, but the runner first executed the 12.13.9.1 cohort and was then upgraded in place; it is not an independently implemented harness or independently sourced executable."
+  }
+}

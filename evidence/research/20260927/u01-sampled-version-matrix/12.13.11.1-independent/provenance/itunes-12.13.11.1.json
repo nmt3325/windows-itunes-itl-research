@@ -1,0 +1,49 @@
+{
+  "schema_version": 1,
+  "captured_utc": "2026-09-26T17:52:31.3146511Z",
+  "installation_method": "Chocolatey package iTunes 12.13.11.1, in-place upgrade from 12.13.9.1 on this runner",
+  "chocolatey_local_package": "iTunes|12.13.11.1",
+  "installer": {
+    "url64bit": "https://secure-appldnld.apple.com/itunes12/140-75773-20260908-6e5e0165-99cb-4b30-b541-1b615fccfc1a/iTunes64Setup.exe",
+    "sha256": "25b28905a81406a5edbf482f7f3ee4831a8641d32d29dceda5d1eb3e8d534c08",
+    "source": "retained Chocolatey package install script"
+  },
+  "executable": {
+    "path": "C:\\Program Files\\iTunes\\iTunes.exe",
+    "bytes": 38952912,
+    "sha256": "c69e719cd3f2f9374e71c954a6de87002b6988af65129943983a2f17490dd73c",
+    "file_version": "12.13.11.1",
+    "product_version": "12.13.11.1",
+    "authenticode": {
+      "status": "Valid",
+      "subject": "CN=Apple Inc., O=Apple Inc., L=Cupertino, S=California, C=US",
+      "thumbprint": "5ABF5D5265D74C9EAD19246DFAB611AA5DCFE791"
+    }
+  },
+  "package_files": [
+    {
+      "name": "chocolatey-install-12.13.11.1.ps1",
+      "bytes": 1585,
+      "sha256": "9a571fc2ed3579628eb321d1cbe9b9c8fcb0736a72341ac3f282b2ac495b948a"
+    },
+    {
+      "name": "itunes-12.13.11.1.nupkg",
+      "bytes": 3722,
+      "sha256": "fe7bad8c5fff7d657f856833864bc2a406755cd1b65489355e5d14079fc6e6bb"
+    },
+    {
+      "name": "itunes-12.13.11.1.nuspec",
+      "bytes": 1866,
+      "sha256": "5abc3cced532dab8271f78d972c71de0b157f0ffecd6f9c392e2f30c1c984a7b"
+    },
+    {
+      "name": "iTunes64Setup-12.13.11.1.exe.txt",
+      "bytes": 274,
+      "sha256": "68f5888ec22d27ef26986c01e0ef630b8b73ff676cb523829ef2571ed2840276"
+    }
+  ],
+  "validation": {
+    "itunes_process_count": 0,
+    "profile_exists": false
+  }
+}
