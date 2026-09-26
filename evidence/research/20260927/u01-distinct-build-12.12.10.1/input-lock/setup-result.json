@@ -1,0 +1,497 @@
+{
+  "schema_version": 1,
+  "classification": "native input generation; not a qualification cycle or independent writer",
+  "started_utc": "2026-09-26T18:27:18.233070+00:00",
+  "status": "passed",
+  "executable": {
+    "path": "C:\\Program Files\\iTunes\\iTunes.exe",
+    "sha256": "0aa1b53af915fc9e0ced4c7ecbcb1397a036d38367d894ae063ae1d127331f9b",
+    "file_version": "12.12.10.1",
+    "product_version": "12.12.10.1",
+    "expected_sha256": "0aa1b53af915fc9e0ced4c7ecbcb1397a036d38367d894ae063ae1d127331f9b",
+    "expected_version": "12.12.10.1",
+    "version_probe": {
+      "argv": [
+        "pwsh",
+        "-NoLogo",
+        "-NoProfile",
+        "-Command",
+        "$v=(Get-Item -LiteralPath 'C:\\Program Files\\iTunes\\iTunes.exe').VersionInfo; [pscustomobject]@{FileVersion=[string]$v.FileVersion;ProductVersion=[string]$v.ProductVersion}|ConvertTo-Json -Compress"
+      ],
+      "returncode": 0,
+      "output": "{\"FileVersion\":\"12.12.10.1\",\"ProductVersion\":\"12.12.10.1\"}\n"
+    },
+    "errors": [],
+    "authenticode": {
+      "argv": [
+        "pwsh",
+        "-NoLogo",
+        "-NoProfile",
+        "-Command",
+        "$s=Get-AuthenticodeSignature -LiteralPath 'C:\\Program Files\\iTunes\\iTunes.exe'; [pscustomobject]@{Status=[string]$s.Status;Subject=$s.SignerCertificate.Subject;Thumbprint=$s.SignerCertificate.Thumbprint}|ConvertTo-Json -Compress"
+      ],
+      "returncode": 0,
+      "output": "{\"Status\":\"Valid\",\"Subject\":\"CN=Apple Inc., O=Apple Inc., L=Cupertino, S=California, C=US\",\"Thumbprint\":\"67A9953123BD5F01B1BC0BB98A950D9CA869CD02\"}\n"
+    }
+  },
+  "platform": "Windows-2025Server-10.0.26100-SP0",
+  "profile": "C:\\Users\\runneradmin\\Music\\iTunes",
+  "root": "D:\\a\\_temp\\u01-distinct-setup-20260927",
+  "media_before_launch": {
+    "path": "D:\\a\\_temp\\u01-distinct-setup-20260927\\live\\media\\u01-12.12.10.1-523hz.wav",
+    "bytes": 44144,
+    "mtime_ns": 1790447238233070500,
+    "sha256": "6df7b7eaf17f07e213238b7bcd6692a3d6ea844cee377d761bcc7f8434261792"
+  },
+  "ui": [
+    {
+      "action": "accept_eula",
+      "window": {
+        "hwnd": 459204,
+        "pid": 9160,
+        "class": "iTunesCustomModalDialog",
+        "title": "iTunes Software License Agreement",
+        "children": [
+          {
+            "hwnd": 393700,
+            "class": "Static",
+            "text": "Safety Info:",
+            "id": 107,
+            "enabled": true,
+            "visible": false
+          },
+          {
+            "hwnd": 393716,
+            "class": "Static",
+            "text": "",
+            "id": 108,
+            "enabled": true,
+            "visible": false
+          },
+          {
+            "hwnd": 196940,
+            "class": "Button",
+            "text": "&Agree",
+            "id": 1,
+            "enabled": true,
+            "visible": true
+          },
+          {
+            "hwnd": 196938,
+            "class": "Button",
+            "text": "&Decline",
+            "id": 2,
+            "enabled": true,
+            "visible": true
+          },
+          {
+            "hwnd": 458776,
+            "class": "Button",
+            "text": "&Save...",
+            "id": 103,
+            "enabled": true,
+            "visible": true
+          },
+          {
+            "hwnd": 131470,
+            "class": "RichEdit20W",
+            "text": "",
+            "id": 105,
+            "enabled": true,
+            "visible": true
+          }
+        ]
+      }
+    },
+    {
+      "action": "dismiss_known_audio_warning",
+      "window": {
+        "hwnd": 524740,
+        "pid": 9160,
+        "class": "iTunesCustomModalDialog",
+        "title": "iTunes",
+        "children": [
+          {
+            "hwnd": 197006,
+            "class": "Static",
+            "text": "iTunes has detected a problem with your audio configuration.\rAudio/Video playback may not operate properly.",
+            "id": 101,
+            "enabled": true,
+            "visible": true
+          },
+          {
+            "hwnd": 524312,
+            "class": "Static",
+            "text": "",
+            "id": 103,
+            "enabled": true,
+            "visible": false
+          },
+          {
+            "hwnd": 262474,
+            "class": "Button",
+            "text": "",
+            "id": 104,
+            "enabled": true,
+            "visible": false
+          },
+          {
+            "hwnd": 262476,
+            "class": "Button",
+            "text": "OK",
+            "id": 1,
+            "enabled": true,
+            "visible": true
+          },
+          {
+            "hwnd": 459252,
+            "class": "Button",
+            "text": "More Info",
+            "id": 105,
+            "enabled": true,
+            "visible": false
+          },
+          {
+            "hwnd": 459236,
+            "class": "Static",
+            "text": "",
+            "id": 102,
+            "enabled": true,
+            "visible": true
+          }
+        ]
+      }
+    },
+    {
+      "action": "decline_update_and_do_not_ask",
+      "window": {
+        "hwnd": 590346,
+        "pid": 9160,
+        "class": "iTunesCustomModalDialog",
+        "title": "iTunes",
+        "children": [
+          {
+            "hwnd": 590324,
+            "class": "Static",
+            "text": "",
+            "id": 105,
+            "enabled": true,
+            "visible": true
+          },
+          {
+            "hwnd": 393546,
+            "class": "Static",
+            "text": "A new version of iTunes (12.13.11) is available. Would you like to download it now?",
+            "id": 104,
+            "enabled": true,
+            "visible": true
+          },
+          {
+            "hwnd": 393548,
+            "class": "Static",
+            "text": "",
+            "id": 109,
+            "enabled": true,
+            "visible": false
+          },
+          {
+            "hwnd": 262718,
+            "class": "Static",
+            "text": "",
+            "id": 110,
+            "enabled": true,
+            "visible": false
+          },
+          {
+            "hwnd": 262716,
+            "class": "Static",
+            "text": "",
+            "id": 106,
+            "enabled": true,
+            "visible": false
+          },
+          {
+            "hwnd": 197176,
+            "class": "Button",
+            "text": "Download &iTunes",
+            "id": 101,
+            "enabled": true,
+            "visible": true
+          },
+          {
+            "hwnd": 66112,
+            "class": "Button",
+            "text": "Don’&t Download",
+            "id": 102,
+            "enabled": true,
+            "visible": true
+          },
+          {
+            "hwnd": 66114,
+            "class": "Button",
+            "text": "Other",
+            "id": 103,
+            "enabled": true,
+            "visible": false
+          },
+          {
+            "hwnd": 66116,
+            "class": "Button",
+            "text": "&Do not ask me again",
+            "id": 107,
+            "enabled": true,
+            "visible": true
+          },
+          {
+            "hwnd": 66118,
+            "class": "Static",
+            "text": "",
+            "id": 108,
+            "enabled": true,
+            "visible": false
+          },
+          {
+            "hwnd": 66120,
+            "class": "Button",
+            "text": "?",
+            "id": 111,
+            "enabled": true,
+            "visible": false
+          }
+        ]
+      }
+    }
+  ],
+  "forced_termination": false,
+  "profile_junction_create": {
+    "argv": [
+      "cmd.exe",
+      "/d",
+      "/c",
+      "mklink",
+      "/J",
+      "C:\\Users\\runneradmin\\Music\\iTunes",
+      "D:\\a\\_temp\\u01-distinct-setup-20260927\\live"
+    ],
+    "returncode": 0,
+    "output": "Junction created for C:\\Users\\runneradmin\\Music\\iTunes <<===>> D:\\a\\_temp\\u01-distinct-setup-20260927\\live\n"
+  },
+  "itunes_pid": 9160,
+  "com_version": "12.12.10.1",
+  "com_samples_stable": true,
+  "normal_com_quit_requested": true,
+  "itunes_exit_code": 0,
+  "inventory_after": [
+    {
+      "path": "Album Artwork",
+      "kind": "directory"
+    },
+    {
+      "path": "Album Artwork/Cache",
+      "kind": "directory"
+    },
+    {
+      "path": "Album Artwork/Custom",
+      "kind": "directory"
+    },
+    {
+      "path": "Album Artwork/Download",
+      "kind": "directory"
+    },
+    {
+      "path": "Album Artwork/Generated",
+      "kind": "directory"
+    },
+    {
+      "path": "Album Artwork/Store",
+      "kind": "directory"
+    },
+    {
+      "path": "iTunes Library Extras.itdb",
+      "kind": "file",
+      "bytes": 16384,
+      "sha256": "e1937a7a396264a1d85599295ce5d66fe16e5771e91be496987a16b26d406553"
+    },
+    {
+      "path": "iTunes Library Genius.itdb",
+      "kind": "file",
+      "bytes": 32768,
+      "sha256": "f765e9ae9edcd5a1f1203122413e69544a2cc2bf969427b77a8c44eccd77be87"
+    },
+    {
+      "path": "iTunes Library.itl",
+      "kind": "file",
+      "bytes": 4865,
+      "sha256": "154146cf6eabdd7b8dd30f74e2c7009d0a8615d38b36edd1a3abbbacfc10cddc"
+    },
+    {
+      "path": "iTunes Media",
+      "kind": "directory"
+    },
+    {
+      "path": "iTunes Media/.iTunes Preferences.plist",
+      "kind": "file",
+      "bytes": 305,
+      "sha256": "a62b79d544953fb61f21a0a29d98723d9ce429cdd2da3c662c44fa03808b613a"
+    },
+    {
+      "path": "iTunes Media/Automatically Add to iTunes",
+      "kind": "directory"
+    },
+    {
+      "path": "media",
+      "kind": "directory"
+    },
+    {
+      "path": "media/u01-12.12.10.1-523hz.wav",
+      "kind": "file",
+      "bytes": 44144,
+      "sha256": "6df7b7eaf17f07e213238b7bcd6692a3d6ea844cee377d761bcc7f8434261792"
+    },
+    {
+      "path": "sentinel",
+      "kind": "file",
+      "bytes": 8,
+      "sha256": "86a6ad08cebbe82ea7e4a2e3ff27174ad349d9926f7fe0b1673d164287af0bd6"
+    }
+  ],
+  "forbidden_after": [],
+  "input_lock": {
+    "schema_version": 1,
+    "locked_utc": "2026-09-26T18:27:34.673436+00:00",
+    "classification": "exact native-authored positive input; no independent-writer claim",
+    "executable": {
+      "path": "C:\\Program Files\\iTunes\\iTunes.exe",
+      "sha256": "0aa1b53af915fc9e0ced4c7ecbcb1397a036d38367d894ae063ae1d127331f9b",
+      "file_version": "12.12.10.1",
+      "product_version": "12.12.10.1",
+      "expected_sha256": "0aa1b53af915fc9e0ced4c7ecbcb1397a036d38367d894ae063ae1d127331f9b",
+      "expected_version": "12.12.10.1",
+      "version_probe": {
+        "argv": [
+          "pwsh",
+          "-NoLogo",
+          "-NoProfile",
+          "-Command",
+          "$v=(Get-Item -LiteralPath 'C:\\Program Files\\iTunes\\iTunes.exe').VersionInfo; [pscustomobject]@{FileVersion=[string]$v.FileVersion;ProductVersion=[string]$v.ProductVersion}|ConvertTo-Json -Compress"
+        ],
+        "returncode": 0,
+        "output": "{\"FileVersion\":\"12.12.10.1\",\"ProductVersion\":\"12.12.10.1\"}\n"
+      },
+      "errors": [],
+      "authenticode": {
+        "argv": [
+          "pwsh",
+          "-NoLogo",
+          "-NoProfile",
+          "-Command",
+          "$s=Get-AuthenticodeSignature -LiteralPath 'C:\\Program Files\\iTunes\\iTunes.exe'; [pscustomobject]@{Status=[string]$s.Status;Subject=$s.SignerCertificate.Subject;Thumbprint=$s.SignerCertificate.Thumbprint}|ConvertTo-Json -Compress"
+        ],
+        "returncode": 0,
+        "output": "{\"Status\":\"Valid\",\"Subject\":\"CN=Apple Inc., O=Apple Inc., L=Cupertino, S=California, C=US\",\"Thumbprint\":\"67A9953123BD5F01B1BC0BB98A950D9CA869CD02\"}\n"
+      }
+    },
+    "input": {
+      "path": "D:\\a\\_temp\\windows-itunes-itl-research-distinct\\evidence\\research\\20260927\\u01-distinct-build-12.12.10.1\\input-lock\\native-authored-input.itl",
+      "bytes": 4865,
+      "mtime_ns": 1790447253631699900,
+      "sha256": "154146cf6eabdd7b8dd30f74e2c7009d0a8615d38b36edd1a3abbbacfc10cddc"
+    },
+    "media": {
+      "path": "D:\\a\\_temp\\windows-itunes-itl-research-distinct\\evidence\\research\\20260927\\u01-distinct-build-12.12.10.1\\input-lock\\media\\u01-12.12.10.1-523hz.wav",
+      "bytes": 44144,
+      "mtime_ns": 1790447238233070500,
+      "sha256": "6df7b7eaf17f07e213238b7bcd6692a3d6ea844cee377d761bcc7f8434261792"
+    },
+    "expected": {
+      "version": "12.12.10.1",
+      "file_persistent_id": "C4CF98746C40D802",
+      "library_persistent_id": "6002C2960B55A3CB",
+      "track_count": 1,
+      "tracks": [
+        {
+          "persistent_id": "C8FB5925BC26E77C",
+          "name": "U01 12.12.10.1 Native α",
+          "artist": "Distinct Build Artist Ω",
+          "album": "Distinct Build Album 2023",
+          "album_artist": "Distinct Album Artist β",
+          "comment": "Predeclared native baseline — 20260927",
+          "rating": 80,
+          "play_count": 2,
+          "skip_count": 1,
+          "track_number": 1,
+          "year": 2023
+        }
+      ],
+      "playlists": [
+        {
+          "persistent_id": "5FA9D851819CFC35",
+          "name": "Synthetic U01 12.12.10.1",
+          "members": [
+            "C8FB5925BC26E77C"
+          ]
+        }
+      ]
+    },
+    "outer_file_persistent_id": "C4CF98746C40D802",
+    "com_library_persistent_id": "6002C2960B55A3CB",
+    "identity_domains_are_distinct": true,
+    "reference_detect": "{\n  \"evidence\": [\n    {\n      \"check\": \"magic\",\n      \"ok\": true,\n      \"value\": \"hdfm\"\n    },\n    {\n      \"check\": \"header_length\",\n      \"ok\": true,\n      \"value\": 144\n    },\n    {\n      \"check\": \"declared_size\",\n      \"ok\": true,\n      \"value\": 4865\n    },\n    {\n      \"check\": \"pascal_version\",\n      \"ok\": true,\n      \"value\": \"12.12.10.1\"\n    },\n    {\n      \"check\": \"payload_byteorder\",\n      \"ok\": true,\n      \"value\": \"little\"\n    },\n    {\n      \"check\": \"encryption_flag\",\n      \"ok\": true,\n      \"value\": 2\n    },\n    {\n      \"check\": \"section_boundaries\",\n      \"ok\": true,\n      \"value\": [\n        16,\n        12,\n        9,\n        11,\n        1,\n        13,\n        23,\n        2,\n        14,\n        21,\n        4\n      ]\n    }\n  ],\n  \"limitations\": [\n    \"The Pascal version label is authoritative only for the observed envelope.\",\n    \"No native iTunes acceptance is implied by structural detection.\"\n  ],\n  \"profile\": null,\n  \"reason\": \"version label is not in the observed profile allowlist\",\n  \"schema\": \"reference-itl.version-detection.v1\",\n  \"sha256\": \"154146cf6eabdd7b8dd30f74e2c7009d0a8615d38b36edd1a3abbbacfc10cddc\",\n  \"status\": \"unsupported\",\n  \"version\": \"12.12.10.1\"\n}\n",
+    "com_gate_errors": [],
+    "reference_summary_errors": []
+  },
+  "positive_manifest": [
+    {
+      "name": "native-authored-one-track-positive",
+      "candidate": "evidence/research/20260927/u01-distinct-build-12.12.10.1/input-lock/native-authored-input.itl",
+      "sha256": "154146cf6eabdd7b8dd30f74e2c7009d0a8615d38b36edd1a3abbbacfc10cddc",
+      "expected": {
+        "version": "12.12.10.1",
+        "file_persistent_id": "C4CF98746C40D802",
+        "library_persistent_id": "6002C2960B55A3CB",
+        "track_count": 1,
+        "tracks": [
+          {
+            "persistent_id": "C8FB5925BC26E77C",
+            "name": "U01 12.12.10.1 Native α",
+            "artist": "Distinct Build Artist Ω",
+            "album": "Distinct Build Album 2023",
+            "album_artist": "Distinct Album Artist β",
+            "comment": "Predeclared native baseline — 20260927",
+            "rating": 80,
+            "play_count": 2,
+            "skip_count": 1,
+            "track_number": 1,
+            "year": 2023
+          }
+        ],
+        "playlists": [
+          {
+            "persistent_id": "5FA9D851819CFC35",
+            "name": "Synthetic U01 12.12.10.1",
+            "members": [
+              "C8FB5925BC26E77C"
+            ]
+          }
+        ]
+      }
+    }
+  ],
+  "finished_utc": "2026-09-26T18:27:35.669180+00:00",
+  "profile_junction_remove": {
+    "removed": true,
+    "command": {
+      "argv": [
+        "cmd.exe",
+        "/d",
+        "/c",
+        "rmdir",
+        "C:\\Users\\runneradmin\\Music\\iTunes"
+      ],
+      "returncode": 0,
+      "output": ""
+    }
+  },
+  "profile_exists_after": false,
+  "process_cleanup_passed": true
+}

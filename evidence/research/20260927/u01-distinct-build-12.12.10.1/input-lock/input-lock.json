@@ -1,0 +1,84 @@
+{
+  "schema_version": 1,
+  "locked_utc": "2026-09-26T18:27:34.673436+00:00",
+  "classification": "exact native-authored positive input; no independent-writer claim",
+  "executable": {
+    "path": "C:\\Program Files\\iTunes\\iTunes.exe",
+    "sha256": "0aa1b53af915fc9e0ced4c7ecbcb1397a036d38367d894ae063ae1d127331f9b",
+    "file_version": "12.12.10.1",
+    "product_version": "12.12.10.1",
+    "expected_sha256": "0aa1b53af915fc9e0ced4c7ecbcb1397a036d38367d894ae063ae1d127331f9b",
+    "expected_version": "12.12.10.1",
+    "version_probe": {
+      "argv": [
+        "pwsh",
+        "-NoLogo",
+        "-NoProfile",
+        "-Command",
+        "$v=(Get-Item -LiteralPath 'C:\\Program Files\\iTunes\\iTunes.exe').VersionInfo; [pscustomobject]@{FileVersion=[string]$v.FileVersion;ProductVersion=[string]$v.ProductVersion}|ConvertTo-Json -Compress"
+      ],
+      "returncode": 0,
+      "output": "{\"FileVersion\":\"12.12.10.1\",\"ProductVersion\":\"12.12.10.1\"}\n"
+    },
+    "errors": [],
+    "authenticode": {
+      "argv": [
+        "pwsh",
+        "-NoLogo",
+        "-NoProfile",
+        "-Command",
+        "$s=Get-AuthenticodeSignature -LiteralPath 'C:\\Program Files\\iTunes\\iTunes.exe'; [pscustomobject]@{Status=[string]$s.Status;Subject=$s.SignerCertificate.Subject;Thumbprint=$s.SignerCertificate.Thumbprint}|ConvertTo-Json -Compress"
+      ],
+      "returncode": 0,
+      "output": "{\"Status\":\"Valid\",\"Subject\":\"CN=Apple Inc., O=Apple Inc., L=Cupertino, S=California, C=US\",\"Thumbprint\":\"67A9953123BD5F01B1BC0BB98A950D9CA869CD02\"}\n"
+    }
+  },
+  "input": {
+    "path": "D:\\a\\_temp\\windows-itunes-itl-research-distinct\\evidence\\research\\20260927\\u01-distinct-build-12.12.10.1\\input-lock\\native-authored-input.itl",
+    "bytes": 4865,
+    "mtime_ns": 1790447253631699900,
+    "sha256": "154146cf6eabdd7b8dd30f74e2c7009d0a8615d38b36edd1a3abbbacfc10cddc"
+  },
+  "media": {
+    "path": "D:\\a\\_temp\\windows-itunes-itl-research-distinct\\evidence\\research\\20260927\\u01-distinct-build-12.12.10.1\\input-lock\\media\\u01-12.12.10.1-523hz.wav",
+    "bytes": 44144,
+    "mtime_ns": 1790447238233070500,
+    "sha256": "6df7b7eaf17f07e213238b7bcd6692a3d6ea844cee377d761bcc7f8434261792"
+  },
+  "expected": {
+    "version": "12.12.10.1",
+    "file_persistent_id": "C4CF98746C40D802",
+    "library_persistent_id": "6002C2960B55A3CB",
+    "track_count": 1,
+    "tracks": [
+      {
+        "persistent_id": "C8FB5925BC26E77C",
+        "name": "U01 12.12.10.1 Native α",
+        "artist": "Distinct Build Artist Ω",
+        "album": "Distinct Build Album 2023",
+        "album_artist": "Distinct Album Artist β",
+        "comment": "Predeclared native baseline — 20260927",
+        "rating": 80,
+        "play_count": 2,
+        "skip_count": 1,
+        "track_number": 1,
+        "year": 2023
+      }
+    ],
+    "playlists": [
+      {
+        "persistent_id": "5FA9D851819CFC35",
+        "name": "Synthetic U01 12.12.10.1",
+        "members": [
+          "C8FB5925BC26E77C"
+        ]
+      }
+    ]
+  },
+  "outer_file_persistent_id": "C4CF98746C40D802",
+  "com_library_persistent_id": "6002C2960B55A3CB",
+  "identity_domains_are_distinct": true,
+  "reference_detect": "{\n  \"evidence\": [\n    {\n      \"check\": \"magic\",\n      \"ok\": true,\n      \"value\": \"hdfm\"\n    },\n    {\n      \"check\": \"header_length\",\n      \"ok\": true,\n      \"value\": 144\n    },\n    {\n      \"check\": \"declared_size\",\n      \"ok\": true,\n      \"value\": 4865\n    },\n    {\n      \"check\": \"pascal_version\",\n      \"ok\": true,\n      \"value\": \"12.12.10.1\"\n    },\n    {\n      \"check\": \"payload_byteorder\",\n      \"ok\": true,\n      \"value\": \"little\"\n    },\n    {\n      \"check\": \"encryption_flag\",\n      \"ok\": true,\n      \"value\": 2\n    },\n    {\n      \"check\": \"section_boundaries\",\n      \"ok\": true,\n      \"value\": [\n        16,\n        12,\n        9,\n        11,\n        1,\n        13,\n        23,\n        2,\n        14,\n        21,\n        4\n      ]\n    }\n  ],\n  \"limitations\": [\n    \"The Pascal version label is authoritative only for the observed envelope.\",\n    \"No native iTunes acceptance is implied by structural detection.\"\n  ],\n  \"profile\": null,\n  \"reason\": \"version label is not in the observed profile allowlist\",\n  \"schema\": \"reference-itl.version-detection.v1\",\n  \"sha256\": \"154146cf6eabdd7b8dd30f74e2c7009d0a8615d38b36edd1a3abbbacfc10cddc\",\n  \"status\": \"unsupported\",\n  \"version\": \"12.12.10.1\"\n}\n",
+  "com_gate_errors": [],
+  "reference_summary_errors": []
+}
