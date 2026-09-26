@@ -20,6 +20,7 @@ SCHEMA = "windows-itunes-itl.public-replay-gap-inventory.v1"
 LOCK_REL = Path("scripts/static/public-replay-lock.json")
 PREFLIGHT_REPORT_REL = Path("evidence/research/20260925/public-static-replay-bootstrap/report.json")
 PREFLIGHT_SCRIPT_REL = Path("scripts/static/public_replay_preflight.py")
+PYCRYPTODOME_PIN_SOURCES = [Path("README.md"), Path("scripts/experimental-import/requirements.txt")]
 HISTORICAL_SCRIPTS = [
     Path("scripts/static/offline_aes_proof.py"),
     Path("scripts/static/pe_probe.py"),
@@ -211,7 +212,17 @@ def build_inventory(root: Path = ROOT) -> dict[str, Any]:
             "ghidra_distribution_staged": lock["toolchain"]["ghidra"]["staged"],
             "ghidra_project_cache_staged": False,
             "exact_python_dependency_versions_recorded": False,
-            "missing_exact_python_dependencies": ["capstone", "pefile", "pycryptodome"],
+            "missing_exact_python_dependencies": ["capstone", "pefile"],
+            "pycryptodome_version_evidence": {
+                "version": lock["toolchain"]["pycryptodome"]["version"],
+                "basis": lock["toolchain"]["pycryptodome"]["version_evidence"],
+                "sources": [
+                    {"path": path.as_posix(), "sha256": sha256_file(root / path)}
+                    for path in PYCRYPTODOME_PIN_SOURCES
+                ],
+                "historical_static_execution_linkage_proven": lock["toolchain"]["pycryptodome"]["historical_static_execution_linkage_proven"],
+            },
+            "historical_static_execution_dependency_set_fully_proven": False,
             "lawful_public_or_synthetic_pe_fixture_present": False,
             "public_synthetic_ghidra_project_fixture_present": False,
             "current_public_atlas_c_hashes_coherent": retained["current_public_atlas_c_hashes_coherent"],

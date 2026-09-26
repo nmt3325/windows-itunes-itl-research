@@ -31,8 +31,10 @@
       "staged": false
     },
     "pycryptodome": {
-      "version": null,
-      "staged": false
+      "version": "3.23.0",
+      "staged": false,
+      "version_evidence": "contemporaneous_project_environment_pin",
+      "historical_static_execution_linkage_proven": false
     }
   },
   "required_public_files": [
@@ -602,7 +604,7 @@
     },
     {
       "id": "python_dependency_versions_incomplete",
-      "description": "Historical capstone, pefile, and PyCryptodome versions were not recorded."
+      "description": "Historical capstone and pefile versions were not recorded; PyCryptodome 3.23.0 is contemporaneously pinned, but its linkage to every retained static execution is not proven."
     },
     {
       "id": "historical_scripts_portability_improved_u18_open",

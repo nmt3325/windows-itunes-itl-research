@@ -84,7 +84,9 @@ def test_historical_script_gap_inventory_matches_retained_blockers():
 def test_dependency_and_input_gaps_remain_explicit():
     report = gap_inventory.build_inventory(ROOT)
     dependencies = report["dependency_pin_matrix"]
-    assert dependencies["missing_exact_version_tools"] == ["capstone", "pefile", "pycryptodome"]
+    assert dependencies["missing_exact_version_tools"] == ["capstone", "pefile"]
+    assert dependencies["toolchain"]["pycryptodome"]["version"] == "3.23.0"
+    assert dependencies["toolchain"]["pycryptodome"]["historical_static_execution_linkage_proven"] is False
     assert dependencies["module"]["staged"] is False
     assert dependencies["toolchain"]["ghidra"]["version"] == "12.1.3"
     assert dependencies["toolchain"]["unicorn"]["version"] == "2.1.4"
@@ -93,6 +95,15 @@ def test_dependency_and_input_gaps_remain_explicit():
     assert missing["ghidra_distribution_staged"] is False
     assert missing["ghidra_project_cache_staged"] is False
     assert missing["exact_python_dependency_versions_recorded"] is False
+    assert missing["missing_exact_python_dependencies"] == ["capstone", "pefile"]
+    assert missing["historical_static_execution_dependency_set_fully_proven"] is False
+    assert missing["pycryptodome_version_evidence"]["version"] == "3.23.0"
+    assert missing["pycryptodome_version_evidence"]["basis"] == "contemporaneous_project_environment_pin"
+    assert missing["pycryptodome_version_evidence"]["historical_static_execution_linkage_proven"] is False
+    assert [row["path"] for row in missing["pycryptodome_version_evidence"]["sources"]] == [
+        "README.md",
+        "scripts/experimental-import/requirements.txt",
+    ]
     assert missing["current_public_atlas_c_hashes_coherent"] is False
     assert missing["atlas_c_hash_matches"] == 0
     assert missing["atlas_c_hash_mismatches"] == 47

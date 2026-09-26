@@ -23,8 +23,7 @@
   "dependency_pin_matrix": {
     "missing_exact_version_tools": [
       "capstone",
-      "pefile",
-      "pycryptodome"
+      "pefile"
     ],
     "module": {
       "exact_hash_recorded": true,
@@ -59,9 +58,11 @@
         "version": null
       },
       "pycryptodome": {
-        "exact_version_recorded": false,
+        "exact_version_recorded": true,
+        "historical_static_execution_linkage_proven": false,
         "staged": false,
-        "version": null
+        "version": "3.23.0",
+        "version_evidence": "contemporaneous_project_environment_pin"
       },
       "unicorn": {
         "exact_version_recorded": true,
@@ -211,14 +212,29 @@
     "exact_python_dependency_versions_recorded": false,
     "ghidra_distribution_staged": false,
     "ghidra_project_cache_staged": false,
+    "historical_static_execution_dependency_set_fully_proven": false,
     "lawful_public_or_synthetic_pe_fixture_present": false,
     "missing_exact_python_dependencies": [
       "capstone",
-      "pefile",
-      "pycryptodome"
+      "pefile"
     ],
     "proprietary_module_staged": false,
-    "public_synthetic_ghidra_project_fixture_present": false
+    "public_synthetic_ghidra_project_fixture_present": false,
+    "pycryptodome_version_evidence": {
+      "basis": "contemporaneous_project_environment_pin",
+      "historical_static_execution_linkage_proven": false,
+      "sources": [
+        {
+          "path": "README.md",
+          "sha256": "69d34ed7fdc0e549b9580e51e6920cf84b3e57c6f58c7dc0f06d7975a722f16c"
+        },
+        {
+          "path": "scripts/experimental-import/requirements.txt",
+          "sha256": "8af6d5cfebc5c65614d58aee1d40b734d61d9ce4741ef03bad97749a4aa24145"
+        }
+      ],
+      "version": "3.23.0"
+    }
   },
   "operations": {
     "ghidra_invocations": 0,
@@ -251,12 +267,12 @@
     "lock": {
       "path": "scripts/static/public-replay-lock.json",
       "schema": "windows-itunes-itl.public-static-replay-lock.v1",
-      "sha256": "cdb4609db835e2c261fbf8a1dcd63fcdc9261a6f3e4d1d0879deadf69c50bec0"
+      "sha256": "66dec95a473d7bc0bc026dc52794796f320f5493819caee17f30a63af8000851"
     },
     "preflight_report": {
       "path": "evidence/research/20260925/public-static-replay-bootstrap/report.json",
       "schema": "windows-itunes-itl.public-static-replay-report.v1",
-      "sha256": "761bd9bbd9a9c479bd715258fbb9471bf670c2173ff8e129febba3c3c8087a7c"
+      "sha256": "2b8d1dec805f23c952a8cb0608861e29f3dba2bb52370bc8b89bced4eb1d8a7c"
     },
     "preflight_script": {
       "path": "scripts/static/public_replay_preflight.py",

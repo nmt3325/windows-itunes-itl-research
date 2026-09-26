@@ -25,7 +25,7 @@
   "lock": {
     "path": "scripts/static/public-replay-lock.json",
     "schema": "windows-itunes-itl.public-static-replay-lock.v1",
-    "sha256": "cdb4609db835e2c261fbf8a1dcd63fcdc9261a6f3e4d1d0879deadf69c50bec0"
+    "sha256": "66dec95a473d7bc0bc026dc52794796f320f5493819caee17f30a63af8000851"
   },
   "operations": {
     "ghidra_invocations": 0,
@@ -94,8 +94,10 @@
       "version": null
     },
     "pycryptodome": {
+      "historical_static_execution_linkage_proven": false,
       "staged": false,
-      "version": null
+      "version": "3.23.0",
+      "version_evidence": "contemporaneous_project_environment_pin"
     },
     "unicorn": {
       "staged": false,

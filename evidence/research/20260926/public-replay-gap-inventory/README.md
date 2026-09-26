@@ -16,7 +16,8 @@ Current portability result:
 
 Remaining blockers:
 
-- exact historical `capstone`, `pefile`, and PyCryptodome versions are unknown;
+- exact historical `capstone` and `pefile` versions are unknown;
+- PyCryptodome 3.23.0 is supported by contemporaneous `README.md` and `scripts/experimental-import/requirements.txt` pins, but linkage to every retained static execution is explicitly unproven;
 - proprietary `iTunes.exe`, the Ghidra distribution/project cache, and public/synthetic PE/Ghidra fixtures are unstaged; and
 - the retained public atlas C hashes remain incoherent (`0/47` matches).
 

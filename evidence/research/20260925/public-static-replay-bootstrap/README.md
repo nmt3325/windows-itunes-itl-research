@@ -24,7 +24,7 @@ The preflight also preserves the blockers instead of relabeling them as success:
 
 - the five formerly machine-bound launch/extraction scripts are parameterized in the current public surface;
 - the two formerly timing-dependent retained output surfaces are removed from current generation;
-- historical `capstone`, `pefile`, and PyCryptodome versions are not pinned;
+- historical `capstone` and `pefile` versions are not pinned; PyCryptodome 3.23.0 is contemporaneously pinned, but linkage to every retained static execution is not proven;
 - neither the proprietary module nor the Ghidra distribution/project cache is staged; and
 - 0 of 47 `function-atlas.json` C hashes match the current public C file bytes, despite the retained historical final-QA declaration that all final C was hashed.
 
