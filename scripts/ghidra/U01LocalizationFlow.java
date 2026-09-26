@@ -30,9 +30,9 @@ public class U01LocalizationFlow extends GhidraScript {
     private static final long NEWER_ENTRY_RVA = 0x19fd7c0L;
     private static final long INVALID_ENTRY_RVA = 0x19fd7d0L;
     private static final long POINTER_SLOT_RVA = 0x1949d58L;
-    private static final long SHARED_SERVICE_RVA = 0x211aeb8L;
-    private static final long SERVICE_FACTORY_SLOT_RVA = 0x192f340L;
-    private static final long LOOKUP_SLOT_RVA = 0x19335e8L;
+    private static final long REGISTRATION_DICTIONARY_RVA = 0x211aeb8L;
+    private static final long DICTIONARY_CREATE_MUTABLE_SLOT_RVA = 0x192f340L;
+    private static final long DICTIONARY_ADD_VALUE_SLOT_RVA = 0x192f5e8L;
 
     private static String hex(long value) {
         return String.format(Locale.ROOT, "0x%x", value);
@@ -274,9 +274,9 @@ public class U01LocalizationFlow extends GhidraScript {
         Address newerAddress = toAddr(base + NEWER_ENTRY_RVA);
         Address invalidAddress = toAddr(base + INVALID_ENTRY_RVA);
         Address pointerSlot = toAddr(base + POINTER_SLOT_RVA);
-        Address sharedService = toAddr(base + SHARED_SERVICE_RVA);
-        Address serviceFactorySlot = toAddr(base + SERVICE_FACTORY_SLOT_RVA);
-        Address lookupSlot = toAddr(base + LOOKUP_SLOT_RVA);
+        Address registrationDictionary = toAddr(base + REGISTRATION_DICTIONARY_RVA);
+        Address dictionaryCreateMutableSlot = toAddr(base + DICTIONARY_CREATE_MUTABLE_SLOT_RVA);
+        Address dictionaryAddValueSlot = toAddr(base + DICTIONARY_ADD_VALUE_SLOT_RVA);
         Function wrapper = currentProgram.getFunctionManager().getFunctionAt(wrapperAddress);
         if (wrapper == null) {
             wrapper = currentProgram.getFunctionManager().getFunctionContaining(wrapperAddress);
@@ -299,7 +299,7 @@ public class U01LocalizationFlow extends GhidraScript {
         }
 
         Map<String, Object> root = new LinkedHashMap<>();
-        root.put("schema", "windows-itl.u01-ghidra-localization-flow-20260927.v1");
+        root.put("schema", "windows-itl.u01-ghidra-localization-flow-20260927.v2");
         root.put("classification", "derived static metadata only; no Apple bytes retained");
         Map<String, Object> tool = new LinkedHashMap<>();
         tool.put("name", "Ghidra");
@@ -331,9 +331,9 @@ public class U01LocalizationFlow extends GhidraScript {
         root.put("group_descriptor", addressSummary(descriptorAddress));
         root.put("newer_version_member_entry", addressSummary(newerAddress));
         root.put("invalid_library_member_entry", addressSummary(invalidAddress));
-        root.put("shared_runtime_service_global", addressSummary(sharedService));
-        root.put("service_factory_indirect_slot", addressSummary(serviceFactorySlot));
-        root.put("group_lookup_indirect_slot", addressSummary(lookupSlot));
+        root.put("registration_dictionary_global", addressSummary(registrationDictionary));
+        root.put("dictionary_create_mutable_indirect_slot", addressSummary(dictionaryCreateMutableSlot));
+        root.put("dictionary_add_value_indirect_slot", addressSummary(dictionaryAddValueSlot));
         root.put("instruction_immediate_uses", immediateUses(
             0x1f42L, 0x1f420003L, 0x1f420004L));
 
@@ -348,6 +348,8 @@ public class U01LocalizationFlow extends GhidraScript {
         limits.put("invalid_member_entry_reference_counts", invalidReferenceCounts);
         limits.put("direct_call_reference_to_wrapper_identified",
             ((Number) wrapperReferenceCounts.get("call")).longValue() > 0);
+        limits.put("wrapper_classification",
+            "generated_localization_group_registration_initializer");
         limits.put("parser_result_or_status_comparison_identified", false);
         limits.put("member_3_vs_4_selection_branch_identified", false);
         limits.put("semantic_status_code_claimed", false);
