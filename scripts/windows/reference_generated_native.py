@@ -67,6 +67,80 @@ def run_text(command: list[str], *, timeout: int = 60, cwd: Path | None = None) 
     return {"argv": command, "returncode": process.returncode, "output": process.stdout}
 
 
+def version_facts(path: Path) -> dict:
+    quoted = str(path).replace("'", "''")
+    script = (
+        f"$v=(Get-Item -LiteralPath '{quoted}').VersionInfo; "
+        "[pscustomobject]@{FileVersion=[string]$v.FileVersion;"
+        "ProductVersion=[string]$v.ProductVersion}|ConvertTo-Json -Compress"
+    )
+    command = run_text(["pwsh", "-NoLogo", "-NoProfile", "-Command", script])
+    if command["returncode"]:
+        raise RuntimeError("failed to read iTunes executable version: " + command["output"])
+    try:
+        observed = json.loads(command["output"])
+    except json.JSONDecodeError as exc:
+        raise RuntimeError("invalid iTunes executable version response") from exc
+    return {
+        "file_version": observed.get("FileVersion"),
+        "product_version": observed.get("ProductVersion"),
+        "command": command,
+    }
+
+
+def executable_identity_errors(
+    *,
+    expected_version: str,
+    expected_sha256: str,
+    observed_sha256: str,
+    observed_file_version: str | None,
+    observed_product_version: str | None,
+) -> list[dict]:
+    errors: list[dict] = []
+
+    def mismatch(property_name: str, wanted, observed) -> None:
+        if wanted != observed:
+            errors.append({"property": property_name, "expected": wanted, "actual": observed})
+
+    mismatch("sha256", expected_sha256.lower(), observed_sha256.lower())
+    mismatch("file_version", expected_version, observed_file_version)
+    mismatch("product_version", expected_version, observed_product_version)
+    return errors
+
+
+def validate_executable_identity(path: Path, expected_version: str, expected_sha256: str) -> dict:
+    if not path.is_file():
+        raise RuntimeError(f"installed iTunes executable is missing: {path}")
+    observed_sha256 = sha256_file(path)
+    versions = version_facts(path)
+    errors = executable_identity_errors(
+        expected_version=expected_version,
+        expected_sha256=expected_sha256,
+        observed_sha256=observed_sha256,
+        observed_file_version=versions["file_version"],
+        observed_product_version=versions["product_version"],
+    )
+    identity = {
+        "path": str(path),
+        "sha256": observed_sha256,
+        "file_version": versions["file_version"],
+        "product_version": versions["product_version"],
+        "expected_sha256": expected_sha256.lower(),
+        "expected_version": expected_version,
+        "version_probe": versions["command"],
+        "errors": errors,
+    }
+    if errors:
+        raise RuntimeError("installed iTunes executable identity mismatch: " + json.dumps(errors, ensure_ascii=True))
+    return identity
+
+
+def expected_with_version(expected: dict, version: str) -> dict:
+    projected = dict(expected)
+    projected["version"] = version
+    return projected
+
+
 def require_stopped() -> None:
     import win32api
     import win32process
@@ -302,7 +376,14 @@ def worker(spec_path: Path, output: Path) -> int:
         pythoncom.CoUninitialize()
 
 
-def run_cycle(case: dict, root: Path, case_evidence: Path, cycle_number: int, previous_sha256: str) -> dict:
+def run_cycle(
+    case: dict,
+    native_expected: dict,
+    root: Path,
+    case_evidence: Path,
+    cycle_number: int,
+    previous_sha256: str,
+) -> dict:
     from desktop_probe import snapshot as desktop_snapshot
     from native_driver import wait_ready
 
@@ -336,7 +417,13 @@ def run_cycle(case: dict, root: Path, case_evidence: Path, cycle_number: int, pr
         wait_ready(process, result["ui"])
         settle_no_unexpected_modal(process, result["ui"])
         result["post_readiness_settle_seconds"] = 3.0
-        spec = {"schema_version": 1, "case": case["name"], "cycle": cycle_number, "expected": case["expected"]}
+        spec = {
+            "schema_version": 2,
+            "case": case["name"],
+            "cycle": cycle_number,
+            "expected_input": case["expected"],
+            "expected": native_expected,
+        }
         spec_path = cycle / "worker-spec.json"
         output_path = cycle / "com.json"
         write_json(spec_path, spec)
@@ -381,7 +468,7 @@ def run_cycle(case: dict, root: Path, case_evidence: Path, cycle_number: int, pr
         shutil.copy2(live, saved)
         result["saved"] = file_facts(saved)
         result["reference_summary"] = reference_summary(saved)
-        result["reference_summary_errors"] = reference_summary_errors(case["expected"], result["reference_summary"])
+        result["reference_summary_errors"] = reference_summary_errors(native_expected, result["reference_summary"])
         if result["reference_summary_errors"]:
             raise RuntimeError("native-saved ITL failed independent semantic identity gates")
         result["status"] = "passed"
@@ -404,7 +491,14 @@ def run_cycle(case: dict, root: Path, case_evidence: Path, cycle_number: int, pr
     return result
 
 
-def run_case(case: dict, root_parent: Path, evidence: Path, cycles: int, profile: Path) -> dict:
+def run_case(
+    case: dict,
+    root_parent: Path,
+    evidence: Path,
+    cycles: int,
+    profile: Path,
+    expected_native_version: str,
+) -> dict:
     if not re.fullmatch(r"[A-Za-z0-9_-]+", case["name"]):
         raise ValueError("unsafe case name")
     candidate = (REPO_ROOT / case["candidate"]).resolve()
@@ -420,24 +514,29 @@ def run_case(case: dict, root_parent: Path, evidence: Path, cycles: int, profile
     (case_root / OWNED_MARKER).write_text("owned disposable GHA reference-writer test\n", encoding="ascii")
     live = live_dir / "iTunes Library.itl"
     shutil.copy2(candidate, live)
+    native_expected = expected_with_version(case["expected"], expected_native_version)
     result = {
         "name": case["name"],
         "candidate": file_facts(candidate),
         "candidate_relative_path": case["candidate"],
         "expected": case["expected"],
+        "expected_input": case["expected"],
+        "expected_native": native_expected,
         "started_utc": utc_now(),
         "cycles_requested": cycles,
         "cycles": [],
     }
     result["candidate_reference_summary"] = reference_summary(candidate)
-    result["candidate_reference_summary_errors"] = reference_summary_errors(case["expected"], result["candidate_reference_summary"])
+    result["candidate_reference_summary_errors"] = reference_summary_errors(
+        case["expected"], result["candidate_reference_summary"]
+    )
     if result["candidate_reference_summary_errors"]:
         raise RuntimeError("pinned candidate disagrees with its native-test manifest")
     try:
         result["profile_junction_create"] = create_profile_junction(profile, live_dir)
         previous_sha256 = case["sha256"]
         for cycle_number in range(1, cycles + 1):
-            cycle = run_cycle(case, case_root, case_evidence, cycle_number, previous_sha256)
+            cycle = run_cycle(case, native_expected, case_root, case_evidence, cycle_number, previous_sha256)
             result["cycles"].append(cycle)
             write_json(case_evidence / "result.json", result)
             if cycle["status"] != "passed":
@@ -492,8 +591,15 @@ def run(args: argparse.Namespace) -> int:
         raise RuntimeError("root parent and evidence directory must both be new")
     if not manifest.is_file():
         raise RuntimeError("native case manifest is missing")
-    if not ITUNES_EXE.is_file() or sha256_file(ITUNES_EXE) != EXPECTED_ITUNES_SHA256:
-        raise RuntimeError("installed iTunes executable is not the pinned build")
+    if not re.fullmatch(r"[0-9]+(?:\.[0-9]+){3}", args.expected_executable_version):
+        raise RuntimeError("expected executable version must contain four numeric components")
+    if not re.fullmatch(r"[0-9a-fA-F]{64}", args.expected_executable_sha256):
+        raise RuntimeError("expected executable SHA-256 must be exactly 64 hexadecimal characters")
+    if not re.fullmatch(r"[0-9]+(?:\.[0-9]+){3}", args.expected_native_version):
+        raise RuntimeError("expected native version must contain four numeric components")
+    itunes_identity = validate_executable_identity(
+        ITUNES_EXE, args.expected_executable_version, args.expected_executable_sha256
+    )
     require_stopped()
     profile = Path.home() / "Music" / "iTunes"
     if profile.exists() or profile.is_symlink():
@@ -510,15 +616,20 @@ def run(args: argparse.Namespace) -> int:
         "root_parent": str(root_parent),
         "profile_path": str(profile),
         "manifest": {"path": str(manifest), "sha256": sha256_file(manifest)},
+        "qualification_parameters": {
+            "expected_executable_version": args.expected_executable_version,
+            "expected_executable_sha256": args.expected_executable_sha256.lower(),
+            "expected_native_version": args.expected_native_version,
+            "input_versions": sorted({case["expected"]["version"] for case in cases}),
+        },
+        "invocation": [str(value) for value in sys.argv],
         "environment": {
             "platform": platform.platform(),
             "python": sys.version,
             "culture": locale.getlocale(),
             "timezone": run_text(["tzutil", "/g"]),
             "itunes": {
-                "path": str(ITUNES_EXE),
-                "sha256": sha256_file(ITUNES_EXE),
-                "expected_version": EXPECTED_ITUNES_VERSION,
+                **itunes_identity,
                 "authenticode": authenticode(ITUNES_EXE),
             },
         },
@@ -535,7 +646,9 @@ def run(args: argparse.Namespace) -> int:
     write_json(evidence / "summary.json", summary)
     for case in cases:
         try:
-            outcome = run_case(case, root_parent, evidence, args.cycles, profile)
+            outcome = run_case(
+                case, root_parent, evidence, args.cycles, profile, args.expected_native_version
+            )
         except Exception as exc:
             outcome = {
                 "name": case.get("name"),
@@ -569,6 +682,9 @@ def main(argv: list[str] | None = None) -> int:
     native.add_argument("--root-parent", type=Path, required=True)
     native.add_argument("--evidence", type=Path, required=True)
     native.add_argument("--cycles", type=int, default=2)
+    native.add_argument("--expected-executable-version", default=EXPECTED_ITUNES_VERSION)
+    native.add_argument("--expected-executable-sha256", default=EXPECTED_ITUNES_SHA256)
+    native.add_argument("--expected-native-version", default=EXPECTED_ITUNES_VERSION)
     native.add_argument("--confirm-disposable", action="store_true")
     worker_parser = subparsers.add_parser("_worker", help=argparse.SUPPRESS)
     worker_parser.add_argument("--spec", type=Path, required=True)
