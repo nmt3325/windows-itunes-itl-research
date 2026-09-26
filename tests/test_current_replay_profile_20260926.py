@@ -32,3 +32,15 @@ def test_windows_synthetic_pe_probe_validates_portable_path_without_itunes_claim
  assert probe['itunes_binary_used'] is False
  assert probe['historical_analysis_reproduced'] is False
  assert probe['native_acceptance'] is False
+
+def test_synthetic_ghidra_headless_receipt_is_successful_and_claim_limited():
+ report=json.loads((ROOT/'evidence/research/20260926/current-replay-profile/report.json').read_text())
+ ghidra=report['windows_validation']['synthetic_ghidra_headless']
+ assert ghidra['status']=='passed' and ghidra['ghidra_version']=='12.1.3'
+ assert ghidra['fixture_is_apple_itunes'] is False and ghidra['apple_itunes_binary_reads']==0
+ assert ghidra['parameterized_run_headless_succeeded'] is True and ghidra['cookie_rva_argument']=='none'
+ assert (ghidra['targets'],ghidra['decompilations_completed'],ghidra['decompilations_failed'])==(1,1,0)
+ assert ghidra['output_files']==['00001000.c','summary.tsv']
+ assert ghidra['proprietary_binary_reads_observed']==9
+ assert ghidra['historical_binary_analysis_reproduced'] is False
+ assert ghidra['ghidra_historical_project_recreated'] is False

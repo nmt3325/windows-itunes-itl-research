@@ -156,6 +156,8 @@ A later deterministic [public replay gap inventory](evidence/research/20260926/p
 
 A separate current Windows/CPython 3.12 replay profile now pins Capstone 5.0.9, pefile 2024.8.26, PyCryptodome 3.23.0, and Unicorn 2.1.4 wheel hashes. A clean Windows Server 2025 / CPython 3.12.10 runner completed a hash-checked install plus four Python help checks and PowerShell parsing; it also exposed Capstone distribution `5.0.9` versus module `__version__` `5.0.7`, which is retained explicitly. The parameterized `pe_probe.py` also completed against a fresh temporary MinGW x64 PE fixture and wrote all four expected output files. This is current plumbing validation on a non-iTunes fixture; it is not historical analysis and does not recover the unknown historical Capstone/pefile environment.
 
+A pinned Ghidra 12.1.3/JDK 21 synthetic headless run also completed one target through the parameterized PowerShell/Java path with the iTunes-specific cookie fixup explicitly disabled. The fixture was a fresh non-Apple PE merely named `iTunes.exe`; Ghidra read nine proprietary host-system DLLs during import, but read/launched no Apple iTunes binary and did not recreate the historical project.
+
 Closure still requires a clean disposable bootstrap with complete dependency pins, lawful public/synthetic inputs, internally coherent provenance, and end-to-end Ghidra/Unicorn replay receipts without private artifacts. A clean preflight or gap inventory is not historical binary-analysis reproduction or native acceptance, so U-18 stays open.
 
 ## Completion policy
