@@ -242,6 +242,19 @@ validation:
     atlas_c_hash_matches: 0
     atlas_c_hash_mismatches: 47
     unresolved_item: U-18
+  atlas_c_hash_history_audit:
+    status: completed_negative_provenance_audit_u18_open
+    focused_tests_passed: 2
+    focused_tests_failed: 0
+    current_hash_matches: 0
+    introduction_commit_hash_matches: 0
+    atlas_hashes_matching_any_reachable_decompiled_c_blob: 0
+    historical_c_bytes_recovered: false
+    proprietary_binary_reads: 0
+    ghidra_invocations: 0
+    unicorn_invocations: 0
+    native_acceptance_operations: 0
+    unresolved_item: U-18
   spec_consistency: passed
   delivery_manifest: verified
   root_corpus_manifest:

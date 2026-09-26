@@ -1,0 +1,35 @@
+{
+  "atlas": {
+    "path": "evidence/static/function-atlas.json",
+    "rows": 47,
+    "sha256": "91688c66cdb177d7e2d1a2f20ca84b42cdaf1e898ca0851382996630f62ad373"
+  },
+  "atlas_hashes_matching_any_reachable_decompiled_c_blob": 0,
+  "atlas_hashes_without_reachable_decompiled_c_blob": 47,
+  "claim_boundaries": {
+    "historical_binary_analysis_reproduced": false,
+    "historical_c_bytes_recovered": false,
+    "independent_reimplementation_passed": false,
+    "native_application_acceptance": false,
+    "percentage_complete": null,
+    "u18_closed": false,
+    "universal_itl_support": false
+  },
+  "conclusion": "No retained atlas C hash matches current C bytes, introduction-commit C bytes, or any reachable Git C blob; the historical hashed C bytes remain unavailable.",
+  "current_c_hash_matches": 0,
+  "current_c_hash_mismatches": 47,
+  "introduction_commit": "b256062c2494a2b6888b5c81e9e99e80893c4f69",
+  "introduction_commit_c_hash_matches": 0,
+  "introduction_commit_c_hash_mismatches": 47,
+  "operations": {
+    "ghidra": 0,
+    "itunes": 0,
+    "native_acceptance": 0,
+    "network": 0,
+    "proprietary_binary_reads": 0,
+    "unicorn": 0
+  },
+  "reachable_decompiled_c_blob_count": 47,
+  "schema": "windows-itunes-itl.atlas-c-hash-history-audit.v1",
+  "status": "completed_negative_provenance_audit_u18_open"
+}
