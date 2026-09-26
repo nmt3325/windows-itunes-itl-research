@@ -1,19 +1,23 @@
 # Public replay gap inventory (2026-09-26)
 
-This deterministic U-18 inventory makes the retained public/static replay blockers machine-checkable without claiming historical replay.
+This deterministic U-18 inventory makes current public/static replay portability and the remaining blockers machine-checkable without claiming historical replay.
 
 - Generator: `scripts/static/public_replay_gap_inventory.py`
 - Report: `evidence/research/20260926/public-replay-gap-inventory/report.json`
-- Focused tests: `tests/test_public_replay_gap_inventory_20260926.py`
+- Tests: `tests/test_public_replay_gap_inventory_20260926.py`
+- Scope: public repository files only
 
-The inventory reads only repository-local public files, performs zero network operations, reads zero proprietary binaries, performs zero Ghidra/Unicorn/iTunes invocations, and records no host absolute paths or timestamps. It keeps `u18_closed=false`, `historical_binary_analysis_reproduced=false`, `ghidra_end_to_end_reproduced=false`, `unicorn_original_machine_code_reproduced=false`, `native_application_acceptance=false`, `independent_reimplementation_passed=false`, `universal_itl_support=false`, and `percentage_complete=null`.
+Current portability result:
 
-It inventories:
+- all five formerly machine-bound Python/PowerShell launch and extraction scripts now accept repository-relative or explicit input/tool/output paths;
+- current machine-bound script count is `0`, compared with the preserved pre-parameterization baseline of `5`;
+- the two timing-dependent output surfaces were removed, so the current timing-dependent count is `0` versus baseline `2`; and
+- Python replay entry points expose `--help` before optional analysis dependencies are imported.
 
-- five machine-bound historical launch/extraction scripts;
-- two timing-dependent historical outputs;
-- missing exact historical `capstone`, `pefile`, and PyCryptodome versions;
-- unstaged proprietary `iTunes.exe`, Ghidra distribution/project cache, and missing public/synthetic PE/Ghidra fixtures;
-- the retained `0/47` public atlas C-hash mismatch.
+Remaining blockers:
 
-U-18 remains open. Closure still requires lawful inputs, exact dependency pins, staged/recreated Ghidra state, coherent provenance, and end-to-end Ghidra/Unicorn replay receipts.
+- exact historical `capstone`, `pefile`, and PyCryptodome versions are unknown;
+- proprietary `iTunes.exe`, the Ghidra distribution/project cache, and public/synthetic PE/Ghidra fixtures are unstaged; and
+- the retained public atlas C hashes remain incoherent (`0/47` matches).
+
+The inventory and tests perform zero network, proprietary-binary, Ghidra, Unicorn, iTunes, or native-acceptance operations. U-18 remains open. Closure still requires lawful inputs, exact historical dependency pins, staged/recreated Ghidra state, coherent provenance, and end-to-end Ghidra/Unicorn replay receipts.

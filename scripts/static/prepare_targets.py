@@ -1,10 +1,14 @@
-import json,struct,sqlite3,bisect
+import argparse,json,struct,sqlite3,bisect
 from pathlib import Path
 from collections import defaultdict
+_parser=argparse.ArgumentParser()
+_parser.add_argument('--root',type=Path,default=Path(__file__).resolve().parents[2])
+_parser.add_argument('--binary',type=Path,required=True)
+_parser.add_argument('--output-dir',type=Path)
+_args=_parser.parse_args();ROOT=_args.root.resolve();OUT=(_args.output_dir or ROOT/'reports/static').resolve();OUT.mkdir(parents=True,exist_ok=True)
 from capstone import Cs,CS_ARCH_X86,CS_MODE_64
 import pefile
-ROOT=Path(r'D:\a\_temp\gha-mcp\WINDOWS_RESEARCH_RUN\work\itl');OUT=ROOT/'reports'/'static'
-pe=pefile.PE(r'C:\Program Files\iTunes\iTunes.exe');base=pe.OPTIONAL_HEADER.ImageBase
+pe=pefile.PE(str(_args.binary.resolve()));base=pe.OPTIONAL_HEADER.ImageBase
 fs=json.loads((OUT/'pdata.json').read_text());by_start={s:(s,e,u) for s,e,u in fs};owners={};groups=defaultdict(list)
 def owner(t,depth=0):
  s,e,u=t

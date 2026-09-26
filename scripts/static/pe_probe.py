@@ -1,10 +1,13 @@
-import bisect, hashlib, json, re, sqlite3, struct, time
+import argparse, bisect, hashlib, json, re, sqlite3, struct
 from pathlib import Path
+_parser=argparse.ArgumentParser()
+_parser.add_argument('--root',type=Path,default=Path(__file__).resolve().parents[2])
+_parser.add_argument('--binary',type=Path,required=True)
+_parser.add_argument('--output-dir',type=Path)
+_args=_parser.parse_args();ROOT=_args.root.resolve();OUT=(_args.output_dir or ROOT/'reports/static').resolve();OUT.mkdir(parents=True,exist_ok=True)
 import pefile
 from capstone import Cs, CS_ARCH_X86, CS_MODE_64
-ROOT=Path(r'D:\a\_temp\gha-mcp\WINDOWS_RESEARCH_RUN\work\itl')
-OUT=ROOT/'reports'/'static'
-p=Path(r'C:\Program Files\iTunes\iTunes.exe')
+p=_args.binary.resolve()
 b=p.read_bytes(); pe=pefile.PE(data=b); base=pe.OPTIONAL_HEADER.ImageBase
 funcs=sorted((x.struct.BeginAddress,x.struct.EndAddress,x.struct.UnwindData) for x in pe.DIRECTORY_ENTRY_EXCEPTION)
 starts=[x[0] for x in funcs]
@@ -44,7 +47,7 @@ print('IMPORTANT_IMPORTS',json.dumps(important),flush=True)
 db=sqlite3.connect(OUT/'xrefs.sqlite'); db.executescript('CREATE TABLE refs(src INTEGER, fun INTEGER, kind TEXT, dst INTEGER, mnemonic TEXT, op TEXT); CREATE TABLE functions(start INTEGER PRIMARY KEY,end INTEGER,unwind INTEGER);')
 db.executemany('INSERT INTO functions VALUES(?,?,?)',funcs)
 md=Cs(CS_ARCH_X86,CS_MODE_64); md.skipdata=True
-rows=[]; n=0; t=time.time(); finds=[]
+rows=[]; n=0; finds=[]
 rip=re.compile(r'\[rip(?: ([-+]) (0x[0-9a-f]+))?\]')
 for s in pe.sections:
  if not s.Characteristics & 0x20000000: continue
@@ -64,8 +67,8 @@ for s in pe.sections:
     finds.append({'src':hex(src),'fun':hex(ff) if ff else None,'target':important[dst],'mn':mn,'op':op})
    if len(rows)>=10000:db.executemany('INSERT INTO refs VALUES(?,?,?,?,?,?)',rows);rows=[]
  if rows:db.executemany('INSERT INTO refs VALUES(?,?,?,?,?,?)',rows);rows=[]
- print('SCANNED',s.Name,n,'instructions',round(time.time()-t,2),'sec',flush=True)
+ print('SCANNED',s.Name,n,'instructions',flush=True)
 db.executescript('CREATE INDEX refs_dst ON refs(dst); CREATE INDEX refs_fun ON refs(fun);');db.commit();db.close()
 (OUT/'important_xrefs.json').write_text(json.dumps(finds,indent=2),encoding='utf-8')
 print('IMPORTANT_XREFS',json.dumps(finds),flush=True)
-print('DONE',n,'instructions',round(time.time()-t,2),'sec',flush=True)
+print('DONE',n,'instructions',flush=True)

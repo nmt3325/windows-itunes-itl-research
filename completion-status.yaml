@@ -223,11 +223,13 @@ validation:
     unresolved_item: U-18
   public_replay_gap_inventory:
     status: completed_public_gap_inventory_u18_open
-    focused_tests_passed: 4
+    focused_tests_passed: 5
     focused_tests_failed: 0
     historical_scripts_inventoried: 6
-    machine_bound_scripts: 5
-    timing_dependent_scripts: 2
+    pre_parameterization_machine_bound_scripts: 5
+    pre_parameterization_timing_dependent_scripts: 2
+    machine_bound_scripts: 0
+    timing_dependent_scripts: 0
     missing_exact_python_dependency_versions: 3
     proprietary_binary_reads: 0
     ghidra_invocations: 0

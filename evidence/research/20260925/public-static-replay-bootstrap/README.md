@@ -22,8 +22,8 @@ The public lock verifies the current bytes of 47 retained decompiler outputs, 47
 
 The preflight also preserves the blockers instead of relabeling them as success:
 
-- all five historical static launch/extraction scripts outside the Ghidra Java post-script retain machine-specific absolute paths;
-- two historical generators retain timing-dependent report fields;
+- the five formerly machine-bound launch/extraction scripts are parameterized in the current public surface;
+- the two formerly timing-dependent retained output surfaces are removed from current generation;
 - historical `capstone`, `pefile`, and PyCryptodome versions are not pinned;
 - neither the proprietary module nor the Ghidra distribution/project cache is staged; and
 - 0 of 47 `function-atlas.json` C hashes match the current public C file bytes, despite the retained historical final-QA declaration that all final C was hashed.

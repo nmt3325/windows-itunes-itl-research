@@ -3,14 +3,21 @@ AES core and security-cookie instructions are original. Imported VCRUNTIME memmo
 Reader tests model only two buffered file I/O helpers with an in-memory byte stream.
 This is NOT native iTunes acceptance and does not exercise UI/COM/DRM/cloud/device operations.
 """
+import argparse
 from pathlib import Path
-import sys,struct,json,hashlib,time
-ROOT=Path(r'D:\a\_temp\gha-mcp\WINDOWS_RESEARCH_RUN\work\itl');sys.path.insert(0,str(ROOT/'tools/static/pylibs'))
+import sys,struct,json,hashlib
+_parser=argparse.ArgumentParser(description=__doc__)
+_parser.add_argument('--root',type=Path,default=Path(__file__).resolve().parents[2])
+_parser.add_argument('--binary',type=Path,required=True)
+_parser.add_argument('--output-dir',type=Path)
+_parser.add_argument('--pylibs',type=Path)
+_args=_parser.parse_args();ROOT=_args.root.resolve();OUTPUT=(_args.output_dir or ROOT/'reports/static').resolve();OUTPUT.mkdir(parents=True,exist_ok=True)
+sys.path.insert(0,str((_args.pylibs or ROOT/'tools/static/pylibs').resolve()))
 import pefile,unicorn
 from unicorn import Uc,UC_ARCH_X86,UC_MODE_64,UC_HOOK_CODE
 from unicorn.x86_const import *
 from Crypto.Cipher import AES
-BINARY=Path(r'C:\Program Files\iTunes\iTunes.exe');SHA='30d91209b5d81c47bbad2da9d89764fcab08bf5cd9af1a9571668001376c5d7d'
+BINARY=_args.binary.resolve();SHA='30d91209b5d81c47bbad2da9d89764fcab08bf5cd9af1a9571668001376c5d7d'
 assert hashlib.sha256(BINARY.read_bytes()).hexdigest()==SHA
 pe=pefile.PE(str(BINARY),fast_load=True);BASE=pe.OPTIONAL_HEADER.ImageBase;uc=Uc(UC_ARCH_X86,UC_MODE_64)
 uc.mem_map(BASE,(pe.OPTIONAL_HEADER.SizeOfImage+4095)&~4095);uc.mem_write(BASE,pe.get_memory_mapped_image())
@@ -52,7 +59,7 @@ def memmove_model(uc,address,size,user):
  sp=uc.reg_read(UC_X86_REG_RSP);target=u64(sp);uc.reg_write(UC_X86_REG_RAX,dest);uc.reg_write(UC_X86_REG_RSP,sp+8);uc.reg_write(UC_X86_REG_RIP,target)
 uc.hook_add(UC_HOOK_CODE,memmove_model,begin=BASE+0x1867875,end=BASE+0x1867875)
 
-start=time.time();results=[];result={'kind':'offline_unicorn_original_machine_code','module':'iTunes.exe','sha256':SHA,'unicorn':unicorn.__version__,'native_iTunes_acceptance':False,'host_executable_loaded':False,'binary_patches':[],'tests':results}
+results=[];result={'kind':'offline_unicorn_original_machine_code','module':'iTunes.exe','sha256':SHA,'unicorn':unicorn.__version__,'native_iTunes_acceptance':False,'host_executable_loaded':False,'binary_patches':[],'tests':results}
 try:
  k=bytes(range(16));plain=bytes.fromhex('00112233445566778899aabbccddeeff');expected=bytes.fromhex('69c4e0d86a7b0430d8cdb78070b4c55a')
  ret,out,n=crypt(plain,k,1);assert (ret,out,n)==(0,expected,16),(ret,out.hex(),n)
@@ -113,5 +120,5 @@ try:
 except Exception as ex:
  result['success']=False;result['error']=repr(ex);raise
 finally:
- result['elapsed_s']=round(time.time()-start,3);(ROOT/'reports/static/offline-emulation.json').write_text(json.dumps(result,indent=2))
+ (OUTPUT/'offline-emulation.json').write_text(json.dumps(result,indent=2)+'\n',encoding='utf-8')
  print('SAVED offline-emulation.json tests=',len(results),'success=',result.get('success'),flush=True)

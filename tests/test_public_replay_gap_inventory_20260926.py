@@ -57,23 +57,22 @@ def test_historical_script_gap_inventory_matches_retained_blockers():
     report = gap_inventory.build_inventory(ROOT)
     summary = report["historical_script_summary"]
     assert summary["script_count"] == 6
-    assert summary["machine_bound_script_count"] == 5
-    assert summary["timing_dependent_script_count"] == 2
-    assert summary["matches_retained_preflight_counts"] == {
-        "machine_bound": True,
-        "timing_dependent": True,
+    assert summary["machine_bound_script_count"] == 0
+    assert summary["timing_dependent_script_count"] == 0
+    assert summary["machine_bound_scripts"] == []
+    assert summary["timing_dependent_scripts"] == []
+    assert summary["pre_parameterization_baseline"] == {
+        "machine_bound_script_count": 5,
+        "timing_dependent_script_count": 2,
     }
-    assert summary["machine_bound_scripts"] == [
-        "scripts/static/offline_aes_proof.py",
-        "scripts/static/pe_probe.py",
-        "scripts/static/prepare_targets.py",
-        "scripts/static/rebuild_targets.py",
-        "scripts/static/run-headless.ps1",
-    ]
-    assert summary["timing_dependent_scripts"] == [
-        "scripts/static/offline_aes_proof.py",
-        "scripts/static/pe_probe.py",
-    ]
+    assert summary["portability_improvement"] == {
+        "machine_bound_scripts_removed": 5,
+        "timing_dependent_scripts_removed": 2,
+        "current_counts_match_regenerated_preflight": {
+            "machine_bound": True,
+            "timing_dependent": True,
+        },
+    }
     by_path = {row["path"]: row for row in report["historical_scripts"]}
     assert by_path["scripts/static/offline_aes_proof.py"]["non_stdlib_import_roots"] == ["Crypto", "pefile", "unicorn"]
     assert by_path["scripts/static/pe_probe.py"]["non_stdlib_import_roots"] == ["capstone", "pefile"]
@@ -124,3 +123,23 @@ def test_cli_check_report_and_output(tmp_path: Path):
     assert result.returncode == 0, result.stderr
     assert "PUBLIC_REPLAY_GAP_INVENTORY_OK" in result.stdout
     assert output.read_bytes() == (ROOT / REPORT_REL).read_bytes()
+
+
+def test_parameterized_python_replay_scripts_expose_help_without_optional_dependencies():
+    for relative in (
+        "scripts/static/offline_aes_proof.py",
+        "scripts/static/pe_probe.py",
+        "scripts/static/prepare_targets.py",
+        "scripts/static/rebuild_targets.py",
+    ):
+        result = subprocess.run(
+            [sys.executable, "-B", str(ROOT / relative), "--help"],
+            cwd=ROOT,
+            check=False,
+            capture_output=True,
+            text=True,
+            timeout=30,
+        )
+        assert result.returncode == 0, (relative, result.stderr)
+        assert "--binary" in result.stdout
+        assert "--output-dir" in result.stdout

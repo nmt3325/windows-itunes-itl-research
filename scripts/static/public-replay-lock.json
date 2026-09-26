@@ -548,18 +548,18 @@
     },
     {
       "path": "scripts/static/offline_aes_proof.py",
-      "bytes": 9526,
-      "sha256": "646e9dd36ac55b823ac9d15d53ff0a6529335b705892c2491226dfc829203a51"
+      "bytes": 9865,
+      "sha256": "230cba5a9c225b9a443b332c8c816cd1fb7e13bff7d6c50af0ff7693ceaa84f6"
     },
     {
       "path": "scripts/static/pe_probe.py",
-      "bytes": 4536,
-      "sha256": "d8d970f3ddf2ba7c866be62c4eca34e861a89fe2a821f9f000d9da4ce68a209e"
+      "bytes": 4727,
+      "sha256": "97e35dcc4ab530ae0c2346d604a8b9454e315822f585a9d320904ac3e1c1e53a"
     },
     {
       "path": "scripts/static/prepare_targets.py",
-      "bytes": 2678,
-      "sha256": "af6083bfa8fd7f29a99e672c81fb10ed7b066a933a3cdeee4d5f51a930479b1d"
+      "bytes": 2958,
+      "sha256": "dd54c4f1e4a59f3826b7af6c249a3cd5426ad44db415507cb4fc3c117fe3464d"
     },
     {
       "path": "scripts/static/public_replay_preflight.py",
@@ -568,13 +568,13 @@
     },
     {
       "path": "scripts/static/rebuild_targets.py",
-      "bytes": 2929,
-      "sha256": "babe0c6378536fc877aa47ad4dc15ea3164cd61332415f11a8a5d685f91c1533"
+      "bytes": 3224,
+      "sha256": "e92ad66c19cf2c44eed58def53e6339de137bc3129869a703c038f5d5a29acd9"
     },
     {
       "path": "scripts/static/run-headless.ps1",
-      "bytes": 1549,
-      "sha256": "ad937e4d7435ebf2c81ec59a4800af0dd967177df39461966771fb83892a00d6"
+      "bytes": 1895,
+      "sha256": "5112ec32e9eb6d1973454365c63a792cd904271778c2ad2f2a7c83015bc49944"
     }
   ],
   "expected_retained_findings": {
@@ -588,8 +588,8 @@
     "asm_identity_headers_mismatching": 0,
     "offline_test_records": 41,
     "offline_tests_passing": 41,
-    "historical_scripts_with_absolute_paths": 5,
-    "historical_scripts_with_timing_fields": 2
+    "historical_scripts_with_absolute_paths": 0,
+    "historical_scripts_with_timing_fields": 0
   },
   "known_blockers": [
     {
@@ -605,8 +605,8 @@
       "description": "Historical capstone, pefile, and PyCryptodome versions were not recorded."
     },
     {
-      "id": "historical_scripts_machine_bound",
-      "description": "Five historical launch or extraction scripts retain machine-specific absolute paths."
+      "id": "historical_scripts_portability_improved_u18_open",
+      "description": "Five historical scripts are now parameterized and retained timing fields are removed, but lawful inputs, exact historical dependencies, and recreated analysis state remain unavailable."
     },
     {
       "id": "retained_atlas_c_hashes_incoherent",

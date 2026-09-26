@@ -15,7 +15,7 @@
       "proprietary_module_not_staged",
       "ghidra_distribution_and_project_not_staged",
       "python_dependency_versions_incomplete",
-      "historical_scripts_machine_bound",
+      "historical_scripts_portability_improved_u18_open",
       "retained_atlas_c_hashes_incoherent"
     ],
     "ghidra_end_to_end_reproduced": false,
@@ -25,7 +25,7 @@
   "lock": {
     "path": "scripts/static/public-replay-lock.json",
     "schema": "windows-itunes-itl.public-static-replay-lock.v1",
-    "sha256": "c640a4fbc4450def54a8f4446dcc4fb1d316750b3a454d50e66df97994ba6d89"
+    "sha256": "cdb4609db835e2c261fbf8a1dcd63fcdc9261a6f3e4d1d0879deadf69c50bec0"
   },
   "operations": {
     "ghidra_invocations": 0,
@@ -36,10 +36,10 @@
     "unicorn_invocations": 0
   },
   "public_surface": {
-    "bytes": 1429913,
+    "bytes": 1431364,
     "file_count": 108,
     "status": "verified_against_lock",
-    "tree_sha256": "5d6e4867e44b7cf097db62a59435f88aa649da95553a6232237f1ef0ba8e4489"
+    "tree_sha256": "8a56fc94053ada2040ec715f61a2eaa196b98045ec9f2ff67193ff4c6aeb309a"
   },
   "retained_evidence": {
     "current_public_atlas_c_hashes_coherent": false,
@@ -49,28 +49,19 @@
       "atlas_c_hash_matches": 0,
       "atlas_c_hash_mismatches": 47,
       "atlas_rows": 47,
-      "historical_scripts_with_absolute_paths": 5,
-      "historical_scripts_with_timing_fields": 2,
+      "historical_scripts_with_absolute_paths": 0,
+      "historical_scripts_with_timing_fields": 0,
       "offline_test_records": 41,
       "offline_tests_passing": 41,
       "summary_completed": 47,
       "summary_rows": 47,
       "target_rows": 47
     },
-    "machine_bound_scripts": [
-      "scripts/static/offline_aes_proof.py",
-      "scripts/static/pe_probe.py",
-      "scripts/static/prepare_targets.py",
-      "scripts/static/rebuild_targets.py",
-      "scripts/static/run-headless.ps1"
-    ],
+    "machine_bound_scripts": [],
     "retained_final_qa_declares_all_c_hashed": true,
     "status": "blocked_for_historical_replay",
     "target_summary_atlas_alignment": true,
-    "timing_dependent_scripts": [
-      "scripts/static/offline_aes_proof.py",
-      "scripts/static/pe_probe.py"
-    ]
+    "timing_dependent_scripts": []
   },
   "schema": "windows-itunes-itl.public-static-replay-report.v1",
   "scope": "public_retained_static_surface_only",

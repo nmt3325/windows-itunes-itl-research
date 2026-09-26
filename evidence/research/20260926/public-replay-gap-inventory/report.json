@@ -85,7 +85,7 @@
       "proprietary_module_not_staged",
       "ghidra_distribution_and_project_not_staged",
       "python_dependency_versions_incomplete",
-      "historical_scripts_machine_bound",
+      "historical_scripts_portability_improved_u18_open",
       "retained_atlas_c_hashes_incoherent"
     ],
     "ghidra_end_to_end_reproduced": false,
@@ -93,167 +93,99 @@
     "unicorn_original_machine_code_reproduced": false
   },
   "historical_script_summary": {
-    "machine_bound_script_count": 5,
-    "machine_bound_scripts": [
-      "scripts/static/offline_aes_proof.py",
-      "scripts/static/pe_probe.py",
-      "scripts/static/prepare_targets.py",
-      "scripts/static/rebuild_targets.py",
-      "scripts/static/run-headless.ps1"
-    ],
-    "matches_retained_preflight_counts": {
-      "machine_bound": true,
-      "timing_dependent": true
+    "machine_bound_script_count": 0,
+    "machine_bound_scripts": [],
+    "portability_improvement": {
+      "current_counts_match_regenerated_preflight": {
+        "machine_bound": true,
+        "timing_dependent": true
+      },
+      "machine_bound_scripts_removed": 5,
+      "timing_dependent_scripts_removed": 2
+    },
+    "pre_parameterization_baseline": {
+      "machine_bound_script_count": 5,
+      "timing_dependent_script_count": 2
     },
     "script_count": 6,
-    "timing_dependent_script_count": 2,
-    "timing_dependent_scripts": [
-      "scripts/static/offline_aes_proof.py",
-      "scripts/static/pe_probe.py"
-    ]
+    "timing_dependent_script_count": 0,
+    "timing_dependent_scripts": []
   },
   "historical_scripts": [
     {
-      "bytes": 9526,
-      "has_machine_bound_windows_paths": true,
-      "has_timing_markers": true,
-      "machine_bound_windows_path_line_count": 2,
-      "machine_bound_windows_path_lines": [
-        {
-          "line": 8,
-          "text": "ROOT=Path(r'D:\\a\\_temp\\gha-mcp\\WINDOWS_RESEARCH_RUN\\work\\itl');sys.path.insert(0,str(ROOT/'tools/static/pylibs'))"
-        },
-        {
-          "line": 13,
-          "text": "BINARY=Path(r'C:\\Program Files\\iTunes\\iTunes.exe');SHA='30d91209b5d81c47bbad2da9d89764fcab08bf5cd9af1a9571668001376c5d7d'"
-        }
-      ],
+      "bytes": 9865,
+      "has_machine_bound_windows_paths": false,
+      "has_timing_markers": false,
+      "machine_bound_windows_path_line_count": 0,
+      "machine_bound_windows_path_lines": [],
       "non_stdlib_import_roots": [
         "Crypto",
         "pefile",
         "unicorn"
       ],
       "path": "scripts/static/offline_aes_proof.py",
-      "sha256": "646e9dd36ac55b823ac9d15d53ff0a6529335b705892c2491226dfc829203a51",
+      "sha256": "230cba5a9c225b9a443b332c8c816cd1fb7e13bff7d6c50af0ff7693ceaa84f6",
       "statically_visible_output_references": [],
-      "timing_marker_line_count": 2,
-      "timing_marker_lines": [
-        {
-          "line": 55,
-          "text": "start=time.time();results=[];result={'kind':'offline_unicorn_original_machine_code','module':'iTunes.exe','sha256':SHA,'unicorn':unicorn.__version__,'native_iTunes_acceptance':False,'host_executable_loaded':False,'binary_patches':[],'tests':results}"
-        },
-        {
-          "line": 116,
-          "text": " result['elapsed_s']=round(time.time()-start,3);(ROOT/'reports/static/offline-emulation.json').write_text(json.dumps(result,indent=2))"
-        }
-      ]
+      "timing_marker_line_count": 0,
+      "timing_marker_lines": []
     },
     {
-      "bytes": 4536,
-      "has_machine_bound_windows_paths": true,
-      "has_timing_markers": true,
-      "machine_bound_windows_path_line_count": 2,
-      "machine_bound_windows_path_lines": [
-        {
-          "line": 5,
-          "text": "ROOT=Path(r'D:\\a\\_temp\\gha-mcp\\WINDOWS_RESEARCH_RUN\\work\\itl')"
-        },
-        {
-          "line": 7,
-          "text": "p=Path(r'C:\\Program Files\\iTunes\\iTunes.exe')"
-        }
-      ],
+      "bytes": 4727,
+      "has_machine_bound_windows_paths": false,
+      "has_timing_markers": false,
+      "machine_bound_windows_path_line_count": 0,
+      "machine_bound_windows_path_lines": [],
       "non_stdlib_import_roots": [
         "capstone",
         "pefile"
       ],
       "path": "scripts/static/pe_probe.py",
-      "sha256": "d8d970f3ddf2ba7c866be62c4eca34e861a89fe2a821f9f000d9da4ce68a209e",
+      "sha256": "97e35dcc4ab530ae0c2346d604a8b9454e315822f585a9d320904ac3e1c1e53a",
       "statically_visible_output_references": [],
-      "timing_marker_line_count": 3,
-      "timing_marker_lines": [
-        {
-          "line": 47,
-          "text": "rows=[]; n=0; t=time.time(); finds=[]"
-        },
-        {
-          "line": 67,
-          "text": " print('SCANNED',s.Name,n,'instructions',round(time.time()-t,2),'sec',flush=True)"
-        },
-        {
-          "line": 71,
-          "text": "print('DONE',n,'instructions',round(time.time()-t,2),'sec',flush=True)"
-        }
-      ]
+      "timing_marker_line_count": 0,
+      "timing_marker_lines": []
     },
     {
-      "bytes": 2678,
-      "has_machine_bound_windows_paths": true,
+      "bytes": 2958,
+      "has_machine_bound_windows_paths": false,
       "has_timing_markers": false,
-      "machine_bound_windows_path_line_count": 2,
-      "machine_bound_windows_path_lines": [
-        {
-          "line": 6,
-          "text": "ROOT=Path(r'D:\\a\\_temp\\gha-mcp\\WINDOWS_RESEARCH_RUN\\work\\itl');OUT=ROOT/'reports'/'static'"
-        },
-        {
-          "line": 7,
-          "text": "pe=pefile.PE(r'C:\\Program Files\\iTunes\\iTunes.exe');base=pe.OPTIONAL_HEADER.ImageBase"
-        }
-      ],
+      "machine_bound_windows_path_line_count": 0,
+      "machine_bound_windows_path_lines": [],
       "non_stdlib_import_roots": [
         "capstone",
         "pefile"
       ],
       "path": "scripts/static/prepare_targets.py",
-      "sha256": "af6083bfa8fd7f29a99e672c81fb10ed7b066a933a3cdeee4d5f51a930479b1d",
+      "sha256": "dd54c4f1e4a59f3826b7af6c249a3cd5426ad44db415507cb4fc3c117fe3464d",
       "statically_visible_output_references": [],
       "timing_marker_line_count": 0,
       "timing_marker_lines": []
     },
     {
-      "bytes": 2929,
-      "has_machine_bound_windows_paths": true,
+      "bytes": 3224,
+      "has_machine_bound_windows_paths": false,
       "has_timing_markers": false,
-      "machine_bound_windows_path_line_count": 2,
-      "machine_bound_windows_path_lines": [
-        {
-          "line": 6,
-          "text": "ROOT=Path(r'D:\\a\\_temp\\gha-mcp\\WINDOWS_RESEARCH_RUN\\work\\itl');R=ROOT/'reports/static'"
-        },
-        {
-          "line": 14,
-          "text": "binpath=Path(r'C:\\Program Files\\iTunes\\iTunes.exe');sha=hashlib.sha256(binpath.read_bytes()).hexdigest();assert sha=='30d91209b5d81c47bbad2da9d89764fcab08bf5cd9af1a9571668001376c5d7d'"
-        }
-      ],
+      "machine_bound_windows_path_line_count": 0,
+      "machine_bound_windows_path_lines": [],
       "non_stdlib_import_roots": [
         "capstone",
         "pefile"
       ],
       "path": "scripts/static/rebuild_targets.py",
-      "sha256": "babe0c6378536fc877aa47ad4dc15ea3164cd61332415f11a8a5d685f91c1533",
+      "sha256": "e92ad66c19cf2c44eed58def53e6339de137bc3129869a703c038f5d5a29acd9",
       "statically_visible_output_references": [],
       "timing_marker_line_count": 0,
       "timing_marker_lines": []
     },
     {
-      "bytes": 1549,
-      "has_machine_bound_windows_paths": true,
+      "bytes": 1895,
+      "has_machine_bound_windows_paths": false,
       "has_timing_markers": false,
-      "machine_bound_windows_path_line_count": 2,
-      "machine_bound_windows_path_lines": [
-        {
-          "line": 3,
-          "text": "$root='D:\\a\\_temp\\gha-mcp\\WINDOWS_RESEARCH_RUN\\work\\itl'"
-        },
-        {
-          "line": 4,
-          "text": "$env:JAVA_HOME='C:\\hostedtoolcache\\windows\\Java_Temurin-Hotspot_jdk\\21.0.12-101.0\\x64';$env:PATH=\"$env:JAVA_HOME\\bin;\"+$env:PATH"
-        }
-      ],
+      "machine_bound_windows_path_line_count": 0,
+      "machine_bound_windows_path_lines": [],
       "non_stdlib_import_roots": [],
       "path": "scripts/static/run-headless.ps1",
-      "sha256": "ad937e4d7435ebf2c81ec59a4800af0dd967177df39461966771fb83892a00d6",
+      "sha256": "5112ec32e9eb6d1973454365c63a792cd904271778c2ad2f2a7c83015bc49944",
       "statically_visible_output_references": [],
       "timing_marker_line_count": 0,
       "timing_marker_lines": []
@@ -297,9 +229,9 @@
     "unicorn_invocations": 0
   },
   "public_input_matrix": {
-    "locked_public_bytes": 1429913,
+    "locked_public_bytes": 1431364,
     "locked_public_file_count": 108,
-    "locked_tree_sha256": "5d6e4867e44b7cf097db62a59435f88aa649da95553a6232237f1ef0ba8e4489",
+    "locked_tree_sha256": "8a56fc94053ada2040ec715f61a2eaa196b98045ec9f2ff67193ff4c6aeb309a",
     "offline_test_records": 41,
     "offline_tests_passing": 41,
     "retained_asm_identity_headers_matching": 47,
@@ -312,19 +244,19 @@
       "status": "passed"
     }
   },
-  "recommended_next_step": "Parameterize the five machine-bound historical scripts and normalize or exclude the two timing-dependent outputs before any future lawful replay attempt; do not claim U-18 closure until lawful inputs, exact dependencies, staged/recreated Ghidra state, coherent provenance, and end-to-end Ghidra/Unicorn receipts exist.",
+  "recommended_next_step": "Use the now-parameterized deterministic scripts only with lawfully supplied inputs; do not claim U-18 closure until exact historical dependencies, staged/recreated Ghidra state, coherent provenance, and end-to-end Ghidra/Unicorn receipts exist.",
   "schema": "windows-itunes-itl.public-replay-gap-inventory.v1",
   "scope": "public_retained_static_surface_only",
   "sources": {
     "lock": {
       "path": "scripts/static/public-replay-lock.json",
       "schema": "windows-itunes-itl.public-static-replay-lock.v1",
-      "sha256": "c640a4fbc4450def54a8f4446dcc4fb1d316750b3a454d50e66df97994ba6d89"
+      "sha256": "cdb4609db835e2c261fbf8a1dcd63fcdc9261a6f3e4d1d0879deadf69c50bec0"
     },
     "preflight_report": {
       "path": "evidence/research/20260925/public-static-replay-bootstrap/report.json",
       "schema": "windows-itunes-itl.public-static-replay-report.v1",
-      "sha256": "51a58ed158675dd7c1e99359ca312ff32cfc22be298db0e1c71743c0e7323b06"
+      "sha256": "761bd9bbd9a9c479bd715258fbb9471bf670c2173ff8e129febba3c3c8087a7c"
     },
     "preflight_script": {
       "path": "scripts/static/public_replay_preflight.py",

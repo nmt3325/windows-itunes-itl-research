@@ -30,6 +30,7 @@ HISTORICAL_SCRIPTS = [
 ]
 NON_STDLIB_IMPORT_ROOTS = {"Crypto", "capstone", "pefile", "unicorn"}
 TIMING_MARKERS = ("elapsed_s", "time.time", "perf_counter")
+PRE_PARAMETERIZATION_BASELINE = {"machine_bound_script_count": 5, "timing_dependent_script_count": 2}
 WINDOWS_ABSOLUTE_RE = re.compile(r"[A-Za-z]:\\")
 OUTPUT_RE = re.compile(
     r"(?:evidence/static/|evidence\\\\static\\\\|decompiled/|decompiled\\\\)?"
@@ -184,9 +185,14 @@ def build_inventory(root: Path = ROOT) -> dict[str, Any]:
             "machine_bound_scripts": machine_bound,
             "timing_dependent_script_count": len(timing_dependent),
             "timing_dependent_scripts": timing_dependent,
-            "matches_retained_preflight_counts": {
-                "machine_bound": len(machine_bound) == retained["findings"]["historical_scripts_with_absolute_paths"],
-                "timing_dependent": len(timing_dependent) == retained["findings"]["historical_scripts_with_timing_fields"],
+            "pre_parameterization_baseline": PRE_PARAMETERIZATION_BASELINE,
+            "portability_improvement": {
+                "machine_bound_scripts_removed": PRE_PARAMETERIZATION_BASELINE["machine_bound_script_count"] - len(machine_bound),
+                "timing_dependent_scripts_removed": PRE_PARAMETERIZATION_BASELINE["timing_dependent_script_count"] - len(timing_dependent),
+                "current_counts_match_regenerated_preflight": {
+                    "machine_bound": len(machine_bound) == retained["findings"]["historical_scripts_with_absolute_paths"],
+                    "timing_dependent": len(timing_dependent) == retained["findings"]["historical_scripts_with_timing_fields"],
+                },
             },
         },
         "dependency_pin_matrix": dependency_matrix(lock),
@@ -227,9 +233,8 @@ def build_inventory(root: Path = ROOT) -> dict[str, Any]:
             "not_independent_experiments": "This inventory is one deterministic repository-local check and does not replay historical binary analysis.",
         },
         "recommended_next_step": (
-            "Parameterize the five machine-bound historical scripts and normalize or exclude the two "
-            "timing-dependent outputs before any future lawful replay attempt; do not claim U-18 "
-            "closure until lawful inputs, exact dependencies, staged/recreated Ghidra state, coherent "
+            "Use the now-parameterized deterministic scripts only with lawfully supplied inputs; do not claim U-18 "
+            "closure until exact historical dependencies, staged/recreated Ghidra state, coherent "
             "provenance, and end-to-end Ghidra/Unicorn receipts exist."
         ),
     }
