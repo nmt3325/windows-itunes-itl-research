@@ -44,3 +44,11 @@ def test_synthetic_ghidra_headless_receipt_is_successful_and_claim_limited():
  assert ghidra['proprietary_binary_reads_observed']==9
  assert ghidra['historical_binary_analysis_reproduced'] is False
  assert ghidra['ghidra_historical_project_recreated'] is False
+
+def test_clean_synthetic_ghidra_bootstrap_receipt():
+ report=json.loads((ROOT/'evidence/research/20260926/current-replay-profile/report.json').read_text())
+ ghidra=report['windows_validation']['synthetic_ghidra_headless']
+ assert ghidra['clean_bootstrap_script']=='scripts/static/bootstrap-current-replay.ps1'
+ assert ghidra['clean_project_import_and_decompile_passed'] is True
+ assert ghidra['clean_bootstrap_repetitions']==1
+ assert (ROOT/ghidra['clean_bootstrap_script']).is_file()
