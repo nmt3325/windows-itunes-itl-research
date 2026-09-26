@@ -4,35 +4,37 @@
     "The absence of additional trailers in this retained corpus does not establish trailer rarity, meaning, provenance, or semantic independence.",
     "The sole retained trailer witness is an intentional U-13 candidate and cannot establish naturally occurring trailer behavior.",
     "One deliberately one-byte-truncated U-01 structural-negative input is an expected strict parse failure and is excluded from parsed-file distributions and no-op counts.",
+    "The five retained 12.12.10.1 files are one same-build native-authored input, two normally-quit positive saves, and two force-terminated timeout survivors; occurrence counts are not independent experiments or five accepted cycles.",
     "Container parse and byte-exact no-op round-trip are structural observations, not native iTunes acceptance or safe semantic editability.",
     "No Apple iTunes binary was read or launched; U-13 remains open and universal ITL support remains false."
   ],
   "counts": {
-    "byte_exact_no_op_roundtrips": 424,
+    "byte_exact_no_op_roundtrips": 429,
     "files_with_compressed_trailer": 1,
-    "files_without_compressed_trailer": 423,
-    "manifest_hashes_verified": 425,
+    "files_without_compressed_trailer": 428,
+    "manifest_hashes_verified": 430,
     "native_itunes_operations": 0,
     "network_operations": 0,
     "non_known_witness_files_with_trailer": 0,
     "parse_failures": 1,
     "production_code_changes": 0,
     "proprietary_binary_reads": 0,
-    "strict_container_parses": 424
+    "strict_container_parses": 429
   },
   "distributions": {
     "compression_flags": {
       "0": 25,
-      "1": 399
+      "1": 404
     },
     "encryption_flags": {
       "0": 25,
-      "2": 399
+      "2": 404
     },
     "trailer_lengths": {
       "17": 1
     },
     "versions": {
+      "12.12.10.1": 5,
       "12.13.10.3": 392,
       "12.13.11.1": 20,
       "12.13.9.1": 12
@@ -40,7 +42,7 @@
   },
   "generator": {
     "path": "scripts/research/audit_retained_trailer_census_20260926.py",
-    "sha256": "4ced9af4f59215c21bd71fea001591a4de24820026584468f2c55c27ce979b51"
+    "sha256": "932671ad7de23c88e5f53a2a5ff16f562a6032009baa3f714a05833bc75fcecd"
   },
   "parse_failures": [
     {
@@ -50,8 +52,8 @@
   ],
   "schema": "windows-itl.retained-trailer-census-20260926.v1",
   "source_set": {
-    "canonical_path_size_hash_digest": "80b54b6502fb48315e89e05289e3b5e6fdfb3db38547ea9d9b89c28d3c445dab",
-    "entries": 425,
+    "canonical_path_size_hash_digest": "2f3e82d362948d1701a9c65d4489487cef7e5d0f7513ac26a3c3d252f8196ac4",
+    "entries": 430,
     "kind": "all .itl entries in DELIVERY-MANIFEST.json",
     "representative_sample": false
   },

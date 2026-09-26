@@ -588,6 +588,25 @@ def run_negative_attempt(candidate: Path, root: Path, evidence: Path, attempt: i
             result["itunes_exit_after_kill"] = process.returncode
             if result["status"] == "passed":
                 result["status"] = "failed_with_preserved_evidence"
+        # Preserve the exact live state even when the declared negative fails.
+        # A timeout survivor is evidence about the failed gate, not a normally
+        # closed native cycle, so keep that causal classification explicit.
+        if target.is_file():
+            try:
+                result["final_input_after_process_end"] = native.file_facts(target)
+                result["final_inventory_after_process_end"] = native.inventory(live)
+                result["final_forbidden_after_process_end"] = native.forbidden_artifacts(
+                    result["final_inventory_after_process_end"]
+                )
+                final_summary = native.reference_summary(target)
+                result["final_reference_summary_after_process_end"] = final_summary
+                retained = output / "live-after-attempt.itl"
+                shutil.copy2(target, retained)
+                result["retained_live_after_attempt"] = native.file_facts(retained)
+                write_json(output / "live-after-attempt-summary.json", final_summary)
+            except Exception as exc:
+                result["final_capture_error"] = type(exc).__name__ + ": " + str(exc)
+                result["status"] = "failed_with_preserved_evidence"
         if junction_created:
             try:
                 result["profile_junction_remove"] = native.remove_profile_junction(profile, live)

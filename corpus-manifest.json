@@ -2,7 +2,7 @@
   "schema": "windows-itunes-itl.aggregate-corpus-manifest.v1",
   "hash_algorithm": "sha256",
   "manifest_self_included": false,
-  "target": "Windows Apple desktop x64 iTunes 12.13.10.3; exact-hash sampled 12.13.9.1 downgrade and 12.13.11.1 upgrade cohorts",
+  "target": "Windows Apple desktop x64 iTunes 12.13.10.3; exact-hash sampled 12.13.9.1/12.13.11.1 cohorts; bounded native-authored 12.12.10.1 observation",
   "qualification": {
     "complete_analysis_claim": false,
     "reference_writer_from_scratch_native_acceptance": "verified_for_four_exact_hashes",
@@ -19,12 +19,13 @@
     "native_trailer_note": "one exact 17-byte opaque-trailer candidate and its trailer-free control each passed two native cycles; the candidate trailer was stripped on first save; retained copies and repeated saves are not independent experiments",
     "itunes_12_13_11_1_upgrade_note": "four exact 12.13.10.3 fixture hashes passed eight native cycles on one exact signed 12.13.11.1 executable; native saves report 12.13.11.1, but arbitrary editing and version breadth remain unqualified",
     "u01_sampled_version_matrix_note": "six pinned 12.13.10.3 input hashes passed 12 cycles on exact signed 12.13.9.1 and 12 cycles on a separate-runner exact signed 12.13.11.1; one malformed preflight negative never launched iTunes; candidate 113 did not reproduce its historical failure; U-01 remains open",
+    "u01_distinct_12_12_10_1_note": "one exact same-build native-authored input passed two sequential normally-quit 12.12.10.1 cycles; the predeclared product-negative failed twice without the expected modal, and two force-terminated timeout survivors are retained only as observations; no 12.12.10.1 profile, arbitrary editing, product-facing negative, or U-01 closure",
     "coverage_guided_note": "20,000 deterministic offline mutations completed without a retained anomaly; coarse line-transition guidance is not proof of parser safety or native acceptance",
     "filesystem_publication_note": "21 deterministic Linux scenarios plus 25 specifically qualified Windows Server 2025 / CPython 3.12.10 / runner-temporary NTFS scenarios bound stable-parent behavior and demonstrate the existing hostile-parent exclusion; counts are not independent experiments, the Windows campaign includes two parent-triggered/reaped TerminateProcess boundaries and zero unavailable cases, neither campaign cut power, no native-iTunes operation was added, production code was unchanged, and U-17 remains open",
     "filesystem_process_crash_note": "five selected Linux child schedules used unchanged production write_new: four actual parent-issued/reaped SIGKILL deaths and one normal control; cases, control, replays, and artifacts are not independent experiments, zero power-loss/native-iTunes operations occurred, and U-17 remains open"
   },
   "summary": {
-    "itl_file_count": 425,
+    "itl_file_count": 430,
     "by_class": {
       "independent_from_scratch_generated": 4,
       "external_independent_interop_candidate": 5,
@@ -34,6 +35,9 @@
       "native_rating_bounded_matrix": 28,
       "native_trailer_u13_bounded_matrix": 6,
       "itunes_12_13_11_1_upgrade_qualification": 10,
+      "u01_distinct_12_12_10_1_native_authored_input": 1,
+      "u01_distinct_12_12_10_1_failed_negative_timeout_survivor": 2,
+      "u01_distinct_12_12_10_1_positive_native_save": 2,
       "u01_sampled_version_matrix_native_save": 24,
       "u01_structural_preflight_negative": 1
     }
@@ -213,6 +217,11 @@
       "path": "evidence/research/20260927/u01-sampled-version-matrix/matrix-summary.json",
       "bytes": 46320,
       "sha256": "bb6edfb29b94fc75ca3e09f8a11edf095eba8c18ee6f23661682cc41edb6c8ba"
+    },
+    {
+      "path": "evidence/research/20260927/u01-distinct-build-12.12.10.1/distinct-build-summary.json",
+      "bytes": 12363,
+      "sha256": "1e56e03fc813f79e856197baf474fd7035dd0c7cccf1b1e562a8654800c62fb5"
     }
   ],
   "itl_files": [
@@ -3068,6 +3077,41 @@
       "sha256": "c6c68171d57350ceb3cf379eee13a764ea199536ef18238fe4faf80583492d74",
       "corpus_class": "itunes_12_13_11_1_upgrade_qualification",
       "qualification": "four exact 12.13.10.3 input hashes and eight native cycles on one exact signed 12.13.11.1 executable; upgrade compatibility only, not general editing support"
+    },
+    {
+      "path": "evidence/research/20260927/u01-distinct-build-12.12.10.1/input-lock/native-authored-input.itl",
+      "bytes": 4865,
+      "sha256": "154146cf6eabdd7b8dd30f74e2c7009d0a8615d38b36edd1a3abbbacfc10cddc",
+      "corpus_class": "u01_distinct_12_12_10_1_native_authored_input",
+      "qualification": "one exact input authored by native iTunes 12.12.10.1 during controlled setup; input generation is not an independent writer or qualification cycle"
+    },
+    {
+      "path": "evidence/research/20260927/u01-distinct-build-12.12.10.1/negative-qualification/post-timeout-capture/attempt-1/native-mutated-at-timeout.itl",
+      "bytes": 3866,
+      "sha256": "b92b3b62dd418a4010e14b2da2e4b92abe7268dcd0d54a560b1cd29a57cdef59",
+      "corpus_class": "u01_distinct_12_12_10_1_failed_negative_timeout_survivor",
+      "qualification": "post-timeout mutation retained after the predeclared product-negative gate failed; force-terminated observation, not a clean native acceptance or downgrade cycle"
+    },
+    {
+      "path": "evidence/research/20260927/u01-distinct-build-12.12.10.1/negative-qualification/post-timeout-capture/attempt-2/native-mutated-at-timeout.itl",
+      "bytes": 3876,
+      "sha256": "b852b7d439bdf03d988e3f732a076d9f67e872a8314b68eee0435e210fa111f8",
+      "corpus_class": "u01_distinct_12_12_10_1_failed_negative_timeout_survivor",
+      "qualification": "post-timeout mutation retained after the predeclared product-negative gate failed; force-terminated observation, not a clean native acceptance or downgrade cycle"
+    },
+    {
+      "path": "evidence/research/20260927/u01-distinct-build-12.12.10.1/positive-qualification/cases/native-authored-one-track-positive/cycle-1/native-saved.itl",
+      "bytes": 4904,
+      "sha256": "09db3d7c0425a8350e33c4f461dd465fb476947f3a76c0f1ed4f67e29a284acc",
+      "corpus_class": "u01_distinct_12_12_10_1_positive_native_save",
+      "qualification": "two sequential normally-quit saves from one exact same-build native-authored input; selected semantics passed, but arbitrary editing and profile admission remain unqualified"
+    },
+    {
+      "path": "evidence/research/20260927/u01-distinct-build-12.12.10.1/positive-qualification/cases/native-authored-one-track-positive/cycle-2/native-saved.itl",
+      "bytes": 4904,
+      "sha256": "9034aa3e9e7ccc12390d0b44307d8ea10dd313fc424415050c8d5bf8ced0e772",
+      "corpus_class": "u01_distinct_12_12_10_1_positive_native_save",
+      "qualification": "two sequential normally-quit saves from one exact same-build native-authored input; selected semantics passed, but arbitrary editing and profile admission remain unqualified"
     },
     {
       "path": "evidence/research/20260927/u01-sampled-version-matrix/12.13.11.1-independent/native/exact-one-track/cases/reference-one-track-raw/cycle-1/native-saved.itl",

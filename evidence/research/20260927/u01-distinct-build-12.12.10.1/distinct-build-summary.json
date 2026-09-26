@@ -1,0 +1,280 @@
+{
+  "claim_limits": [
+    "The positive input was authored by the same native iTunes 12.12.10.1 build; it does not qualify an independent writer or arbitrary edits.",
+    "The two positive cycles share one runner, executable, harness, and lineage and are not independent experiments.",
+    "The predeclared newer-version modal did not appear. Both attempts timed out and required force termination, so they fail rather than satisfy the declared native-negative gate.",
+    "The two post-timeout files show mutation to a 12.12.10.1 envelope with selected semantics preserved, but they were captured only after force termination and are not normally-quit qualification cycles.",
+    "12.12.10.1 remains outside the reference parser/writer supported profile allowlist; semantic observation alone does not admit a write profile.",
+    "No Apple installer or executable is retained; only hashes, sizes, signature identity, source metadata, and public package metadata are committed.",
+    "U-01 remains open, universal ITL support remains false, and the complete-analysis/specification gate remains false."
+  ],
+  "negative_qualification": {
+    "attempts": [
+      {
+        "attempt": 1,
+        "forbidden_artifacts": 0,
+        "forced_termination_after_timeout": true,
+        "fresh_input_sha256": "c6c68171d57350ceb3cf379eee13a764ea199536ef18238fe4faf80583492d74",
+        "independent_parser_preflight_errors": 0,
+        "normal_dismissal_or_quit": false,
+        "outer_file_persistent_id_after": "5245464552454E43",
+        "post_timeout_output": {
+          "bytes": 3866,
+          "path": "evidence/research/20260927/u01-distinct-build-12.12.10.1/negative-qualification/post-timeout-capture/attempt-1/native-mutated-at-timeout.itl",
+          "sha256": "b92b3b62dd418a4010e14b2da2e4b92abe7268dcd0d54a560b1cd29a57cdef59"
+        },
+        "process_cleanup_passed": true,
+        "profile_exists_after": false,
+        "qualification": "failed_predeclared_negative_timeout_survivor_not_normal_native_cycle",
+        "selected_semantics_preserved_ignoring_version": true,
+        "serialized_version_after": "12.12.10.1",
+        "target_product_modal_observed": false,
+        "timeout_seconds": 90
+      },
+      {
+        "attempt": 2,
+        "forbidden_artifacts": 0,
+        "forced_termination_after_timeout": true,
+        "fresh_input_sha256": "c6c68171d57350ceb3cf379eee13a764ea199536ef18238fe4faf80583492d74",
+        "independent_parser_preflight_errors": 0,
+        "normal_dismissal_or_quit": false,
+        "outer_file_persistent_id_after": "5245464552454E43",
+        "post_timeout_output": {
+          "bytes": 3876,
+          "path": "evidence/research/20260927/u01-distinct-build-12.12.10.1/negative-qualification/post-timeout-capture/attempt-2/native-mutated-at-timeout.itl",
+          "sha256": "b852b7d439bdf03d988e3f732a076d9f67e872a8314b68eee0435e210fa111f8"
+        },
+        "process_cleanup_passed": true,
+        "profile_exists_after": false,
+        "qualification": "failed_predeclared_negative_timeout_survivor_not_normal_native_cycle",
+        "selected_semantics_preserved_ignoring_version": true,
+        "serialized_version_after": "12.12.10.1",
+        "target_product_modal_observed": false,
+        "timeout_seconds": 90
+      }
+    ],
+    "attempts_passed": 0,
+    "attempts_required": 2,
+    "classification": "predeclared_product_facing_negative_failed_without_post_hoc_substitution",
+    "force_terminated_after_timeout_attempts": 2,
+    "input": {
+      "bytes": 10566,
+      "path": "TEST_CORPUS/generated/reference-one-track-raw.itl",
+      "sha256": "c6c68171d57350ceb3cf379eee13a764ea199536ef18238fe4faf80583492d74"
+    },
+    "normally_closed_attempts": 0,
+    "post_timeout_native_mutations_observed": 2,
+    "product_facing_native_rejection_established": false,
+    "status": "failed_with_preserved_evidence",
+    "target_product_modals_observed": 0
+  },
+  "positive_qualification": {
+    "case_count": 1,
+    "classification": "exact_native_authored_input_two_sequential_native_cycles",
+    "cycles": [
+      {
+        "com_library_persistent_id": "6002C2960B55A3CB",
+        "cycle": 1,
+        "forbidden_artifacts": 0,
+        "independent_parser_errors": 0,
+        "itunes_exit_code": 0,
+        "normal_com_quit": true,
+        "ordinary_playlist": {
+          "members": [
+            "C8FB5925BC26E77C"
+          ],
+          "name": "Synthetic U01 12.12.10.1",
+          "persistent_id": "5FA9D851819CFC35"
+        },
+        "outer_file_persistent_id": "C4CF98746C40D802",
+        "prelaunch_sha256": "154146cf6eabdd7b8dd30f74e2c7009d0a8615d38b36edd1a3abbbacfc10cddc",
+        "saved": {
+          "bytes": 4904,
+          "path": "evidence/research/20260927/u01-distinct-build-12.12.10.1/positive-qualification/cases/native-authored-one-track-positive/cycle-1/native-saved.itl",
+          "sha256": "09db3d7c0425a8350e33c4f461dd465fb476947f3a76c0f1ed4f67e29a284acc"
+        },
+        "saved_version": "12.12.10.1",
+        "selected_track_semantics": {
+          "album": "Distinct Build Album 2023",
+          "album_artist": "Distinct Album Artist β",
+          "artist": "Distinct Build Artist Ω",
+          "comment": "Predeclared native baseline — 20260927",
+          "name": "U01 12.12.10.1 Native α",
+          "play_count": 2,
+          "rating": 80,
+          "skip_count": 1,
+          "track_number": 1,
+          "year": 2023
+        },
+        "stable_com_samples": 2,
+        "worker_errors": 0,
+        "worker_exit_code": 0
+      },
+      {
+        "com_library_persistent_id": "6002C2960B55A3CB",
+        "cycle": 2,
+        "forbidden_artifacts": 0,
+        "independent_parser_errors": 0,
+        "itunes_exit_code": 0,
+        "normal_com_quit": true,
+        "ordinary_playlist": {
+          "members": [
+            "C8FB5925BC26E77C"
+          ],
+          "name": "Synthetic U01 12.12.10.1",
+          "persistent_id": "5FA9D851819CFC35"
+        },
+        "outer_file_persistent_id": "C4CF98746C40D802",
+        "prelaunch_sha256": "09db3d7c0425a8350e33c4f461dd465fb476947f3a76c0f1ed4f67e29a284acc",
+        "saved": {
+          "bytes": 4904,
+          "path": "evidence/research/20260927/u01-distinct-build-12.12.10.1/positive-qualification/cases/native-authored-one-track-positive/cycle-2/native-saved.itl",
+          "sha256": "9034aa3e9e7ccc12390d0b44307d8ea10dd313fc424415050c8d5bf8ced0e772"
+        },
+        "saved_version": "12.12.10.1",
+        "selected_track_semantics": {
+          "album": "Distinct Build Album 2023",
+          "album_artist": "Distinct Album Artist β",
+          "artist": "Distinct Build Artist Ω",
+          "comment": "Predeclared native baseline — 20260927",
+          "name": "U01 12.12.10.1 Native α",
+          "play_count": 2,
+          "rating": 80,
+          "skip_count": 1,
+          "track_number": 1,
+          "year": 2023
+        },
+        "stable_com_samples": 2,
+        "worker_errors": 0,
+        "worker_exit_code": 0
+      }
+    ],
+    "executable_authenticode": {
+      "status": "Valid",
+      "subject": "CN=Apple Inc., O=Apple Inc., L=Cupertino, S=California, C=US",
+      "thumbprint": "67A9953123BD5F01B1BC0BB98A950D9CA869CD02"
+    },
+    "failed_cycles": 0,
+    "passed_cycles": 2,
+    "status": "passed"
+  },
+  "provenance": {
+    "build_identity_lock": {
+      "bytes": 1524,
+      "path": "evidence/research/20260927/u01-distinct-build-12.12.10.1/provenance/build-identity-lock.json",
+      "sha256": "d8111d775274d050158edfa09e4d9b3422b793864a5d592750f67b0c7ed43399"
+    },
+    "executable": {
+      "authenticode": {
+        "status": "Valid",
+        "subject": "CN=Apple Inc., O=Apple Inc., L=Cupertino, S=California, C=US",
+        "thumbprint": "67A9953123BD5F01B1BC0BB98A950D9CA869CD02"
+      },
+      "binary_retained": false,
+      "bytes": 39260512,
+      "sha256": "0aa1b53af915fc9e0ced4c7ecbcb1397a036d38367d894ae063ae1d127331f9b",
+      "version": "12.12.10.1"
+    },
+    "installer": {
+      "authenticode": {
+        "status": "Valid",
+        "subject": "CN=Apple Inc., O=Apple Inc., L=Cupertino, S=California, C=US",
+        "thumbprint": "67A9953123BD5F01B1BC0BB98A950D9CA869CD02"
+      },
+      "binary_retained": false,
+      "bytes": 211230064,
+      "sha256": "31465167704b2fd795aafc14cf5c04261d7c3ae663d087f63842e431aa204abc",
+      "url": "https://secure-appldnld.apple.com/itunes12/042-32480-20230911-CC326CC1-E6C1-4F7C-A717-18493F59FE2E/iTunes64Setup.exe"
+    },
+    "package": {
+      "bytes": 3718,
+      "sha256": "47327162dc0c2d1b23bd0921664fd1879fa05a9b1c5b3a84c730a3d1ac01c396"
+    },
+    "post_hoc_negative_substitution_allowed": false,
+    "predeclared_before_native_launch_or_candidate_outcome": true,
+    "predeclared_plan": {
+      "bytes": 6397,
+      "path": "evidence/research/20260927/u01-distinct-build-12.12.10.1/predeclared-plan.json",
+      "sha256": "3d95938a396f6ae60479219c4fbb47697c5d385997927d5932013d5bb4bb901e"
+    },
+    "runner_environment_id": "win-7119mr18"
+  },
+  "result": {
+    "all_predeclared_selected_semantics_preserved_in_positive_cycles": true,
+    "arbitrary_12_12_10_1_editing_qualified": false,
+    "full_analysis_specification_gate": false,
+    "genuinely_nonadjacent_version_pinned_build_added": true,
+    "independent_writer_qualified": false,
+    "independently_implemented_harness": false,
+    "independently_sourced_executable": false,
+    "lawful_public_provenance_locked_before_native_launch": true,
+    "native_authored_positive_two_cycle_qualification_passed": true,
+    "negative_timeout_mutations_are_normal_native_cycles": false,
+    "post_timeout_native_mutation_observed_on_both_failed_negative_attempts": true,
+    "predeclared_product_facing_negative_reproduced": false,
+    "product_facing_native_negative_established": false,
+    "u01_closed": false,
+    "universal_itl_support": false,
+    "version_12_12_10_1_reference_parser_profile_admitted": false
+  },
+  "schema": "windows-itl.u01-distinct-build-12.12.10.1-20260927.v1",
+  "setup": {
+    "classification": "native_authored_input_generation_not_independent_writer_or_qualification_cycle",
+    "com_library_persistent_id": "6002C2960B55A3CB",
+    "forbidden_artifacts": 0,
+    "identity_domains_are_distinct": true,
+    "input": {
+      "bytes": 4865,
+      "path": "evidence/research/20260927/u01-distinct-build-12.12.10.1/input-lock/native-authored-input.itl",
+      "sha256": "154146cf6eabdd7b8dd30f74e2c7009d0a8615d38b36edd1a3abbbacfc10cddc"
+    },
+    "itunes_exit_code": 0,
+    "media": {
+      "bytes": 44144,
+      "path": "evidence/research/20260927/u01-distinct-build-12.12.10.1/input-lock/media/u01-12.12.10.1-523hz.wav",
+      "sha256": "6df7b7eaf17f07e213238b7bcd6692a3d6ea844cee377d761bcc7f8434261792"
+    },
+    "normal_com_quit": true,
+    "ordinary_playlist": {
+      "members": [
+        "C8FB5925BC26E77C"
+      ],
+      "name": "Synthetic U01 12.12.10.1"
+    },
+    "outer_file_persistent_id": "C4CF98746C40D802",
+    "playlist_persistent_id": "5FA9D851819CFC35",
+    "reference_detector_reason": "version label is not in the observed profile allowlist",
+    "reference_detector_status": "unsupported",
+    "remaining_itunes_processes": 0,
+    "selected_track_semantics": {
+      "album": "Distinct Build Album 2023",
+      "album_artist": "Distinct Album Artist β",
+      "artist": "Distinct Build Artist Ω",
+      "comment": "Predeclared native baseline — 20260927",
+      "name": "U01 12.12.10.1 Native α",
+      "play_count": 2,
+      "rating": 80,
+      "skip_count": 1,
+      "track_number": 1,
+      "year": 2023
+    },
+    "stable_com_samples": 2,
+    "status": "passed",
+    "track_persistent_id": "C8FB5925BC26E77C"
+  },
+  "status": "bounded_distinct_build_positive_passed_predeclared_negative_failed_u01_open",
+  "totals": {
+    "distinct_native_builds": 1,
+    "failed_positive_native_cycles": 0,
+    "native_authored_positive_inputs": 1,
+    "normal_quit_process_exit_zero_positive_cycles": 2,
+    "passed_positive_native_cycles": 2,
+    "positive_forbidden_fallback_cycles": 0,
+    "positive_worker_or_independent_parser_error_cycles": 0,
+    "post_timeout_mutated_itls_retained": 2,
+    "predeclared_negative_attempts": 2,
+    "predeclared_negative_attempts_passing_declared_gate": 0,
+    "predeclared_negative_force_terminations_after_timeout": 2,
+    "predeclared_negative_target_product_modals": 0
+  }
+}

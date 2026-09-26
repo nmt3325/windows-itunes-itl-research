@@ -61,6 +61,29 @@ def classify_itl(path: Path) -> tuple[str, dict]:
                 "see native-rating-kind report and integration addendum; occurrences are not independent runs"
             ),
         }
+    if rel.startswith("evidence/research/20260927/u01-distinct-build-12.12.10.1/"):
+        if rel.endswith("input-lock/native-authored-input.itl"):
+            return "u01_distinct_12_12_10_1_native_authored_input", {
+                "qualification": (
+                    "one exact input authored by native iTunes 12.12.10.1 during controlled setup; "
+                    "input generation is not an independent writer or qualification cycle"
+                ),
+            }
+        if "/positive-qualification/" in rel and rel.endswith("/native-saved.itl"):
+            return "u01_distinct_12_12_10_1_positive_native_save", {
+                "qualification": (
+                    "two sequential normally-quit saves from one exact same-build native-authored input; "
+                    "selected semantics passed, but arbitrary editing and profile admission remain unqualified"
+                ),
+            }
+        if "/negative-qualification/post-timeout-capture/" in rel:
+            return "u01_distinct_12_12_10_1_failed_negative_timeout_survivor", {
+                "qualification": (
+                    "post-timeout mutation retained after the predeclared product-negative gate failed; "
+                    "force-terminated observation, not a clean native acceptance or downgrade cycle"
+                ),
+            }
+        raise RuntimeError(f"unclassified 12.12.10.1 distinct-build ITL: {rel}")
     if rel.startswith("evidence/research/20260927/u01-sampled-version-matrix/"):
         if rel.endswith("inputs/reference-three-track-zlib-truncated-1-byte.itl"):
             return "u01_structural_preflight_negative", {
@@ -152,6 +175,7 @@ def build_corpus() -> dict:
         "evidence/research/20260925/windows-filesystem-publication/report.json",
         "evidence/research/20260927/itunes-12.13.11.1-version-qualification/qualification-summary.json",
         "evidence/research/20260927/u01-sampled-version-matrix/matrix-summary.json",
+        "evidence/research/20260927/u01-distinct-build-12.12.10.1/distinct-build-summary.json",
     ):
         path = ROOT / name
         if path.is_file():
@@ -160,7 +184,7 @@ def build_corpus() -> dict:
         "schema": "windows-itunes-itl.aggregate-corpus-manifest.v1",
         "hash_algorithm": "sha256",
         "manifest_self_included": False,
-        "target": "Windows Apple desktop x64 iTunes 12.13.10.3; exact-hash sampled 12.13.9.1 downgrade and 12.13.11.1 upgrade cohorts",
+        "target": "Windows Apple desktop x64 iTunes 12.13.10.3; exact-hash sampled 12.13.9.1/12.13.11.1 cohorts; bounded native-authored 12.12.10.1 observation",
         "qualification": {
             "complete_analysis_claim": False,
             "reference_writer_from_scratch_native_acceptance": "verified_for_four_exact_hashes",
@@ -177,6 +201,7 @@ def build_corpus() -> dict:
             "native_trailer_note": "one exact 17-byte opaque-trailer candidate and its trailer-free control each passed two native cycles; the candidate trailer was stripped on first save; retained copies and repeated saves are not independent experiments",
             "itunes_12_13_11_1_upgrade_note": "four exact 12.13.10.3 fixture hashes passed eight native cycles on one exact signed 12.13.11.1 executable; native saves report 12.13.11.1, but arbitrary editing and version breadth remain unqualified",
             "u01_sampled_version_matrix_note": "six pinned 12.13.10.3 input hashes passed 12 cycles on exact signed 12.13.9.1 and 12 cycles on a separate-runner exact signed 12.13.11.1; one malformed preflight negative never launched iTunes; candidate 113 did not reproduce its historical failure; U-01 remains open",
+            "u01_distinct_12_12_10_1_note": "one exact same-build native-authored input passed two sequential normally-quit 12.12.10.1 cycles; the predeclared product-negative failed twice without the expected modal, and two force-terminated timeout survivors are retained only as observations; no 12.12.10.1 profile, arbitrary editing, product-facing negative, or U-01 closure",
             "coverage_guided_note": "20,000 deterministic offline mutations completed without a retained anomaly; coarse line-transition guidance is not proof of parser safety or native acceptance",
             "filesystem_publication_note": "21 deterministic Linux scenarios plus 25 specifically qualified Windows Server 2025 / CPython 3.12.10 / runner-temporary NTFS scenarios bound stable-parent behavior and demonstrate the existing hostile-parent exclusion; counts are not independent experiments, the Windows campaign includes two parent-triggered/reaped TerminateProcess boundaries and zero unavailable cases, neither campaign cut power, no native-iTunes operation was added, production code was unchanged, and U-17 remains open",
             "filesystem_process_crash_note": "five selected Linux child schedules used unchanged production write_new: four actual parent-issued/reaped SIGKILL deaths and one normal control; cases, control, replays, and artifacts are not independent experiments, zero power-loss/native-iTunes operations occurred, and U-17 remains open",

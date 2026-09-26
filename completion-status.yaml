@@ -15,7 +15,9 @@ scope:
   primary_native_profile: standalone_windows_itunes_12.13.10.3_x64
   secondary_observed_profile: standalone_windows_itunes_12.13.9.1_x64_exact_executable_hash_only
   adjacent_upgrade_qualification_profile: standalone_windows_itunes_12.13.11.1_x64_exact_executable_hash_only
+  distinct_observed_profile: standalone_windows_itunes_12.12.10.1_x64_exact_executable_hash_native_authored_observation_only
   u01_sampled_matrix_scope: six_pinned_12.13.10.3_inputs_per_build_two_cycles_each_on_two_exact_signed_executables
+  u01_distinct_build_scope: one_same_build_native_authored_input_two_positive_cycles_plus_two_failed_predeclared_negative_timeout_observations
   windows_build: 10.0.26100
   display_and_system_locale: en-US
   store_edition_supported: false
@@ -47,6 +49,7 @@ qualification:
   itunes_12_13_9_1_downgrade_qualification: six_exact_12_13_10_3_input_hashes_twelve_cycles_one_exact_signed_executable_u01_open
   itunes_12_13_11_1_upgrade_qualification: six_exact_12_13_10_3_input_hashes_twelve_separate_runtime_cycles_shared_harness_and_executable_provenance_u01_open
   u01_sampled_version_matrix: twelve_case_build_pairs_twenty_four_passed_native_cycles_structural_preflight_negative_only_u01_open
+  u01_distinct_build_12_12_10_1: one_native_authored_exact_input_two_passed_cycles_predeclared_product_negative_failed_with_two_force_terminated_timeout_survivors_no_profile_admission_u01_open
   smart_playlist: native_nested_framing_observed_but_operand_and_membership_failed
   native_field_matrix: 27_passed_2_failed_exact_cases_only
   native_media_field_followup: seventeen_exact_lyrics_mp3_passes_plus_nine_qualified_native_nonexact_immediate_readbacks_on_one_pinned_path_and_three_exact_wav_mutation_failures
@@ -54,7 +57,7 @@ qualification:
   path_time: bounded_native_matrix_only
   compressed_trailer: one_fixed_seed_17_byte_candidate_stripped_on_first_native_save_u13_open
   compressed_trailer_negative_matrix: bounded_offline_17_case_negative_matrix_u13_open
-  compressed_trailer_retained_census: all_425_manifest_itls_hash_verified_424_parsed_and_roundtripped_one_expected_structural_negative_parse_failure_only_known_intentional_witness_has_trailer_u13_open
+  compressed_trailer_retained_census: all_430_manifest_itls_hash_verified_429_parsed_and_roundtripped_one_expected_structural_negative_parse_failure_only_known_intentional_witness_has_trailer_u13_open
   parser_coverage_guided_campaign: bounded_offline_20000_mutations_zero_retained_anomalies_u17_open
   filesystem_publication_threat_model: bounded_linux_21_plus_windows_ntfs_25_scenarios_parent_swap_limits_2_actual_terminations_u17_open
   filesystem_process_crash: bounded_linux_4_sigkill_1_normal_control_production_unchanged_u17_open
@@ -133,14 +136,14 @@ validation:
     unresolved_item: U-13
   retained_trailer_census_20260926:
     status: completed_retained_corpus_census_u13_open
-    delivery_manifest_itl_entries: 425
-    manifest_hashes_verified: 425
-    strict_container_parses: 424
+    delivery_manifest_itl_entries: 430
+    manifest_hashes_verified: 430
+    strict_container_parses: 429
     expected_parse_failures: 1
     unexpected_parse_failures: 0
-    byte_exact_no_op_roundtrips: 424
+    byte_exact_no_op_roundtrips: 429
     files_with_compressed_trailer: 1
-    files_without_compressed_trailer: 423
+    files_without_compressed_trailer: 428
     non_known_witness_files_with_trailer: 0
     expected_parse_failure_path: evidence/research/20260927/u01-sampled-version-matrix/inputs/reference-three-track-zlib-truncated-1-byte.itl
     expected_parse_failure_type: FormatError
@@ -306,17 +309,63 @@ validation:
     universal_itl_support: false
     full_analysis_specification_gate: false
     unresolved_item: U-01
+  u01_distinct_build_12_12_10_1_20260927:
+    status: bounded_nonadjacent_native_authored_positive_passed_predeclared_product_negative_failed_u01_open
+    version: 12.12.10.1
+    executable_sha256: 0aa1b53af915fc9e0ced4c7ecbcb1397a036d38367d894ae063ae1d127331f9b
+    executable_bytes: 39260512
+    authenticode_status: Valid
+    signer_thumbprint: 67A9953123BD5F01B1BC0BB98A950D9CA869CD02
+    apple_installer_sha256: 31465167704b2fd795aafc14cf5c04261d7c3ae663d087f63842e431aa204abc
+    apple_installer_bytes: 211230064
+    installer_or_executable_binary_retained: false
+    lawful_public_provenance_locked_before_native_launch: true
+    predeclared_before_native_launch_or_candidate_outcome: true
+    post_hoc_negative_substitution_allowed: false
+    native_authored_positive_inputs: 1
+    positive_input_sha256: 154146cf6eabdd7b8dd30f74e2c7009d0a8615d38b36edd1a3abbbacfc10cddc
+    passed_positive_native_cycles: 2
+    failed_positive_native_cycles: 0
+    normal_quit_process_exit_zero_positive_cycles: 2
+    positive_worker_or_independent_parser_error_cycles: 0
+    positive_forbidden_fallback_cycles: 0
+    selected_track_semantics_preserved: 10
+    ordinary_playlist_order_preserved: true
+    outer_and_com_library_identity_domains_separate: true
+    predeclared_product_negative_attempts: 2
+    predeclared_product_negative_attempts_passing_gate: 0
+    target_product_modals_observed: 0
+    negative_force_terminations_after_timeout: 2
+    normally_closed_negative_attempts: 0
+    post_timeout_mutated_itls_retained: 2
+    post_timeout_survivors_are_clean_native_cycles: false
+    product_facing_native_negative_established: false
+    reference_parser_profile_admitted: false
+    writer_profile_admitted: false
+    arbitrary_12_12_10_1_editing_qualified: false
+    independently_implemented_harness: false
+    independently_sourced_executable: false
+    independent_native_reproduction: false
+    u01_closed: false
+    universal_itl_support: false
+    full_analysis_specification_gate: false
+    unresolved_item: U-01
+  focused_u01_distinct_integration_tests:
+    status: passed
+    passed: 19
+    failed: 0
   integrated_tests:
     status: passed
-    passed: 1175
+    passed: 1182
     skipped: 9
     skipped_missing_com_oracle: 5
     skipped_windows_only_helpers_on_linux: 2
     skipped_windows_filesystem_cases_on_linux: 2
     failed: 0
-    command: ITLKIT_NATIVE_ROOT=evidence/native/snapshots ITLKIT_NATIVE_REPORTS=evidence/native/oracles TITL_REPO=josephw/titl@e7060370973d624d5c7b18f82303407b76421501 python -B -m pytest tests -q -rs -p no:cacheprovider --basetemp=<repository-external-path>
+    command: ITLKIT_NATIVE_ROOT=evidence/native/snapshots ITLKIT_NATIVE_REPORTS=evidence/native/oracles TITL_REPO=josephw/titl@e7060370973d624d5c7b18f82303407b76421501 python -B -m pytest tests -q -rs -p no:cacheprovider --basetemp=/tmp/<fresh-path>
   strict_delivery_verifier_tests:
     status: passed
+    manifest_files: 3007
     passed: 40
     proposal_unittest_cases: 13
     production_qa_checks: 27
@@ -427,7 +476,7 @@ validation:
   delivery_manifest: verified
   root_corpus_manifest:
     status: verified
-    itl_files: 425
+    itl_files: 430
   path_time_snapshots:
     parsed: 39
     errors: 0
