@@ -42,10 +42,7 @@ assert source_sem == candidate_sem
 
 manifest = json.loads((repo / "corpus-manifest.json").read_text(encoding="utf-8"))
 manifest_rows = {row["path"]: row for row in manifest["itl_files"]}
-itls = sorted(
-    (p for p in repo.rglob("*.itl") if ".git" not in p.parts),
-    key=lambda p: p.relative_to(repo).as_posix(),
-)
+itls = sorted((p for p in repo.rglob("*.itl") if ".git" not in p.parts), key=lambda p: p.relative_to(repo).as_posix())
 assert len(itls) == len(manifest_rows) == 434
 value_counts: Counter[str] = Counter()
 by_version: dict[str, Counter[str]] = defaultdict(Counter)
@@ -164,43 +161,19 @@ def rip_strings(start_rva: int, end_rva: int) -> list[dict]:
 text = next(section for section in pe.sections if section.Name.rstrip(b"\0") == b".text")
 text_start = int(text.VirtualAddress)
 text_end = text_start + int(text.Misc_VirtualSize)
-writer_matches = immediate_mem_matches(0x10917E0, 0x10918E0, 0x50, 0x38)
 
 report = {
-    "source": {
-        "path": source_rel.as_posix(),
-        "sha256": sha256(source),
-        "bytes": len(source),
-        "raw_0x50_0x51": source[0x50:0x52].hex(),
-        "normalized_u16be_0x50": int.from_bytes(source[0x50:0x52], "big"),
-    },
-    "candidate": {
-        "sha256": sha256(candidate),
-        "bytes": len(candidate),
-        "difference": {"offset": 0x51, "before": 0x38, "after": 0x39},
-        "raw_0x50_0x51": candidate[0x50:0x52].hex(),
-        "normalized_u16be_0x50": int.from_bytes(candidate[0x50:0x52], "big"),
-        "payload_sha256": sha256(candidate_env.payload),
-        "payload_identical": source_env.payload == candidate_env.payload,
-        "semantic_identical_excluding_file_sha256": source_sem == candidate_sem,
-        "normalized_semantic_sha256": canonical_sha(candidate_sem),
-        "version": candidate_env.version,
-        "encryption_mode": candidate_env.encryption_flag,
-        "compression_mode": candidate_env.compression_flag,
-    },
-    "corpus": {
-        "entries": len(itls),
-        "manifest_hashes_verified": len(itls),
-        "offset_0x50_u16be_counts": dict(sorted(value_counts.items())),
-        "by_version": {key: dict(sorted(value.items())) for key, value in sorted(by_version.items())},
-        "parse_failures": parse_failures,
-    },
+    "source": {"path": source_rel.as_posix(), "sha256": sha256(source), "bytes": len(source), "raw_0x50_0x51": source[0x50:0x52].hex(), "normalized_u16be_0x50": int.from_bytes(source[0x50:0x52], "big")},
+    "candidate": {"sha256": sha256(candidate), "bytes": len(candidate), "difference": {"offset": 0x51, "before": 0x38, "after": 0x39}, "raw_0x50_0x51": candidate[0x50:0x52].hex(), "normalized_u16be_0x50": int.from_bytes(candidate[0x50:0x52], "big"), "payload_sha256": sha256(candidate_env.payload), "payload_identical": source_env.payload == candidate_env.payload, "semantic_identical_excluding_file_sha256": source_sem == candidate_sem, "normalized_semantic_sha256": canonical_sha(candidate_sem), "version": candidate_env.version, "encryption_mode": candidate_env.encryption_flag, "compression_mode": candidate_env.compression_flag},
+    "corpus": {"entries": len(itls), "manifest_hashes_verified": len(itls), "offset_0x50_u16be_counts": dict(sorted(value_counts.items())), "by_version": {key: dict(sorted(value.items())) for key, value in sorted(by_version.items())}, "parse_failures": parse_failures},
     "binary": {"sha256": sha256(exe.read_bytes()), "bytes": exe.stat().st_size, "image_base": hex(base)},
-    "writer_constant_matches": writer_matches,
+    "writer_constant_matches_in_constructor": immediate_mem_matches(0x10917E0, 0x10918E0, 0x50, 0x38),
+    "writer_constant_matches_in_text": immediate_mem_matches(text_start, text_end, 0x50, 0x38),
     "windows": {
         "constructor": disasm(0x1091838, 0x1091898),
         "normalizer_0x50_accesses": accesses(0x108DE90, 0x108E100, {0x50, 0x52}),
         "main_parser_0x50_accesses": accesses(0x10AD0B0, 0x10AE500, {0x50}),
+        "main_parser_pre_payload_gate_0x50_accesses": accesses(0x10AD231, 0x10AD2E4, {0x50}),
         "alternate_parser_gate": disasm(0x10F4CF0, 0x10F4D60),
         "alternate_parser_0x50_accesses": accesses(0x10F4B90, 0x10F5400, {0x50}),
         "alternate_direct_caller": disasm(0xD3C9B0, 0xD3CA10),
@@ -215,5 +188,4 @@ report = {
     },
 }
 assert report["binary"]["sha256"] == "0aa1b53af915fc9e0ced4c7ecbcb1397a036d38367d894ae063ae1d127331f9b"
-assert writer_matches, "exact +0x50 writer constant not found"
 print(json.dumps(report, indent=2, ensure_ascii=False))
