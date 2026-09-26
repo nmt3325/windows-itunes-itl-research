@@ -1,0 +1,135 @@
+{
+  "schema_version": 1,
+  "declared_utc": "2026-09-26T18:17:43.036889+00:00",
+  "state_at_declaration": {
+    "native_itunes_12_12_10_1_launches": 0,
+    "native_candidate_outcomes_observed": 0,
+    "package_metadata_inspection_completed": true,
+    "selection_basis": "A non-adjacent standalone 12.12.x build predating every retained 12.13.9.1/12.13.10.3/12.13.11.1 row; selected before installation or any product-facing candidate run.",
+    "post_hoc_negative_selection_allowed": false
+  },
+  "target_build": {
+    "edition": "Apple standalone Windows x64 iTunes",
+    "version": "12.12.10.1",
+    "chocolatey_package_url": "https://community.chocolatey.org/api/v2/package/iTunes/12.12.10.1",
+    "chocolatey_package_bytes": 3718,
+    "chocolatey_package_sha256": "47327162dc0c2d1b23bd0921664fd1879fa05a9b1c5b3a84c730a3d1ac01c396",
+    "apple_installer_url": "https://secure-appldnld.apple.com/itunes12/042-32480-20230911-CC326CC1-E6C1-4F7C-A717-18493F59FE2E/iTunes64Setup.exe",
+    "apple_installer_expected_sha256": "31465167704b2fd795aafc14cf5c04261d7c3ae663d087f63842e431aa204abc",
+    "package_source": "Chocolatey community package metadata naming Apple Inc. and an Apple secure-appldnld URL",
+    "lawful_provenance_boundary": "Public Apple-hosted redistributable installer obtained through retained public package metadata; no proprietary installer or executable will be committed."
+  },
+  "identity_lock_before_candidate_runs": {
+    "required": true,
+    "fields": [
+      "installer bytes",
+      "installer SHA-256",
+      "executable bytes",
+      "executable SHA-256",
+      "file version",
+      "product version",
+      "Authenticode status",
+      "signer subject",
+      "signer certificate thumbprint"
+    ],
+    "gates": [
+      "installer SHA-256 equals package metadata",
+      "file and product versions equal 12.12.10.1",
+      "Authenticode status is Valid",
+      "signer subject identifies Apple Inc.",
+      "zero iTunes processes before setup"
+    ]
+  },
+  "setup_and_positive_input_generation": {
+    "classification": "input generation, not an independent writer implementation and not a qualification cycle",
+    "profile": "fresh disposable junction with no XML, Previous iTunes Libraries, or pre-existing ITL",
+    "media": {
+      "kind": "deterministic PCM WAV",
+      "channels": 1,
+      "sample_width_bytes": 2,
+      "sample_rate_hz": 44100,
+      "frames": 22050,
+      "frequency_hz": 523
+    },
+    "native_operations": [
+      "controlled first launch/EULA and known-audio/update-modal handling",
+      "COM LibraryPlaylist.AddFile",
+      "bounded COM metadata setters",
+      "ordinary playlist creation and one-member insertion",
+      "normal COM Quit"
+    ],
+    "selected_track_values": {
+      "name": "U01 12.12.10.1 Native α",
+      "artist": "Distinct Build Artist Ω",
+      "album": "Distinct Build Album 2023",
+      "album_artist": "Distinct Album Artist β",
+      "comment": "Predeclared native baseline — 20260927",
+      "rating": 80,
+      "play_count": 2,
+      "skip_count": 1,
+      "track_number": 1,
+      "year": 2023
+    },
+    "ordinary_playlist": {
+      "name": "Synthetic U01 12.12.10.1",
+      "members": "the single generated track"
+    },
+    "lock_requirement": "The resulting exact ITL/media hashes, outer file PID, COM library PID, track PID, playlist PID, parser summary, and COM state must be retained and committed before qualification."
+  },
+  "positive_qualification": {
+    "case_id": "native-authored-one-track-positive",
+    "input": "the exact locked 12.12.10.1 native-authored one-track ITL",
+    "sequential_cycles": 2,
+    "cycle_2_input": "exact cycle-1 native save",
+    "required_gates": [
+      "exact executable identity",
+      "structural independent-parser preflight",
+      "two stable COM snapshots per cycle",
+      "installed/native-saved version 12.12.10.1",
+      "separate outer file PID and COM library PID gates",
+      "track and playlist persistent IDs",
+      "all predeclared selected track values",
+      "ordinary playlist name and order",
+      "worker and iTunes exit 0 after normal COM Quit",
+      "zero worker/parser errors",
+      "zero forbidden fallback artifacts",
+      "zero remaining iTunes processes"
+    ]
+  },
+  "negative_qualification": {
+    "case_id": "newer-version-product-facing-negative",
+    "input_path": "TEST_CORPUS/generated/reference-one-track-raw.itl",
+    "input_sha256": "c6c68171d57350ceb3cf379eee13a764ea199536ef18238fe4faf80583492d74",
+    "input_version": "12.13.10.3",
+    "independent_parser_expected": {
+      "file_persistent_id": "5245464552454E43",
+      "track_count": 1,
+      "track_persistent_id": "A17E000000000001",
+      "track_name": "Reference Track",
+      "playlist_persistent_id": "A17E000000000002",
+      "playlist_name": "Reference Playlist"
+    },
+    "isolated_attempts": 2,
+    "reset_policy": "Each attempt starts from a fresh copy of the identical pinned input, not from any prior attempt output.",
+    "predeclared_product_gate": "The structurally valid input reaches iTunes and is refused by a product-facing newer-library-version modal before COM semantic qualification.",
+    "required_gates": [
+      "exact executable identity",
+      "independent-parser structural/semantic preflight succeeds",
+      "product-facing modal captured on both attempts",
+      "modal meaning identifies a library created by a newer iTunes version",
+      "input hash unchanged",
+      "no native save accepted",
+      "no XML, Previous iTunes Libraries, damaged-library replacement, or fallback identity",
+      "normal dismissal/close and process exit without forced termination",
+      "zero remaining iTunes processes"
+    ],
+    "classification_if_gate_passes": "structurally valid product-facing native semantic/version negative",
+    "classification_if_gate_fails": "predeclared negative did not reproduce; retain the result and do not substitute another candidate post hoc"
+  },
+  "claim_limits": [
+    "The positive is native-authored and does not qualify an independent writer or arbitrary 12.12.10.1 edits.",
+    "The negative, if observed, is one exact newer-version input on one exact executable and is not universal backward-incompatibility.",
+    "Two repeated attempts/cycles are not independent experiments.",
+    "U-01, universal_itl_support, and the full-analysis/specification gate remain open/false."
+  ]
+}
