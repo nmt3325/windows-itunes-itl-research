@@ -51,6 +51,7 @@ qualification:
   parser_coverage_guided_campaign: bounded_offline_20000_mutations_zero_retained_anomalies_u17_open
   filesystem_publication_threat_model: bounded_linux_21_plus_windows_ntfs_25_scenarios_parent_swap_limits_2_actual_terminations_u17_open
   filesystem_process_crash: bounded_linux_4_sigkill_1_normal_control_production_unchanged_u17_open
+  filesystem_process_crash_contrast: bounded_linux_ext4_tmpfs_8_sigkill_2_controls_production_unchanged_u17_open
   audible_playback: not_established
   atomic_native_save_protocol: not_established
 
@@ -165,7 +166,7 @@ validation:
     unresolved_item: U-17
   integrated_tests:
     status: passed
-    passed: 1137
+    passed: 1146
     skipped: 9
     skipped_missing_com_oracle: 5
     skipped_windows_only_helpers_on_linux: 2
@@ -232,6 +233,31 @@ validation:
     files_parsed: 95
     files_failed: 0
     instances: 1235
+  filesystem_process_crash_tmpfs_ext4:
+    status: passed_bounded_linux_ext4_tmpfs_process_termination_contrast
+    filesystems_observed: 2
+    case_scenarios: 10
+    process_crash_case_scenarios: 8
+    normal_completion_control_case_scenarios: 2
+    case_scenarios_are_independent_experiments: false
+    child_processes_spawned: 10
+    actual_sigkill_operations: 8
+    sigkill_child_returncode: -9
+    parent_reaped_children: 10
+    linux_mkstemp_creations_completed: 10
+    partial_prefix_flushes_completed: 2
+    complete_payload_file_fsyncs_completed: 6
+    linux_hard_link_commits_completed: 4
+    production_cleanup_unlinks_completed: 2
+    ext4_mount_filesystem_type: ext4
+    tmpfs_mount_filesystem_type: tmpfs
+    normalized_case_sequences_match_between_ext4_and_tmpfs: true
+    normalized_outcome_fingerprints_match_between_ext4_and_tmpfs: true
+    power_loss_operations: 0
+    native_itunes_operations: 0
+    network_filesystem_operations: 0
+    production_code_changed: false
+    unresolved_item: U-17
 
 completion:
   gate_passed: false

@@ -11,8 +11,8 @@
   },
   {
     "path": "EVIDENCE.md",
-    "bytes": 33180,
-    "sha256": "1ace382422988c5e59f6ae5656329764dc684c37d972d5bb3a9d838b4f1c0095"
+    "bytes": 34337,
+    "sha256": "8db54fe798877b79fa9f656e961f25b2a48fbdbd858782ab79d29cacf2c1463c"
   },
   {
     "path": "ITL_DATA_MODEL.md",
@@ -196,8 +196,8 @@
   },
   {
     "path": "UNRESOLVED.md",
-    "bytes": 24086,
-    "sha256": "03c45656c029cafc321df39e745b69b379645b49ebbad1c8c357bed4d6c3f58f"
+    "bytes": 25003,
+    "sha256": "389354cd4957879a537d8ba36997fb7842c81891b58b4bdbc58810c5a8a5315b"
   },
   {
     "path": "VALIDATOR/README.md",
@@ -231,8 +231,8 @@
   },
   {
     "path": "completion-status.yaml",
-    "bytes": 10355,
-    "sha256": "55cccfec5653e796a4760ffbe481136e834c22cebc4aa7b160c31c1d1bd8f7d2"
+    "bytes": 11482,
+    "sha256": "8bc1ea1409c5f0d8ce8cc8da64c2e91301e5ced63bb9bd5e7a3d150c76ddc997"
   },
   {
     "path": "corpus-manifest.json",
@@ -10542,7 +10542,7 @@
   {
     "path": "evidence/research/20260925/sort-rank-audit/input-manifest.json",
     "bytes": 24766,
-    "sha256": "19b3a8dfbcee77fa559a2ad64464e8d0a5c2e16570026469209aba0239e665f9"
+    "sha256": "d874062556a6203d0d4db6c51a2631d5c783eb03e73be3e867049a6cc228357d"
   },
   {
     "path": "evidence/research/20260925/trailer-coverage-audit/README.md",
@@ -10563,6 +10563,16 @@
     "path": "evidence/research/20260925/windows-filesystem-publication/report.json",
     "bytes": 19396,
     "sha256": "867e68693aa74d2c1a19def1483f64a243f242d4e5b1348ee017b2a87669eda1"
+  },
+  {
+    "path": "evidence/research/20260926/filesystem-process-crash-tmpfs-ext4/README.md",
+    "bytes": 2230,
+    "sha256": "90e751d3d3b41e172eeb75252dd9f2b539e7d12876727a56addbdd45357ec4d0"
+  },
+  {
+    "path": "evidence/research/20260926/filesystem-process-crash-tmpfs-ext4/report.json",
+    "bytes": 37275,
+    "sha256": "83735369d68e3b7c3f4faf0a78ad16ef7361f17c3a8db5b443aa274c7ebe25a1"
   },
   {
     "path": "evidence/research/20260926/public-replay-gap-inventory/README.md",
@@ -12945,6 +12955,11 @@
     "sha256": "a902293a363ec02237290947113e3d0b212bbc553910f752a97538b3902c7a41"
   },
   {
+    "path": "scripts/research/audit_filesystem_process_crash_tmpfs_ext4_20260926.py",
+    "bytes": 17670,
+    "sha256": "462197f4c0fee499276c3c312bf9fa5fb2ff9cb1e07880511f7fe9c0e9478c33"
+  },
+  {
     "path": "scripts/research/audit_filesystem_publication_20260925.py",
     "bytes": 29872,
     "sha256": "3554fd155e628b4cfce13782bdd4af49c72ef78c369d7805ce4d1b72ddab8e5c"
@@ -13358,6 +13373,11 @@
     "path": "tests/test_filesystem_process_crash_20260925.py",
     "bytes": 10385,
     "sha256": "8ad7526df4326f0ed1a9459599686a2ec1be9fc627f75ea6ed2c1d11b644c57e"
+  },
+  {
+    "path": "tests/test_filesystem_process_crash_tmpfs_ext4_20260926.py",
+    "bytes": 8663,
+    "sha256": "2a9d3e8f191dc7dbf239074ece0bc822cfc373f089b1cd422789b6a6e570831d"
   },
   {
     "path": "tests/test_filesystem_threat_model_20260925.py",
