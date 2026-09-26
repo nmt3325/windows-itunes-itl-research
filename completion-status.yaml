@@ -167,6 +167,24 @@ validation:
     hostile_directory_safety_established: false
     production_code_changed: false
     unresolved_item: U-17
+  hostile_directory_process_race:
+    status: bounded_independent_process_witnesses_u17_open
+    focused_tests_passed: 2
+    focused_tests_failed: 0
+    case_scenarios: 3
+    independent_experiments: false
+    writer_child_processes: 3
+    stable_parent_controls: 1
+    spoof_publication_witnesses: 2
+    deterministic_fresh_root_replays: 2
+    uncontrolled_scheduler_races: 0
+    power_loss_operations: 0
+    network_filesystem_operations: 0
+    native_itunes_operations: 0
+    hostile_directory_safety_established: false
+    universal_atomicity_established: false
+    production_code_changed: false
+    unresolved_item: U-17
   filesystem_process_crash:
     status: passed_bounded_linux_process_termination_campaign
     case_scenarios: 5
@@ -206,7 +224,7 @@ validation:
     unresolved_item: U-17
   integrated_tests:
     status: passed
-    passed: 1161
+    passed: 1163
     skipped: 9
     skipped_missing_com_oracle: 5
     skipped_windows_only_helpers_on_linux: 2

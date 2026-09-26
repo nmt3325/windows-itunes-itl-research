@@ -1,0 +1,120 @@
+{
+  "bounds": {
+    "directory_entry_durability_claims": 0,
+    "hostile_directory_safety_claims": 0,
+    "native_itunes_operations": 0,
+    "network_filesystem_operations": 0,
+    "power_loss_operations": 0,
+    "uncontrolled_scheduler_races": 0
+  },
+  "cases": [
+    {
+      "event": {
+        "event": "before_native_link",
+        "mode": "stable_control",
+        "source_basename": ".out.itlkit-<random>.tmp",
+        "writer_pid_recorded": true
+      },
+      "id": "stable_parent_control",
+      "observed": {
+        "destination_matches_payload": true,
+        "temporary_count": 0
+      },
+      "process": {
+        "writer_child_exited_normally": true,
+        "writer_child_reaped": true,
+        "writer_child_returncode": 0,
+        "writer_stderr_bytes": 0,
+        "writer_stdout_bytes": 0
+      },
+      "schedule": "child paused immediately before real os.link; parent made no filesystem mutation"
+    },
+    {
+      "event": {
+        "event": "before_native_link",
+        "mode": "directory_swap",
+        "source_basename": ".out.itlkit-<random>.tmp",
+        "writer_pid_recorded": true
+      },
+      "id": "independent_parent_directory_swap_spoof",
+      "observed": {
+        "destination_matches_parent_spoof": true,
+        "destination_matches_requested_payload": false,
+        "original_complete_temporary_retained": true,
+        "replacement_parent_temporary_count": 0,
+        "writer_returned_success": true
+      },
+      "process": {
+        "writer_child_exited_normally": true,
+        "writer_child_reaped": true,
+        "writer_child_returncode": 0,
+        "writer_stderr_bytes": 0,
+        "writer_stdout_bytes": 0
+      },
+      "schedule": "writer child paused before real os.link; parent process renamed parent, made replacement parent, and spoofed source basename"
+    },
+    {
+      "event": {
+        "event": "before_native_link",
+        "mode": "symlink_retarget",
+        "source_basename": ".out.itlkit-<random>.tmp",
+        "writer_pid_recorded": true
+      },
+      "id": "independent_parent_symlink_retarget_spoof",
+      "observed": {
+        "destination_matches_parent_spoof": true,
+        "destination_matches_requested_payload": false,
+        "original_complete_temporary_retained": true,
+        "retargeted_parent_temporary_count": 0,
+        "writer_returned_success": true
+      },
+      "process": {
+        "writer_child_exited_normally": true,
+        "writer_child_reaped": true,
+        "writer_child_returncode": 0,
+        "writer_stderr_bytes": 0,
+        "writer_stdout_bytes": 0
+      },
+      "schedule": "writer child paused before real os.link; parent process retargeted parent symlink and spoofed source basename"
+    }
+  ],
+  "claim_boundaries": {
+    "independent_reimplementation_passed": false,
+    "native_application_acceptance": false,
+    "network_filesystem_tested": false,
+    "percentage_complete": null,
+    "power_loss_tested": false,
+    "u17_closed": false,
+    "universal_atomicity": false,
+    "universal_itl_support": false
+  },
+  "conclusion": "Separate-process witnesses reproduce pathname-rebinding spoof publication at the pre-link boundary. They strengthen the hostile-parent limitation; they do not prove arbitrary-race behavior, power-loss durability, network-filesystem behavior, or universal atomicity.",
+  "environment": {
+    "platform": "linux-posix",
+    "scratch_filesystem_type": "ext2/ext3"
+  },
+  "generator": {
+    "path": "scripts/research/audit_hostile_directory_process_race_20260926.py",
+    "sha256": "17e5b41d046bb36650478f9e83a6f9b0998626fa18c233f7f14ae0d440719adc"
+  },
+  "methodology": {
+    "boundary_control": "child hook pauses immediately before the production pathname-based os.link; parent performs real filesystem syscalls then releases child",
+    "final_link_syscalls_are_native": true,
+    "independent_experiments": false,
+    "random_temporary_basename_normalized_out": true,
+    "writer_and_mutator_are_separate_processes": true
+  },
+  "production_source": {
+    "path": "itlkit/io.py",
+    "sha256": "f042b3d98a71cfedf9cfd39fdd0d4acf5bacedd623dbc07d9d1d8bb54292a6f4"
+  },
+  "schema": "windows-itunes-itl.hostile-directory-process-race.v1",
+  "status": "bounded_independent_process_witnesses_u17_open",
+  "summary": {
+    "case_scenarios": 3,
+    "spoof_publication_witnesses": 2,
+    "stable_controls": 1,
+    "unexpected_anomalies": 0,
+    "writer_child_processes": 3
+  }
+}
