@@ -11,8 +11,8 @@
   },
   {
     "path": "EVIDENCE.md",
-    "bytes": 54217,
-    "sha256": "18c40e0ccafe78960779de126956ab3d2bcd416fe46918fcd654766b9a43e9af"
+    "bytes": 56938,
+    "sha256": "12524bb5f8556bc6f400e49b8b74fd63fb57e4235e8fb1280af2fa7b94040404"
   },
   {
     "path": "ITL_DATA_MODEL.md",
@@ -36,8 +36,8 @@
   },
   {
     "path": "README.md",
-    "bytes": 27304,
-    "sha256": "2cffa33c57c22622216cb2843243c1988ca4039d9e4f5597123a4c50533fcf3d"
+    "bytes": 28251,
+    "sha256": "5c756e903ba563305311ea1183033498998d17c421f8db2323bdeb9278771e22"
   },
   {
     "path": "REFERENCE_PARSER/README.md",
@@ -196,8 +196,8 @@
   },
   {
     "path": "UNRESOLVED.md",
-    "bytes": 36085,
-    "sha256": "35414a4f6969772f9c59bae0f36448b6a7af9968f88fb832cd64c51e2cf12b91"
+    "bytes": 36972,
+    "sha256": "1fa07f042a0d7ae07c7acc68ab6cbdd6fdea0023159d2490805445d3fa3d80ac"
   },
   {
     "path": "VALIDATOR/README.md",
@@ -226,13 +226,13 @@
   },
   {
     "path": "VERSION_MATRIX.md",
-    "bytes": 18435,
-    "sha256": "fd5a0415f18ae03db18ede1fc3f21c24fa57530b97064d8cca18b0aeab800bac"
+    "bytes": 19248,
+    "sha256": "9f45cbdd6c9ae3dbdd0cc9e7c1aeb170eb8b9c8d53ec19a0f932b789ca98d9f6"
   },
   {
     "path": "completion-status.yaml",
-    "bytes": 29178,
-    "sha256": "b01a724b6086ab49d720bceb0be82fb74993cb0bcf0889a5af7de3a6dfe0d641"
+    "bytes": 32542,
+    "sha256": "945790556b2ff30c86f1544c7ede0258bd56a31a293383d55a83e55ee580499c"
   },
   {
     "path": "corpus-manifest.json",
@@ -278,6 +278,11 @@
     "path": "docs/analysis-notes/005-20260927-u01-static-control-flow.md",
     "bytes": 7328,
     "sha256": "e80395b4ee33ec5d29e699607acb830c496da010a7563e0fdf9afb369824d685"
+  },
+  {
+    "path": "docs/analysis-notes/006-20260927-u01-parser-status-bridge.md",
+    "bytes": 6460,
+    "sha256": "8fa6ca4e2bbe381c011ee6816a6fcd26df65b6ea5ac08d4a2384863bbac8e495"
   },
   {
     "path": "docs/dynamic.md",
@@ -10567,7 +10572,7 @@
   {
     "path": "evidence/research/20260925/sort-rank-audit/input-manifest.json",
     "bytes": 24766,
-    "sha256": "a6e697db7424ea43e9ecabda241ec7de2c150c07a8d118df303a54f870fa2d5a"
+    "sha256": "aa247dd89986d17bb4606e7c2331173c230f7833e509e8990e22ed5f77d80efd"
   },
   {
     "path": "evidence/research/20260925/trailer-coverage-audit/README.md",
@@ -10652,7 +10657,7 @@
   {
     "path": "evidence/research/20260926/public-replay-gap-inventory/report.json",
     "bytes": 9866,
-    "sha256": "c9ade58971c45affe32b1cc0f84a262b81ec6153f24166585b018925d158e1c2"
+    "sha256": "d4d4fcda4b4b80ad045cd01b8f13e9dc7dcf9e62cf2b515d29cdaa9856d9c445"
   },
   {
     "path": "evidence/research/20260926/retained-trailer-census/README.md",
@@ -11198,6 +11203,16 @@
     "path": "evidence/research/20260927/u01-distinct-build-12.12.10.1/provenance/itunes-12.12.10.1.nuspec",
     "bytes": 1841,
     "sha256": "71e88a9c23ee75c9ad97edd33e7e50c788e2d73960ea96977be69b75951f0cac"
+  },
+  {
+    "path": "evidence/research/20260927/u01-parser-status-bridge/README.md",
+    "bytes": 7200,
+    "sha256": "f2d7dea9bef533154b0df435e6c64e454335319b26dd20c52e7d64dbbf1c3cf0"
+  },
+  {
+    "path": "evidence/research/20260927/u01-parser-status-bridge/ghidra-parser-status-flow.json",
+    "bytes": 49898,
+    "sha256": "40dd9a15a6b8a5b5e4974952b73085bd75a5ab2e3b9006c1a9cfd5293e613e35"
   },
   {
     "path": "evidence/research/20260927/u01-sampled-version-matrix/12.13.11.1-independent/native/exact-one-track/case-manifest.json",
@@ -14445,6 +14460,11 @@
     "sha256": "9c8730bcfde3c1a7dd28eca152ba437f88376cd8ae1e1dca3cb5394131219669"
   },
   {
+    "path": "scripts/ghidra/U01ParserStatusFlow.java",
+    "bytes": 22122,
+    "sha256": "2f4293b5e17aea31f93cbd8f7499ba5855f77c28b3e0972beb2417dd110f7cd0"
+  },
+  {
     "path": "scripts/research/analyze_mp3_rewrite.py",
     "bytes": 26572,
     "sha256": "c56c320ea9e221dc6f895fdb72a09c0f25cde9f1413b1de4274da0195b128dbe"
@@ -15088,6 +15108,11 @@
     "path": "tests/test_u01_distinct_build_20260927.py",
     "bytes": 4963,
     "sha256": "78331342dc9696f2fde56e2add6bf3ab76152818019784da42a951c48bde281a"
+  },
+  {
+    "path": "tests/test_u01_parser_status_bridge_20260927.py",
+    "bytes": 10721,
+    "sha256": "ee8bca056008681eaf6d2fa6ba70dbbffe8daf1ed22102552ab3429edc5acdd0"
   },
   {
     "path": "tests/test_u01_sampled_version_matrix_20260927.py",

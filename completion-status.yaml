@@ -20,6 +20,7 @@ scope:
   u01_distinct_build_scope: one_same_build_native_authored_input_two_positive_cycles_plus_two_failed_predeclared_negative_timeout_observations
   u01_structural_candidate_inventory_scope: offline_exact_hash_census_one_version_normalized_derivative_zero_authorized_attempts_zero_native_launches_u01_open
   u01_static_control_flow_scope: exact_build_full_headless_static_registration_path_plus_all_431_delivery_manifest_itls_zero_native_launches_u01_open
+  u01_parser_status_bridge_scope: exact_build_parser_encryption_mode_gate_to_status_group_and_resource_mapping_independent_mode3_preflight_failed_zero_native_launches_u01_open
   windows_build: 10.0.26100
   display_and_system_locale: en-US
   store_edition_supported: false
@@ -54,6 +55,7 @@ qualification:
   u01_distinct_build_12_12_10_1: one_native_authored_exact_input_two_passed_cycles_predeclared_product_negative_failed_with_two_force_terminated_timeout_survivors_no_profile_admission_u01_open
   u01_structural_candidate_inventory: corrected_exact_hash_census_one_reproducible_offline_derivative_theory_gate_failed_zero_launches_u01_open
   u01_static_control_flow: deterministic_exact_build_ghidra_registration_metadata_plus_exhaustive_retained_corpus_layout_census_theory_gate_failed_zero_launches_u01_open
+  u01_parser_status_bridge: deterministic_exact_build_parser_status_descriptor_resource_bridge_concrete_nonlabel_feature_identified_independent_preflight_failed_zero_launches_u01_open
   smart_playlist: native_nested_framing_observed_but_operand_and_membership_failed
   native_field_matrix: 27_passed_2_failed_exact_cases_only
   native_media_field_followup: seventeen_exact_lyrics_mp3_passes_plus_nine_qualified_native_nonexact_immediate_readbacks_on_one_pinned_path_and_three_exact_wav_mutation_failures
@@ -460,6 +462,75 @@ validation:
     universal_itl_support: false
     full_analysis_specification_gate: false
     unresolved_item: U-01
+  u01_parser_status_bridge_20260927:
+    status: offline_exact_parser_status_resource_bridge_complete_independent_preflight_failed_no_native_launch_u01_open
+    target_version: 12.12.10.1
+    target_executable_sha256: 0aa1b53af915fc9e0ced4c7ecbcb1397a036d38367d894ae063ae1d127331f9b
+    target_executable_bytes: 39260512
+    target_authenticode_status: Valid
+    target_signer_thumbprint: 67A9953123BD5F01B1BC0BB98A950D9CA869CD02
+    target_executable_launched: false
+    apple_executable_or_ghidra_project_bytes_retained: false
+    ghidra_version: 12.1.3
+    ghidra_archive_sha256: 93a5d11a9ad510622acaaf908c556a7b9b764d338e78a7567f3689bf5081fd54
+    jdk: Temurin_21.0.12
+    recovered_function_count: 62218
+    ghidra_report_bytes: 49898
+    ghidra_report_sha256: 40dd9a15a6b8a5b5e4974952b73085bd75a5ab2e3b9006c1a9cfd5293e613e35
+    byte_identical_postscript_runs: 2
+    parser_rva: 0x10ad0b0
+    parser_body_address_count: 4920
+    direct_caller_rva: 0x53d500
+    direct_caller_body_address_count: 6694
+    parser_call_rva: 0x53db44
+    upstream_wrapper_rva: 0x53f4e0
+    upstream_wrapper_body_address_count: 490
+    upstream_direct_caller_call_rva: 0x53f62c
+    alternate_parser_rva: 0x10f4b90
+    alternate_parser_body_address_count: 2094
+    concrete_feature: outer_header_encryption_mode_unsigned_greater_than_or_equal_to_3
+    concrete_feature_byte_offset: 0x41
+    version_label_used_by_feature_gate: false
+    produced_status_signed: -876
+    produced_status_u32: 0xfffffc94
+    status_comparison_rva: 0x53db8d
+    error_group: 0x1f43
+    error_group_set_rva: 0x53e387
+    status_forward_rva: 0x53e38c
+    status_formatter_call_rva: 0x53e394
+    descriptor_mapper_rva: 0xbfac90
+    group_registration_wrapper_rva: 0x1fb550
+    group_descriptor_rva: 0x19fd7e8
+    group_descriptor_entries: 3
+    minus_876_primary_resource_id: 0x1f420003
+    minus_208_primary_resource_id: 0x1f420004
+    minus_9_primary_resource_id: 0x1f420002
+    immediate_minus_876_uses: 8
+    immediate_group_0x1f43_uses: 3
+    parser_result_or_status_comparison_identified: true
+    concrete_non_version_label_feature_gate_identified: true
+    status_minus_876_to_newer_version_resource_mapping_identified: true
+    independent_reference_parser_supported_encryption_modes: [0, 1, 2]
+    mode_3_or_greater_passes_independent_preflight: false
+    exact_native_candidate_locked: false
+    attempts_authorized: 0
+    native_itunes_launches: 0
+    exact_product_modal_observed: false
+    product_facing_native_negative_established: false
+    reference_parser_profile_admitted: false
+    writer_profile_admitted: false
+    arbitrary_12_12_10_1_editing_qualified: false
+    independent_semantic_reproduction_passed: false
+    u01_closed: false
+    universal_itl_support: false
+    full_analysis_specification_gate: false
+    unresolved_item: U-01
+  focused_u01_parser_status_bridge_tests:
+    status: passed
+    passed: 6
+    failed: 0
+    ghidra_report_sha256_locked: true
+    independent_mode_3_preflight_refusal_verified: true
   focused_u01_static_control_flow_tests:
     status: passed
     passed: 4
@@ -477,7 +548,7 @@ validation:
     failed: 0
   integrated_tests:
     status: passed
-    passed: 1191
+    passed: 1197
     skipped: 9
     skipped_missing_com_oracle: 5
     skipped_windows_only_helpers_on_linux: 2
@@ -486,7 +557,7 @@ validation:
     command: ITLKIT_NATIVE_ROOT=evidence/native/snapshots ITLKIT_NATIVE_REPORTS=evidence/native/oracles TITL_REPO=josephw/titl@e7060370973d624d5c7b18f82303407b76421501 python -B -m pytest tests -q -rs -p no:cacheprovider --basetemp=/tmp/<fresh-path>
   strict_delivery_verifier_tests:
     status: passed
-    manifest_files: 3022
+    manifest_files: 3027
     passed: 40
     proposal_unittest_cases: 13
     production_qa_checks: 27
