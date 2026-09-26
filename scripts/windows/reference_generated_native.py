@@ -279,7 +279,15 @@ def reference_summary_errors(expected: dict, actual: dict) -> list[dict]:
             errors.append({"property": property_name, "expected": wanted, "actual": observed})
 
     mismatch("version", expected["version"], actual.get("version"))
-    mismatch("file_persistent_id", expected["library_persistent_id"], actual.get("file_persistent_id"))
+    # COM exposes the master-playlist persistent ID as the historical
+    # ``library_persistent_id`` field, while the outer hdfm header can carry a
+    # different file/library ID.  Existing reference-writer fixtures happen
+    # to use one value for both domains, so retain that as the default while
+    # allowing native-lineage fixtures to pin the outer ID independently.
+    expected_file_persistent_id = expected.get(
+        "file_persistent_id", expected["library_persistent_id"]
+    )
+    mismatch("file_persistent_id", expected_file_persistent_id, actual.get("file_persistent_id"))
     tracks = {row.get("persistent_id"): row for row in actual.get("tracks", [])}
     mismatch("track_persistent_ids", sorted(row["persistent_id"] for row in expected["tracks"]), sorted(key for key in tracks if key))
     for row in expected["tracks"]:
