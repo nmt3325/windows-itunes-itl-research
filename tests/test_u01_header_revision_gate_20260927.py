@@ -29,12 +29,12 @@ EXPECTED_HASHES = {
     REPORT: "2242e7fe1db95d95bb412df594143c2783eb84683e56188fd361b2e3276923c2",
     GHIDRA_SCRIPT: "c23f9b48ecd6b5c5121d8c5c0b166c0a2bbf41055b84fc84ae23de7b84b8b5dc",
     GENERATOR: "6418daa2dfe9c268e75c1dfff2f30869439ad9e89d467b660a087a936559d067",
-    NATIVE_WRAPPER: "fd43735bd0cebdd58ad1729f2fe4973d3165df5727b294714e0b4131486e3464",
+    NATIVE_WRAPPER: "3d372cdd339d86ac05d0af8ef2f09935bbf6facd69bc923f1c33fd904c0e87a3",
     NATIVE_HARNESS: "2f8e2339d816549991929baebbb7468d7e8903999246f41a7a23270773dc97f5",
     NATIVE_COMMON: "74787f93b149f46946528af9c385d2d90ee483d3b0337ff1f318f477b7a11e68",
     MANIFEST: "2a9a0b7719e1f4e17d3ff6b71d934d881fb69771d3d49b9ee1fc8332ba59b315",
     PREFLIGHT: "843adae57d24f22a9081493642b213c519c45bdd33c3f21c1631333ead975163",
-    PLAN: "8251b6a1c11e12f8a195b999bd70b7aab1e0c27fe3a196e0d157e1aeaa34b59c",
+    PLAN: "2a1cfbaa02d97d4b34d0356bfe1db58be62af4fc9eed53782216c119af0954c7",
     SOURCE: "9034aa3e9e7ccc12390d0b44307d8ea10dd313fc424415050c8d5bf8ced0e772",
     CANDIDATE: "287a9b91315be1a4917cc1a2530013c076bab824e2099885ac89d8e7ccebe59a",
 }
@@ -243,7 +243,14 @@ def test_preoutcome_plan_is_complete_and_records_zero_launch_boundary() -> None:
         "native_outcomes_observed_for_this_candidate": 0,
         "candidate_selected_before_native_outcome": True,
         "post_hoc_candidate_substitution_allowed": False,
+        "prelaunch_wrapper_refusals_before_product_start": 1,
+        "product_processes_started_by_refusal": 0,
     }
+    correction = plan["prelaunch_correction"]
+    assert correction["candidate_launches_before_amendment"] == 0
+    assert correction["native_outcomes_before_amendment"] == 0
+    assert correction["candidate_or_theory_changed"] is False
+    assert correction["mandatory_recommit_push_remote_verification_before_native_launch"] is True
     assert plan["candidate_theory"]["non_version_label_gate"] is True
     assert plan["candidate_theory"]["status"] == -876
     assert plan["candidate_theory"]["group"] == "0x1f43"

@@ -34,7 +34,9 @@ Generator `scripts/research/build_u01_header_revision_candidate_20260927.py` det
 
 `native-two-attempt-plan.json` fixes the exact candidate/source/executable identities, static prediction, mandatory commit/push/remote gate, two sequential fresh-copy attempts, isolated profile junctions, 90-second observation limits, strict newer-version/invalid/ambiguous classification, one visible enabled OK dismissal, normal exit or bounded `WM_CLOSE`, exit code zero, zero remaining processes, input identity/semantic preservation, forbidden fallback audit, and cleanup. Timeout or forced cleanup is explicitly not modal success, and post-hoc candidate substitution is forbidden.
 
-The locked native wrapper is `scripts/windows/u01_header_revision_gate_20260927.py`, SHA-256 `fd43735bd0cebdd58ad1729f2fe4973d3165df5727b294714e0b4131486e3464`. It reuses the mature exact-build harness only after re-locking the candidate's full normalized semantics and executable identity.
+The locked native wrapper is `scripts/windows/u01_header_revision_gate_20260927.py`, SHA-256 `3d372cdd339d86ac05d0af8ef2f09935bbf6facd69bc923f1c33fd904c0e87a3`. It reuses the mature exact-build harness only after re-locking the candidate's full normalized semantics and executable identity.
+
+One initial wrapper invocation failed closed at Authenticode response parsing before any `iTunes.exe` process started. The corrected wrapper parses and validates the bounded probe status, subject, and exact certificate thumbprint; the candidate and theory did not change. The amended plan must be recommitted, pushed, and remotely verified before any native launch.
 
 At this pre-outcome checkpoint:
 

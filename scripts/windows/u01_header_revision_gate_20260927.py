@@ -32,6 +32,7 @@ PREFLIGHT_REL = Path(
 )
 CANDIDATE_SHA256 = "287a9b91315be1a4917cc1a2530013c076bab824e2099885ac89d8e7ccebe59a"
 EXPECTED_EXE_SHA256 = "0aa1b53af915fc9e0ced4c7ecbcb1397a036d38367d894ae063ae1d127331f9b"
+EXPECTED_SIGNER_THUMBPRINT = "67A9953123BD5F01B1BC0BB98A950D9CA869CD02"
 EXPECTED_SEMANTIC_SHA256: str
 
 
@@ -40,6 +41,39 @@ def canonical_sha256(value: object) -> str:
         value, ensure_ascii=False, sort_keys=True, separators=(",", ":")
     ).encode("utf-8")
     return hashlib.sha256(payload).hexdigest()
+
+
+def validated_authenticode(path: Path) -> dict:
+    """Parse and validate the mature harness's bounded PowerShell probe."""
+    probe = native.authenticode(path)
+    if probe.get("returncode") != 0:
+        raise RuntimeError("iTunes Authenticode probe failed: " + str(probe.get("output", "")))
+    try:
+        observed = json.loads(str(probe.get("output", "")))
+    except json.JSONDecodeError as exc:
+        raise RuntimeError("invalid iTunes Authenticode probe response") from exc
+    normalized = {
+        "status": observed.get("Status"),
+        "subject": observed.get("Subject"),
+        "thumbprint": observed.get("Thumbprint"),
+        "probe": probe,
+    }
+    errors = []
+    if normalized["status"] != "Valid":
+        errors.append({"property": "status", "expected": "Valid", "actual": normalized["status"]})
+    if "Apple Inc." not in str(normalized["subject"] or ""):
+        errors.append({"property": "subject", "expected_contains": "Apple Inc.", "actual": normalized["subject"]})
+    if normalized["thumbprint"] != EXPECTED_SIGNER_THUMBPRINT:
+        errors.append(
+            {
+                "property": "thumbprint",
+                "expected": EXPECTED_SIGNER_THUMBPRINT,
+                "actual": normalized["thumbprint"],
+            }
+        )
+    if errors:
+        raise RuntimeError("iTunes Authenticode identity mismatch: " + json.dumps(errors))
+    return normalized
 
 
 def candidate_preflight_errors(summary: dict) -> list[dict]:
@@ -106,11 +140,7 @@ def run(args: argparse.Namespace) -> int:
     identity = native.validate_executable_identity(
         harness.ITUNES_EXE, "12.12.10.1", EXPECTED_EXE_SHA256
     )
-    signature = native.authenticode(harness.ITUNES_EXE)
-    if signature.get("status") != "Valid" or "Apple Inc." not in str(
-        signature.get("signer_subject", "")
-    ):
-        raise RuntimeError("iTunes Authenticode identity mismatch")
+    signature = validated_authenticode(harness.ITUNES_EXE)
 
     harness.NEGATIVE_RELATIVE = CANDIDATE_REL
     harness.NEGATIVE_SHA256 = CANDIDATE_SHA256

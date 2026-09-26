@@ -5,7 +5,9 @@
     "native_launches_for_this_candidate": 0,
     "native_outcomes_observed_for_this_candidate": 0,
     "candidate_selected_before_native_outcome": true,
-    "post_hoc_candidate_substitution_allowed": false
+    "post_hoc_candidate_substitution_allowed": false,
+    "prelaunch_wrapper_refusals_before_product_start": 1,
+    "product_processes_started_by_refusal": 0
   },
   "candidate_theory": {
     "statement": "A clean native 12.12.10.1 cycle-2 save with only raw outer-header byte 0x0d changed from 0x43 to 0x44 normalizes from revision tuple (67,1) to (68,1), fails the exact parser unsigned major ceiling 67, returns -876, and traverses the already bounded group/resource path to the newer-version message.",
@@ -41,7 +43,7 @@
     "preflight_report_sha256": "843adae57d24f22a9081493642b213c519c45bdd33c3f21c1631333ead975163",
     "ghidra_report_sha256": "2242e7fe1db95d95bb412df594143c2783eb84683e56188fd361b2e3276923c2",
     "ghidra_script_sha256": "c23f9b48ecd6b5c5121d8c5c0b166c0a2bbf41055b84fc84ae23de7b84b8b5dc",
-    "native_harness_sha256": "fd43735bd0cebdd58ad1729f2fe4973d3165df5727b294714e0b4131486e3464"
+    "native_harness_sha256": "3d372cdd339d86ac05d0af8ef2f09935bbf6facd69bc923f1c33fd904c0e87a3"
   },
   "executable_lock": {
     "path": "C:\\Program Files\\iTunes\\iTunes.exe",
@@ -117,5 +119,13 @@
     "A two-attempt result is repeated observation of one exact candidate on one exact executable, not independent experiments or universal compatibility.",
     "A product modal does not admit a 12.12.10.1 writer profile, arbitrary editing, or close U-01.",
     "No timeout, forced termination, static resource mapping, or post-hoc candidate can be counted as modal success."
-  ]
+  ],
+  "prelaunch_correction": {
+    "amended_utc": "2026-09-26T22:21:59.055122+00:00",
+    "reason": "The first wrapper invocation failed closed before subprocess.Popen because the mature Authenticode helper returns a command/output record. The wrapper now parses and validates Status, Subject, and the locked certificate thumbprint.",
+    "candidate_launches_before_amendment": 0,
+    "native_outcomes_before_amendment": 0,
+    "candidate_or_theory_changed": false,
+    "mandatory_recommit_push_remote_verification_before_native_launch": true
+  }
 }
