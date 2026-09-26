@@ -1,0 +1,107 @@
+{
+  "schema_version": 1,
+  "started_utc": "2026-09-26T17:40:36.037256+00:00",
+  "status": "failed_with_preserved_evidence",
+  "cycles_required": 2,
+  "root_parent": "D:\\a\\_temp\\itl-u01-12.13.9.1-structural-negative-root-20260927",
+  "profile_path": "C:\\Users\\runneradmin\\Music\\iTunes",
+  "manifest": {
+    "path": "D:\\a\\_temp\\u01-12.13.9.1-structural-negative-manifest.json",
+    "sha256": "21c0e37b06cb53b4cfc2ab2edabebc61aeaadb4ff2b6051335b96abfeed7032d"
+  },
+  "qualification_parameters": {
+    "expected_executable_version": "12.13.9.1",
+    "expected_executable_sha256": "6805f52ca3a3a55b31418e302acd8862023078e2f726e44880ab53df48ad2bc5",
+    "expected_native_version": "12.13.9.1",
+    "input_versions": [
+      "12.13.10.3"
+    ]
+  },
+  "invocation": [
+    "scripts/windows/reference_generated_native.py",
+    "run",
+    "--manifest",
+    "D:\\a\\_temp\\u01-12.13.9.1-structural-negative-manifest.json",
+    "--root-parent",
+    "D:\\a\\_temp\\itl-u01-12.13.9.1-structural-negative-root-20260927",
+    "--evidence",
+    "D:\\a\\_temp\\itl-u01-12.13.9.1-structural-negative-evidence-20260927",
+    "--cycles",
+    "2",
+    "--expected-executable-version",
+    "12.13.9.1",
+    "--expected-executable-sha256",
+    "6805f52ca3a3a55b31418e302acd8862023078e2f726e44880ab53df48ad2bc5",
+    "--expected-native-version",
+    "12.13.9.1",
+    "--confirm-disposable"
+  ],
+  "environment": {
+    "platform": "Windows-2025Server-10.0.26100-SP0",
+    "python": "3.12.10 (tags/v3.12.10:0cc8128, Apr  8 2025, 12:21:36) [MSC v.1943 64 bit (AMD64)]",
+    "culture": [
+      "English_United States",
+      "1252"
+    ],
+    "timezone": {
+      "argv": [
+        "tzutil",
+        "/g"
+      ],
+      "returncode": 0,
+      "output": "UTC"
+    },
+    "itunes": {
+      "path": "C:\\Program Files\\iTunes\\iTunes.exe",
+      "sha256": "6805f52ca3a3a55b31418e302acd8862023078e2f726e44880ab53df48ad2bc5",
+      "file_version": "12.13.9.1",
+      "product_version": "12.13.9.1",
+      "expected_sha256": "6805f52ca3a3a55b31418e302acd8862023078e2f726e44880ab53df48ad2bc5",
+      "expected_version": "12.13.9.1",
+      "version_probe": {
+        "argv": [
+          "pwsh",
+          "-NoLogo",
+          "-NoProfile",
+          "-Command",
+          "$v=(Get-Item -LiteralPath 'C:\\Program Files\\iTunes\\iTunes.exe').VersionInfo; [pscustomobject]@{FileVersion=[string]$v.FileVersion;ProductVersion=[string]$v.ProductVersion}|ConvertTo-Json -Compress"
+        ],
+        "returncode": 0,
+        "output": "{\"FileVersion\":\"12.13.9.1\",\"ProductVersion\":\"12.13.9.1\"}\n"
+      },
+      "errors": [],
+      "authenticode": {
+        "argv": [
+          "pwsh",
+          "-NoLogo",
+          "-NoProfile",
+          "-Command",
+          "$s=Get-AuthenticodeSignature -LiteralPath 'C:\\Program Files\\iTunes\\iTunes.exe'; [pscustomobject]@{Status=[string]$s.Status;Subject=$s.SignerCertificate.Subject;Thumbprint=$s.SignerCertificate.Thumbprint}|ConvertTo-Json -Compress"
+        ],
+        "returncode": 0,
+        "output": "{\"Status\":\"Valid\",\"Subject\":\"CN=Apple Inc., O=Apple Inc., L=Cupertino, S=California, C=US\",\"Thumbprint\":\"EB32ED01B82E90A4B8FC1601CE22B0FD6E05C52F\"}\n"
+      }
+    }
+  },
+  "isolation_policy": {
+    "initial_live_inventory": "candidate ITL only",
+    "xml_allowed": false,
+    "previous_itunes_libraries_allowed": false,
+    "damaged_library_modal_allowed": false,
+    "fallback_identity_allowed": false,
+    "normal_quit_required": true
+  },
+  "cases": [
+    {
+      "name": "u01-truncated-zlib-negative",
+      "status": "failed",
+      "passed": false,
+      "error": "RuntimeError: independent reference parser failed: itl-reference-parser: declared file size does not match actual size\n",
+      "traceback": "Traceback (most recent call last):\n  File \"D:\\a\\_temp\\gha-mcp\\win-p0qfbqby\\work\\repo\\scripts\\windows\\reference_generated_native.py\", line 657, in run\n    outcome = run_case(\n              ^^^^^^^^^\n  File \"D:\\a\\_temp\\gha-mcp\\win-p0qfbqby\\work\\repo\\scripts\\windows\\reference_generated_native.py\", line 537, in run_case\n    result[\"candidate_reference_summary\"] = reference_summary(candidate)\n                                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"D:\\a\\_temp\\gha-mcp\\win-p0qfbqby\\work\\repo\\scripts\\windows\\reference_generated_native.py\", line 270, in reference_summary\n    raise RuntimeError(\"independent reference parser failed: \" + process.stdout[:8000])\nRuntimeError: independent reference parser failed: itl-reference-parser: declared file size does not match actual size\n\n"
+    }
+  ],
+  "passed_cases": 0,
+  "failed_cases": 1,
+  "all_passed": false,
+  "finished_utc": "2026-09-26T17:40:37.152935+00:00"
+}

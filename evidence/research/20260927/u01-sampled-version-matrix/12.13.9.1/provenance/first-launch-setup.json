@@ -1,0 +1,241 @@
+{
+  "schema_version": 1,
+  "purpose": "controlled first-launch setup before U-01 native qualification",
+  "version_target": "12.13.9.1",
+  "junction_create": {
+    "returncode": 0,
+    "output": "Junction created for C:\\Users\\runneradmin\\Music\\iTunes <<===>> D:\\a\\_temp\\u01-first-launch-profile-12.13.9.1\n"
+  },
+  "actions": [
+    {
+      "action": "accept_eula",
+      "window": {
+        "hwnd": 393356,
+        "pid": 5828,
+        "class": "iTunesCustomModalDialog",
+        "title": "iTunes Software License Agreement",
+        "children": [
+          {
+            "hwnd": 655388,
+            "class": "Static",
+            "text": "Safety Info:",
+            "id": 107,
+            "enabled": true,
+            "visible": false
+          },
+          {
+            "hwnd": 393552,
+            "class": "Static",
+            "text": "",
+            "id": 108,
+            "enabled": true,
+            "visible": false
+          },
+          {
+            "hwnd": 328134,
+            "class": "Button",
+            "text": "&Agree",
+            "id": 1,
+            "enabled": true,
+            "visible": true
+          },
+          {
+            "hwnd": 131476,
+            "class": "Button",
+            "text": "&Decline",
+            "id": 2,
+            "enabled": true,
+            "visible": true
+          },
+          {
+            "hwnd": 196690,
+            "class": "Button",
+            "text": "&Save...",
+            "id": 103,
+            "enabled": true,
+            "visible": true
+          },
+          {
+            "hwnd": 131556,
+            "class": "RichEdit20W",
+            "text": "",
+            "id": 105,
+            "enabled": true,
+            "visible": true
+          }
+        ]
+      }
+    },
+    {
+      "action": "dismiss_known_audio_warning",
+      "window": {
+        "hwnd": 458892,
+        "pid": 5828,
+        "class": "iTunesCustomModalDialog",
+        "title": "iTunes",
+        "children": [
+          {
+            "hwnd": 197092,
+            "class": "Static",
+            "text": "iTunes has detected a problem with your audio configuration.\rAudio/Video playback may not operate properly.",
+            "id": 101,
+            "enabled": true,
+            "visible": true
+          },
+          {
+            "hwnd": 262226,
+            "class": "Static",
+            "text": "",
+            "id": 103,
+            "enabled": true,
+            "visible": false
+          },
+          {
+            "hwnd": 197012,
+            "class": "Button",
+            "text": "",
+            "id": 104,
+            "enabled": true,
+            "visible": false
+          },
+          {
+            "hwnd": 393670,
+            "class": "Button",
+            "text": "OK",
+            "id": 1,
+            "enabled": true,
+            "visible": true
+          },
+          {
+            "hwnd": 459088,
+            "class": "Button",
+            "text": "More Info",
+            "id": 105,
+            "enabled": true,
+            "visible": false
+          },
+          {
+            "hwnd": 720924,
+            "class": "Static",
+            "text": "",
+            "id": 102,
+            "enabled": true,
+            "visible": true
+          }
+        ]
+      }
+    },
+    {
+      "action": "decline_update_and_do_not_ask",
+      "window": {
+        "hwnd": 590386,
+        "pid": 5828,
+        "class": "iTunesCustomModalDialog",
+        "title": "iTunes",
+        "children": [
+          {
+            "hwnd": 524862,
+            "class": "Static",
+            "text": "",
+            "id": 105,
+            "enabled": true,
+            "visible": true
+          },
+          {
+            "hwnd": 590160,
+            "class": "Static",
+            "text": "A new version of iTunes (12.13.11) is available. Would you like to download it now?",
+            "id": 104,
+            "enabled": true,
+            "visible": true
+          },
+          {
+            "hwnd": 393298,
+            "class": "Static",
+            "text": "",
+            "id": 109,
+            "enabled": true,
+            "visible": false
+          },
+          {
+            "hwnd": 524742,
+            "class": "Static",
+            "text": "",
+            "id": 110,
+            "enabled": true,
+            "visible": false
+          },
+          {
+            "hwnd": 262716,
+            "class": "Static",
+            "text": "",
+            "id": 106,
+            "enabled": true,
+            "visible": false
+          },
+          {
+            "hwnd": 197176,
+            "class": "Button",
+            "text": "Download &iTunes",
+            "id": 101,
+            "enabled": true,
+            "visible": true
+          },
+          {
+            "hwnd": 66112,
+            "class": "Button",
+            "text": "Don’&t Download",
+            "id": 102,
+            "enabled": true,
+            "visible": true
+          },
+          {
+            "hwnd": 66114,
+            "class": "Button",
+            "text": "Other",
+            "id": 103,
+            "enabled": true,
+            "visible": false
+          },
+          {
+            "hwnd": 66116,
+            "class": "Button",
+            "text": "&Do not ask me again",
+            "id": 107,
+            "enabled": true,
+            "visible": true
+          },
+          {
+            "hwnd": 66118,
+            "class": "Static",
+            "text": "",
+            "id": 108,
+            "enabled": true,
+            "visible": false
+          },
+          {
+            "hwnd": 66120,
+            "class": "Button",
+            "text": "?",
+            "id": 111,
+            "enabled": true,
+            "visible": false
+          }
+        ]
+      }
+    }
+  ],
+  "itunes_pid": 5828,
+  "main_window_stable": true,
+  "com_version": "12.13.9.1",
+  "com_quit_requested": true,
+  "com_quit_timed_out": false,
+  "itunes_exit_after_setup": 0,
+  "junction_remove": {
+    "returncode": 0,
+    "output": ""
+  },
+  "profile_exists_after": false,
+  "itunes_processes_after": "0",
+  "finished": true
+}
