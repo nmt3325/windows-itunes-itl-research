@@ -1,10 +1,12 @@
 # Retained ITL compressed-trailer census
 
-This bounded offline audit parses every `.itl` entry currently listed in `DELIVERY-MANIFEST.json`, first verifying each retained byte length and SHA-256. All 400 files parsed strictly and round-tripped byte-exactly through `Container`: 375 use compression flag 1 and 25 use flag 0; 392 report version `12.13.10.3` and the eight newly retained native saves report `12.13.11.1`.
+This bounded offline audit checks every `.itl` entry currently listed in `DELIVERY-MANIFEST.json`, first verifying each retained byte length and SHA-256. All 425 manifest hashes verify. Of those files, 424 strictly parse and round-trip byte-exactly through `Container`; the one expected parse failure is the deliberately one-byte-truncated U-01 structural-negative input.
 
-Exactly one retained file has nonempty compressed `unused_data`: the already documented, intentionally constructed 17-byte U-13 native-trailer candidate. Its trailer SHA-256 is `103ea800…16ab`. The other 399 retained files have no compressed trailer.
+Across the 424 parsed files, 399 use compression flag 1 and 25 use flag 0. The parsed version distribution is 392 files reporting `12.13.10.3`, 12 native saves reporting `12.13.9.1`, and 20 native saves reporting `12.13.11.1`. The malformed negative is excluded from those parsed-file distributions.
 
-This is a census of a curated delivery corpus containing related snapshots, controls, generated files, and research candidates—not a representative sample. It does **not** show that trailers are rare in real libraries, recover trailer meaning or provenance, justify discarding them, prove semantic independence, or establish native acceptance. No iTunes or proprietary binary was read or launched. U-13 remains open, universal ITL support remains false, and semantic writes with opaque trailers remain refused.
+Exactly one parsed retained file has nonempty compressed `unused_data`: the already documented, intentionally constructed 17-byte U-13 native-trailer candidate. Its trailer SHA-256 is `103ea800…16ab`. The other 423 parsed files have no compressed trailer.
+
+This is a census of a curated delivery corpus containing related snapshots, controls, generated files, and research candidates—not a representative sample. It does **not** show that trailers are rare in real libraries, recover trailer meaning or provenance, justify discarding them, prove semantic independence, or establish native acceptance. The expected malformed-file refusal is structural/preflight evidence and not native iTunes rejection. No iTunes or proprietary binary was read or launched by this census. U-13 remains open, universal ITL support remains false, and semantic writes with opaque trailers remain refused.
 
 Rebuild and verify:
 

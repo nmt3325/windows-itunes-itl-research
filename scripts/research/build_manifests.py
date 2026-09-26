@@ -61,6 +61,20 @@ def classify_itl(path: Path) -> tuple[str, dict]:
                 "see native-rating-kind report and integration addendum; occurrences are not independent runs"
             ),
         }
+    if rel.startswith("evidence/research/20260927/u01-sampled-version-matrix/"):
+        if rel.endswith("inputs/reference-three-track-zlib-truncated-1-byte.itl"):
+            return "u01_structural_preflight_negative", {
+                "qualification": (
+                    "deliberately one-byte-truncated zlib input; independent-parser preflight negative; "
+                    "iTunes was not launched and native rejection is not established"
+                ),
+            }
+        return "u01_sampled_version_matrix_native_save", {
+            "qualification": (
+                "24 native saves from six pinned 12.13.10.3 inputs on exact signed iTunes "
+                "12.13.9.1 and 12.13.11.1 executables; exact-hash bounded matrix only"
+            ),
+        }
     if rel.startswith("evidence/research/20260927/itunes-12.13.11.1-version-qualification/"):
         return "itunes_12_13_11_1_upgrade_qualification", {
             "qualification": (
@@ -137,6 +151,7 @@ def build_corpus() -> dict:
         "evidence/research/20260925/public-static-replay-bootstrap/report.json",
         "evidence/research/20260925/windows-filesystem-publication/report.json",
         "evidence/research/20260927/itunes-12.13.11.1-version-qualification/qualification-summary.json",
+        "evidence/research/20260927/u01-sampled-version-matrix/matrix-summary.json",
     ):
         path = ROOT / name
         if path.is_file():
@@ -145,7 +160,7 @@ def build_corpus() -> dict:
         "schema": "windows-itunes-itl.aggregate-corpus-manifest.v1",
         "hash_algorithm": "sha256",
         "manifest_self_included": False,
-        "target": "Windows Apple desktop x64 iTunes 12.13.10.3; secondary observed 12.13.9.1; exact-hash 12.13.11.1 upgrade cohort",
+        "target": "Windows Apple desktop x64 iTunes 12.13.10.3; exact-hash sampled 12.13.9.1 downgrade and 12.13.11.1 upgrade cohorts",
         "qualification": {
             "complete_analysis_claim": False,
             "reference_writer_from_scratch_native_acceptance": "verified_for_four_exact_hashes",
@@ -161,6 +176,7 @@ def build_corpus() -> dict:
             "native_rating_note": "20 native-saved snapshots and eight repeated baseline copies narrow Rating/RatingKind behavior for one exact build/profile; snapshot occurrences are not independent experiments",
             "native_trailer_note": "one exact 17-byte opaque-trailer candidate and its trailer-free control each passed two native cycles; the candidate trailer was stripped on first save; retained copies and repeated saves are not independent experiments",
             "itunes_12_13_11_1_upgrade_note": "four exact 12.13.10.3 fixture hashes passed eight native cycles on one exact signed 12.13.11.1 executable; native saves report 12.13.11.1, but arbitrary editing and version breadth remain unqualified",
+            "u01_sampled_version_matrix_note": "six pinned 12.13.10.3 input hashes passed 12 cycles on exact signed 12.13.9.1 and 12 cycles on a separate-runner exact signed 12.13.11.1; one malformed preflight negative never launched iTunes; candidate 113 did not reproduce its historical failure; U-01 remains open",
             "coverage_guided_note": "20,000 deterministic offline mutations completed without a retained anomaly; coarse line-transition guidance is not proof of parser safety or native acceptance",
             "filesystem_publication_note": "21 deterministic Linux scenarios plus 25 specifically qualified Windows Server 2025 / CPython 3.12.10 / runner-temporary NTFS scenarios bound stable-parent behavior and demonstrate the existing hostile-parent exclusion; counts are not independent experiments, the Windows campaign includes two parent-triggered/reaped TerminateProcess boundaries and zero unavailable cases, neither campaign cut power, no native-iTunes operation was added, production code was unchanged, and U-17 remains open",
             "filesystem_process_crash_note": "five selected Linux child schedules used unchanged production write_new: four actual parent-issued/reaped SIGKILL deaths and one normal control; cases, control, replays, and artifacts are not independent experiments, zero power-loss/native-iTunes operations occurred, and U-17 remains open",

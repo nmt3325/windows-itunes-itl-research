@@ -2,7 +2,7 @@
   "schema": "windows-itunes-itl.aggregate-corpus-manifest.v1",
   "hash_algorithm": "sha256",
   "manifest_self_included": false,
-  "target": "Windows Apple desktop x64 iTunes 12.13.10.3; secondary observed 12.13.9.1; exact-hash 12.13.11.1 upgrade cohort",
+  "target": "Windows Apple desktop x64 iTunes 12.13.10.3; exact-hash sampled 12.13.9.1 downgrade and 12.13.11.1 upgrade cohorts",
   "qualification": {
     "complete_analysis_claim": false,
     "reference_writer_from_scratch_native_acceptance": "verified_for_four_exact_hashes",
@@ -18,12 +18,13 @@
     "native_rating_note": "20 native-saved snapshots and eight repeated baseline copies narrow Rating/RatingKind behavior for one exact build/profile; snapshot occurrences are not independent experiments",
     "native_trailer_note": "one exact 17-byte opaque-trailer candidate and its trailer-free control each passed two native cycles; the candidate trailer was stripped on first save; retained copies and repeated saves are not independent experiments",
     "itunes_12_13_11_1_upgrade_note": "four exact 12.13.10.3 fixture hashes passed eight native cycles on one exact signed 12.13.11.1 executable; native saves report 12.13.11.1, but arbitrary editing and version breadth remain unqualified",
+    "u01_sampled_version_matrix_note": "six pinned 12.13.10.3 input hashes passed 12 cycles on exact signed 12.13.9.1 and 12 cycles on a separate-runner exact signed 12.13.11.1; one malformed preflight negative never launched iTunes; candidate 113 did not reproduce its historical failure; U-01 remains open",
     "coverage_guided_note": "20,000 deterministic offline mutations completed without a retained anomaly; coarse line-transition guidance is not proof of parser safety or native acceptance",
     "filesystem_publication_note": "21 deterministic Linux scenarios plus 25 specifically qualified Windows Server 2025 / CPython 3.12.10 / runner-temporary NTFS scenarios bound stable-parent behavior and demonstrate the existing hostile-parent exclusion; counts are not independent experiments, the Windows campaign includes two parent-triggered/reaped TerminateProcess boundaries and zero unavailable cases, neither campaign cut power, no native-iTunes operation was added, production code was unchanged, and U-17 remains open",
     "filesystem_process_crash_note": "five selected Linux child schedules used unchanged production write_new: four actual parent-issued/reaped SIGKILL deaths and one normal control; cases, control, replays, and artifacts are not independent experiments, zero power-loss/native-iTunes operations occurred, and U-17 remains open"
   },
   "summary": {
-    "itl_file_count": 400,
+    "itl_file_count": 425,
     "by_class": {
       "independent_from_scratch_generated": 4,
       "external_independent_interop_candidate": 5,
@@ -32,7 +33,9 @@
       "native_itunes_path_time_sequence": 39,
       "native_rating_bounded_matrix": 28,
       "native_trailer_u13_bounded_matrix": 6,
-      "itunes_12_13_11_1_upgrade_qualification": 10
+      "itunes_12_13_11_1_upgrade_qualification": 10,
+      "u01_sampled_version_matrix_native_save": 24,
+      "u01_structural_preflight_negative": 1
     }
   },
   "referenced_manifests_and_analyses": [
@@ -205,6 +208,11 @@
       "path": "evidence/research/20260927/itunes-12.13.11.1-version-qualification/qualification-summary.json",
       "bytes": 14268,
       "sha256": "4e92937e9cf8c74f54afe9d8243602ab45246b8dd6c9320e252853a09c2cb373"
+    },
+    {
+      "path": "evidence/research/20260927/u01-sampled-version-matrix/matrix-summary.json",
+      "bytes": 46320,
+      "sha256": "bb6edfb29b94fc75ca3e09f8a11edf095eba8c18ee6f23661682cc41edb6c8ba"
     }
   ],
   "itl_files": [
@@ -3060,6 +3068,181 @@
       "sha256": "c6c68171d57350ceb3cf379eee13a764ea199536ef18238fe4faf80583492d74",
       "corpus_class": "itunes_12_13_11_1_upgrade_qualification",
       "qualification": "four exact 12.13.10.3 input hashes and eight native cycles on one exact signed 12.13.11.1 executable; upgrade compatibility only, not general editing support"
+    },
+    {
+      "path": "evidence/research/20260927/u01-sampled-version-matrix/12.13.11.1-independent/native/exact-one-track/cases/reference-one-track-raw/cycle-1/native-saved.itl",
+      "bytes": 4117,
+      "sha256": "78f0ae431da4e6794f8cb66b12ecdebbeb1891498e753c0ff8804b8ca7d942d5",
+      "corpus_class": "u01_sampled_version_matrix_native_save",
+      "qualification": "24 native saves from six pinned 12.13.10.3 inputs on exact signed iTunes 12.13.9.1 and 12.13.11.1 executables; exact-hash bounded matrix only"
+    },
+    {
+      "path": "evidence/research/20260927/u01-sampled-version-matrix/12.13.11.1-independent/native/exact-one-track/cases/reference-one-track-raw/cycle-2/native-saved.itl",
+      "bytes": 4151,
+      "sha256": "34401e8c1fdde316698887d7cdc8eca446bdc550b3945e90d9cf345c239d7562",
+      "corpus_class": "u01_sampled_version_matrix_native_save",
+      "qualification": "24 native saves from six pinned 12.13.10.3 inputs on exact signed iTunes 12.13.9.1 and 12.13.11.1 executables; exact-hash bounded matrix only"
+    },
+    {
+      "path": "evidence/research/20260927/u01-sampled-version-matrix/12.13.11.1-independent/native/exact-one-track/cases/reference-one-track-zlib/cycle-1/native-saved.itl",
+      "bytes": 4100,
+      "sha256": "b4b82d112aaba33731321e45a4483be98048ebbced432e6dde7f281dd64d4777",
+      "corpus_class": "u01_sampled_version_matrix_native_save",
+      "qualification": "24 native saves from six pinned 12.13.10.3 inputs on exact signed iTunes 12.13.9.1 and 12.13.11.1 executables; exact-hash bounded matrix only"
+    },
+    {
+      "path": "evidence/research/20260927/u01-sampled-version-matrix/12.13.11.1-independent/native/exact-one-track/cases/reference-one-track-zlib/cycle-2/native-saved.itl",
+      "bytes": 4133,
+      "sha256": "a82a1d14d6773b56c64061232c587120bb7759c942dee662f1c81c2b019956bf",
+      "corpus_class": "u01_sampled_version_matrix_native_save",
+      "qualification": "24 native saves from six pinned 12.13.10.3 inputs on exact signed iTunes 12.13.9.1 and 12.13.11.1 executables; exact-hash bounded matrix only"
+    },
+    {
+      "path": "evidence/research/20260927/u01-sampled-version-matrix/12.13.11.1-independent/native/exact-three-track/cases/reference-three-track-raw/cycle-1/native-saved.itl",
+      "bytes": 4481,
+      "sha256": "068c67c0770792088308e8ae625558113f3183ddfb4b3300de8aa5a9329c28ca",
+      "corpus_class": "u01_sampled_version_matrix_native_save",
+      "qualification": "24 native saves from six pinned 12.13.10.3 inputs on exact signed iTunes 12.13.9.1 and 12.13.11.1 executables; exact-hash bounded matrix only"
+    },
+    {
+      "path": "evidence/research/20260927/u01-sampled-version-matrix/12.13.11.1-independent/native/exact-three-track/cases/reference-three-track-raw/cycle-2/native-saved.itl",
+      "bytes": 4483,
+      "sha256": "7bb1186296af270a8552cd9c5fc47cbc59b8f6ee828a14ccfdbe0a6fb6054b47",
+      "corpus_class": "u01_sampled_version_matrix_native_save",
+      "qualification": "24 native saves from six pinned 12.13.10.3 inputs on exact signed iTunes 12.13.9.1 and 12.13.11.1 executables; exact-hash bounded matrix only"
+    },
+    {
+      "path": "evidence/research/20260927/u01-sampled-version-matrix/12.13.11.1-independent/native/exact-three-track/cases/reference-three-track-zlib/cycle-1/native-saved.itl",
+      "bytes": 4468,
+      "sha256": "0fccf498996ab89401edba055cd010b70c1c6ecefa560adb9324aa282ddfce0b",
+      "corpus_class": "u01_sampled_version_matrix_native_save",
+      "qualification": "24 native saves from six pinned 12.13.10.3 inputs on exact signed iTunes 12.13.9.1 and 12.13.11.1 executables; exact-hash bounded matrix only"
+    },
+    {
+      "path": "evidence/research/20260927/u01-sampled-version-matrix/12.13.11.1-independent/native/exact-three-track/cases/reference-three-track-zlib/cycle-2/native-saved.itl",
+      "bytes": 4495,
+      "sha256": "a839229daf5759dd40227197da567b2d55cf17a448ce954ce1abf50b0b1790f4",
+      "corpus_class": "u01_sampled_version_matrix_native_save",
+      "qualification": "24 native saves from six pinned 12.13.10.3 inputs on exact signed iTunes 12.13.9.1 and 12.13.11.1 executables; exact-hash bounded matrix only"
+    },
+    {
+      "path": "evidence/research/20260927/u01-sampled-version-matrix/12.13.11.1-independent/native/historical-negative-replay-113/cases/u01-codec-fresh-modified-negative/cycle-1/native-saved.itl",
+      "bytes": 5000,
+      "sha256": "854ced914e1c35d27ef2d6193a77235a64bed4c21e643452272ba2dad4ec2a9f",
+      "corpus_class": "u01_sampled_version_matrix_native_save",
+      "qualification": "24 native saves from six pinned 12.13.10.3 inputs on exact signed iTunes 12.13.9.1 and 12.13.11.1 executables; exact-hash bounded matrix only"
+    },
+    {
+      "path": "evidence/research/20260927/u01-sampled-version-matrix/12.13.11.1-independent/native/historical-negative-replay-113/cases/u01-codec-fresh-modified-negative/cycle-2/native-saved.itl",
+      "bytes": 5000,
+      "sha256": "5b7a9ae8c82700dd9eff98adcfc2c636a6bad66fa758c407bccc743570feecbb",
+      "corpus_class": "u01_sampled_version_matrix_native_save",
+      "qualification": "24 native saves from six pinned 12.13.10.3 inputs on exact signed iTunes 12.13.9.1 and 12.13.11.1 executables; exact-hash bounded matrix only"
+    },
+    {
+      "path": "evidence/research/20260927/u01-sampled-version-matrix/12.13.11.1-independent/native/semantic-positive-112/cases/u01-codec-track-indexed-positive/cycle-1/native-saved.itl",
+      "bytes": 5461,
+      "sha256": "6d5b8879532b6754ca03c89c6f863394dfc45f7f6f24aae837c5eb2cd64f52ab",
+      "corpus_class": "u01_sampled_version_matrix_native_save",
+      "qualification": "24 native saves from six pinned 12.13.10.3 inputs on exact signed iTunes 12.13.9.1 and 12.13.11.1 executables; exact-hash bounded matrix only"
+    },
+    {
+      "path": "evidence/research/20260927/u01-sampled-version-matrix/12.13.11.1-independent/native/semantic-positive-112/cases/u01-codec-track-indexed-positive/cycle-2/native-saved.itl",
+      "bytes": 5461,
+      "sha256": "bbb109fb2eac2fee8eab451e8cd9cf112ab03ea6a5889c222089169691ec8089",
+      "corpus_class": "u01_sampled_version_matrix_native_save",
+      "qualification": "24 native saves from six pinned 12.13.10.3 inputs on exact signed iTunes 12.13.9.1 and 12.13.11.1 executables; exact-hash bounded matrix only"
+    },
+    {
+      "path": "evidence/research/20260927/u01-sampled-version-matrix/12.13.9.1/native/exact-one-track/cases/reference-one-track-raw/cycle-1/native-saved.itl",
+      "bytes": 4117,
+      "sha256": "a61e7d9eb143b4239a878141fc178242eb0b581a872f2486ab0dcade4e79addb",
+      "corpus_class": "u01_sampled_version_matrix_native_save",
+      "qualification": "24 native saves from six pinned 12.13.10.3 inputs on exact signed iTunes 12.13.9.1 and 12.13.11.1 executables; exact-hash bounded matrix only"
+    },
+    {
+      "path": "evidence/research/20260927/u01-sampled-version-matrix/12.13.9.1/native/exact-one-track/cases/reference-one-track-raw/cycle-2/native-saved.itl",
+      "bytes": 4151,
+      "sha256": "c60e1ac92eabbb40b46c48c5c10e25310fbc03162bb6f21afc9584f3bd48d4a7",
+      "corpus_class": "u01_sampled_version_matrix_native_save",
+      "qualification": "24 native saves from six pinned 12.13.10.3 inputs on exact signed iTunes 12.13.9.1 and 12.13.11.1 executables; exact-hash bounded matrix only"
+    },
+    {
+      "path": "evidence/research/20260927/u01-sampled-version-matrix/12.13.9.1/native/exact-one-track/cases/reference-one-track-zlib/cycle-1/native-saved.itl",
+      "bytes": 4109,
+      "sha256": "f6db7097daede2929a207ea0945098ed7bd40fd174674d8471e0a30b1ca54f66",
+      "corpus_class": "u01_sampled_version_matrix_native_save",
+      "qualification": "24 native saves from six pinned 12.13.10.3 inputs on exact signed iTunes 12.13.9.1 and 12.13.11.1 executables; exact-hash bounded matrix only"
+    },
+    {
+      "path": "evidence/research/20260927/u01-sampled-version-matrix/12.13.9.1/native/exact-one-track/cases/reference-one-track-zlib/cycle-2/native-saved.itl",
+      "bytes": 4146,
+      "sha256": "f4711e4409fd87f46a21bc14af00698eaa862c9b00a20df062f9bf2adc7584c4",
+      "corpus_class": "u01_sampled_version_matrix_native_save",
+      "qualification": "24 native saves from six pinned 12.13.10.3 inputs on exact signed iTunes 12.13.9.1 and 12.13.11.1 executables; exact-hash bounded matrix only"
+    },
+    {
+      "path": "evidence/research/20260927/u01-sampled-version-matrix/12.13.9.1/native/exact-three-track/cases/reference-three-track-raw/cycle-1/native-saved.itl",
+      "bytes": 4480,
+      "sha256": "6438014e25479bc3b9078630a7a445a6cacb6af5867094bc1613f27129763afb",
+      "corpus_class": "u01_sampled_version_matrix_native_save",
+      "qualification": "24 native saves from six pinned 12.13.10.3 inputs on exact signed iTunes 12.13.9.1 and 12.13.11.1 executables; exact-hash bounded matrix only"
+    },
+    {
+      "path": "evidence/research/20260927/u01-sampled-version-matrix/12.13.9.1/native/exact-three-track/cases/reference-three-track-raw/cycle-2/native-saved.itl",
+      "bytes": 4492,
+      "sha256": "cbce0a03588bb78c6b42f0241737814e481b318cd1b5184afc612f04bffe69ca",
+      "corpus_class": "u01_sampled_version_matrix_native_save",
+      "qualification": "24 native saves from six pinned 12.13.10.3 inputs on exact signed iTunes 12.13.9.1 and 12.13.11.1 executables; exact-hash bounded matrix only"
+    },
+    {
+      "path": "evidence/research/20260927/u01-sampled-version-matrix/12.13.9.1/native/exact-three-track/cases/reference-three-track-zlib/cycle-1/native-saved.itl",
+      "bytes": 4468,
+      "sha256": "7ef0f2204152794f6c60029dc264732b364cbe160caaf1be1a90cf97cd9a6ffe",
+      "corpus_class": "u01_sampled_version_matrix_native_save",
+      "qualification": "24 native saves from six pinned 12.13.10.3 inputs on exact signed iTunes 12.13.9.1 and 12.13.11.1 executables; exact-hash bounded matrix only"
+    },
+    {
+      "path": "evidence/research/20260927/u01-sampled-version-matrix/12.13.9.1/native/exact-three-track/cases/reference-three-track-zlib/cycle-2/native-saved.itl",
+      "bytes": 4473,
+      "sha256": "ff88170271b6ad3de3215f2ea97f41cf94801bc21d8c50323bc460d651cfe670",
+      "corpus_class": "u01_sampled_version_matrix_native_save",
+      "qualification": "24 native saves from six pinned 12.13.10.3 inputs on exact signed iTunes 12.13.9.1 and 12.13.11.1 executables; exact-hash bounded matrix only"
+    },
+    {
+      "path": "evidence/research/20260927/u01-sampled-version-matrix/12.13.9.1/native/historical-negative-replay-113/cases/u01-codec-fresh-modified-negative/cycle-1/native-saved.itl",
+      "bytes": 5000,
+      "sha256": "e58c5e7189e60bd609b1f42dc6ab21697cf0a0e6b11b3f7aeb1936fb3b545073",
+      "corpus_class": "u01_sampled_version_matrix_native_save",
+      "qualification": "24 native saves from six pinned 12.13.10.3 inputs on exact signed iTunes 12.13.9.1 and 12.13.11.1 executables; exact-hash bounded matrix only"
+    },
+    {
+      "path": "evidence/research/20260927/u01-sampled-version-matrix/12.13.9.1/native/historical-negative-replay-113/cases/u01-codec-fresh-modified-negative/cycle-2/native-saved.itl",
+      "bytes": 5000,
+      "sha256": "42b07e5f9eb4c197f9be97dee633fbb035fabd1beb8fb3b7423a51e778bb178a",
+      "corpus_class": "u01_sampled_version_matrix_native_save",
+      "qualification": "24 native saves from six pinned 12.13.10.3 inputs on exact signed iTunes 12.13.9.1 and 12.13.11.1 executables; exact-hash bounded matrix only"
+    },
+    {
+      "path": "evidence/research/20260927/u01-sampled-version-matrix/12.13.9.1/native/semantic-positive-112/cases/u01-codec-track-indexed-positive/cycle-1/native-saved.itl",
+      "bytes": 5460,
+      "sha256": "7ed8e680025db5efc07768aa8ce3cedd2de50a0059c644a9e9d6f3c74da0bca9",
+      "corpus_class": "u01_sampled_version_matrix_native_save",
+      "qualification": "24 native saves from six pinned 12.13.10.3 inputs on exact signed iTunes 12.13.9.1 and 12.13.11.1 executables; exact-hash bounded matrix only"
+    },
+    {
+      "path": "evidence/research/20260927/u01-sampled-version-matrix/12.13.9.1/native/semantic-positive-112/cases/u01-codec-track-indexed-positive/cycle-2/native-saved.itl",
+      "bytes": 5460,
+      "sha256": "26985c0ef1bd82073985568731fd70407243285a2f5e16c1c8e03b441c465e4e",
+      "corpus_class": "u01_sampled_version_matrix_native_save",
+      "qualification": "24 native saves from six pinned 12.13.10.3 inputs on exact signed iTunes 12.13.9.1 and 12.13.11.1 executables; exact-hash bounded matrix only"
+    },
+    {
+      "path": "evidence/research/20260927/u01-sampled-version-matrix/inputs/reference-three-track-zlib-truncated-1-byte.itl",
+      "bytes": 878,
+      "sha256": "883cf0d4f6c0e751de87e11e9a14d9e844c8d044eb6864e4ffa06eb05c3747f5",
+      "corpus_class": "u01_structural_preflight_negative",
+      "qualification": "deliberately one-byte-truncated zlib input; independent-parser preflight negative; iTunes was not launched and native rejection is not established"
     }
   ]
 }

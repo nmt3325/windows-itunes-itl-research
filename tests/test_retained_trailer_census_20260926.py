@@ -28,26 +28,33 @@ def test_retained_trailer_census_is_complete_bounded_and_claim_limited():
         "path": "scripts/research/audit_retained_trailer_census_20260926.py",
         "sha256": hashlib.sha256(SCRIPT.read_bytes()).hexdigest(),
     }
-    assert report["source_set"]["entries"] == 400
+    assert report["source_set"]["entries"] == 425
     assert report["source_set"]["representative_sample"] is False
     assert report["counts"] == {
-        "byte_exact_no_op_roundtrips": 400,
+        "byte_exact_no_op_roundtrips": 424,
         "files_with_compressed_trailer": 1,
-        "files_without_compressed_trailer": 399,
-        "manifest_hashes_verified": 400,
+        "files_without_compressed_trailer": 423,
+        "manifest_hashes_verified": 425,
         "native_itunes_operations": 0,
         "network_operations": 0,
         "non_known_witness_files_with_trailer": 0,
-        "parse_failures": 0,
+        "parse_failures": 1,
         "production_code_changes": 0,
         "proprietary_binary_reads": 0,
-        "strict_container_parses": 400,
+        "strict_container_parses": 424,
     }
-    assert report["distributions"]["versions"] == {"12.13.10.3": 392, "12.13.11.1": 8}
-    assert report["distributions"]["compression_flags"] == {"0": 25, "1": 375}
-    assert report["distributions"]["encryption_flags"] == {"0": 25, "2": 375}
+    assert report["distributions"]["versions"] == {
+        "12.13.10.3": 392,
+        "12.13.11.1": 20,
+        "12.13.9.1": 12,
+    }
+    assert report["distributions"]["compression_flags"] == {"0": 25, "1": 399}
+    assert report["distributions"]["encryption_flags"] == {"0": 25, "2": 399}
     assert report["distributions"]["trailer_lengths"] == {"17": 1}
-    assert report["parse_failures"] == []
+    assert report["parse_failures"] == [{
+        "error_type": "FormatError",
+        "path": "evidence/research/20260927/u01-sampled-version-matrix/inputs/reference-three-track-zlib-truncated-1-byte.itl",
+    }]
     assert report["trailer_witnesses"] == [{
         "file_sha256": "10b17fbdd783ad17e6fa3b488ee6421f43a417b9350de547754d24d4369e4e34",
         "known_intentional_u13_witness": True,

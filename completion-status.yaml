@@ -13,8 +13,9 @@ status:
 
 scope:
   primary_native_profile: standalone_windows_itunes_12.13.10.3_x64
-  secondary_observed_profile: standalone_windows_itunes_12.13.9.1
+  secondary_observed_profile: standalone_windows_itunes_12.13.9.1_x64_exact_executable_hash_only
   adjacent_upgrade_qualification_profile: standalone_windows_itunes_12.13.11.1_x64_exact_executable_hash_only
+  u01_sampled_matrix_scope: six_pinned_12.13.10.3_inputs_per_build_two_cycles_each_on_two_exact_signed_executables
   windows_build: 10.0.26100
   display_and_system_locale: en-US
   store_edition_supported: false
@@ -43,7 +44,9 @@ qualification:
   independent_parser_validator_diff: implemented_without_itlkit_imports
   independent_from_scratch_generation: implemented_and_native_qualified_for_four_exact_one_and_three_track_reference_fixtures
   independent_from_scratch_native_acceptance: verified_for_four_exact_hashes
-  itunes_12_13_11_1_upgrade_qualification: four_exact_12_13_10_3_input_hashes_eight_cycles_one_exact_signed_executable_u01_open
+  itunes_12_13_9_1_downgrade_qualification: six_exact_12_13_10_3_input_hashes_twelve_cycles_one_exact_signed_executable_u01_open
+  itunes_12_13_11_1_upgrade_qualification: six_exact_12_13_10_3_input_hashes_twelve_separate_runtime_cycles_shared_harness_and_executable_provenance_u01_open
+  u01_sampled_version_matrix: twelve_case_build_pairs_twenty_four_passed_native_cycles_structural_preflight_negative_only_u01_open
   smart_playlist: native_nested_framing_observed_but_operand_and_membership_failed
   native_field_matrix: 27_passed_2_failed_exact_cases_only
   native_media_field_followup: seventeen_exact_lyrics_mp3_passes_plus_nine_qualified_native_nonexact_immediate_readbacks_on_one_pinned_path_and_three_exact_wav_mutation_failures
@@ -51,7 +54,7 @@ qualification:
   path_time: bounded_native_matrix_only
   compressed_trailer: one_fixed_seed_17_byte_candidate_stripped_on_first_native_save_u13_open
   compressed_trailer_negative_matrix: bounded_offline_17_case_negative_matrix_u13_open
-  compressed_trailer_retained_census: all_400_manifest_itls_parsed_only_known_intentional_witness_has_trailer_u13_open
+  compressed_trailer_retained_census: all_425_manifest_itls_hash_verified_424_parsed_and_roundtripped_one_expected_structural_negative_parse_failure_only_known_intentional_witness_has_trailer_u13_open
   parser_coverage_guided_campaign: bounded_offline_20000_mutations_zero_retained_anomalies_u17_open
   filesystem_publication_threat_model: bounded_linux_21_plus_windows_ntfs_25_scenarios_parent_swap_limits_2_actual_terminations_u17_open
   filesystem_process_crash: bounded_linux_4_sigkill_1_normal_control_production_unchanged_u17_open
@@ -130,13 +133,17 @@ validation:
     unresolved_item: U-13
   retained_trailer_census_20260926:
     status: completed_retained_corpus_census_u13_open
-    delivery_manifest_itl_entries: 400
-    manifest_hashes_verified: 400
-    strict_container_parses: 400
-    byte_exact_no_op_roundtrips: 400
+    delivery_manifest_itl_entries: 425
+    manifest_hashes_verified: 425
+    strict_container_parses: 424
+    expected_parse_failures: 1
+    unexpected_parse_failures: 0
+    byte_exact_no_op_roundtrips: 424
     files_with_compressed_trailer: 1
-    files_without_compressed_trailer: 399
+    files_without_compressed_trailer: 423
     non_known_witness_files_with_trailer: 0
+    expected_parse_failure_path: evidence/research/20260927/u01-sampled-version-matrix/inputs/reference-three-track-zlib-truncated-1-byte.itl
+    expected_parse_failure_type: FormatError
     representative_sample: false
     retained_corpus_prevalence_claim_supported: false
     trailer_semantics_recovered: false
@@ -225,31 +232,83 @@ validation:
     production_code_changed: false
     unresolved_item: U-17
   itunes_12_13_11_1_upgrade_qualification:
-    status: passed_exact_hash_upgrade_qualification_u01_open
+    status: passed_exact_hash_upgrade_qualification_with_separate_runtime_repetition_u01_open
     input_itl_version: 12.13.10.3
     native_saved_itl_version: 12.13.11.1
     executable_file_version: 12.13.11.1
     executable_product_version: 12.13.11.1
     executable_sha256: c69e719cd3f2f9374e71c954a6de87002b6988af65129943983a2f17490dd73c
-    exact_input_hashes: 4
-    passed_cases: 4
-    passed_native_cycles: 8
-    normal_quit_process_exit_zero_cycles: 8
+    executable_bytes: 38952912
+    authenticode_status: Valid
+    signer_thumbprint: 5ABF5D5265D74C9EAD19246DFAB611AA5DCFE791
+    exact_input_hashes: 6
+    passed_cases: 6
+    passed_native_cycles: 12
+    normal_quit_process_exit_zero_cycles: 12
     identity_or_semantic_error_cycles: 0
     forbidden_fallback_cycles: 0
-    native_saves_reporting_12_13_11_1: 8
-    setup_modal_failures_before_semantic_qualification: 2
+    native_saves_reporting_12_13_11_1: 12
+    prior_adjacent_qualification_passed_native_cycles: 8
+    aggregate_retained_12_13_11_1_native_saves: 20
+    setup_modal_failures_before_prior_semantic_qualification: 2
     setup_modal_failures_classified_as_itl_rejection: false
     executable_identity_negative_preflights: 2
     executable_identity_negatives_refused_before_root_or_evidence_creation: true
+    separate_runtime_from_prior_experiment: true
+    shared_fixture_hashes: true
+    shared_repository_harness: true
+    same_exact_executable_hash: true
+    same_runner_first_ran_12_13_9_1_then_upgraded_in_place: true
+    independently_implemented_harness: false
+    independently_sourced_executable: false
     arbitrary_12_13_11_1_editing_qualified: false
     independent_native_reproduction: false
     universal_itl_support: false
     full_analysis_specification_gate: false
     unresolved_item: U-01
+  u01_sampled_version_matrix_20260927:
+    status: bounded_sampled_multi_version_matrix_completed_u01_open
+    input_itl_version: 12.13.10.3
+    native_builds: 2
+    exact_signed_executable_hashes: 2
+    positive_input_hashes_per_build: 6
+    positive_case_build_pairs: 12
+    passed_native_cycles: 24
+    normal_quit_process_exit_zero_cycles: 24
+    failed_native_cycles: 0
+    worker_or_independent_parser_error_cycles: 0
+    forbidden_fallback_cycles: 0
+    downgrade_12_13_9_1_passed_cases: 6
+    downgrade_12_13_9_1_passed_native_cycles: 12
+    downgrade_12_13_9_1_executable_sha256: 6805f52ca3a3a55b31418e302acd8862023078e2f726e44880ab53df48ad2bc5
+    upgrade_12_13_11_1_passed_cases: 6
+    upgrade_12_13_11_1_passed_native_cycles: 12
+    upgrade_12_13_11_1_executable_sha256: c69e719cd3f2f9374e71c954a6de87002b6988af65129943983a2f17490dd73c
+    candidate_112_selected_semantics_passed_on_both_builds_and_cycles: true
+    candidate_112_general_field_or_structure_coverage: false
+    candidate_113_historical_failure_reproduced: false
+    candidate_113_is_stable_negative: false
+    codec_candidate_outer_file_persistent_id: D2F61BE0A69CA302
+    codec_candidate_com_library_persistent_id: 9751B29CECF5340B
+    codec_candidate_identity_split_preserved: true
+    structural_negative_unique_inputs: 1
+    structural_negative_build_observations: 2
+    structural_negative_sha256: 883cf0d4f6c0e751de87e11e9a14d9e844c8d044eb6864e4ffa06eb05c3747f5
+    structural_negative_bytes: 878
+    structural_negative_error: declared_file_size_does_not_match_actual_size
+    structural_negative_native_cycles_started: 0
+    structural_negative_itunes_launches: 0
+    structural_negative_is_native_itunes_rejection: false
+    separate_runner_12_13_11_1_repetition: true
+    independently_implemented_harness: false
+    independently_sourced_executable: false
+    u01_closed: false
+    universal_itl_support: false
+    full_analysis_specification_gate: false
+    unresolved_item: U-01
   integrated_tests:
     status: passed
-    passed: 1170
+    passed: 1175
     skipped: 9
     skipped_missing_com_oracle: 5
     skipped_windows_only_helpers_on_linux: 2
@@ -368,7 +427,7 @@ validation:
   delivery_manifest: verified
   root_corpus_manifest:
     status: verified
-    itl_files: 400
+    itl_files: 425
   path_time_snapshots:
     parsed: 39
     errors: 0
@@ -442,7 +501,7 @@ completion:
 prohibited_conclusions:
   - complete_or_universal_itl_read_write_support
   - full_analysis_or_specification_confirmed
-  - native_acceptance_generalized_beyond_pinned_primary_hashes_or_the_separate_exact_12_13_11_1_upgrade_cohort
+  - native_acceptance_generalized_beyond_pinned_primary_hashes_or_the_bounded_exact_hash_12_13_9_1_and_12_13_11_1_sampled_cohorts
   - support_for_all_itunes_versions_or_editions
   - arbitrary_cross_library_or_media_import_support
   - one_hundred_percent_completion
