@@ -154,6 +154,8 @@ The receipt explicitly retains the blockers. The five formerly machine-bound sta
 
 A later deterministic [public replay gap inventory](evidence/research/20260926/public-replay-gap-inventory/README.md) makes the transition and remaining blockers machine-checkable from repository-local public files: the current counts are zero machine-bound scripts and zero timing-dependent scripts versus a preserved 5/2 pre-parameterization baseline. It still records missing exact `capstone`/`pefile` versions, bounded PyCryptodome 3.23.0 provenance without complete execution linkage, unstaged proprietary/Ghidra inputs, missing synthetic fixtures, and the retained 0/47 atlas C-hash mismatch while performing zero network, proprietary-binary, Ghidra, Unicorn, iTunes, or native-acceptance operations.
 
+A separate current Windows/CPython 3.12 replay profile now pins Capstone 5.0.9, pefile 2024.8.26, PyCryptodome 3.23.0, and Unicorn 2.1.4 wheel hashes. It is explicitly a new profile and does not recover the unknown historical Capstone/pefile environment.
+
 Closure still requires a clean disposable bootstrap with complete dependency pins, lawful public/synthetic inputs, internally coherent provenance, and end-to-end Ghidra/Unicorn replay receipts without private artifacts. A clean preflight or gap inventory is not historical binary-analysis reproduction or native acceptance, so U-18 stays open.
 
 ## Completion policy
