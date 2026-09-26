@@ -1,0 +1,69 @@
+{
+  "claim_limits": [
+    "The delivery corpus is curated and contains related snapshots, controls, generated files, and research candidates; it is not a representative sample of ITL files.",
+    "The absence of additional trailers in this retained corpus does not establish trailer rarity, meaning, provenance, or semantic independence.",
+    "The sole retained trailer witness is an intentional U-13 candidate and cannot establish naturally occurring trailer behavior.",
+    "Container parse and byte-exact no-op round-trip are structural observations, not native iTunes acceptance or safe semantic editability.",
+    "No Apple iTunes binary was read or launched; U-13 remains open and universal ITL support remains false."
+  ],
+  "counts": {
+    "byte_exact_no_op_roundtrips": 390,
+    "files_with_compressed_trailer": 1,
+    "files_without_compressed_trailer": 389,
+    "manifest_hashes_verified": 390,
+    "native_itunes_operations": 0,
+    "network_operations": 0,
+    "non_known_witness_files_with_trailer": 0,
+    "parse_failures": 0,
+    "production_code_changes": 0,
+    "proprietary_binary_reads": 0,
+    "strict_container_parses": 390
+  },
+  "distributions": {
+    "compression_flags": {
+      "0": 23,
+      "1": 367
+    },
+    "encryption_flags": {
+      "0": 23,
+      "2": 367
+    },
+    "trailer_lengths": {
+      "17": 1
+    },
+    "versions": {
+      "12.13.10.3": 390
+    }
+  },
+  "generator": {
+    "path": "scripts/research/audit_retained_trailer_census_20260926.py",
+    "sha256": "863b48cf990102ed60039a2b027cda92e2d23b72b7c32f62ab83cb11acc710e8"
+  },
+  "parse_failures": [],
+  "schema": "windows-itl.retained-trailer-census-20260926.v1",
+  "source_set": {
+    "canonical_path_size_hash_digest": "b5c9546799fec361be25c839ddf636515a1954441b4b3e73bfdbc42d864429dc",
+    "entries": 390,
+    "kind": "all .itl entries in DELIVERY-MANIFEST.json",
+    "representative_sample": false
+  },
+  "status": "completed_retained_corpus_census_u13_open",
+  "summary": {
+    "independent_reimplementation_passed": false,
+    "native_acceptance_established": false,
+    "only_trailer_witness_is_known_intentional_u13_candidate": true,
+    "retained_corpus_prevalence_claim_supported": false,
+    "trailer_semantics_recovered": false,
+    "u13_status": "open",
+    "universal_itl_support": false
+  },
+  "trailer_witnesses": [
+    {
+      "file_sha256": "10b17fbdd783ad17e6fa3b488ee6421f43a417b9350de547754d24d4369e4e34",
+      "known_intentional_u13_witness": true,
+      "path": "evidence/research/20260925/native-trailer-u13/candidates/opaque-trailer-17-reference-one-track-zlib.itl",
+      "trailer_bytes": 17,
+      "trailer_sha256": "103ea80001690bf2fccc5b4fb924760bf817e9c0b798c085e5359f68b10616ab"
+    }
+  ]
+}

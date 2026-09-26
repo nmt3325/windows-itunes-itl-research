@@ -49,6 +49,7 @@ qualification:
   path_time: bounded_native_matrix_only
   compressed_trailer: one_fixed_seed_17_byte_candidate_stripped_on_first_native_save_u13_open
   compressed_trailer_negative_matrix: bounded_offline_17_case_negative_matrix_u13_open
+  compressed_trailer_retained_census: all_390_manifest_itls_parsed_only_known_intentional_witness_has_trailer_u13_open
   parser_coverage_guided_campaign: bounded_offline_20000_mutations_zero_retained_anomalies_u17_open
   filesystem_publication_threat_model: bounded_linux_21_plus_windows_ntfs_25_scenarios_parent_swap_limits_2_actual_terminations_u17_open
   filesystem_process_crash: bounded_linux_4_sigkill_1_normal_control_production_unchanged_u17_open
@@ -125,6 +126,25 @@ validation:
     universal_itl_support: false
     independent_reimplementation_passed: false
     unresolved_item: U-13
+  retained_trailer_census_20260926:
+    status: completed_retained_corpus_census_u13_open
+    delivery_manifest_itl_entries: 390
+    manifest_hashes_verified: 390
+    strict_container_parses: 390
+    byte_exact_no_op_roundtrips: 390
+    files_with_compressed_trailer: 1
+    files_without_compressed_trailer: 389
+    non_known_witness_files_with_trailer: 0
+    representative_sample: false
+    retained_corpus_prevalence_claim_supported: false
+    trailer_semantics_recovered: false
+    native_itunes_operations: 0
+    proprietary_binary_reads: 0
+    network_operations: 0
+    production_code_changed: false
+    universal_itl_support: false
+    independent_reimplementation_passed: false
+    unresolved_item: U-13
   coverage_guided_fuzz:
     status: passed_bounded_offline_campaign
     mutation_executions: 20000
@@ -186,7 +206,7 @@ validation:
     unresolved_item: U-17
   integrated_tests:
     status: passed
-    passed: 1157
+    passed: 1159
     skipped: 9
     skipped_missing_com_oracle: 5
     skipped_windows_only_helpers_on_linux: 2

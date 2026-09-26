@@ -106,6 +106,8 @@ A later deterministic [trailer negative matrix](evidence/research/20260926/trail
 
 The [bounded native follow-up](evidence/research/20260925/native-trailer-u13/README.md) tested the exact 17-byte fixed-seed opaque witness against its exact trailer-free one-track control on the signed standalone Windows iTunes 12.13.10.3 executable. Both cases passed two strict isolated save/restart cycles with complete COM identities, normal Quit/process exit 0, and no fallback or unexpected modal. The candidate's first native save stripped the trailer; the restart opened that exact save and the trailer remained absent. Native saves rebuilt the payload for both cases, so this is not a byte-local edit result.
 
+A deterministic [retained-corpus trailer census](evidence/research/20260926/retained-trailer-census/README.md) verifies and strictly parses all 390 `.itl` entries in the delivery manifest. Exactly one has a nonempty compressed trailer: the same intentionally constructed 17-byte U-13 witness; the other 389 have no trailer. This curated corpus contains related snapshots, controls, generated files, and research candidates, so the observation is not a prevalence estimate and supplies no natural trailer provenance.
+
 U-13 remains open. The result does not establish trailer meaning or provenance, justify discarding unknown bytes, prove safe semantic editability, generalize to other trailers/profiles/builds, or turn repeated saves and the copied control into independent experiments. Closure still requires trailer/record provenance, a decoder or safe independence proof, broader positive and negative native matrices, additional builds/profiles, and independent reproduction.
 
 ### U-14 — full `loved`/disliked/rating-kind semantics
